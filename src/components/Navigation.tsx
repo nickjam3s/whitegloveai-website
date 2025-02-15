@@ -23,8 +23,13 @@ const Navigation = () => {
       text: "Managed AI Services",
       to: "/maisp",
       children: [
-        { to: "/maisp/textai", text: "TextAI" },
-        { to: "/maisp/textaiforgood", text: "AI for Good" },
+        { 
+          to: "/maisp/textai", 
+          text: "TextAI",
+          children: [
+            { to: "/maisp/textaiforgood", text: "AI for Good" }
+          ]
+        },
         { to: "/maisp/voiceai", text: "VoiceAI" },
         { to: "/maisp/avatarai", text: "AvatarAI" },
         { to: "/maisp/automateai", text: "AutomateAI" },
@@ -36,9 +41,15 @@ const Navigation = () => {
       text: "vCAIO",
       to: "/vcaio",
       children: [
-        { to: "/vcaio/donnie", text: "Donnie" },
-        { to: "/vcaio/jason", text: "Jason" },
-        { to: "/vcaio/albert", text: "Albert" },
+        {
+          to: "/vcaio/our-vcaios",
+          text: "Our vCAIOs",
+          children: [
+            { to: "/vcaio/donnie", text: "Donnie" },
+            { to: "/vcaio/jason", text: "Jason" },
+            { to: "/vcaio/albert", text: "Albert" },
+          ]
+        },
         { to: "/vcaio/launch", text: "Launchpad" },
         { to: "/vcaio/adopt", text: "Adopt" },
         { to: "/vcaio/enable", text: "Enable" },
@@ -76,13 +87,32 @@ const Navigation = () => {
                     {/* Dropdown */}
                     <div className="absolute top-full left-0 mt-2 w-48 bg-black/90 backdrop-blur-md border border-gray-800 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
                       {link.children.map((child) => (
-                        <Link
-                          key={child.to}
-                          to={child.to}
-                          className="block px-4 py-2 text-sm text-gray-300 hover:text-secondary hover:bg-white/5"
-                        >
-                          {child.text}
-                        </Link>
+                        <div key={child.to} className="relative group/nested">
+                          {child.children ? (
+                            <div className="px-4 py-2 text-sm text-gray-300 hover:text-secondary hover:bg-white/5 flex items-center justify-between">
+                              <span>{child.text}</span>
+                              <ChevronDown className="h-3 w-3" />
+                              <div className="absolute left-full top-0 ml-2 w-48 bg-black/90 backdrop-blur-md border border-gray-800 rounded-lg shadow-lg opacity-0 invisible group-hover/nested:opacity-100 group-hover/nested:visible transition-all duration-200">
+                                {child.children.map((subChild) => (
+                                  <Link
+                                    key={subChild.to}
+                                    to={subChild.to}
+                                    className="block px-4 py-2 text-sm text-gray-300 hover:text-secondary hover:bg-white/5"
+                                  >
+                                    {subChild.text}
+                                  </Link>
+                                ))}
+                              </div>
+                            </div>
+                          ) : (
+                            <Link
+                              to={child.to}
+                              className="block px-4 py-2 text-sm text-gray-300 hover:text-secondary hover:bg-white/5"
+                            >
+                              {child.text}
+                            </Link>
+                          )}
+                        </div>
                       ))}
                     </div>
                   </div>
@@ -124,14 +154,35 @@ const Navigation = () => {
                       <div className="font-medium text-gray-300 mb-2">{link.text}</div>
                       <div className="pl-4 space-y-1">
                         {link.children.map((child) => (
-                          <Link
-                            key={child.to}
-                            to={child.to}
-                            className="block py-1 text-sm text-gray-400 hover:text-secondary"
-                            onClick={() => setIsOpen(false)}
-                          >
-                            {child.text}
-                          </Link>
+                          <div key={child.to}>
+                            {child.children ? (
+                              <div className="mb-2">
+                                <div className="text-sm font-medium text-gray-400 mb-1">
+                                  {child.text}
+                                </div>
+                                <div className="pl-4 space-y-1">
+                                  {child.children.map((subChild) => (
+                                    <Link
+                                      key={subChild.to}
+                                      to={subChild.to}
+                                      className="block py-1 text-sm text-gray-400 hover:text-secondary"
+                                      onClick={() => setIsOpen(false)}
+                                    >
+                                      {subChild.text}
+                                    </Link>
+                                  ))}
+                                </div>
+                              </div>
+                            ) : (
+                              <Link
+                                to={child.to}
+                                className="block py-1 text-sm text-gray-400 hover:text-secondary"
+                                onClick={() => setIsOpen(false)}
+                              >
+                                {child.text}
+                              </Link>
+                            )}
+                          </div>
                         ))}
                       </div>
                     </div>
