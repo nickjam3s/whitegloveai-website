@@ -14,6 +14,9 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        sans: ['Sora', 'sans-serif'],
+      },
       colors: {
         border: "#333333",
         input: "#333333",
