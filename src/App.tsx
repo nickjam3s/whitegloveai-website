@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -9,6 +8,8 @@ import Navigation from "./components/Navigation";
 // Main Pages
 import Index from "./pages/Index";
 import About from "./pages/About";
+import AboutUs from "./pages/AboutUs";
+import Apprenticeship from "./pages/Apprenticeship";
 
 // MAISP (Managed AI Services) Routes
 import MAISP from "./pages/maisp/Index";
@@ -43,6 +44,8 @@ const App = () => (
           {/* Main Routes */}
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<About />} />
+          <Route path="/aboutus" element={<AboutUs />} />
+          <Route path="/aboutus/apprenticeship" element={<Apprenticeship />} />
           
           {/* MAISP Routes */}
           <Route path="/maisp" element={<MAISP />} />
