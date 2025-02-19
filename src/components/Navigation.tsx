@@ -18,7 +18,14 @@ const Navigation = () => {
   }, []);
 
   const links = [
-    { to: "/about", text: "About" },
+    {
+      text: "About",
+      to: "/about",
+      children: [
+        { to: "/aboutus", text: "About Us" },
+        { to: "/aboutus/apprenticeship", text: "Apprenticeship Program" }
+      ]
+    },
     {
       text: "Managed AI Services",
       to: "/maisp",

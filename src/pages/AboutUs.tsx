@@ -100,12 +100,25 @@ const AboutUs = () => {
         </div>
       </section>
 
-      {/* Apprenticeship CTA */}
+      {/* Vision for AI Talent */}
       <section className="py-16 bg-card">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-3xl font-semibold mb-6">Our Vision for AI Talent</h2>
+            <p className="text-gray-400 text-lg">
+              "At WhitegloveAI, we believe in nurturing talent that will drive the next generation of AI innovation. Our apprentices are selected not just for their technical potential, but for their vision and dedication to excellence in everything they do."
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Apprenticeship CTA */}
+      <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-semibold mb-6">Join our Apprenticeship Program</h2>
           <p className="text-gray-400 mb-8 max-w-2xl mx-auto">
             Transform your career in AI with our exclusive 6-month apprenticeship program.
+            Master cutting-edge AI technology while working on real-world solutions.
           </p>
           <Link to="/aboutus/apprenticeship">
             <Button variant="secondary" size="lg">
