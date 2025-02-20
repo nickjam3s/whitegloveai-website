@@ -38,6 +38,29 @@
   }
 }
 
+/* Interactive Element Animations */
+@layer components {
+  .link-hover {
+    @apply relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-secondary after:transition-all after:duration-300 hover:after:w-full;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:translate-y-[-4px] hover:shadow-lg active:translate-y-[-2px];
+  }
+
+  .icon-hover {
+    @apply transition-transform duration-300 hover:scale-110 active:scale-95;
+  }
+
+  .nav-item-hover {
+    @apply transition-all duration-300 hover:text-secondary hover:translate-y-[-2px];
+  }
+
+  .button-hover {
+    @apply transition-all duration-300 transform hover:scale-105 active:scale-95;
+  }
+}
+
 /* Button Animations */
 @keyframes gradient {
   0% { background-position: 0% 50%; }
@@ -108,101 +131,6 @@ html {
   @apply bg-primary/10 text-primary;
 }
 
-/* Enhanced animation utilities */
-@layer utilities {
-  /* Sections with simple reveal */
-  section {
-    @apply opacity-0;
-    animation: sectionReveal 0.8s ease-out forwards;
-    animation-delay: 100ms;
-  }
-
-  .container,
-  .content-block {
-    @apply opacity-0;
-    animation: containerSlide 0.6s ease-out forwards;
-    animation-delay: 50ms;
-  }
-
-  /* Headings with gentle rise */
-  h1, h2, h3, h4, h5, h6 {
-    @apply opacity-0;
-    animation: headingRise 0.7s ease-out forwards;
-    animation-delay: 100ms;
-  }
-
-  /* Lists and grid items with fade and gentle slide */
-  .grid > *,
-  .list-item,
-  li {
-    @apply opacity-0;
-    animation: itemReveal 0.6s ease-out forwards;
-    animation-delay: 150ms;
-  }
-
-  /* Enhanced interactive elements */
-  .card,
-  .interactive-element,
-  button,
-  a {
-    @apply transition-all duration-300 ease-out;
-    transform-origin: center;
-  }
-
-  /* Form elements with smooth transitions */
-  input,
-  textarea,
-  select,
-  .form-element {
-    @apply transition-all duration-200 ease-out;
-  }
-}
-
-/* Enhanced keyframe animations */
-@keyframes sectionReveal {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes containerSlide {
-  from {
-    opacity: 0;
-    transform: translateX(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes headingRise {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes itemReveal {
-  from {
-    opacity: 0;
-    transform: translateY(15px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 /* Logo animations */
 @keyframes logoSpin {
   from {
@@ -220,3 +148,4 @@ html {
 .logo-container:hover img {
   animation: logoSpin 1s ease-in-out;
 }
+
