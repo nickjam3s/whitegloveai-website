@@ -28,21 +28,21 @@ const Index = () => {
       <section className="relative pt-40 pb-28 px-4 sm:px-6 lg:px-8 overflow-hidden">
         <div className="absolute inset-0 overflow-hidden">
           <div 
-            className="absolute inset-[-50%] bg-[radial-gradient(circle_at_50%_50%,#7928CA,transparent_50%)] opacity-[0.15] animate-[morphing_15s_ease-in-out_infinite]"
+            className="absolute inset-[10%] bg-[radial-gradient(circle_at_50%_50%,#7928CA,transparent_50%)] opacity-[0.15] animate-[morphing_15s_ease-in-out_infinite]"
             style={{
               transformOrigin: 'center',
               animation: 'morphing 15s ease-in-out infinite, rotating 20s linear infinite'
             }}
           ></div>
           <div 
-            className="absolute inset-[-50%] bg-[radial-gradient(circle_at_50%_50%,#7021EE,transparent_40%)] opacity-20"
+            className="absolute inset-[10%] bg-[radial-gradient(circle_at_50%_50%,#7021EE,transparent_40%)] opacity-20"
             style={{
               transformOrigin: 'center',
               animation: 'morphing 12s ease-in-out infinite reverse, rotating 18s linear infinite reverse'
             }}
           ></div>
           <div 
-            className="absolute inset-[-50%] bg-[radial-gradient(circle_at_50%_50%,#FF0080,transparent_45%)] opacity-10"
+            className="absolute inset-[10%] bg-[radial-gradient(circle_at_50%_50%,#FF0080,transparent_45%)] opacity-10"
             style={{
               transformOrigin: 'center',
               animation: 'morphing 18s ease-in-out infinite, rotating 25s linear infinite'
