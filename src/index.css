@@ -63,3 +63,41 @@ html {
 ::selection {
   @apply bg-primary/10 text-primary;
 }
+
+/* Global animation utilities */
+@layer utilities {
+  /* Sections and containers */
+  section, 
+  .container,
+  .content-block {
+    @apply animate-fade-up;
+  }
+
+  /* Headings */
+  h1, h2, h3, h4, h5, h6 {
+    @apply animate-fade-up;
+  }
+
+  /* Lists and grid items */
+  .grid > *,
+  .list-item,
+  li {
+    @apply animate-fade-up;
+  }
+
+  /* Cards and interactive elements */
+  .card,
+  .interactive-element,
+  button,
+  a {
+    @apply transition-all duration-300;
+  }
+
+  /* Form elements */
+  input,
+  textarea,
+  select,
+  .form-element {
+    @apply transition-all duration-200;
+  }
+}
