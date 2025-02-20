@@ -38,15 +38,15 @@
   }
 }
 
-/* Smooth page transitions */
+/* Enhanced page transitions */
 .page-transition {
-  animation: fadeIn 0.5s ease-out;
+  animation: enhancedFadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-@keyframes fadeIn {
+@keyframes enhancedFadeIn {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(40px);
   }
   to {
     opacity: 1;
@@ -64,40 +64,100 @@ html {
   @apply bg-primary/10 text-primary;
 }
 
-/* Global animation utilities */
+/* Enhanced animation utilities */
 @layer utilities {
-  /* Sections and containers */
-  section, 
+  /* Sections and containers with staggered reveal */
+  section {
+    @apply opacity-0;
+    animation: sectionReveal 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    animation-delay: calc(var(--scroll-offset, 0) * 100ms);
+  }
+
   .container,
   .content-block {
-    @apply animate-fade-up;
+    @apply opacity-0;
+    animation: containerSlide 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    animation-delay: calc(var(--scroll-offset, 0) * 150ms);
   }
 
-  /* Headings */
+  /* Headings with bounce effect */
   h1, h2, h3, h4, h5, h6 {
-    @apply animate-fade-up;
+    @apply opacity-0;
+    animation: headingBounce 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+    animation-delay: calc(var(--scroll-offset, 0) * 200ms);
   }
 
-  /* Lists and grid items */
+  /* Lists and grid items with fade and slide */
   .grid > *,
   .list-item,
   li {
-    @apply animate-fade-up;
+    @apply opacity-0;
+    animation: itemReveal 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    animation-delay: calc(var(--scroll-offset, 0) * 100ms);
   }
 
-  /* Cards and interactive elements */
+  /* Enhanced interactive elements */
   .card,
   .interactive-element,
   button,
   a {
-    @apply transition-all duration-300;
+    @apply transition-all duration-500;
+    transform-origin: center;
   }
 
-  /* Form elements */
+  /* Form elements with smooth transitions */
   input,
   textarea,
   select,
   .form-element {
-    @apply transition-all duration-200;
+    @apply transition-all duration-300;
+  }
+}
+
+/* Enhanced keyframe animations */
+@keyframes sectionReveal {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes containerSlide {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes headingBounce {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  60% {
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes itemReveal {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
   }
 }
