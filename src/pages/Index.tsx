@@ -1,3 +1,4 @@
+
 import { ArrowRight, CheckCircle2, Lightbulb, Shield, BrainCircuit, BarChart4, Download } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useEffect, useRef } from "react";
@@ -20,7 +21,10 @@ const Index = () => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
+          const heading = entry.target;
+          heading.classList.add('visible');
+          // Add random animation delay and duration
+          heading.style.animation = `highlightText ${3 + Math.random() * 2}s ease-out forwards ${Math.random() * 0.5}s`;
         }
       });
     }, { threshold: 0.1 });

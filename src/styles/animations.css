@@ -1,3 +1,4 @@
+
 /* Interactive Element Animations */
 @layer components {
   .link-hover {
@@ -80,19 +81,19 @@
 /* Heading highlight animation */
 @keyframes highlightText {
   0% {
-    background-position: -200% center;
+    background-position: 100% center;
   }
   100% {
-    background-position: 100% center;
+    background-position: -200% center;
   }
 }
 
 .heading-highlight {
   background: linear-gradient(
     to right,
-    #9b87f5 0%,
+    #FFFFFF 0%,
     #FFFFFF 50%,
-    #FFFFFF 100%
+    #9b87f5 100%
   );
   background-size: 200% auto;
   color: transparent;
@@ -112,13 +113,12 @@
   transform: translateY(0);
   background: linear-gradient(
     to right,
-    #9b87f5 0%,
+    #FFFFFF 0%,
     #FFFFFF 50%,
-    #FFFFFF 100%
+    #9b87f5 100%
   );
   background-size: 200% auto;
   color: transparent;
   background-clip: text;
   -webkit-background-clip: text;
-  animation: highlightText 4s ease-out forwards;
 }
