@@ -48,7 +48,7 @@ const ServicesSection = () => {
     <section className="py-16 px-4 md:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-lg font-semibold text-primary mb-4">OUR SOLUTIONS</h2>
-        <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-12 heading-highlight-scroll">
+        <h3 className="text-3xl md:text-4xl lg:text-6xl font-bold text-white mb-12 heading-highlight">
           Our Managed AI Services
         </h3>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
