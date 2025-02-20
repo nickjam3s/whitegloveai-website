@@ -117,6 +117,9 @@ const Index = () => {
       {/* Chat Widget */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-semibold mb-6 text-center">
+            Have a Question? Ask our AI Agent, Jasmine:
+          </h2>
           <iframe
             data-chat-frame="11eee546-15ce-7f30-aa68-03cf75d045b5"
             width="100%"
