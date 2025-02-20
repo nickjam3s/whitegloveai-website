@@ -1,4 +1,3 @@
-
 import { ArrowRight, CheckCircle2, Lightbulb, Shield, BrainCircuit, BarChart4, Download } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
@@ -28,10 +27,28 @@ const Index = () => {
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,#7928CA,transparent_50%)] opacity-[0.15] animate-[pulse_4s_cubic-bezier(0.4,0,0.6,1)_infinite]"></div>
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,#7021EE,transparent_40%)] opacity-20"></div>
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,#FF0080,transparent_45%)] opacity-10"></div>
-          <div className="absolute inset-0 backdrop-blur-[100px]"></div>
+          <div 
+            className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,#7928CA,transparent_50%)] opacity-[0.15] animate-[morphing_20s_ease-in-out_infinite]"
+            style={{
+              transformOrigin: 'center',
+              animation: 'morphing 20s ease-in-out infinite, rotating 30s linear infinite'
+            }}
+          ></div>
+          <div 
+            className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,#7021EE,transparent_40%)] opacity-20"
+            style={{
+              transformOrigin: 'center',
+              animation: 'morphing 15s ease-in-out infinite reverse, rotating 25s linear infinite reverse'
+            }}
+          ></div>
+          <div 
+            className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,#FF0080,transparent_45%)] opacity-10"
+            style={{
+              transformOrigin: 'center',
+              animation: 'morphing 25s ease-in-out infinite, rotating 35s linear infinite'
+            }}
+          ></div>
+          <div className="absolute inset-0 backdrop-blur-[120px]"></div>
         </div>
         <div className="max-w-7xl mx-auto relative">
           <div className="text-center animate-fade-up">
