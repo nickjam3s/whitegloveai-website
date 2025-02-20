@@ -1,4 +1,3 @@
-
 import { ArrowRight, CheckCircle2, Lightbulb, Shield, BrainCircuit, BarChart4 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
@@ -11,8 +10,15 @@ const Index = () => {
     script.defer = true;
     document.body.appendChild(script);
 
+    // Load the Typeform script
+    const typeformScript = document.createElement('script');
+    typeformScript.src = "//embed.typeform.com/next/embed.js";
+    typeformScript.defer = true;
+    document.body.appendChild(typeformScript);
+
     return () => {
       document.body.removeChild(script);
+      document.body.removeChild(typeformScript);
     };
   }, []);
 
@@ -123,6 +129,19 @@ const Index = () => {
                 <p className="text-gray-400">{step.description}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* AI Readiness Assessment Section */}
+      <section className="py-20 bg-card">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16 animate-fade-up">
+            <h2 className="text-3xl font-semibold mb-4">Take our AI Readiness Assessment</h2>
+            <p className="text-gray-400 max-w-2xl mx-auto mb-8">
+              Discover where you stand in your AI adoption journey and get personalized recommendations for your next steps.
+            </p>
+            <div data-tf-live="01JMGXS2RF5GGMXR2XEWZN2E50" className="min-h-[500px]"></div>
           </div>
         </div>
       </section>
