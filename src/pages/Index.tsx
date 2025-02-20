@@ -133,7 +133,13 @@ const Index = () => {
                 alt="AI-AMF Framework Diagram" 
                 className="mx-auto mb-8 max-w-xl w-full transition-transform duration-300 group-hover:scale-[1.02] relative z-10"
               />
-              <div className="absolute inset-0 border-2 border-white/0 group-hover:border-white/50 rounded-xl transition-all duration-300 group-hover:shadow-[0_0_15px_rgba(255,255,255,0.3)] animate-pulse z-20"></div>
+              <div className="absolute inset-0 group-hover:opacity-100 opacity-0 transition-opacity duration-300 z-20">
+                <div className="absolute left-1/2 top-[15%] -translate-x-1/2 w-[80%] h-[80%]" style={{
+                  clipPath: 'polygon(50% 0%, 100% 100%, 0% 100%)',
+                  background: 'linear-gradient(transparent, rgba(255,255,255,0.2))',
+                  animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite'
+                }}></div>
+              </div>
             </a>
             <h2 className="text-3xl font-semibold mb-4">AI Adoption & Management Framework (AI-AMF)</h2>
             <p className="text-gray-400 max-w-2xl mx-auto mb-8">
