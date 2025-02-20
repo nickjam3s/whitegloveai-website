@@ -25,19 +25,19 @@ const Index = () => {
       {/* Hero Section */}
       <section className="relative pt-40 pb-28 px-4 sm:px-6 lg:px-8 overflow-hidden">
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute inset-[10%] bg-[radial-gradient(circle_at_50%_50%,#7928CA,transparent_50%)] opacity-[0.15] animate-[morphing_8s_ease-in-out_infinite]" style={{
-          transformOrigin: 'center',
-          animation: 'morphing 8s ease-in-out infinite, rotating 12s linear infinite'
+          <div className="absolute inset-[10%] bg-[radial-gradient(circle_at_50%_50%,#7928CA,transparent_60%)] opacity-25 animate-[morphing_12s_ease-in-out_infinite]" style={{
+          transformOrigin: '60% 40%',
+          animation: 'morphing 12s ease-in-out infinite, rotating 15s linear infinite'
         }}></div>
-          <div className="absolute inset-[10%] bg-[radial-gradient(circle_at_50%_50%,#7021EE,transparent_40%)] opacity-20" style={{
-          transformOrigin: 'center',
-          animation: 'morphing 6s ease-in-out infinite reverse, rotating 10s linear infinite reverse'
+          <div className="absolute inset-[10%] bg-[radial-gradient(circle_at_50%_50%,#7021EE,transparent_50%)] opacity-30" style={{
+          transformOrigin: '40% 60%',
+          animation: 'morphing 8s ease-in-out infinite reverse, rotating 20s linear infinite reverse'
         }}></div>
-          <div className="absolute inset-[10%] bg-[radial-gradient(circle_at_50%_50%,#FF0080,transparent_45%)] opacity-10" style={{
-          transformOrigin: 'center',
-          animation: 'morphing 10s ease-in-out infinite, rotating 15s linear infinite'
+          <div className="absolute inset-[10%] bg-[radial-gradient(circle_at_50%_50%,#FF0080,transparent_55%)] opacity-20" style={{
+          transformOrigin: '30% 70%',
+          animation: 'morphing 15s ease-in-out infinite, rotating 25s linear infinite'
         }}></div>
-          <div className="absolute inset-0 backdrop-blur-[120px]"></div>
+          <div className="absolute inset-0 backdrop-blur-[100px]"></div>
         </div>
         <div className="max-w-7xl mx-auto relative">
           <div className="text-center animate-fade-up">
