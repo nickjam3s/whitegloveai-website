@@ -142,7 +142,7 @@ const Index = () => {
             <p className="text-gray-400 max-w-2xl mx-auto mb-8">
               Discover where you stand in your AI adoption journey and get personalized recommendations for your next steps.
             </p>
-            <div data-tf-live="01JMGXS2RF5GGMXR2XEWZN2E50" className="min-h-[600px] rounded-lg overflow-hidden"></div>
+            <div data-tf-live="01JMGXS2RF5GGMXR2XEWZN2E50" className="min-h-[600px] rounded-2xl overflow-hidden"></div>
           </div>
         </div>
       </section>
