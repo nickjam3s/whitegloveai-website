@@ -5,19 +5,19 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  "relative inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-r before:from-black before:via-primary before:to-black before:animate-[gradient_3s_ease_infinite] after:absolute after:inset-0 after:rounded-md after:border-2 after:border-white/20 after:bg-[length:200%_100%] after:bg-[linear-gradient(90deg,transparent_0%,white_50%,transparent_100%)] after:bg-no-repeat after:animate-[shine_3s_ease-in-out_infinite] after:content-[''] group",
+  "relative inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-r before:from-black before:via-primary before:to-black before:bg-[length:200%_100%] before:animate-[gradient_3s_ease_infinite] before:z-0 after:absolute after:inset-0 after:rounded-md after:border after:border-white/20 after:bg-[length:200%_100%] after:bg-[linear-gradient(90deg,transparent_0%,rgba(255,255,255,0.8)_50%,transparent_100%)] after:bg-no-repeat after:animate-[shine_3s_ease-in-out_infinite] after:z-[1] [&>span]:relative [&>span]:z-[2] [&>svg]:relative [&>svg]:z-[2]",
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90",
+        default: "bg-transparent hover:bg-transparent text-white",
         destructive:
-          "bg-destructive text-destructive-foreground hover:bg-destructive/90",
+          "bg-transparent hover:bg-transparent text-destructive-foreground",
         outline:
-          "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
+          "bg-transparent hover:bg-transparent border-input",
         secondary:
-          "bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
-        link: "text-primary underline-offset-4 hover:underline",
+          "bg-transparent hover:bg-transparent text-white",
+        ghost: "bg-transparent hover:bg-transparent",
+        link: "bg-transparent hover:bg-transparent text-primary underline-offset-4 hover:underline",
       },
       size: {
         default: "h-10 px-4 py-2",
@@ -40,14 +40,16 @@ export interface ButtonProps
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, asChild = false, ...props }, ref) => {
+  ({ className, variant, size, asChild = false, children, ...props }, ref) => {
     const Comp = asChild ? Slot : "button"
     return (
       <Comp
         className={cn(buttonVariants({ variant, size, className }))}
         ref={ref}
         {...props}
-      />
+      >
+        <span>{children}</span>
+      </Comp>
     )
   }
 )
