@@ -1,4 +1,3 @@
-
 import { ArrowRight, CheckCircle2, Lightbulb, Shield, BrainCircuit, BarChart4 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
@@ -22,11 +21,13 @@ const Index = () => {
       <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center animate-fade-up">
-            <img
-              src="/lovable-uploads/cbc85045-41f1-434b-a70d-69aca08e4e66.png"
-              alt="WhitegloveAI Logo"
-              className="h-16 mx-auto mb-8"
-            />
+            <div className="logo-container">
+              <img
+                src="/lovable-uploads/197ddc10-c159-4f39-a269-e35142af32c5.png"
+                alt="WhitegloveAI Logo"
+                className="h-16 mx-auto mb-8 logo-animation"
+              />
+            </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight mb-6">
               Your Trusted AI Adoption Partner
             </h1>
