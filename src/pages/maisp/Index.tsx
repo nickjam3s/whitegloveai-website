@@ -9,7 +9,6 @@ import ScalableSolutions from "./components/ScalableSolutions";
 
 const MAISP = () => {
   useEffect(() => {
-    // Load Typeform
     const script = document.createElement('script');
     script.src = "//embed.typeform.com/next/embed.js";
     script.async = true;
@@ -29,9 +28,13 @@ const MAISP = () => {
       <SupportSection />
       <ScalableSolutions />
       
-      {/* Typeform Section */}
+      {/* Contact Form Section */}
       <section className="py-16 px-4 md:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
+          <h2 className="text-lg font-semibold text-primary mb-4">GET IN TOUCH</h2>
+          <h3 className="text-3xl md:text-4xl lg:text-6xl font-bold text-white mb-12 heading-highlight">
+            Contact Us About Your AI Journey
+          </h3>
           <div data-tf-live="01JMAMXNY7NHGYM2YQDXCDRDW6"></div>
         </div>
       </section>

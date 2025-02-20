@@ -1,9 +1,11 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Navigation from "./components/Navigation";
+import Footer from "./components/Footer";
 
 // Main Pages
 import Index from "./pages/Index";
@@ -39,40 +41,45 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <Navigation />
-        <Routes>
-          {/* Main Routes */}
-          <Route path="/" element={<Index />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/aboutus" element={<AboutUs />} />
-          <Route path="/aboutus/apprenticeship" element={<Apprenticeship />} />
-          
-          {/* MAISP Routes */}
-          <Route path="/maisp" element={<MAISP />} />
-          <Route path="/maisp/textai" element={<TextAI />} />
-          <Route path="/maisp/textaiforgood" element={<TextAIForGood />} />
-          <Route path="/maisp/voiceai" element={<VoiceAI />} />
-          <Route path="/maisp/avatarai" element={<AvatarAI />} />
-          <Route path="/maisp/automateai" element={<AutomateAI />} />
-          <Route path="/maisp/humaniodai" element={<HumanoidAI />} />
-          <Route path="/maisp/vendorai" element={<VendorAI />} />
-          
-          {/* vCAIO Routes */}
-          <Route path="/vcaio" element={<VCAIO />} />
-          <Route path="/vcaio/our-vcaios" element={<OurVCAIOs />} />
-          <Route path="/vcaio/donnie" element={<Donnie />} />
-          <Route path="/vcaio/jason" element={<Jason />} />
-          <Route path="/vcaio/albert" element={<Albert />} />
-          <Route path="/vcaio/launch" element={<Launch />} />
-          <Route path="/vcaio/adopt" element={<Adopt />} />
-          <Route path="/vcaio/enable" element={<Enable />} />
-          
-          {/* External Redirects */}
-          <Route
-            path="/aiamf"
-            element={<Navigate to="https://aiamf.ai" replace />}
-          />
-        </Routes>
+        <div className="flex flex-col min-h-screen">
+          <Navigation />
+          <main className="flex-grow">
+            <Routes>
+              {/* Main Routes */}
+              <Route path="/" element={<Index />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/aboutus" element={<AboutUs />} />
+              <Route path="/aboutus/apprenticeship" element={<Apprenticeship />} />
+              
+              {/* MAISP Routes */}
+              <Route path="/maisp" element={<MAISP />} />
+              <Route path="/maisp/textai" element={<TextAI />} />
+              <Route path="/maisp/textaiforgood" element={<TextAIForGood />} />
+              <Route path="/maisp/voiceai" element={<VoiceAI />} />
+              <Route path="/maisp/avatarai" element={<AvatarAI />} />
+              <Route path="/maisp/automateai" element={<AutomateAI />} />
+              <Route path="/maisp/humaniodai" element={<HumanoidAI />} />
+              <Route path="/maisp/vendorai" element={<VendorAI />} />
+              
+              {/* vCAIO Routes */}
+              <Route path="/vcaio" element={<VCAIO />} />
+              <Route path="/vcaio/our-vcaios" element={<OurVCAIOs />} />
+              <Route path="/vcaio/donnie" element={<Donnie />} />
+              <Route path="/vcaio/jason" element={<Jason />} />
+              <Route path="/vcaio/albert" element={<Albert />} />
+              <Route path="/vcaio/launch" element={<Launch />} />
+              <Route path="/vcaio/adopt" element={<Adopt />} />
+              <Route path="/vcaio/enable" element={<Enable />} />
+              
+              {/* External Redirects */}
+              <Route
+                path="/aiamf"
+                element={<Navigate to="https://aiamf.ai" replace />}
+              />
+            </Routes>
+          </main>
+          <Footer />
+        </div>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
