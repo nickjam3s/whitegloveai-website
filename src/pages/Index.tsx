@@ -1,3 +1,4 @@
+
 import { ArrowRight, CheckCircle2, Lightbulb, Shield, BrainCircuit, BarChart4, Download } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useEffect, useRef } from "react";
@@ -186,7 +187,8 @@ const Index = () => {
       {/* Chat Widget */}
       <section className="py-20 bg-card">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-2xl font-semibold mb-6 text-center animate-fade-up heading-highlight-scroll">Have a Question - Ask our AI Agent, Jasmine</h1>
+          <h1 className="text-2xl font-semibold mb-2 text-center animate-fade-up heading-highlight-scroll">Have a Question - Ask our AI Agent, Jasmine</h1>
+          <h2 className="text-lg text-gray-400 mb-6 text-center animate-fade-up">Engage with her via text below or voice on the lower righthand corner.</h2>
           <iframe data-chat-frame="11eee546-15ce-7f30-aa68-03cf75d045b5" width="100%" height="350" style={{
           border: 0,
           background: 'white'
