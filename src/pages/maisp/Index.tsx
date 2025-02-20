@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useEffect } from "react";
@@ -51,7 +50,7 @@ const MAISP = () => {
     {
       title: "HumanoidAI",
       description: "Humanoid Robots to automate physical labor.",
-      icon: Bot, // Changed from Robot to Bot
+      icon: Bot,
       link: "/maisp/humaniodai"
     }
   ];
@@ -122,36 +121,27 @@ const MAISP = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-12 heading-highlight-scroll">
             City of McKinney HR AI Transformation
           </h2>
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <p className="text-gray-400 mb-6">
-                The City of McKinney partnered with WhitegloveAI (WG) to enhance HR efficiency through AI-powered agents. Facing a high volume of routine inquiries, the city needed a secure, scalable solution. WG deployed custom voice and text-based AI chat agents, provided staff training, and implemented performance analytics.
-              </p>
-              <div className="bg-card p-6 rounded-lg mb-6">
-                <h3 className="text-xl font-semibold text-white mb-4">Impact:</h3>
-                <ul className="text-gray-400 space-y-2">
-                  <li>• 68% deflection rate of general inquiries to AI, reducing HR workload</li>
-                  <li>• Improved resolution rates for employee questions</li>
-                  <li>• Positive staff feedback on AI effectiveness</li>
-                </ul>
-              </div>
-              <blockquote className="border-l-4 border-primary pl-6 italic text-gray-400">
-                "WhitegloveAI has been a transformative partner, blending deep expertise with agility. Their responsiveness and collaborative approach ensured AI solutions evolved to meet our needs. More than a provider, WG is a true partner in AI-driven change."
-                <footer className="mt-2 text-white">— Jim Parrish, Director of HR, City of McKinney</footer>
-              </blockquote>
-              <div className="mt-8 flex justify-start">
-                <img 
-                  src="/lovable-uploads/8d6b7902-56b6-4ba7-86ba-67aa9f3bccb8.png" 
-                  alt="Additional McKinney Logo"
-                  className="h-24 w-auto"
-                />
-              </div>
+          <div>
+            <p className="text-gray-400 mb-6">
+              The City of McKinney partnered with WhitegloveAI (WG) to enhance HR efficiency through AI-powered agents. Facing a high volume of routine inquiries, the city needed a secure, scalable solution. WG deployed custom voice and text-based AI chat agents, provided staff training, and implemented performance analytics.
+            </p>
+            <div className="bg-card p-6 rounded-lg mb-6">
+              <h3 className="text-xl font-semibold text-white mb-4">Impact:</h3>
+              <ul className="text-gray-400 space-y-2">
+                <li>• 68% deflection rate of general inquiries to AI, reducing HR workload</li>
+                <li>• Improved resolution rates for employee questions</li>
+                <li>• Positive staff feedback on AI effectiveness</li>
+              </ul>
             </div>
-            <div className="flex justify-center">
+            <blockquote className="border-l-4 border-primary pl-6 italic text-gray-400">
+              "WhitegloveAI has been a transformative partner, blending deep expertise with agility. Their responsiveness and collaborative approach ensured AI solutions evolved to meet our needs. More than a provider, WG is a true partner in AI-driven change."
+              <footer className="mt-2 text-white">— Jim Parrish, Director of HR, City of McKinney</footer>
+            </blockquote>
+            <div className="mt-8 flex justify-start">
               <img 
-                src="https://cdn.gamma.app/csas2sy1va6yjxb/ff761477137849d58749dceea8839097/original/McKinney-TX-Logo.png" 
-                alt="City of McKinney Logo"
-                className="max-w-sm w-full"
+                src="/lovable-uploads/8d6b7902-56b6-4ba7-86ba-67aa9f3bccb8.png" 
+                alt="Additional McKinney Logo"
+                className="h-24 w-auto"
               />
             </div>
           </div>
