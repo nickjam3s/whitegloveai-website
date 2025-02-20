@@ -139,6 +139,13 @@ const MAISP = () => {
                 "WhitegloveAI has been a transformative partner, blending deep expertise with agility. Their responsiveness and collaborative approach ensured AI solutions evolved to meet our needs. More than a provider, WG is a true partner in AI-driven change."
                 <footer className="mt-2 text-white">— Jim Parrish, Director of HR, City of McKinney</footer>
               </blockquote>
+              <div className="mt-8 flex justify-start">
+                <img 
+                  src="/lovable-uploads/8d6b7902-56b6-4ba7-86ba-67aa9f3bccb8.png" 
+                  alt="Additional McKinney Logo"
+                  className="h-24 w-auto"
+                />
+              </div>
             </div>
             <div className="flex justify-center">
               <img 
