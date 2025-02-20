@@ -1,5 +1,5 @@
 
-import { ArrowRight, CheckCircle2, Lightbulb, Shield, BrainCircuit, BarChart4 } from "lucide-react";
+import { ArrowRight, CheckCircle2, Lightbulb, Shield, BrainCircuit, BarChart4, Download } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 
@@ -114,9 +114,18 @@ const Index = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 animate-fade-up">
             <h2 className="text-3xl font-semibold mb-4">AI Adoption & Management Framework (AI-AMF)</h2>
-            <p className="text-gray-400 max-w-2xl mx-auto">
+            <p className="text-gray-400 max-w-2xl mx-auto mb-8">
               Our proprietary AI-AMF framework is the cornerstone of our approach to AI transformation. It provides a structured, step-by-step pathway to AI success.
             </p>
+            <a
+              href="https://www.aiamf.ai"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center px-6 py-3 text-base font-medium text-white bg-secondary rounded-lg hover:bg-secondary/90 transition-colors"
+            >
+              Download the AI-AMF
+              <Download className="ml-2 h-5 w-5" />
+            </a>
           </div>
 
           <div className="grid md:grid-cols-4 gap-8 animate-fade-up">
