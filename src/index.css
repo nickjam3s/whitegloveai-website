@@ -37,6 +37,18 @@
   }
 }
 
+/* Button Animations */
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes shine {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
 /* Enhanced page transitions */
 .page-transition {
   animation: enhancedFadeIn 0.6s ease-out;

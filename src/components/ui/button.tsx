@@ -1,11 +1,11 @@
+
 import * as React from "react"
 import { Slot } from "@radix-ui/react-slot"
 import { cva, type VariantProps } from "class-variance-authority"
-
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+  "relative inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-r before:from-black before:via-primary before:to-black before:animate-[gradient_3s_ease_infinite] after:absolute after:inset-0 after:rounded-md after:border-2 after:border-white/20 after:bg-[length:200%_100%] after:bg-[linear-gradient(90deg,transparent_0%,white_50%,transparent_100%)] after:bg-no-repeat after:animate-[shine_3s_ease-in-out_infinite] after:content-[''] group",
   {
     variants: {
       variant: {
