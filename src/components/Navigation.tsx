@@ -22,8 +22,8 @@ const Navigation = () => {
       text: "About",
       to: "/about",
       children: [
-        { to: "/aboutus", text: "About Us" },
-        { to: "/aboutus/apprenticeship", text: "Apprenticeship Program" }
+        { to: "/about", text: "About Us" },
+        { to: "/about/apprentice", text: "Apprenticeship Program" }
       ]
     },
     {
@@ -34,7 +34,7 @@ const Navigation = () => {
           to: "/maisp/textai", 
           text: "TextAI",
           children: [
-            { to: "/maisp/textaiforgood", text: "AI for Good" }
+            { to: "/maisp/textai/textaiforgood", text: "AI for Good Program" }
           ]
         },
         { to: "/maisp/voiceai", text: "VoiceAI" },
@@ -49,7 +49,6 @@ const Navigation = () => {
       to: "/vcaio",
       children: [
         {
-          to: "/vcaio/our-vcaios",
           text: "Our vCAIOs",
           children: [
             { to: "/vcaio/donnie", text: "Donnie" },
@@ -62,6 +61,16 @@ const Navigation = () => {
         { to: "/vcaio/enable", text: "Enable" },
       ],
     },
+    {
+      text: "AI-AMF",
+      href: "https://aiamf.ai",
+      external: true
+    },
+    {
+      text: "The AI Executive",
+      href: "https://aiexec.whitegloveai.com",
+      external: true
+    }
   ];
 
   return (
@@ -86,15 +95,24 @@ const Navigation = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {links.map((link) => (
-              <div key={link.to} className="relative group">
-                {link.children ? (
+              <div key={link.to || link.href} className="relative group">
+                {link.external ? (
+                  <a
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-300 hover:text-secondary transition-colors"
+                  >
+                    {link.text}
+                  </a>
+                ) : link.children ? (
                   <div className="flex items-center cursor-pointer text-gray-300 hover:text-secondary">
                     <span>{link.text}</span>
                     <ChevronDown className="ml-1 h-4 w-4" />
                     {/* Dropdown */}
                     <div className="absolute top-full left-0 mt-2 w-48 bg-black/90 backdrop-blur-md border border-gray-800 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
                       {link.children.map((child) => (
-                        <div key={child.to} className="relative group/nested">
+                        <div key={child.to || child.text} className="relative group/nested">
                           {child.children ? (
                             <div className="px-4 py-2 text-sm text-gray-300 hover:text-secondary hover:bg-white/5 flex items-center justify-between">
                               <span>{child.text}</span>
@@ -112,12 +130,18 @@ const Navigation = () => {
                               </div>
                             </div>
                           ) : (
-                            <Link
-                              to={child.to}
-                              className="block px-4 py-2 text-sm text-gray-300 hover:text-secondary hover:bg-white/5"
-                            >
-                              {child.text}
-                            </Link>
+                            child.to ? (
+                              <Link
+                                to={child.to}
+                                className="block px-4 py-2 text-sm text-gray-300 hover:text-secondary hover:bg-white/5"
+                              >
+                                {child.text}
+                              </Link>
+                            ) : (
+                              <div className="px-4 py-2 text-sm text-gray-300 font-medium">
+                                {child.text}
+                              </div>
+                            )
                           )}
                         </div>
                       ))}
@@ -155,13 +179,23 @@ const Navigation = () => {
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-card rounded-lg border border-gray-800 animate-fade-in">
               {links.map((link) => (
-                <div key={link.to}>
-                  {link.children ? (
+                <div key={link.to || link.href}>
+                  {link.external ? (
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block px-3 py-2 text-base font-medium text-gray-300 hover:text-secondary"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {link.text}
+                    </a>
+                  ) : link.children ? (
                     <div className="px-3 py-2">
                       <div className="font-medium text-gray-300 mb-2">{link.text}</div>
                       <div className="pl-4 space-y-1">
                         {link.children.map((child) => (
-                          <div key={child.to}>
+                          <div key={child.to || child.text}>
                             {child.children ? (
                               <div className="mb-2">
                                 <div className="text-sm font-medium text-gray-400 mb-1">
@@ -181,13 +215,19 @@ const Navigation = () => {
                                 </div>
                               </div>
                             ) : (
-                              <Link
-                                to={child.to}
-                                className="block py-1 text-sm text-gray-400 hover:text-secondary"
-                                onClick={() => setIsOpen(false)}
-                              >
-                                {child.text}
-                              </Link>
+                              child.to ? (
+                                <Link
+                                  to={child.to}
+                                  className="block py-1 text-sm text-gray-400 hover:text-secondary"
+                                  onClick={() => setIsOpen(false)}
+                                >
+                                  {child.text}
+                                </Link>
+                              ) : (
+                                <div className="text-sm font-medium text-gray-400 mb-1">
+                                  {child.text}
+                                </div>
+                              )
                             )}
                           </div>
                         ))}
