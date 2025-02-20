@@ -88,7 +88,7 @@ const Index = () => {
       </section>
 
       {/* Services Section */}
-      <section className="py-20 bg-card">
+      <section className="py-20 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 animate-fade-up">
             {/* vCAIO Service */}
@@ -133,7 +133,7 @@ const Index = () => {
       </section>
 
       {/* AI-AMF Framework Section */}
-      <section className="py-20">
+      <section className="py-20 bg-card">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 animate-fade-up">
             <h2 className="text-3xl font-semibold mb-4">AI Adoption & Management Framework (AI-AMF)</h2>
@@ -167,7 +167,7 @@ const Index = () => {
       </section>
 
       {/* AI Readiness Assessment Section */}
-      <section className="py-20 bg-card">
+      <section className="py-20 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center animate-fade-up">
             <h2 className="text-3xl font-semibold mb-4">Take our AI Readiness Assessment</h2>
@@ -180,7 +180,7 @@ const Index = () => {
       </section>
 
       {/* Chat Widget */}
-      <section className="py-20">
+      <section className="py-20 bg-card">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-semibold mb-6 text-center animate-fade-up">
             Have a Question? Ask our AI Agent, Jasmine:
@@ -197,7 +197,7 @@ const Index = () => {
       </section>
 
       {/* WhitegloveAI Difference Section */}
-      <section className="py-20 bg-card">
+      <section className="py-20 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 animate-fade-up">
             <h2 className="text-3xl font-semibold mb-4">The WhitegloveAI Difference</h2>
@@ -222,7 +222,7 @@ const Index = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20">
+      <section className="py-20 bg-card">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="animate-fade-up">
             <h2 className="text-3xl sm:text-4xl font-semibold mb-6">
