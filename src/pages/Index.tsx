@@ -26,8 +26,14 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background text-white">
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
+      <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_-20%,#7928CA,#FF0080)] opacity-[0.15] animate-[pulse_4s_cubic-bezier(0.4,0,0.6,1)_infinite]"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_50%,#7021EE,transparent)] opacity-20"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,#7021EE,transparent)] opacity-20"></div>
+          <div className="absolute inset-0 backdrop-blur-[100px]"></div>
+        </div>
+        <div className="max-w-7xl mx-auto relative">
           <div className="text-center animate-fade-up">
             <div className="logo-container">
               <img
