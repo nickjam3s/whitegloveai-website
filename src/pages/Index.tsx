@@ -122,6 +122,7 @@ const Index = () => {
             width="100%"
             height="350"
             style={{ border: 0, background: 'white' }}
+            className="rounded-lg"
             title="WhitegloveAI Chat"
           />
         </div>
