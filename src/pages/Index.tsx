@@ -115,8 +115,8 @@ const Index = () => {
       </section>
 
       {/* Chat Widget */}
-      <section className="py-20 w-full">
-        <div className="w-full flex justify-center">
+      <section className="py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <iframe
             data-chat-frame="11eee546-15ce-7f30-aa68-03cf75d045b5"
             width="100%"
