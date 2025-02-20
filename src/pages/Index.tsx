@@ -1,6 +1,7 @@
 import { ArrowRight, CheckCircle2, Lightbulb, Shield, BrainCircuit, BarChart4, Download } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
+
 const Index = () => {
   useEffect(() => {
     // Load the chat script
@@ -19,6 +20,7 @@ const Index = () => {
       document.body.removeChild(typeformScript);
     };
   }, []);
+
   return <div className="min-h-screen bg-background text-white">
       {/* Hero Section */}
       <section className="relative pt-40 pb-28 px-4 sm:px-6 lg:px-8 overflow-hidden">
@@ -107,6 +109,11 @@ const Index = () => {
       <section className="py-20 bg-card">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 animate-fade-up">
+            <img 
+              src="/lovable-uploads/4647222e-2cb8-4c83-a56c-fafa2c6b70a0.png" 
+              alt="AI-AMF Framework Diagram" 
+              className="mx-auto mb-8 max-w-xl w-full"
+            />
             <h2 className="text-3xl font-semibold mb-4">AI Adoption & Management Framework (AI-AMF)</h2>
             <p className="text-gray-400 max-w-2xl mx-auto mb-8">
               Our proprietary and opensource AI-AMF framework is the cornerstone of our approach to AI transformation. It provides a structured, step-by-step pathway to AI success.
@@ -192,6 +199,7 @@ const Index = () => {
       </section>
     </div>;
 };
+
 const vcaioFeatures = [{
   title: "Customized AI Roadmaps",
   description: "Tailored strategies that seamlessly integrate AI into your existing systems to drive growth and efficiency."
@@ -202,6 +210,7 @@ const vcaioFeatures = [{
   title: "Continuous Innovation",
   description: "Stay ahead with ongoing market insights and emerging best practices, all within a secure, compliant framework."
 }];
+
 const managedAIFeatures = [{
   title: "24/7 AI Agents",
   description: "From text-based chatbots to voice-responsive agents and human-like avatars, our AI tools are designed to serve your customers at any time."
@@ -212,6 +221,7 @@ const managedAIFeatures = [{
   title: "Scalable & Secure Solutions",
   description: "Our services grow with your business, prioritizing data security and compliance every step of the way."
 }];
+
 const frameworkSteps = [{
   icon: Lightbulb,
   title: "Assessing Your Readiness",
@@ -229,6 +239,7 @@ const frameworkSteps = [{
   title: "Continuous Improvement",
   description: "Regularly monitoring progress and fine-tuning solutions to ensure ongoing innovation and measurable results."
 }];
+
 const differenceFeatures = [{
   icon: Shield,
   title: "Trusted Leadership",
@@ -246,4 +257,5 @@ const differenceFeatures = [{
   title: "Proven Impact",
   description: "Success stories like the City of McKinney HR transformation, which achieved a 68% deflection of routine inquiries."
 }];
+
 export default Index;
