@@ -25,7 +25,7 @@ const Index = () => {
               <img
                 src="/lovable-uploads/197ddc10-c159-4f39-a269-e35142af32c5.png"
                 alt="WhitegloveAI Logo"
-                className="h-16 mx-auto mb-8 logo-animation"
+                className="h-32 mx-auto mb-8 logo-animation"
               />
             </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight mb-6">
