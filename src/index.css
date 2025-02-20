@@ -40,13 +40,13 @@
 
 /* Enhanced page transitions */
 .page-transition {
-  animation: enhancedFadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: enhancedFadeIn 0.6s ease-out;
 }
 
 @keyframes enhancedFadeIn {
   from {
     opacity: 0;
-    transform: translateY(40px);
+    transform: translateY(30px);
   }
   to {
     opacity: 1;
@@ -66,34 +66,34 @@ html {
 
 /* Enhanced animation utilities */
 @layer utilities {
-  /* Sections and containers with staggered reveal */
+  /* Sections with simple reveal */
   section {
     @apply opacity-0;
-    animation: sectionReveal 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-    animation-delay: calc(var(--scroll-offset, 0) * 100ms);
+    animation: sectionReveal 0.8s ease-out forwards;
+    animation-delay: 100ms;
   }
 
   .container,
   .content-block {
     @apply opacity-0;
-    animation: containerSlide 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-    animation-delay: calc(var(--scroll-offset, 0) * 150ms);
+    animation: containerSlide 0.6s ease-out forwards;
+    animation-delay: 50ms;
   }
 
-  /* Headings with bounce effect */
+  /* Headings with gentle rise */
   h1, h2, h3, h4, h5, h6 {
     @apply opacity-0;
-    animation: headingBounce 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
-    animation-delay: calc(var(--scroll-offset, 0) * 200ms);
+    animation: headingRise 0.7s ease-out forwards;
+    animation-delay: 100ms;
   }
 
-  /* Lists and grid items with fade and slide */
+  /* Lists and grid items with fade and gentle slide */
   .grid > *,
   .list-item,
   li {
     @apply opacity-0;
-    animation: itemReveal 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-    animation-delay: calc(var(--scroll-offset, 0) * 100ms);
+    animation: itemReveal 0.6s ease-out forwards;
+    animation-delay: 150ms;
   }
 
   /* Enhanced interactive elements */
@@ -101,7 +101,7 @@ html {
   .interactive-element,
   button,
   a {
-    @apply transition-all duration-500;
+    @apply transition-all duration-300 ease-out;
     transform-origin: center;
   }
 
@@ -110,7 +110,7 @@ html {
   textarea,
   select,
   .form-element {
-    @apply transition-all duration-300;
+    @apply transition-all duration-200 ease-out;
   }
 }
 
@@ -118,7 +118,7 @@ html {
 @keyframes sectionReveal {
   from {
     opacity: 0;
-    transform: translateY(60px);
+    transform: translateY(40px);
   }
   to {
     opacity: 1;
@@ -129,7 +129,7 @@ html {
 @keyframes containerSlide {
   from {
     opacity: 0;
-    transform: translateX(-40px);
+    transform: translateX(-20px);
   }
   to {
     opacity: 1;
@@ -137,15 +137,12 @@ html {
   }
 }
 
-@keyframes headingBounce {
-  0% {
+@keyframes headingRise {
+  from {
     opacity: 0;
-    transform: translateY(-50px);
+    transform: translateY(20px);
   }
-  60% {
-    transform: translateY(10px);
-  }
-  100% {
+  to {
     opacity: 1;
     transform: translateY(0);
   }
@@ -154,10 +151,10 @@ html {
 @keyframes itemReveal {
   from {
     opacity: 0;
-    transform: translateY(30px) scale(0.95);
+    transform: translateY(15px);
   }
   to {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: translateY(0);
   }
 }
