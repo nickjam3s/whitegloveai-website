@@ -74,12 +74,12 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-16">
           <Link
             to="/"
-            className="flex items-center space-x-2 text-xl font-semibold tracking-tight hover:opacity-80 transition-opacity logo-container"
+            className="flex items-center space-x-2 text-xl font-semibold tracking-tight hover:opacity-80 transition-opacity"
           >
             <img
-              src="/lovable-uploads/197ddc10-c159-4f39-a269-e35142af32c5.png"
+              src="/lovable-uploads/cbc85045-41f1-434b-a70d-69aca08e4e66.png"
               alt="WhitegloveAI Logo"
-              className="h-8 logo-animation"
+              className="h-8"
             />
           </Link>
 
