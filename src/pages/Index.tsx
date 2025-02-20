@@ -1,3 +1,4 @@
+
 import { ArrowRight, CheckCircle2, Lightbulb, Shield, BrainCircuit, BarChart4 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
@@ -114,11 +115,11 @@ const Index = () => {
       </section>
 
       {/* Chat Widget */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-center">
+      <section className="py-20 w-full">
+        <div className="w-full flex justify-center">
           <iframe
             data-chat-frame="11eee546-15ce-7f30-aa68-03cf75d045b5"
-            width="550"
+            width="100%"
             height="700"
             style={{ border: 0, background: 'white' }}
             title="WhitegloveAI Chat"
