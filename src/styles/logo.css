@@ -1,0 +1,13 @@
+
+@keyframes logoSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.logo-animation {
+  animation: logoSpin 1s ease-out;
+}
+
+.logo-container:hover img {
+  animation: logoSpin 1s ease-in-out;
+}
