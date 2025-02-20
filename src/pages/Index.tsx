@@ -115,7 +115,7 @@ const Index = () => {
           <div className="text-center mb-16 animate-fade-up">
             <h2 className="text-3xl font-semibold mb-4">AI Adoption & Management Framework (AI-AMF)</h2>
             <p className="text-gray-400 max-w-2xl mx-auto mb-8">
-              Our proprietary AI-AMF framework is the cornerstone of our approach to AI transformation. It provides a structured, step-by-step pathway to AI success.
+              Our proprietary and opensource AI-AMF framework is the cornerstone of our approach to AI transformation. It provides a structured, step-by-step pathway to AI success.
             </p>
             <a
               href="https://www.aiamf.ai"
