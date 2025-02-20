@@ -1,3 +1,4 @@
+
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useEffect } from "react";
@@ -60,6 +61,7 @@ const MAISP = () => {
       {/* Hero Section */}
       <section className="pt-24 px-4 md:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
+          <h2 className="text-lg font-semibold text-primary mb-4">MANAGED AI SERVICES</h2>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 heading-highlight-scroll">
             Managed Artificial Intelligence Services
           </h1>
@@ -72,9 +74,10 @@ const MAISP = () => {
       {/* Patented Expertise Section */}
       <section className="py-16 px-4 md:px-6 lg:px-8 bg-card/50">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-12 heading-highlight-scroll">
+          <h2 className="text-lg font-semibold text-primary mb-4">EXPERTISE & INNOVATION</h2>
+          <h3 className="text-3xl md:text-4xl font-bold text-white mb-12 heading-highlight-scroll">
             Patented Expertise: The WhitegloveAI Difference
-          </h2>
+          </h3>
           <div className="grid md:grid-cols-2 gap-8">
             <div className="bg-card p-8 rounded-lg">
               <h3 className="text-2xl font-semibold text-white mb-4">MAISP Trademark</h3>
@@ -95,9 +98,10 @@ const MAISP = () => {
       {/* Services Section */}
       <section className="py-16 px-4 md:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-12 heading-highlight-scroll">
+          <h2 className="text-lg font-semibold text-primary mb-4">OUR SOLUTIONS</h2>
+          <h3 className="text-3xl md:text-4xl font-bold text-white mb-12 heading-highlight-scroll">
             Our Managed AI Services
-          </h2>
+          </h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service) => (
               <div key={service.title} className="bg-card p-8 rounded-lg">
@@ -118,9 +122,10 @@ const MAISP = () => {
       {/* Case Study Section */}
       <section className="py-16 px-4 md:px-6 lg:px-8 bg-card/50">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-12 heading-highlight-scroll">
+          <h2 className="text-lg font-semibold text-primary mb-4">SUCCESS STORY</h2>
+          <h3 className="text-3xl md:text-4xl font-bold text-white mb-12 heading-highlight-scroll">
             City of McKinney HR AI Transformation
-          </h2>
+          </h3>
           <div>
             <p className="text-gray-400 mb-6">
               The City of McKinney partnered with WhitegloveAI (WG) to enhance HR efficiency through AI-powered agents. Facing a high volume of routine inquiries, the city needed a secure, scalable solution. WG deployed custom voice and text-based AI chat agents, provided staff training, and implemented performance analytics.
@@ -151,9 +156,10 @@ const MAISP = () => {
       {/* Support Section */}
       <section className="py-16 px-4 md:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-12 heading-highlight-scroll">
-            Comprehensive Support: From Setup to Success
-          </h2>
+          <h2 className="text-lg font-semibold text-primary mb-4">COMPREHENSIVE SUPPORT</h2>
+          <h3 className="text-3xl md:text-4xl font-bold text-white mb-12 heading-highlight-scroll">
+            From Setup to Success
+          </h3>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-card p-8 rounded-lg">
               <h3 className="text-2xl font-semibold text-white mb-4">Technical Consulting</h3>
@@ -180,9 +186,10 @@ const MAISP = () => {
       {/* Scalable Solutions Section */}
       <section className="py-16 px-4 md:px-6 lg:px-8 bg-card/50">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-12 heading-highlight-scroll">
-            Scalable Solutions: Grow with Confidence
-          </h2>
+          <h2 className="text-lg font-semibold text-primary mb-4">SCALABLE SOLUTIONS</h2>
+          <h3 className="text-3xl md:text-4xl font-bold text-white mb-12 heading-highlight-scroll">
+            Grow with Confidence
+          </h3>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-card p-8 rounded-lg">
               <h3 className="text-2xl font-semibold text-white mb-4">Security & Compliance</h3>
