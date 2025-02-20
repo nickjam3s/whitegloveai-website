@@ -9,5 +9,7 @@
 }
 
 .logo-container:hover img {
-  animation: logoSpin 1s ease-in-out;
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  filter: invert(1);
+  transition: filter 0.3s ease;
 }
