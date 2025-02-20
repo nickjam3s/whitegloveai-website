@@ -58,8 +58,6 @@ const Footer = () => {
               <span className="text-gray-400">Veteran Owned and Operated</span>
               <span className="hidden md:inline text-gray-600">•</span>
               <span className="text-gray-400">Certified Historically Underutilized Business (HUB)</span>
-              <span className="hidden md:inline text-gray-600">•</span>
-              <span className="text-gray-400">Texas Comptroller of Public Accounts</span>
             </div>
             <div className="text-gray-400">
               © {new Date().getFullYear()} WhitegloveAI LLC. All rights reserved.
