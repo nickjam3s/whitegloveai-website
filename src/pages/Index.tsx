@@ -120,7 +120,7 @@ const Index = () => {
           <iframe
             data-chat-frame="11eee546-15ce-7f30-aa68-03cf75d045b5"
             width="100%"
-            height="700"
+            height="350"
             style={{ border: 0, background: 'white' }}
             title="WhitegloveAI Chat"
           />
