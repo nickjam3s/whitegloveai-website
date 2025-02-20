@@ -115,12 +115,25 @@ const Index = () => {
               rel="noopener noreferrer"
               className="inline-block relative rounded-xl overflow-hidden group"
             >
+              <div className="absolute inset-[10%] bg-[radial-gradient(circle_at_50%_50%,#7928CA,transparent_50%)] opacity-[0.15] animate-[morphing_8s_ease-in-out_infinite]" style={{
+                transformOrigin: 'center',
+                animation: 'morphing 8s ease-in-out infinite, rotating 12s linear infinite'
+              }}></div>
+              <div className="absolute inset-[10%] bg-[radial-gradient(circle_at_50%_50%,#7021EE,transparent_40%)] opacity-20" style={{
+                transformOrigin: 'center',
+                animation: 'morphing 6s ease-in-out infinite reverse, rotating 10s linear infinite reverse'
+              }}></div>
+              <div className="absolute inset-[10%] bg-[radial-gradient(circle_at_50%_50%,#FF0080,transparent_45%)] opacity-10" style={{
+                transformOrigin: 'center',
+                animation: 'morphing 10s ease-in-out infinite, rotating 15s linear infinite'
+              }}></div>
+              <div className="absolute inset-0 backdrop-blur-[120px]"></div>
               <img 
                 src="/lovable-uploads/4647222e-2cb8-4c83-a56c-fafa2c6b70a0.png" 
                 alt="AI-AMF Framework Diagram" 
-                className="mx-auto mb-8 max-w-xl w-full transition-transform duration-300 group-hover:scale-[1.02]"
+                className="mx-auto mb-8 max-w-xl w-full transition-transform duration-300 group-hover:scale-[1.02] relative z-10"
               />
-              <div className="absolute inset-0 border-2 border-white/0 group-hover:border-white/50 rounded-xl transition-all duration-300 group-hover:shadow-[0_0_15px_rgba(255,255,255,0.3)] animate-pulse"></div>
+              <div className="absolute inset-0 border-2 border-white/0 group-hover:border-white/50 rounded-xl transition-all duration-300 group-hover:shadow-[0_0_15px_rgba(255,255,255,0.3)] animate-pulse z-20"></div>
             </a>
             <h2 className="text-3xl font-semibold mb-4">AI Adoption & Management Framework (AI-AMF)</h2>
             <p className="text-gray-400 max-w-2xl mx-auto mb-8">
