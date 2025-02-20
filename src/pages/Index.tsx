@@ -21,7 +21,7 @@ const Index = () => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          const heading = entry.target;
+          const heading = entry.target as HTMLElement;
           heading.classList.add('visible');
           // Add random animation delay and duration
           heading.style.animation = `highlightText ${3 + Math.random() * 2}s ease-out forwards ${Math.random() * 0.5}s`;
