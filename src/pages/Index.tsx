@@ -1,6 +1,6 @@
 import { ArrowRight, CheckCircle2, Lightbulb, Shield, BrainCircuit, BarChart4, Download } from "lucide-react";
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 const Index = () => {
   useEffect(() => {
@@ -15,9 +15,25 @@ const Index = () => {
     typeformScript.src = "//embed.typeform.com/next/embed.js";
     typeformScript.defer = true;
     document.body.appendChild(typeformScript);
+
+    // Initialize intersection observer for scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    // Observe all scroll-animated headings
+    document.querySelectorAll('.heading-highlight-scroll').forEach(heading => {
+      observer.observe(heading);
+    });
+
     return () => {
       document.body.removeChild(script);
       document.body.removeChild(typeformScript);
+      observer.disconnect();
     };
   }, []);
 
@@ -44,7 +60,7 @@ const Index = () => {
             <div className="logo-container">
               <img src="/lovable-uploads/197ddc10-c159-4f39-a269-e35142af32c5.png" alt="WhitegloveAI Logo" className="h-32 mx-auto mb-8 logo-animation" />
             </div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight mb-6">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight mb-6 heading-highlight">
               Your Trusted AI Adoption Partner
             </h1>
             <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto mb-8">
@@ -68,9 +84,8 @@ const Index = () => {
       <section className="py-20 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 animate-fade-up">
-            {/* vCAIO Service */}
             <div className="space-y-6">
-              <h2 className="text-3xl font-semibold mb-4">Strategic AI Leadership with vCAIO</h2>
+              <h2 className="text-3xl font-semibold mb-4 heading-highlight-scroll">Strategic AI Leadership with vCAIO</h2>
               <p className="text-gray-400">
                 Unlock the full potential of artificial intelligence with our virtual Chief AI Officer (vCAIO). Our fractional, executive-level service offers you:
               </p>
@@ -85,9 +100,8 @@ const Index = () => {
               </ul>
             </div>
 
-            {/* Managed AI Services */}
             <div className="space-y-6">
-              <h2 className="text-3xl font-semibold mb-4">Managed AI Services</h2>
+              <h2 className="text-3xl font-semibold mb-4 heading-highlight-scroll">Managed AI Services</h2>
               <p className="text-gray-400">
                 Our Managed Artificial Intelligence Services empower your organization with round-the-clock support and robust AI solutions, including:
               </p>
@@ -141,7 +155,7 @@ const Index = () => {
                 }}></div>
               </div>
             </a>
-            <h2 className="text-3xl font-semibold mb-4">AI Adoption & Management Framework (AI-AMF)</h2>
+            <h2 className="text-3xl font-semibold mb-4 heading-highlight-scroll">AI Adoption & Management Framework (AI-AMF)</h2>
             <p className="text-gray-400 max-w-2xl mx-auto mb-8">
               Our proprietary and opensource AI-AMF framework is the cornerstone of our approach to AI transformation. It provides a structured, step-by-step pathway to AI success.
             </p>
@@ -165,7 +179,7 @@ const Index = () => {
       <section className="py-20 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center animate-fade-up">
-            <h2 className="text-3xl font-semibold mb-4">Take our AI Readiness Assessment</h2>
+            <h2 className="text-3xl font-semibold mb-4 heading-highlight-scroll">Take our AI Readiness Assessment</h2>
             <p className="text-gray-400 max-w-2xl mx-auto mb-8">
               Discover where you stand in your AI adoption journey and get personalized recommendations for your next steps.
             </p>
@@ -177,7 +191,7 @@ const Index = () => {
       {/* Chat Widget */}
       <section className="py-20 bg-card">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-semibold mb-6 text-center animate-fade-up">
+          <h2 className="text-2xl font-semibold mb-6 text-center animate-fade-up heading-highlight-scroll">
             Have a Question? Ask our AI Agent, Jasmine:
           </h2>
           <iframe data-chat-frame="11eee546-15ce-7f30-aa68-03cf75d045b5" width="100%" height="350" style={{
@@ -191,7 +205,7 @@ const Index = () => {
       <section className="py-20 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 animate-fade-up">
-            <h2 className="text-3xl font-semibold mb-4">The WhitegloveAI Difference</h2>
+            <h2 className="text-3xl font-semibold mb-4 heading-highlight-scroll">The WhitegloveAI Difference</h2>
             <p className="text-gray-400 max-w-2xl mx-auto">
               Experience the difference of working with a trusted partner committed to your AI success.
             </p>
@@ -211,7 +225,7 @@ const Index = () => {
       <section className="py-20 bg-card">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="animate-fade-up">
-            <h2 className="text-3xl sm:text-4xl font-semibold mb-6">
+            <h2 className="text-3xl sm:text-4xl font-semibold mb-6 heading-highlight-scroll">
               Ready to Accelerate Your AI Journey?
             </h2>
             <p className="text-gray-400 max-w-2xl mx-auto mb-8">
