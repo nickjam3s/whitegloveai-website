@@ -117,7 +117,7 @@ const Index = () => {
       {/* Chat Widget */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-semibold mb-6 text-center">
+          <h2 className="text-2xl font-semibold mb-6 text-center animate-fade-up">
             Have a Question? Ask our AI Agent, Jasmine:
           </h2>
           <iframe
@@ -125,7 +125,7 @@ const Index = () => {
             width="100%"
             height="350"
             style={{ border: 0, background: 'white' }}
-            className="rounded-lg"
+            className="rounded-lg animate-fade-up"
             title="WhitegloveAI Chat"
           />
         </div>
