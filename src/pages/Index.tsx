@@ -109,11 +109,19 @@ const Index = () => {
       <section className="py-20 bg-card">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 animate-fade-up">
-            <img 
-              src="/lovable-uploads/4647222e-2cb8-4c83-a56c-fafa2c6b70a0.png" 
-              alt="AI-AMF Framework Diagram" 
-              className="mx-auto mb-8 max-w-xl w-full"
-            />
+            <a 
+              href="https://www.aiamf.ai" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-block relative rounded-xl overflow-hidden group"
+            >
+              <img 
+                src="/lovable-uploads/4647222e-2cb8-4c83-a56c-fafa2c6b70a0.png" 
+                alt="AI-AMF Framework Diagram" 
+                className="mx-auto mb-8 max-w-xl w-full transition-transform duration-300 group-hover:scale-[1.02]"
+              />
+              <div className="absolute inset-0 border-2 border-white/0 group-hover:border-white/50 rounded-xl transition-all duration-300 group-hover:shadow-[0_0_15px_rgba(255,255,255,0.3)] animate-pulse"></div>
+            </a>
             <h2 className="text-3xl font-semibold mb-4">AI Adoption & Management Framework (AI-AMF)</h2>
             <p className="text-gray-400 max-w-2xl mx-auto mb-8">
               Our proprietary and opensource AI-AMF framework is the cornerstone of our approach to AI transformation. It provides a structured, step-by-step pathway to AI success.
