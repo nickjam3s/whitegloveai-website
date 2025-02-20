@@ -2,7 +2,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useEffect } from "react";
-import { MessageSquare, Mic, Video, Users, Bot, Robot } from "lucide-react";
+import { MessageSquare, Mic, Video, Users, Bot } from "lucide-react";
 
 const MAISP = () => {
   useEffect(() => {
@@ -51,7 +51,7 @@ const MAISP = () => {
     {
       title: "HumanoidAI",
       description: "Humanoid Robots to automate physical labor.",
-      icon: Robot,
+      icon: Bot, // Changed from Robot to Bot
       link: "/maisp/humaniodai"
     }
   ];
