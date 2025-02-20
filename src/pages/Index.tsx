@@ -1,8 +1,6 @@
-
 import { ArrowRight, CheckCircle2, Lightbulb, Shield, BrainCircuit, BarChart4, Download } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useEffect, useRef } from "react";
-
 const Index = () => {
   useEffect(() => {
     // Load the chat script
@@ -18,7 +16,7 @@ const Index = () => {
     document.body.appendChild(typeformScript);
 
     // Initialize intersection observer for scroll animations
-    const observer = new IntersectionObserver((entries) => {
+    const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           const heading = entry.target as HTMLElement;
@@ -27,20 +25,20 @@ const Index = () => {
           heading.style.animation = `highlightText ${3 + Math.random() * 2}s ease-out forwards ${Math.random() * 0.5}s`;
         }
       });
-    }, { threshold: 0.1 });
+    }, {
+      threshold: 0.1
+    });
 
     // Observe all scroll-animated headings
     document.querySelectorAll('.heading-highlight-scroll').forEach(heading => {
       observer.observe(heading);
     });
-
     return () => {
       document.body.removeChild(script);
       document.body.removeChild(typeformScript);
       observer.disconnect();
     };
   }, []);
-
   return <div className="min-h-screen bg-background text-white">
       {/* Hero Section */}
       <section className="relative pt-40 pb-28 px-4 sm:px-6 lg:px-8 overflow-hidden">
@@ -127,36 +125,27 @@ const Index = () => {
       <section className="py-20 bg-card">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 animate-fade-up">
-            <a 
-              href="https://www.aiamf.ai" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="inline-block relative rounded-xl overflow-hidden group"
-            >
+            <a href="https://www.aiamf.ai" target="_blank" rel="noopener noreferrer" className="inline-block relative rounded-xl overflow-hidden group">
               <div className="absolute inset-[10%] bg-[radial-gradient(circle_at_50%_50%,#7928CA,transparent_50%)] opacity-[0.15] animate-[morphing_8s_ease-in-out_infinite]" style={{
-                transformOrigin: 'center',
-                animation: 'morphing 8s ease-in-out infinite, rotating 12s linear infinite'
-              }}></div>
+              transformOrigin: 'center',
+              animation: 'morphing 8s ease-in-out infinite, rotating 12s linear infinite'
+            }}></div>
               <div className="absolute inset-[10%] bg-[radial-gradient(circle_at_50%_50%,#7021EE,transparent_40%)] opacity-20" style={{
-                transformOrigin: 'center',
-                animation: 'morphing 6s ease-in-out infinite reverse, rotating 10s linear infinite reverse'
-              }}></div>
+              transformOrigin: 'center',
+              animation: 'morphing 6s ease-in-out infinite reverse, rotating 10s linear infinite reverse'
+            }}></div>
               <div className="absolute inset-[10%] bg-[radial-gradient(circle_at_50%_50%,#FF0080,transparent_45%)] opacity-10" style={{
-                transformOrigin: 'center',
-                animation: 'morphing 10s ease-in-out infinite, rotating 15s linear infinite'
-              }}></div>
+              transformOrigin: 'center',
+              animation: 'morphing 10s ease-in-out infinite, rotating 15s linear infinite'
+            }}></div>
               <div className="absolute inset-0 backdrop-blur-[120px]"></div>
-              <img 
-                src="/lovable-uploads/4647222e-2cb8-4c83-a56c-fafa2c6b70a0.png" 
-                alt="AI-AMF Framework Diagram" 
-                className="mx-auto mb-8 max-w-xl w-full transition-transform duration-300 group-hover:scale-[1.02] relative z-10"
-              />
+              <img src="/lovable-uploads/4647222e-2cb8-4c83-a56c-fafa2c6b70a0.png" alt="AI-AMF Framework Diagram" className="mx-auto mb-8 max-w-xl w-full transition-transform duration-300 group-hover:scale-[1.02] relative z-10" />
               <div className="absolute inset-0 group-hover:opacity-100 opacity-0 transition-opacity duration-300 z-20">
                 <div className="absolute left-1/2 top-[15%] -translate-x-1/2 w-[80%] h-[80%]" style={{
-                  clipPath: 'polygon(50% 0%, 100% 100%, 0% 100%)',
-                  background: 'linear-gradient(transparent, rgba(255,255,255,0.2))',
-                  animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite'
-                }}></div>
+                clipPath: 'polygon(50% 0%, 100% 100%, 0% 100%)',
+                background: 'linear-gradient(transparent, rgba(255,255,255,0.2))',
+                animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite'
+              }}></div>
               </div>
             </a>
             <h2 className="text-3xl font-semibold mb-4 heading-highlight-scroll">AI Adoption & Management Framework (AI-AMF)</h2>
@@ -195,9 +184,7 @@ const Index = () => {
       {/* Chat Widget */}
       <section className="py-20 bg-card">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-semibold mb-6 text-center animate-fade-up heading-highlight-scroll">
-            Have a Question? Ask our AI Agent, Jasmine:
-          </h2>
+          <h2 className="text-2xl font-semibold mb-6 text-center animate-fade-up heading-highlight-scroll">Have a Question - Ask our AI Agent, Jasmine</h2>
           <iframe data-chat-frame="11eee546-15ce-7f30-aa68-03cf75d045b5" width="100%" height="350" style={{
           border: 0,
           background: 'white'
@@ -244,7 +231,6 @@ const Index = () => {
       </section>
     </div>;
 };
-
 const vcaioFeatures = [{
   title: "Customized AI Roadmaps",
   description: "Tailored strategies that seamlessly integrate AI into your existing systems to drive growth and efficiency."
@@ -255,7 +241,6 @@ const vcaioFeatures = [{
   title: "Continuous Innovation",
   description: "Stay ahead with ongoing market insights and emerging best practices, all within a secure, compliant framework."
 }];
-
 const managedAIFeatures = [{
   title: "24/7 AI Agents",
   description: "From text-based chatbots to voice-responsive agents and human-like avatars, our AI tools are designed to serve your customers at any time."
@@ -266,7 +251,6 @@ const managedAIFeatures = [{
   title: "Scalable & Secure Solutions",
   description: "Our services grow with your business, prioritizing data security and compliance every step of the way."
 }];
-
 const frameworkSteps = [{
   icon: Lightbulb,
   title: "Assessing Your Readiness",
@@ -284,7 +268,6 @@ const frameworkSteps = [{
   title: "Continuous Improvement",
   description: "Regularly monitoring progress and fine-tuning solutions to ensure ongoing innovation and measurable results."
 }];
-
 const differenceFeatures = [{
   icon: Shield,
   title: "Trusted Leadership",
@@ -302,5 +285,4 @@ const differenceFeatures = [{
   title: "Proven Impact",
   description: "Success stories like the City of McKinney HR transformation, which achieved a 68% deflection of routine inquiries."
 }];
-
 export default Index;
