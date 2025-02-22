@@ -246,6 +246,7 @@ const vcaioFeatures = [{
   title: "Continuous Innovation",
   description: "Stay ahead with ongoing market insights and emerging best practices, all within a secure, compliant framework."
 }];
+
 const managedAIFeatures = [{
   title: "24/7 AI Agents",
   description: "From text-based chatbots to voice-responsive agents and human-like avatars, our AI tools are designed to serve your customers at any time."
@@ -256,6 +257,7 @@ const managedAIFeatures = [{
   title: "Scalable & Secure Solutions",
   description: "Our services grow with your business, prioritizing data security and compliance every step of the way."
 }];
+
 const frameworkSteps = [{
   icon: Lightbulb,
   title: "Assessing Your Readiness",
@@ -273,6 +275,7 @@ const frameworkSteps = [{
   title: "Continuous Improvement",
   description: "Regularly monitoring progress and fine-tuning solutions to ensure ongoing innovation and measurable results."
 }];
+
 const differenceFeatures = [{
   icon: Shield,
   title: "Trusted Leadership",
