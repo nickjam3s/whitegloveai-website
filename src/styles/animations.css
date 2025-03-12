@@ -1,22 +1,17 @@
-
 /* Interactive Element Animations */
 @layer components {
   .link-hover {
     @apply relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-secondary after:transition-all after:duration-300 hover:after:w-full;
   }
-
   .card-hover {
     @apply transition-all duration-300 hover:translate-y-[-4px] hover:shadow-lg active:translate-y-[-2px];
   }
-
   .icon-hover {
     @apply transition-transform duration-300 hover:scale-110 active:scale-95;
   }
-
   .nav-item-hover {
     @apply transition-all duration-300 hover:text-secondary hover:translate-y-[-2px];
   }
-
   .button-hover {
     @apply transition-all duration-300 transform hover:scale-105 active:scale-95;
   }
@@ -102,12 +97,25 @@
   animation: highlightText 4s ease-out forwards;
 }
 
+/* FIX: Make headings visible by default but keep animation effects */
 .heading-highlight-scroll {
-  opacity: 0;
-  transform: translateY(10px);
+  opacity: 1; /* Changed from 0 to make headings visible by default */
+  transform: translateY(0); /* Reset transform to show headings in place */
+  background: linear-gradient(
+    to right,
+    #FFFFFF 0%,
+    #FFFFFF 50%,
+    #9b87f5 100%
+  );
+  background-size: 200% auto;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
   transition: opacity 0.5s ease, transform 0.5s ease;
+  animation: highlightText 4s ease-out forwards;
 }
 
+/* Keep this for compatibility with any JS that might be using it */
 .heading-highlight-scroll.visible {
   opacity: 1;
   transform: translateY(0);
