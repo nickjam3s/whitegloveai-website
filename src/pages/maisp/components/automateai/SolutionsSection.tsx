@@ -1,4 +1,3 @@
-
 import { Workflow } from "lucide-react";
 
 const solutions = [

@@ -1,4 +1,3 @@
-
 const challenges = [
   {
     title: "Inefficiencies",

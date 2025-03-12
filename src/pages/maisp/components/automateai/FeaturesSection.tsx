@@ -1,4 +1,3 @@
-
 import { Database, Monitor, ShieldCheck } from "lucide-react";
 
 const features = [
