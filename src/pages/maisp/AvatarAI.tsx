@@ -55,7 +55,7 @@ const AvatarAI = () => {
           <h2 className="text-3xl font-semibold mb-16 text-center heading-highlight-scroll">
             The Next Evolution in Personal Connection
           </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 gap-8">
             {evolutionFeatures.map((feature, index) => (
               <div key={index} className="bg-background/50 p-6 rounded-lg border border-gray-800 hover:border-secondary/50 transition-colors">
                 <feature.icon className="h-10 w-10 text-secondary mb-4" />
@@ -116,7 +116,7 @@ const AvatarAI = () => {
           <h2 className="text-3xl font-semibold mb-16 text-center heading-highlight-scroll">
             The Ultimate Omnichannel Experience: A Retail Case Study
           </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 gap-8">
             {caseStudySteps.map((step, index) => (
               <div key={index} className="bg-card p-6 rounded-lg border border-gray-800 hover:border-secondary/50 transition-colors">
                 <h3 className="text-xl font-semibold mb-3">{step.title}</h3>
@@ -133,7 +133,7 @@ const AvatarAI = () => {
           <h2 className="text-3xl font-semibold mb-16 text-center heading-highlight-scroll">
             How It Works (The Simple Version)
           </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 gap-8">
             {howItWorks.map((step, index) => (
               <div key={index} className="flex flex-col items-center text-center p-6">
                 <div className="text-4xl font-bold text-secondary mb-4">{index + 1}</div>
@@ -151,7 +151,7 @@ const AvatarAI = () => {
           <h2 className="text-3xl font-semibold mb-16 text-center heading-highlight-scroll">
             Real Benefits You'll See
           </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 gap-8">
             {benefits.map((benefit, index) => (
               <div key={index} className="bg-card p-6 rounded-lg border border-gray-800 hover:border-secondary/50 transition-colors">
                 <BarChart4 className="h-10 w-10 text-secondary mb-4" />
@@ -169,7 +169,7 @@ const AvatarAI = () => {
           <h2 className="text-3xl font-semibold mb-16 text-center heading-highlight-scroll">
             Why Choose WhitegloveAI?
           </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 gap-8">
             {whyChooseUs.map((reason, index) => (
               <div key={index} className="bg-background/50 p-6 rounded-lg border border-gray-800 hover:border-secondary/50 transition-colors">
                 <Shield className="h-10 w-10 text-secondary mb-4" />
