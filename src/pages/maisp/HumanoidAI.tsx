@@ -1,8 +1,11 @@
 
+import { useEffect } from "react";
 import HeroSection from "./components/humanoidai/HeroSection";
 import ServiceFeatures from "./components/humanoidai/ServiceFeatures";
 import MethodologySection from "./components/humanoidai/MethodologySection";
-import { useEffect } from "react";
+import BusinessOutcomes from "./components/humanoidai/BusinessOutcomes";
+import Deliverables from "./components/humanoidai/Deliverables";
+import SecurityCompliance from "./components/humanoidai/SecurityCompliance";
 
 const HumanoidAI = () => {
   useEffect(() => {
@@ -21,6 +24,9 @@ const HumanoidAI = () => {
       <HeroSection />
       <ServiceFeatures />
       <MethodologySection />
+      <BusinessOutcomes />
+      <Deliverables />
+      <SecurityCompliance />
       
       <section id="contact" className="py-20 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
