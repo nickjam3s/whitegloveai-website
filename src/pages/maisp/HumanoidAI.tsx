@@ -2,8 +2,20 @@
 import HeroSection from "./components/humanoidai/HeroSection";
 import ServiceFeatures from "./components/humanoidai/ServiceFeatures";
 import MethodologySection from "./components/humanoidai/MethodologySection";
+import { useEffect } from "react";
 
 const HumanoidAI = () => {
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = "//embed.typeform.com/next/embed.js";
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-background">
       <HeroSection />
