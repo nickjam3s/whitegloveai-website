@@ -1,5 +1,5 @@
 
-import { ClipboardCheck, Strategy, Play, LineChart } from "lucide-react";
+import { ClipboardCheck, LayoutDashboard, Play, LineChart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const steps = [
@@ -10,7 +10,7 @@ const steps = [
     link: "https://aireadiness.whitegloveai.com/t/1zgmDb674dus"
   },
   {
-    icon: Strategy,
+    icon: LayoutDashboard,
     title: "Develop an AI Strategy",
     description: "Prioritize AI solutions that will deliver the most significant impact. This will enable your team to focus on projects that drive the most value."
   },
