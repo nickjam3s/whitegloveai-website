@@ -1,4 +1,3 @@
-
 const ImportanceSection = () => {
   return (
     <section className="py-20 bg-background">
@@ -11,7 +10,7 @@ const ImportanceSection = () => {
           <div className="bg-card p-6 rounded-lg border border-gray-800">
             <h3 className="text-xl font-semibold mb-3">AI Adoption Failure Rate</h3>
             <p className="text-gray-400">
-              According to a 2023 study by BCG, <strong>74% of companies fail to scale AI successfully</strong>, often due to complex architectures and unclear strategies.
+              The average failure rate of AI projects is estimated to be <strong>80%</strong>, which is twice the failure rate of non-AI technology projects. This statistic is consistently reported across multiple sources, including studies by the RAND Corporation, Gartner, and other industry analyses.
             </p>
           </div>
           
