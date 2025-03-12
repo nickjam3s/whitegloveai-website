@@ -1,4 +1,3 @@
-
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, QrCode, ShoppingBag, Video, Building2, MessagesSquare, Users, Building, HeartHandshake, Wallet, Users2, Store, BarChart4, CheckCircle2, Shield } from "lucide-react";
@@ -250,7 +249,7 @@ const industries = [
     description: "Give every customer their own personal shopping assistant, providing attentive service that drives sales and satisfaction."
   },
   {
-    icon: HotelIcon,
+    icon: Building2,
     title: "Hotels & Hospitality",
     description: "From virtual concierge services to in-room assistance, deliver personalized guest experiences at scale."
   },
@@ -260,12 +259,12 @@ const industries = [
     description: "Provide face-to-face advisory services through any device, making complex discussions feel more personal and engaging."
   },
   {
-    icon: Hospital,
+    icon: Building,
     title: "Healthcare",
     description: "Offer friendly, accessible patient support for scheduling, basic questions, and care coordination."
   },
   {
-    icon: Government,
+    icon: Building2,
     title: "Municipalities",
     description: "Provide 24/7 citizen services, from permit applications to bill payments, making local government more accessible and efficient."
   },
