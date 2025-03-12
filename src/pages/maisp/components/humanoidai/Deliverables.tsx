@@ -1,14 +1,14 @@
 
-import { Robot, Book, BarChart3, HeadsetHelp } from "lucide-react";
+import { Bot, BookOpen, BarChart3, Headphones } from "lucide-react";
 
 const deliverables = [
   {
-    icon: Robot,
+    icon: Bot,
     title: "Operational Robots",
     description: "Tailored for specific use cases, with customized programming and hardware configurations. Each robot is thoroughly tested and optimized for your operational environment, ensuring maximum efficiency and reliability."
   },
   {
-    icon: Book,
+    icon: BookOpen,
     title: "Training Materials",
     description: "Comprehensive user manuals, video tutorials, and interactive learning modules. Includes step-by-step guides for operation, troubleshooting procedures, and best practices for optimal performance."
   },
@@ -18,7 +18,7 @@ const deliverables = [
     description: "Detailed analytics dashboards providing real-time insights into operational metrics, efficiency rates, and system health. Includes customizable KPI tracking, trend analysis, and actionable recommendations for optimization."
   },
   {
-    icon: HeadsetHelp,
+    icon: Headphones,
     title: "Support Plans",
     description: "Ongoing maintenance and updates with 24/7 technical support, regular software updates, and preventive maintenance schedules. Includes quarterly system reviews, emergency response protocols, and continuous improvement recommendations."
   }
