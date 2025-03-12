@@ -1,7 +1,7 @@
 
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, QrCode, ShoppingBag, Video, Building2, MessagesSquare, Users, Building, HeartHandshake, Wallet, Hospital, Government, Users2, Store, HotelIcon, BarChart4, CheckCircle2, Shield } from "lucide-react";
+import { ArrowRight, QrCode, ShoppingBag, Video, Building2, MessagesSquare, Users, Building, HeartHandshake, Wallet, Users2, Store, BarChart4, CheckCircle2, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const AvatarAI = () => {
