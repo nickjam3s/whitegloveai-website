@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -36,6 +35,9 @@
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
+  h2 {
+    @apply text-foreground;
+  }
 }
 
 /* Smooth scrolling */
@@ -46,4 +48,10 @@ html {
 /* Custom selection color */
 ::selection {
   @apply bg-primary/10 text-primary;
+}
+
+/* Add specific styling for the heading highlight */
+.heading-highlight-scroll {
+  @apply text-white;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
