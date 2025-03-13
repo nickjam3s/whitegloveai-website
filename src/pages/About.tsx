@@ -5,7 +5,7 @@ const About = () => {
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16 animate-fade-up">
-            <h1 className="text-4xl font-semibold mb-6">About White Glove AI</h1>
+            <h1 className="text-4xl font-semibold mb-6">About WhitegloveAI</h1>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               We're dedicated to delivering premium AI solutions with exceptional
               service and attention to detail.
