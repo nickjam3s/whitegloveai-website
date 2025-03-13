@@ -16,7 +16,7 @@ const About = () => {
             <div>
               <h2 className="text-2xl font-semibold mb-4">Our Mission</h2>
               <p className="text-gray-600 mb-6">
-                At WhitegloveAI, we believe in making artificial intelligence
+                At White Glove AI, we believe in making artificial intelligence
                 accessible and practical for businesses of all sizes. Our mission is
                 to provide premium AI solutions with unparalleled service quality.
               </p>
