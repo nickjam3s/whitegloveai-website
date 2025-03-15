@@ -2,38 +2,54 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 const About = () => {
   return (
-    <div className="min-h-screen bg-background pt-20">
+    <div className="min-h-screen bg-black text-white">
       {/* Hero Section */}
-      <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative h-[90vh] flex items-center overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <AspectRatio ratio={16 / 9}>
+            <img
+              src="https://www.whitegloveai.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fabout-hero.06d9b7c6.jpg&w=3840&q=75"
+              alt="WhitegloveAI Team"
+              className="w-full h-full object-cover opacity-40"
+            />
+          </AspectRatio>
+        </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 animate-fade-up">
-            <h1 className="text-4xl font-bold mb-6">About WhitegloveAI</h1>
-            <p className="text-lg text-gray-400 max-w-3xl mx-auto">
-              We deliver excellence in AI integration through personalized service and expert guidance
+            <h1 className="text-6xl font-bold mb-6 heading-highlight">Building the Future of AI</h1>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              At WhitegloveAI, we're not just building technology – we're crafting the future of secure, 
+              responsible AI adoption for organizations worldwide.
             </p>
           </div>
+        </div>
+      </section>
 
+      {/* Mission & Values Section */}
+      <section className="py-24 bg-black">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12">
-            <div className="space-y-8">
+            <div className="space-y-12">
               <div>
-                <h2 className="text-2xl font-bold mb-4">Our Mission</h2>
-                <p className="text-gray-400">
+                <h2 className="text-3xl font-bold mb-4">Our Mission</h2>
+                <p className="text-gray-300 text-lg">
                   To lead secure and responsible AI adoption, reshaping organizational efficiency and digital transformations
                 </p>
               </div>
 
               <div>
-                <h2 className="text-2xl font-bold mb-4">Core Values</h2>
-                <div className="space-y-4">
+                <h2 className="text-3xl font-bold mb-6">Core Values</h2>
+                <div className="space-y-6">
                   {values.map((value, index) => (
                     <div key={index} className="flex gap-4">
-                      <div className="w-2 h-2 bg-primary rounded-full mt-2" />
+                      <div className="w-2 h-2 bg-[#7021EE] rounded-full mt-2" />
                       <div>
-                        <h3 className="font-bold text-lg">{value.title}</h3>
-                        <p className="text-gray-400">{value.description}</p>
+                        <h3 className="font-bold text-xl">{value.title}</h3>
+                        <p className="text-gray-300">{value.description}</p>
                       </div>
                     </div>
                   ))}
@@ -41,35 +57,52 @@ const About = () => {
               </div>
             </div>
 
-            <div className="bg-card rounded-lg p-8 shadow-lg">
-              <h2 className="text-2xl font-bold mb-8">Company Overview</h2>
-              <div className="grid grid-cols-2 gap-8">
-                {stats.map((stat, index) => (
-                  <div key={index}>
-                    <p className="text-3xl font-bold mb-2">{stat.value}</p>
-                    <p className="text-gray-400">{stat.label}</p>
-                  </div>
-                ))}
-              </div>
+            <div className="relative">
+              <img
+                src="https://www.whitegloveai.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fabout-values.776dff78.jpg&w=1920&q=75"
+                alt="Our Values"
+                className="rounded-lg shadow-2xl"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-lg"></div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Our Leadership */}
-      <section className="py-16 bg-card">
+      {/* Stats Section */}
+      <section className="py-24 bg-[#111111]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold mb-12 text-center">Company Overview</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {stats.map((stat, index) => (
+              <div key={index} className="text-center">
+                <p className="text-4xl font-bold mb-2 text-[#7021EE]">{stat.value}</p>
+                <p className="text-gray-300">{stat.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Leadership Team */}
+      <section className="py-24 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold mb-4">Our Leadership Team</h2>
-            <p className="text-gray-400">Guided by experience, driven by innovation</p>
+            <h2 className="text-4xl font-bold mb-4">Our Leadership Team</h2>
+            <p className="text-gray-300">Guided by experience, driven by innovation</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {team.map((member, index) => (
-              <div key={index} className="bg-background p-6 rounded-lg shadow-lg">
-                <h3 className="text-xl font-bold mb-2">{member.name}</h3>
-                <p className="text-primary mb-4">{member.role}</p>
-                <p className="text-gray-400">{member.description}</p>
+              <div key={index} className="bg-[#111111] p-8 rounded-lg">
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  className="w-24 h-24 rounded-full mb-4 mx-auto object-cover"
+                />
+                <h3 className="text-xl font-bold mb-2 text-center">{member.name}</h3>
+                <p className="text-[#7021EE] mb-4 text-center">{member.role}</p>
+                <p className="text-gray-300 text-center">{member.description}</p>
               </div>
             ))}
           </div>
@@ -77,14 +110,14 @@ const About = () => {
       </section>
 
       {/* Contact CTA */}
-      <section className="py-16">
+      <section className="py-24 bg-[#111111]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold mb-6">Ready to Transform Your AI Strategy?</h2>
-          <p className="text-gray-400 mb-8 max-w-2xl mx-auto">
+          <h2 className="text-4xl font-bold mb-6">Ready to Transform Your AI Strategy?</h2>
+          <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
             Connect with our expert team to discover how WhitegloveAI can guide your organization's AI journey.
           </p>
           <Link to="/contact">
-            <Button size="lg">
+            <Button size="lg" className="text-lg px-8 py-6">
               Get Started <ArrowRight className="ml-2" />
             </Button>
           </Link>
@@ -137,31 +170,37 @@ const team = [
     name: "Nick James",
     role: "CEO & Founder",
     description: "Leading innovation in AI integration with over 15 years of enterprise technology experience.",
+    image: "https://www.whitegloveai.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fnick.42c8ca5a.jpg&w=1920&q=75"
   },
   {
     name: "Daniel Valencia",
     role: "Chief Information Security Officer",
     description: "Expert in cybersecurity and compliance with a focus on AI systems protection.",
+    image: "https://www.whitegloveai.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fdaniel.4f936027.jpg&w=1920&q=75"
   },
   {
     name: "Dr. Donnie Wendt",
     role: "Virtual Chief AI Officer",
     description: "Specializing in AI strategy and implementation for enterprise solutions.",
+    image: "https://www.whitegloveai.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fdonnie.9d2d0f9d.jpg&w=1920&q=75"
   },
   {
     name: "Jason Hess",
     role: "Virtual Chief AI Officer",
     description: "Expert in AI transformation and organizational change management.",
+    image: "https://www.whitegloveai.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fjason.b4e4ba74.jpg&w=1920&q=75"
   },
   {
     name: "Albert Ramos Jr.",
     role: "Virtual Chief AI Officer",
     description: "Leading AI innovation and strategic implementation for enterprise clients.",
+    image: "https://www.whitegloveai.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Falbert.6c3dac75.jpg&w=1920&q=75"
   },
   {
     name: "Ankur Desai",
     role: "Chief Marketing Officer",
     description: "Driving strategic growth and market presence through innovative marketing approaches.",
+    image: "https://www.whitegloveai.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fankur.67f4d5a4.jpg&w=1920&q=75"
   },
 ];
 
