@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, Users, Shield, Brain, Lightbulb, BookOpen, Target, UserCheck, Lock, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 
 const AboutUs = () => {
   return (
@@ -100,6 +101,10 @@ const AboutUs = () => {
                 key={index} 
                 className="bg-background/50 backdrop-blur-sm p-6 rounded-lg border border-gray-800 hover:border-primary/50 transition-all duration-300 hover:translate-y-[-4px] text-center group"
               >
+                <Avatar className="h-24 w-24 mx-auto mb-4">
+                  <AvatarImage src={member.image} alt={member.name} />
+                  <AvatarFallback>{member.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
+                </Avatar>
                 <h3 className="text-xl font-semibold mb-2">
                   {member.linkedin ? (
                     <a
@@ -221,7 +226,8 @@ const team = [
   },
   {
     name: "Daniel Valencia",
-    title: "Chief Information Security Officer"
+    title: "Chief Information Security Officer",
+    image: "/lovable-uploads/197ddc10-c159-4f39-a269-e35142af32c5.png"
   },
   {
     name: "Tobalo Torres",
