@@ -30,6 +30,7 @@ export const navigationLinks = [
     text: "vCAIO",
     to: "/vcaio",
     children: [
+      { to: "/vcaio", text: "vCAIO" },
       { to: "/vcaio/launch", text: "Launchpad" },
       { to: "/vcaio/adopt", text: "Adopt" },
       { to: "/vcaio/enable", text: "Enable" },
@@ -46,3 +47,4 @@ export const navigationLinks = [
     external: true
   }
 ];
+
