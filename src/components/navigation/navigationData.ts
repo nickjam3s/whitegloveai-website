@@ -1,4 +1,3 @@
-
 export const navigationLinks = [
   {
     text: "About",
@@ -30,14 +29,6 @@ export const navigationLinks = [
     text: "vCAIO",
     to: "/vcaio",
     children: [
-      {
-        text: "Our vCAIOs",
-        children: [
-          { to: "/vcaio/donnie", text: "Donnie" },
-          { to: "/vcaio/jason", text: "Jason" },
-          { to: "/vcaio/albert", text: "Albert" },
-        ]
-      },
       { to: "/vcaio/launch", text: "Launchpad" },
       { to: "/vcaio/adopt", text: "Adopt" },
       { to: "/vcaio/enable", text: "Enable" },
