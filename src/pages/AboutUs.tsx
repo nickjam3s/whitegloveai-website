@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { ArrowRight, Users, Shield, Brain, Lightbulb, BookOpen, Target, UserCheck, Lock, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
