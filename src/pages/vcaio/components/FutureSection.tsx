@@ -1,8 +1,4 @@
 
-import { ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
-
 const FutureSection = () => {
   return (
     <section className="py-24 bg-card">
@@ -19,11 +15,14 @@ const FutureSection = () => {
             Partner with WhiteGloveAI to unlock the power of AI and secure your organization's future.
           </p>
         </div>
-        <Link to="/contact">
-          <Button size="lg" className="text-lg px-8 py-6">
-            Get Started Today <ArrowRight className="ml-2" />
-          </Button>
-        </Link>
+        <div className="w-full aspect-[3/2] mt-12">
+          <iframe
+            src="https://jzaxt350p9j.typeform.com/to/jiKH5Ab2?typeform-medium=embed-oembed"
+            allow="camera; microphone; autoplay; encrypted-media;"
+            className="w-full h-full border-0 rounded-xl"
+            title="vCAIO Contact Form"
+          />
+        </div>
       </div>
     </section>
   );
