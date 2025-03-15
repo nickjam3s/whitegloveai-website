@@ -7,14 +7,18 @@ import { AspectRatio } from "@/components/ui/aspect-ratio";
 const About = () => {
   return (
     <div className="min-h-screen bg-black text-white">
-      {/* Hero Section */}
-      <section className="relative h-[90vh] flex items-center overflow-hidden">
+      {/* Hero Section with fixed background */}
+      <section className="relative h-[90vh] flex items-center">
         <div className="absolute inset-0 z-0">
           <AspectRatio ratio={16 / 9}>
-            <img
-              src="https://www.whitegloveai.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fabout-hero.06d9b7c6.jpg&w=3840&q=75"
-              alt="WhitegloveAI Team"
-              className="w-full h-full object-cover opacity-40"
+            <div 
+              className="w-full h-full bg-fixed"
+              style={{
+                backgroundImage: 'url("https://whitegloveai.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fabout-hero.06d9b7c6.jpg&w=3840&q=75")',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                opacity: 0.4
+              }}
             />
           </AspectRatio>
         </div>
@@ -48,7 +52,7 @@ const About = () => {
                     <div key={index} className="flex gap-4">
                       <div className="w-2 h-2 bg-[#7021EE] rounded-full mt-2" />
                       <div>
-                        <h3 className="font-bold text-xl">{value.title}</h3>
+                        <h3 className="font-bold text-xl mb-2">{value.title}</h3>
                         <p className="text-gray-300">{value.description}</p>
                       </div>
                     </div>
@@ -59,11 +63,11 @@ const About = () => {
 
             <div className="relative">
               <img
-                src="https://www.whitegloveai.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fabout-values.776dff78.jpg&w=1920&q=75"
+                src="https://whitegloveai.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fabout-values.776dff78.jpg&w=1920&q=75"
                 alt="Our Values"
-                className="rounded-lg shadow-2xl"
+                className="rounded-lg shadow-2xl w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-lg"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-lg" />
             </div>
           </div>
         </div>
@@ -98,10 +102,10 @@ const About = () => {
                 <img
                   src={member.image}
                   alt={member.name}
-                  className="w-24 h-24 rounded-full mb-4 mx-auto object-cover"
+                  className="w-32 h-32 rounded-full mb-6 mx-auto object-cover"
                 />
-                <h3 className="text-xl font-bold mb-2 text-center">{member.name}</h3>
-                <p className="text-[#7021EE] mb-4 text-center">{member.role}</p>
+                <h3 className="text-2xl font-bold mb-2 text-center">{member.name}</h3>
+                <p className="text-[#7021EE] mb-4 text-center font-medium">{member.role}</p>
                 <p className="text-gray-300 text-center">{member.description}</p>
               </div>
             ))}
@@ -130,19 +134,19 @@ const About = () => {
 const values = [
   {
     title: "Client-First Approach",
-    description: "Every decision is made with our clients' success and satisfaction in mind.",
+    description: "Every decision is made with our clients' success and satisfaction in mind. We prioritize understanding and meeting their unique needs.",
   },
   {
     title: "Security & Trust",
-    description: "We prioritize data security and maintain the highest standards of trust in every interaction.",
+    description: "We maintain the highest standards of data security and trust in every interaction, ensuring our clients' information is always protected.",
   },
   {
     title: "Innovation Leadership",
-    description: "We stay at the forefront of AI technology to deliver cutting-edge solutions.",
+    description: "We stay at the forefront of AI technology, continuously innovating to deliver cutting-edge solutions that drive real business value.",
   },
   {
     title: "Ethical AI Practice",
-    description: "We ensure responsible AI development and deployment with transparency and fairness.",
+    description: "We ensure responsible AI development and deployment, maintaining transparency and fairness in all our AI implementations.",
   },
 ];
 
@@ -170,37 +174,37 @@ const team = [
     name: "Nick James",
     role: "CEO & Founder",
     description: "Leading innovation in AI integration with over 15 years of enterprise technology experience.",
-    image: "https://www.whitegloveai.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fnick.42c8ca5a.jpg&w=1920&q=75"
+    image: "https://whitegloveai.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fnick.42c8ca5a.jpg&w=1920&q=75"
   },
   {
     name: "Daniel Valencia",
     role: "Chief Information Security Officer",
     description: "Expert in cybersecurity and compliance with a focus on AI systems protection.",
-    image: "https://www.whitegloveai.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fdaniel.4f936027.jpg&w=1920&q=75"
+    image: "https://whitegloveai.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fdaniel.4f936027.jpg&w=1920&q=75"
   },
   {
     name: "Dr. Donnie Wendt",
     role: "Virtual Chief AI Officer",
     description: "Specializing in AI strategy and implementation for enterprise solutions.",
-    image: "https://www.whitegloveai.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fdonnie.9d2d0f9d.jpg&w=1920&q=75"
+    image: "https://whitegloveai.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fdonnie.9d2d0f9d.jpg&w=1920&q=75"
   },
   {
     name: "Jason Hess",
     role: "Virtual Chief AI Officer",
     description: "Expert in AI transformation and organizational change management.",
-    image: "https://www.whitegloveai.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fjason.b4e4ba74.jpg&w=1920&q=75"
+    image: "https://whitegloveai.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fjason.b4e4ba74.jpg&w=1920&q=75"
   },
   {
     name: "Albert Ramos Jr.",
     role: "Virtual Chief AI Officer",
     description: "Leading AI innovation and strategic implementation for enterprise clients.",
-    image: "https://www.whitegloveai.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Falbert.6c3dac75.jpg&w=1920&q=75"
+    image: "https://whitegloveai.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Falbert.6c3dac75.jpg&w=1920&q=75"
   },
   {
     name: "Ankur Desai",
     role: "Chief Marketing Officer",
     description: "Driving strategic growth and market presence through innovative marketing approaches.",
-    image: "https://www.whitegloveai.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fankur.67f4d5a4.jpg&w=1920&q=75"
+    image: "https://whitegloveai.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fankur.67f4d5a4.jpg&w=1920&q=75"
   },
 ];
 
