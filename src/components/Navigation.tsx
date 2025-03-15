@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import Logo from "./navigation/Logo";
 import DesktopMenuItem from "./navigation/DesktopMenuItem";
@@ -29,7 +29,9 @@ const Navigation = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          <Logo />
+          <Link to="/">
+            <Logo />
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
