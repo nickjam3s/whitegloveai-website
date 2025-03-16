@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -52,7 +53,7 @@ const App = () => (
               {/* MAISP Routes */}
               <Route path="/maisp" element={<MAISP />} />
               <Route path="/maisp/textai" element={<TextAI />} />
-              <Route path="/maisp/textaiforgood" element={<TextAIForGood />} />
+              <Route path="/maisp/textai/textaiforgood" element={<TextAIForGood />} />
               <Route path="/maisp/voiceai" element={<VoiceAI />} />
               <Route path="/maisp/avatarai" element={<AvatarAI />} />
               <Route path="/maisp/automateai" element={<AutomateAI />} />
