@@ -7,7 +7,7 @@ import FutureSection from "./components/FutureSection";
 
 const VCAIO = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background pb-24">
       <HeroSection />
       <UnlockingSection />
       <BenefitsSection />
