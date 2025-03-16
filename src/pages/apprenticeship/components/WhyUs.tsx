@@ -1,10 +1,9 @@
-
 import { motion } from 'framer-motion';
-import { RocketLaunch, Users, Brain, ChartBar } from 'lucide-react';
+import { Rocket, Users, Brain, ChartBar } from 'lucide-react';
 
 const benefits = [
   {
-    icon: RocketLaunch,
+    icon: Rocket,
     title: "Fast Track Career Growth",
     description: "Launch your AI career with hands-on experience and mentorship"
   },
