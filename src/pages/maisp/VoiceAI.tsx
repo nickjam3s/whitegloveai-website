@@ -115,9 +115,9 @@ const VoiceAI = () => {
           <h1 className="text-3xl font-semibold mb-16 text-center heading-highlight-scroll">
             Long Term Return On Investment
           </h1>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 justify-items-center max-w-6xl mx-auto">
             {roiMetrics.map((metric, index) => (
-              <div key={index} className="bg-background/50 p-6 rounded-lg border border-gray-800 hover:border-secondary/50 transition-colors">
+              <div key={index} className="bg-background/50 p-6 rounded-lg border border-gray-800 hover:border-secondary/50 transition-colors w-full">
                 <h3 className="text-xl font-semibold mb-3">{metric.title}</h3>
                 <ul className="space-y-2">
                   {metric.points.map((point, idx) => (
