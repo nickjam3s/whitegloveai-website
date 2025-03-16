@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Heart, Shield, Brain, Sparkles, Users, Target, Lock, Lightbulb, ChartBar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const AboutUs = () => {
@@ -11,12 +11,27 @@ const AboutUs = () => {
     transition: { duration: 0.6 }
   };
 
+  const containerAnimation = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const itemAnimation = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0 }
+  };
+
   return (
-    <div className="min-h-screen bg-background">
-      {/* Hero Section with Background */}
-      <section className="relative h-[60vh] min-h-[500px] w-full overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/public/placeholder.svg')] bg-cover bg-center bg-no-repeat">
-          <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" />
+    <div className="min-h-screen bg-black text-white font-sans">
+      {/* Hero Section with Dynamic Background */}
+      <section className="relative h-[70vh] min-h-[600px] w-full overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-[#7021EE]/20 to-black/90">
+          <div className="absolute inset-0 backdrop-blur-sm" />
         </div>
         <div className="relative h-full flex items-center justify-center text-center px-4">
           <motion.div
@@ -25,15 +40,18 @@ const AboutUs = () => {
             transition={{ duration: 0.8 }}
             className="max-w-4xl mx-auto"
           >
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 heading-highlight">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-[#7021EE]">
               About WhitegloveAI
             </h1>
             <p className="text-xl md:text-2xl text-gray-200 mb-8">
-              Transforming businesses through innovative AI solutions
+              Leading the Future of AI Innovation
             </p>
-            <Button className="group" asChild>
+            <Button
+              className="group bg-[#7021EE] hover:bg-[#7021EE]/90 text-white"
+              asChild
+            >
               <a href="#mission">
-                Learn More
+                Discover Our Story
                 <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
               </a>
             </Button>
@@ -51,8 +69,8 @@ const AboutUs = () => {
           variants={fadeInUp}
           className="scroll-mt-20"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-8 text-primary heading-highlight">Our Mission</h2>
-          <p className="text-xl text-muted-foreground leading-relaxed">
+          <h2 className="text-4xl md:text-5xl font-bold mb-8 text-[#7021EE]">Our Mission</h2>
+          <p className="text-xl text-gray-300 leading-relaxed">
             At WhitegloveAI, our mission is to empower organizations to adopt secure, responsible, and scalable AI solutions. 
             We believe in reshaping organizational efficiency through AI, unlocking new potentials in business processes, 
             customer experiences, and digital transformation strategies.
@@ -66,100 +84,98 @@ const AboutUs = () => {
           viewport={{ once: true }}
           variants={fadeInUp}
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-8 text-primary heading-highlight">Our Vision</h2>
-          <p className="text-xl text-muted-foreground leading-relaxed">
+          <h2 className="text-4xl md:text-5xl font-bold mb-8 text-[#7021EE]">Our Vision</h2>
+          <p className="text-xl text-gray-300 leading-relaxed">
             Our vision is to be at the forefront of AI-driven digital transformations, catalyzing growth and efficiency 
-            through the use of emerging technologies. We aim to establish AI as a transformative force that helps businesses 
-            solve complex problems, streamline operations, and enhance decision-making capabilities while maintaining the 
-            highest standards of security and integrity.
+            through emerging technologies. We aim to establish AI as a transformative force that helps businesses 
+            solve complex problems, streamline operations, and enhance decision-making capabilities.
           </p>
         </motion.section>
 
-        {/* Philosophy Section */}
+        {/* Core Values Grid */}
         <motion.section
-          initial="initial"
-          whileInView="animate"
+          variants={containerAnimation}
+          initial="hidden"
+          whileInView="show"
           viewport={{ once: true }}
-          variants={fadeInUp}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-8 text-primary heading-highlight">Our Philosophy</h2>
-          <p className="text-xl text-muted-foreground leading-relaxed">
-            We believe that AI should be a collaborative force—augmenting human creativity and expertise to drive innovation 
-            across industries. WhitegloveAI advocates for responsible AI development, where ethics, accountability, and 
-            transparency are integral to the design, deployment, and utilization of AI systems.
-          </p>
-        </motion.section>
-
-        {/* Core Beliefs Section */}
-        <motion.section
-          initial="initial"
-          whileInView="animate"
-          viewport={{ once: true }}
-          variants={fadeInUp}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold mb-8 text-primary heading-highlight col-span-full">Core Beliefs</h2>
-          {coreBeliefs.map((belief, index) => (
+          <h2 className="text-4xl md:text-5xl font-bold mb-8 text-[#7021EE] col-span-full">Our Core Values</h2>
+          {coreValues.map((value, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className="group p-6 rounded-xl bg-card hover:bg-card/80 border border-border transition-all duration-300 hover:scale-[1.02]"
+              variants={itemAnimation}
+              className="group p-6 rounded-xl bg-gradient-to-br from-[#7021EE]/10 to-transparent border border-[#7021EE]/20 hover:border-[#7021EE]/40 transition-all duration-300"
             >
-              <h3 className="text-xl font-semibold mb-4 text-primary">{belief.title}</h3>
-              <p className="text-muted-foreground group-hover:text-foreground transition-colors">
-                {belief.description}
+              <value.icon className="h-8 w-8 text-[#7021EE] mb-4" />
+              <h3 className="text-xl font-semibold mb-3 text-white">{value.title}</h3>
+              <p className="text-gray-400 group-hover:text-gray-300 transition-colors">
+                {value.description}
               </p>
             </motion.div>
           ))}
         </motion.section>
       </div>
 
-      <footer className="bg-primary text-white text-center py-6 mt-24">
-        <p>&copy; {new Date().getFullYear()} WhitegloveAI. All rights reserved.</p>
+      {/* Updated Footer */}
+      <footer className="bg-black border-t border-[#7021EE]/20 text-white py-16 mt-24">
+        <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div>
+            <h3 className="text-lg font-semibold mb-4">Site Map</h3>
+            <ul className="space-y-2">
+              <li><a href="/" className="text-gray-400 hover:text-[#7021EE] transition-colors">Home</a></li>
+              <li><a href="/about" className="text-gray-400 hover:text-[#7021EE] transition-colors">About</a></li>
+              <li><a href="/services" className="text-gray-400 hover:text-[#7021EE] transition-colors">Services</a></li>
+              <li><a href="/contact" className="text-gray-400 hover:text-[#7021EE] transition-colors">Contact</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="text-lg font-semibold mb-4">Legal</h3>
+            <ul className="space-y-2">
+              <li><a href="/privacy" className="text-gray-400 hover:text-[#7021EE] transition-colors">Privacy Policy</a></li>
+              <li><a href="/terms" className="text-gray-400 hover:text-[#7021EE] transition-colors">Terms of Service</a></li>
+            </ul>
+          </div>
+          <div className="lg:col-span-2">
+            <p className="text-sm text-gray-400">© Copyright WhitegloveAI LLC 2025</p>
+            <p className="text-sm text-[#7021EE] mt-2">Managed AI Service Provider™</p>
+          </div>
+        </div>
       </footer>
     </div>
   );
 };
 
-const coreBeliefs = [
+const coreValues = [
   {
-    title: "AI as a Collaborative Force",
-    description: "AI is a complement to human ingenuity, fostering creativity, and improving problem-solving."
+    title: "Innovation Excellence",
+    description: "Pushing boundaries and creating cutting-edge AI solutions that drive real business value.",
+    icon: Sparkles
   },
   {
-    title: "Responsible Innovation",
-    description: "We prioritize ethical AI practices. Ensuring fairness, accountability, and transparency in AI development is key to our approach."
+    title: "Security First",
+    description: "Ensuring the highest standards of data protection and privacy in every solution.",
+    icon: Shield
   },
   {
-    title: "Security and Trust",
-    description: "Security is at the core of everything we do. We focus on safeguarding data, privacy, and integrity."
+    title: "Client Success",
+    description: "Dedicated to delivering exceptional results and long-term value for our clients.",
+    icon: Target
   },
   {
-    title: "Empowerment Through Education",
-    description: "We believe in continuous learning and educating organizations on the possibilities of AI."
+    title: "Ethical AI",
+    description: "Committed to responsible AI development and implementation.",
+    icon: Brain
   },
   {
-    title: "Adaptive Growth",
-    description: "The world of technology is constantly evolving, and we embrace change to stay ahead."
+    title: "Collaborative Growth",
+    description: "Building strong partnerships and fostering innovation together.",
+    icon: Users
   },
   {
-    title: "Strategic Integration",
-    description: "AI should align with business objectives. We ensure that AI implementation delivers measurable value."
-  },
-  {
-    title: "Universal Accessibility",
-    description: "We democratize AI to ensure its benefits can be accessed by all organizations, regardless of size."
-  },
-  {
-    title: "Customer-Centricity",
-    description: "At the heart of AI deployment is the customer experience. We design solutions that drive loyalty and growth."
-  },
-  {
-    title: "Cross-Disciplinary Approach",
-    description: "AI is applicable across many industries. Our solutions span healthcare, finance, manufacturing, and more."
+    title: "Continuous Learning",
+    description: "Always evolving and adapting to stay ahead in AI technology.",
+    icon: Lightbulb
   }
 ];
 
