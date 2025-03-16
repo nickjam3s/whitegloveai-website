@@ -16,6 +16,7 @@ export const navigationLinks = [
         to: "/maisp/textai", 
         text: "TextAI",
         children: [
+          { to: "/maisp/textai", text: "TextAI" },
           { to: "/maisp/textai/textaiforgood", text: "AI for Good Program" }
         ]
       },
