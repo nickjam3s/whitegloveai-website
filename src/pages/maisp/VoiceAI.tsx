@@ -139,9 +139,9 @@ const VoiceAI = () => {
           <h1 className="text-3xl font-semibold mb-16 text-center heading-highlight-scroll">
             Security & Compliance
           </h1>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12 justify-items-center max-w-6xl mx-auto">
             {securityCompliance.map((item, index) => (
-              <div key={index} className="bg-card p-6 rounded-lg border border-gray-800 hover:border-secondary/50 transition-colors">
+              <div key={index} className="bg-card p-6 rounded-lg border border-gray-800 hover:border-secondary/50 transition-colors w-full">
                 <Shield className="h-10 w-10 text-secondary mb-4" />
                 <h3 className="text-xl font-semibold mb-3">{item.title}</h3>
                 <p className="text-gray-400">{item.description}</p>
