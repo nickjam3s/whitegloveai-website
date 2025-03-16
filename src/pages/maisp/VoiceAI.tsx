@@ -1,4 +1,3 @@
-
 import { Shield, PhoneCall, ArrowRight, BrainCircuit, BarChart4, CheckCircle2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
@@ -91,7 +90,7 @@ const VoiceAI = () => {
           <h1 className="text-3xl font-semibold mb-16 text-center heading-highlight-scroll">
             Benefits of VoiceAI Agents
           </h1>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center max-w-6xl mx-auto">
             {benefits.map((benefit, index) => (
               <div key={index} className="bg-card p-6 rounded-lg border border-gray-800 hover:border-secondary/50 transition-colors">
                 <benefit.icon className="h-10 w-10 text-secondary mb-4" />
