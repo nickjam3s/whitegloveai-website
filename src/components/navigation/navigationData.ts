@@ -39,9 +39,25 @@ export const navigationLinks = [
     ],
   },
   {
-    text: "AI-AMF",
-    href: "https://aiamf.ai",
-    external: true
+    text: "Products",
+    to: "#",
+    children: [
+      {
+        text: "AI-AMF",
+        href: "https://aiamf.ai",
+        external: true
+      },
+      {
+        text: "AI-Policy",
+        href: "https://polaicy.com",
+        external: true
+      },
+      {
+        text: "Lucidis",
+        href: "https://lucidis.ai",
+        external: true
+      }
+    ]
   },
   {
     text: "The AI Executive",

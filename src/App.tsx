@@ -77,6 +77,14 @@ const App = () => (
                 path="/aiamf"
                 element={<Navigate to="https://aiamf.ai" replace />}
               />
+              <Route
+                path="/aipolicy"
+                element={<Navigate to="https://polaicy.com" replace />}
+              />
+              <Route
+                path="/lucidis"
+                element={<Navigate to="https://lucidis.ai" replace />}
+              />
             </Routes>
           </main>
           <Footer />
