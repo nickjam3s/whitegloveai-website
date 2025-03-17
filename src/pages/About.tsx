@@ -75,19 +75,9 @@ const About = () => {
             
             <div className="mb-16 max-w-3xl">
               <h3 className="text-xl font-medium mb-6 text-gray-300">Mission</h3>
-              <p className="text-2xl md:text-4xl lg:text-5xl font-bold mb-12 leading-tight">
-                <span className="inline-flex items-center gap-3 mb-2">
-                  <svg className="w-10 h-10 md:w-12 md:h-12 text-white" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M50 10C27.9086 10 10 27.9086 10 50C10 72.0914 27.9086 90 50 90C72.0914 90 90 72.0914 90 50C90 27.9086 72.0914 10 50 10Z" stroke="currentColor" strokeWidth="6" />
-                    <path d="M50 25C36.1929 25 25 36.1929 25 50C25 63.8071 36.1929 75 50 75C63.8071 75 75 63.8071 75 50" stroke="currentColor" strokeWidth="6" />
-                    <path d="M50 40C42.268 40 36 46.268 36 54C36 61.732 42.268 68 50 68" stroke="currentColor" strokeWidth="6" />
-                  </svg>
-                  To lead <span className="text-[#9b87f5]">secure</span> and responsible 
-                </span>
-                <br className="hidden sm:block" />
-                AI adoption, reshaping organizational
-                <br className="hidden sm:block" />
-                <span className="text-[#9b87f5]">efficiency</span> and digital transformations.
+              <p className="text-gray-300 text-lg">
+                To lead secure and responsible AI adoption, reshaping organizational
+                efficiency and digital transformations.
               </p>
             </div>
             
@@ -141,10 +131,8 @@ const About = () => {
               <div>
                 <h2 className="text-4xl md:text-5xl font-bold mb-8 text-[#9b87f5]">Our Mission</h2>
                 <p className="text-gray-300 text-lg">
-                  At Lovable AI, our mission is to democratize AI development through intuitive tools, 
-                  making powerful web application creation accessible to everyone. We're committed to 
-                  empowering creators of all skill levels to build innovative, responsive, and 
-                  production-ready applications.
+                  To lead secure and responsible AI adoption, reshaping organizational
+                  efficiency and digital transformations.
                 </p>
               </div>
 
