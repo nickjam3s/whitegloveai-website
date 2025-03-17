@@ -22,6 +22,7 @@ import AvatarAI from "./pages/maisp/AvatarAI";
 import AutomateAI from "./pages/maisp/AutomateAI";
 import HumanoidAI from "./pages/maisp/HumanoidAI";
 import VendorAI from "./pages/maisp/VendorAI";
+import MediaAI from "./pages/maisp/MediaAI";
 
 // vCAIO Routes
 import VCAIO from "./pages/vcaio/Index";
@@ -60,6 +61,7 @@ const App = () => (
               <Route path="/maisp/automateai" element={<AutomateAI />} />
               <Route path="/maisp/humaniodai" element={<HumanoidAI />} />
               <Route path="/maisp/vendorai" element={<VendorAI />} />
+              <Route path="/maisp/mediaai" element={<MediaAI />} />
               
               {/* vCAIO Routes */}
               <Route path="/vcaio" element={<VCAIO />} />
