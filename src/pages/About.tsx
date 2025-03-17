@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { ArrowRight, Shield, Users, Sparkles, Brain, Target, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -52,14 +51,14 @@ const About = () => {
 
   return (
     <div className="min-h-screen bg-black text-white">
-      {/* Hero Section - fixed styling to match WhiteGloveAI */}
-      <section className="relative min-h-[85vh] flex flex-col justify-center items-center px-4">
+      {/* Hero Section - fixed styling and adjusted spacing/alignment */}
+      <section className="relative pt-28 min-h-[85vh] flex items-start px-4 md:px-12 lg:px-16">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-b from-[#9b87f5]/10 to-black/90" />
           <div className="absolute inset-0 backdrop-blur-sm" />
         </div>
         
-        <div className="relative z-10 container mx-auto text-center max-w-4xl">
+        <div className="relative z-10 container mx-auto max-w-6xl text-left">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -74,7 +73,7 @@ const About = () => {
               <span className="text-[#9b87f5]">Vision</span>
             </h2>
             
-            <div className="mb-16">
+            <div className="mb-16 max-w-3xl">
               <h3 className="text-xl font-medium mb-6 text-gray-300">Mission</h3>
               <p className="text-2xl md:text-4xl lg:text-5xl font-bold mb-12 leading-tight">
                 <span className="inline-flex items-center gap-3 mb-2">
@@ -92,7 +91,7 @@ const About = () => {
               </p>
             </div>
             
-            <div>
+            <div className="max-w-3xl">
               <h3 className="text-xl font-medium mb-6 text-gray-300">Vision</h3>
               <p className="text-2xl md:text-4xl lg:text-5xl font-bold leading-tight">
                 To be the <span className="text-[#9b87f5]">premier partner</span> for
@@ -371,7 +370,7 @@ const team = [
     name: "Michael Chen",
     role: "Chief Technology Officer",
     description: "Expert in AI systems architecture with a focus on creating intuitive developer experiences.",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+    image: "https://images.unsplash.com/photo-1507003211169-00dcc994a43e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
   },
   {
     name: "Dr. Aisha Johnson",
@@ -383,13 +382,13 @@ const team = [
     name: "David Park",
     role: "Head of Product",
     description: "Leading product strategy with a focus on user experience and accessibility in AI tools.",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+    image: "https://images.unsplash.com/photo-1500648741775-53994a69daeb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
   },
   {
     name: "Emma Wilson",
     role: "UX Design Lead",
     description: "Creating intuitive interfaces that make complex AI functionality accessible to all users.",
-    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"
+    image: "https://images.unsplash.com/photo-1534528741775-5658abf4ff4e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"
   },
   {
     name: "James Taylor",
