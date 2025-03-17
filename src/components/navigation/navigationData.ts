@@ -2,9 +2,9 @@
 export const navigationLinks = [
   {
     text: "About",
-    to: "/about",
+    to: "/aboutus",
     children: [
-      { to: "/about", text: "About Us" },
+      { to: "/aboutus", text: "About Us" },
       { to: "/about/apprentice", text: "Apprenticeship Program" }
     ]
   },
@@ -25,6 +25,7 @@ export const navigationLinks = [
       { to: "/maisp/automateai", text: "AutomateAI" },
       { to: "/maisp/humaniodai", text: "HumanoidAI" },
       { to: "/maisp/vendorai", text: "VendorAI" },
+      { to: "/maisp/mediaai", text: "MediaAI" },
     ],
   },
   {
@@ -48,4 +49,3 @@ export const navigationLinks = [
     external: true
   }
 ];
-
