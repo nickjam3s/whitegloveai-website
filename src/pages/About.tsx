@@ -52,52 +52,53 @@ const About = () => {
 
   return (
     <div className="min-h-screen bg-black text-white">
-      {/* New Hero Section - inspired by WhiteGlove AI */}
-      <section className="relative min-h-[90vh] flex flex-col justify-center items-center">
+      {/* Hero Section - fixed styling to match WhiteGloveAI */}
+      <section className="relative min-h-[85vh] flex flex-col justify-center items-center px-4">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-b from-[#9b87f5]/10 to-black/90" />
           <div className="absolute inset-0 backdrop-blur-sm" />
         </div>
         
-        <div className="relative z-10 container px-4 mx-auto text-center">
+        <div className="relative z-10 container mx-auto text-center max-w-4xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="max-w-5xl mx-auto"
           >
-            <h1 className="text-5xl md:text-7xl font-bold mb-8 heading-highlight">About</h1>
+            <h1 className="text-5xl md:text-7xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-white to-[#9b87f5] heading-highlight">
+              About
+            </h1>
             
-            <h2 className="text-3xl md:text-5xl font-bold mb-12">
+            <h2 className="text-3xl md:text-5xl font-bold mb-10">
               <span className="text-white">Mission & </span>
               <span className="text-[#9b87f5]">Vision</span>
             </h2>
             
             <div className="mb-16">
-              <h3 className="text-xl font-medium mb-4 text-gray-300">Mission</h3>
-              <p className="text-3xl md:text-5xl font-bold mb-12">
+              <h3 className="text-xl font-medium mb-6 text-gray-300">Mission</h3>
+              <p className="text-2xl md:text-4xl lg:text-5xl font-bold mb-12 leading-tight">
                 <span className="inline-flex items-center gap-3 mb-2">
-                  <svg className="w-12 h-12 text-white" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <svg className="w-10 h-10 md:w-12 md:h-12 text-white" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M50 10C27.9086 10 10 27.9086 10 50C10 72.0914 27.9086 90 50 90C72.0914 90 90 72.0914 90 50C90 27.9086 72.0914 10 50 10Z" stroke="currentColor" strokeWidth="6" />
                     <path d="M50 25C36.1929 25 25 36.1929 25 50C25 63.8071 36.1929 75 50 75C63.8071 75 75 63.8071 75 50" stroke="currentColor" strokeWidth="6" />
                     <path d="M50 40C42.268 40 36 46.268 36 54C36 61.732 42.268 68 50 68" stroke="currentColor" strokeWidth="6" />
                   </svg>
                   To lead <span className="text-[#9b87f5]">secure</span> and responsible 
                 </span>
-                <br />
+                <br className="hidden sm:block" />
                 AI adoption, reshaping organizational
-                <br />
+                <br className="hidden sm:block" />
                 <span className="text-[#9b87f5]">efficiency</span> and digital transformations.
               </p>
             </div>
             
             <div>
-              <h3 className="text-xl font-medium mb-4 text-gray-300">Vision</h3>
-              <p className="text-3xl md:text-5xl font-bold">
+              <h3 className="text-xl font-medium mb-6 text-gray-300">Vision</h3>
+              <p className="text-2xl md:text-4xl lg:text-5xl font-bold leading-tight">
                 To be the <span className="text-[#9b87f5]">premier partner</span> for
-                <br />
+                <br className="hidden sm:block" />
                 organizations embracing AI with
-                <br />
+                <br className="hidden sm:block" />
                 <span className="text-[#9b87f5]">confidence</span> and <span className="text-[#9b87f5]">expertise</span>.
               </p>
             </div>
@@ -108,7 +109,14 @@ const About = () => {
           <motion.div 
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1, duration: 0.5 }}
+            transition={{ 
+              delay: 1, 
+              duration: 0.5,
+              repeat: Infinity,
+              repeatType: "reverse",
+              repeatDelay: 1
+            }}
+            className="animate-bounce"
           >
             <a 
               href="#mission"
@@ -152,7 +160,7 @@ const About = () => {
               </div>
             </div>
 
-            <div className="relative">
+            <div className="relative h-full min-h-[400px]">
               <img
                 src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
                 alt="Our Mission and Vision"
@@ -187,7 +195,7 @@ const About = () => {
               <motion.div
                 key={index}
                 variants={itemAnimation}
-                className="group p-6 rounded-xl bg-gradient-to-br from-[#9b87f5]/10 to-transparent border border-[#9b87f5]/20 hover:border-[#9b87f5]/40 transition-all duration-300"
+                className="group p-6 rounded-xl bg-gradient-to-br from-[#9b87f5]/10 to-transparent border border-[#9b87f5]/20 hover:border-[#9b87f5]/40 hover:shadow-[0_0_15px_rgba(155,135,245,0.15)] transition-all duration-300"
               >
                 <value.icon className="h-8 w-8 text-[#9b87f5] mb-4" />
                 <h3 className="text-xl font-semibold mb-3 text-white">{value.title}</h3>
@@ -208,7 +216,7 @@ const About = () => {
             whileInView="animate"
             viewport={{ once: true }}
             variants={fadeInUp}
-            className="text-4xl font-bold mb-12 text-center"
+            className="text-4xl font-bold mb-16 text-center"
           >
             Company Overview
           </motion.h2>
@@ -222,7 +230,7 @@ const About = () => {
                 transition={{ delay: index * 0.1 }}
                 className="text-center"
               >
-                <p className="text-4xl font-bold mb-2 text-[#9b87f5]">{stat.value}</p>
+                <p className="text-4xl md:text-5xl font-bold mb-2 text-[#9b87f5]">{stat.value}</p>
                 <p className="text-gray-300">{stat.label}</p>
               </motion.div>
             ))}
@@ -230,7 +238,7 @@ const About = () => {
         </div>
       </section>
 
-      {/* Leadership Team */}
+      {/* Leadership Team - Enhanced with better animation and hover effects */}
       <section className="py-24 bg-[#111111]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
@@ -249,19 +257,22 @@ const About = () => {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           >
             {team.map((member, index) => (
               <motion.div 
                 key={index} 
                 variants={itemAnimation}
-                className="bg-[#111111] p-8 rounded-lg w-full border border-[#9b87f5]/10 hover:border-[#9b87f5]/30 transition-all duration-300"
+                whileHover={{ y: -5, transition: { duration: 0.2 } }}
+                className="bg-[#111111] p-8 rounded-lg w-full border border-[#9b87f5]/10 hover:border-[#9b87f5]/30 hover:shadow-[0_0_20px_rgba(155,135,245,0.1)] transition-all duration-300"
               >
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  className="w-32 h-32 rounded-full mb-6 mx-auto object-cover"
-                />
+                <div className="relative w-32 h-32 mx-auto mb-6 overflow-hidden rounded-full">
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                  />
+                </div>
                 <h3 className="text-2xl font-bold mb-2 text-center">{member.name}</h3>
                 <p className="text-[#9b87f5] mb-4 text-center font-medium">{member.role}</p>
                 <p className="text-gray-300 text-center">{member.description}</p>
@@ -271,7 +282,7 @@ const About = () => {
         </div>
       </section>
 
-      {/* Contact CTA */}
+      {/* Contact CTA - Enhanced with better animation */}
       <section className="py-24 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
@@ -279,13 +290,14 @@ const About = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
+            className="bg-gradient-to-br from-[#9b87f5]/10 to-transparent border border-[#9b87f5]/20 rounded-xl p-10 max-w-4xl mx-auto"
           >
             <h2 className="text-4xl font-bold mb-6">Ready to Transform Your Development Process?</h2>
             <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
               Connect with Lovable AI to discover how our AI-powered editor can revolutionize your web application development.
             </p>
             <Link to="/contact">
-              <Button size="lg" className="text-lg px-8 py-6">
+              <Button size="lg" className="text-lg px-8 py-6 bg-[#9b87f5] hover:bg-[#9b87f5]/90 hover:shadow-[0_0_15px_rgba(155,135,245,0.4)] transition-all duration-300">
                 Get Started <ArrowRight className="ml-2" />
               </Button>
             </Link>
