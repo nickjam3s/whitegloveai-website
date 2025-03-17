@@ -139,10 +139,8 @@ const About = () => {
               <div>
                 <h2 className="text-4xl md:text-5xl font-bold mb-8 text-[#9b87f5]">Our Vision</h2>
                 <p className="text-gray-300 text-lg">
-                  We envision a future where the barriers between idea and implementation are 
-                  eliminated, where anyone can bring their digital vision to life through 
-                  conversational AI assistance. Lovable AI aims to be at the forefront of AI-driven 
-                  development tools, catalyzing a new era of digital creation.
+                  To be the premier partner for organizations embracing AI with
+                  confidence and expertise.
                 </p>
               </div>
             </div>
@@ -387,3 +385,4 @@ const team = [
 ];
 
 export default About;
+
