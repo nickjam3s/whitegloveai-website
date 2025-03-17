@@ -52,34 +52,70 @@ const About = () => {
 
   return (
     <div className="min-h-screen bg-black text-white">
-      {/* Hero Section with Dynamic Background */}
-      <section className="relative h-[80vh] flex items-center">
-        <div className="absolute inset-0 z-0 bg-gradient-to-b from-[#9b87f5]/20 to-black/90">
+      {/* New Hero Section - inspired by WhiteGlove AI */}
+      <section className="relative min-h-[90vh] flex flex-col justify-center items-center">
+        <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-gradient-to-b from-[#9b87f5]/10 to-black/90" />
           <div className="absolute inset-0 backdrop-blur-sm" />
         </div>
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div className="relative z-10 container px-4 mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center mb-16"
+            className="max-w-5xl mx-auto"
           >
-            <h1 className="text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-[#9b87f5]">
-              About Lovable AI
-            </h1>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
-              Building the future of AI-powered development through innovation,
-              accessibility, and unparalleled user experience.
-            </p>
-            <Button
-              className="group bg-[#9b87f5] hover:bg-[#9b87f5]/90 text-white"
-              asChild
+            <h1 className="text-5xl md:text-7xl font-bold mb-8 heading-highlight">About</h1>
+            
+            <h2 className="text-3xl md:text-5xl font-bold mb-12">
+              <span className="text-white">Mission & </span>
+              <span className="text-[#9b87f5]">Vision</span>
+            </h2>
+            
+            <div className="mb-16">
+              <h3 className="text-xl font-medium mb-4 text-gray-300">Mission</h3>
+              <p className="text-3xl md:text-5xl font-bold mb-12">
+                <span className="inline-flex items-center gap-3 mb-2">
+                  <svg className="w-12 h-12 text-white" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M50 10C27.9086 10 10 27.9086 10 50C10 72.0914 27.9086 90 50 90C72.0914 90 90 72.0914 90 50C90 27.9086 72.0914 10 50 10Z" stroke="currentColor" strokeWidth="6" />
+                    <path d="M50 25C36.1929 25 25 36.1929 25 50C25 63.8071 36.1929 75 50 75C63.8071 75 75 63.8071 75 50" stroke="currentColor" strokeWidth="6" />
+                    <path d="M50 40C42.268 40 36 46.268 36 54C36 61.732 42.268 68 50 68" stroke="currentColor" strokeWidth="6" />
+                  </svg>
+                  To lead <span className="text-[#9b87f5]">secure</span> and responsible 
+                </span>
+                <br />
+                AI adoption, reshaping organizational
+                <br />
+                <span className="text-[#9b87f5]">efficiency</span> and digital transformations.
+              </p>
+            </div>
+            
+            <div>
+              <h3 className="text-xl font-medium mb-4 text-gray-300">Vision</h3>
+              <p className="text-3xl md:text-5xl font-bold">
+                To be the <span className="text-[#9b87f5]">premier partner</span> for
+                <br />
+                organizations embracing AI with
+                <br />
+                <span className="text-[#9b87f5]">confidence</span> and <span className="text-[#9b87f5]">expertise</span>.
+              </p>
+            </div>
+          </motion.div>
+        </div>
+        
+        <div className="absolute bottom-10 left-0 right-0 flex justify-center">
+          <motion.div 
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1, duration: 0.5 }}
+          >
+            <a 
+              href="#mission"
+              className="flex items-center justify-center w-12 h-12 rounded-full bg-[#9b87f5]/20 border border-[#9b87f5]/30 hover:bg-[#9b87f5]/30 transition-all duration-300"
             >
-              <a href="#mission">
-                Discover Our Story
-                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-              </a>
-            </Button>
+              <ArrowRight className="h-5 w-5 rotate-90" />
+            </a>
           </motion.div>
         </div>
       </section>
