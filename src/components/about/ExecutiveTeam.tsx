@@ -19,31 +19,31 @@ const ExecutiveTeam: React.FC = () => {
     show: { opacity: 1, y: 0 }
   };
 
-  // First row executives
+  // First row executives with updated images
   const topRowExecutives = [
     {
       name: "Nick James",
       title: "Chief Executive Officer",
       secondaryTitle: "& Chief AI Officer",
-      image: "/lovable-uploads/25fea2e3-a7d4-40c6-bcaf-295c28156fc2.png",
+      image: "/lovable-uploads/09629b88-ce65-4e5b-b223-f80df036229b.png",
       linkedin: "https://linkedin.com"
     },
     {
       name: "Jade Skariah",
       title: "Chief of Staff",
-      image: "/lovable-uploads/c7f462fb-b410-40cd-a41d-fc94e78dbb6f.png",
+      image: "/lovable-uploads/76017f57-7d97-4d16-bda6-8b044af1fb67.png",
       linkedin: "https://linkedin.com"
     },
     {
       name: "Jeffrey Bankard",
       title: "Chief Operations Officer",
-      image: "/lovable-uploads/8d6b7902-56b6-4ba7-86ba-67aa9f3bccb8.png",
+      image: "/lovable-uploads/48dc0aa9-6670-48ee-bf78-17fd3db050c2.png",
       linkedin: "https://linkedin.com"
     },
     {
       name: "Peter Santis",
       title: "Chief Revenue Officer",
-      image: "/lovable-uploads/cbc85045-41f1-434b-a70d-69aca08e4e66.png",
+      image: "/lovable-uploads/207a70e3-956b-44a6-b40a-c068e899c8b9.png",
       linkedin: "https://linkedin.com"
     }
   ];
