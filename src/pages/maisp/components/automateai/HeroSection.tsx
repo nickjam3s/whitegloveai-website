@@ -21,23 +21,11 @@ const HeroSection = () => {
             A managed service designed to revolutionize your business operations through intelligent automation. Built on the robust Lucidis.ai platform, AutomateAI employs agentic workflows to streamline and optimize your processes.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button className="group w-full sm:w-auto" asChild>
-              <a href="#contact" className="inline-flex items-center justify-center">
-                Get Started
-                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-              </a>
-            </Button>
-            <Button variant="outline" className="group w-full sm:w-auto" asChild>
-              <a 
-                href="https://lucidis.ai" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center"
-              >
+          <a href="https://lucidis.ai" target="_blank" rel="noopener noreferrer" className="inline-flex items-center px-6 py-3 text-base font-medium text-white bg-secondary/20 hover:bg-secondary/30 rounded-lg transition-colors border border-secondary/50">
                 Learn More
-                <ArrowUpRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+                <Video className="ml-2 h-5 w-5" />
               </a>
-            </Button>
+          
           </div>
         </div>
       </div>

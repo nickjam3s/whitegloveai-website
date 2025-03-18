@@ -40,7 +40,7 @@ const AvatarAI = () => {
                 Book a Demo
                 <ArrowRight className="ml-2 h-5 w-5" />
               </a>
-              <a href="https://dicks.demo.whitegloveai.com/demo/7d200b88524c41e0b919b899786846db/631635c4f4e342f09c21e77994689bba" target="_blank" rel="noopener noreferrer" className="inline-flex items-center px-6 py-3 text-base font-medium text-white bg-secondary/20 hover:bg-secondary/30 rounded-lg transition-colors border border-secondary/50">
+              <a href="https://avatar.labs.whitegloveai.com/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center px-6 py-3 text-base font-medium text-white bg-secondary/20 hover:bg-secondary/30 rounded-lg transition-colors border border-secondary/50">
                 Try Demo
                 <Video className="ml-2 h-5 w-5" />
               </a>

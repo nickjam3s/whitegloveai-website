@@ -20,12 +20,7 @@ const HeroSection = () => {
           <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto mb-8">
             Simplify AI vendor management, reduce costs, and enhance performance with VendorAI.
           </p>
-          <Button className="group text-white" asChild>
-            <a href="#contact" className="inline-flex items-center">
-              Get Started
-              <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-            </a>
-          </Button>
+        
         </div>
       </div>
     </section>
