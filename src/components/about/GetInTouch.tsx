@@ -3,6 +3,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Mail, Phone, MapPin, Linkedin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Separator } from '@/components/ui/separator';
 
 const GetInTouch: React.FC = () => {
   const fadeInUp = {
@@ -45,7 +46,7 @@ const GetInTouch: React.FC = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20">
         {/* Contact Information */}
-        <div className="space-y-10">
+        <div className="space-y-6">
           <div>
             <p className="text-gray-400 mb-2 uppercase tracking-wide text-sm">Office</p>
             <div className="flex items-start gap-2">
@@ -56,6 +57,8 @@ const GetInTouch: React.FC = () => {
               </p>
             </div>
           </div>
+
+          <Separator className="bg-[#333333] my-4" />
 
           <div>
             <p className="text-gray-400 mb-2 uppercase tracking-wide text-sm">Email</p>
@@ -69,6 +72,8 @@ const GetInTouch: React.FC = () => {
             </a>
           </div>
 
+          <Separator className="bg-[#333333] my-4" />
+
           <div>
             <p className="text-gray-400 mb-2 uppercase tracking-wide text-sm">Phone</p>
             <a 
@@ -80,6 +85,8 @@ const GetInTouch: React.FC = () => {
               <ArrowRight className="w-4 h-4 opacity-0 -ml-2 group-hover:opacity-100 group-hover:ml-0 transition-all" />
             </a>
           </div>
+
+          <Separator className="bg-[#333333] my-4" />
 
           <div>
             <p className="text-gray-400 mb-2 uppercase tracking-wide text-sm">Follow WhitegloveAI</p>
@@ -145,4 +152,3 @@ const GetInTouch: React.FC = () => {
 };
 
 export default GetInTouch;
-
