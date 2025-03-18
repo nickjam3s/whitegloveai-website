@@ -15,7 +15,7 @@ const HeroSection = () => {
       <div className="max-w-7xl mx-auto relative">
         <div className="text-center animate-fade-up">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight mb-6 heading-highlight">
-            Introducing AutomateAI by Lucidis
+            Managed AutomateAI Service by Lucidis
           </h1>
           <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto mb-8">
             A managed service designed to revolutionize your business operations through intelligent automation. Built on the robust Lucidis.ai platform, AutomateAI employs agentic workflows to streamline and optimize your processes.
