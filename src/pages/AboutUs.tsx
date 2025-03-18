@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowDown, Heart, Shield, Brain, Sparkles, Users, Target, Lock, Lightbulb, ChartBar, Linkedin } from 'lucide-react';
@@ -5,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import ExecutiveTeam from '@/components/about/ExecutiveTeam';
+import GetInTouch from '@/components/about/GetInTouch';
 
 const AboutUs = () => {
   const fadeInUp = {
@@ -190,8 +192,11 @@ const AboutUs = () => {
           ))}
         </motion.section>
         
-        {/* Executive Team Section - Now after Core Values */}
+        {/* Executive Team Section - After Core Values */}
         <ExecutiveTeam />
+        
+        {/* Get in Touch Section - After Executive Team */}
+        <GetInTouch />
       </div>
     </div>
   );

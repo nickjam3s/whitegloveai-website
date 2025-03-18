@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import ExecutiveProfile from './ExecutiveProfile';
@@ -86,9 +87,9 @@ const ExecutiveTeam: React.FC = () => {
         className="mb-12"
       >
         <h2 className="text-4xl md:text-5xl font-bold mb-8 text-[#7021EE] font-sora">Meet the Executive Team</h2>
-        <p className="text-xl text-gray-300 max-w-3xl font-sora">
-          Our leadership team brings decades of experience in AI innovation, enterprise transformation, 
-          and technology excellence to help organizations thrive in the digital era.
+        <p className="text-xl text-gray-300 max-w-full font-sora mb-8">
+          We are collective of highly experienced and passionate cybersecurity principal practitioners and executives who have come together to explore the promises
+          <br />and address the risks that AI presents to humanity.
         </p>
       </motion.div>
 
