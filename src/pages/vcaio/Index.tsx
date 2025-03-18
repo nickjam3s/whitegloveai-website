@@ -8,9 +8,11 @@ import FutureSection from "./components/FutureSection";
 import CoreBeliefs from "./components/CoreBeliefs";
 
 const VCAIO = () => {
+  const location = useLocation();
+  
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
+  }, [location.pathname]); // Will run when the path changes
 
   return (
     <div className="min-h-screen bg-background pb-24">
