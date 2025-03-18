@@ -20,7 +20,7 @@ const ExecutiveProfile: React.FC<ExecutiveProfileProps> = ({
 }) => {
   return (
     <motion.div
-      className="glass-card overflow-hidden cursor-pointer group relative rounded-lg border border-[#333333] hover:border-[#7021EE] transition-all duration-300 hover:shadow-[0_0_0_1px_#7021EE]"
+      className="glass-card overflow-hidden cursor-pointer group relative rounded-lg border border-[#333333] hover:border-[#7021EE] transition-all duration-300 hover:shadow-[0_0_0_1px_#7021EE] executive-border-animate"
       whileHover={{ scale: 1.03 }}
       transition={{ duration: 0.3 }}
     >
@@ -63,4 +63,3 @@ const ExecutiveProfile: React.FC<ExecutiveProfileProps> = ({
 };
 
 export default ExecutiveProfile;
-
