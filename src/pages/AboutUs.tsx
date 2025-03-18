@@ -171,6 +171,19 @@ const AboutUs = () => {
         {/* Core Beliefs Section */}
         <CoreBeliefs />
         
+        {/* Core Beliefs Philosophy Text */}
+        <motion.section
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="bg-gradient-to-br from-[#7021EE]/10 to-transparent border border-[#7021EE]/20 p-8 rounded-xl"
+        >
+          <p className="text-xl text-gray-300 leading-relaxed">
+            At WhitegloveAI, we are not just practitioners but advocates of an AI-enabled future where businesses thrive through the ethical, secure, and intelligent application of technology. We are dedicated to leading this charge, providing our clients and stakeholders with the tools and guidance to realize the full potential of artificial intelligence. Our philosophy isn't just about what AI can do for us today, but how it will shape our tomorrow.
+          </p>
+        </motion.section>
+        
         {/* Core Values Grid */}
         <motion.section
           variants={containerAnimation}
