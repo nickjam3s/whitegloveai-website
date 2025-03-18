@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowDown, Heart, Shield, Brain, Sparkles, Users, Target, Lock, Lightbulb, ChartBar, Linkedin } from 'lucide-react';
@@ -31,17 +30,16 @@ const AboutUs = () => {
     show: { opacity: 1, y: 0 }
   };
 
-  // New animations for the Mission, Vision, and AI Philosophy sections
   const titleAnimation = {
     initial: { opacity: 0, scale: 0.9, y: -10 },
     animate: { opacity: 1, scale: 1, y: 0 },
-    transition: { duration: 0.8, type: "spring", stiffness: 100 }
+    transition: { duration: 1.2, type: "spring", stiffness: 80 }
   };
   
   const textAnimation = {
     initial: { opacity: 0, x: -20 },
     animate: { opacity: 1, x: 0 },
-    transition: { duration: 0.6, delay: 0.2 }
+    transition: { duration: 1, delay: 0.3 }
   };
 
   const stats = [
@@ -53,13 +51,11 @@ const AboutUs = () => {
 
   return (
     <div className="min-h-screen bg-black text-white font-sans font-sora">
-      {/* Hero Section with Dynamic Background */}
       <section className="relative h-[100vh] flex items-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-[#7021EE]/20 to-black/90">
           <div className="absolute inset-0 backdrop-blur-sm" />
         </div>
         
-        {/* Animated Elements */}
         <div className="absolute inset-0 overflow-hidden">
           {[...Array(20)].map((_, i) => (
             <motion.div
@@ -115,7 +111,6 @@ const AboutUs = () => {
               At WhitegloveAI, we're pioneering AI-driven transformations to elevate enterprise operations through innovative, ethical, and secure solutions.
             </motion.p>
           
-            {/* Stats Section */}
             <motion.div 
               className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-12 mt-12"
               variants={containerAnimation}
@@ -135,7 +130,6 @@ const AboutUs = () => {
             </motion.div>
           </div>
 
-          {/* Scroll indicator */}
           <motion.div 
             className="absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer"
             initial={{ y: 0, opacity: 0.5 }}
@@ -150,7 +144,6 @@ const AboutUs = () => {
       </section>
 
       <div className="max-w-7xl mx-auto px-4 py-16 space-y-20">
-        {/* Mission Section */}
         <motion.section
           id="mission"
           initial="initial"
@@ -175,7 +168,6 @@ const AboutUs = () => {
           </motion.p>
         </motion.section>
 
-        {/* Vision Section */}
         <motion.section
           initial="initial"
           whileInView="animate"
@@ -198,7 +190,6 @@ const AboutUs = () => {
           </motion.p>
         </motion.section>
         
-        {/* AI Philosophy Section */}
         <motion.section
           initial="initial"
           whileInView="animate"
@@ -222,20 +213,18 @@ const AboutUs = () => {
           </motion.p>
         </motion.section>
         
-        {/* Core Beliefs Section - Adjusted spacing */}
         <div className="mt-16">
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="-mb-4" /* This reduces space between title and beliefs */
+            className="-mb-4"
           >
             <CoreBeliefs />
           </motion.div>
         </div>
         
-        {/* Core Beliefs Philosophy Text */}
         <motion.section
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -248,7 +237,6 @@ const AboutUs = () => {
           </p>
         </motion.section>
         
-        {/* Core Values Grid */}
         <motion.section
           variants={containerAnimation}
           initial="hidden"
@@ -272,10 +260,8 @@ const AboutUs = () => {
           ))}
         </motion.section>
         
-        {/* Executive Team Section - After Core Values */}
         <ExecutiveTeam />
         
-        {/* Get in Touch Section - After Executive Team */}
         <GetInTouch />
       </div>
     </div>
