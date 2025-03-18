@@ -40,7 +40,7 @@ export const navigationLinks = [
   },
   {
     text: "Products",
-    to: "#",
+    to: "/products",
     children: [
       {
         text: "AI-AMF",

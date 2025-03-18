@@ -2,22 +2,27 @@
 import { Link, useNavigate } from "react-router-dom";
 import { ChevronDown, ExternalLink } from "lucide-react";
 
+interface SubChildLink {
+  to: string;
+  text: string;
+}
+
+interface ChildLink {
+  to?: string;
+  text: string;
+  external?: boolean;
+  children?: SubChildLink[];
+}
+
+interface MenuLink {
+  text: string;
+  to?: string;
+  external?: boolean;
+  children?: ChildLink[];
+}
+
 interface MenuItemProps {
-  link: {
-    text: string;
-    to?: string;
-    href?: string;
-    external?: boolean;
-    children?: Array<{
-      to?: string;
-      text: string;
-      external?: boolean;
-      children?: Array<{
-        to: string;
-        text: string;
-      }>;
-    }>;
-  };
+  link: MenuLink;
   isActive: boolean;
 }
 

@@ -36,7 +36,7 @@ const Navigation = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navigationLinks.map((link) => (
-              <div key={link.to || link.href} className="relative group">
+              <div key={link.to || link.text} className="relative group">
                 <DesktopMenuItem
                   link={link}
                   isActive={location.pathname === link.to}
