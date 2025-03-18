@@ -1,6 +1,6 @@
 
 import { motion } from "framer-motion";
-import { Plus, Users, TrendingUp, Globe } from "lucide-react";
+import { Plus, Users, TrendingUp, Globe, Search, Film } from "lucide-react";
 
 const AddOns = () => {
   const containerAnimation = {
@@ -26,6 +26,23 @@ const AddOns = () => {
         "Guest booking and coordination"
       ],
       icon: Plus
+    },
+    {
+      title: "SEO Processing",
+      items: [
+        "Comprehensive keyword research",
+        "Optimization for podcast titles, descriptions, and show notes"
+      ],
+      icon: Search
+    },
+    {
+      title: "Video Cutups",
+      items: [
+        "Professionally edited short-form video clips (30–60 seconds)",
+        "For Instagram, TikTok, and YouTube Shorts",
+        "Up to 3 clips per episode"
+      ],
+      icon: Film
     },
     {
       title: "Growth & Visibility",
