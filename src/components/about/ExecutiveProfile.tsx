@@ -24,15 +24,16 @@ const ExecutiveProfile: React.FC<ExecutiveProfileProps> = ({
       whileHover={{ scale: 1.03 }}
       transition={{ duration: 0.3 }}
     >
-      <div className="aspect-square overflow-hidden bg-[#320B70]">
+      <div className="aspect-square overflow-hidden bg-gradient-to-br from-[#320B70] to-black">
         <div className="w-full h-full relative p-4">
-          <div className="w-full h-full overflow-hidden rounded-md">
+          <div className="w-full h-full overflow-hidden rounded-md relative">
+            <div className="absolute inset-0 bg-[#9b87f5]/20 z-10 mix-blend-overlay"></div>
             <img 
               src={image} 
               alt={`${name} - ${title}`}
               className="w-full h-full object-cover object-center filter grayscale group-hover:grayscale-0 transition-all duration-300"
             />
-            <div className="absolute inset-0 bg-[#7021EE]/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-md"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-[#7021EE]/40 to-[#320B70]/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-md z-20"></div>
           </div>
         </div>
       </div>
