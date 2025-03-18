@@ -135,7 +135,7 @@ const AboutUs = () => {
         </div>
       </section>
 
-      <div className="max-w-7xl mx-auto px-4 py-16 space-y-24">
+      <div className="max-w-7xl mx-auto px-4 py-16 space-y-20">
         {/* Mission Section */}
         <motion.section
           id="mission"
@@ -168,6 +168,22 @@ const AboutUs = () => {
           </p>
         </motion.section>
         
+        {/* AI Philosophy Section */}
+        <motion.section
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true }}
+          variants={fadeInUp}
+        >
+          <h2 className="text-4xl md:text-5xl font-bold mb-8 text-[#7021EE]">AI Philosophy</h2>
+          <p className="text-xl text-gray-300 leading-relaxed">
+            At WhitegloveAI, our philosophy is founded on the principle of harmonizing human ingenuity with the power 
+            of artificial intelligence to forge a brighter and more efficient future for enterprises. We believe AI is 
+            not just a tool but a transformative ally that amplifies human potential, drives innovation, and reshapes 
+            the very fabric of business.
+          </p>
+        </motion.section>
+        
         {/* Core Beliefs Section */}
         <CoreBeliefs />
         
@@ -177,7 +193,7 @@ const AboutUs = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="bg-gradient-to-br from-[#7021EE]/10 to-transparent border border-[#7021EE]/20 p-8 rounded-xl"
+          className="bg-gradient-to-br from-[#7021EE]/10 to-transparent border border-[#7021EE]/20 p-8 rounded-xl mb-8"
         >
           <p className="text-xl text-gray-300 leading-relaxed">
             At WhitegloveAI, we are not just practitioners but advocates of an AI-enabled future where businesses thrive through the ethical, secure, and intelligent application of technology. We are dedicated to leading this charge, providing our clients and stakeholders with the tools and guidance to realize the full potential of artificial intelligence. Our philosophy isn't just about what AI can do for us today, but how it will shape our tomorrow.
