@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Heart, Shield, Brain, Sparkles, Users, Target, Lock, Lightbulb, ChartBar } from 'lucide-react';
+import { ArrowDown, Heart, Shield, Brain, Sparkles, Users, Target, Lock, Lightbulb, ChartBar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const AboutUs = () => {
@@ -26,35 +26,107 @@ const AboutUs = () => {
     show: { opacity: 1, y: 0 }
   };
 
+  const stats = [
+    { value: "98%", label: "Client Retention" },
+    { value: "250+", label: "AI Projects" },
+    { value: "24/7", label: "Support" },
+    { value: "12+", label: "Years Experience" }
+  ];
+
   return (
     <div className="min-h-screen bg-black text-white font-sans">
       {/* Hero Section with Dynamic Background */}
-      <section className="relative h-[70vh] min-h-[600px] w-full overflow-hidden">
+      <section className="relative h-[100vh] flex items-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-[#7021EE]/20 to-black/90">
           <div className="absolute inset-0 backdrop-blur-sm" />
         </div>
-        <div className="relative h-full flex items-center justify-center text-center px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="max-w-4xl mx-auto"
-          >
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-[#7021EE]">
-              About WhitegloveAI
-            </h1>
-            <p className="text-xl md:text-2xl text-gray-200 mb-8">
-              Leading the Future of AI Innovation
-            </p>
-            <Button
-              className="group bg-[#7021EE] hover:bg-[#7021EE]/90 text-white"
-              asChild
+        
+        {/* Animated Elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          {[...Array(20)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute rounded-full bg-[#7021EE]/20"
+              initial={{
+                x: Math.random() * window.innerWidth,
+                y: Math.random() * window.innerHeight,
+                scale: Math.random() * 0.5 + 0.5,
+              }}
+              animate={{
+                x: [
+                  Math.random() * window.innerWidth,
+                  Math.random() * window.innerWidth,
+                  Math.random() * window.innerWidth,
+                ],
+                y: [
+                  Math.random() * window.innerHeight,
+                  Math.random() * window.innerHeight,
+                  Math.random() * window.innerHeight,
+                ],
+                opacity: [0.2, 0.5, 0.2],
+              }}
+              transition={{
+                duration: Math.random() * 20 + 20,
+                repeat: Infinity,
+                ease: "linear",
+              }}
+              style={{
+                width: `${Math.random() * 200 + 50}px`,
+                height: `${Math.random() * 200 + 50}px`,
+              }}
+            />
+          ))}
+        </div>
+
+        <div className="container mx-auto px-4 flex flex-col items-center justify-center relative z-10">
+          <div className="max-w-5xl mx-auto text-center mb-16">
+            <motion.h1 
+              initial={{ opacity: 0, y: 30 }} 
+              animate={{ opacity: 1, y: 0 }} 
+              transition={{ duration: 0.8 }}
+              className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-[#7021EE]"
             >
-              <a href="#mission">
-                Discover Our Story
-                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-              </a>
-            </Button>
+              Transforming Businesses with AI Excellence
+            </motion.h1>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }} 
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-xl md:text-2xl text-gray-200 mb-12 max-w-3xl mx-auto"
+            >
+              At WhitegloveAI, we're pioneering AI-driven transformations to elevate enterprise operations through innovative, ethical, and secure solutions.
+            </motion.p>
+          
+            {/* Stats Section */}
+            <motion.div 
+              className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-12 mt-12"
+              variants={containerAnimation}
+              initial="hidden"
+              animate="show"
+            >
+              {stats.map((stat, index) => (
+                <motion.div 
+                  key={index} 
+                  className="text-center"
+                  variants={itemAnimation}
+                >
+                  <p className="text-4xl md:text-5xl font-bold text-[#7021EE]">{stat.value}</p>
+                  <p className="text-gray-300 mt-2">{stat.label}</p>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+
+          {/* Scroll indicator */}
+          <motion.div 
+            className="absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer"
+            initial={{ y: 0, opacity: 0.5 }}
+            animate={{ y: 10, opacity: 1 }}
+            transition={{ duration: 1, repeat: Infinity, repeatType: "reverse" }}
+          >
+            <a href="#mission" aria-label="Scroll to learn more">
+              <ArrowDown className="h-8 w-8 text-[#7021EE]" />
+            </a>
           </motion.div>
         </div>
       </section>
@@ -116,32 +188,6 @@ const AboutUs = () => {
           ))}
         </motion.section>
       </div>
-
-      {/* Updated Footer */}
-      <footer className="bg-black border-t border-[#7021EE]/20 text-white py-16 mt-24">
-        <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Site Map</h3>
-            <ul className="space-y-2">
-              <li><a href="/" className="text-gray-400 hover:text-[#7021EE] transition-colors">Home</a></li>
-              <li><a href="/about" className="text-gray-400 hover:text-[#7021EE] transition-colors">About</a></li>
-              <li><a href="/services" className="text-gray-400 hover:text-[#7021EE] transition-colors">Services</a></li>
-              <li><a href="/contact" className="text-gray-400 hover:text-[#7021EE] transition-colors">Contact</a></li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Legal</h3>
-            <ul className="space-y-2">
-              <li><a href="/privacy" className="text-gray-400 hover:text-[#7021EE] transition-colors">Privacy Policy</a></li>
-              <li><a href="/terms" className="text-gray-400 hover:text-[#7021EE] transition-colors">Terms of Service</a></li>
-            </ul>
-          </div>
-          <div className="lg:col-span-2">
-            <p className="text-sm text-gray-400">© Copyright WhitegloveAI LLC 2025</p>
-            <p className="text-sm text-[#7021EE] mt-2">Managed AI Service Provider™</p>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 };
