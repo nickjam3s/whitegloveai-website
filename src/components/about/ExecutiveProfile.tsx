@@ -52,7 +52,6 @@ const ExecutiveProfile: React.FC<ExecutiveProfileProps> = ({
         >
           <Linkedin className="w-4 h-4" />
           <span className="text-sm">LinkedIn</span>
-          {/* Use conditional rendering to swap between arrows based on hover state */}
           <span className="linkedin-arrow-container">
             <ArrowUpRight className="w-4 h-4 linkedin-default-arrow" />
             <ArrowRight className="w-4 h-4 linkedin-hover-arrow" />
