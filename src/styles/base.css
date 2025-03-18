@@ -33,7 +33,7 @@
     @apply border-border antialiased;
   }
   body {
-    @apply bg-background text-foreground font-sora;
+    @apply bg-background text-foreground font-sans;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
   h2 {
