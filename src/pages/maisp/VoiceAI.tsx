@@ -46,7 +46,7 @@ const VoiceAI = () => {
         <div className="max-w-7xl mx-auto relative">
           <div className="text-center animate-fade-up">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight mb-6 heading-highlight">
-              WhitegloveAI Managed VoiceAI Service
+             Managed VoiceAI Service
             </h1>
             <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto mb-8">
               Transform customer interactions with secure, intelligent automation using our cutting-edge Voice AI Agent solution.
