@@ -2,7 +2,6 @@
 import { useEffect } from "react";
 import HeroSection from "./components/launch/HeroSection";
 import ImportanceSection from "./components/launch/ImportanceSection";
-import UrgencySection from "./components/launch/UrgencySection";
 import ProcessSection from "./components/launch/ProcessSection";
 import DeliverablesSection from "./components/launch/DeliverablesSection";
 import ResultsSection from "./components/launch/ResultsSection";
@@ -24,7 +23,6 @@ const Launch = () => {
     <div className="min-h-screen bg-background">
       <HeroSection />
       <ImportanceSection />
-      <UrgencySection />
       <ProcessSection />
       <DeliverablesSection />
       <ResultsSection />
