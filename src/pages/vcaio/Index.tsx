@@ -5,6 +5,7 @@ import UnlockingSection from "./components/UnlockingSection";
 import BenefitsSection from "./components/BenefitsSection";
 import MaturityLevels from "./components/MaturityLevels";
 import FutureSection from "./components/FutureSection";
+import CoreBeliefs from "./components/CoreBeliefs";
 
 const VCAIO = () => {
   useEffect(() => {
@@ -16,6 +17,7 @@ const VCAIO = () => {
       <HeroSection />
       <UnlockingSection />
       <BenefitsSection />
+      <CoreBeliefs />
       <MaturityLevels />
       <FutureSection />
     </div>
@@ -23,4 +25,3 @@ const VCAIO = () => {
 };
 
 export default VCAIO;
-
