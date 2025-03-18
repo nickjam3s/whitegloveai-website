@@ -1,64 +1,44 @@
 
 import React from 'react';
-import { Linkedin, ArrowUpRight, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Linkedin } from 'lucide-react';
 
 interface ExecutiveProfileProps {
   name: string;
   title: string;
+  secondaryTitle?: string;
   image: string;
   linkedin: string;
-  secondaryTitle?: string;
 }
 
-const ExecutiveProfile: React.FC<ExecutiveProfileProps> = ({ 
-  name, 
-  title, 
-  image, 
-  linkedin,
-  secondaryTitle 
-}) => {
+const ExecutiveProfile: React.FC<ExecutiveProfileProps> = ({ name, title, secondaryTitle, image, linkedin }) => {
   return (
-    <motion.div
-      className="glass-card overflow-hidden cursor-pointer group relative rounded-lg border border-[#333333] hover:border-[#7021EE] transition-all duration-300 hover:shadow-[0_0_0_1px_#7021EE] executive-border-animate"
-      whileHover={{ scale: 1.03 }}
-      transition={{ duration: 0.3 }}
-    >
-      <div className="aspect-square overflow-hidden bg-gradient-to-br from-[#320B70] to-black">
-        <div className="w-full h-full relative p-4">
-          <div className="w-full h-full overflow-hidden rounded-md relative">
-            <div className="absolute inset-0 bg-[#9b87f5]/20 z-10 mix-blend-overlay"></div>
-            <img 
-              src={image} 
-              alt={`${name} - ${title}`}
-              className="w-full h-full object-cover object-center filter grayscale group-hover:grayscale-0 transition-all duration-300"
-            />
-            <div className="absolute inset-0 bg-gradient-to-br from-[#7021EE]/40 to-[#320B70]/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-md z-20"></div>
-          </div>
+    <div className="bg-gradient-to-br from-[#7021EE]/10 to-transparent p-4 sm:p-6 rounded-xl border border-[#7021EE]/20 h-full flex flex-col">
+      <div className="mb-4 sm:mb-5 relative overflow-hidden rounded-lg aspect-square">
+        <img 
+          src={image} 
+          alt={name} 
+          className="w-full h-full object-cover object-center transition-transform hover:scale-105 duration-500"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end justify-center p-4">
+          <a 
+            href={linkedin} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-white hover:text-[#7021EE] transition-colors"
+          >
+            <Linkedin className="h-6 w-6" />
+          </a>
         </div>
       </div>
-      <div className="p-6 bg-gradient-to-br from-[#320B70]/90 to-[#111111]">
-        <h3 className="text-xl font-bold text-white mb-1 font-sora">{name}</h3>
-        <p className="text-[#9b87f5] font-medium mb-1 font-sora">{title}</p>
+      <h3 className="text-lg sm:text-xl font-bold mb-1 sm:mb-2">{name}</h3>
+      <div className="flex-grow">
+        <p className="text-sm sm:text-base text-[#7021EE] font-medium">{title}</p>
         {secondaryTitle && (
-          <p className="text-[#9b87f5] text-sm font-medium mb-2 font-sora">{secondaryTitle}</p>
+          <p className="text-sm sm:text-base text-[#7021EE] font-medium mt-0.5">{secondaryTitle}</p>
         )}
-        <a
-          href={linkedin}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 text-white group-hover:text-[#9b87f5] transition-colors mt-2 linkedin-card-hover"
-          aria-label={`${name}'s LinkedIn profile`}
-        >
-          <Linkedin className="w-4 h-4" />
-          <span className="text-sm">LinkedIn</span>
-          <span className="linkedin-arrow-container">
-            <ArrowUpRight className="w-4 h-4 linkedin-default-arrow" />
-            <ArrowRight className="w-4 h-4 linkedin-hover-arrow" />
-          </span>
-        </a>
       </div>
-    </motion.div>
+    </div>
   );
 };
 
