@@ -25,13 +25,13 @@ const ExecutiveTeam: React.FC = () => {
       name: "Nick James",
       title: "Chief Executive Officer",
       secondaryTitle: "& Chief AI Officer",
-      image: "/lovable-uploads/197ddc10-c159-4f39-a269-e35142af32c5.png",
+      image: "/lovable-uploads/25fea2e3-a7d4-40c6-bcaf-295c28156fc2.png",
       linkedin: "https://linkedin.com"
     },
     {
       name: "Jade Skariah",
       title: "Chief of Staff",
-      image: "/lovable-uploads/4647222e-2cb8-4c83-a56c-fafa2c6b70a0.png",
+      image: "/lovable-uploads/c7f462fb-b410-40cd-a41d-fc94e78dbb6f.png",
       linkedin: "https://linkedin.com"
     },
     {
