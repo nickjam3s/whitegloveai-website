@@ -27,20 +27,15 @@ const HeroSection = () => {
             </div>
             
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight mb-6 heading-highlight">
-              Managed MediaAI Service
+              MediaAI: Comprehensive Solutions for Your Podcast Journey
             </h1>
             
             <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto mb-8">
-              Elevate your podcasting AI Automations with our tiered service packages designed to meet the needs 
+              Elevate your podcasting journey with our tiered service packages designed to meet the needs 
               of creators at every level. From basic production assistance to premium full-service solutions.
             </p>
             
-            <Button className="group" asChild>
-              <a href="#plans" className="inline-flex items-center">
-                Explore Plans
-                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-              </a>
-            </Button>
+          
           </motion.div>
         </div>
       </div>
