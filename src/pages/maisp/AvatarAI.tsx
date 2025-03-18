@@ -30,7 +30,7 @@ const AvatarAI = () => {
         <div className="max-w-7xl mx-auto relative">
           <div className="text-center animate-fade-up">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight mb-6 heading-highlight">
-              Experience the Future: AvatarAI That Feel Like Real Video Calls
+              Managed AvatarAI Service
             </h1>
             <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto mb-8">
               WhitegloveAI's AvatarAI Streaming Avatar Service brings lifelike digital assistants to your business, creating genuine face-to-face connections that transform customer experiences across all channels.
@@ -40,7 +40,7 @@ const AvatarAI = () => {
                 Book a Demo
                 <ArrowRight className="ml-2 h-5 w-5" />
               </a>
-              <a href="https://avatar.labs.whitegloveai.com/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center px-6 py-3 text-base font-medium text-white bg-secondary/20 hover:bg-secondary/30 rounded-lg transition-colors border border-secondary/50">
+              <a href="https://dicks.demo.whitegloveai.com/demo/7d200b88524c41e0b919b899786846db/631635c4f4e342f09c21e77994689bba" target="_blank" rel="noopener noreferrer" className="inline-flex items-center px-6 py-3 text-base font-medium text-white bg-secondary/20 hover:bg-secondary/30 rounded-lg transition-colors border border-secondary/50">
                 Try Demo
                 <Video className="ml-2 h-5 w-5" />
               </a>
