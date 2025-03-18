@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import ExecutiveProfile from './ExecutiveProfile';
@@ -48,31 +47,31 @@ const ExecutiveTeam: React.FC = () => {
     }
   ];
 
-  // Second row executives
+  // Second row executives with updated images
   const bottomRowExecutives = [
     {
       name: "Hena Venugopal",
       title: "Chief Product Officer",
-      image: "/lovable-uploads/197ddc10-c159-4f39-a269-e35142af32c5.png", 
+      image: "/lovable-uploads/d7b0052a-c6ed-455e-8426-7f7e9fb79d26.png", 
       linkedin: "https://linkedin.com"
     },
     {
       name: "Daniel Valencia",
       title: "Chief Information Security Officer",
-      image: "/lovable-uploads/4647222e-2cb8-4c83-a56c-fafa2c6b70a0.png",
+      image: "/lovable-uploads/b308613d-7c57-4781-9908-5547342ba77b.png",
       linkedin: "https://linkedin.com"
     },
     {
       name: "Ankur Desai",
       title: "Chief Marketing Officer",
-      image: "/lovable-uploads/8d6b7902-56b6-4ba7-86ba-67aa9f3bccb8.png",
+      image: "/lovable-uploads/9eb0ea5f-0135-4053-b26a-591a5e1138f8.png",
       linkedin: "https://linkedin.com"
     },
     {
       name: "Binni Skariah",
       title: "Chief Executive Officer",
       secondaryTitle: "in Residence of Lucidis.Ai",
-      image: "/lovable-uploads/cbc85045-41f1-434b-a70d-69aca08e4e66.png",
+      image: "/lovable-uploads/cb2996c9-1131-4885-81cb-d52aeac16d0f.png",
       linkedin: "https://linkedin.com"
     }
   ];
