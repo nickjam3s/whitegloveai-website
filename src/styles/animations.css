@@ -1,3 +1,4 @@
+
 /* Interactive Element Animations */
 @layer components {
   .link-hover {
@@ -28,6 +29,56 @@
   }
   .executive-linkedin {
     @apply transition-all duration-300 hover:text-[#7021EE] hover:translate-y-[-2px];
+  }
+  
+  /* LinkedIn hover underline animation */
+  .linkedin-hover-underline {
+    position: relative;
+  }
+  
+  .linkedin-hover-underline::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: -2px;
+    left: 0;
+    background-color: #9b87f5;
+    transition: width 0.3s ease;
+  }
+  
+  .linkedin-hover-underline:hover::after {
+    width: 100%;
+  }
+  
+  /* LinkedIn arrow animation */
+  .linkedin-arrow-container {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+  }
+  
+  .linkedin-default-arrow {
+    position: absolute;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+  }
+  
+  .linkedin-hover-arrow {
+    position: absolute;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .linkedin-hover-underline:hover .linkedin-default-arrow {
+    opacity: 0;
+  }
+  
+  .linkedin-hover-underline:hover .linkedin-hover-arrow {
+    opacity: 1;
   }
 }
 

@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Linkedin, ArrowRight } from 'lucide-react';
+import { Linkedin, ArrowUpRight, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 interface ExecutiveProfileProps {
@@ -47,18 +47,16 @@ const ExecutiveProfile: React.FC<ExecutiveProfileProps> = ({
           href={linkedin}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 text-white hover:text-[#9b87f5] transition-colors mt-2 group-hover:text-[#9b87f5] linkedin-icon-hover font-sora"
+          className="inline-flex items-center gap-2 text-white hover:text-[#9b87f5] transition-colors mt-2 group-hover:text-[#9b87f5] linkedin-hover-underline font-sora"
           aria-label={`${name}'s LinkedIn profile`}
         >
           <Linkedin className="w-4 h-4" />
           <span className="text-sm">LinkedIn</span>
-          <motion.div 
-            className="transition-transform duration-300"
-            initial={{ skew: 0 }}
-            whileHover={{ skew: 15 }}
-          >
-            <ArrowRight className="w-4 h-4" />
-          </motion.div>
+          {/* Use conditional rendering to swap between arrows based on hover state */}
+          <span className="linkedin-arrow-container">
+            <ArrowUpRight className="w-4 h-4 linkedin-default-arrow" />
+            <ArrowRight className="w-4 h-4 linkedin-hover-arrow" />
+          </span>
         </a>
       </div>
     </motion.div>
