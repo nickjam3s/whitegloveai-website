@@ -1,3 +1,4 @@
+
 /* Interactive Element Animations */
 @layer components {
   .link-hover {
@@ -14,6 +15,20 @@
   }
   .button-hover {
     @apply transition-all duration-300 transform hover:scale-105 active:scale-95;
+  }
+  
+  /* Executive Profile Animations */
+  .executive-card {
+    @apply transition-all duration-300;
+  }
+  .executive-image {
+    @apply transition-all duration-500 filter grayscale hover:grayscale-0;
+  }
+  .executive-overlay {
+    @apply transition-opacity duration-300 opacity-0 group-hover:opacity-100;
+  }
+  .executive-linkedin {
+    @apply transition-all duration-300 hover:text-[#7021EE] hover:translate-y-[-2px];
   }
 }
 
@@ -129,4 +144,15 @@
   color: transparent;
   background-clip: text;
   -webkit-background-clip: text;
+}
+
+/* Purple glow animation for LinkedIn icons */
+@keyframes purpleGlow {
+  0% { filter: drop-shadow(0 0 0px rgba(112, 33, 238, 0.5)); }
+  50% { filter: drop-shadow(0 0 3px rgba(112, 33, 238, 0.8)); }
+  100% { filter: drop-shadow(0 0 0px rgba(112, 33, 238, 0.5)); }
+}
+
+.linkedin-icon-hover:hover {
+  animation: purpleGlow 2s infinite;
 }

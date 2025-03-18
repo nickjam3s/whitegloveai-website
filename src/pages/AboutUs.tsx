@@ -5,6 +5,7 @@ import { ArrowDown, Heart, Shield, Brain, Sparkles, Users, Target, Lock, Lightbu
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import ExecutiveTeam from '@/components/about/ExecutiveTeam';
 
 const AboutUs = () => {
   const fadeInUp = {
@@ -166,6 +167,9 @@ const AboutUs = () => {
           </p>
         </motion.section>
 
+        {/* Executive Team Section (New) */}
+        <ExecutiveTeam />
+        
         {/* Core Values Grid */}
         <motion.section
           variants={containerAnimation}
@@ -188,111 +192,6 @@ const AboutUs = () => {
               </p>
             </motion.div>
           ))}
-        </motion.section>
-
-        {/* Meet the Executive Section */}
-        <motion.section
-          variants={containerAnimation}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          className="scroll-mt-20"
-          id="team"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold mb-12 text-[#7021EE]">Meet the Executive Team</h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {executives.map((executive, index) => (
-              <motion.div
-                key={index}
-                variants={itemAnimation}
-                className="group"
-              >
-                <Dialog>
-                  <DialogTrigger asChild>
-                    <div className="glass-card overflow-hidden cursor-pointer group relative">
-                      <div className="aspect-square overflow-hidden">
-                        <motion.div
-                          className="w-full h-full relative"
-                          whileHover={{ scale: 1.05 }}
-                          transition={{ duration: 0.3 }}
-                        >
-                          <img 
-                            src={executive.image} 
-                            alt={executive.name} 
-                            className="w-full h-full object-cover object-center filter grayscale group-hover:grayscale-0 transition-all duration-300"
-                          />
-                          <div className="absolute inset-0 bg-[#7021EE]/0 group-hover:bg-[#7021EE]/20 transition-colors duration-300"></div>
-                        </motion.div>
-                      </div>
-                      <div className="p-6">
-                        <h3 className="text-xl font-semibold text-white">{executive.name}</h3>
-                        <p className="text-[#7021EE] mb-3">{executive.title}</p>
-                        <p className="text-gray-400 line-clamp-3">{executive.shortBio}</p>
-                        <div className="mt-4 flex justify-between items-center">
-                          <span className="text-sm text-white/50 group-hover:text-white/80 transition-colors">View Details</span>
-                          <a 
-                            href={executive.linkedin} 
-                            target="_blank" 
-                            rel="noopener noreferrer"
-                            className="text-[#7021EE] hover:text-[#9b87f5] transition-colors"
-                            onClick={(e) => e.stopPropagation()}
-                          >
-                            <Linkedin className="w-5 h-5" />
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </DialogTrigger>
-                  <DialogContent className="bg-black/95 border-[#7021EE]/20">
-                    <DialogHeader>
-                      <DialogTitle className="text-2xl font-semibold text-white">{executive.name}</DialogTitle>
-                    </DialogHeader>
-                    <div className="flex flex-col md:flex-row gap-6 mt-4">
-                      <div className="w-full md:w-1/3">
-                        <div className="aspect-square overflow-hidden rounded-lg">
-                          <img 
-                            src={executive.image} 
-                            alt={executive.name} 
-                            className="w-full h-full object-cover" 
-                          />
-                        </div>
-                        <div className="mt-4">
-                          <h3 className="text-xl font-semibold text-white">{executive.name}</h3>
-                          <p className="text-[#7021EE]">{executive.title}</p>
-                          <div className="mt-4">
-                            <a 
-                              href={executive.linkedin} 
-                              target="_blank" 
-                              rel="noopener noreferrer"
-                              className="inline-flex items-center gap-2 text-[#7021EE] hover:text-[#9b87f5] transition-colors"
-                            >
-                              <Linkedin className="w-5 h-5" />
-                              <span>LinkedIn Profile</span>
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="w-full md:w-2/3">
-                        <h4 className="text-lg font-semibold text-white mb-3">Biography</h4>
-                        <p className="text-gray-300 whitespace-pre-line">{executive.fullBio}</p>
-                        {executive.achievements && (
-                          <>
-                            <h4 className="text-lg font-semibold text-white mt-6 mb-3">Key Achievements</h4>
-                            <ul className="list-disc list-inside space-y-2 text-gray-300">
-                              {executive.achievements.map((achievement, idx) => (
-                                <li key={idx}>{achievement}</li>
-                              ))}
-                            </ul>
-                          </>
-                        )}
-                      </div>
-                    </div>
-                  </DialogContent>
-                </Dialog>
-              </motion.div>
-            ))}
-          </div>
         </motion.section>
       </div>
     </div>
@@ -329,61 +228,6 @@ const coreValues = [
     title: "Continuous Learning",
     description: "Always evolving and adapting to stay ahead in AI technology.",
     icon: Lightbulb
-  }
-];
-
-const executives = [
-  {
-    name: "Jane Smith",
-    title: "Chief Executive Officer",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3",
-    shortBio: "Over 15 years driving innovation in AI and machine learning with a focus on enterprise solutions.",
-    fullBio: "Jane Smith has been at the forefront of AI innovation for over 15 years. As CEO, she leads our strategic vision and ensures we deliver exceptional value to clients.\n\nBefore joining WhitegloveAI, Jane led digital transformation initiatives at Fortune 500 companies and founded two successful AI startups. Her unique blend of technical expertise and business acumen drives our company's growth and innovation.",
-    achievements: [
-      "Named Top 40 Under 40 Tech Leaders by Forbes",
-      "Led AI initiatives that increased client ROI by 150%",
-      "Published author on enterprise AI implementation strategies"
-    ],
-    linkedin: "https://linkedin.com"
-  },
-  {
-    name: "David Johnson",
-    title: "Chief Technology Officer",
-    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3",
-    shortBio: "AI researcher and architect who has built enterprise-scale solutions for global organizations.",
-    fullBio: "David Johnson leads our technology strategy and oversees all product development efforts. With a Ph.D. in Machine Learning and extensive experience in enterprise software architecture, David drives our technical innovation and ensures our solutions meet the highest standards of performance and security.\n\nHis approach combines cutting-edge research with practical implementation, allowing WhitegloveAI to deliver AI solutions that actually work in complex business environments.",
-    achievements: [
-      "Holds 12 patents in machine learning and natural language processing",
-      "Former Research Scientist at OpenAI",
-      "Regular speaker at NVIDIA AI Conference and NeurIPS"
-    ],
-    linkedin: "https://linkedin.com"
-  },
-  {
-    name: "Sarah Chen",
-    title: "Chief Operating Officer",
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1976&auto=format&fit=crop&ixlib=rb-4.0.3",
-    shortBio: "Operations expert specializing in scaling AI implementations for enterprise clients.",
-    fullBio: "Sarah Chen oversees all operational aspects of WhitegloveAI, ensuring we deliver exceptional service while maintaining operational excellence. Her background in management consulting and enterprise software implementation gives her unique insight into the challenges of organizational AI adoption.\n\nSarah's strategic approach to operations has allowed WhitegloveAI to scale rapidly while maintaining our commitment to quality and client success.",
-    achievements: [
-      "Scaled operations from 20 to 200+ employees across 3 continents",
-      "Improved client implementation time by 60%",
-      "Developed our industry-leading AI governance framework"
-    ],
-    linkedin: "https://linkedin.com"
-  },
-  {
-    name: "Michael Williams",
-    title: "Chief Strategy Officer",
-    image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3",
-    shortBio: "Former management consultant specializing in digital transformation and AI strategy.",
-    fullBio: "Michael Williams guides our company's strategic direction, identifying new market opportunities and ensuring our solutions address the most critical challenges facing enterprises today. His background in management consulting at McKinsey and his experience leading digital transformation at scale gives him unique insight into how AI can create sustainable business value.\n\nMichael works closely with our executive team to align our technical capabilities with market needs and future trends.",
-    achievements: [
-      "Led WhitegloveAI's expansion into healthcare and financial services verticals",
-      "Former Digital Transformation Practice Leader at McKinsey",
-      "MBA from Harvard Business School with distinction"
-    ],
-    linkedin: "https://linkedin.com"
   }
 ];
 
