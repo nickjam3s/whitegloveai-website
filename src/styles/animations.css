@@ -1,4 +1,3 @@
-
 /* Interactive Element Animations */
 @layer components {
   .link-hover {
@@ -29,27 +28,6 @@
   }
   .executive-linkedin {
     @apply transition-all duration-300 hover:text-[#7021EE] hover:translate-y-[-2px];
-  }
-  
-  /* LinkedIn typewriter effect */
-  .linkedin-typewriter-effect {
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .linkedin-typewriter-effect::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    width: 0;
-    height: 1px;
-    background-color: #9b87f5;
-    bottom: 0;
-    transition: width 0.5s ease;
-  }
-  
-  .group:hover .linkedin-typewriter-effect::after {
-    width: 100%;
   }
 }
 
@@ -135,24 +113,6 @@
 
 /* FIX: Make headings visible by default but keep animation effects */
 .heading-highlight-scroll {
-  opacity: 1; /* Changed from 0 to make headings visible by default */
-  transform: translateY(0); /* Reset transform to show headings in place */
-  background: linear-gradient(
-    to right,
-    #FFFFFF 0%,
-    #FFFFFF 50%,
-    #9b87f5 100%
-  );
-  background-size: 200% auto;
-  color: transparent;
-  background-clip: text;
-  -webkit-background-clip: text;
-  transition: opacity 0.5s ease, transform 0.5s ease;
-  animation: highlightText 4s ease-out forwards;
-}
-
-/* Keep this for compatibility with any JS that might be using it */
-.heading-highlight-scroll.visible {
   opacity: 1;
   transform: translateY(0);
   background: linear-gradient(
@@ -165,6 +125,8 @@
   color: transparent;
   background-clip: text;
   -webkit-background-clip: text;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  animation: highlightText 4s ease-out forwards;
 }
 
 /* Purple glow animation for LinkedIn icons */
