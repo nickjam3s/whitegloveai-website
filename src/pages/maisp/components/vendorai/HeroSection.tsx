@@ -15,7 +15,7 @@ const HeroSection = () => {
       <div className="max-w-7xl mx-auto relative">
         <div className="text-center">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight mb-6 heading-highlight">
-            Your Single Point of Contact for AI Solutions
+            Managed VendorAI Service 
           </h1>
           <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto mb-8">
             Simplify AI vendor management, reduce costs, and enhance performance with VendorAI.
