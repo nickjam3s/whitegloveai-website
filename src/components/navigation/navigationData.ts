@@ -44,24 +44,24 @@ export const navigationLinks = [
     children: [
       {
         text: "AI-AMF",
-        href: "https://aiamf.ai",
+        to: "/aiamf",
         external: true
       },
       {
         text: "AI-Policy",
-        href: "https://polaicy.com",
+        to: "/aipolicy",
         external: true
       },
       {
         text: "Lucidis",
-        href: "https://lucidis.ai",
+        to: "/lucidis",
         external: true
       }
     ]
   },
   {
     text: "The AI Executive",
-    href: "https://aiexec.whitegloveai.com",
+    to: "/aiexec",
     external: true
   }
 ];

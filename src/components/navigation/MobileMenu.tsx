@@ -1,5 +1,5 @@
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { navigationLinks } from "./navigationData";
 
 interface MobileMenuProps {
@@ -9,23 +9,27 @@ interface MobileMenuProps {
 }
 
 const MobileMenu = ({ isOpen, onClose, currentPath }: MobileMenuProps) => {
+  const navigate = useNavigate();
+
   if (!isOpen) return null;
+
+  const handleExternalNavigation = (path: string) => {
+    onClose();
+    window.location.href = path.startsWith("http") ? path : `https://${path}`;
+  };
 
   return (
     <div className="md:hidden">
       <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-card rounded-lg border border-gray-800 animate-fade-in">
         {navigationLinks.map((link) => (
-          <div key={link.to || link.href}>
+          <div key={link.to || link.text}>
             {link.external ? (
-              <a
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block px-3 py-2.5 text-base font-medium text-gray-300 hover:text-secondary"
-                onClick={onClose}
+              <button
+                onClick={() => handleExternalNavigation(link.to!)}
+                className="block w-full text-left px-3 py-2.5 text-base font-medium text-gray-300 hover:text-secondary"
               >
                 {link.text}
-              </a>
+              </button>
             ) : link.children ? (
               <div className="px-3 py-2.5">
                 <div className="font-medium text-gray-300 mb-2 text-base">{link.text}</div>
@@ -52,13 +56,22 @@ const MobileMenu = ({ isOpen, onClose, currentPath }: MobileMenuProps) => {
                         </div>
                       ) : (
                         child.to ? (
-                          <Link
-                            to={child.to}
-                            className="block py-1.5 text-base text-gray-400 hover:text-secondary"
-                            onClick={onClose}
-                          >
-                            {child.text}
-                          </Link>
+                          child.external ? (
+                            <button
+                              onClick={() => handleExternalNavigation(child.to!)}
+                              className="block w-full text-left py-1.5 text-base text-gray-400 hover:text-secondary"
+                            >
+                              {child.text}
+                            </button>
+                          ) : (
+                            <Link
+                              to={child.to}
+                              className="block py-1.5 text-base text-gray-400 hover:text-secondary"
+                              onClick={onClose}
+                            >
+                              {child.text}
+                            </Link>
+                          )
                         ) : (
                           <div className="text-base font-medium text-gray-400 mb-1">
                             {child.text}

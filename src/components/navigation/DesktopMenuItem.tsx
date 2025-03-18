@@ -1,6 +1,6 @@
 
-import { Link } from "react-router-dom";
-import { ChevronDown } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
+import { ChevronDown, ExternalLink } from "lucide-react";
 
 interface MenuItemProps {
   link: {
@@ -11,6 +11,7 @@ interface MenuItemProps {
     children?: Array<{
       to?: string;
       text: string;
+      external?: boolean;
       children?: Array<{
         to: string;
         text: string;
@@ -21,16 +22,26 @@ interface MenuItemProps {
 }
 
 const DesktopMenuItem = ({ link, isActive }: MenuItemProps) => {
+  const navigate = useNavigate();
+
+  const handleExternalNavigation = (path: string) => {
+    if (path.startsWith('http')) {
+      window.open(path, '_blank');
+    } else {
+      // Handle special redirect routes defined in App.tsx
+      navigate(path);
+    }
+  };
+
   if (link.external) {
     return (
-      <a
-        href={link.href}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-gray-300 nav-item-hover text-lg"
+      <button
+        onClick={() => handleExternalNavigation(link.to!)}
+        className="flex items-center text-gray-300 nav-item-hover text-lg"
       >
         {link.text}
-      </a>
+        <ExternalLink className="ml-1 h-4 w-4" />
+      </button>
     );
   }
 
@@ -60,12 +71,22 @@ const DesktopMenuItem = ({ link, isActive }: MenuItemProps) => {
                 </div>
               ) : (
                 child.to ? (
-                  <Link
-                    to={child.to}
-                    className="block px-4 py-2.5 text-base text-gray-300 hover:text-secondary hover:bg-white/5 transition-colors duration-200"
-                  >
-                    {child.text}
-                  </Link>
+                  child.external ? (
+                    <button
+                      onClick={() => handleExternalNavigation(child.to!)}
+                      className="w-full text-left flex items-center justify-between px-4 py-2.5 text-base text-gray-300 hover:text-secondary hover:bg-white/5 transition-colors duration-200"
+                    >
+                      {child.text}
+                      <ExternalLink className="h-3 w-3 ml-1" />
+                    </button>
+                  ) : (
+                    <Link
+                      to={child.to}
+                      className="block px-4 py-2.5 text-base text-gray-300 hover:text-secondary hover:bg-white/5 transition-colors duration-200"
+                    >
+                      {child.text}
+                    </Link>
+                  )
                 ) : (
                   <div className="px-4 py-2.5 text-base text-gray-300 font-medium">
                     {child.text}
