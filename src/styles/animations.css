@@ -149,10 +149,20 @@
 /* Purple glow animation for LinkedIn icons */
 @keyframes purpleGlow {
   0% { filter: drop-shadow(0 0 0px rgba(112, 33, 238, 0.5)); }
-  50% { filter: drop-shadow(0 0 3px rgba(112, 33, 238, 0.8)); }
+  50% { filter: drop-shadow(0 0 5px rgba(112, 33, 238, 0.8)); }
   100% { filter: drop-shadow(0 0 0px rgba(112, 33, 238, 0.5)); }
 }
 
 .linkedin-icon-hover:hover {
   animation: purpleGlow 2s infinite;
+}
+
+/* Executive card shadow effect */
+.executive-card-shadow {
+  box-shadow: 0 8px 20px -6px rgba(0, 0, 0, 0.6);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.executive-card-shadow:hover {
+  box-shadow: 0 14px 28px -8px rgba(112, 33, 238, 0.3);
 }
