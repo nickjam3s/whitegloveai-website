@@ -25,25 +25,25 @@ const ExecutiveTeam: React.FC = () => {
       name: "Nick James",
       title: "Chief Executive Officer",
       secondaryTitle: "& Chief AI Officer",
-      image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3",
+      image: "/lovable-uploads/197ddc10-c159-4f39-a269-e35142af32c5.png",
       linkedin: "https://linkedin.com"
     },
     {
       name: "Jade Skariah",
       title: "Chief of Staff",
-      image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3",
+      image: "/lovable-uploads/4647222e-2cb8-4c83-a56c-fafa2c6b70a0.png",
       linkedin: "https://linkedin.com"
     },
     {
       name: "Jeffrey Bankard",
       title: "Chief Operations Officer",
-      image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3",
+      image: "/lovable-uploads/8d6b7902-56b6-4ba7-86ba-67aa9f3bccb8.png",
       linkedin: "https://linkedin.com"
     },
     {
       name: "Peter Santis",
       title: "Chief Revenue Officer",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3",
+      image: "/lovable-uploads/cbc85045-41f1-434b-a70d-69aca08e4e66.png",
       linkedin: "https://linkedin.com"
     }
   ];
@@ -53,26 +53,26 @@ const ExecutiveTeam: React.FC = () => {
     {
       name: "Hena Venugopal",
       title: "Chief Product Officer",
-      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1976&auto=format&fit=crop&ixlib=rb-4.0.3",
+      image: "/lovable-uploads/197ddc10-c159-4f39-a269-e35142af32c5.png", 
       linkedin: "https://linkedin.com"
     },
     {
       name: "Daniel Valencia",
       title: "Chief Information Security Officer",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3",
+      image: "/lovable-uploads/4647222e-2cb8-4c83-a56c-fafa2c6b70a0.png",
       linkedin: "https://linkedin.com"
     },
     {
       name: "Ankur Desai",
       title: "Chief Marketing Officer",
-      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3",
+      image: "/lovable-uploads/8d6b7902-56b6-4ba7-86ba-67aa9f3bccb8.png",
       linkedin: "https://linkedin.com"
     },
     {
       name: "Binni Skariah",
       title: "Chief Executive Officer",
       secondaryTitle: "in Residence of Lucidis.Ai",
-      image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3",
+      image: "/lovable-uploads/cbc85045-41f1-434b-a70d-69aca08e4e66.png",
       linkedin: "https://linkedin.com"
     }
   ];
