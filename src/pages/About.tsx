@@ -1,3 +1,4 @@
+
 import { Link } from "react-router-dom";
 import { ArrowRight, Shield, Users, Sparkles, Brain, Target, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -51,59 +52,78 @@ const About = () => {
 
   return (
     <div className="min-h-screen bg-black text-white">
-      {/* Hero Section - updated Vision section to be smaller */}
-      <section className="relative pt-28 min-h-[85vh] flex items-start px-4 md:px-12 lg:px-16">
+      {/* New Hero Section - Based on WhiteGlove AI */}
+      <section className="w-full relative overflow-hidden bg-black">
+        {/* Animated Background */}
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-b from-[#9b87f5]/10 to-black/90" />
-          <div className="absolute inset-0 backdrop-blur-sm" />
+          <div className="absolute h-full w-full bg-gradient-radial from-[#9b87f5]/20 to-transparent opacity-50"></div>
+          <div className="absolute h-full w-full bg-gradient-to-b from-black/0 via-black/0 to-black"></div>
         </div>
         
-        <div className="relative z-10 container mx-auto max-w-6xl text-left">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
+        {/* Content Container */}
+        <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-24 md:py-32 lg:py-40 flex flex-col items-start">
+          {/* Pre-heading badge */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ delay: 0.2, duration: 0.6 }}
+            className="inline-flex items-center rounded-full border border-[#9b87f5]/30 bg-[#9b87f5]/10 px-4 py-1.5 text-xs md:text-sm font-medium text-[#9b87f5] mb-8"
           >
-            <h1 className="text-5xl md:text-7xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-white to-[#9b87f5] heading-highlight">
-              About
-            </h1>
-            
-            <h2 className="text-3xl md:text-5xl font-bold mb-10">
-              <span className="text-white">Mission & </span>
-              <span className="text-[#9b87f5]">Vision</span>
-            </h2>
-            
-            <div className="mb-8 max-w-3xl">
-              <h3 className="text-xl font-medium mb-4 text-gray-300">Mission</h3>
-              <p className="text-gray-300 text-lg">
-                To lead secure and responsible AI adoption, reshaping organizational
-                efficiency and digital transformations.
-              </p>
-            </div>
-            
-            <div className="max-w-3xl">
-              <h3 className="text-xl font-medium mb-4 text-gray-300">Vision</h3>
-              <p className="text-lg text-gray-300 font-normal">
-                To be the <span className="text-[#9b87f5]">premier partner</span> for
-                organizations embracing AI with
-                <span className="text-[#9b87f5]"> confidence</span> and <span className="text-[#9b87f5]">expertise</span>.
-              </p>
-            </div>
+            About Lovable AI
+          </motion.div>
+          
+          {/* Main heading */}
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.6 }}
+            className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white max-w-4xl mb-6"
+          >
+            Revolutionizing <span className="text-[#9b87f5]">AI Development</span> with human-centered collaboration
+          </motion.h1>
+          
+          {/* Description */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6, duration: 0.6 }}
+            className="text-lg md:text-xl text-gray-300 max-w-3xl mb-12"
+          >
+            Lovable AI is dedicated to building AI tools that enhance human creativity and productivity. Our AI editor creates and modifies web applications through natural conversation, making development more accessible, efficient, and enjoyable.
+          </motion.p>
+          
+          {/* Stats Section */}
+          <motion.div 
+            variants={containerAnimation}
+            initial="hidden"
+            animate="show"
+            className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-16 pt-4 w-full"
+          >
+            {introStats.map((stat, index) => (
+              <motion.div
+                key={index}
+                variants={itemAnimation}
+                className="flex flex-col"
+              >
+                <span className="text-3xl md:text-4xl font-bold text-[#9b87f5]">{stat.value}</span>
+                <span className="text-sm text-gray-400 mt-2">{stat.label}</span>
+              </motion.div>
+            ))}
           </motion.div>
         </div>
         
-        <div className="absolute bottom-10 left-0 right-0 flex justify-center">
+        {/* Animated scroll indicator */}
+        <div className="absolute bottom-10 left-0 right-0 flex justify-center z-10">
           <motion.div 
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ 
-              delay: 1, 
+              delay: 1.2, 
               duration: 0.5,
               repeat: Infinity,
               repeatType: "reverse",
               repeatDelay: 1
             }}
-            className="animate-bounce"
           >
             <a 
               href="#mission"
@@ -115,7 +135,7 @@ const About = () => {
         </div>
       </section>
 
-      {/* Mission & Vision Section */}
+      {/* Mission & Vision Section - kept from existing */}
       <section className="py-24 bg-black" id="mission">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
@@ -290,6 +310,26 @@ const About = () => {
     </div>
   );
 };
+
+// New intro stats based on WhiteGlove AI's About page
+const introStats = [
+  {
+    value: "100K+",
+    label: "ACTIVE USERS"
+  },
+  {
+    value: "99%",
+    label: "USER SATISFACTION"
+  },
+  {
+    value: "5★",
+    label: "AVERAGE RATING"
+  },
+  {
+    value: "24/7",
+    label: "SUPPORT AVAILABLE"
+  }
+];
 
 const coreValues = [
   {
