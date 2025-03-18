@@ -57,6 +57,29 @@
     transition: color 0.3s ease;
   }
   
+  /* LinkedIn card hover - underline shows when card is hovered */
+  .linkedin-card-hover {
+    position: relative;
+  }
+  
+  .linkedin-card-hover::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: -2px;
+    left: 0;
+    background-color: #f1f1f1;
+    transition: width 0.3s ease, opacity 0.3s ease;
+    opacity: 0;
+  }
+  
+  .glass-card:hover .linkedin-card-hover::after {
+    width: 100%;
+    opacity: 1;
+    transition: width 0.3s ease 0.1s;
+  }
+  
   /* LinkedIn arrow animation */
   .linkedin-arrow-container {
     position: relative;
