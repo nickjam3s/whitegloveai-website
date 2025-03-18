@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowDown, Heart, Shield, Brain, Sparkles, Users, Target, Lock, Lightbulb, ChartBar, Linkedin } from 'lucide-react';
@@ -166,9 +165,6 @@ const AboutUs = () => {
             solve complex problems, streamline operations, and enhance decision-making capabilities.
           </p>
         </motion.section>
-
-        {/* Executive Team Section (New) */}
-        <ExecutiveTeam />
         
         {/* Core Values Grid */}
         <motion.section
@@ -193,6 +189,9 @@ const AboutUs = () => {
             </motion.div>
           ))}
         </motion.section>
+        
+        {/* Executive Team Section - Now after Core Values */}
+        <ExecutiveTeam />
       </div>
     </div>
   );
