@@ -61,7 +61,7 @@ const GetInTouch: React.FC = () => {
             <p className="text-gray-400 mb-2 uppercase tracking-wide text-sm">Email</p>
             <a 
               href="mailto:workwith@whitegloveai.com" 
-              className="text-xl text-white font-medium flex items-center gap-2 hover:text-[#7021EE] transition-colors group"
+              className="text-xl text-white font-medium flex items-center gap-2 hover:text-[#7021EE] transition-colors group contact-link"
             >
               <Mail className="w-5 h-5 text-[#7021EE]" />
               workwith@whitegloveai.com
@@ -73,7 +73,7 @@ const GetInTouch: React.FC = () => {
             <p className="text-gray-400 mb-2 uppercase tracking-wide text-sm">Phone</p>
             <a 
               href="tel:+14692099907" 
-              className="text-xl text-white font-medium flex items-center gap-2 hover:text-[#7021EE] transition-colors group"
+              className="text-xl text-white font-medium flex items-center gap-2 hover:text-[#7021EE] transition-colors group contact-link"
             >
               <Phone className="w-5 h-5 text-[#7021EE]" />
               +1-469-209-9907
@@ -87,7 +87,7 @@ const GetInTouch: React.FC = () => {
               href="https://www.linkedin.com/company/whitegloveai/" 
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xl text-white font-medium flex items-center gap-2 hover:text-[#7021EE] transition-colors group"
+              className="text-xl text-white font-medium flex items-center gap-2 hover:text-[#7021EE] transition-colors group contact-link"
             >
               <Linkedin className="w-5 h-5 text-[#7021EE]" />
               LinkedIn
@@ -145,3 +145,4 @@ const GetInTouch: React.FC = () => {
 };
 
 export default GetInTouch;
+
