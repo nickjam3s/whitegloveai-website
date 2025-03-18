@@ -19,20 +19,20 @@ const ExecutiveTeam: React.FC = () => {
     show: { opacity: 1, y: 0, transition: { duration: 0.5 } }
   };
 
-  // First row executives with updated images
+  // First row executives with updated images and LinkedIn URLs
   const topRowExecutives = [
     {
       name: "Nick James",
       title: "Chief Executive Officer",
       secondaryTitle: "& Chief AI Officer",
       image: "/lovable-uploads/09629b88-ce65-4e5b-b223-f80df036229b.png",
-      linkedin: "https://linkedin.com"
+      linkedin: "https://www.linkedin.com/in/nickjam3s/"
     },
     {
       name: "Jade Skariah",
       title: "Chief of Staff",
       image: "/lovable-uploads/76017f57-7d97-4d16-bda6-8b044af1fb67.png",
-      linkedin: "https://linkedin.com"
+      linkedin: "https://www.linkedin.com/in/jadeskariah/"
     },
     {
       name: "Jeffrey Bankard",

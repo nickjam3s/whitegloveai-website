@@ -47,7 +47,7 @@ const ExecutiveProfile: React.FC<ExecutiveProfileProps> = ({
           href={linkedin}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 text-white hover:text-[#9b87f5] transition-colors mt-2 group-hover:text-[#9b87f5] linkedin-icon-hover font-sora"
+          className="inline-flex items-center gap-2 text-white hover:text-[#9b87f5] transition-colors mt-2 group-hover:text-[#9b87f5] group-hover:underline linkedin-icon-hover font-sora"
           aria-label={`${name}'s LinkedIn profile`}
         >
           <Linkedin className="w-4 h-4" />
