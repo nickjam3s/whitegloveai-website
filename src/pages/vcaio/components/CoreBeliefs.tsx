@@ -16,7 +16,7 @@ const Belief: React.FC<BeliefProps> = ({ number, title, description }) => {
   return (
     <div 
       ref={ref}
-      className="mb-10"
+      className="mb-8" // Reduced from mb-10 to mb-8
     >
       <div className="flex items-start gap-6">
         <motion.div
@@ -110,14 +110,14 @@ const CoreBeliefs: React.FC = () => {
   return (
     <section 
       ref={sectionRef}
-      className="py-16 bg-black"
+      className="py-10" // Reduced from py-16 to py-10
     >
       <div className="container mx-auto px-4">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.7 }}
-          className="text-4xl md:text-5xl font-bold mb-12"
+          className="text-4xl md:text-5xl font-bold mb-8" // Reduced from mb-12 to mb-8
         >
           Our <span className="text-[#7021EE]">Core Beliefs</span>
         </motion.h2>

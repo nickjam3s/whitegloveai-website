@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowDown, Heart, Shield, Brain, Sparkles, Users, Target, Lock, Lightbulb, ChartBar, Linkedin } from 'lucide-react';
@@ -28,6 +29,19 @@ const AboutUs = () => {
   const itemAnimation = {
     hidden: { opacity: 0, y: 20 },
     show: { opacity: 1, y: 0 }
+  };
+
+  // New animations for the Mission, Vision, and AI Philosophy sections
+  const titleAnimation = {
+    initial: { opacity: 0, scale: 0.9, y: -10 },
+    animate: { opacity: 1, scale: 1, y: 0 },
+    transition: { duration: 0.8, type: "spring", stiffness: 100 }
+  };
+  
+  const textAnimation = {
+    initial: { opacity: 0, x: -20 },
+    animate: { opacity: 1, x: 0 },
+    transition: { duration: 0.6, delay: 0.2 }
   };
 
   const stats = [
@@ -145,12 +159,20 @@ const AboutUs = () => {
           variants={fadeInUp}
           className="scroll-mt-20"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-8 text-[#7021EE]">Our Mission</h2>
-          <p className="text-xl text-gray-300 leading-relaxed">
+          <motion.h2 
+            variants={titleAnimation} 
+            className="text-4xl md:text-5xl font-bold mb-8 text-[#7021EE]"
+          >
+            Our Mission
+          </motion.h2>
+          <motion.p 
+            variants={textAnimation}
+            className="text-xl text-gray-300 leading-relaxed"
+          >
             At WhitegloveAI, our mission is to empower organizations to adopt secure, responsible, and scalable AI solutions. 
             We believe in reshaping organizational efficiency through AI, unlocking new potentials in business processes, 
             customer experiences, and digital transformation strategies.
-          </p>
+          </motion.p>
         </motion.section>
 
         {/* Vision Section */}
@@ -160,12 +182,20 @@ const AboutUs = () => {
           viewport={{ once: true }}
           variants={fadeInUp}
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-8 text-[#7021EE]">Our Vision</h2>
-          <p className="text-xl text-gray-300 leading-relaxed">
+          <motion.h2 
+            variants={titleAnimation}
+            className="text-4xl md:text-5xl font-bold mb-8 text-[#7021EE]"
+          >
+            Our Vision
+          </motion.h2>
+          <motion.p 
+            variants={textAnimation}
+            className="text-xl text-gray-300 leading-relaxed"
+          >
             Our vision is to be at the forefront of AI-driven digital transformations, catalyzing growth and efficiency 
             through emerging technologies. We aim to establish AI as a transformative force that helps businesses 
             solve complex problems, streamline operations, and enhance decision-making capabilities.
-          </p>
+          </motion.p>
         </motion.section>
         
         {/* AI Philosophy Section */}
@@ -175,17 +205,35 @@ const AboutUs = () => {
           viewport={{ once: true }}
           variants={fadeInUp}
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-8 text-[#7021EE]">AI Philosophy</h2>
-          <p className="text-xl text-gray-300 leading-relaxed">
+          <motion.h2 
+            variants={titleAnimation}
+            className="text-4xl md:text-5xl font-bold mb-8 text-[#7021EE]"
+          >
+            AI Philosophy
+          </motion.h2>
+          <motion.p 
+            variants={textAnimation}
+            className="text-xl text-gray-300 leading-relaxed"
+          >
             At WhitegloveAI, our philosophy is founded on the principle of harmonizing human ingenuity with the power 
             of artificial intelligence to forge a brighter and more efficient future for enterprises. We believe AI is 
             not just a tool but a transformative ally that amplifies human potential, drives innovation, and reshapes 
             the very fabric of business.
-          </p>
+          </motion.p>
         </motion.section>
         
-        {/* Core Beliefs Section */}
-        <CoreBeliefs />
+        {/* Core Beliefs Section - Adjusted spacing */}
+        <div className="mt-16">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="-mb-4" /* This reduces space between title and beliefs */
+          >
+            <CoreBeliefs />
+          </motion.div>
+        </div>
         
         {/* Core Beliefs Philosophy Text */}
         <motion.section
