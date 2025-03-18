@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowDown, Heart, Shield, Brain, Sparkles, Users, Target, Lock, Lightbulb, ChartBar, Linkedin } from 'lucide-react';
@@ -7,6 +6,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import ExecutiveTeam from '@/components/about/ExecutiveTeam';
 import GetInTouch from '@/components/about/GetInTouch';
+import CoreBeliefs from '@/pages/vcaio/components/CoreBeliefs';
 
 const AboutUs = () => {
   const fadeInUp = {
@@ -167,6 +167,9 @@ const AboutUs = () => {
             solve complex problems, streamline operations, and enhance decision-making capabilities.
           </p>
         </motion.section>
+        
+        {/* Core Beliefs Section */}
+        <CoreBeliefs />
         
         {/* Core Values Grid */}
         <motion.section
