@@ -30,6 +30,27 @@
   .executive-linkedin {
     @apply transition-all duration-300 hover:text-[#7021EE] hover:translate-y-[-2px];
   }
+  
+  /* LinkedIn typewriter effect */
+  .linkedin-typewriter-effect {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .linkedin-typewriter-effect::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: #9b87f5;
+    bottom: 0;
+    transition: width 0.5s ease;
+  }
+  
+  .group:hover .linkedin-typewriter-effect::after {
+    width: 100%;
+  }
 }
 
 /* Button Animations */

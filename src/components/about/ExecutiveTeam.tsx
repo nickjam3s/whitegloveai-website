@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import ExecutiveProfile from './ExecutiveProfile';
@@ -38,42 +37,42 @@ const ExecutiveTeam: React.FC = () => {
       name: "Jeffrey Bankard",
       title: "Chief Operations Officer",
       image: "/lovable-uploads/48dc0aa9-6670-48ee-bf78-17fd3db050c2.png",
-      linkedin: "https://linkedin.com"
+      linkedin: "https://www.linkedin.com/in/bankard/"
     },
     {
       name: "Peter Santis",
       title: "Chief Revenue Officer",
       image: "/lovable-uploads/207a70e3-956b-44a6-b40a-c068e899c8b9.png",
-      linkedin: "https://linkedin.com"
+      linkedin: "https://www.linkedin.com/in/peter-santis-vpsales-cro-salesleader/"
     }
   ];
 
-  // Second row executives with updated images
+  // Second row executives with updated images and LinkedIn URLs
   const bottomRowExecutives = [
     {
       name: "Hena Venugopal",
       title: "Chief Product Officer",
       image: "/lovable-uploads/d7b0052a-c6ed-455e-8426-7f7e9fb79d26.png", 
-      linkedin: "https://linkedin.com"
+      linkedin: "https://www.linkedin.com/in/hena-venugopal-73628a20/"
     },
     {
       name: "Daniel Valencia",
       title: "Chief Information Security Officer",
       image: "/lovable-uploads/b308613d-7c57-4781-9908-5547342ba77b.png",
-      linkedin: "https://linkedin.com"
+      linkedin: "https://www.linkedin.com/in/daniel-valencia/"
     },
     {
       name: "Ankur Desai",
       title: "Chief Marketing Officer",
       image: "/lovable-uploads/9eb0ea5f-0135-4053-b26a-591a5e1138f8.png",
-      linkedin: "https://linkedin.com"
+      linkedin: "https://www.linkedin.com/in/ankdes/"
     },
     {
       name: "Binni Skariah",
       title: "Chief Executive Officer",
       secondaryTitle: "in Residence of Lucidis.Ai",
       image: "/lovable-uploads/cb2996c9-1131-4885-81cb-d52aeac16d0f.png",
-      linkedin: "https://linkedin.com"
+      linkedin: "https://www.linkedin.com/in/bskariah/"
     }
   ];
 
