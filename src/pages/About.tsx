@@ -51,7 +51,7 @@ const About = () => {
 
   return (
     <div className="min-h-screen bg-black text-white">
-      {/* Hero Section - fixed styling and adjusted spacing/alignment */}
+      {/* Hero Section - updated Vision section to be smaller */}
       <section className="relative pt-28 min-h-[85vh] flex items-start px-4 md:px-12 lg:px-16">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-b from-[#9b87f5]/10 to-black/90" />
@@ -73,8 +73,8 @@ const About = () => {
               <span className="text-[#9b87f5]">Vision</span>
             </h2>
             
-            <div className="mb-16 max-w-3xl">
-              <h3 className="text-xl font-medium mb-6 text-gray-300">Mission</h3>
+            <div className="mb-8 max-w-3xl">
+              <h3 className="text-xl font-medium mb-4 text-gray-300">Mission</h3>
               <p className="text-gray-300 text-lg">
                 To lead secure and responsible AI adoption, reshaping organizational
                 efficiency and digital transformations.
@@ -82,13 +82,11 @@ const About = () => {
             </div>
             
             <div className="max-w-3xl">
-              <h3 className="text-xl font-medium mb-6 text-gray-300">Vision</h3>
-              <p className="text-2xl md:text-4xl lg:text-5xl font-bold leading-tight">
+              <h3 className="text-xl font-medium mb-4 text-gray-300">Vision</h3>
+              <p className="text-lg text-gray-300 font-normal">
                 To be the <span className="text-[#9b87f5]">premier partner</span> for
-                <br className="hidden sm:block" />
                 organizations embracing AI with
-                <br className="hidden sm:block" />
-                <span className="text-[#9b87f5]">confidence</span> and <span className="text-[#9b87f5]">expertise</span>.
+                <span className="text-[#9b87f5]"> confidence</span> and <span className="text-[#9b87f5]">expertise</span>.
               </p>
             </div>
           </motion.div>
@@ -385,4 +383,3 @@ const team = [
 ];
 
 export default About;
-
