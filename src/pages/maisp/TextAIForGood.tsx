@@ -14,8 +14,8 @@ const TextAIForGood = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <HeroSection />
       <IntroSection />
+      <HeroSection />
       <PartnersSection />
       <BenefitsSection />
       <ProcessSection />
