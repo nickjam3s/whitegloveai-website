@@ -35,6 +35,7 @@ export const navigationLinks = [
     children: [
       { to: "/vcaio", text: "vCAIO" },
       { to: "/vcaio/launch", text: "Launchpad" },
+      { to: "/vcaio/launchai", text: "LaunchAI" },
       { to: "/vcaio/adopt", text: "Adopt" },
       { to: "/vcaio/enable", text: "Enable" },
     ],
@@ -45,11 +46,7 @@ export const navigationLinks = [
     children: [
       {
         text: "AI-AMF",
-<<<<<<< HEAD
-        to: "https://aiamf.ai",
-=======
         to: "http://www.aiamf.ai",
->>>>>>> 6c57a00ea16cf71afb0ecf2d08c9a3048f4735d1
         external: true
       },
       {
