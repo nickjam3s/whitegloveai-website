@@ -42,41 +42,57 @@ const PrivacyPolicy = () => {
               className="hidden md:block"
             >
               <div className="relative">
-                {/* New SVG illustration based on the provided image */}
+                {/* Updated SVG illustration based on the provided image */}
                 <svg className="w-full h-auto" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  {/* Background elements */}
-                  <path d="M180 120 L160 150" stroke="white" strokeWidth="1" opacity="0.3" />
-                  <path d="M320 120 L340 150" stroke="white" strokeWidth="1" opacity="0.3" />
-                  <path d="M150 200 C140 180, 150 160, 170 170" stroke="white" strokeWidth="1" opacity="0.4" fill="none" />
-                  <path d="M350 200 C360 180, 350 160, 330 170" stroke="white" strokeWidth="1" opacity="0.4" fill="none" />
-
-                  {/* Main document - light purple */}
-                  <rect x="190" y="70" width="120" height="180" rx="5" fill="#e6e6ff" fillOpacity="0.15" stroke="white" strokeWidth="1.5" />
+                  {/* Document with decorative elements */}
+                  <g opacity="0.9">
+                    {/* Background elements */}
+                    <circle cx="250" cy="150" r="120" fill="url(#radialGradient)" fillOpacity="0.1" />
+                    <path d="M180 100 L160 130" stroke="white" strokeWidth="1" opacity="0.2" />
+                    <path d="M320 100 L340 130" stroke="white" strokeWidth="1" opacity="0.2" />
+                    
+                    {/* Main document */}
+                    <rect x="170" y="60" width="140" height="180" rx="8" fill="#111" stroke="white" strokeWidth="1" opacity="0.8" />
+                    
+                    {/* Document content lines */}
+                    <line x1="190" y1="90" x2="290" y2="90" stroke="white" strokeWidth="1" opacity="0.5" />
+                    <line x1="190" y1="110" x2="270" y2="110" stroke="white" strokeWidth="1" opacity="0.4" />
+                    <line x1="190" y1="130" x2="280" y2="130" stroke="white" strokeWidth="1" opacity="0.4" />
+                    <line x1="190" y1="150" x2="260" y2="150" stroke="white" strokeWidth="1" opacity="0.3" />
+                    <line x1="190" y1="170" x2="290" y2="170" stroke="white" strokeWidth="1" opacity="0.3" />
+                    <line x1="190" y1="190" x2="270" y2="190" stroke="white" strokeWidth="1" opacity="0.2" />
+                    
+                    {/* Document corner fold */}
+                    <path d="M310 60 L310 80 L290 60 Z" fill="#222" stroke="white" strokeWidth="0.5" opacity="0.8" />
+                    
+                    {/* Security shield overlay */}
+                    <circle cx="240" cy="145" r="40" fill="url(#shieldGradient)" fillOpacity="0.15" />
+                    <path d="M240 120 L270 130 L270 160 C270 175 255 190 240 195 C225 190 210 175 210 160 L210 130 Z" 
+                          fill="none" stroke="white" strokeWidth="1.5" opacity="0.9" />
+                    
+                    {/* Lock icon in center of shield */}
+                    <rect x="230" y="145" width="20" height="15" rx="2" fill="none" stroke="white" strokeWidth="1.5" />
+                    <path d="M235 145 L235 138 C235 134 245 134 245 138 L245 145" stroke="white" strokeWidth="1.5" fill="none" />
+                    <circle cx="240" cy="152" r="2" fill="white" />
+                    
+                    {/* Decorative elements */}
+                    <circle cx="160" cy="90" r="3" fill="white" opacity="0.5" />
+                    <circle cx="340" cy="190" r="2" fill="white" opacity="0.4" />
+                    <path d="M150 200 C170 220, 140 240, 160 260" stroke="white" strokeWidth="1" opacity="0.2" fill="none" />
+                    <path d="M330 80 C350 100, 320 120, 340 140" stroke="white" strokeWidth="0.5" opacity="0.2" fill="none" />
+                  </g>
                   
-                  {/* Dashed line on the left side of document */}
-                  <line x1="205" y1="70" x2="205" y2="250" stroke="white" strokeWidth="1" strokeDasharray="5,5" opacity="0.7" />
-                  
-                  {/* File folder/binder behind main document */}
-                  <rect x="180" y="75" width="140" height="180" rx="4" fill="transparent" stroke="white" strokeWidth="1" opacity="0.6" />
-                  <path d="M320 75 L320 255" stroke="white" strokeWidth="1" />
-                  <path d="M320 115 L340 115" stroke="white" strokeWidth="1" />
-                  <path d="M320 175 L340 175" stroke="white" strokeWidth="1" />
-
-                  {/* Top edge of paper */}
-                  <line x1="190" y1="70" x2="310" y2="70" stroke="white" strokeWidth="2" />
-
-                  {/* Small tabs on right */}
-                  <rect x="310" y="100" width="20" height="20" fill="#333" stroke="white" strokeWidth="1" />
-                  <rect x="310" y="160" width="20" height="20" fill="#333" stroke="white" strokeWidth="1" />
-                  
-                  {/* Shield with lock in the center of document */}
-                  <path d="M230 130 L270 130 L270 180 L250 200 L230 180 Z" fill="#333" stroke="white" strokeWidth="1.5" />
-                  <circle cx="250" cy="160" r="10" fill="none" stroke="white" strokeWidth="1.5" />
-                  <path d="M250 155 L250 160 M250 160 L254 164" stroke="white" strokeWidth="1.5" />
-
-                  {/* Decorative elements */}
-                  <path d="M180 230 C160 240, 150 220, 160 200" stroke="white" strokeWidth="1" opacity="0.5" fill="none" />
-                  <path d="M350 230 C370 240, 380 220, 370 200" stroke="white" strokeWidth="1" opacity="0.5" fill="none" />
+                  {/* Gradients */}
+                  <defs>
+                    <radialGradient id="radialGradient" cx="0.5" cy="0.5" r="0.5" gradientUnits="userSpaceOnUse">
+                      <stop offset="0%" stopColor="#7021EE" stopOpacity="0.4" />
+                      <stop offset="100%" stopColor="#111" stopOpacity="0" />
+                    </radialGradient>
+                    <radialGradient id="shieldGradient" cx="0.5" cy="0.5" r="0.5" gradientUnits="userSpaceOnUse">
+                      <stop offset="0%" stopColor="#7021EE" stopOpacity="0.6" />
+                      <stop offset="100%" stopColor="#111" stopOpacity="0" />
+                    </radialGradient>
+                  </defs>
                 </svg>
               </div>
             </motion.div>
