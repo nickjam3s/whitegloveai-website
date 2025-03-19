@@ -1,40 +1,35 @@
 
-import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import React from "react";
 
 const HeroSection = () => {
   return (
-    <section className="relative pt-40 pb-28 px-4 sm:px-6 lg:px-8 overflow-hidden">
-      <div className="absolute inset-0 overflow-hidden">
-        <div 
-          className="absolute inset-[10%] bg-[radial-gradient(circle_at_50%_50%,#7928CA,transparent_60%)] opacity-25" 
-          style={{
-            transformOrigin: '60% 40%',
-            animation: 'morphing 12s ease-in-out infinite, rotating 15s linear infinite'
-          }}
-        />
-        <div className="absolute inset-0 backdrop-blur-[100px]" />
-      </div>
-      <div className="max-w-7xl mx-auto relative">
-        <div className="text-center">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight mb-6 heading-highlight">
-            WhitegloveAI Managed TextAI Service
-          </h1>
-          <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto mb-8">
-            Transform customer interactions with secure, intelligent automation using our cutting-edge TextAI Agent solution.
-          </p>
-                  </div>
-        <div className="mt-12 flex justify-center">
-          <iframe
-            data-chat-frame="11eee546-15ce-7f30-aa68-03cf75d045b5"
-            width="550"
-            height="700"
-            style={{ border: 0, background: 'white' }}
-          />
-          <script
-            src="https://chat.whitegloveai.com/api/script/chat.js?iframe&id=11eee546-15ce-7f30-aa68-03cf75d045b5"
-            defer
-          />
+    <section className="py-20 bg-background">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <img 
+              src="/lovable-uploads/0b35df8d-6f52-4087-bd23-cd4a7886273f.png" 
+              alt="WhitegloveAI Logo" 
+              className="w-24 mb-6"
+            />
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              TextAI Managed Service
+            </h1>
+            <p className="text-gray-400 text-lg">
+              WhitegloveAI's TextAI service, an externally-facing text-based 
+              AI chatbot designed to enhance customer service operations 
+              through intelligent automation. It includes a detailed service 
+              package, key features and benefits, implementation process, 
+              expected ROI, and additional services available.
+            </p>
+          </div>
+          <div className="flex justify-center">
+            <img 
+              src="/lovable-uploads/0b35df8d-6f52-4087-bd23-cd4a7886273f.png" 
+              alt="Phone with TextAI interface" 
+              className="max-w-full"
+            />
+          </div>
         </div>
       </div>
     </section>

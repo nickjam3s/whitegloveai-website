@@ -1,11 +1,15 @@
 
 import { useEffect } from "react";
 import HeroSection from "./components/textai/HeroSection";
-import ProblemSolutionSection from "./components/textai/ProblemSolutionSection";
-import BenefitsSection from "./components/textai/BenefitsSection";
-import SecuritySection from "./components/textai/SecuritySection";
-import WhyChooseSection from "./components/textai/WhyChooseSection";
-import ROISection from "./components/textai/ROISection";
+import IntelligentInformationSection from "./components/textai/IntelligentInformationSection";
+import OperationalEfficiencySection from "./components/textai/OperationalEfficiencySection";
+import ExpectedROISection from "./components/textai/ExpectedROISection";
+import DemoExampleSection from "./components/textai/DemoExampleSection";
+import McKinneyEDCSection from "./components/textai/McKinneyEDCSection";
+import SecurityComplianceSection from "./components/textai/SecurityComplianceSection";
+import ImplementationProcessSection from "./components/textai/ImplementationProcessSection";
+import AdditionalServicesSection from "./components/textai/AdditionalServicesSection";
+import AboutWhitegloveSection from "./components/textai/AboutWhitegloveSection";
 
 const TextAI = () => {
   useEffect(() => {
@@ -40,11 +44,15 @@ const TextAI = () => {
   return (
     <div className="min-h-screen bg-background">
       <HeroSection />
-      <ProblemSolutionSection />
-      <BenefitsSection />
-      <SecuritySection />
-      <WhyChooseSection />
-      <ROISection />
+      <IntelligentInformationSection />
+      <OperationalEfficiencySection />
+      <ExpectedROISection />
+      <DemoExampleSection />
+      <McKinneyEDCSection />
+      <SecurityComplianceSection />
+      <ImplementationProcessSection />
+      <AdditionalServicesSection />
+      <AboutWhitegloveSection />
     </div>
   );
 };
