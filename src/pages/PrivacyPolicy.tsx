@@ -1,9 +1,8 @@
-
 import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { Shield, Lock } from "lucide-react";
+import { Shield, Lock, SmilePlus, BarChart3, Target } from "lucide-react";
 
 const PrivacyPolicy = () => {
   const policyRef = useRef<HTMLDivElement>(null);
@@ -42,19 +41,14 @@ const PrivacyPolicy = () => {
               className="hidden md:block"
             >
               <div className="relative">
-                {/* Updated SVG illustration based on the provided image */}
                 <svg className="w-full h-auto" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  {/* Document with decorative elements */}
                   <g opacity="0.9">
-                    {/* Background elements */}
                     <circle cx="250" cy="150" r="120" fill="url(#radialGradient)" fillOpacity="0.1" />
                     <path d="M180 100 L160 130" stroke="white" strokeWidth="1" opacity="0.2" />
                     <path d="M320 100 L340 130" stroke="white" strokeWidth="1" opacity="0.2" />
                     
-                    {/* Main document */}
                     <rect x="170" y="60" width="140" height="180" rx="8" fill="#111" stroke="white" strokeWidth="1" opacity="0.8" />
                     
-                    {/* Document content lines */}
                     <line x1="190" y1="90" x2="290" y2="90" stroke="white" strokeWidth="1" opacity="0.5" />
                     <line x1="190" y1="110" x2="270" y2="110" stroke="white" strokeWidth="1" opacity="0.4" />
                     <line x1="190" y1="130" x2="280" y2="130" stroke="white" strokeWidth="1" opacity="0.4" />
@@ -62,27 +56,22 @@ const PrivacyPolicy = () => {
                     <line x1="190" y1="170" x2="290" y2="170" stroke="white" strokeWidth="1" opacity="0.3" />
                     <line x1="190" y1="190" x2="270" y2="190" stroke="white" strokeWidth="1" opacity="0.2" />
                     
-                    {/* Document corner fold */}
                     <path d="M310 60 L310 80 L290 60 Z" fill="#222" stroke="white" strokeWidth="0.5" opacity="0.8" />
                     
-                    {/* Security shield overlay */}
                     <circle cx="240" cy="145" r="40" fill="url(#shieldGradient)" fillOpacity="0.15" />
                     <path d="M240 120 L270 130 L270 160 C270 175 255 190 240 195 C225 190 210 175 210 160 L210 130 Z" 
                           fill="none" stroke="white" strokeWidth="1.5" opacity="0.9" />
                     
-                    {/* Lock icon in center of shield */}
                     <rect x="230" y="145" width="20" height="15" rx="2" fill="none" stroke="white" strokeWidth="1.5" />
                     <path d="M235 145 L235 138 C235 134 245 134 245 138 L245 145" stroke="white" strokeWidth="1.5" fill="none" />
                     <circle cx="240" cy="152" r="2" fill="white" />
                     
-                    {/* Decorative elements */}
                     <circle cx="160" cy="90" r="3" fill="white" opacity="0.5" />
                     <circle cx="340" cy="190" r="2" fill="white" opacity="0.4" />
                     <path d="M150 200 C170 220, 140 240, 160 260" stroke="white" strokeWidth="1" opacity="0.2" fill="none" />
                     <path d="M330 80 C350 100, 320 120, 340 140" stroke="white" strokeWidth="0.5" opacity="0.2" fill="none" />
                   </g>
                   
-                  {/* Gradients */}
                   <defs>
                     <radialGradient id="radialGradient" cx="0.5" cy="0.5" r="0.5" gradientUnits="userSpaceOnUse">
                       <stop offset="0%" stopColor="#7021EE" stopOpacity="0.4" />
@@ -116,7 +105,6 @@ const PrivacyPolicy = () => {
             </p>
             
             <div className="grid md:grid-cols-3 gap-6 mt-8">
-              {/* Personal Information */}
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -130,7 +118,6 @@ const PrivacyPolicy = () => {
                 </p>
               </motion.div>
               
-              {/* Non-Personal Information */}
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -144,7 +131,6 @@ const PrivacyPolicy = () => {
                 </p>
               </motion.div>
               
-              {/* Information from Third Parties */}
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -155,6 +141,293 @@ const PrivacyPolicy = () => {
                 <h3 className="text-xl font-medium mb-3 text-white">Information from Third Parties</h3>
                 <p className="text-gray-300 text-sm">
                   Data from partners, service providers, or publicly available sources.
+                </p>
+              </motion.div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* How We Use Your Information Section */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-black border-t border-gray-800">
+        <div className="max-w-5xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className="text-3xl font-semibold mb-10 text-white">
+              How We Use Your Information
+            </h2>
+            
+            <div className="space-y-8">
+              <motion.div 
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                className="flex items-start gap-6"
+              >
+                <div className="flex-shrink-0 w-14 h-14 bg-[#222] flex items-center justify-center text-white font-semibold text-2xl">
+                  1
+                </div>
+                <div>
+                  <h3 className="text-xl font-medium mb-2 text-white">To Provide Services</h3>
+                  <p className="text-gray-300">
+                    Facilitate account creation and management. Deliver AI solutions tailored to your needs.
+                  </p>
+                </div>
+              </motion.div>
+              
+              <motion.div 
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="flex items-start gap-6"
+              >
+                <div className="flex-shrink-0 w-14 h-14 bg-[#222] flex items-center justify-center text-white font-semibold text-2xl">
+                  2
+                </div>
+                <div>
+                  <h3 className="text-xl font-medium mb-2 text-white">To Improve Our Services</h3>
+                  <p className="text-gray-300">
+                    Analyze user behavior to enhance functionality and performance. Develop new features and offerings.
+                  </p>
+                </div>
+              </motion.div>
+              
+              <motion.div 
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                className="flex items-start gap-6"
+              >
+                <div className="flex-shrink-0 w-14 h-14 bg-[#222] flex items-center justify-center text-white font-semibold text-2xl">
+                  3
+                </div>
+                <div>
+                  <h3 className="text-xl font-medium mb-2 text-white">To Communicate with You</h3>
+                  <p className="text-gray-300">
+                    Respond to inquiries and provide customer support. Send updates, promotional materials, and other relevant information.
+                  </p>
+                </div>
+              </motion.div>
+              
+              <motion.div 
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                className="flex items-start gap-6"
+              >
+                <div className="flex-shrink-0 w-14 h-14 bg-[#222] flex items-center justify-center text-white font-semibold text-2xl">
+                  4
+                </div>
+                <div>
+                  <h3 className="text-xl font-medium mb-2 text-white">To Ensure Security and Compliance</h3>
+                  <p className="text-gray-300">
+                    Protect against fraudulent or unauthorized activities. Comply with legal obligations and enforce our terms of service.
+                  </p>
+                </div>
+              </motion.div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* How We Share Your Information Section */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-black border-t border-gray-800">
+        <div className="max-w-5xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className="text-3xl font-semibold mb-10 text-white">
+              How We Share Your Information
+            </h2>
+            
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="bg-[#111] p-6 rounded-lg"
+              >
+                <h3 className="text-xl font-medium mb-3 text-white">Service Providers</h3>
+                <p className="text-gray-300 text-sm">
+                  Third-party vendors that support our business operations (e.g., hosting, payment processing, analytics).
+                </p>
+              </motion.div>
+              
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                className="bg-[#111] p-6 rounded-lg"
+              >
+                <h3 className="text-xl font-medium mb-3 text-white">Business Partners</h3>
+                <p className="text-gray-300 text-sm">
+                  Partners who collaborate with us on joint offerings or services.
+                </p>
+              </motion.div>
+              
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                className="bg-[#111] p-6 rounded-lg"
+              >
+                <h3 className="text-xl font-medium mb-3 text-white">Legal and Regulatory Authorities</h3>
+                <p className="text-gray-300 text-sm">
+                  To comply with applicable laws, regulations, or legal processes.
+                </p>
+              </motion.div>
+            </div>
+            
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+              className="bg-[#111] p-6 rounded-lg"
+            >
+              <h3 className="text-xl font-medium mb-3 text-white">Corporate Transactions</h3>
+              <p className="text-gray-300 text-sm">
+                In the event of a merger, acquisition, or sale of assets, your information may be transferred as part of the transaction.
+              </p>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Cookies and Tracking Technologies Section */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-black border-t border-gray-800">
+        <div className="max-w-5xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className="text-3xl font-semibold mb-10 text-white">
+              Cookies and Tracking Technologies
+            </h2>
+            
+            <p className="text-gray-300 mb-10">
+              We use cookies and similar tracking technologies to:
+            </p>
+            
+            <div className="grid md:grid-cols-3 gap-10 mb-10">
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="flex flex-col items-center text-center"
+              >
+                <SmilePlus className="w-12 h-12 text-[#7021EE] mb-4" />
+                <h3 className="text-lg font-medium mb-2 text-white">Enhance user experience</h3>
+              </motion.div>
+              
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                className="flex flex-col items-center text-center"
+              >
+                <BarChart3 className="w-12 h-12 text-[#7021EE] mb-4" />
+                <h3 className="text-lg font-medium mb-2 text-white">Analyze website traffic and performance</h3>
+              </motion.div>
+              
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                className="flex flex-col items-center text-center"
+              >
+                <Target className="w-12 h-12 text-[#7021EE] mb-4" />
+                <h3 className="text-lg font-medium mb-2 text-white">Deliver personalized content and advertisements</h3>
+              </motion.div>
+            </div>
+            
+            <p className="text-gray-300 text-center">
+              You can manage your cookie preferences through your browser settings or by using our cookie management tool.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Data Retention Section */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-black border-t border-gray-800">
+        <div className="max-w-5xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className="text-3xl font-semibold mb-6 text-white">
+              Data Retention
+            </h2>
+            
+            <p className="text-gray-300 mb-10">
+              We retain your information for as long as necessary to fulfill the purposes outlined in this Privacy Policy, 
+              unless a longer retention period is required or permitted by law.
+            </p>
+            
+            <div className="relative border-l-2 border-gray-700 pl-8 ml-4">
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                className="mb-12 relative"
+              >
+                <div className="absolute -left-12 top-0 flex items-center justify-center w-8 h-8 bg-[#222] text-white font-medium rounded-sm">
+                  1
+                </div>
+                <h3 className="text-xl font-medium mb-2 text-white">Collection</h3>
+                <p className="text-gray-300">
+                  Information is collected when you interact with our services
+                </p>
+              </motion.div>
+              
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="mb-12 relative"
+              >
+                <div className="absolute -left-12 top-0 flex items-center justify-center w-8 h-8 bg-[#222] text-white font-medium rounded-sm">
+                  2
+                </div>
+                <h3 className="text-xl font-medium mb-2 text-white">Usage</h3>
+                <p className="text-gray-300">
+                  Data is used for the purposes outlined in the policy
+                </p>
+              </motion.div>
+              
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                className="mb-12 relative"
+              >
+                <div className="absolute -left-12 top-0 flex items-center justify-center w-8 h-8 bg-[#222] text-white font-medium rounded-sm">
+                  3
+                </div>
+                <h3 className="text-xl font-medium mb-2 text-white">Retention</h3>
+                <p className="text-gray-300">
+                  Information is retained as long as necessary
+                </p>
+              </motion.div>
+              
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                className="relative"
+              >
+                <div className="absolute -left-12 top-0 flex items-center justify-center w-8 h-8 bg-[#222] text-white font-medium rounded-sm">
+                  4
+                </div>
+                <h3 className="text-xl font-medium mb-2 text-white">Deletion</h3>
+                <p className="text-gray-300">
+                  Data is deleted when no longer needed or required by law
                 </p>
               </motion.div>
             </div>
