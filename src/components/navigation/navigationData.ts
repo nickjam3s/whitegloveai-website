@@ -63,5 +63,12 @@ export const navigationLinks = [
     text: "The AI Executive",
     to: "https://aiexec.whitegloveai.com/",
     external: true
+  },
+  {
+    text: "Legal",
+    children: [
+      { to: "/privacy-policy", text: "Privacy Policy" },
+      { to: "/terms-of-service", text: "Terms of Service" }
+    ]
   }
 ];
