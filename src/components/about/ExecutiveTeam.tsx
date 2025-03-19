@@ -9,7 +9,7 @@ const ExecutiveTeam: React.FC = () => {
     show: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2
+        staggerChildren: 0.1
       }
     }
   };
@@ -19,8 +19,8 @@ const ExecutiveTeam: React.FC = () => {
     show: { opacity: 1, y: 0, transition: { duration: 0.5 } }
   };
 
-  // First row executives with updated images and LinkedIn URLs
-  const topRowExecutives = [
+  // All executives in a single array
+  const executives = [
     {
       name: "Nick James",
       title: "Chief Executive Officer",
@@ -45,11 +45,7 @@ const ExecutiveTeam: React.FC = () => {
       title: "Chief Revenue Officer",
       image: "/lovable-uploads/207a70e3-956b-44a6-b40a-c068e899c8b9.png",
       linkedin: "https://www.linkedin.com/in/peter-santis-vpsales-cro-salesleader/"
-    }
-  ];
-
-  // Second row executives with updated images and LinkedIn URLs
-  const bottomRowExecutives = [
+    },
     {
       name: "Hena Venugopal",
       title: "Chief Product Officer",
@@ -93,38 +89,19 @@ const ExecutiveTeam: React.FC = () => {
         </p>
       </motion.div>
 
-      {/* Top row executives - with improved animation and spacing */}
+      {/* All executives in a single grid layout */}
       <motion.div 
         variants={containerAnimation}
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, margin: "-100px" }}
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mb-8"
+        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 mb-8"
       >
-        {topRowExecutives.map((executive, index) => (
+        {executives.map((executive, index) => (
           <motion.div 
             key={index} 
             variants={itemAnimation}
-            className="executive-card-shadow"
-          >
-            <ExecutiveProfile {...executive} />
-          </motion.div>
-        ))}
-      </motion.div>
-
-      {/* Bottom row executives - with improved animation and spacing */}
-      <motion.div 
-        variants={containerAnimation}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, margin: "-100px" }}
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8"
-      >
-        {bottomRowExecutives.map((executive, index) => (
-          <motion.div 
-            key={index} 
-            variants={itemAnimation}
-            className="executive-card-shadow"
+            className="executive-card-shadow col-span-1"
           >
             <ExecutiveProfile {...executive} />
           </motion.div>
