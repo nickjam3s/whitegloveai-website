@@ -26,9 +26,6 @@ import MediaAI from "./pages/maisp/MediaAI";
 
 // vCAIO Routes
 import VCAIO from "./pages/vcaio/Index";
-import Donnie from "./pages/vcaio/Donnie";
-import Jason from "./pages/vcaio/Jason";
-import Albert from "./pages/vcaio/Albert";
 import Launch from "./pages/vcaio/Launch";
 import Adopt from "./pages/vcaio/Adopt";
 import Enable from "./pages/vcaio/Enable";
@@ -65,9 +62,6 @@ const App = () => (
               
               {/* vCAIO Routes */}
               <Route path="/vcaio" element={<VCAIO />} />
-              <Route path="/vcaio/donnie" element={<Donnie />} />
-              <Route path="/vcaio/jason" element={<Jason />} />
-              <Route path="/vcaio/albert" element={<Albert />} />
               <Route path="/vcaio/launch" element={<Launch />} />
               <Route path="/vcaio/adopt" element={<Adopt />} />
               <Route path="/vcaio/enable" element={<Enable />} />
