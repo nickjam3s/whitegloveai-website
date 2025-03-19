@@ -3,8 +3,8 @@ import React from "react";
 
 const IntelligentInformationSection = () => {
   return (
-    <section className="py-10 bg-black">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-10 bg-black w-full">
+      <div className="w-full">
         <div className="flex justify-center">
           <img 
             src="/lovable-uploads/44e5fa1f-0cc1-4b94-bc50-ba0c29f311ac.png" 
