@@ -174,6 +174,10 @@ const VoiceAI = () => {
                 </li>
                 <li className="flex items-start">
                   <CheckCircle2 className="h-6 w-6 text-secondary mr-3 flex-shrink-0 mt-1" />
+                  <span className="text-gray-400">Capable of instantly understanding and communicating in multiple languages.</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="h-6 w-6 text-secondary mr-3 flex-shrink-0 mt-1" />
                   <span className="text-gray-400">Immediate issue resolution without long wait times</span>
                 </li>
                 <li className="flex items-start">
