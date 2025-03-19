@@ -7,9 +7,9 @@ const SecurityComplianceSection = () => {
       <div className="w-full">
         <div className="flex justify-center">
           <img 
-            src="/lovable-uploads/809c5f53-bad6-47a3-998e-bdc3ff245e74.png" 
+            src="/lovable-uploads/1172f001-3f61-4300-ad31-afd3c5535f82.png" 
             alt="Security and Compliance" 
-            className="w-full object-contain max-h-[550px]"
+            className="w-full object-contain"
           />
         </div>
       </div>

@@ -7,9 +7,9 @@ const AdditionalServicesSection = () => {
       <div className="w-full">
         <div className="flex justify-center">
           <img 
-            src="/lovable-uploads/94ba3b22-6701-44cc-bcee-953cd6b2143c.png" 
+            src="/lovable-uploads/b62be8af-cd40-41c3-8d6f-48feffb33f3e.png" 
             alt="Additional Services Available" 
-            className="w-full object-contain max-h-[550px]"
+            className="w-full object-contain"
           />
         </div>
       </div>

@@ -7,9 +7,9 @@ const ExpectedROISection = () => {
       <div className="w-full">
         <div className="flex justify-center">
           <img 
-            src="/lovable-uploads/fdd38c63-e7e4-47cd-9211-a672fa5a815b.png" 
+            src="/lovable-uploads/011381e0-b77e-45cb-8513-b8dbffb9c0e0.png" 
             alt="Expected ROI Illustration" 
-            className="w-full object-contain max-h-[550px]"
+            className="w-full object-contain"
           />
         </div>
       </div>

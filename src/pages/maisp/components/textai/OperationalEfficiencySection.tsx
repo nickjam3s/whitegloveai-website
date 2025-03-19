@@ -7,9 +7,9 @@ const OperationalEfficiencySection = () => {
       <div className="w-full">
         <div className="flex justify-center">
           <img 
-            src="/lovable-uploads/f6ba6a27-ddd0-46a0-aecd-b7b2293fc275.png" 
+            src="/lovable-uploads/e2aecc5a-30c7-4e28-8721-c6af1153d26e.png" 
             alt="Operational Efficiency Illustration" 
-            className="w-full object-contain max-h-[550px]"
+            className="w-full object-contain"
           />
         </div>
       </div>

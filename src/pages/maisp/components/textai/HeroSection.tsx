@@ -7,9 +7,9 @@ const HeroSection = () => {
       <div className="w-full">
         <div className="flex justify-center">
           <img 
-            src="/lovable-uploads/76c8c5db-c8e3-4cb7-be15-d72f0b72e033.png" 
+            src="/lovable-uploads/7346ffc3-aaec-479c-80ad-d0dc30e45820.png" 
             alt="TextAI Managed Service" 
-            className="w-full object-contain max-h-[550px]"
+            className="w-full object-contain"
           />
         </div>
       </div>

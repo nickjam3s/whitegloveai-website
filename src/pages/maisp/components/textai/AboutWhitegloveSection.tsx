@@ -7,9 +7,9 @@ const AboutWhitegloveSection = () => {
       <div className="w-full">
         <div className="flex justify-center">
           <img 
-            src="/lovable-uploads/626392b7-4fce-44e3-9696-f5bcd0a7594b.png" 
+            src="/lovable-uploads/ca6da2b0-2b84-4375-8184-4c40927745f7.png" 
             alt="About WhitegloveAI" 
-            className="w-full object-contain max-h-[550px]"
+            className="w-full object-contain"
           />
         </div>
       </div>

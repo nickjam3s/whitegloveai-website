@@ -7,9 +7,9 @@ const ImplementationProcessSection = () => {
       <div className="w-full">
         <div className="flex justify-center">
           <img 
-            src="/lovable-uploads/ced3fc5e-9ddb-4332-ad98-96554dfeae07.png" 
+            src="/lovable-uploads/f0fabddd-0c4e-4093-a75d-353d6d91f4be.png" 
             alt="Implementation Process" 
-            className="w-full object-contain max-h-[550px]"
+            className="w-full object-contain"
           />
         </div>
       </div>
