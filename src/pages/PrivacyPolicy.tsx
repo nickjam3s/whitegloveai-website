@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { Shield, Lock, SmilePlus, BarChart3, Target } from "lucide-react";
+import { Shield, Lock, SmilePlus, BarChart3, Target, Activity } from "lucide-react";
 
 const PrivacyPolicy = () => {
   const policyRef = useRef<HTMLDivElement>(null);
@@ -435,24 +435,171 @@ const PrivacyPolicy = () => {
         </div>
       </section>
 
-      {/* Privacy Policy Content Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
+      {/* Data Security Section - NEW */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-black border-t border-gray-800">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl font-semibold mb-6 text-white">
-            Our Commitment to Your Privacy
-          </h2>
-          <p className="text-lg text-gray-300 mb-8 max-w-3xl">
-            This page has been cleared. A new privacy policy will be added soon.
-          </p>
-          <div className="mt-8">
-            <Link to="/" className="inline-block px-6 py-3 bg-[#7021EE] text-white rounded-lg hover:bg-[#7021EE]/80 transition-colors">
-              Return Home
-            </Link>
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className="text-3xl font-semibold mb-6 text-white">
+              Data Security
+            </h2>
+            
+            <p className="text-gray-300 mb-10">
+              We implement industry-standard security measures to protect your information from unauthorized 
+              access, disclosure, or misuse. However, no method of transmission or storage is completely secure, and 
+              we cannot guarantee absolute security.
+            </p>
+            
+            {/* Security Pyramid */}
+            <div className="relative max-w-xl mx-auto mb-10">
+              <svg viewBox="0 0 500 300" className="w-full h-auto">
+                <polygon points="250,50 50,300 450,300" fill="#7021EE" fillOpacity="0.6" />
+                
+                {/* Pyramid Sections */}
+                <line x1="50" y1="300" x2="450" y2="300" stroke="white" strokeWidth="2" />
+                <line x1="100" y1="237.5" x2="400" y2="237.5" stroke="white" strokeWidth="2" />
+                <line x1="150" y1="175" x2="350" y2="175" stroke="white" strokeWidth="2" />
+                <line x1="200" y1="112.5" x2="300" y2="112.5" stroke="white" strokeWidth="2" />
+                
+                {/* Numbers */}
+                <text x="220" y="95" fill="white" fontWeight="bold" fontSize="20">1</text>
+                <text x="220" y="158" fill="white" fontWeight="bold" fontSize="20">2</text>
+                <text x="220" y="220" fill="white" fontWeight="bold" fontSize="20">3</text>
+                <text x="220" y="282" fill="white" fontWeight="bold" fontSize="20">4</text>
+                
+                {/* Labels */}
+                <text x="320" y="95" fill="white" fontSize="18">Encryption</text>
+                <text x="320" y="158" fill="white" fontSize="18">Access Controls</text>
+                <text x="320" y="220" fill="white" fontSize="18">Monitoring</text>
+                <text x="320" y="282" fill="white" fontSize="18">Regular Audits</text>
+              </svg>
+            </div>
+          </motion.div>
         </div>
       </section>
-    </div>
-  );
-};
 
-export default PrivacyPolicy;
+      {/* Your Rights and Choices Section - NEW */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-black border-t border-gray-800">
+        <div className="max-w-5xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className="text-3xl font-semibold mb-6 text-white">
+              Your Rights and Choices
+            </h2>
+            
+            <p className="text-gray-300 mb-10">
+              Depending on your location, you may have the following rights:
+            </p>
+            
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                className="bg-[#111] p-6 rounded-lg"
+              >
+                <h3 className="text-xl font-medium mb-3 text-white">Access and Correction</h3>
+                <p className="text-gray-300 text-sm">
+                  Access, correct, or delete your personal information.
+                </p>
+              </motion.div>
+              
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="bg-[#111] p-6 rounded-lg"
+              >
+                <h3 className="text-xl font-medium mb-3 text-white">Data Processing</h3>
+                <p className="text-gray-300 text-sm">
+                  Restrict or object to certain data processing activities.
+                </p>
+              </motion.div>
+              
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                className="bg-[#111] p-6 rounded-lg"
+              >
+                <h3 className="text-xl font-medium mb-3 text-white">Consent Withdrawal</h3>
+                <p className="text-gray-300 text-sm">
+                  Withdraw consent for data processing, where applicable.
+                </p>
+              </motion.div>
+              
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                className="bg-[#111] p-6 rounded-lg"
+              >
+                <h3 className="text-xl font-medium mb-3 text-white">Complaints</h3>
+                <p className="text-gray-300 text-sm">
+                  Lodge a complaint with a data protection authority.
+                </p>
+              </motion.div>
+            </div>
+            
+            <p className="text-gray-300 text-center">
+              To exercise your rights, contact us at <span className="text-[#7021EE]">privacy@whitegloveai.com</span>
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Third-Party Links Section - NEW */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-black border-t border-gray-800">
+        <div className="max-w-5xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className="text-3xl font-semibold mb-6 text-white">
+              Third-Party Links
+            </h2>
+            
+            <div className="glass-card p-8 border border-[#7021EE]/20">
+              <p className="text-gray-300">
+                Our website and services may contain links to third-party websites. We are not responsible for the privacy 
+                practices of these third parties. We encourage you to review their privacy policies.
+              </p>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Changes to This Privacy Policy Section - NEW */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-black border-t border-gray-800">
+        <div className="max-w-5xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className="text-3xl font-semibold mb-6 text-white">
+              Changes to This Privacy Policy
+            </h2>
+            
+            <p className="text-gray-300 mb-10">
+              We may update this Privacy Policy from time to time. The "Effective Date" at the top of this policy indicates 
+              when the latest changes were made. We encourage you to review this policy periodically for updates.
+            </p>
+            
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                className="bg-[#111] p-6 rounded-lg"
+              >
+                <div className="flex items-center mb-4">
+                  <div className="w-8 h-8 bg-[#222] flex items-center justify-center text-white font-medium rounded-sm">
+                    1
