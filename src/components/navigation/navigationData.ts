@@ -44,7 +44,7 @@ export const navigationLinks = [
     children: [
       {
         text: "AI-AMF",
-        to: "https://www.aiamf.ai",
+        to: "http://www.aiamf.ai",
         external: true
       },
       {
