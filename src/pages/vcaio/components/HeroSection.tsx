@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   return (
-    <section className="relative pt-40 pb-28 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <section className="relative pt-40 pb-28 px-4 sm:px-6 lg:px-8 overflow-hidden" id="hero">
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute inset-[10%] bg-[radial-gradient(circle_at_50%_50%,#7928CA,transparent_60%)] opacity-25" 
           style={{
@@ -24,13 +24,15 @@ const HeroSection = () => {
             Empower your business with the strategic guidance of a virtual Chief AI Officer (vCAIO), 
             a fractional executive role designed to propel your organization toward AI-driven success.
           </p>
-          <Link to="/contact">
-            <Button size="lg" className="text-lg px-8 py-6 flex items-center justify-center">
-              <span className="flex items-center justify-center">
-                Get Started <ArrowRight className="ml-2" />
-              </span>
-            </Button>
-          </Link>
+          <div className="flex justify-center">
+            <Link to="/contact">
+              <Button size="lg" className="text-lg px-8 py-6 flex items-center justify-center">
+                <span className="flex items-center justify-center">
+                  Get Started <ArrowRight className="ml-2" />
+                </span>
+              </Button>
+            </Link>
+          </div>
         </div>
       </div>
     </section>
