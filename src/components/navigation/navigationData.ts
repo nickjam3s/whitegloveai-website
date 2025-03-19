@@ -61,7 +61,7 @@ export const navigationLinks = [
   },
   {
     text: "The AI Executive",
-    to: "/aiexec",
+    to: "https://aiexec.whitegloveai.com/",
     external: true
   }
 ];
