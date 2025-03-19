@@ -1,27 +1,26 @@
 
 import { motion } from 'framer-motion';
-import { FileText, Users, Code, CheckCircle } from 'lucide-react';
 
 const steps = [
   {
-    icon: FileText,
-    title: "Online Application",
-    description: "Submit your application with your resume and portfolio"
+    number: "1",
+    title: "Submit your application"
   },
   {
-    icon: Users,
-    title: "Initial Interview",
-    description: "Meet with our team to discuss your goals and experience"
+    number: "2",
+    title: "Initial screening"
   },
   {
-    icon: Code,
-    title: "Technical Assessment",
-    description: "Complete a practical assessment to showcase your skills"
+    number: "3",
+    title: "Technical assessment"
   },
   {
-    icon: CheckCircle,
-    title: "Final Decision",
-    description: "Receive your acceptance decision within 1 week"
+    number: "4",
+    title: "Culture fit interview"
+  },
+  {
+    number: "5",
+    title: "Final team interview"
   }
 ];
 
@@ -33,35 +32,45 @@ const ApplicationProcess = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="text-center mb-12"
+          className="mb-12"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
             Application Process
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Your journey to becoming an AI expert starts here
-          </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {steps.map((step, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className="bg-[#7021EE]/10 p-6 rounded-lg border border-[#7021EE]/20 relative"
-            >
-              {index < steps.length - 1 && (
-                <div className="hidden lg:block absolute top-1/2 right-0 w-full h-[2px] bg-[#7021EE]/20 transform translate-x-1/2" />
-              )}
-              <step.icon className="h-12 w-12 text-[#7021EE] mb-4" />
-              <h3 className="text-xl font-bold mb-2 text-white">{step.title}</h3>
-              <p className="text-gray-300">{step.description}</p>
-            </motion.div>
-          ))}
+        <div className="relative mb-12">
+          <div className="absolute top-1/2 left-0 w-full h-1 bg-gray-800 transform -translate-y-1/2 z-0"></div>
+          <div className="flex justify-between relative z-10 max-w-3xl mx-auto">
+            {steps.map((step, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="flex flex-col items-center"
+              >
+                <div className="w-10 h-10 bg-[#7021EE] rounded flex items-center justify-center text-white font-bold text-lg mb-2">
+                  {step.number}
+                </div>
+                <p className="text-gray-300 text-sm text-center max-w-[100px]">{step.title}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5 }}
+          viewport={{ once: true }}
+          className="text-center"
+        >
+          <p className="text-gray-300 text-lg">
+            Don't miss this opportunity to jumpstart your career in AI. Apply today (below) and take the first step toward becoming a WhitegloveAI apprentice.
+          </p>
+        </motion.div>
       </div>
     </section>
   );

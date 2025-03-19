@@ -10,22 +10,44 @@ const HeroSection = () => {
         <div className="absolute inset-0 backdrop-blur-sm" />
       </div>
       <div className="container mx-auto px-4 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="max-w-4xl"
-        >
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white">
-            Transform Your Career in AI with WhitegloveAI
-          </h1>
-          <p className="text-xl text-gray-300 mb-8 max-w-3xl">
-            Our exclusive 6-month apprenticeship program offers an unparalleled opportunity to master cutting-edge AI technology while working on real-world solutions.
-          </p>
-          <Button size="lg" className="bg-[#7021EE] hover:bg-[#7021EE]/90">
-            Apply Now <ArrowRight className="ml-2 h-5 w-5" />
-          </Button>
-        </motion.div>
+        <div className="grid md:grid-cols-2 gap-10 items-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white">
+              Transform Your Career in AI with WhitegloveAI
+            </h1>
+            <p className="text-xl text-gray-300 mb-8 max-w-3xl">
+              Our exclusive 6-month apprenticeship program offers an unparalleled opportunity to master cutting-edge AI technology while working on real-world solutions.
+            </p>
+            <Button size="lg" className="bg-[#7021EE] hover:bg-[#7021EE]/90">
+              Apply Now <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+          </motion.div>
+          
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="hidden md:block"
+          >
+            <div className="relative">
+              <div className="w-full h-[300px] rounded-lg bg-gradient-to-br from-[#7021EE]/30 to-[#9b87f5]/10 p-6 flex items-center justify-center">
+                <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  {/* Simple AI illustration */}
+                  <circle cx="100" cy="100" r="50" fill="#7021EE" fillOpacity="0.2" />
+                  <path d="M70 80h60v60H70z" stroke="#9b87f5" strokeWidth="2" />
+                  <path d="M100 70v100" stroke="#9b87f5" strokeWidth="2" />
+                  <path d="M70 120h60" stroke="#9b87f5" strokeWidth="2" />
+                  <circle cx="85" cy="100" r="5" fill="#ffffff" />
+                  <circle cx="115" cy="100" r="5" fill="#ffffff" />
+                </svg>
+              </div>
+            </div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );

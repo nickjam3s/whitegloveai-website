@@ -1,6 +1,5 @@
 
 import { motion } from 'framer-motion';
-import { CheckCircle2 } from 'lucide-react';
 
 const features = [
   "Immersive learning through hands-on client projects",
@@ -11,45 +10,27 @@ const features = [
 ];
 
 const ProgramFeatures = () => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, x: -20 },
-    visible: { opacity: 1, x: 0 }
-  };
-
   return (
     <section className="py-20 bg-black">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold mb-12 text-white">
           What Makes Our Program Unique
         </h2>
-        <motion.div 
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="grid md:grid-cols-2 gap-6"
-        >
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {features.map((feature, index) => (
             <motion.div
               key={index}
-              variants={itemVariants}
-              className="flex items-start gap-4 bg-[#7021EE]/10 p-6 rounded-lg border border-[#7021EE]/20"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className="bg-[#7021EE]/10 p-6 rounded-lg border border-[#7021EE]/20"
             >
-              <CheckCircle2 className="h-6 w-6 text-[#7021EE] flex-shrink-0" />
+              <div className="w-4 h-4 bg-[#7021EE] mb-4"></div>
               <p className="text-gray-300">{feature}</p>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

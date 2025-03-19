@@ -1,6 +1,6 @@
 
 import { motion } from 'framer-motion';
-import { Brain, Users, Target, GraduationCap, Flag, Clock } from 'lucide-react';
+import { Brain, Target, Users, Clock, Flag, GraduationCap, Settings, Zap } from 'lucide-react';
 
 const requirements = [
   {
@@ -16,11 +16,11 @@ const requirements = [
     text: "Excellent communication and teamwork skills"
   },
   {
-    icon: Clock,
+    icon: Zap,
     text: "Self-starter mentality with proven work ethic"
   },
   {
-    icon: Users,
+    icon: Settings,
     text: "Cultural fit with our innovative environment"
   },
   {
@@ -41,9 +41,17 @@ const CandidateProfile = () => {
   return (
     <section className="py-20 bg-black">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-white">
-          Ideal Candidate Profile
-        </h2>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          className="mb-12"
+        >
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
+            Ideal Candidate Profile
+          </h2>
+        </motion.div>
+
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {requirements.map((req, index) => (
             <motion.div
@@ -52,10 +60,12 @@ const CandidateProfile = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="bg-[#7021EE]/10 p-6 rounded-lg border border-[#7021EE]/20"
+              className="text-center"
             >
-              <req.icon className="h-8 w-8 text-[#7021EE] mb-4" />
-              <p className="text-gray-300">{req.text}</p>
+              <div className="flex justify-center mb-4">
+                <req.icon className="h-8 w-8 text-[#7021EE]" />
+              </div>
+              <p className="text-gray-300 text-sm">{req.text}</p>
             </motion.div>
           ))}
         </div>
