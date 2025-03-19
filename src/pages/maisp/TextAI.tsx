@@ -1,12 +1,11 @@
 
 import { useEffect } from "react";
-import TextAIForGoodHero from "./components/textai/TextAIForGoodHero";
-import AIMovementSection from "./components/textai/AIMovementSection";
-import EfficiencyImpactSection from "./components/textai/EfficiencyImpactSection";
-import DemoSection from "./components/textai/DemoSection";
-import PartnersSection from "./components/textai/PartnersSection";
-import ProgramWorkflowSection from "./components/textai/ProgramWorkflowSection";
-import ContactSection from "./components/textai/ContactSection";
+import HeroSection from "./components/textai/HeroSection";
+import ProblemSolutionSection from "./components/textai/ProblemSolutionSection";
+import BenefitsSection from "./components/textai/BenefitsSection";
+import SecuritySection from "./components/textai/SecuritySection";
+import WhyChooseSection from "./components/textai/WhyChooseSection";
+import ROISection from "./components/textai/ROISection";
 
 const TextAI = () => {
   useEffect(() => {
@@ -40,13 +39,12 @@ const TextAI = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <TextAIForGoodHero />
-      <AIMovementSection />
-      <EfficiencyImpactSection />
-      <DemoSection />
-      <PartnersSection />
-      <ProgramWorkflowSection />
-      <ContactSection />
+      <HeroSection />
+      <ProblemSolutionSection />
+      <BenefitsSection />
+      <SecuritySection />
+      <WhyChooseSection />
+      <ROISection />
     </div>
   );
 };

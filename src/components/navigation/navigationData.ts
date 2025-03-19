@@ -1,4 +1,3 @@
-
 export const navigationLinks = [
   {
     text: "About",
