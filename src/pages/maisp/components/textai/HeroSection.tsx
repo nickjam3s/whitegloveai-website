@@ -25,7 +25,7 @@ const HeroSection = () => {
           </div>
           <div className="flex justify-center">
             <img 
-              src="/lovable-uploads/0b35df8d-6f52-4087-bd23-cd4a7886273f.png" 
+              src="/lovable-uploads/c56b9558-7dbb-46ec-88f6-2d7d3a6438b7.png" 
               alt="Phone with TextAI interface" 
               className="max-w-full"
             />

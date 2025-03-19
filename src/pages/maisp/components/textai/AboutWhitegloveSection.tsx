@@ -8,7 +8,7 @@ const AboutWhitegloveSection = () => {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
             <img 
-              src="/lovable-uploads/1800b1b4-0206-49bc-a39b-f08fb73a92f5.png" 
+              src="/lovable-uploads/e4ccc6f3-3f7d-421b-a315-133d5ec75ee0.png" 
               alt="WhitegloveAI Logo Large" 
               className="max-w-xs mx-auto md:mx-0"
             />

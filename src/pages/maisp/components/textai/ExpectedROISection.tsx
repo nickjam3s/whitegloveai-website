@@ -41,7 +41,7 @@ const ExpectedROISection = () => {
           
           <div className="flex justify-center">
             <img 
-              src="/lovable-uploads/06d1d567-9c7a-46b7-b4fe-b28f66e8e152.png" 
+              src="/lovable-uploads/60770709-f51b-4609-a9bd-30c974fd0f81.png" 
               alt="Laptop with Analytics Dashboard" 
               className="max-w-full"
             />

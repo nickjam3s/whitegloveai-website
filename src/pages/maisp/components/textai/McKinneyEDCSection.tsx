@@ -23,7 +23,7 @@ const McKinneyEDCSection = () => {
         
         <div className="rounded-lg overflow-hidden">
           <img 
-            src="/lovable-uploads/eea702b5-b810-47d2-a8d2-3dc281ff0993.png" 
+            src="/lovable-uploads/b816dfd7-aa38-48fc-98da-d7560ba41a36.png" 
             alt="McKinney EDC Website with ChatBot Integration" 
             className="w-full object-cover"
           />

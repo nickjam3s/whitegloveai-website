@@ -16,7 +16,7 @@ const OperationalEfficiencySection = () => {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
             <img 
-              src="/lovable-uploads/1c3ef77a-8597-4dd9-8c8c-f6be72cf06b5.png" 
+              src="/lovable-uploads/1504f751-2ff5-4469-91b5-01c9dfcd810b.png" 
               alt="Robot AI Assistant Illustration" 
               className="max-w-full"
             />
