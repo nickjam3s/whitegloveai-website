@@ -7,7 +7,7 @@ const HeroSection = () => {
       <div className="max-w-full mx-auto">
         <div className="flex justify-center">
           <img 
-            src="/lovable-uploads/ae8d2678-b282-4636-a7fe-758fe9e15f99.png" 
+            src="/lovable-uploads/11b3bbad-b767-4941-860b-e5fa6fc7904f.png" 
             alt="TextAI for Good: Empowering Nonprofits with AI" 
             className="w-full object-contain"
           />
