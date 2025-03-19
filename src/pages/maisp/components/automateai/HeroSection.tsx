@@ -1,5 +1,5 @@
 
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Video } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const HeroSection = () => {
