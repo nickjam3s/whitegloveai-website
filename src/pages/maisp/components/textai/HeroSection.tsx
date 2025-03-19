@@ -7,11 +7,6 @@ const HeroSection = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <img 
-              src="/lovable-uploads/0b35df8d-6f52-4087-bd23-cd4a7886273f.png" 
-              alt="WhitegloveAI Logo" 
-              className="w-24 mb-6"
-            />
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
               TextAI Managed Service
             </h1>
@@ -25,7 +20,7 @@ const HeroSection = () => {
           </div>
           <div className="flex justify-center">
             <img 
-              src="/lovable-uploads/c56b9558-7dbb-46ec-88f6-2d7d3a6438b7.png" 
+              src="/lovable-uploads/2a4228f0-f0be-4ebc-b674-f62b01b54c64.png" 
               alt="Phone with TextAI interface" 
               className="max-w-full"
             />
