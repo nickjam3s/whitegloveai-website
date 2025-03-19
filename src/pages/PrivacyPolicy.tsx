@@ -42,34 +42,41 @@ const PrivacyPolicy = () => {
               className="hidden md:block"
             >
               <div className="relative">
+                {/* New SVG illustration based on the provided image */}
                 <svg className="w-full h-auto" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  {/* Document with shield security icon */}
-                  {/* Main document/phone outline */}
-                  <rect x="180" y="80" width="140" height="200" rx="10" fill="#f8f9ff" fillOpacity="0.1" stroke="white" strokeWidth="1.5" />
-                  <rect x="190" y="100" width="120" height="160" rx="5" fill="#f8f9ff" fillOpacity="0.15" />
+                  {/* Background elements */}
+                  <path d="M180 120 L160 150" stroke="white" strokeWidth="1" opacity="0.3" />
+                  <path d="M320 120 L340 150" stroke="white" strokeWidth="1" opacity="0.3" />
+                  <path d="M150 200 C140 180, 150 160, 170 170" stroke="white" strokeWidth="1" opacity="0.4" fill="none" />
+                  <path d="M350 200 C360 180, 350 160, 330 170" stroke="white" strokeWidth="1" opacity="0.4" fill="none" />
+
+                  {/* Main document - light purple */}
+                  <rect x="190" y="70" width="120" height="180" rx="5" fill="#e6e6ff" fillOpacity="0.15" stroke="white" strokeWidth="1.5" />
                   
-                  {/* Document folds/pages */}
-                  <rect x="200" y="130" width="30" height="10" rx="2" fill="#333" />
-                  <rect x="200" y="150" width="30" height="10" rx="2" fill="#333" />
-                  <rect x="200" y="170" width="30" height="10" rx="2" fill="#333" />
-                  <rect x="200" y="190" width="30" height="10" rx="2" fill="#333" />
+                  {/* Dashed line on the left side of document */}
+                  <line x1="205" y1="70" x2="205" y2="250" stroke="white" strokeWidth="1" strokeDasharray="5,5" opacity="0.7" />
                   
-                  {/* Shield in document */}
-                  <path d="M250 150 L280 150 L280 185 L265 200 L250 185 Z" fill="none" stroke="white" strokeWidth="1.5" />
-                  <circle cx="265" cy="170" r="7" fill="none" stroke="white" strokeWidth="1.5" />
-                  <path d="M265 170 L265 175" stroke="white" strokeWidth="1.5" />
+                  {/* File folder/binder behind main document */}
+                  <rect x="180" y="75" width="140" height="180" rx="4" fill="transparent" stroke="white" strokeWidth="1" opacity="0.6" />
+                  <path d="M320 75 L320 255" stroke="white" strokeWidth="1" />
+                  <path d="M320 115 L340 115" stroke="white" strokeWidth="1" />
+                  <path d="M320 175 L340 175" stroke="white" strokeWidth="1" />
+
+                  {/* Top edge of paper */}
+                  <line x1="190" y1="70" x2="310" y2="70" stroke="white" strokeWidth="2" />
+
+                  {/* Small tabs on right */}
+                  <rect x="310" y="100" width="20" height="20" fill="#333" stroke="white" strokeWidth="1" />
+                  <rect x="310" y="160" width="20" height="20" fill="#333" stroke="white" strokeWidth="1" />
                   
-                  {/* Decorative lines */}
-                  <line x1="150" y1="100" x2="170" y2="100" stroke="white" strokeWidth="1" opacity="0.5" />
-                  <line x1="150" y1="120" x2="170" y2="120" stroke="white" strokeWidth="1" opacity="0.5" />
-                  <line x1="330" y1="150" x2="350" y2="150" stroke="white" strokeWidth="1" opacity="0.5" />
-                  <line x1="330" y1="170" x2="350" y2="170" stroke="white" strokeWidth="1" opacity="0.5" />
-                  
-                  {/* Decorative leaves/elements */}
-                  <path d="M340 200 C350 190, 360 200, 350 210" stroke="white" strokeWidth="1" opacity="0.7" fill="none" />
-                  <path d="M350 210 C360 220, 350 230, 340 220" stroke="white" strokeWidth="1" opacity="0.7" fill="none" />
-                  <path d="M160 200 C150 190, 140 200, 150 210" stroke="white" strokeWidth="1" opacity="0.7" fill="none" />
-                  <path d="M150 210 C140 220, 150 230, 160 220" stroke="white" strokeWidth="1" opacity="0.7" fill="none" />
+                  {/* Shield with lock in the center of document */}
+                  <path d="M230 130 L270 130 L270 180 L250 200 L230 180 Z" fill="#333" stroke="white" strokeWidth="1.5" />
+                  <circle cx="250" cy="160" r="10" fill="none" stroke="white" strokeWidth="1.5" />
+                  <path d="M250 155 L250 160 M250 160 L254 164" stroke="white" strokeWidth="1.5" />
+
+                  {/* Decorative elements */}
+                  <path d="M180 230 C160 240, 150 220, 160 200" stroke="white" strokeWidth="1" opacity="0.5" fill="none" />
+                  <path d="M350 230 C370 240, 380 220, 370 200" stroke="white" strokeWidth="1" opacity="0.5" fill="none" />
                 </svg>
               </div>
             </motion.div>
