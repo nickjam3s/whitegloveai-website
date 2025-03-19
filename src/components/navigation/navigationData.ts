@@ -13,8 +13,8 @@ export const navigationLinks = [
     to: "/maisp",
     children: [
       { 
-        to: "/maisp/textai", 
-        text: "TextAI",
+        text: "TextAI", 
+        to: "/maisp/textai",
         children: [
           { to: "/maisp/textai", text: "TextAI" },
           { to: "/maisp/textai/textaiforgood", text: "AI for Good Program" }
@@ -44,7 +44,7 @@ export const navigationLinks = [
     children: [
       {
         text: "AI-AMF",
-        to: "/aiamf",
+        to: "https://www.aiamf.ai",
         external: true
       },
       {

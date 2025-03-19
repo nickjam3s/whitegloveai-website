@@ -2,7 +2,14 @@
 import { useRef } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { List, ArrowRight, CheckCircle, AlertCircle, FileText, ShieldCheck } from "lucide-react";
+import { 
+  List, 
+  ArrowRight, 
+  CheckCircle, 
+  AlertCircle, 
+  FileText, 
+  ShieldCheck 
+} from "lucide-react";
 
 const TermsOfService = () => {
   const termsRef = useRef<HTMLDivElement>(null);
@@ -33,15 +40,15 @@ const TermsOfService = () => {
               <p className="text-gray-400 mb-6">Effective Date: 01/01/2025</p>
               <p className="text-lg text-gray-300 mb-8 max-w-3xl">
                 These Terms of Service ("Terms") govern your access to and use of the services, products, and website 
-                (collectively, the "Services") provided by WhitegloveAI LLC ("Company," "we," "us," or "our"). By accessing 
-                or using the Services, you agree to be bound by these Terms. If you do not agree, do not use our Services.
+                provided by WhitegloveAI LLC ("Company," "we," "us," or "our"). By accessing 
+                or using the Services, you agree to be bound by these Terms.
               </p>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Acceptance of Terms Section */}
+      {/* 1. Acceptance of Terms Section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-black">
         <div className="max-w-5xl mx-auto">
           <motion.div
@@ -49,20 +56,21 @@ const TermsOfService = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-3xl font-semibold mb-6 text-white">
+            <h2 className="text-3xl font-semibold mb-8 text-white">
               1. Acceptance of Terms
             </h2>
-            <p className="text-gray-300 mb-6">
-              By accessing or using the Services, you acknowledge that you have read, understood, and agree to be bound by these Terms. 
-              If you are using the Services on behalf of an organization, you represent and warrant that you have the authority to bind 
-              that organization to these Terms.
-            </p>
-            <div className="mt-8 glass-card p-6 border border-gray-800">
-              <div className="flex items-start gap-4">
-                <AlertCircle className="text-[#7021EE] w-6 h-6 flex-shrink-0 mt-1" />
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="bg-[#111] p-6 rounded-lg border border-gray-800">
+                <h3 className="text-xl font-medium mb-4 text-white">Age Requirement</h3>
                 <p className="text-gray-300">
-                  <span className="font-medium text-white">Important:</span> These Terms may be updated from time to time. Your continued use of 
-                  the Services after any such changes constitutes your acceptance of the new Terms.
+                  By using our Services, you confirm that you are at least 18 years old, or the legal age of majority in your jurisdiction.
+                </p>
+              </div>
+              
+              <div className="bg-[#111] p-6 rounded-lg border border-gray-800">
+                <h3 className="text-xl font-medium mb-4 text-white">Legal Capacity</h3>
+                <p className="text-gray-300">
+                  You confirm that you are capable of entering into a legally binding agreement.
                 </p>
               </div>
             </div>
@@ -70,7 +78,7 @@ const TermsOfService = () => {
         </div>
       </section>
 
-      {/* Description of Services Section */}
+      {/* 2. Services Overview */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-black border-t border-gray-800">
         <div className="max-w-5xl mx-auto">
           <motion.div
@@ -78,49 +86,70 @@ const TermsOfService = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-3xl font-semibold mb-6 text-white">
-              2. Description of Services
+            <h2 className="text-3xl font-semibold mb-8 text-white">
+              2. Services Overview
             </h2>
-            <p className="text-gray-300 mb-8">
-              The Services include a variety of AI-related solutions, consulting services, and digital products as described on our website.
-            </p>
-            
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid md:grid-cols-2 gap-6">
+              <div>
+                <h3 className="text-xl font-medium mb-4 text-white">2.1 Scope</h3>
+                <p className="text-gray-300">
+                  WhitegloveAI provides AI-powered solutions tailored to meet business needs. The specifics of the Services you receive may depend on agreements entered into separately.
+                </p>
+              </div>
+              
+              <div>
+                <h3 className="text-xl font-medium mb-4 text-white">2.2 Modifications</h3>
+                <p className="text-gray-300">
+                  We reserve the right to modify, suspend, or discontinue any aspect of the Services at any time, with or without notice.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* 3. User Obligations */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-black border-t border-gray-800">
+        <div className="max-w-5xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className="text-3xl font-semibold mb-8 text-white">
+              3. User Obligations
+            </h2>
+            <div className="grid md:grid-cols-3 gap-6">
               <div className="bg-[#111] p-6 rounded-lg border border-gray-800">
-                <h3 className="text-xl font-medium mb-4 text-white flex items-center">
-                  <List className="mr-3 text-[#7021EE]" />
-                  Services We Provide
-                </h3>
-                <ul className="space-y-3">
-                  <li className="flex items-start gap-3 text-gray-300">
-                    <ArrowRight className="w-5 h-5 text-[#7021EE] flex-shrink-0 mt-0.5" />
-                    <span>Managed AI Services (TextAI, VoiceAI, AvatarAI, etc.)</span>
+                <h3 className="text-xl font-medium mb-4 text-white">3.1 Account Responsibilities</h3>
+                <p className="text-gray-300 mb-4">
+                  You are responsible for maintaining the confidentiality of your account credentials.
+                </p>
+                <p className="text-gray-300">
+                  You must notify us immediately of any unauthorized use of your account.
+                </p>
+              </div>
+              
+              <div className="bg-[#111] p-6 rounded-lg border border-gray-800">
+                <h3 className="text-xl font-medium mb-4 text-white">3.2 Prohibited Activities</h3>
+                <p className="text-gray-300 mb-2">You agree not to:</p>
+                <ul className="space-y-2">
+                  <li className="text-gray-300">
+                    Use the Services for illegal, harmful, or unauthorized purposes.
                   </li>
-                  <li className="flex items-start gap-3 text-gray-300">
-                    <ArrowRight className="w-5 h-5 text-[#7021EE] flex-shrink-0 mt-0.5" />
-                    <span>vCAIO Consulting Services</span>
+                  <li className="text-gray-300">
+                    Reverse engineer, decompile, or attempt to derive source code from our software.
                   </li>
-                  <li className="flex items-start gap-3 text-gray-300">
-                    <ArrowRight className="w-5 h-5 text-[#7021EE] flex-shrink-0 mt-0.5" />
-                    <span>AI Implementation and Strategy</span>
-                  </li>
-                  <li className="flex items-start gap-3 text-gray-300">
-                    <ArrowRight className="w-5 h-5 text-[#7021EE] flex-shrink-0 mt-0.5" />
-                    <span>Custom AI Solutions</span>
+                  <li className="text-gray-300">
+                    Interfere with the security or performance of the Services.
                   </li>
                 </ul>
               </div>
               
               <div className="bg-[#111] p-6 rounded-lg border border-gray-800">
-                <h3 className="text-xl font-medium mb-4 text-white flex items-center">
-                  <FileText className="mr-3 text-[#7021EE]" />
-                  Service Modifications
-                </h3>
-                <p className="text-gray-300 mb-4">
-                  We reserve the right to modify, suspend, or discontinue any part of the Services at any time, with or without notice.
-                </p>
+                <h3 className="text-xl font-medium mb-4 text-white">3.3 Compliance</h3>
                 <p className="text-gray-300">
-                  Updates and improvements to the Services may be released periodically and may include changes to features, functionality, or user interface.
+                  You are responsible for complying with all applicable laws, rules, and regulations while using the Services.
                 </p>
               </div>
             </div>
@@ -128,7 +157,7 @@ const TermsOfService = () => {
         </div>
       </section>
 
-      {/* User Accounts Section */}
+      {/* 4. Intellectual Property */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-black border-t border-gray-800">
         <div className="max-w-5xl mx-auto">
           <motion.div
@@ -136,67 +165,124 @@ const TermsOfService = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-3xl font-semibold mb-6 text-white">
-              3. User Accounts
+            <h2 className="text-3xl font-semibold mb-8 text-white flex items-center">
+              4. Intellectual Property
             </h2>
-            <p className="text-gray-300 mb-8">
-              Certain features of the Services may require you to create an account. When you create an account, you agree to:
-            </p>
-            
-            <div className="space-y-6">
-              <div className="flex items-start gap-4">
-                <CheckCircle className="w-6 h-6 text-[#7021EE] flex-shrink-0 mt-1" />
+            <div className="grid md:grid-cols-2 gap-10">
+              <div className="flex">
+                <div className="mr-6 text-purple-500">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="12" r="10"/>
+                    <path d="M14.5 9.5a3 3 0 0 0-3-3 3 3 0 0 0-3 3v5a3 3 0 0 0 3 3 3 3 0 0 0 3-3"/>
+                  </svg>
+                </div>
                 <div>
-                  <h3 className="text-xl font-medium mb-2 text-white">Accurate Information</h3>
+                  <h3 className="text-xl font-medium mb-4 text-white">4.1 Ownership</h3>
                   <p className="text-gray-300">
-                    Provide accurate, current, and complete information about yourself.
+                    All content, software, and materials associated with the Services are the property of WhitegloveAI or its licensors. Unauthorized use of any intellectual property is prohibited.
                   </p>
                 </div>
               </div>
               
-              <div className="flex items-start gap-4">
-                <CheckCircle className="w-6 h-6 text-[#7021EE] flex-shrink-0 mt-1" />
-                <div>
-                  <h3 className="text-xl font-medium mb-2 text-white">Account Security</h3>
-                  <p className="text-gray-300">
-                    Maintain the security of your account credentials and immediately notify us of any unauthorized use.
-                  </p>
+              <div className="flex">
+                <div className="mr-6 text-purple-500">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7l-5-5Z"/>
+                    <path d="M14 2v4a2 2 0 0 0 2 2h4"/>
+                    <circle cx="10" cy="12" r="2"/>
+                    <path d="m20 17-1.09-1.09a2 2 0 0 0-2.82 0L10 22"/>
+                  </svg>
                 </div>
-              </div>
-              
-              <div className="flex items-start gap-4">
-                <CheckCircle className="w-6 h-6 text-[#7021EE] flex-shrink-0 mt-1" />
                 <div>
-                  <h3 className="text-xl font-medium mb-2 text-white">Responsibility</h3>
+                  <h3 className="text-xl font-medium mb-4 text-white">4.2 License</h3>
                   <p className="text-gray-300">
-                    Accept responsibility for all activities that occur under your account.
-                  </p>
-                </div>
-              </div>
-              
-              <div className="flex items-start gap-4">
-                <CheckCircle className="w-6 h-6 text-[#7021EE] flex-shrink-0 mt-1" />
-                <div>
-                  <h3 className="text-xl font-medium mb-2 text-white">Non-Transferability</h3>
-                  <p className="text-gray-300">
-                    Not transfer your account to another person or entity without our prior written consent.
+                    We grant you a limited, non-exclusive, non-transferable, revocable license to use the Services in accordance with these Terms.
                   </p>
                 </div>
               </div>
             </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* 5. Fees and Payment */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-[#0a0a2e] border-t border-gray-800">
+        <div className="max-w-5xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className="text-3xl font-semibold mb-10 text-white">
+              5. Fees and Payment
+            </h2>
             
-            <div className="mt-10 p-6 bg-[#111] rounded-lg border border-gray-800">
-              <h3 className="text-xl font-medium mb-4 text-white">Account Termination</h3>
-              <p className="text-gray-300">
-                We reserve the right to suspend or terminate your account at any time for any reason, including but not limited to, violation of these Terms.
-                Upon termination, your right to use the Services will immediately cease.
+            <div className="relative border-l-2 border-gray-700 pl-8 ml-4 space-y-16">
+              <div className="relative">
+                <div className="absolute -left-[43px] top-0 flex items-center justify-center w-8 h-8 bg-[#0a0a2e] border-2 border-gray-700 rounded-full">
+                  <span className="text-white font-semibold">1</span>
+                </div>
+                <div>
+                  <h3 className="text-xl font-medium mb-4 text-white">5.1 Pricing</h3>
+                  <p className="text-gray-300">
+                    The fees for our Services will be outlined in a separate agreement or displayed at the time of purchase.
+                  </p>
+                </div>
+              </div>
+              
+              <div className="relative">
+                <div className="absolute -left-[43px] top-0 flex items-center justify-center w-8 h-8 bg-[#0a0a2e] border-2 border-gray-700 rounded-full">
+                  <span className="text-white font-semibold">2</span>
+                </div>
+                <div>
+                  <h3 className="text-xl font-medium mb-4 text-white">5.2 Payment Terms</h3>
+                  <p className="text-gray-300 mb-4">
+                    Payments must be made on time to avoid suspension or termination of Services.
+                  </p>
+                  <p className="text-gray-300">
+                    All payments are non-refundable unless otherwise specified.
+                  </p>
+                </div>
+              </div>
+              
+              <div className="relative">
+                <div className="absolute -left-[43px] top-0 flex items-center justify-center w-8 h-8 bg-[#0a0a2e] border-2 border-gray-700 rounded-full">
+                  <span className="text-white font-semibold">3</span>
+                </div>
+                <div>
+                  <h3 className="text-xl font-medium mb-4 text-white">5.3 Taxes</h3>
+                  <p className="text-gray-300">
+                    You are responsible for any applicable taxes associated with the use of our Services.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* 6. Confidentiality */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-black border-t border-gray-800">
+        <div className="max-w-5xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className="text-3xl font-semibold mb-8 text-white">
+              6. Confidentiality
+            </h2>
+            
+            <div className="relative border-l-4 border-purple-600 pl-8 py-4">
+              <p className="text-gray-300 text-lg">
+                You agree to keep any non-public information shared by us confidential and not disclose it to any third party without prior written consent.
               </p>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Payment Terms Section */}
+      {/* 7. Disclaimers and Limitations of Liability */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-black border-t border-gray-800">
         <div className="max-w-5xl mx-auto">
           <motion.div
@@ -204,95 +290,91 @@ const TermsOfService = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-3xl font-semibold mb-6 text-white">
-              4. Payment Terms
-            </h2>
-            <p className="text-gray-300 mb-8">
-              Certain Services may require payment of fees. By using such Services, you agree to the following:
-            </p>
-            
-            <div className="grid md:grid-cols-2 gap-8 mb-10">
-              <div className="bg-[#111] p-6 rounded-lg border border-gray-800">
-                <h3 className="text-xl font-medium mb-3 text-white">Pricing</h3>
-                <p className="text-gray-300 text-sm">
-                  All fees are stated in USD unless otherwise specified and are exclusive of applicable taxes.
-                  We reserve the right to change our prices at any time, with notice provided to you.
-                </p>
-              </div>
-              
-              <div className="bg-[#111] p-6 rounded-lg border border-gray-800">
-                <h3 className="text-xl font-medium mb-3 text-white">Billing</h3>
-                <p className="text-gray-300 text-sm">
-                  For subscription-based Services, you will be billed on a recurring basis. Billing cycles may be monthly, quarterly, or annually,
-                  as specified during your purchase.
-                </p>
-              </div>
-              
-              <div className="bg-[#111] p-6 rounded-lg border border-gray-800">
-                <h3 className="text-xl font-medium mb-3 text-white">Refunds</h3>
-                <p className="text-gray-300 text-sm">
-                  Our refund policy varies by Service. Please refer to the specific Service terms or contact our customer support
-                  for details on our refund policy.
-                </p>
-              </div>
-              
-              <div className="bg-[#111] p-6 rounded-lg border border-gray-800">
-                <h3 className="text-xl font-medium mb-3 text-white">Late Payments</h3>
-                <p className="text-gray-300 text-sm">
-                  Failure to pay fees when due may result in suspension or termination of your access to the Services.
-                  Late payments may incur additional fees.
-                </p>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Intellectual Property Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-black border-t border-gray-800">
-        <div className="max-w-5xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="text-3xl font-semibold mb-6 text-white">
-              5. Intellectual Property
+            <h2 className="text-3xl font-semibold mb-8 text-white">
+              7. Disclaimers and Limitations of Liability
             </h2>
             
-            <div className="space-y-10">
-              <div>
-                <h3 className="text-xl font-medium mb-4 text-white">Our Intellectual Property</h3>
-                <p className="text-gray-300 mb-6">
-                  The Services, including all content, features, and functionality, are owned by the Company and are protected by copyright, 
-                  trademark, and other intellectual property laws.
-                </p>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="bg-[#111] p-6 rounded-lg border border-gray-800">
+                <h3 className="text-xl font-medium mb-4 text-white">7.1 Disclaimer of Warranties</h3>
                 <p className="text-gray-300">
-                  You may not reproduce, distribute, modify, create derivative works of, publicly display, publicly perform, republish, download, 
-                  store, or transmit any of the material on our Services without our prior written consent.
+                  The Services are provided "as is" and "as available" without warranties of any kind, whether express or implied, including but not limited to warranties of merchantability, fitness for a particular purpose, or non-infringement.
                 </p>
               </div>
               
-              <div>
-                <h3 className="text-xl font-medium mb-4 text-white">Your Content</h3>
-                <p className="text-gray-300 mb-6">
-                  You retain ownership of any content you submit, post, display, or otherwise make available through the Services ("Your Content").
-                </p>
+              <div className="bg-[#111] p-6 rounded-lg border border-gray-800">
+                <h3 className="text-xl font-medium mb-4 text-white">7.2 Limitation of Liability</h3>
                 <p className="text-gray-300">
-                  By providing Your Content to the Services, you grant us a worldwide, non-exclusive, royalty-free license to use, reproduce, modify, 
-                  adapt, publish, translate, create derivative works from, distribute, and display Your Content in connection with providing and 
-                  improving the Services.
+                  To the fullest extent permitted by law, WhitegloveAI shall not be liable for any indirect, incidental, special, or consequential damages arising out of your use of the Services.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* 8. Indemnification */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-[#0a0a2e] border-t border-gray-800">
+        <div className="max-w-5xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className="text-3xl font-semibold mb-8 text-white">
+              8. Indemnification
+            </h2>
+            
+            <p className="text-gray-300 text-lg">
+              You agree to indemnify, defend, and hold harmless WhitegloveAI and its affiliates from any claims, damages, or expenses arising out of your use of the Services or violation of these Terms.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* 9. Termination */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-[#0a0a2e] border-t border-gray-800">
+        <div className="max-w-5xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className="text-3xl font-semibold mb-8 text-white">
+              9. Termination
+            </h2>
+            
+            <p className="text-gray-300 text-lg">
+              We reserve the right to suspend or terminate your access to the Services at any time, with or without cause, and with or without notice.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* 10. Governing Law */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-black border-t border-gray-800">
+        <div className="max-w-5xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className="text-3xl font-semibold mb-8 text-white">
+              10. Governing Law
+            </h2>
+            
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="bg-[#111] p-6 rounded-lg border border-gray-800">
+                <h3 className="text-xl font-medium mb-4 text-white">Jurisdiction</h3>
+                <p className="text-gray-300">
+                  These Terms are governed by and construed in accordance with the laws of Delaware.
                 </p>
               </div>
               
-              <div className="p-6 bg-[#111] rounded-lg border border-gray-800">
-                <h3 className="text-xl font-medium mb-4 text-white flex items-center">
-                  <ShieldCheck className="mr-3 text-[#7021EE]" />
-                  Feedback
-                </h3>
+              <div className="bg-[#111] p-6 rounded-lg border border-gray-800">
+                <h3 className="text-xl font-medium mb-4 text-white">Dispute Resolution</h3>
                 <p className="text-gray-300">
-                  If you provide us with any feedback or suggestions regarding the Services, you hereby assign to us all rights in such feedback
-                  and agree that we shall have the right to use such feedback in any manner we deem appropriate.
+                  Any disputes arising from these Terms shall be resolved in the courts of Delaware.
                 </p>
               </div>
             </div>
@@ -300,94 +382,39 @@ const TermsOfService = () => {
         </div>
       </section>
 
-      {/* Limitation of Liability Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-black border-t border-gray-800">
+      {/* 11. Changes to These Terms */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-[#0a0a2e] border-t border-gray-800">
         <div className="max-w-5xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-3xl font-semibold mb-6 text-white">
-              6. Limitation of Liability
+            <h2 className="text-3xl font-semibold mb-8 text-white">
+              11. Changes to These Terms
             </h2>
             
-            <div className="glass-card p-8 border border-[#7021EE]/20 mb-10">
-              <p className="text-gray-300">
-                TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL THE COMPANY BE LIABLE FOR ANY INDIRECT, PUNITIVE, 
-                INCIDENTAL, SPECIAL, CONSEQUENTIAL DAMAGES, OR ANY DAMAGES WHATSOEVER INCLUDING, WITHOUT LIMITATION, DAMAGES FOR LOSS OF USE, 
-                DATA, OR PROFITS, ARISING OUT OF OR IN ANY WAY CONNECTED WITH THE USE OR PERFORMANCE OF THE SERVICES.
-              </p>
-            </div>
-            
-            <p className="text-gray-300 mb-6">
-              The Company does not warrant that:
-            </p>
-            
-            <div className="space-y-4 mb-10">
-              <div className="flex items-start gap-3">
-                <ArrowRight className="w-5 h-5 text-[#7021EE] flex-shrink-0 mt-0.5" />
-                <p className="text-gray-300">The Services will be uninterrupted, timely, secure, or error-free.</p>
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="bg-[#111]/80 p-6 rounded-lg border border-gray-800">
+                <h3 className="text-xl font-medium mb-4 text-white">Updates</h3>
+                <p className="text-gray-300">
+                  We may update these Terms from time to time.
+                </p>
               </div>
-              <div className="flex items-start gap-3">
-                <ArrowRight className="w-5 h-5 text-[#7021EE] flex-shrink-0 mt-0.5" />
-                <p className="text-gray-300">The results that may be obtained from the use of the Services will be accurate or reliable.</p>
+              
+              <div className="bg-[#111]/80 p-6 rounded-lg border border-gray-800">
+                <h3 className="text-xl font-medium mb-4 text-white">Effective Date</h3>
+                <p className="text-gray-300">
+                  The "Effective Date" at the top indicates when the latest changes were made.
+                </p>
               </div>
-              <div className="flex items-start gap-3">
-                <ArrowRight className="w-5 h-5 text-[#7021EE] flex-shrink-0 mt-0.5" />
-                <p className="text-gray-300">Any errors in the Services will be corrected.</p>
+              
+              <div className="bg-[#111]/80 p-6 rounded-lg border border-gray-800">
+                <h3 className="text-xl font-medium mb-4 text-white">Acceptance</h3>
+                <p className="text-gray-300">
+                  Continued use of the Services after changes signifies your acceptance of the updated Terms.
+                </p>
               </div>
-            </div>
-            
-            <p className="text-gray-300">
-              Some jurisdictions do not allow the exclusion of certain warranties or the limitation or exclusion of liability for certain 
-              types of damages. Therefore, some of the above limitations may not apply to you.
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Governing Law Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-black border-t border-gray-800">
-        <div className="max-w-5xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="text-3xl font-semibold mb-6 text-white">
-              7. Governing Law
-            </h2>
-            
-            <p className="text-gray-300 mb-8">
-              These Terms shall be governed by and construed in accordance with the laws of the state of Delaware, without regard to its 
-              conflict of law provisions. You agree that any legal action or proceeding between you and the Company shall be brought exclusively 
-              in the courts located in Delaware.
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Contact Information Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-black border-t border-gray-800">
-        <div className="max-w-5xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="text-3xl font-semibold mb-6 text-white">
-              8. Contact Information
-            </h2>
-            
-            <p className="text-gray-300 mb-8">
-              If you have any questions about these Terms, please contact us at:
-            </p>
-            
-            <div className="p-6 bg-[#111] rounded-lg border border-gray-800 max-w-md">
-              <p className="text-gray-300 mb-2">WhitegloveAI LLC</p>
-              <p className="text-gray-300 mb-2">Email: <span className="text-[#7021EE]">legal@whitegloveai.com</span></p>
-              <p className="text-gray-300">Website: <span className="text-[#7021EE]">www.whitegloveai.com</span></p>
             </div>
           </motion.div>
         </div>
@@ -401,18 +428,19 @@ const TermsOfService = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-3xl font-semibold mb-6 text-white">
-              Acknowledgment
+            <h2 className="text-3xl font-semibold mb-8 text-white">
+              Acknowledgment of Terms
             </h2>
             
-            <p className="text-gray-300 mb-10">
-              BY USING THE SERVICES, YOU ACKNOWLEDGE THAT YOU HAVE READ THESE TERMS OF SERVICE, UNDERSTAND THEM, AND AGREE TO BE BOUND BY THEM. 
-              IF YOU DO NOT AGREE TO THESE TERMS, YOU MUST NOT USE THE SERVICES.
-            </p>
+            <div className="relative border-l-4 border-purple-600 pl-8 py-4">
+              <p className="text-gray-300 text-lg">
+                By using our Services, you acknowledge that you have read, understood, and agreed to these Terms of Service.
+              </p>
+            </div>
             
-            <div className="flex justify-center">
+            <div className="flex justify-center mt-16">
               <Link
-                to="/privacy-policy"
+                to="/privacy"
                 className="text-[#7021EE] hover:text-white transition-colors duration-200"
               >
                 View Privacy Policy

@@ -75,7 +75,7 @@ const App = () => (
               {/* External Redirects */}
               <Route
                 path="/aiamf"
-                element={<Navigate to="https://aiamf.ai" replace />}
+                element={<Navigate to="https://www.aiamf.ai" replace />}
               />
               <Route
                 path="/aipolicy"
