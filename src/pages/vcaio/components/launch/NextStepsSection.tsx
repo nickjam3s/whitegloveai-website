@@ -40,9 +40,11 @@ const NextStepsSection = () => {
               <h3 className="text-xl font-semibold mb-3">{step.title}</h3>
               <p className="text-gray-400 mb-4">{step.description}</p>
               {step.link && (
-                <Button variant="outline" className="w-full" asChild>
+                <Button variant="outline" className="w-full flex items-center justify-center" asChild>
                   <a href={step.link} target="_blank" rel="noopener noreferrer">
-                    Take Assessment
+                    <span className="flex items-center justify-center">
+                      Take Assessment
+                    </span>
                   </a>
                 </Button>
               )}

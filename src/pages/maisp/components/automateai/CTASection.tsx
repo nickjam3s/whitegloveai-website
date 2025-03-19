@@ -1,3 +1,4 @@
+
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -12,10 +13,12 @@ const CTASection = () => {
           Experience the future of business operations with AutomateAI. Visit Lucidis.ai to learn more about how our AI-powered solutions can transform your organization.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Button className="group" asChild>
-            <a href="#contact" className="inline-flex items-center">
-              Contact Us
-              <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+          <Button className="group flex items-center justify-center" asChild>
+            <a href="#contact" className="inline-flex items-center justify-center">
+              <span className="flex items-center justify-center">
+                Contact Us
+                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+              </span>
             </a>
           </Button>
         </div>

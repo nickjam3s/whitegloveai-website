@@ -27,8 +27,10 @@ const TextAIForGoodHero = () => {
             </p>
             <div className="mt-8">
               <Button asChild>
-                <a href="#contact" className="px-6 py-3">
-                  Contact Us
+                <a href="#contact" className="px-6 py-3 flex items-center justify-center">
+                  <span className="flex items-center justify-center">
+                    Contact Us
+                  </span>
                 </a>
               </Button>
             </div>

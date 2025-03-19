@@ -58,8 +58,10 @@ const ServicesSection = () => {
               <h3 className="text-2xl font-semibold text-white mb-4">{service.title}</h3>
               <p className="text-gray-400 mb-6">{service.description}</p>
               <Link to={service.link}>
-                <Button variant="default" size="lg">
-                  Learn More
+                <Button variant="default" size="lg" className="flex items-center justify-center">
+                  <span className="flex items-center justify-center">
+                    Learn More
+                  </span>
                 </Button>
               </Link>
             </div>

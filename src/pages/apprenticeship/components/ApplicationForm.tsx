@@ -66,8 +66,10 @@ const ApplicationForm = () => {
             <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
               Don't miss this opportunity to jumpstart your career in AI. Apply today and take the first step toward becoming a WhitegloveAI apprentice.
             </p>
-            <Button size="lg" className="bg-[#7021EE] hover:bg-[#7021EE]/90">
-              Apply Now <ArrowRight className="ml-2 h-5 w-5" />
+            <Button size="lg" className="bg-[#7021EE] hover:bg-[#7021EE]/90 flex items-center justify-center">
+              <span className="flex items-center justify-center">
+                Apply Now <ArrowRight className="ml-2 h-5 w-5" />
+              </span>
             </Button>
           </motion.div>
         </div>

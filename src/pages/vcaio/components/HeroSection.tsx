@@ -25,8 +25,10 @@ const HeroSection = () => {
             a fractional executive role designed to propel your organization toward AI-driven success.
           </p>
           <Link to="/contact">
-            <Button size="lg" className="text-lg px-8 py-6">
-              Get Started <ArrowRight className="ml-2" />
+            <Button size="lg" className="text-lg px-8 py-6 flex items-center justify-center">
+              <span className="flex items-center justify-center">
+                Get Started <ArrowRight className="ml-2" />
+              </span>
             </Button>
           </Link>
         </div>

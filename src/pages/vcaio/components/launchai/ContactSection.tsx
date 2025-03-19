@@ -14,10 +14,12 @@ const ContactSection = () => {
         
         <div className="max-w-xl mx-auto mb-16">
           <Button 
-            className="w-full py-6 text-lg bg-purple-600 hover:bg-purple-700"
+            className="w-full py-6 text-lg bg-purple-600 hover:bg-purple-700 flex items-center justify-center"
             onClick={() => window.open('https://whitegloveai.com/contact', '_blank')}
           >
-            Contact Us to Schedule Your Workshop
+            <span className="flex items-center justify-center">
+              Contact Us to Schedule Your Workshop
+            </span>
           </Button>
         </div>
         
