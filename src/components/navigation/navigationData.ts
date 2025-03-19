@@ -17,15 +17,16 @@ export const navigationLinks = [
         to: "/maisp/textai",
         children: [
           { to: "/maisp/textai", text: "TextAI" },
-          { to: "/maisp/textai/textaiforgood", text: "AI for Good Program" }
+          { to: "/maisp/textai/textaiforgood", text: "TextAI for Good Program" }
         ]
       },
       { to: "/maisp/voiceai", text: "VoiceAI" },
       { to: "/maisp/avatarai", text: "AvatarAI" },
       { to: "/maisp/automateai", text: "AutomateAI" },
-      { to: "/maisp/humaniodai", text: "HumanoidAI" },
       { to: "/maisp/vendorai", text: "VendorAI" },
       { to: "/maisp/mediaai", text: "MediaAI" },
+      { to: "/maisp/humaniodai", text: "HumanoidAI" },
+      
     ],
   },
   {
@@ -44,17 +45,21 @@ export const navigationLinks = [
     children: [
       {
         text: "AI-AMF",
+<<<<<<< HEAD
+        to: "https://aiamf.ai",
+=======
         to: "http://www.aiamf.ai",
+>>>>>>> 6c57a00ea16cf71afb0ecf2d08c9a3048f4735d1
         external: true
       },
       {
         text: "AI-Policy",
-        to: "/aipolicy",
+        to: "https://polaicy.com",
         external: true
       },
       {
         text: "Lucidis",
-        to: "/lucidis",
+        to: "https://lucidis.ai",
         external: true
       }
     ]

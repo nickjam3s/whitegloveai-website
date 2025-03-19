@@ -23,13 +23,7 @@ const HeroSection = () => {
           <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto mb-8">
             Transform customer interactions with secure, intelligent automation using our cutting-edge TextAI Agent solution.
           </p>
-          <Button className="group" asChild>
-            <a href="#contact" className="inline-flex items-center">
-              Get Started
-              <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-            </a>
-          </Button>
-        </div>
+                  </div>
         <div className="mt-12 flex justify-center">
           <iframe
             data-chat-frame="11eee546-15ce-7f30-aa68-03cf75d045b5"
