@@ -1,6 +1,6 @@
 
 import { useEffect, useRef } from "react";
-import { Activity, BarChart3, Mail, Shield, Lock } from "lucide-react";
+import { Activity, BarChart3, Mail, Shield, Lock, Check, Settings } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const PrivacyPolicy = () => {
@@ -36,6 +36,9 @@ const PrivacyPolicy = () => {
     <div className="bg-black min-h-screen" ref={policyRef}>
       {/* Hero Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
+          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-purple-900/30 to-transparent opacity-30"></div>
+        </div>
         <div className="max-w-5xl mx-auto">
           <div className="relative z-10 animate-fade-up">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold mb-6 heading-highlight">
@@ -57,7 +60,7 @@ const PrivacyPolicy = () => {
       {/* Information We Collect */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-black relative">
         <div className="absolute top-8 right-8">
-          <img src="/lovable-uploads/dfaea422-dd5f-4a3b-8f11-c29a20db7241.png" alt="Fingerprint icon" className="w-16 h-16" />
+          <Lock className="w-16 h-16 text-purple-500/30" />
         </div>
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl sm:text-4xl font-semibold mb-10 fade-in-up">Information We Collect</h2>
@@ -153,7 +156,7 @@ const PrivacyPolicy = () => {
       {/* How We Share Your Information */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-black relative">
         <div className="absolute top-8 right-8">
-          <img src="/lovable-uploads/dfaea422-dd5f-4a3b-8f11-c29a20db7241.png" alt="Fingerprint icon" className="w-16 h-16" />
+          <Settings className="w-16 h-16 text-purple-500/30" />
         </div>
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl sm:text-4xl font-semibold mb-10 fade-in-up">How We Share Your Information</h2>
