@@ -36,15 +36,15 @@ const HeroSection = () => {
             className="hidden md:block"
           >
             <div className="relative">
-              <div className="w-full h-[300px] rounded-lg bg-gradient-to-br from-[#7021EE]/30 to-[#9b87f5]/10 p-6 flex items-center justify-center">
-                <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <div className="w-full h-[400px] rounded-lg bg-gradient-to-br from-[#7021EE]/30 to-[#9b87f5]/10 p-6 flex items-center justify-center">
+                <svg width="280" height="280" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
                   {/* Simple AI illustration */}
-                  <circle cx="100" cy="100" r="50" fill="#7021EE" fillOpacity="0.2" />
-                  <path d="M70 80h60v60H70z" stroke="#9b87f5" strokeWidth="2" />
-                  <path d="M100 70v100" stroke="#9b87f5" strokeWidth="2" />
-                  <path d="M70 120h60" stroke="#9b87f5" strokeWidth="2" />
-                  <circle cx="85" cy="100" r="5" fill="#ffffff" />
-                  <circle cx="115" cy="100" r="5" fill="#ffffff" />
+                  <circle cx="100" cy="100" r="70" fill="#7021EE" fillOpacity="0.2" />
+                  <path d="M60 70h80v80H60z" stroke="#9b87f5" strokeWidth="3" />
+                  <path d="M100 60v120" stroke="#9b87f5" strokeWidth="3" />
+                  <path d="M60 120h80" stroke="#9b87f5" strokeWidth="3" />
+                  <circle cx="85" cy="100" r="8" fill="#ffffff" />
+                  <circle cx="115" cy="100" r="8" fill="#ffffff" />
                 </svg>
               </div>
             </div>
