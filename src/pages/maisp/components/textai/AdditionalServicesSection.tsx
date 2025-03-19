@@ -3,7 +3,7 @@ import React from "react";
 
 const AdditionalServicesSection = () => {
   return (
-    <section className="py-20 bg-black">
+    <section className="py-10 bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-center">
           <img 
