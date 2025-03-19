@@ -4,7 +4,7 @@ import React from "react";
 const HeroSection = () => {
   return (
     <section className="py-6 bg-black">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-center">
           <img 
             src="/lovable-uploads/11b3bbad-b767-4941-860b-e5fa6fc7904f.png" 
