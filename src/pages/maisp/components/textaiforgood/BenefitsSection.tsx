@@ -4,7 +4,7 @@ import React from "react";
 const BenefitsSection = () => {
   return (
     <section className="py-6 bg-black w-full">
-      <div className="w-full">
+      <div className="max-w-full">
         <div className="flex justify-center">
           <img 
             src="/lovable-uploads/483007f6-29fa-4286-8dd5-55700f60ac52.png" 

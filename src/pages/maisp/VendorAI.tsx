@@ -11,14 +11,23 @@ import Support from "./components/vendorai/Support";
 
 const VendorAI = () => {
   useEffect(() => {
-    const script = document.createElement('script');
-    script.src = "//embed.typeform.com/next/embed.js";
-    script.async = true;
-    document.body.appendChild(script);
-
-    return () => {
-      document.body.removeChild(script);
-    };
+    // Ensure Typeform script is loaded
+    const existingScript = document.getElementById('typeform-script');
+    if (!existingScript) {
+      const script = document.createElement('script');
+      script.id = 'typeform-script';
+      script.src = "//embed.typeform.com/next/embed.js";
+      script.async = true;
+      document.body.appendChild(script);
+      
+      return () => {
+        if (document.getElementById('typeform-script')) {
+          document.body.removeChild(script);
+        }
+      };
+    }
+    
+    window.scrollTo(0, 0);
   }, []);
 
   return (
@@ -37,7 +46,9 @@ const VendorAI = () => {
           <h2 className="text-3xl font-semibold mb-16 text-center heading-highlight-scroll">
             Contact Us
           </h2>
-          <div data-tf-live="01JMAMXNY7NHGYM2YQDXCDRDW6"></div>
+          <div className="bg-card/50 p-6 rounded-lg shadow-lg max-w-4xl mx-auto">
+            <div data-tf-widget="01JMAMXNY7NHGYM2YQDXCDRDW6" data-tf-inline-on-mobile data-tf-medium="snippet" data-tf-hidden="utm_source=website,utm_medium=snippet"></div>
+          </div>
         </div>
       </section>
     </div>

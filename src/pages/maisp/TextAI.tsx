@@ -1,3 +1,4 @@
+
 import { useEffect } from "react";
 import HeroSection from "./components/textai/HeroSection";
 import IntelligentInformationSection from "./components/textai/IntelligentInformationSection";
@@ -8,15 +9,10 @@ import SecurityComplianceSection from "./components/textai/SecurityComplianceSec
 import ImplementationProcessSection from "./components/textai/ImplementationProcessSection";
 import AdditionalServicesSection from "./components/textai/AdditionalServicesSection";
 import AboutWhitegloveSection from "./components/textai/AboutWhitegloveSection";
+import ContactSection from "./components/textai/ContactSection";
 
 const TextAI = () => {
   useEffect(() => {
-    // Load the Typeform script
-    const typeformScript = document.createElement('script');
-    typeformScript.src = "//embed.typeform.com/next/embed.js";
-    typeformScript.defer = true;
-    document.body.appendChild(typeformScript);
-
     // Initialize intersection observer for scroll animations
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
@@ -34,7 +30,6 @@ const TextAI = () => {
     });
 
     return () => {
-      document.body.removeChild(typeformScript);
       observer.disconnect();
     };
   }, []);
@@ -50,6 +45,7 @@ const TextAI = () => {
       <ImplementationProcessSection />
       <AdditionalServicesSection />
       <AboutWhitegloveSection />
+      <ContactSection />
     </div>
   );
 };

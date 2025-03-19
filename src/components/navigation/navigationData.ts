@@ -1,3 +1,4 @@
+
 export const navigationLinks = [
   {
     text: "About",
@@ -64,12 +65,5 @@ export const navigationLinks = [
     text: "The AI Executive",
     to: "https://aiexec.whitegloveai.com/",
     external: true
-  },
-  {
-    text: "Legal",
-    children: [
-      { to: "/privacy", text: "Privacy Policy" },
-      { to: "/terms", text: "Terms of Service" }
-    ]
   }
 ];

@@ -1,9 +1,28 @@
 
 import { motion } from 'framer-motion';
-import { ArrowRight, ExternalLink } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Button } from "@/components/ui/button";
+import { useEffect } from 'react';
 
 const ApplicationForm = () => {
+  useEffect(() => {
+    // Ensure Typeform script is loaded
+    const existingScript = document.getElementById('typeform-script');
+    if (!existingScript) {
+      const script = document.createElement('script');
+      script.id = 'typeform-script';
+      script.src = "//embed.typeform.com/next/embed.js";
+      script.async = true;
+      document.body.appendChild(script);
+      
+      return () => {
+        if (document.getElementById('typeform-script')) {
+          document.body.removeChild(script);
+        }
+      };
+    }
+  }, []);
+
   return (
     <section className="py-20 bg-black">
       <div className="container mx-auto px-4">
@@ -28,7 +47,8 @@ const ApplicationForm = () => {
             <div className="grid md:grid-cols-2">
               <div className="p-8 flex items-center justify-center border-r border-[#333]">
                 <div className="text-center md:text-left">
-                  <h3 className="text-xl font-bold text-white mb-2">Typeform</h3>
+                  <h3 className="text-xl font-bold text-white mb-2">Apply to WhitegloveAI Apprenticeship</h3>
+                  <p className="text-gray-400">Fill out our application form to get started</p>
                 </div>
               </div>
               <div className="p-8 bg-[#0F0F0F]">
@@ -40,16 +60,11 @@ const ApplicationForm = () => {
                         <path d="M7 7h10v10H7z" fill="#fff"/>
                       </svg>
                     </div>
-                    <h4 className="text-white text-sm font-medium">WGAI - AvatarAI Website Contact Form</h4>
+                    <h4 className="text-white text-sm font-medium">WhitegloveAI Apprenticeship Application</h4>
                   </div>
-                  <p className="text-gray-400 text-sm">
-                    Turn data collection into an experience with Typeform. Create beautiful online forms, surveys, quizzes, and so much more. Try it for FREE.
-                  </p>
-                  <div className="mt-4 flex justify-end">
-                    <a href="#" className="text-[#7021EE] hover:text-[#9b87f5] inline-flex items-center">
-                      <ExternalLink className="h-4 w-4 mr-1" />
-                      <span className="text-sm">Open form</span>
-                    </a>
+                  
+                  <div className="mt-4">
+                    <div data-tf-widget="01JMAMXNY7NHGYM2YQDXCDRDW6" data-tf-inline-on-mobile data-tf-medium="snippet" data-tf-hidden="utm_source=website,utm_medium=snippet"></div>
                   </div>
                 </div>
               </div>
