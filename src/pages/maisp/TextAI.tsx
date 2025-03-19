@@ -1,41 +1,52 @@
 
 import { useEffect } from "react";
-import HeroSection from "./components/textai/HeroSection";
-import ProblemSolutionSection from "./components/textai/ProblemSolutionSection";
-import BenefitsSection from "./components/textai/BenefitsSection";
-import ROISection from "./components/textai/ROISection";
-import SecuritySection from "./components/textai/SecuritySection";
-import WhyChooseSection from "./components/textai/WhyChooseSection";
+import TextAIForGoodHero from "./components/textai/TextAIForGoodHero";
+import AIMovementSection from "./components/textai/AIMovementSection";
+import EfficiencyImpactSection from "./components/textai/EfficiencyImpactSection";
+import DemoSection from "./components/textai/DemoSection";
+import PartnersSection from "./components/textai/PartnersSection";
+import ProgramWorkflowSection from "./components/textai/ProgramWorkflowSection";
+import ContactSection from "./components/textai/ContactSection";
 
 const TextAI = () => {
   useEffect(() => {
-    const script = document.createElement('script');
-    script.src = "//embed.typeform.com/next/embed.js";
-    script.async = true;
-    document.body.appendChild(script);
+    // Load the Typeform script
+    const typeformScript = document.createElement('script');
+    typeformScript.src = "//embed.typeform.com/next/embed.js";
+    typeformScript.defer = true;
+    document.body.appendChild(typeformScript);
+
+    // Initialize intersection observer for scroll animations
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+
+    // Observe all scroll-animated headings
+    document.querySelectorAll('.heading-highlight-scroll').forEach(heading => {
+      observer.observe(heading);
+    });
 
     return () => {
-      document.body.removeChild(script);
+      document.body.removeChild(typeformScript);
+      observer.disconnect();
     };
   }, []);
 
   return (
     <div className="min-h-screen bg-background">
-      <HeroSection />
-      <ProblemSolutionSection />
-      <BenefitsSection />
-      <ROISection />
-      <SecuritySection />
-      <WhyChooseSection />
-      
-      <section className="py-20 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-semibold mb-16 text-center heading-highlight-scroll">
-            Contact Us
-          </h2>
-          <div data-tf-live="01JMAMXNY7NHGYM2YQDXCDRDW6"></div>
-        </div>
-      </section>
+      <TextAIForGoodHero />
+      <AIMovementSection />
+      <EfficiencyImpactSection />
+      <DemoSection />
+      <PartnersSection />
+      <ProgramWorkflowSection />
+      <ContactSection />
     </div>
   );
 };
