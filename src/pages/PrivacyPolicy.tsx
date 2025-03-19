@@ -3,16 +3,16 @@ import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { Shield, Lock } from "lucide-react";
 
 const PrivacyPolicy = () => {
   const policyRef = useRef<HTMLDivElement>(null);
 
   return (
     <div className="bg-black min-h-screen" ref={policyRef}>
-      {/* Hero Section - Based on provided image */}
+      {/* Privacy Policy Hero Section - Based on provided image */}
       <section className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#7021EE]/20 to-black/90">
+        <div className="absolute inset-0 bg-gradient-to-b from-[#7021EE]/10 to-black/95">
           <div className="absolute inset-0 backdrop-blur-sm" />
         </div>
         
@@ -24,21 +24,15 @@ const PrivacyPolicy = () => {
               transition={{ duration: 0.8 }}
             >
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold mb-6 text-white">
-                Transform Your Career in<br />AI with WhitegloveAI
+                Privacy Policy
               </h1>
+              <p className="text-gray-400 mb-4">Effective Date: 01/01/2025</p>
               <p className="text-lg text-gray-300 mb-8 max-w-3xl">
-                Our exclusive 6-month apprenticeship program offers an
-                unparalleled opportunity to master cutting-edge AI technology
-                while working on real-world solutions. You'll collaborate
-                directly with seasoned professionals who are shaping the future
-                of AI implementation across industries.
+                WhitegloveAI LLC("Company," "we," "us," or "our") is committed 
+                to protecting your privacy. This Privacy Policy describes how we 
+                collect, use, and disclose your information when you visit our 
+                website, use our services, or interact with us in any way.
               </p>
-              <Button 
-                size="lg" 
-                className="bg-[#7021EE] hover:bg-[#7021EE]/90"
-              >
-                Apply Now <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
             </motion.div>
             
             <motion.div
@@ -49,30 +43,33 @@ const PrivacyPolicy = () => {
             >
               <div className="relative">
                 <svg className="w-full h-auto" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  {/* Laptop with lightbulb */}
-                  <rect x="120" y="180" width="160" height="100" fill="white" fillOpacity="0.1" rx="4" />
-                  <rect x="145" y="190" width="110" height="70" fill="white" fillOpacity="0.2" rx="2" />
+                  {/* Document with shield security icon */}
+                  {/* Main document/phone outline */}
+                  <rect x="180" y="80" width="140" height="200" rx="10" fill="#f8f9ff" fillOpacity="0.1" stroke="white" strokeWidth="1.5" />
+                  <rect x="190" y="100" width="120" height="160" rx="5" fill="#f8f9ff" fillOpacity="0.15" />
                   
-                  {/* Lightbulb */}
-                  <circle cx="200" cy="130" r="20" fill="none" stroke="white" strokeWidth="2" />
-                  <path d="M190 130 L210 130 M200 120 L200 140" stroke="white" strokeWidth="2" />
-                  <path d="M180 140 L220 140 L215 160 L185 160 Z" fill="none" stroke="white" strokeWidth="2" />
+                  {/* Document folds/pages */}
+                  <rect x="200" y="130" width="30" height="10" rx="2" fill="#333" />
+                  <rect x="200" y="150" width="30" height="10" rx="2" fill="#333" />
+                  <rect x="200" y="170" width="30" height="10" rx="2" fill="#333" />
+                  <rect x="200" y="190" width="30" height="10" rx="2" fill="#333" />
                   
-                  {/* Graph */}
-                  <path d="M260 120 L280 100 L300 110 L320 80" stroke="white" strokeWidth="2" fill="none" />
-                  <circle cx="320" cy="80" r="5" fill="white" />
+                  {/* Shield in document */}
+                  <path d="M250 150 L280 150 L280 185 L265 200 L250 185 Z" fill="none" stroke="white" strokeWidth="1.5" />
+                  <circle cx="265" cy="170" r="7" fill="none" stroke="white" strokeWidth="1.5" />
+                  <path d="M265 170 L265 175" stroke="white" strokeWidth="1.5" />
                   
-                  {/* Flag */}
-                  <path d="M320 120 L320 50" stroke="white" strokeWidth="2" />
-                  <path d="M320 50 L350 65 L320 80" fill="white" fillOpacity="0.5" />
+                  {/* Decorative lines */}
+                  <line x1="150" y1="100" x2="170" y2="100" stroke="white" strokeWidth="1" opacity="0.5" />
+                  <line x1="150" y1="120" x2="170" y2="120" stroke="white" strokeWidth="1" opacity="0.5" />
+                  <line x1="330" y1="150" x2="350" y2="150" stroke="white" strokeWidth="1" opacity="0.5" />
+                  <line x1="330" y1="170" x2="350" y2="170" stroke="white" strokeWidth="1" opacity="0.5" />
                   
-                  {/* Pen */}
-                  <path d="M340 150 L360 120" stroke="white" strokeWidth="2" />
-                  <path d="M358 118 L362 122 L342 152 L338 148 Z" fill="white" />
-                  
-                  {/* Coffee mug */}
-                  <rect x="120" y="150" width="20" height="25" rx="3" fill="none" stroke="white" strokeWidth="2" />
-                  <path d="M140 155 C150 155, 150 170, 140 170" stroke="white" strokeWidth="2" fill="none" />
+                  {/* Decorative leaves/elements */}
+                  <path d="M340 200 C350 190, 360 200, 350 210" stroke="white" strokeWidth="1" opacity="0.7" fill="none" />
+                  <path d="M350 210 C360 220, 350 230, 340 220" stroke="white" strokeWidth="1" opacity="0.7" fill="none" />
+                  <path d="M160 200 C150 190, 140 200, 150 210" stroke="white" strokeWidth="1" opacity="0.7" fill="none" />
+                  <path d="M150 210 C140 220, 150 230, 160 220" stroke="white" strokeWidth="1" opacity="0.7" fill="none" />
                 </svg>
               </div>
             </motion.div>
@@ -83,11 +80,10 @@ const PrivacyPolicy = () => {
       {/* Privacy Policy Content Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold mb-6 heading-highlight">
-            Privacy Policy
-          </h1>
-          <p className="text-gray-400 mb-2">Effective Date: 01/01/2025</p>
-          <p className="text-lg text-gray-300 max-w-3xl">
+          <h2 className="text-3xl font-semibold mb-6 text-white">
+            Our Commitment to Your Privacy
+          </h2>
+          <p className="text-lg text-gray-300 mb-8 max-w-3xl">
             This page has been cleared. A new privacy policy will be added soon.
           </p>
           <div className="mt-8">
