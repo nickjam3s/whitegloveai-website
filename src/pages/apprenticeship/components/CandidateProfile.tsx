@@ -47,7 +47,7 @@ const CandidateProfile = () => {
           viewport={{ once: true }}
           className="mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
             Ideal Candidate Profile
           </h2>
         </motion.div>
@@ -63,9 +63,9 @@ const CandidateProfile = () => {
               className="text-center"
             >
               <div className="flex justify-center mb-4">
-                <req.icon className="h-8 w-8 text-[#7021EE]" />
+                <req.icon className="h-10 w-10 text-[#7021EE]" />
               </div>
-              <p className="text-gray-300 text-sm">{req.text}</p>
+              <p className="text-gray-300 text-base">{req.text}</p>
             </motion.div>
           ))}
         </div>

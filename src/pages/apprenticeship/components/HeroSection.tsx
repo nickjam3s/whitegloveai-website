@@ -36,8 +36,8 @@ const HeroSection = () => {
             className="hidden md:block"
           >
             <div className="relative">
-              <div className="w-full h-[400px] rounded-lg bg-gradient-to-br from-[#7021EE]/30 to-[#9b87f5]/10 p-6 flex items-center justify-center">
-                <svg width="280" height="280" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <div className="w-full h-[450px] rounded-lg bg-gradient-to-br from-[#7021EE]/30 to-[#9b87f5]/10 p-6 flex items-center justify-center">
+                <svg width="320" height="320" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
                   {/* Simple AI illustration */}
                   <circle cx="100" cy="100" r="70" fill="#7021EE" fillOpacity="0.2" />
                   <path d="M60 70h80v80H60z" stroke="#9b87f5" strokeWidth="3" />
