@@ -13,7 +13,7 @@ const TermsOfService = () => {
       <section className="relative py-20 px-4 sm:px-6 lg:px-8 min-h-[60vh] flex items-center">
         <div className="absolute inset-0 bg-black/90">
           <img 
-            src="/lovable-uploads/b2013dd0-6edf-4c70-899f-07c858c49734.png" 
+            src="/lovable-uploads/b20fc509-acf7-4f56-877b-b3ac3702e65d.png" 
             alt="Terms of Service" 
             className="w-full h-full object-cover opacity-20"
           />

@@ -67,8 +67,8 @@ export const navigationLinks = [
   {
     text: "Legal",
     children: [
-      { to: "/privacy-policy", text: "Privacy Policy" },
-      { to: "/terms-of-service", text: "Terms of Service" }
+      { to: "/privacy", text: "Privacy Policy" },
+      { to: "/terms", text: "Terms of Service" }
     ]
   }
 ];
