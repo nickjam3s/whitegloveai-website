@@ -1,7 +1,7 @@
-
-import { Shield, PhoneCall, ArrowRight, BrainCircuit, BarChart4, CheckCircle2 } from "lucide-react";
+import { Shield, PhoneCall, ArrowRight, BrainCircuit, BarChart4, CheckCircle2, Download } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
+import { Button } from "@/components/ui/button";
 
 const VoiceAI = () => {
   useEffect(() => {
@@ -130,6 +130,62 @@ const VoiceAI = () => {
                 </ul>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Transforming Customer Service Section */}
+      <section className="py-20 bg-background">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h1 className="text-3xl font-semibold mb-16 text-center heading-highlight-scroll">
+            Transforming Customer Service: Replacing IVR Systems with Voice AI
+          </h1>
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
+              <p className="text-gray-400 text-lg">
+                Traditional IVR systems have long been a source of frustration for customers, with their rigid menus, 
+                limited functionality, and inability to understand natural language. Our Voice AI solution completely 
+                transforms this experience, providing natural, intuitive conversations that adapt to customer needs 
+                in real-time.
+              </p>
+              <p className="text-gray-400 text-lg">
+                Learn how businesses are achieving higher customer satisfaction, reducing operational costs, 
+                and increasing efficiency by replacing outdated IVR systems with our advanced Voice AI technology.
+              </p>
+              <div className="pt-4">
+                <a 
+                  href="https://drive.google.com/file/d/10r8gpbiufVP3_STPaTMA6Y5v8jMCxU0L/view?usp=drive_link" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                >
+                  <Button className="group" size="lg">
+                    <span>Download Whitepaper</span>
+                    <Download className="ml-2 h-5 w-5 group-hover:translate-y-1 transition-transform" />
+                  </Button>
+                </a>
+              </div>
+            </div>
+            <div className="glass-card p-8 rounded-xl border border-primary/20">
+              <h3 className="text-2xl font-semibold mb-4">Key Benefits Over IVR</h3>
+              <ul className="space-y-4">
+                <li className="flex items-start">
+                  <CheckCircle2 className="h-6 w-6 text-secondary mr-3 flex-shrink-0 mt-1" />
+                  <span className="text-gray-400">Natural language understanding instead of rigid menu options</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="h-6 w-6 text-secondary mr-3 flex-shrink-0 mt-1" />
+                  <span className="text-gray-400">Immediate issue resolution without long wait times</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="h-6 w-6 text-secondary mr-3 flex-shrink-0 mt-1" />
+                  <span className="text-gray-400">Personalized customer experiences based on context and history</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckCircle2 className="h-6 w-6 text-secondary mr-3 flex-shrink-0 mt-1" />
+                  <span className="text-gray-400">Seamless escalation to human agents when necessary</span>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>
