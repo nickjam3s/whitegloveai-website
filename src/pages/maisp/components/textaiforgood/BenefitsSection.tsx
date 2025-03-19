@@ -7,7 +7,7 @@ const BenefitsSection = () => {
       <div className="max-w-full">
         <div className="flex justify-center">
           <img 
-            src="/lovable-uploads/483007f6-29fa-4286-8dd5-55700f60ac52.png" 
+            src="/lovable-uploads/0eac5844-55aa-4db3-8fae-fa8029305014.png" 
             alt="Become a Part of the AI Movement" 
             className="w-full object-contain"
           />

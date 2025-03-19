@@ -7,7 +7,7 @@ const IntroSection = () => {
       <div className="w-full">
         <div className="flex justify-center">
           <img 
-            src="/lovable-uploads/5d228ff1-f5d6-4c36-ac71-b1b4963a962e.png" 
+            src="/lovable-uploads/54b1e3f4-9a9a-4e74-ae7f-b6507170ddb2.png" 
             alt="TextAI for Good: Empowering Nonprofits with AI" 
             className="w-full object-contain"
           />

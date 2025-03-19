@@ -7,7 +7,7 @@ const PartnersSection = () => {
       <div className="w-full">
         <div className="flex justify-center">
           <img 
-            src="/lovable-uploads/9ab07b88-f3d2-4a4b-85f6-5a25152456da.png" 
+            src="/lovable-uploads/bef8d119-06ab-46f3-8151-07a61e77fca7.png" 
             alt="NonProfit Partners" 
             className="w-full object-contain"
           />
