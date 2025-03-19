@@ -57,7 +57,7 @@ const PrivacyPolicy = () => {
       {/* Information We Collect */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-black relative">
         <div className="absolute top-8 right-8">
-          <Shield className="w-10 h-10 text-[#7021EE]/50" />
+          <img src="/lovable-uploads/dfaea422-dd5f-4a3b-8f11-c29a20db7241.png" alt="Fingerprint icon" className="w-16 h-16" />
         </div>
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl sm:text-4xl font-semibold mb-10 fade-in-up">Information We Collect</h2>
@@ -153,45 +153,39 @@ const PrivacyPolicy = () => {
       {/* How We Share Your Information */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-black relative">
         <div className="absolute top-8 right-8">
-          <Lock className="w-10 h-10 text-[#7021EE]/50" />
+          <img src="/lovable-uploads/dfaea422-dd5f-4a3b-8f11-c29a20db7241.png" alt="Fingerprint icon" className="w-16 h-16" />
         </div>
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl sm:text-4xl font-semibold mb-10 fade-in-up">How We Share Your Information</h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
-            <div className="glass-card p-8 fade-in-up relative overflow-hidden">
-              <div className="absolute -top-10 -right-10 w-32 h-32 bg-[#7021EE]/10 rounded-full"></div>
-              <h3 className="text-2xl font-medium mb-4 relative z-10">Service Providers</h3>
-              <p className="text-gray-400 relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+            <div className="glass-card p-6 fade-in-up">
+              <h3 className="text-xl font-medium mb-3">Service Providers</h3>
+              <p className="text-gray-400">
                 Third-party vendors that support our business operations (e.g., hosting, payment processing, analytics).
               </p>
             </div>
             
-            <div className="glass-card p-8 fade-in-up relative overflow-hidden" style={{animationDelay: "0.2s"}}>
-              <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-[#7021EE]/10 rounded-full"></div>
-              <h3 className="text-2xl font-medium mb-4 relative z-10">Business Partners</h3>
-              <p className="text-gray-400 relative z-10">
+            <div className="glass-card p-6 fade-in-up" style={{animationDelay: "0.2s"}}>
+              <h3 className="text-xl font-medium mb-3">Business Partners</h3>
+              <p className="text-gray-400">
                 Partners who collaborate with us on joint offerings or services.
+              </p>
+            </div>
+            
+            <div className="glass-card p-6 fade-in-up" style={{animationDelay: "0.4s"}}>
+              <h3 className="text-xl font-medium mb-3">Legal and Regulatory Authorities</h3>
+              <p className="text-gray-400">
+                To comply with applicable laws, regulations, or legal processes.
               </p>
             </div>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="glass-card p-8 fade-in-up relative overflow-hidden" style={{animationDelay: "0.3s"}}>
-              <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-[#7021EE]/10 rounded-full"></div>
-              <h3 className="text-2xl font-medium mb-4 relative z-10">Legal and Regulatory Authorities</h3>
-              <p className="text-gray-400 relative z-10">
-                To comply with applicable laws, regulations, or legal processes.
-              </p>
-            </div>
-            
-            <div className="glass-card p-8 fade-in-up relative overflow-hidden" style={{animationDelay: "0.4s"}}>
-              <div className="absolute -top-10 -left-10 w-32 h-32 bg-[#7021EE]/10 rounded-full"></div>
-              <h3 className="text-2xl font-medium mb-4 relative z-10">Corporate Transactions</h3>
-              <p className="text-gray-400 relative z-10">
-                In the event of a merger, acquisition, or sale of assets, your information may be transferred as part of the transaction.
-              </p>
-            </div>
+          <div className="glass-card p-6 fade-in-up" style={{animationDelay: "0.6s"}}>
+            <h3 className="text-xl font-medium mb-3">Corporate Transactions</h3>
+            <p className="text-gray-400">
+              In the event of a merger, acquisition, or sale of assets, your information may be transferred as part of the transaction.
+            </p>
           </div>
         </div>
       </section>
@@ -297,55 +291,20 @@ const PrivacyPolicy = () => {
             we cannot guarantee absolute security.
           </p>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-            <div className="glass-card p-6 fade-in-up">
-              <div className="flex items-center mb-4">
-                <div className="w-10 h-10 rounded-full bg-[#7021EE]/20 flex items-center justify-center mr-4">
-                  <Lock className="w-5 h-5 text-[#7021EE]" />
-                </div>
-                <h3 className="text-xl font-medium">Encryption</h3>
+          <div className="fade-in-up" style={{ maxWidth: "500px", margin: "0 auto" }}>
+            <div className="flex flex-col">
+              <div className="bg-[#7021EE] text-white py-3 px-6 rounded-t-lg text-center">
+                <span className="inline-block mr-4">1</span>Encryption
               </div>
-              <p className="text-gray-400">
-                All data is encrypted in transit and at rest using industry-standard encryption protocols.
-              </p>
-            </div>
-            
-            <div className="glass-card p-6 fade-in-up" style={{animationDelay: "0.2s"}}>
-              <div className="flex items-center mb-4">
-                <div className="w-10 h-10 rounded-full bg-[#7021EE]/20 flex items-center justify-center mr-4">
-                  <Shield className="w-5 h-5 text-[#7021EE]" />
-                </div>
-                <h3 className="text-xl font-medium">Access Controls</h3>
+              <div className="bg-[#7021EE]/80 text-white py-3 px-6 text-center">
+                <span className="inline-block mr-4">2</span>Access Controls
               </div>
-              <p className="text-gray-400">
-                Strict access controls limit who can view and process your data within our organization.
-              </p>
-            </div>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="glass-card p-6 fade-in-up" style={{animationDelay: "0.3s"}}>
-              <div className="flex items-center mb-4">
-                <div className="w-10 h-10 rounded-full bg-[#7021EE]/20 flex items-center justify-center mr-4">
-                  <Activity className="w-5 h-5 text-[#7021EE]" />
-                </div>
-                <h3 className="text-xl font-medium">Monitoring</h3>
+              <div className="bg-[#7021EE]/60 text-white py-3 px-6 text-center">
+                <span className="inline-block mr-4">3</span>Monitoring
               </div>
-              <p className="text-gray-400">
-                We continuously monitor our systems for potential security breaches or vulnerabilities.
-              </p>
-            </div>
-            
-            <div className="glass-card p-6 fade-in-up" style={{animationDelay: "0.4s"}}>
-              <div className="flex items-center mb-4">
-                <div className="w-10 h-10 rounded-full bg-[#7021EE]/20 flex items-center justify-center mr-4">
-                  <BarChart3 className="w-5 h-5 text-[#7021EE]" />
-                </div>
-                <h3 className="text-xl font-medium">Regular Audits</h3>
+              <div className="bg-[#7021EE]/40 text-white py-3 px-6 rounded-b-lg text-center">
+                <span className="inline-block mr-4">4</span>Regular Audits
               </div>
-              <p className="text-gray-400">
-                We conduct regular security audits and assessments to identify and address potential risks.
-              </p>
             </div>
           </div>
         </div>
@@ -426,41 +385,37 @@ const PrivacyPolicy = () => {
             when the latest changes were made. We encourage you to review this policy periodically for updates.
           </p>
           
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-            <div className="flex flex-col items-center glass-card p-6 fade-in-up relative overflow-hidden">
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#7021EE] to-transparent"></div>
-              <div className="w-10 h-10 rounded-full bg-[#7021EE]/20 flex items-center justify-center mb-4 text-[#7021EE] font-bold">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="glass-card p-6 fade-in-up">
+              <div className="w-10 h-10 rounded-full bg-[#222222] flex items-center justify-center mb-4 text-[#7021EE] font-bold">
                 1
               </div>
-              <h3 className="text-lg font-medium mb-2 text-center">Policy Update</h3>
-              <p className="text-gray-400 text-center">We revise the policy</p>
+              <h3 className="text-lg font-medium mb-2">Policy Update</h3>
+              <p className="text-gray-400">We revise the policy</p>
             </div>
             
-            <div className="flex flex-col items-center glass-card p-6 fade-in-up relative overflow-hidden" style={{animationDelay: "0.2s"}}>
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#7021EE] to-transparent"></div>
-              <div className="w-10 h-10 rounded-full bg-[#7021EE]/20 flex items-center justify-center mb-4 text-[#7021EE] font-bold">
+            <div className="glass-card p-6 fade-in-up" style={{animationDelay: "0.2s"}}>
+              <div className="w-10 h-10 rounded-full bg-[#222222] flex items-center justify-center mb-4 text-[#7021EE] font-bold">
                 2
               </div>
-              <h3 className="text-lg font-medium mb-2 text-center">Effective Date Change</h3>
-              <p className="text-gray-400 text-center">The date is updated</p>
+              <h3 className="text-lg font-medium mb-2">Effective Date Change</h3>
+              <p className="text-gray-400">The date is updated</p>
             </div>
             
-            <div className="flex flex-col items-center glass-card p-6 fade-in-up relative overflow-hidden" style={{animationDelay: "0.3s"}}>
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#7021EE] to-transparent"></div>
-              <div className="w-10 h-10 rounded-full bg-[#7021EE]/20 flex items-center justify-center mb-4 text-[#7021EE] font-bold">
+            <div className="glass-card p-6 fade-in-up" style={{animationDelay: "0.3s"}}>
+              <div className="w-10 h-10 rounded-full bg-[#222222] flex items-center justify-center mb-4 text-[#7021EE] font-bold">
                 3
               </div>
-              <h3 className="text-lg font-medium mb-2 text-center">User Notification</h3>
-              <p className="text-gray-400 text-center">We inform users of changes</p>
+              <h3 className="text-lg font-medium mb-2">User Notification</h3>
+              <p className="text-gray-400">We inform users of changes</p>
             </div>
             
-            <div className="flex flex-col items-center glass-card p-6 fade-in-up relative overflow-hidden" style={{animationDelay: "0.4s"}}>
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#7021EE] to-transparent"></div>
-              <div className="w-10 h-10 rounded-full bg-[#7021EE]/20 flex items-center justify-center mb-4 text-[#7021EE] font-bold">
+            <div className="glass-card p-6 fade-in-up" style={{animationDelay: "0.4s"}}>
+              <div className="w-10 h-10 rounded-full bg-[#222222] flex items-center justify-center mb-4 text-[#7021EE] font-bold">
                 4
               </div>
-              <h3 className="text-lg font-medium mb-2 text-center">User Review</h3>
-              <p className="text-gray-400 text-center">Users review the updated policy</p>
+              <h3 className="text-lg font-medium mb-2">User Review</h3>
+              <p className="text-gray-400">Users review the updated policy</p>
             </div>
           </div>
         </div>
