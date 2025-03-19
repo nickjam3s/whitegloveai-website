@@ -1,6 +1,7 @@
 
 import { useEffect } from "react";
 import HeroSection from "./components/textaiforgood/HeroSection";
+import IntroSection from "./components/textaiforgood/IntroSection";
 import BenefitsSection from "./components/textaiforgood/BenefitsSection";
 import ProcessSection from "./components/textaiforgood/ProcessSection";
 import PartnersSection from "./components/textaiforgood/PartnersSection";
@@ -14,8 +15,9 @@ const TextAIForGood = () => {
   return (
     <div className="min-h-screen bg-background">
       <HeroSection />
-      <BenefitsSection />
+      <IntroSection />
       <PartnersSection />
+      <BenefitsSection />
       <ProcessSection />
       <ContactSection />
     </div>
