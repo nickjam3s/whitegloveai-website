@@ -100,6 +100,68 @@ const PrivacyPolicy = () => {
         </div>
       </section>
 
+      {/* Information We Collect Section */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-black">
+        <div className="max-w-5xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className="text-3xl font-semibold mb-6 text-white">
+              Information We Collect
+            </h2>
+            <p className="text-gray-300 mb-8">
+              We may collect the following types of information:
+            </p>
+            
+            <div className="grid md:grid-cols-3 gap-6 mt-8">
+              {/* Personal Information */}
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="glass-card p-6"
+              >
+                <div className="bg-[#333] w-8 h-8 mb-4 flex items-center justify-center rounded"></div>
+                <h3 className="text-xl font-medium mb-3 text-white">Personal Information</h3>
+                <p className="text-gray-300 text-sm">
+                  Name, email address, phone number, and other contact details. Job title, company name, and industry. Payment information, if you purchase services from us.
+                </p>
+              </motion.div>
+              
+              {/* Non-Personal Information */}
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                className="glass-card p-6"
+              >
+                <div className="bg-[#333] w-8 h-8 mb-4 flex items-center justify-center rounded"></div>
+                <h3 className="text-xl font-medium mb-3 text-white">Non-Personal Information</h3>
+                <p className="text-gray-300 text-sm">
+                  Browser type, device information, and operating system. IP address and location data. Usage data, including pages viewed, links clicked, and session duration.
+                </p>
+              </motion.div>
+              
+              {/* Information from Third Parties */}
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                className="glass-card p-6"
+              >
+                <div className="bg-[#333] w-8 h-8 mb-4 flex items-center justify-center rounded"></div>
+                <h3 className="text-xl font-medium mb-3 text-white">Information from Third Parties</h3>
+                <p className="text-gray-300 text-sm">
+                  Data from partners, service providers, or publicly available sources.
+                </p>
+              </motion.div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Privacy Policy Content Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto">
