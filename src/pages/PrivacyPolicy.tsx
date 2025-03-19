@@ -1,3 +1,4 @@
+
 import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -603,3 +604,80 @@ const PrivacyPolicy = () => {
                 <div className="flex items-center mb-4">
                   <div className="w-8 h-8 bg-[#222] flex items-center justify-center text-white font-medium rounded-sm">
                     1
+                  </div>
+                </div>
+                <h3 className="text-sm font-medium mb-2 text-white">Policy Update</h3>
+              </motion.div>
+              
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="bg-[#111] p-6 rounded-lg"
+              >
+                <div className="flex items-center mb-4">
+                  <div className="w-8 h-8 bg-[#222] flex items-center justify-center text-white font-medium rounded-sm">
+                    2
+                  </div>
+                </div>
+                <h3 className="text-sm font-medium mb-2 text-white">Notification</h3>
+              </motion.div>
+              
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                className="bg-[#111] p-6 rounded-lg"
+              >
+                <div className="flex items-center mb-4">
+                  <div className="w-8 h-8 bg-[#222] flex items-center justify-center text-white font-medium rounded-sm">
+                    3
+                  </div>
+                </div>
+                <h3 className="text-sm font-medium mb-2 text-white">Review</h3>
+              </motion.div>
+              
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                className="bg-[#111] p-6 rounded-lg"
+              >
+                <div className="flex items-center mb-4">
+                  <div className="w-8 h-8 bg-[#222] flex items-center justify-center text-white font-medium rounded-sm">
+                    4
+                  </div>
+                </div>
+                <h3 className="text-sm font-medium mb-2 text-white">Acceptance</h3>
+              </motion.div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Acknowledgment Section - NEW */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-black border-t border-gray-800">
+        <div className="max-w-5xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className="text-3xl font-semibold mb-6 text-white">
+              Acknowledgment
+            </h2>
+            
+            <p className="text-gray-300 mb-10">
+              By using our website or services, you acknowledge that you have read and understood this Privacy Policy. 
+              If you do not agree with our practices, please do not use our services.
+            </p>
+            
+            {/* Button was removed as requested */}
+          </motion.div>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default PrivacyPolicy;
