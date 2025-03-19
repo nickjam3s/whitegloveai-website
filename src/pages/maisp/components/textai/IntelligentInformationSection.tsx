@@ -3,16 +3,8 @@ import React from "react";
 
 const IntelligentInformationSection = () => {
   return (
-    <section className="py-20 bg-background">
+    <section className="py-20 bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-end mb-6">
-          <img 
-            src="/lovable-uploads/0b35df8d-6f52-4087-bd23-cd4a7886273f.png" 
-            alt="WhitegloveAI Logo" 
-            className="w-16"
-          />
-        </div>
-        
         <h2 className="text-3xl md:text-4xl font-bold text-white mb-12">
           Intelligent Information Access
         </h2>
