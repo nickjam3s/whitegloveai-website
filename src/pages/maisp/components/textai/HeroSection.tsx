@@ -22,7 +22,7 @@ const HeroSection = () => {
             <img 
               src="/lovable-uploads/2a4228f0-f0be-4ebc-b674-f62b01b54c64.png" 
               alt="Phone with TextAI interface" 
-              className="max-w-full"
+              className="w-full md:w-4/5 xl:w-3/4 object-contain"
             />
           </div>
         </div>
