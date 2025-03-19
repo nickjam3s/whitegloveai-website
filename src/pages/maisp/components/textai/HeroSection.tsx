@@ -3,7 +3,7 @@ import React from "react";
 
 const HeroSection = () => {
   return (
-    <section className="py-20 bg-background">
+    <section className="py-20 bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
@@ -20,9 +20,9 @@ const HeroSection = () => {
           </div>
           <div className="flex justify-center">
             <img 
-              src="/lovable-uploads/2a4228f0-f0be-4ebc-b674-f62b01b54c64.png" 
-              alt="Phone with TextAI interface" 
-              className="w-full md:w-full lg:w-full xl:w-full object-contain max-h-[500px]"
+              src="/lovable-uploads/76c8c5db-c8e3-4cb7-be15-d72f0b72e033.png" 
+              alt="TextAI Managed Service" 
+              className="w-full md:w-full lg:w-full xl:w-full object-contain max-h-[550px]"
             />
           </div>
         </div>
