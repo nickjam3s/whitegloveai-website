@@ -1,5 +1,4 @@
-
-import { Shield, PhoneCall, ArrowRight, BrainCircuit, BarChart4, CheckCircle2, Download, Globe } from "lucide-react";
+import { Shield, PhoneCall, ArrowRight, BrainCircuit, BarChart4, CheckCircle2, Download } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
@@ -184,10 +183,6 @@ const VoiceAI = () => {
                 <li className="flex items-start">
                   <CheckCircle2 className="h-6 w-6 text-secondary mr-3 flex-shrink-0 mt-1" />
                   <span className="text-gray-400">Seamless escalation to human agents when necessary</span>
-                </li>
-                <li className="flex items-start">
-                  <Globe className="h-6 w-6 text-secondary mr-3 flex-shrink-0 mt-1" />
-                  <span className="text-gray-400">Automatically understand and speak in different languages</span>
                 </li>
               </ul>
             </div>
