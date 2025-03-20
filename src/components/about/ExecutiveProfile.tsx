@@ -20,7 +20,7 @@ const ExecutiveProfile: React.FC<ExecutiveProfileProps> = ({ name, title, second
           <img 
             src={image} 
             alt={name} 
-            className="w-full h-full object-cover object-top transition-transform hover:scale-105 duration-500"
+            className="w-full h-full object-cover object-center transition-transform hover:scale-105 duration-500"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#7021EE]/70 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end justify-center p-4">
             <a 

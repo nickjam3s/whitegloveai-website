@@ -29,26 +29,26 @@ const ExecutiveTeam: React.FC = () => {
       linkedin: "https://www.linkedin.com/in/nickjam3s/"
     },
     {
-      name: "Nick James",
-      title: "Founder & CEO",
+      name: "Jason Hess",
+      title: "CTO & vCAIO",
       image: "/lovable-uploads/5cbfcfd0-e713-43d1-9e25-c1d4a1e33007.png",
       linkedin: "https://www.linkedin.com/in/nickjam3s/"
     },
     {
-      name: "Nick James",
-      title: "Founder & CEO",
-      image: "/lovable-uploads/5fe7ee0d-30ab-40a0-aaba-118ec81ae989.png",
+      name: "Albert Ramos",
+      title: "vCAIO",
+      image: "/lovable-uploads/af73101a-e2b9-40b2-984d-d17644865d5a.png", // Interchanged with 4th
       linkedin: "https://www.linkedin.com/in/nickjam3s/"
     },
     {
-      name: "Nick James",
-      title: "Founder & CEO",
-      image: "/lovable-uploads/af73101a-e2b9-40b2-984d-d17644865d5a.png",
+      name: "Binni Skariah",
+      title: "CEO & Lucidis.AI",
+      image: "/lovable-uploads/5fe7ee0d-30ab-40a0-aaba-118ec81ae989.png", // Interchanged with 3rd
       linkedin: "https://www.linkedin.com/in/nickjam3s/"
     },
     {
-      name: "Nick James",
-      title: "Founder & CEO",
+      name: "Tobalo Torress",
+      title: "VO of AI Labs",
       image: "/lovable-uploads/9dbaee7c-d928-4958-92dd-4dd39b8923bc.png",
       linkedin: "https://www.linkedin.com/in/nickjam3s/"
     },
