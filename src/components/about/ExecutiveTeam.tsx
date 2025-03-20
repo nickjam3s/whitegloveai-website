@@ -19,7 +19,7 @@ const ExecutiveTeam: React.FC = () => {
     show: { opacity: 1, y: 0, transition: { duration: 0.5 } }
   };
 
-  // Executives in a grid with Binni Skariah added back and Tobalo Torres title fixed
+  // Executives in a 5x2 grid
   const executives = [
     // First row
     {
@@ -40,15 +40,15 @@ const ExecutiveTeam: React.FC = () => {
     },
     {
       name: "Tobalo Torress",
-      title: "VP of AI Labs", // Updated from "VO of AI Labs" to "VP of AI Labs"
+      title: "VP of AI Labs", 
       image: "/lovable-uploads/9dbaee7c-d928-4958-92dd-4dd39b8923bc.png"
     },
-    // Second row (adding Binni back)
     {
       name: "Binni Skariah",
       title: "vCAIO",
-      image: "/lovable-uploads/fceb5744-7f22-4174-ab60-aec65e9b5205.png" // New image for Binni
+      image: "/lovable-uploads/fceb5744-7f22-4174-ab60-aec65e9b5205.png"
     },
+    // Second row
     {
       name: "Dr. Donnie Wendt",
       title: "vCAIO",
@@ -68,7 +68,8 @@ const ExecutiveTeam: React.FC = () => {
       name: "Rhea Kaithal",
       title: "AI Developer",
       image: "/lovable-uploads/b0e7ff9d-6be0-4ad6-969e-ffdc16b04f42.png"
-    }
+    },
+    // Empty tenth spot for the second row if needed
   ];
 
   return (
@@ -87,13 +88,13 @@ const ExecutiveTeam: React.FC = () => {
         </p>
       </motion.div>
 
-      {/* Executive grid with enhanced purple effects */}
+      {/* Executive grid with 5 columns */}
       <motion.div 
         variants={containerAnimation}
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, margin: "-100px" }}
-        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
+        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6"
       >
         {executives.map((executive, index) => (
           <motion.div 
