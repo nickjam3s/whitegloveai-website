@@ -19,8 +19,9 @@ const ExecutiveTeam: React.FC = () => {
     show: { opacity: 1, y: 0, transition: { duration: 0.5 } }
   };
 
-  // Top row executives
-  const topRowExecutives = [
+  // All executives in a 5x2 grid
+  const executives = [
+    // First row (5 executives)
     {
       name: "Nick James",
       title: "Founder & CEO",
@@ -28,62 +29,59 @@ const ExecutiveTeam: React.FC = () => {
       linkedin: "https://www.linkedin.com/in/nickjam3s/"
     },
     {
-      name: "Jeffrey Bankard",
-      title: "Chief Operations Officer",
+      name: "Nick James",
+      title: "Founder & CEO",
       image: "/lovable-uploads/5cbfcfd0-e713-43d1-9e25-c1d4a1e33007.png",
-      linkedin: "https://www.linkedin.com/in/bankard/"
+      linkedin: "https://www.linkedin.com/in/nickjam3s/"
     },
     {
-      name: "Daniel Valencia",
-      title: "Chief Information Security Officer",
+      name: "Nick James",
+      title: "Founder & CEO",
       image: "/lovable-uploads/5fe7ee0d-30ab-40a0-aaba-118ec81ae989.png",
-      linkedin: "https://www.linkedin.com/in/daniel-valencia/"
+      linkedin: "https://www.linkedin.com/in/nickjam3s/"
     },
     {
-      name: "Ankur Desai",
-      title: "Chief Marketing Officer",
+      name: "Nick James",
+      title: "Founder & CEO",
       image: "/lovable-uploads/af73101a-e2b9-40b2-984d-d17644865d5a.png",
-      linkedin: "https://www.linkedin.com/in/ankdes/"
+      linkedin: "https://www.linkedin.com/in/nickjam3s/"
     },
     {
-      name: "Binni Skariah",
-      title: "Chief Executive Officer in Residence",
+      name: "Nick James",
+      title: "Founder & CEO",
       image: "/lovable-uploads/9dbaee7c-d928-4958-92dd-4dd39b8923bc.png",
-      linkedin: "https://www.linkedin.com/in/bskariah/"
-    }
-  ];
-
-  // Bottom row executives - maintaining the existing ones
-  const bottomRowExecutives = [
+      linkedin: "https://www.linkedin.com/in/nickjam3s/"
+    },
+    // Second row (5 executives)
     {
-      name: "Jade Skariah",
-      title: "Chief of Staff",
+      name: "Nick James",
+      title: "Founder & CEO",
       image: "/lovable-uploads/76017f57-7d97-4d16-bda6-8b044af1fb67.png",
-      linkedin: "https://www.linkedin.com/in/jadeskariah/"
+      linkedin: "https://www.linkedin.com/in/nickjam3s/"
     },
     {
-      name: "Peter Santis",
-      title: "Chief Revenue Officer",
+      name: "Nick James",
+      title: "Founder & CEO",
       image: "/lovable-uploads/207a70e3-956b-44a6-b40a-c068e899c8b9.png",
-      linkedin: "https://www.linkedin.com/in/peter-santis-vpsales-cro-salesleader/"
+      linkedin: "https://www.linkedin.com/in/nickjam3s/"
     },
     {
-      name: "Hena Venugopal",
-      title: "Chief Product Officer",
+      name: "Nick James",
+      title: "Founder & CEO",
       image: "/lovable-uploads/d7b0052a-c6ed-455e-8426-7f7e9fb79d26.png", 
-      linkedin: "https://www.linkedin.com/in/hena-venugopal-73628a20/"
+      linkedin: "https://www.linkedin.com/in/nickjam3s/"
     },
     {
-      name: "John Smith",
-      title: "VP of Engineering",
+      name: "Nick James",
+      title: "Founder & CEO",
       image: "/lovable-uploads/cbc85045-41f1-434b-a70d-69aca08e4e66.png",
-      linkedin: "https://www.linkedin.com/in/johnsmith/"
+      linkedin: "https://www.linkedin.com/in/nickjam3s/"
     },
     {
-      name: "Sarah Johnson",
-      title: "VP of Product Design",
+      name: "Nick James",
+      title: "Founder & CEO",
       image: "/lovable-uploads/e2aecc5a-30c7-4e28-8721-c6af1153d26e.png",
-      linkedin: "https://www.linkedin.com/in/sarahjohnson/"
+      linkedin: "https://www.linkedin.com/in/nickjam3s/"
     }
   ];
 
@@ -103,26 +101,7 @@ const ExecutiveTeam: React.FC = () => {
         </p>
       </motion.div>
 
-      {/* Top row executives - 5 in a row */}
-      <motion.div 
-        variants={containerAnimation}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, margin: "-100px" }}
-        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 mb-8"
-      >
-        {topRowExecutives.map((executive, index) => (
-          <motion.div 
-            key={index} 
-            variants={itemAnimation}
-            className="executive-card-shadow col-span-1"
-          >
-            <ExecutiveProfile {...executive} />
-          </motion.div>
-        ))}
-      </motion.div>
-
-      {/* Bottom row executives - 5 in a row */}
+      {/* All executives in a 5x2 grid */}
       <motion.div 
         variants={containerAnimation}
         initial="hidden"
@@ -130,7 +109,7 @@ const ExecutiveTeam: React.FC = () => {
         viewport={{ once: true, margin: "-100px" }}
         className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6"
       >
-        {bottomRowExecutives.map((executive, index) => (
+        {executives.map((executive, index) => (
           <motion.div 
             key={index} 
             variants={itemAnimation}
