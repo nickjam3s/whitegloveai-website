@@ -20,7 +20,7 @@ const ExecutiveProfile: React.FC<ExecutiveProfileProps> = ({
 }) => {
   return (
     <div className="bg-gradient-to-br from-[#7021EE]/10 to-transparent p-4 sm:p-6 rounded-xl border border-[#7021EE]/20 h-full flex flex-col">
-      <div className="mb-4 sm:mb-5 relative overflow-hidden rounded-lg group">
+      <div className="mb-4 sm:mb-5 relative overflow-hidden rounded-lg group executive-profile-image">
         <AspectRatio ratio={1/1} className="bg-black/20">
           <img 
             src={image} 
