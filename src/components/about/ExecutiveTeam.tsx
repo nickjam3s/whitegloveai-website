@@ -19,7 +19,7 @@ const ExecutiveTeam: React.FC = () => {
     show: { opacity: 1, y: 0, transition: { duration: 0.5 } }
   };
 
-  // Executives in a grid with Binni Skariah added back
+  // Executives in a grid without Binni Skariah and Kenneth Knapp
   const executives = [
     // First row
     {
@@ -40,10 +40,10 @@ const ExecutiveTeam: React.FC = () => {
     },
     {
       name: "Tobalo Torress",
-      title: "VP of AI Labs",
+      title: "VO of AI Labs",
       image: "/lovable-uploads/9dbaee7c-d928-4958-92dd-4dd39b8923bc.png"
     },
-    // Second row (now with Binni Skariah)
+    // Second row (reduced by 2 executives)
     {
       name: "Dr. Donnie Wendt",
       title: "vCAIO",
@@ -63,11 +63,6 @@ const ExecutiveTeam: React.FC = () => {
       name: "Rhea Kaithal",
       title: "AI Developer",
       image: "/lovable-uploads/b0e7ff9d-6be0-4ad6-969e-ffdc16b04f42.png"
-    },
-    {
-      name: "Binni Skariah",
-      title: "President",
-      image: "/lovable-uploads/33ed83b6-5896-4ff2-b556-d5bbf6c0582b.png"
     }
   ];
 
