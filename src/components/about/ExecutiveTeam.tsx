@@ -34,6 +34,11 @@ const ExecutiveTeam: React.FC = () => {
       imagePosition: "object-top" // Keeping image position to adjust for Jason's head
     },
     {
+      name: "Binni Skariah",
+      title: "vCAIO",
+      image: "/lovable-uploads/fceb5744-7f22-4174-ab60-aec65e9b5205.png"
+    },
+    {
       name: "Albert Ramos",
       title: "vCAIO",
       image: "/lovable-uploads/5fe7ee0d-30ab-40a0-aaba-118ec81ae989.png"
@@ -42,11 +47,6 @@ const ExecutiveTeam: React.FC = () => {
       name: "Tobalo Torress",
       title: "VP of AI Labs", 
       image: "/lovable-uploads/9dbaee7c-d928-4958-92dd-4dd39b8923bc.png"
-    },
-    {
-      name: "Binni Skariah",
-      title: "vCAIO",
-      image: "/lovable-uploads/fceb5744-7f22-4174-ab60-aec65e9b5205.png"
     },
     // Second row
     {
