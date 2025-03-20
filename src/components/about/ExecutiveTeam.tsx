@@ -55,6 +55,11 @@ const ExecutiveTeam: React.FC = () => {
       image: "/lovable-uploads/b660279c-7698-487d-b20e-3a04479508d4.png"
     },
     {
+      name: "Kenneth Knapp",
+      title: "VP of Growth",
+      image: "/lovable-uploads/796e125a-b88c-418f-a316-11c60e96d5d2.png"
+    },
+    {
       name: "Daniel Valencia",
       title: "CISO",
       image: "/lovable-uploads/15e1ef3c-8f52-4735-b48e-159dea83470c.png"
@@ -69,7 +74,6 @@ const ExecutiveTeam: React.FC = () => {
       title: "AI Developer",
       image: "/lovable-uploads/b0e7ff9d-6be0-4ad6-969e-ffdc16b04f42.png"
     },
-    // Empty tenth spot for the second row if needed
   ];
 
   return (
