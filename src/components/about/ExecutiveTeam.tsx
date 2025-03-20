@@ -35,7 +35,7 @@ const ExecutiveTeam: React.FC = () => {
     },
     {
       name: "Binni Skariah",
-      title: "vCAIO",
+      title: "CEO & Lucidis.AI",
       image: "/lovable-uploads/fceb5744-7f22-4174-ab60-aec65e9b5205.png"
     },
     {
