@@ -19,26 +19,47 @@ const ExecutiveTeam: React.FC = () => {
     show: { opacity: 1, y: 0, transition: { duration: 0.5 } }
   };
 
-  // All executives in a single array
-  const executives = [
+  // Top row executives
+  const topRowExecutives = [
     {
       name: "Nick James",
-      title: "Chief Executive Officer",
-      secondaryTitle: "& Chief AI Officer",
-      image: "/lovable-uploads/09629b88-ce65-4e5b-b223-f80df036229b.png",
+      title: "Founder & CEO",
+      image: "/lovable-uploads/12a890f3-210e-4059-8cbc-6647b5effb9a.png",
       linkedin: "https://www.linkedin.com/in/nickjam3s/"
     },
+    {
+      name: "Jeffrey Bankard",
+      title: "Chief Operations Officer",
+      image: "/lovable-uploads/5cbfcfd0-e713-43d1-9e25-c1d4a1e33007.png",
+      linkedin: "https://www.linkedin.com/in/bankard/"
+    },
+    {
+      name: "Daniel Valencia",
+      title: "Chief Information Security Officer",
+      image: "/lovable-uploads/5fe7ee0d-30ab-40a0-aaba-118ec81ae989.png",
+      linkedin: "https://www.linkedin.com/in/daniel-valencia/"
+    },
+    {
+      name: "Ankur Desai",
+      title: "Chief Marketing Officer",
+      image: "/lovable-uploads/af73101a-e2b9-40b2-984d-d17644865d5a.png",
+      linkedin: "https://www.linkedin.com/in/ankdes/"
+    },
+    {
+      name: "Binni Skariah",
+      title: "Chief Executive Officer in Residence",
+      image: "/lovable-uploads/9dbaee7c-d928-4958-92dd-4dd39b8923bc.png",
+      linkedin: "https://www.linkedin.com/in/bskariah/"
+    }
+  ];
+
+  // Bottom row executives - maintaining the existing ones
+  const bottomRowExecutives = [
     {
       name: "Jade Skariah",
       title: "Chief of Staff",
       image: "/lovable-uploads/76017f57-7d97-4d16-bda6-8b044af1fb67.png",
       linkedin: "https://www.linkedin.com/in/jadeskariah/"
-    },
-    {
-      name: "Jeffrey Bankard",
-      title: "Chief Operations Officer",
-      image: "/lovable-uploads/48dc0aa9-6670-48ee-bf78-17fd3db050c2.png",
-      linkedin: "https://www.linkedin.com/in/bankard/"
     },
     {
       name: "Peter Santis",
@@ -53,23 +74,16 @@ const ExecutiveTeam: React.FC = () => {
       linkedin: "https://www.linkedin.com/in/hena-venugopal-73628a20/"
     },
     {
-      name: "Daniel Valencia",
-      title: "Chief Information Security Officer",
-      image: "/lovable-uploads/b308613d-7c57-4781-9908-5547342ba77b.png",
-      linkedin: "https://www.linkedin.com/in/daniel-valencia/"
+      name: "John Smith",
+      title: "VP of Engineering",
+      image: "/lovable-uploads/cbc85045-41f1-434b-a70d-69aca08e4e66.png",
+      linkedin: "https://www.linkedin.com/in/johnsmith/"
     },
     {
-      name: "Ankur Desai",
-      title: "Chief Marketing Officer",
-      image: "/lovable-uploads/9eb0ea5f-0135-4053-b26a-591a5e1138f8.png",
-      linkedin: "https://www.linkedin.com/in/ankdes/"
-    },
-    {
-      name: "Binni Skariah",
-      title: "Chief Executive Officer",
-      secondaryTitle: "in Residence of Lucidis.Ai",
-      image: "/lovable-uploads/cb2996c9-1131-4885-81cb-d52aeac16d0f.png",
-      linkedin: "https://www.linkedin.com/in/bskariah/"
+      name: "Sarah Johnson",
+      title: "VP of Product Design",
+      image: "/lovable-uploads/e2aecc5a-30c7-4e28-8721-c6af1153d26e.png",
+      linkedin: "https://www.linkedin.com/in/sarahjohnson/"
     }
   ];
 
@@ -89,7 +103,7 @@ const ExecutiveTeam: React.FC = () => {
         </p>
       </motion.div>
 
-      {/* All executives in a single grid layout */}
+      {/* Top row executives - 5 in a row */}
       <motion.div 
         variants={containerAnimation}
         initial="hidden"
@@ -97,7 +111,26 @@ const ExecutiveTeam: React.FC = () => {
         viewport={{ once: true, margin: "-100px" }}
         className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 mb-8"
       >
-        {executives.map((executive, index) => (
+        {topRowExecutives.map((executive, index) => (
+          <motion.div 
+            key={index} 
+            variants={itemAnimation}
+            className="executive-card-shadow col-span-1"
+          >
+            <ExecutiveProfile {...executive} />
+          </motion.div>
+        ))}
+      </motion.div>
+
+      {/* Bottom row executives - 5 in a row */}
+      <motion.div 
+        variants={containerAnimation}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, margin: "-100px" }}
+        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6"
+      >
+        {bottomRowExecutives.map((executive, index) => (
           <motion.div 
             key={index} 
             variants={itemAnimation}
