@@ -19,9 +19,9 @@ const ExecutiveTeam: React.FC = () => {
     show: { opacity: 1, y: 0, transition: { duration: 0.5 } }
   };
 
-  // All executives in a 5x2 grid
+  // Executives in a grid without Binni Skariah and Kenneth Knapp
   const executives = [
-    // First row (5 executives)
+    // First row
     {
       name: "Nick James",
       title: "Founder & CEO",
@@ -31,12 +31,7 @@ const ExecutiveTeam: React.FC = () => {
       name: "Jason Hess",
       title: "CTO & vCAIO",
       image: "/lovable-uploads/5cbfcfd0-e713-43d1-9e25-c1d4a1e33007.png",
-      imagePosition: "object-top" // Adding image position to adjust for Jason's head
-    },
-    {
-      name: "Binni Skariah",
-      title: "CEO & Lucidis.AI",
-      image: "/lovable-uploads/af73101a-e2b9-40b2-984d-d17644865d5a.png"
+      imagePosition: "object-top" // Keeping image position to adjust for Jason's head
     },
     {
       name: "Albert Ramos",
@@ -48,16 +43,11 @@ const ExecutiveTeam: React.FC = () => {
       title: "VO of AI Labs",
       image: "/lovable-uploads/9dbaee7c-d928-4958-92dd-4dd39b8923bc.png"
     },
-    // Second row (5 executives)
+    // Second row (reduced by 2 executives)
     {
       name: "Dr. Donnie Wendt",
       title: "vCAIO",
       image: "/lovable-uploads/b660279c-7698-487d-b20e-3a04479508d4.png"
-    },
-    {
-      name: "Kenneth Knapp",
-      title: "VP of Growth",
-      image: "/lovable-uploads/d9b6da85-d7ab-4267-bea8-e85036446361.png"
     },
     {
       name: "Daniel Valencia",
@@ -92,13 +82,13 @@ const ExecutiveTeam: React.FC = () => {
         </p>
       </motion.div>
 
-      {/* All executives in a 5x2 grid */}
+      {/* Executive grid with removed members */}
       <motion.div 
         variants={containerAnimation}
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, margin: "-100px" }}
-        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6"
+        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
       >
         {executives.map((executive, index) => (
           <motion.div 
