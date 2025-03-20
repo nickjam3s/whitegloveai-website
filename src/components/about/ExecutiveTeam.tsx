@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import ExecutiveProfile from './ExecutiveProfile';
@@ -63,7 +62,7 @@ const ExecutiveTeam: React.FC = () => {
     {
       name: "Kenneth Knapp",
       title: "VP of Growth",
-      image: "/lovable-uploads/796e125a-b88c-418f-a316-11c60e96d5d2.png",
+      image: "/lovable-uploads/c4b72a4e-5b61-46cb-8462-ac71114f9af3.png",
       linkedinUrl: "https://www.linkedin.com/in/yourcloudexperts/"
     },
     {
