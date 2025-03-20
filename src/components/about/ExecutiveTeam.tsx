@@ -25,54 +25,64 @@ const ExecutiveTeam: React.FC = () => {
     {
       name: "Nick James",
       title: "Founder & CEO",
-      image: "/lovable-uploads/12a890f3-210e-4059-8cbc-6647b5effb9a.png"
+      image: "/lovable-uploads/12a890f3-210e-4059-8cbc-6647b5effb9a.png",
+      linkedinUrl: "https://www.linkedin.com/in/nickjam3s/"
     },
     {
       name: "Jason Hess",
       title: "CTO & vCAIO",
       image: "/lovable-uploads/5cbfcfd0-e713-43d1-9e25-c1d4a1e33007.png",
-      imagePosition: "object-top" // Keeping image position to adjust for Jason's head
+      imagePosition: "object-top", // Keeping image position to adjust for Jason's head
+      linkedinUrl: "https://www.linkedin.com/in/jasonhess/"
     },
     {
       name: "Binni Skariah",
       title: "CEO & Lucidis.AI",
-      image: "/lovable-uploads/fceb5744-7f22-4174-ab60-aec65e9b5205.png"
+      image: "/lovable-uploads/fceb5744-7f22-4174-ab60-aec65e9b5205.png",
+      linkedinUrl: "https://www.linkedin.com/in/bskariah/"
     },
     {
       name: "Albert Ramos",
       title: "vCAIO",
-      image: "/lovable-uploads/5fe7ee0d-30ab-40a0-aaba-118ec81ae989.png"
+      image: "/lovable-uploads/5fe7ee0d-30ab-40a0-aaba-118ec81ae989.png",
+      linkedinUrl: "https://www.linkedin.com/in/albertramosjr/"
     },
     {
       name: "Tobalo Torress",
       title: "VP of AI Labs", 
-      image: "/lovable-uploads/9dbaee7c-d928-4958-92dd-4dd39b8923bc.png"
+      image: "/lovable-uploads/9dbaee7c-d928-4958-92dd-4dd39b8923bc.png",
+      linkedinUrl: "https://www.linkedin.com/in/tobalo/"
     },
     // Second row
     {
       name: "Dr. Donnie Wendt",
       title: "vCAIO",
-      image: "/lovable-uploads/b660279c-7698-487d-b20e-3a04479508d4.png"
+      image: "/lovable-uploads/b660279c-7698-487d-b20e-3a04479508d4.png",
+      linkedinUrl: "https://www.linkedin.com/in/dr-donnie-wendt/"
     },
     {
       name: "Kenneth Knapp",
       title: "VP of Growth",
-      image: "/lovable-uploads/796e125a-b88c-418f-a316-11c60e96d5d2.png"
+      image: "/lovable-uploads/796e125a-b88c-418f-a316-11c60e96d5d2.png",
+      linkedinUrl: "https://www.linkedin.com/in/yourcloudexperts/"
     },
     {
       name: "Daniel Valencia",
       title: "CISO",
-      image: "/lovable-uploads/15e1ef3c-8f52-4735-b48e-159dea83470c.png"
+      image: "/lovable-uploads/15e1ef3c-8f52-4735-b48e-159dea83470c.png",
+      linkedinUrl: "https://www.linkedin.com/in/daniel-valencia/"
     },
     {
       name: "Ankur Desai",
       title: "CMO",
-      image: "/lovable-uploads/980b7b84-6ac2-4825-a061-cf071a14cf9e.png"
+      image: "/lovable-uploads/980b7b84-6ac2-4825-a061-cf071a14cf9e.png",
+      linkedinUrl: "https://www.linkedin.com/in/ankdes/"
     },
     {
       name: "Rhea Kaithal",
       title: "AI Developer",
-      image: "/lovable-uploads/b0e7ff9d-6be0-4ad6-969e-ffdc16b04f42.png"
+      image: "/lovable-uploads/b0e7ff9d-6be0-4ad6-969e-ffdc16b04f42.png",
+      linkedinUrl: "https://www.linkedin.com/in/rheakaithal/"
     },
   ];
 

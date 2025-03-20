@@ -39,3 +39,26 @@
   transform: translateY(-5px);
   box-shadow: 0 10px 20px -5px rgba(112, 33, 238, 0.25);
 }
+
+/* LinkedIn icon hover effect */
+.linkedin-icon-hover {
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.linkedin-icon-hover:hover {
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 5px rgba(112, 33, 238, 0.8));
+}
+
+/* Executive profile overlay effect */
+.executive-profile-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.executive-card:hover .executive-profile-overlay {
+  opacity: 1;
+}
