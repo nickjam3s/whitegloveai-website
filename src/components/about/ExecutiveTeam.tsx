@@ -30,17 +30,18 @@ const ExecutiveTeam: React.FC = () => {
     {
       name: "Jason Hess",
       title: "CTO & vCAIO",
-      image: "/lovable-uploads/5cbfcfd0-e713-43d1-9e25-c1d4a1e33007.png"
+      image: "/lovable-uploads/5cbfcfd0-e713-43d1-9e25-c1d4a1e33007.png",
+      imagePosition: "object-top" // Adding image position to adjust for Jason's head
     },
     {
       name: "Binni Skariah",
       title: "CEO & Lucidis.AI",
-      image: "/lovable-uploads/af73101a-e2b9-40b2-984d-d17644865d5a.png" // Interchanged with 4th
+      image: "/lovable-uploads/af73101a-e2b9-40b2-984d-d17644865d5a.png"
     },
     {
       name: "Albert Ramos",
       title: "vCAIO",
-      image: "/lovable-uploads/5fe7ee0d-30ab-40a0-aaba-118ec81ae989.png" // Interchanged with 3rd
+      image: "/lovable-uploads/5fe7ee0d-30ab-40a0-aaba-118ec81ae989.png"
     },
     {
       name: "Tobalo Torress",
