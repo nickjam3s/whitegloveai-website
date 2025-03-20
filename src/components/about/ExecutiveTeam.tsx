@@ -87,7 +87,7 @@ const ExecutiveTeam: React.FC = () => {
         </p>
       </motion.div>
 
-      {/* Executive grid with removed members */}
+      {/* Executive grid with enhanced purple effects */}
       <motion.div 
         variants={containerAnimation}
         initial="hidden"
@@ -99,7 +99,10 @@ const ExecutiveTeam: React.FC = () => {
           <motion.div 
             key={index} 
             variants={itemAnimation}
-            className="executive-card-shadow col-span-1"
+            className="executive-card executive-card-shadow col-span-1 hover:border-[#7021EE]/40 transition-all duration-300"
+            whileHover={{ 
+              boxShadow: "0 10px 25px -5px rgba(112, 33, 238, 0.3)"
+            }}
           >
             <ExecutiveProfile {...executive} />
           </motion.div>

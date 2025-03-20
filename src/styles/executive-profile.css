@@ -1,0 +1,41 @@
+
+/* Executive Profile Image Purple Effects */
+.executive-profile-image {
+  position: relative;
+}
+
+.executive-profile-image::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(155, 135, 245, 0.3), rgba(112, 33, 238, 0.2));
+  z-index: 5;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.executive-profile-image:hover::before {
+  opacity: 0.8;
+  background: linear-gradient(135deg, rgba(155, 135, 245, 0.5), rgba(112, 33, 238, 0.4));
+}
+
+/* Pulsing purple glow animation */
+@keyframes purpleGlow {
+  0%, 100% { box-shadow: 0 0 0 rgba(112, 33, 238, 0); }
+  50% { box-shadow: 0 0 15px rgba(112, 33, 238, 0.5); }
+}
+
+.executive-card:hover {
+  animation: purpleGlow 2s infinite;
+}
+
+/* Executive card hover transitions */
+.executive-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.executive-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px -5px rgba(112, 33, 238, 0.25);
+}

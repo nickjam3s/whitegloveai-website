@@ -8,7 +8,7 @@ interface ExecutiveProfileProps {
   title: string;
   secondaryTitle?: string;
   image: string;
-  imagePosition?: string; // New prop for image positioning
+  imagePosition?: string;
 }
 
 const ExecutiveProfile: React.FC<ExecutiveProfileProps> = ({ 
@@ -16,7 +16,7 @@ const ExecutiveProfile: React.FC<ExecutiveProfileProps> = ({
   title, 
   secondaryTitle, 
   image, 
-  imagePosition = 'object-center' // Default to center
+  imagePosition = 'object-center'
 }) => {
   return (
     <div className="bg-gradient-to-br from-[#7021EE]/10 to-transparent p-4 sm:p-6 rounded-xl border border-[#7021EE]/20 h-full flex flex-col">
@@ -27,9 +27,11 @@ const ExecutiveProfile: React.FC<ExecutiveProfileProps> = ({
             alt={name} 
             className={`w-full h-full object-cover ${imagePosition} transition-transform group-hover:scale-105 duration-500`}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#7021EE]/70 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300">
-            {/* Purple overlay effect */}
-          </div>
+          {/* Purple overlay effect that's always visible but stronger on hover */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#7021EE]/40 to-[#9b87f5]/20 mix-blend-overlay opacity-60 transition-opacity duration-300"></div>
+          
+          {/* Additional purple glow overlay on hover */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#7021EE]/70 to-[#9b87f5]/30 opacity-0 group-hover:opacity-70 transition-opacity duration-300"></div>
         </AspectRatio>
       </div>
       <h3 className="text-lg sm:text-xl font-bold mb-1 sm:mb-2">{name}</h3>
