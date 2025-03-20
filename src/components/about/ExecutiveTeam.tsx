@@ -40,7 +40,7 @@ const ExecutiveTeam: React.FC = () => {
     },
     {
       name: "Tobalo Torress",
-      title: "VO of AI Labs",
+      title: "VP of AI Labs",
       image: "/lovable-uploads/9dbaee7c-d928-4958-92dd-4dd39b8923bc.png"
     },
     // Second row (reduced by 2 executives)
