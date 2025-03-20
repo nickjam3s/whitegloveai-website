@@ -25,63 +25,53 @@ const ExecutiveTeam: React.FC = () => {
     {
       name: "Nick James",
       title: "Founder & CEO",
-      image: "/lovable-uploads/12a890f3-210e-4059-8cbc-6647b5effb9a.png",
-      linkedin: "https://www.linkedin.com/in/nickjam3s/"
+      image: "/lovable-uploads/12a890f3-210e-4059-8cbc-6647b5effb9a.png"
     },
     {
       name: "Jason Hess",
       title: "CTO & vCAIO",
-      image: "/lovable-uploads/5cbfcfd0-e713-43d1-9e25-c1d4a1e33007.png",
-      linkedin: "https://www.linkedin.com/in/nickjam3s/"
-    },
-    {
-      name: "Albert Ramos",
-      title: "vCAIO",
-      image: "/lovable-uploads/af73101a-e2b9-40b2-984d-d17644865d5a.png", // Interchanged with 4th
-      linkedin: "https://www.linkedin.com/in/nickjam3s/"
+      image: "/lovable-uploads/5cbfcfd0-e713-43d1-9e25-c1d4a1e33007.png"
     },
     {
       name: "Binni Skariah",
       title: "CEO & Lucidis.AI",
-      image: "/lovable-uploads/5fe7ee0d-30ab-40a0-aaba-118ec81ae989.png", // Interchanged with 3rd
-      linkedin: "https://www.linkedin.com/in/nickjam3s/"
+      image: "/lovable-uploads/af73101a-e2b9-40b2-984d-d17644865d5a.png" // Interchanged with 4th
+    },
+    {
+      name: "Albert Ramos",
+      title: "vCAIO",
+      image: "/lovable-uploads/5fe7ee0d-30ab-40a0-aaba-118ec81ae989.png" // Interchanged with 3rd
     },
     {
       name: "Tobalo Torress",
       title: "VO of AI Labs",
-      image: "/lovable-uploads/9dbaee7c-d928-4958-92dd-4dd39b8923bc.png",
-      linkedin: "https://www.linkedin.com/in/nickjam3s/"
+      image: "/lovable-uploads/9dbaee7c-d928-4958-92dd-4dd39b8923bc.png"
     },
     // Second row (5 executives)
     {
-      name: "Nick James",
-      title: "Founder & CEO",
-      image: "/lovable-uploads/76017f57-7d97-4d16-bda6-8b044af1fb67.png",
-      linkedin: "https://www.linkedin.com/in/nickjam3s/"
+      name: "Dr. Donnie Wendt",
+      title: "vCAIO",
+      image: "/lovable-uploads/b660279c-7698-487d-b20e-3a04479508d4.png"
     },
     {
-      name: "Nick James",
-      title: "Founder & CEO",
-      image: "/lovable-uploads/207a70e3-956b-44a6-b40a-c068e899c8b9.png",
-      linkedin: "https://www.linkedin.com/in/nickjam3s/"
+      name: "Kenneth Knapp",
+      title: "VP of Growth",
+      image: "/lovable-uploads/d9b6da85-d7ab-4267-bea8-e85036446361.png"
     },
     {
-      name: "Nick James",
-      title: "Founder & CEO",
-      image: "/lovable-uploads/d7b0052a-c6ed-455e-8426-7f7e9fb79d26.png", 
-      linkedin: "https://www.linkedin.com/in/nickjam3s/"
+      name: "Daniel Valencia",
+      title: "CISO",
+      image: "/lovable-uploads/15e1ef3c-8f52-4735-b48e-159dea83470c.png"
     },
     {
-      name: "Nick James",
-      title: "Founder & CEO",
-      image: "/lovable-uploads/cbc85045-41f1-434b-a70d-69aca08e4e66.png",
-      linkedin: "https://www.linkedin.com/in/nickjam3s/"
+      name: "Ankur Desai",
+      title: "CMO",
+      image: "/lovable-uploads/980b7b84-6ac2-4825-a061-cf071a14cf9e.png"
     },
     {
-      name: "Nick James",
-      title: "Founder & CEO",
-      image: "/lovable-uploads/e2aecc5a-30c7-4e28-8721-c6af1153d26e.png",
-      linkedin: "https://www.linkedin.com/in/nickjam3s/"
+      name: "Rhea Kaithal",
+      title: "AI Developer",
+      image: "/lovable-uploads/b0e7ff9d-6be0-4ad6-969e-ffdc16b04f42.png"
     }
   ];
 
