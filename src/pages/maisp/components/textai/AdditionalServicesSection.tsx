@@ -1,6 +1,6 @@
 
 import React from "react";
-import { BarChart3, Layers, Workflow, Customize } from "lucide-react";
+import { BarChart3, Layers, Workflow, Settings } from "lucide-react";
 
 const AdditionalServicesSection = () => {
   const services = [
@@ -20,7 +20,7 @@ const AdditionalServicesSection = () => {
       description: "Create automated workflows triggered by specific queries or user interactions."
     },
     {
-      icon: <Customize className="h-10 w-10 text-primary" />,
+      icon: <Settings className="h-10 w-10 text-primary" />,
       title: "Custom Development",
       description: "Tailored solutions and integrations for unique business requirements."
     }
