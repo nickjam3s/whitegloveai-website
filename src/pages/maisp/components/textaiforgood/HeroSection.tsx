@@ -5,11 +5,14 @@ import { Button } from "@/components/ui/button";
 const HeroSection = () => {
   return (
     <section className="relative bg-black w-full">
-      <div className="w-full">
+      <div className="max-w-7xl mx-auto">
         <img 
           src="/lovable-uploads/1235deba-179c-4ad8-a742-d37cc32e42f4.png" 
           alt="TextAI for Good: Empowering Nonprofits with AI" 
           className="w-full h-auto object-cover"
+          width="1400"
+          height="800"
+          priority="true"
         />
       </div>
       

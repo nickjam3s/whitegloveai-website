@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 
 const ContactSection = () => {
   useEffect(() => {
-    // Ensure Typeform script is loaded
+    // Ensure Typeform script is loaded only once
     const existingScript = document.getElementById('typeform-script');
     if (!existingScript) {
       const script = document.createElement('script');
@@ -21,13 +21,16 @@ const ContactSection = () => {
   }, []);
 
   return (
-    <section className="py-6 bg-black w-full">
-      <div className="max-w-full">
-        <div className="flex justify-center">
+    <section id="contact" className="py-6 bg-black w-full">
+      <div className="max-w-7xl mx-auto">
+        <div className="flex justify-center mb-8">
           <img 
             src="/lovable-uploads/023620f2-f6ba-4dac-8114-10db4b85e210.png" 
             alt="Contact Us to Get Started" 
             className="w-full object-contain"
+            loading="lazy"
+            width="1400"
+            height="800"
           />
         </div>
         <div className="max-w-4xl mx-auto py-8">
