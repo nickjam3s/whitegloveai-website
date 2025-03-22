@@ -10,7 +10,6 @@ const HeroSection = () => {
             src="/lovable-uploads/7346ffc3-aaec-479c-80ad-d0dc30e45820.png" 
             alt="TextAI Managed Service" 
             className="w-full object-contain"
-            priority="true"
             width="1400"
             height="800"
           />

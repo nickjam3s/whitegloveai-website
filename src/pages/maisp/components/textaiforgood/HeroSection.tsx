@@ -12,7 +12,6 @@ const HeroSection = () => {
           className="w-full h-auto object-cover"
           width="1400"
           height="800"
-          priority="true"
         />
       </div>
       
