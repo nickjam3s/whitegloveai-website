@@ -27,7 +27,7 @@ const HeroSection = () => {
           <div className="flex justify-center">
             <Button asChild size="lg" className="text-lg px-8 py-6">
               <Link to="/contact">
-                <span className="flex items-center justify-center">
+                <span className="flex items-center justify-center text-white">
                   Get Started <ArrowRight className="ml-2" />
                 </span>
               </Link>
