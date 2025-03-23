@@ -37,6 +37,7 @@ const BenefitsSection = () => {
               <TimerIcon />
             </div>
             <h3 className="text-xl font-semibold mb-3 text-white">Enhanced Efficiency</h3>
+            <p className="text-gray-400">AI chatbots handle routine inquiries 24/7, freeing staff for high-value tasks</p>
           </div>
           
           <div className="text-center">
@@ -44,6 +45,7 @@ const BenefitsSection = () => {
               <MessageIcon />
             </div>
             <h3 className="text-xl font-semibold mb-3 text-white">Improved Engagement</h3>
+            <p className="text-gray-400">Provide instant, personalized responses to donor and volunteer inquiries</p>
           </div>
           
           <div className="text-center">
@@ -51,6 +53,7 @@ const BenefitsSection = () => {
               <ImpactIcon />
             </div>
             <h3 className="text-xl font-semibold mb-3 text-white">Amplified Impact</h3>
+            <p className="text-gray-400">Scale your outreach efforts without increasing overhead costs</p>
           </div>
         </div>
 
