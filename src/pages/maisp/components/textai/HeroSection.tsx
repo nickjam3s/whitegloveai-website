@@ -38,7 +38,7 @@ const HeroSection = () => {
           <div className="flex-1 flex justify-center md:justify-end">
             <div className="w-[300px]">
               <svg viewBox="0 0 300 450" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
-                {/* Hand */}
+                {/* Illustrative Hand */}
                 <path d="M50 250C60 230 80 220 100 230C120 240 125 280 130 310C135 340 138 380 130 400C122 420 100 430 80 430C60 430 40 420 30 400C20 380 30 350 50 330C70 310 90 290 85 270C80 250 60 240 50 250Z" fill="#D2A378" />
                 <path d="M40 350C50 330 65 320 80 320C95 320 105 340 100 360C95 380 80 400 65 410C50 420 30 420 20 410C10 400 15 380 25 370C35 360 45 345 40 350Z" fill="#BF8E60" />
                 <path d="M120 240C130 220 150 215 165 225C180 235 185 260 180 280C175 300 160 320 140 330C120 340 100 330 90 310C80 290 90 260 110 250C130 240 140 230 120 240Z" fill="#D2A378" />
