@@ -1,10 +1,8 @@
-
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { ArrowRight, ArrowLeft } from 'lucide-react';
 
 const ApplicationForm = () => {
   const [step, setStep] = useState(1);
@@ -176,7 +174,7 @@ const ApplicationForm = () => {
                     variant="outline" 
                     className="flex items-center justify-center border-[#444]"
                   >
-                    <span><ArrowLeft className="mr-2 h-4 w-4" /> Back</span>
+                    <span>Back</span>
                   </Button>
                 )}
                 <div className="ml-auto">
@@ -191,7 +189,7 @@ const ApplicationForm = () => {
                         (step === 3 && !formData.email)
                       }
                     >
-                      <span>Next <ArrowRight className="ml-2 h-4 w-4" /></span>
+                      <span>Next</span>
                     </Button>
                   ) : (
                     <Button 
