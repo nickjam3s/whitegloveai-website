@@ -1,4 +1,3 @@
-
 import { useEffect } from "react";
 import HeroSection from "./components/textai/HeroSection";
 import IntelligentInformationSection from "./components/textai/IntelligentInformationSection";
@@ -52,11 +51,11 @@ const TextAI = () => {
       <McKinneyEDCSection />
       <SecurityComplianceSection />
       <ImplementationProcessSection />
+      <AdditionalServicesSection />
       <ProblemSolutionSection />
       <BenefitsSection />
       <WhyChooseSection />
       <DemoExampleSection />
-      <AdditionalServicesSection />
       <AboutWhitegloveSection />
       <ContactSection />
     </div>
