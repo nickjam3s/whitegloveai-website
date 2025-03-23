@@ -32,7 +32,7 @@ const HeroSection = () => {
 
           {/* Right Section (Illustration) */}
           <div className="flex-1 flex justify-center md:justify-end">
-            {/* Hand holding phone illustration */}
+            {/* Phone illustration */}
             <div className="w-[300px]">
               <svg viewBox="0 0 450 450" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
                 {/* Phone body */}
