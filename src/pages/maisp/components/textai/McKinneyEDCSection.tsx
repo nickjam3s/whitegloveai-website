@@ -18,7 +18,7 @@ const McKinneyEDCSection = () => {
             <Card className="bg-transparent border-none overflow-hidden rounded-lg shadow-2xl">
               <CardContent className="p-0">
                 <img 
-                  src="/lovable-uploads/e6e5b60c-4592-470d-9180-f7490ff8fc85.png" 
+                  src="/lovable-uploads/9319127f-9397-4fbe-91ff-4b7e02d94d80.png" 
                   alt="McKinney EDC Website with TextAI Chatbot" 
                   className="w-full h-auto rounded-lg"
                 />
