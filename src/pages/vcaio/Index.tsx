@@ -9,8 +9,8 @@ import CoreBeliefs from "./components/CoreBeliefs";
 
 const VCAIO = () => {
   useEffect(() => {
-    // Set smooth scrolling behavior globally for this page
-    document.documentElement.style.scrollBehavior = 'smooth';
+    // We're removing the smooth scrolling behavior to stop auto-scroll
+    // document.documentElement.style.scrollBehavior = 'smooth';
     
     // Handle anchor links within the page
     const handleAnchorClick = (e: MouseEvent) => {
@@ -23,7 +23,7 @@ const VCAIO = () => {
         if (targetId) {
           const targetElement = document.getElementById(targetId);
           if (targetElement) {
-            targetElement.scrollIntoView({ behavior: 'smooth' });
+            targetElement.scrollIntoView();
           }
         }
       }
@@ -33,7 +33,7 @@ const VCAIO = () => {
     
     return () => {
       document.removeEventListener('click', handleAnchorClick);
-      document.documentElement.style.scrollBehavior = 'auto';
+      // document.documentElement.style.scrollBehavior = 'auto';
     };
   }, []);
 
