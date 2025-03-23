@@ -1,7 +1,5 @@
 
-import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
 
 const FutureSection = () => {
   return (
@@ -21,15 +19,6 @@ const FutureSection = () => {
         </div>
         <div className="w-full max-w-3xl mx-auto mt-12 bg-card/60 backdrop-blur-sm rounded-xl border border-gray-800 p-8">
           <h3 className="text-2xl font-semibold mb-6">Ready to Transform Your AI Strategy?</h3>
-          <div className="mb-6">
-            <Button asChild size="lg" className="text-lg px-8 py-6 bg-purple-600 hover:bg-purple-700">
-              <Link to="/contact">
-                <span className="flex items-center justify-center">
-                  Get Started <ArrowRight className="ml-2" />
-                </span>
-              </Link>
-            </Button>
-          </div>
           <iframe
             src="https://jzaxt350p9j.typeform.com/to/jiKH5Ab2?typeform-medium=embed-oembed"
             allow="camera; microphone; autoplay; encrypted-media;"
