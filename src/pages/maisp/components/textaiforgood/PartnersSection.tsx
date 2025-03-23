@@ -18,28 +18,6 @@ const PartnersSection = () => {
             className="w-full h-auto object-contain"
           />
         </div>
-
-        <div className="bg-black p-6 rounded-lg mx-auto w-full max-w-4xl">
-          <div className="rounded-md overflow-hidden">
-            <Table>
-              <TableBody>
-                <TableRow className="border-b border-gray-800">
-                  <TableCell className="py-4 px-6 bg-gray-900 text-white font-medium">ABOUT US</TableCell>
-                  <TableCell className="py-4 px-6 bg-gray-900 text-white font-medium">HOW WE SERVE</TableCell>
-                  <TableCell className="py-4 px-6 bg-gray-900 text-white font-medium">EVENTS</TableCell>
-                  <TableCell className="py-4 px-6 bg-gray-900 text-white font-medium">DONATE</TableCell>
-                  <TableCell className="py-4 px-6 bg-gray-900 text-white font-medium">NEWS</TableCell>
-                  <TableCell className="py-4 px-6 bg-gray-900 text-white font-medium">CONTACT</TableCell>
-                  <TableCell className="py-4 px-6 bg-gray-900 text-white font-medium">COURSES</TableCell>
-                  <TableCell className="py-4 px-6 bg-gray-900 text-white font-medium">GALLERY</TableCell>
-                  <TableCell className="py-4 px-6 bg-gray-900 text-white font-medium">
-                    <span className="bg-blue-600 text-white px-4 py-1 rounded-full">DONATE</span>
-                  </TableCell>
-                </TableRow>
-              </TableBody>
-            </Table>
-          </div>
-        </div>
       </div>
     </section>
   );
