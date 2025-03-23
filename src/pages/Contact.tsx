@@ -8,6 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { Link } from "react-router-dom";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -48,39 +49,53 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen pt-24 bg-black">
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute inset-[10%] bg-[radial-gradient(circle_at_50%_50%,#7021EE,transparent_60%)] opacity-20" 
-          style={{
-            transformOrigin: '60% 40%',
-            animation: 'morphing 12s ease-in-out infinite, rotating 15s linear infinite'
-          }}
-        />
-        <div className="absolute inset-0 backdrop-blur-[100px]" />
-      </div>
-      
+    <div className="min-h-screen bg-black text-white font-sans">
+      {/* Hero Section - Similar to About page */}
+      <section className="w-full relative overflow-hidden bg-black">
+        {/* Animated Background */}
+        <div className="absolute inset-0 z-0">
+          <div className="absolute h-full w-full bg-gradient-radial from-[#7021EE]/20 to-transparent opacity-50"></div>
+          <div className="absolute h-full w-full bg-gradient-to-b from-black/0 via-black/0 to-black"></div>
+        </div>
+        
+        {/* Content Container */}
+        <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-24 md:py-32 lg:py-40 flex flex-col items-start">
+          {/* Pre-heading badge */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.6 }}
+            className="inline-flex items-center rounded-full border border-[#7021EE]/30 bg-[#7021EE]/10 px-4 py-1.5 text-xs md:text-sm font-medium text-[#7021EE] mb-8"
+          >
+            Contact Lovable AI
+          </motion.div>
+          
+          {/* Main heading */}
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.6 }}
+            className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white max-w-4xl mb-6"
+          >
+            Get in <span className="text-[#7021EE]">Touch</span> with our team
+          </motion.h1>
+          
+          {/* Description */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6, duration: 0.6 }}
+            className="text-lg md:text-xl text-gray-300 max-w-3xl mb-12"
+          >
+            Ready to transform your business with AI? We're here to help.
+            Contact us to discuss your needs and discover how we can help you succeed.
+          </motion.p>
+        </div>
+      </section>
+
+      {/* Contact Information & Form Section */}
       <section className="relative py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <motion.h1 
-              className="text-4xl md:text-5xl font-semibold mb-4 text-white"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              Get in <span className="text-[#7021EE]">Touch</span>
-            </motion.h1>
-            <motion.p 
-              className="text-lg text-gray-400 max-w-2xl mx-auto"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-            >
-              Ready to transform your business with AI? We're here to help.
-              Contact us to discuss your needs and discover how we can help you succeed.
-            </motion.p>
-          </div>
-
           <div className="grid lg:grid-cols-2 gap-12">
             <motion.div 
               className="space-y-8"
@@ -146,7 +161,7 @@ const Contact = () => {
                   allowFullScreen 
                   loading="lazy" 
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="WhitegloveAI office location"
+                  title="Lovable AI office location"
                 />
               </Card>
             </motion.div>
@@ -227,6 +242,7 @@ const Contact = () => {
         </div>
       </section>
 
+      {/* Career CTA Section - Similar to About page CTA */}
       <motion.section 
         className="relative py-16 px-4 sm:px-6 lg:px-8 text-center"
         initial={{ opacity: 0, y: 30 }}
@@ -241,11 +257,11 @@ const Contact = () => {
             We're always looking for talented individuals to join our growing team. Check out our
             current openings and apply today!
           </p>
-          <Button asChild size="lg">
-            <a href="/about/apprentice" className="px-8">
+          <Link to="/about/apprentice">
+            <Button size="lg" className="px-8">
               View Opportunities
-            </a>
-          </Button>
+            </Button>
+          </Link>
         </div>
       </motion.section>
     </div>
