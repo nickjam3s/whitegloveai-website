@@ -50,12 +50,12 @@ const TextAI = () => {
       <OperationalEfficiencySection />
       <ExpectedROISection />
       <McKinneyEDCSection />
+      <SecurityComplianceSection />
+      <ImplementationProcessSection />
       <ProblemSolutionSection />
       <BenefitsSection />
       <WhyChooseSection />
       <DemoExampleSection />
-      <SecurityComplianceSection />
-      <ImplementationProcessSection />
       <AdditionalServicesSection />
       <AboutWhitegloveSection />
       <ContactSection />
