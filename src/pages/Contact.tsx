@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { useToast } from "@/components/ui/use-toast";
 import { motion } from "framer-motion";
@@ -334,7 +333,7 @@ const Contact = () => {
             <p className="text-gray-400 mb-4">
               Our strategists help businesses identify opportunities for AI integration and develop roadmaps for implementation.
             </p>
-            <Link to="/about" className="text-[#7021EE] hover:text-[#9b69f8] transition-colors">
+            <Link to="/aboutus" className="text-[#7021EE] hover:text-[#9b69f8] transition-colors">
               Meet the strategists →
             </Link>
           </motion.div>
@@ -352,7 +351,7 @@ const Contact = () => {
             <p className="text-gray-400 mb-4">
               Our developers build custom AI solutions tailored to your specific business needs and objectives.
             </p>
-            <Link to="/about" className="text-[#7021EE] hover:text-[#9b69f8] transition-colors">
+            <Link to="/aboutus" className="text-[#7021EE] hover:text-[#9b69f8] transition-colors">
               Meet the developers →
             </Link>
           </motion.div>
@@ -370,7 +369,7 @@ const Contact = () => {
             <p className="text-gray-400 mb-4">
               Our implementation experts ensure smooth integration of AI solutions into your existing business processes.
             </p>
-            <Link to="/about" className="text-[#7021EE] hover:text-[#9b69f8] transition-colors">
+            <Link to="/aboutus" className="text-[#7021EE] hover:text-[#9b69f8] transition-colors">
               Meet the experts →
             </Link>
           </motion.div>
