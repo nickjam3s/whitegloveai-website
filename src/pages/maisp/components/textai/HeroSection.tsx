@@ -12,11 +12,15 @@ const HeroSection = () => {
           {/* Left Section (Text & Logo) */}
           <div className="flex-1">
             {/* Logo */}
-            <div className="mb-5">
-              <svg width="100" height="100" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M40 0C17.909 0 0 17.909 0 40C0 62.091 17.909 80 40 80C62.091 80 80 62.091 80 40C80 17.909 62.091 0 40 0ZM40 72C22.355 72 8 57.645 8 40C8 22.355 22.355 8 40 8C57.645 8 72 22.355 72 40C72 57.645 57.645 72 40 72Z" fill="#7021EE"/>
-                <path d="M44 24H36V36H24V44H36V56H44V44H56V36H44V24Z" fill="#7021EE"/>
-              </svg>
+            <div className="mb-5 logo-container">
+              <img 
+                src="/lovable-uploads/351136e7-c241-4c56-a606-3ff7a65a05ac.png" 
+                alt="TextAI Logo" 
+                width="100" 
+                height="100" 
+                className="logo-animation"
+                style={{ filter: "hue-rotate(260deg) brightness(150%) drop-shadow(0 0 10px rgba(112, 33, 238, 0.6))" }}
+              />
             </div>
 
             <h1 className="text-3xl md:text-4xl font-bold mb-4 text-white">
