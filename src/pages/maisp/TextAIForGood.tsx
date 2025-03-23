@@ -1,12 +1,10 @@
 
 import { useEffect } from "react";
 import HeroSection from "./components/textaiforgood/HeroSection";
-import IntroSection from "./components/textaiforgood/IntroSection";
 import BenefitsSection from "./components/textaiforgood/BenefitsSection";
 import ProcessSection from "./components/textaiforgood/ProcessSection";
 import PartnersSection from "./components/textaiforgood/PartnersSection";
 import ContactSection from "./components/textaiforgood/ContactSection";
-import EfficiencyImpactSection from "./components/textaiforgood/EfficiencyImpactSection";
 
 const TextAIForGood = () => {
   useEffect(() => {
@@ -39,8 +37,6 @@ const TextAIForGood = () => {
   return (
     <div className="min-h-screen bg-background">
       <HeroSection />
-      <IntroSection />
-      <EfficiencyImpactSection />
       <BenefitsSection />
       <ProcessSection />
       <PartnersSection />
