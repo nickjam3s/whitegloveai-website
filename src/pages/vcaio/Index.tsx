@@ -9,10 +9,10 @@ import CoreBeliefs from "./components/CoreBeliefs";
 
 const VCAIO = () => {
   useEffect(() => {
-    // We're removing the smooth scrolling behavior to stop auto-scroll
-    // document.documentElement.style.scrollBehavior = 'smooth';
+    // Explicitly disable smooth scrolling
+    document.documentElement.style.scrollBehavior = 'auto';
     
-    // Handle anchor links within the page
+    // Handle anchor links within the page without smooth scrolling
     const handleAnchorClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       const anchor = target.closest('a[href^="#"]');
@@ -21,9 +21,15 @@ const VCAIO = () => {
         e.preventDefault();
         const targetId = anchor.getAttribute('href')?.substring(1);
         if (targetId) {
+          // Get the element position and scroll to it without smooth behavior
           const targetElement = document.getElementById(targetId);
           if (targetElement) {
-            targetElement.scrollIntoView();
+            const yOffset = -80; // Adjust offset if needed
+            const y = targetElement.getBoundingClientRect().top + window.scrollY + yOffset;
+            window.scrollTo({
+              top: y,
+              behavior: 'auto'
+            });
           }
         }
       }
@@ -33,7 +39,6 @@ const VCAIO = () => {
     
     return () => {
       document.removeEventListener('click', handleAnchorClick);
-      // document.documentElement.style.scrollBehavior = 'auto';
     };
   }, []);
 
