@@ -32,24 +32,16 @@ const HeroSection = () => {
 
           {/* Right Section (Illustration) */}
           <div className="flex-1 flex justify-center md:justify-end">
-            {/* Phone illustration */}
+            {/* Phone holder illustration */}
             <div className="w-[300px]">
-              <svg viewBox="0 0 450 450" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
-                {/* Phone body */}
-                <rect x="150" y="50" width="150" height="300" rx="20" fill="#1A1A1A" />
-                <rect x="170" y="70" width="110" height="260" rx="10" fill="#2A2A2A" />
-                
-                {/* Phone screen content */}
-                <rect x="190" y="90" width="70" height="150" rx="5" fill="#333333" />
-                <circle cx="225" cy="150" r="25" fill="#7021EE" fillOpacity="0.7" />
-                <rect x="195" y="250" width="60" height="10" rx="5" fill="#7021EE" fillOpacity="0.5" />
-                <rect x="195" y="270" width="60" height="10" rx="5" fill="#7021EE" fillOpacity="0.3" />
-                <rect x="195" y="290" width="40" height="10" rx="5" fill="#7021EE" fillOpacity="0.2" />
-                
-                {/* Hand */}
-                <path d="M100 200C120 180 140 170 160 180C180 190 180 220 180 240C180 260 170 300 150 330C130 360 100 380 80 390C60 400 30 400 20 380C10 360 20 330 40 320C60 310 90 300 110 280C130 260 140 230 130 220C120 210 100 220 100 200Z" fill="#8B5A2B" />
-                <path d="M70 350C90 340 110 320 120 300C130 280 130 260 130 240C130 220 120 210 110 210C100 210 90 220 90 240C90 260 100 280 90 290C80 300 60 310 50 320C40 330 30 350 40 360C50 370 65 355 70 350Z" fill="#8B5A2B" />
-              </svg>
+              <img 
+                src="/lovable-uploads/f515e78a-651f-4e80-a794-765e33874e4d.png" 
+                alt="Hand holding phone with TextAI interface" 
+                className="w-full h-auto" 
+                width="800" 
+                height="600"
+                loading="eager"
+              />
             </div>
           </div>
         </div>
