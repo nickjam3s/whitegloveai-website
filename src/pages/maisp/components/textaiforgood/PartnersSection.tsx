@@ -11,28 +11,12 @@ const PartnersSection = () => {
           We are proud to partner with local Texas, national and international nonprofits.
         </p>
         
-        <div className="grid grid-cols-3 gap-8 max-w-3xl mx-auto mb-16">
-          <div className="flex justify-center items-center">
-            <img 
-              src="/lovable-uploads/9ac70883-95e8-469e-af2c-3e433eb3bf17.png" 
-              alt="npower logo" 
-              className="h-12 object-contain"
-            />
-          </div>
-          <div className="flex justify-center items-center">
-            <img 
-              src="/lovable-uploads/9ac70883-95e8-469e-af2c-3e433eb3bf17.png" 
-              alt="Tackle Tomorrow logo" 
-              className="h-16 object-contain"
-            />
-          </div>
-          <div className="flex justify-center items-center">
-            <img 
-              src="/lovable-uploads/9ac70883-95e8-469e-af2c-3e433eb3bf17.png" 
-              alt="TLT logo" 
-              className="h-12 object-contain"
-            />
-          </div>
+        <div className="mx-auto mb-16">
+          <img 
+            src="/lovable-uploads/281b93ec-555c-44bf-b36c-fea8412f1d13.png" 
+            alt="NonProfit Partners including NPower, Tackle Tomorrow, and TLT" 
+            className="w-full h-auto object-contain"
+          />
         </div>
 
         <div className="bg-black p-6 rounded-lg mx-auto w-full max-w-4xl">
