@@ -40,6 +40,8 @@ const VCAIO = () => {
     
     return () => {
       document.removeEventListener('click', handleAnchorClick);
+      // Reset scroll behavior when component unmounts
+      document.documentElement.style.scrollBehavior = '';
     };
   }, []);
 
