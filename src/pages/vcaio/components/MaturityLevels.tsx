@@ -1,5 +1,5 @@
 
-import { ScrollArea } from "@/components/ui/scroll-area";
+import { PanelTopOpen, ArrowRight, ArrowUpRight, Database } from "lucide-react";
 
 const levels = [
   {
@@ -29,19 +29,17 @@ const MaturityLevels = () => {
           <h3 className="text-xl text-gray-400 mb-12">WhiteGloveAI: AI Maturity Levels</h3>
         </div>
         
-        <ScrollArea className="h-[460px] rounded-md">
-          <div className="space-y-6 pr-4">
-            {levels.map((level, index) => (
-              <div 
-                key={index} 
-                className="bg-gradient-to-r from-purple-900/20 via-card to-card p-8 rounded-xl border border-gray-800 hover:border-secondary/50 transition-colors"
-              >
-                <h3 className="text-2xl font-bold mb-4">{level.title}</h3>
-                <p className="text-gray-400">{level.description}</p>
-              </div>
-            ))}
-          </div>
-        </ScrollArea>
+        <div className="space-y-6">
+          {levels.map((level, index) => (
+            <div 
+              key={index} 
+              className="bg-gradient-to-r from-purple-900/20 via-card to-card p-8 rounded-xl border border-gray-800 hover:border-secondary/50 transition-colors"
+            >
+              <h3 className="text-2xl font-bold mb-4">{level.title}</h3>
+              <p className="text-gray-400">{level.description}</p>
+            </div>
+          ))}
+        </div>
         
         <p className="text-center mt-12 text-gray-400">
           The vCAIO tailors the AI-AMF framework to an organization's maturity level, ensuring incremental and measurable progress.
