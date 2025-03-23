@@ -20,17 +20,6 @@ const SecurityComplianceSection = () => {
               </div>
             ))}
           </div>
-          
-          <div className="w-full pt-12">
-            {/* Image will be placed below the content */}
-            <div className="w-full bg-gray-900 rounded-lg overflow-hidden">
-              <img 
-                src="/lovable-uploads/54b3fdac-2249-404b-a911-419ba0ac67d7.png" 
-                alt="Security and Compliance" 
-                className="w-full h-auto object-contain opacity-70"
-              />
-            </div>
-          </div>
         </div>
       </div>
     </section>

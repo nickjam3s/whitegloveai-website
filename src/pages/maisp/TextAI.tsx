@@ -1,13 +1,10 @@
+
 import { useEffect } from "react";
 import HeroSection from "./components/textai/HeroSection";
 import IntelligentInformationSection from "./components/textai/IntelligentInformationSection";
-import ProblemSolutionSection from "./components/textai/ProblemSolutionSection";
-import BenefitsSection from "./components/textai/BenefitsSection";
-import WhyChooseSection from "./components/textai/WhyChooseSection";
 import OperationalEfficiencySection from "./components/textai/OperationalEfficiencySection";
 import ExpectedROISection from "./components/textai/ExpectedROISection";
 import McKinneyEDCSection from "./components/textai/McKinneyEDCSection";
-import DemoExampleSection from "./components/textai/DemoExampleSection";
 import SecurityComplianceSection from "./components/textai/SecurityComplianceSection";
 import ImplementationProcessSection from "./components/textai/ImplementationProcessSection";
 import AdditionalServicesSection from "./components/textai/AdditionalServicesSection";
@@ -52,10 +49,6 @@ const TextAI = () => {
       <SecurityComplianceSection />
       <ImplementationProcessSection />
       <AdditionalServicesSection />
-      <ProblemSolutionSection />
-      <BenefitsSection />
-      <WhyChooseSection />
-      <DemoExampleSection />
       <AboutWhitegloveSection />
       <ContactSection />
     </div>
