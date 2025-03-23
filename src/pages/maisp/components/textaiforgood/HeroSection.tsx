@@ -11,9 +11,9 @@ const HeroSection = () => {
         <div className="grid md:grid-cols-2 gap-8 items-center">
           <div className="text-left">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight mb-6 text-white">
-              TextAI for Good:<br />
-              Empowering Nonprofits<br />
-              with AI
+              TextAI for Good:
+              <br />
+              Empowering Nonprofits with AI
             </h1>
             <p className="text-xl text-gray-300 max-w-2xl mb-10">
               TextAI for Good provides free AI-powered chatbots to nonprofits, enhancing engagement and amplifying impact.
