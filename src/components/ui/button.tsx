@@ -5,7 +5,7 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  "relative inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-r before:from-black before:via-[#7021EE] before:to-black before:bg-[length:200%_100%] before:animate-[gradient_4s_linear_infinite] before:z-0 after:absolute after:inset-0 after:rounded-md after:border-2 after:border-white/20 after:bg-[length:200%_100%] after:bg-[linear-gradient(90deg,transparent_0%,rgba(255,255,255,0.5)_50%,transparent_100%)] after:bg-no-repeat after:animate-[shine_3s_linear_infinite] after:z-[1] [&>span]:relative [&>span]:z-[10] [&>span]:text-white [&>svg]:relative [&>svg]:z-[10] hover:scale-[1.02] active:scale-[0.98] transition-transform duration-200",
+  "relative inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-r before:from-black before:via-[#7021EE] before:to-black before:bg-[length:200%_100%] before:animate-[gradient_4s_linear_infinite] before:z-0 after:absolute after:inset-0 after:rounded-md after:border-2 after:border-white/20 after:bg-[length:200%_100%] after:bg-[linear-gradient(90deg,transparent_0%,rgba(255,255,255,0.5)_50%,transparent_100%)] after:bg-no-repeat after:animate-[shine_3s_linear_infinite] after:z-[1] hover:scale-[1.02] active:scale-[0.98] transition-transform duration-200",
   {
     variants: {
       variant: {
@@ -44,11 +44,11 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     const Comp = asChild ? Slot : "button"
     return (
       <Comp
-        className={cn(buttonVariants({ variant, size, className }))}
+        className={cn(buttonVariants({ variant, size, className }), "font-medium")}
         ref={ref}
         {...props}
       >
-        <span className="font-medium flex items-center justify-center">{children}</span>
+        {children}
       </Comp>
     )
   }
@@ -57,3 +57,4 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 Button.displayName = "Button"
 
 export { Button, buttonVariants }
+
