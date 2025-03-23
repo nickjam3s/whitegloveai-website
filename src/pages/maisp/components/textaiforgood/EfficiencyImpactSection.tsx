@@ -1,4 +1,6 @@
+
 import React from "react";
+
 const EfficiencyImpactSection = () => {
   return <section className="py-16 bg-black w-full">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -8,7 +10,7 @@ const EfficiencyImpactSection = () => {
           </h2>
         </div>
 
-        <div className="grid grid-cols-12 gap-8 items-start">
+        <div className="grid grid-cols-12 gap-8 items-center">
           {/* Left column with content */}
           <div className="col-span-12 md:col-span-7">
             <div className="grid grid-cols-2 gap-8">
@@ -34,8 +36,8 @@ inquiries on your website.</p>
           </div>
           
           {/* Right column with SVG */}
-          <div className="col-span-12 md:col-span-5">
-            <svg width="100%" height="280" viewBox="0 0 650 400" fill="none" xmlns="http://www.w3.org/2000/svg" className="max-w-full">
+          <div className="col-span-12 md:col-span-5 flex items-center justify-center">
+            <svg width="100%" height="260" viewBox="0 0 600 380" fill="none" xmlns="http://www.w3.org/2000/svg" className="max-w-full">
               {/* SVG network illustration with thicker strokes */}
               <path d="M400 50C400 61.0457 391.046 70 380 70C368.954 70 360 61.0457 360 50C360 38.9543 368.954 30 380 30C391.046 30 400 38.9543 400 50Z" stroke="white" strokeWidth="4" />
               <path d="M400 350C400 361.046 391.046 370 380 370C368.954 370 360 361.046 360 350C360 338.954 368.954 330 380 330C391.046 330 400 338.954 400 350Z" stroke="white" strokeWidth="4" />
@@ -108,4 +110,5 @@ inquiries on your website.</p>
       </div>
     </section>;
 };
+
 export default EfficiencyImpactSection;
