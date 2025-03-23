@@ -64,7 +64,6 @@ const StepByStepForm = () => {
                 type="button" 
                 onClick={nextStep}
                 disabled={!formData.firstName}
-                className="mt-4"
               >
                 Next
               </Button>
