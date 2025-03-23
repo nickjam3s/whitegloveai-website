@@ -59,16 +59,6 @@ const Contact = () => {
         
         {/* Content Container */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-24 md:py-32 lg:py-40 flex flex-col items-start">
-          {/* Pre-heading badge */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.6 }}
-            className="inline-flex items-center rounded-full border border-[#7021EE]/30 bg-[#7021EE]/10 px-4 py-1.5 text-xs md:text-sm font-medium text-[#7021EE] mb-8"
-          >
-            Contact Lovable AI
-          </motion.div>
-          
           {/* Main heading */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
