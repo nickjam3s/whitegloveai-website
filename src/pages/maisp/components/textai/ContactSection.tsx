@@ -35,12 +35,6 @@ const ContactSection = () => {
             />
           </div>
           <div>
-            <h2 className="text-3xl font-bold mb-6">Contact Us to Get Started</h2>
-            <p className="text-gray-400 mb-8">
-              Fill out the form below to start your journey with TextAI, and join the growing 
-              community of businesses leveraging AI to enhance their operations.
-            </p>
-            
             <div className="bg-card/50 p-6 rounded-lg shadow-lg">
               <div data-tf-widget="01JMAMXNY7NHGYM2YQDXCDRDW6" data-tf-inline-on-mobile data-tf-medium="snippet" data-tf-hidden="utm_source=website,utm_medium=snippet"></div>
             </div>
