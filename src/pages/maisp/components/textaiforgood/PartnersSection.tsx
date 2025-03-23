@@ -34,14 +34,6 @@ const PartnersSection = () => {
             />
           </div>
         </div>
-        
-        <div className="w-full mx-auto rounded-lg overflow-hidden mb-16">
-          <img 
-            src="/lovable-uploads/9ac70883-95e8-469e-af2c-3e433eb3bf17.png" 
-            alt="Partner example showing a chatbot integration" 
-            className="w-full h-auto object-cover"
-          />
-        </div>
 
         <div className="bg-black p-6 rounded-lg mx-auto w-full max-w-4xl">
           <div className="rounded-md overflow-hidden">
