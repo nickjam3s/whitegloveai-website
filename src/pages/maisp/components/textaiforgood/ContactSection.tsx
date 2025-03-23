@@ -25,7 +25,7 @@ const ContactSection = () => {
       <div className="max-w-7xl mx-auto">
         <div className="flex justify-center mb-8">
           <img 
-            src="/lovable-uploads/023620f2-f6ba-4dac-8114-10db4b85e210.png" 
+            src="/lovable-uploads/bec0d45e-f644-4c09-a0e0-54f77af32db4.png" 
             alt="Contact Us to Get Started" 
             className="w-full object-contain"
             loading="lazy"
