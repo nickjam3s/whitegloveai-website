@@ -11,13 +11,6 @@ const CTASection = () => {
         <p className="text-gray-400 max-w-2xl mx-auto mb-8">
           Experience the future of business operations with AutomateAI. Visit Lucidis.ai to learn more about how our AI-powered solutions can transform your organization.
         </p>
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Button className="group flex items-center justify-center" asChild>
-            <a href="#contact" className="inline-flex items-center justify-center">
-              Contact Us
-            </a>
-          </Button>
-        </div>
       </div>
     </section>
   );
