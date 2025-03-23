@@ -6,6 +6,7 @@ import BenefitsSection from "./components/BenefitsSection";
 import MaturityLevels from "./components/MaturityLevels";
 import FutureSection from "./components/FutureSection";
 import CoreBeliefs from "./components/CoreBeliefs";
+import WhyVCAIO from "./components/WhyVCAIO";
 
 const VCAIO = () => {
   useEffect(() => {
@@ -43,8 +44,9 @@ const VCAIO = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background overflow-x-hidden">
       <HeroSection />
+      <WhyVCAIO />
       <UnlockingSection />
       <BenefitsSection />
       <CoreBeliefs />

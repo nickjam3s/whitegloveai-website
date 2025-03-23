@@ -32,7 +32,10 @@ const MaturityLevels = () => {
         <ScrollArea className="h-[460px] rounded-md">
           <div className="space-y-6 pr-4">
             {levels.map((level, index) => (
-              <div key={index} className="bg-card p-8 rounded-lg border border-gray-800 hover:border-secondary/50 transition-colors">
+              <div 
+                key={index} 
+                className="bg-gradient-to-r from-purple-900/20 via-card to-card p-8 rounded-xl border border-gray-800 hover:border-secondary/50 transition-colors"
+              >
                 <h3 className="text-2xl font-bold mb-4">{level.title}</h3>
                 <p className="text-gray-400">{level.description}</p>
               </div>
