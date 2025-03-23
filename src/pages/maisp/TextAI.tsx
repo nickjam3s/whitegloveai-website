@@ -1,8 +1,6 @@
-
 import { useEffect } from "react";
 import HeroSection from "./components/textai/HeroSection";
 import IntelligentInformationSection from "./components/textai/IntelligentInformationSection";
-import EfficiencyImpactSection from "./components/textai/EfficiencyImpactSection";
 import ProblemSolutionSection from "./components/textai/ProblemSolutionSection";
 import BenefitsSection from "./components/textai/BenefitsSection";
 import WhyChooseSection from "./components/textai/WhyChooseSection";
@@ -48,12 +46,11 @@ const TextAI = () => {
     <div className="min-h-screen bg-background">
       <HeroSection />
       <IntelligentInformationSection />
-      <EfficiencyImpactSection />
+      <OperationalEfficiencySection />
       <ProblemSolutionSection />
       <BenefitsSection />
       <WhyChooseSection />
       <ROISection />
-      <OperationalEfficiencySection />
       <ExpectedROISection />
       <DemoExampleSection />
       <SecurityComplianceSection />
