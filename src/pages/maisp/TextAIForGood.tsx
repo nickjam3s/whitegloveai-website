@@ -40,8 +40,8 @@ const TextAIForGood = () => {
       <HeroSection />
       <BenefitsSection />
       <EfficiencyImpactSection />
-      <ProcessSection />
       <PartnersSection />
+      <ProcessSection />
       <ContactSection />
     </div>
   );
