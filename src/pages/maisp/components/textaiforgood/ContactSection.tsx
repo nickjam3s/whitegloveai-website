@@ -26,9 +26,9 @@ const ContactSection = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="flex justify-center md:justify-end">
-            {/* Custom SVG provided by user */}
+            {/* SVG with updated fill color to light grey */}
             <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="300pt" height="300pt" viewBox="0 0 163.000000 300.000000" preserveAspectRatio="xMidYMid meet" className="max-w-full">
-              <g transform="translate(0.000000,300.000000) scale(0.100000,-0.100000)" fill="#7021EE" stroke="none">
+              <g transform="translate(0.000000,300.000000) scale(0.100000,-0.100000)" fill="#676565" stroke="none">
                 <path d="M42 2880 c-40 -28 -42 -33 -41 -78 2 -33 3 -38 6 -17 5 31 62 95 85 95 7 -1 28 -14 47 -30 24 -20 34 -38 35 -59 1 -29 4 -31 37 -31 20 0 51 -3 69 -7 l33 -6 -7 -261 c-3 -144 -9 -314 -13 -378 l-6 -118 -143 0 c-121 0 -144 -2 -144 -15 0 -13 22 -15 139 -15 118 0 142 3 160 18 20 17 21 28 27 397 8 428 12 403 -69 412 -36 4 -45 10 -56 35 -13 30 -83 88 -106 88 -7 0 -31 -14 -53 -30z"/>
                 <path d="M86 2863 c-12 -12 -6 -43 9 -43 8 0 15 9 15 19 0 21 -13 34 -24 24z"/>
                 <path d="M30 2759 l0 -49 65 0 65 0 0 49 0 50 -65 0 -65 0 0 -50z m74 15 c9 -3 16 -10 16 -16 0 -14 -53 -5 -58 10 -4 13 16 16 42 6z"/>
