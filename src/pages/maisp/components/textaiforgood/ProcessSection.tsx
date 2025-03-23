@@ -1,6 +1,6 @@
 
 import React from "react";
-import { CheckCircle2, Lightbulb } from "lucide-react";
+import { Lightbulb } from "lucide-react";
 
 const ProcessSection = () => {
   const steps = [
