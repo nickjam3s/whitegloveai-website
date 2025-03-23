@@ -10,16 +10,14 @@ const ScrollToTop = () => {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    // First do an immediate scroll to ensure we're at the top
+    // Scroll to top immediately when route changes
     window.scrollTo(0, 0);
     
     // Then set up smooth scrolling for subsequent scrolls
-    setTimeout(() => {
-      document.documentElement.style.scrollBehavior = 'smooth';
-    }, 100);
+    document.documentElement.style.scrollBehavior = 'smooth';
 
     return () => {
-      // Reset scroll behavior when component unmounts or before next effect
+      // Reset scroll behavior when component unmounts
       document.documentElement.style.scrollBehavior = 'auto';
     };
   }, [pathname]);

@@ -1,5 +1,5 @@
 
-import { AspectRatio } from "@/components/ui/aspect-ratio";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 const levels = [
   {
@@ -22,21 +22,23 @@ const levels = [
 
 const MaturityLevels = () => {
   return (
-    <section className="py-24 bg-background">
+    <section className="py-24 bg-background" id="maturity-levels">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl font-bold mb-6 heading-highlight-scroll">AI Adoption & Management Framework (AI-AMF)</h2>
           <h3 className="text-xl text-gray-400 mb-12">WhiteGloveAI: AI Maturity Levels</h3>
         </div>
         
-        <div className="space-y-6">
-          {levels.map((level, index) => (
-            <div key={index} className="bg-card p-8 rounded-lg border border-gray-800 hover:border-secondary/50 transition-colors">
-              <h3 className="text-2xl font-bold mb-4">{level.title}</h3>
-              <p className="text-gray-400">{level.description}</p>
-            </div>
-          ))}
-        </div>
+        <ScrollArea className="h-[460px] rounded-md">
+          <div className="space-y-6 pr-4">
+            {levels.map((level, index) => (
+              <div key={index} className="bg-card p-8 rounded-lg border border-gray-800 hover:border-secondary/50 transition-colors">
+                <h3 className="text-2xl font-bold mb-4">{level.title}</h3>
+                <p className="text-gray-400">{level.description}</p>
+              </div>
+            ))}
+          </div>
+        </ScrollArea>
         
         <p className="text-center mt-12 text-gray-400">
           The vCAIO tailors the AI-AMF framework to an organization's maturity level, ensuring incremental and measurable progress.

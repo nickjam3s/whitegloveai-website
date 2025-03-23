@@ -9,10 +9,10 @@ import CoreBeliefs from "./components/CoreBeliefs";
 
 const VCAIO = () => {
   useEffect(() => {
-    // Ensure page starts at the top when component mounts
-    window.scrollTo(0, 0);
+    // Set smooth scrolling behavior globally for this page
+    document.documentElement.style.scrollBehavior = 'smooth';
     
-    // Add smooth scrolling for anchor links
+    // Handle anchor links within the page
     const handleAnchorClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       const anchor = target.closest('a[href^="#"]');
@@ -33,11 +33,12 @@ const VCAIO = () => {
     
     return () => {
       document.removeEventListener('click', handleAnchorClick);
+      document.documentElement.style.scrollBehavior = 'auto';
     };
   }, []);
 
   return (
-    <div className="min-h-screen bg-background pb-24">
+    <div className="min-h-screen bg-background">
       <HeroSection />
       <UnlockingSection />
       <BenefitsSection />
