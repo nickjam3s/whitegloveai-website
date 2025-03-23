@@ -22,6 +22,14 @@ const HeroSection = () => {
             </button>
           </div>
         </div>
+        
+        <div className="mt-12 flex justify-center">
+          <img 
+            src="/lovable-uploads/67736409-ebce-484e-b734-11a3655edc31.png" 
+            alt="People illustration" 
+            className="w-full max-w-md mx-auto"
+          />
+        </div>
       </div>
     </section>
   );
