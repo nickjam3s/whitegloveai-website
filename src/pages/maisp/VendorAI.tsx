@@ -8,7 +8,7 @@ import ExpertTeam from "./components/vendorai/ExpertTeam";
 import SecurityCompliance from "./components/vendorai/SecurityCompliance";
 import PricingModels from "./components/vendorai/PricingModels";
 import Support from "./components/vendorai/Support";
-import StepByStepForm from "./components/vendorai/StepByStepForm";
+import ContactSection from "./components/vendorai/ContactSection";
 
 const VendorAI = () => {
   useEffect(() => {
@@ -25,6 +25,7 @@ const VendorAI = () => {
       <SecurityCompliance />
       <PricingModels />
       <Support />
+      <ContactSection />
       
       <section id="contact" className="py-20 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
