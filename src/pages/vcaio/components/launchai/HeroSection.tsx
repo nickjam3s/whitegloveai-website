@@ -43,9 +43,9 @@ const HeroSection = () => {
           
           <div className="hidden md:flex items-center justify-center">
             <img 
-              src="/lovable-uploads/5352239c-c2ca-486d-bd4b-da740996eda0.png" 
+              src="/lovable-uploads/ca23258d-4611-4fd6-869d-2a7b426781af.png" 
               alt="WhitegloveAI Logo" 
-              className="w-96 h-96 object-contain mix-blend-screen opacity-100 filter brightness-125" 
+              className="w-[450px] h-[450px] object-contain mix-blend-screen opacity-100 filter brightness-125" 
             />
           </div>
         </div>
