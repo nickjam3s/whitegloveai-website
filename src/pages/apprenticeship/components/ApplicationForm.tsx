@@ -173,10 +173,12 @@ const ApplicationForm: React.FC = () => {
 
               <Button 
                 type="submit" 
-                className="w-full py-6 text-base"
+                className="w-full py-6 text-base relative"
                 disabled={isSubmitting}
               >
-                {isSubmitting ? 'Submitting...' : 'Submit Application'}
+                <span className="relative z-10">
+                  {isSubmitting ? 'Submitting...' : 'Submit Application'}
+                </span>
               </Button>
             </form>
           </div>
