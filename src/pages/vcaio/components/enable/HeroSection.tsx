@@ -20,7 +20,7 @@ const HeroSection = () => {
             AI Enablement Service
           </h1>
           <p className="text-xl text-gray-400 mb-12 max-w-3xl mx-auto">
-            WhitegloveAI, a premier Managed AI Service Provider™ (MAISP), introduces its AI Enablement Service—a comprehensive solution designed to empower organizations to adopt and leverage Large Language Models (LLMs) like ChatGPT effectively and securely.
+            WhitegloveAI, a premier Managed AI Service Provider™ (MAISP), introduces its AI Enablement Service—a comprehensive solution designed to help organizations adopt and leverage Large Language Models (LLMs) like ChatGPT effectively and securely.
           </p>
         </div>
       </div>
