@@ -6,17 +6,11 @@ import ProcessSection from "./components/launch/ProcessSection";
 import DeliverablesSection from "./components/launch/DeliverablesSection";
 import ResultsSection from "./components/launch/ResultsSection";
 import NextStepsSection from "./components/launch/NextStepsSection";
+import StepByStepForm from "../maisp/components/vendorai/StepByStepForm";
 
 const Launch = () => {
   useEffect(() => {
-    const script = document.createElement('script');
-    script.src = "//embed.typeform.com/next/embed.js";
-    script.async = true;
-    document.body.appendChild(script);
-
-    return () => {
-      document.body.removeChild(script);
-    };
+    window.scrollTo(0, 0);
   }, []);
 
   return (
@@ -36,7 +30,9 @@ const Launch = () => {
           <p className="text-gray-400 text-center mb-8 max-w-2xl mx-auto">
             Take the first step towards confident AI adoption. Contact us to schedule your AI Launchpad Workshop and start your journey to AI success.
           </p>
-          <div data-tf-live="01JMANX32Q8N97C9RXW4GRN312"></div>
+          <div className="bg-card/50 p-6 rounded-lg shadow-lg max-w-4xl mx-auto">
+            <StepByStepForm />
+          </div>
         </div>
       </section>
     </div>
