@@ -8,8 +8,11 @@ import FutureSection from "./components/chiefaiofficer/FutureSection";
 import CoreBeliefs from "./components/chiefaiofficer/CoreBeliefs";
 import WhyVCAIO from "./components/chiefaiofficer/WhyVCAIO";
 
-const ChiefAIOfficer = () => {
+const VCAIO = () => {
   useEffect(() => {
+    // Scroll to top when component mounts
+    window.scrollTo(0, 0);
+    
     // Explicitly disable smooth scrolling
     document.documentElement.style.scrollBehavior = 'auto';
     
@@ -58,4 +61,4 @@ const ChiefAIOfficer = () => {
   );
 };
 
-export default ChiefAIOfficer;
+export default VCAIO;
