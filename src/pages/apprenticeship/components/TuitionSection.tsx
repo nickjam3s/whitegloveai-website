@@ -65,8 +65,10 @@ const TuitionSection: React.FC = () => {
                   <span className="text-gray-300">Job placement assistance</span>
                 </li>
               </ul>
-              <Button className="w-full">
-                Apply Now <ArrowRight className="ml-2 h-4 w-4" />
+              <Button className="w-full relative">
+                <span className="relative z-10 flex items-center">
+                  Apply Now <ArrowRight className="ml-2 h-4 w-4" />
+                </span>
               </Button>
             </div>
           </motion.div>
@@ -114,8 +116,10 @@ const TuitionSection: React.FC = () => {
                   <span className="text-gray-300">Payments capped at $24,000 total</span>
                 </li>
               </ul>
-              <Button className="w-full bg-[#7021EE] hover:bg-[#5f1bc6]">
-                Apply Now <ArrowRight className="ml-2 h-4 w-4" />
+              <Button className="w-full bg-[#7021EE] hover:bg-[#5f1bc6] relative">
+                <span className="relative z-10 flex items-center">
+                  Apply Now <ArrowRight className="ml-2 h-4 w-4" />
+                </span>
               </Button>
             </div>
           </motion.div>
@@ -156,8 +160,10 @@ const TuitionSection: React.FC = () => {
                   <span className="text-gray-300">Flexible scheduling options</span>
                 </li>
               </ul>
-              <Button className="w-full">
-                Contact Us <ArrowRight className="ml-2 h-4 w-4" />
+              <Button className="w-full relative">
+                <span className="relative z-10 flex items-center">
+                  Contact Us <ArrowRight className="ml-2 h-4 w-4" />
+                </span>
               </Button>
             </div>
           </motion.div>
@@ -173,8 +179,10 @@ const TuitionSection: React.FC = () => {
           <p className="text-gray-400 max-w-2xl mx-auto mb-6">
             Need help deciding which option is right for you? Schedule a consultation with our admissions team to discuss your goals and financial situation.
           </p>
-          <Button variant="outline" className="px-8 py-6">
-            Schedule Consultation
+          <Button variant="outline" className="px-8 py-6 relative">
+            <span className="relative z-10">
+              Schedule Consultation
+            </span>
           </Button>
         </motion.div>
       </div>
