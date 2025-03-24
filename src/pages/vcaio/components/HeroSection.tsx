@@ -26,8 +26,10 @@ const HeroSection = () => {
           </p>
           <div className="flex justify-center">
             <Link to="/contact" className="inline-block">
-              <button className="flex items-center justify-center bg-purple-600 hover:bg-purple-700 text-white font-medium rounded-md px-8 py-4 text-lg transition-colors">
-                Get Started <ArrowRight className="ml-2" />
+              <button className="flex items-center justify-center bg-purple-600 hover:bg-purple-700 text-white font-medium rounded-md px-8 py-4 text-lg transition-colors relative">
+                <span className="relative z-10">
+                  Get Started <ArrowRight className="ml-2" />
+                </span>
               </button>
             </Link>
           </div>
