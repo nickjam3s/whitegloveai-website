@@ -139,3 +139,28 @@ html {
 .z-modal {
   @apply z-50;
 }
+
+/* Fix for section padding on mobile */
+@media (max-width: 640px) {
+  .section-spacing {
+    @apply py-8 px-4;
+  }
+  
+  .responsive-container {
+    @apply px-4;
+  }
+}
+
+/* Fix focus state for accessibility */
+:focus-visible {
+  @apply outline-[#7021EE] outline-offset-2 outline-2;
+}
+
+/* Improve text readability */
+.text-shadow-sm {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.text-shadow-lg {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+}

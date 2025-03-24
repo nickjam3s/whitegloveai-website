@@ -1,14 +1,13 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowDown, Heart, Shield, Brain, Sparkles, Users, Target, Lock, Lightbulb, ChartBar, Linkedin } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { ArrowDown, Shield, Brain, Sparkles, Users, Target, Lightbulb } from 'lucide-react';
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import ExecutiveTeam from '@/components/about/ExecutiveTeam';
 import GetInTouch from '@/components/about/GetInTouch';
 import CoreBeliefs from '@/pages/vcaio/components/CoreBeliefs';
 import { useIsMobile } from '@/hooks/use-mobile';
+import PageWrapper from '@/components/layout/PageWrapper';
 
 const AboutUs = () => {
   const isMobile = useIsMobile();
@@ -110,7 +109,7 @@ const AboutUs = () => {
               initial={{ opacity: 0, y: 20 }} 
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-lg md:text-xl lg:text-2xl text-gray-200 mb-8 md:mb-12 max-w-3xl mx-auto px-3 sm:px-0"
+              className="text-lg md:text-xl lg:text-2xl text-gray-200 mb-8 md:mb-12 max-w-3xl mx-auto px-3 sm:px-0 text-shadow-sm"
             >
               At WhitegloveAI, we're pioneering AI-driven transformations to elevate enterprise operations through innovative, ethical, and secure solutions.
             </motion.p>
@@ -147,7 +146,7 @@ const AboutUs = () => {
         </div>
       </section>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-16 space-y-12 md:space-y-20">
+      <PageWrapper>
         <motion.section
           id="mission"
           initial="initial"
@@ -177,7 +176,7 @@ const AboutUs = () => {
           whileInView="animate"
           viewport={{ once: true }}
           variants={fadeInUp}
-          className="px-2 sm:px-0"
+          className="px-2 sm:px-0 mt-16"
         >
           <motion.h2 
             variants={titleAnimation}
@@ -200,7 +199,7 @@ const AboutUs = () => {
           whileInView="animate"
           viewport={{ once: true }}
           variants={fadeInUp}
-          className="px-2 sm:px-0"
+          className="px-2 sm:px-0 mt-16"
         >
           <motion.h2 
             variants={titleAnimation}
@@ -219,13 +218,12 @@ const AboutUs = () => {
           </motion.p>
         </motion.section>
         
-        <div className="mt-8 md:mt-16">
+        <div className="mt-16">
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="-mb-4"
           >
             <CoreBeliefs />
           </motion.div>
@@ -236,7 +234,7 @@ const AboutUs = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="bg-gradient-to-br from-[#7021EE]/10 to-transparent border border-[#7021EE]/20 p-4 sm:p-8 rounded-xl mb-8"
+          className="bg-gradient-to-br from-[#7021EE]/10 to-transparent border border-[#7021EE]/20 p-4 sm:p-8 rounded-xl mt-16"
         >
           <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
             At WhitegloveAI, we are not just practitioners but advocates of an AI-enabled future where businesses thrive through the ethical, secure, and intelligent application of technology. We are dedicated to leading this charge, providing our clients and stakeholders with the tools and guidance to realize the full potential of artificial intelligence. Our philosophy isn't just about what AI can do for us today, but how it will shape our tomorrow.
@@ -248,14 +246,14 @@ const AboutUs = () => {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mt-16"
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 md:mb-8 text-[#7021EE] col-span-full">Our Core Values</h2>
           {coreValues.map((value, index) => (
             <motion.div
               key={index}
               variants={itemAnimation}
-              className="group p-4 sm:p-6 rounded-xl bg-gradient-to-br from-[#7021EE]/10 to-transparent border border-[#7021EE]/20 hover:border-[#7021EE]/40 transition-all duration-300"
+              className="group p-4 sm:p-6 rounded-xl bg-gradient-to-br from-[#7021EE]/10 to-transparent border border-[#7021EE]/20 hover:border-[#7021EE]/40 transition-all duration-300 hover-lift"
             >
               <value.icon className="h-7 w-7 md:h-8 md:w-8 text-[#7021EE] mb-3 md:mb-4" />
               <h3 className="text-lg md:text-xl font-semibold mb-2 md:mb-3 text-white">{value.title}</h3>
@@ -269,7 +267,7 @@ const AboutUs = () => {
         <ExecutiveTeam />
         
         <GetInTouch />
-      </div>
+      </PageWrapper>
     </div>
   );
 };

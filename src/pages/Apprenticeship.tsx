@@ -1,4 +1,6 @@
 
+import React from 'react';
+import PageWrapper from '@/components/layout/PageWrapper';
 import HeroSection from "./apprenticeship/components/HeroSection";
 import ProgramFeatures from "./apprenticeship/components/ProgramFeatures";
 import CandidateProfile from "./apprenticeship/components/CandidateProfile";
@@ -14,15 +16,17 @@ const Apprenticeship = () => {
   return (
     <div className="min-h-screen bg-black">
       <HeroSection />
-      <WhyUs />
-      <ProgramFeatures />
-      <CareerProgression />
-      <VisionSection />
-      <CandidateProfile />
-      <ApplicationProcess />
-      <ApplicationForm />
-      <TuitionSection />
-      <FAQSection />
+      <PageWrapper fullWidth>
+        <WhyUs />
+        <ProgramFeatures />
+        <CareerProgression />
+        <VisionSection />
+        <CandidateProfile />
+        <ApplicationProcess />
+        <ApplicationForm />
+        <TuitionSection />
+        <FAQSection />
+      </PageWrapper>
     </div>
   );
 };
