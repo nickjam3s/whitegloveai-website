@@ -1,13 +1,19 @@
 
+import { AspectRatio } from "@/components/ui/aspect-ratio";
+
 const HeroSection = () => {
   return (
     <section className="relative py-20 bg-black text-white overflow-hidden">
       <div className="absolute inset-0 z-0">
-        <img 
-          src="/lovable-uploads/3465e53c-9448-43d7-aa97-a4868b564529.png" 
-          alt="AI background"
-          className="w-full h-full object-cover opacity-40"
-        />
+        <AspectRatio ratio={16/9} className="h-full">
+          <img 
+            src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b"
+            alt="AI technology background"
+            className="w-full h-full object-cover opacity-40"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-purple-900/60 to-black/60 mix-blend-multiply"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-purple-800/30"></div>
+        </AspectRatio>
       </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-3xl">
