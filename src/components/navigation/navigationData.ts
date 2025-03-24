@@ -33,7 +33,7 @@ export const navigationLinks = [
     text: "Consulting",
     to: "/vcaio",
     children: [
-      { to: "/vcaio", text: "vCAIO" },
+      { to: "/vcaio/chiefaiofficer", text: "vCAIO" },
       { to: "/vcaio/launch", text: "Launchpad" },
       { to: "/vcaio/adopt", text: "Adopt" },
       { to: "/vcaio/enable", text: "Enable" },

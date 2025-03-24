@@ -1,12 +1,12 @@
 
 import { useEffect } from "react";
-import HeroSection from "./components/HeroSection";
-import UnlockingSection from "./components/UnlockingSection";
-import BenefitsSection from "./components/BenefitsSection";
-import MaturityLevels from "./components/MaturityLevels";
-import FutureSection from "./components/FutureSection";
-import CoreBeliefs from "./components/CoreBeliefs";
-import WhyVCAIO from "./components/WhyVCAIO";
+import HeroSection from "./components/chiefaiofficer/HeroSection";
+import UnlockingSection from "./components/chiefaiofficer/UnlockingSection";
+import BenefitsSection from "./components/chiefaiofficer/BenefitsSection";
+import MaturityLevels from "./components/chiefaiofficer/MaturityLevels";
+import FutureSection from "./components/chiefaiofficer/FutureSection";
+import CoreBeliefs from "./components/chiefaiofficer/CoreBeliefs";
+import WhyVCAIO from "./components/chiefaiofficer/WhyVCAIO";
 
 const VCAIO = () => {
   useEffect(() => {
