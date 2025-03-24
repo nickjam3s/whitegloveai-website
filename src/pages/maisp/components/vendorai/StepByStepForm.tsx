@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { toast } from "sonner";
 
 const StepByStepForm = () => {
   const [step, setStep] = useState(1);
@@ -32,7 +33,7 @@ const StepByStepForm = () => {
     e.preventDefault();
     console.log('Form submitted:', formData);
     // Here you would typically send the data to your backend
-    alert('Your information has been submitted. We will contact you shortly.');
+    toast.success('Your information has been submitted. We will contact you shortly.');
     // Reset form after submission
     setFormData({
       firstName: '',
@@ -43,6 +44,10 @@ const StepByStepForm = () => {
     });
     setStep(1);
   };
+
+  const buttonStyle = "px-4 py-2 rounded font-medium transition-colors duration-200";
+  const primaryButtonStyle = `${buttonStyle} bg-[#7021EE] hover:bg-[#5c1bc7] text-white border-none`;
+  const secondaryButtonStyle = `${buttonStyle} bg-transparent border border-[#444] hover:bg-[#333] text-white`;
 
   return (
     <div className="max-w-2xl mx-auto">
@@ -60,14 +65,14 @@ const StepByStepForm = () => {
               required
             />
             <div className="flex justify-end mt-6">
-              <Button 
+              <button 
                 type="button" 
                 onClick={nextStep}
                 disabled={!formData.firstName}
-                className="bg-purple-600 hover:bg-purple-700 text-white"
+                className={primaryButtonStyle + (formData.firstName ? '' : ' opacity-50 cursor-not-allowed')}
               >
                 Next
-              </Button>
+              </button>
             </div>
           </div>
         )}
@@ -85,21 +90,21 @@ const StepByStepForm = () => {
               required
             />
             <div className="flex justify-between mt-6">
-              <Button 
+              <button 
                 type="button" 
                 onClick={prevStep}
-                className="bg-transparent border border-[#444] hover:bg-gray-800 text-white"
+                className={secondaryButtonStyle}
               >
                 Back
-              </Button>
-              <Button 
+              </button>
+              <button 
                 type="button" 
                 onClick={nextStep}
                 disabled={!formData.lastName}
-                className="bg-purple-600 hover:bg-purple-700 text-white"
+                className={primaryButtonStyle + (formData.lastName ? '' : ' opacity-50 cursor-not-allowed')}
               >
                 Next
-              </Button>
+              </button>
             </div>
           </div>
         )}
@@ -140,20 +145,20 @@ const StepByStepForm = () => {
             />
             
             <div className="flex justify-between mt-6">
-              <Button 
+              <button 
                 type="button" 
                 onClick={prevStep}
-                className="bg-transparent border border-[#444] hover:bg-gray-800 text-white"
+                className={secondaryButtonStyle}
               >
                 Back
-              </Button>
-              <Button 
+              </button>
+              <button 
                 type="submit"
                 disabled={!formData.email || !formData.companyName}
-                className="bg-purple-600 hover:bg-purple-700 text-white"
+                className={primaryButtonStyle + (!formData.email || !formData.companyName ? ' opacity-50 cursor-not-allowed' : '')}
               >
                 Submit
-              </Button>
+              </button>
             </div>
           </div>
         )}
