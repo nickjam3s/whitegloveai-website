@@ -9,7 +9,7 @@ import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 
 // Main Pages
-import Index from "./pages/Index";
+import Index from "./pages/index";
 import About from "./pages/About";
 import AboutUs from "./pages/AboutUs";
 import Apprenticeship from "./pages/Apprenticeship";

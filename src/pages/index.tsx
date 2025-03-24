@@ -1,4 +1,5 @@
 
+import React from 'react';
 import { ArrowRight, CheckCircle2, Lightbulb, Shield, BrainCircuit, BarChart4, Download } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useEffect, useRef } from "react";
