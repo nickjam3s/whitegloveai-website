@@ -3,7 +3,7 @@ import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 const HeroSection = () => {
   return (
-    <section className="relative py-20 bg-black text-white overflow-hidden">
+    <section className="relative pt-32 pb-20 bg-black text-white overflow-hidden">
       <div className="absolute inset-0 z-0">
         <AspectRatio ratio={16/9} className="h-full">
           <img 
@@ -48,14 +48,6 @@ const HeroSection = () => {
               innovation with confidence.
             </p>
           </div>
-        </div>
-        
-        <div className="absolute top-6 right-10 z-20">
-          <img 
-            src="/lovable-uploads/ec4171f2-9cdd-4989-a991-a9806e663223.png" 
-            alt="WhitegloveAI Logo" 
-            className="w-16 h-16"
-          />
         </div>
       </div>
     </section>
