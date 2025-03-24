@@ -3,3 +3,52 @@
 @import './styles/animations.css';
 @import './styles/logo.css';
 @import './styles/executive-profile.css';
+
+/* Ensure consistent styling across browsers */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Fix any potential issues with focus outlines for accessibility */
+:focus {
+  outline: 2px solid rgba(112, 33, 238, 0.5);
+  outline-offset: 2px;
+}
+
+/* Fix potential scrollbar issues */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #111;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #444;
+}
+
+/* Fix potential text overflow issues */
+.text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Print styles */
+@media print {
+  body {
+    color: #000;
+    background: #fff;
+  }
+  
+  .no-print {
+    display: none !important;
+  }
+}
