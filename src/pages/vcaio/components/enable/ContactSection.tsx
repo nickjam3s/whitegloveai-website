@@ -72,16 +72,16 @@ const ContactSection = () => {
   return (
     <section className="py-16 bg-black text-white">
       <div className="max-w-7xl mx-auto px-6 md:px-8">
-        <h2 className="text-3xl md:text-4xl font-bold mb-6">Contact Us</h2>
-        <p className="text-lg mb-6">
+        <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">Contact Us</h2>
+        <p className="text-lg mb-6 text-gray-200">
           Ready to transform your organization's AI journey? Contact us today to schedule a personalized consultation where we'll discuss your specific needs and demonstrate how WhitegloveAI can help you implement AI solutions securely and effectively.
         </p>
-        <p className="text-lg mb-10">
+        <p className="text-lg mb-10 text-gray-200">
           Our team of experts is ready to guide you through every step of the AI adoption process, from initial assessment to full implementation. Let's work together to unlock the power of AI while ensuring compliance and security remain top priorities.
         </p>
         
         <div className="bg-card rounded-lg p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-800">
-          <h3 className="text-xl font-semibold mb-6">Get in Touch</h3>
+          <h3 className="text-xl font-semibold mb-6 text-white">Get in Touch</h3>
           
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
@@ -91,11 +91,11 @@ const ContactSection = () => {
                   name="name"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Full Name</FormLabel>
+                      <FormLabel className="text-white">Full Name</FormLabel>
                       <FormControl>
-                        <Input placeholder="John Doe" {...field} />
+                        <Input placeholder="John Doe" {...field} className="bg-background text-white border-gray-700" />
                       </FormControl>
-                      <FormMessage />
+                      <FormMessage className="text-red-400" />
                     </FormItem>
                   )}
                 />
@@ -105,11 +105,11 @@ const ContactSection = () => {
                   name="email"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Email Address</FormLabel>
+                      <FormLabel className="text-white">Email Address</FormLabel>
                       <FormControl>
-                        <Input placeholder="your.email@company.com" {...field} />
+                        <Input placeholder="your.email@company.com" {...field} className="bg-background text-white border-gray-700" />
                       </FormControl>
-                      <FormMessage />
+                      <FormMessage className="text-red-400" />
                     </FormItem>
                   )}
                 />
@@ -121,11 +121,11 @@ const ContactSection = () => {
                   name="company"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Company</FormLabel>
+                      <FormLabel className="text-white">Company</FormLabel>
                       <FormControl>
-                        <Input placeholder="Your Company" {...field} />
+                        <Input placeholder="Your Company" {...field} className="bg-background text-white border-gray-700" />
                       </FormControl>
-                      <FormMessage />
+                      <FormMessage className="text-red-400" />
                     </FormItem>
                   )}
                 />
@@ -135,11 +135,11 @@ const ContactSection = () => {
                   name="phone"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Phone Number (Optional)</FormLabel>
+                      <FormLabel className="text-white">Phone Number (Optional)</FormLabel>
                       <FormControl>
-                        <Input placeholder="+1 (555) 123-4567" {...field} />
+                        <Input placeholder="+1 (555) 123-4567" {...field} className="bg-background text-white border-gray-700" />
                       </FormControl>
-                      <FormMessage />
+                      <FormMessage className="text-red-400" />
                     </FormItem>
                   )}
                 />
@@ -150,26 +150,26 @@ const ContactSection = () => {
                 name="services"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Which vCAIO Services are you interested in?</FormLabel>
+                    <FormLabel className="text-white">Which vCAIO Services are you interested in?</FormLabel>
                     <Select 
                       onValueChange={field.onChange} 
                       defaultValue={field.value}
                     >
                       <FormControl>
-                        <SelectTrigger>
+                        <SelectTrigger className="bg-background text-white border-gray-700">
                           <SelectValue placeholder="Select a service" />
                         </SelectTrigger>
                       </FormControl>
-                      <SelectContent>
-                        <SelectItem value="ai-launchpad">AI Launchpad Workshop</SelectItem>
-                        <SelectItem value="ai-enablement">AI Enablement</SelectItem>
-                        <SelectItem value="ai-adoption">AI Adoption</SelectItem>
-                        <SelectItem value="ai-security">AI Security & Compliance</SelectItem>
-                        <SelectItem value="ai-strategy">AI Strategy Consulting</SelectItem>
-                        <SelectItem value="other">Other Services</SelectItem>
+                      <SelectContent className="bg-background border-gray-700">
+                        <SelectItem value="ai-launchpad" className="text-white">AI Launchpad Workshop</SelectItem>
+                        <SelectItem value="ai-enablement" className="text-white">AI Enablement</SelectItem>
+                        <SelectItem value="ai-adoption" className="text-white">AI Adoption</SelectItem>
+                        <SelectItem value="ai-security" className="text-white">AI Security & Compliance</SelectItem>
+                        <SelectItem value="ai-strategy" className="text-white">AI Strategy Consulting</SelectItem>
+                        <SelectItem value="other" className="text-white">Other Services</SelectItem>
                       </SelectContent>
                     </Select>
-                    <FormMessage />
+                    <FormMessage className="text-red-400" />
                   </FormItem>
                 )}
               />
@@ -179,15 +179,15 @@ const ContactSection = () => {
                 name="message"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Message (Optional)</FormLabel>
+                    <FormLabel className="text-white">Message (Optional)</FormLabel>
                     <FormControl>
                       <Textarea 
                         placeholder="Tell us about your AI needs and challenges..." 
-                        className="min-h-32" 
+                        className="min-h-32 bg-background text-white border-gray-700" 
                         {...field} 
                       />
                     </FormControl>
-                    <FormMessage />
+                    <FormMessage className="text-red-400" />
                   </FormItem>
                 )}
               />
@@ -204,11 +204,11 @@ const ContactSection = () => {
                       />
                     </FormControl>
                     <div className="space-y-1 leading-none">
-                      <FormLabel>
+                      <FormLabel className="text-white">
                         I agree to be contacted regarding my inquiry
                       </FormLabel>
                     </div>
-                    <FormMessage />
+                    <FormMessage className="text-red-400" />
                   </FormItem>
                 )}
               />
