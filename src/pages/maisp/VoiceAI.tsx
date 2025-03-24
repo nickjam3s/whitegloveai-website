@@ -1,4 +1,3 @@
-
 import { Shield, PhoneCall, ArrowRight, BrainCircuit, BarChart4, CheckCircle2, Download } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
@@ -232,19 +231,6 @@ const VoiceAI = () => {
         </div>
       </section>
 
-      {/* Contact Form Section */}
-      <section className="py-20 bg-background" id="contact">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-semibold mb-16 text-center heading-highlight-scroll">
-            Let's Discuss Integration
-          </h2>
-          
-          <div className="bg-card/80 p-8 rounded-xl border border-gray-800 shadow-lg max-w-4xl mx-auto">
-            <div data-tf-live="01JMAMXNY7NHGYM2YQDXCDRDW6" className="min-h-[400px]"></div>
-          </div>
-        </div>
-      </section>
-
       {/* Why Choose Section */}
       <section className="py-20 bg-card">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -258,6 +244,19 @@ const VoiceAI = () => {
                 <p className="text-gray-300">{reason.description}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Form Section */}
+      <section className="py-20 bg-background" id="contact">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-semibold mb-16 text-center heading-highlight-scroll">
+            Let's Discuss Integration
+          </h2>
+          
+          <div className="bg-card/80 p-8 rounded-xl border border-gray-800 shadow-lg max-w-4xl mx-auto">
+            <div data-tf-live="01JMAMXNY7NHGYM2YQDXCDRDW6" className="min-h-[400px]"></div>
           </div>
         </div>
       </section>
