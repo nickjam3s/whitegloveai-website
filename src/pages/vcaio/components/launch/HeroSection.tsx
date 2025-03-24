@@ -4,7 +4,7 @@ const HeroSection = () => {
     <section className="py-20 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight mb-6 heading-highlight pt-8">
+        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight mb-6 heading-highlight pt-16">
           The AI Launchpad Workshop
           </h1>
           <p className="text-xl text-gray-400 mb-12 max-w-3xl mx-auto">
