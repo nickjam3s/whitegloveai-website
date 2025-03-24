@@ -9,6 +9,7 @@ import SecurityComplianceSection from "./components/textai/SecurityComplianceSec
 import ImplementationProcessSection from "./components/textai/ImplementationProcessSection";
 import AdditionalServicesSection from "./components/textai/AdditionalServicesSection";
 import AboutWhitegloveSection from "./components/textai/AboutWhitegloveSection";
+import ContactSection from "./components/textai/ContactSection";
 
 const TextAI = () => {
   useEffect(() => {
@@ -48,7 +49,7 @@ const TextAI = () => {
       <SecurityComplianceSection />
       <ImplementationProcessSection />
       <AdditionalServicesSection />
-      <AboutWhitegloveSection />
+      <ContactSection />
     </div>
   );
 };
