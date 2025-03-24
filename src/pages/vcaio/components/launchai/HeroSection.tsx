@@ -6,7 +6,7 @@ const HeroSection = () => {
     <section className="relative pt-32 pb-20 bg-black text-white overflow-hidden">
       <div className="absolute inset-0 z-0 bg-gradient-to-r from-purple-900/60 to-black/60"></div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="flex justify-between items-start">
+        <div className="flex justify-between items-center">
           <div className="max-w-3xl">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-8">
               Simplifying AI Adoption for Your Future
@@ -41,11 +41,11 @@ const HeroSection = () => {
             </div>
           </div>
           
-          <div className="hidden md:block">
+          <div className="hidden md:flex items-center justify-center">
             <img 
               src="/lovable-uploads/5352239c-c2ca-486d-bd4b-da740996eda0.png" 
               alt="WhitegloveAI Logo" 
-              className="w-32 h-32 object-contain" 
+              className="w-64 h-64 object-contain" 
             />
           </div>
         </div>
