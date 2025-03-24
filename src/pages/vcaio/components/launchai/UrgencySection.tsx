@@ -95,14 +95,6 @@ const UrgencySection = () => {
             </div>
           ))}
         </div>
-        
-        <div className="absolute top-6 right-10">
-          <img 
-            src="/lovable-uploads/ec4171f2-9cdd-4989-a991-a9806e663223.png" 
-            alt="WhitegloveAI Logo" 
-            className="w-16 h-16"
-          />
-        </div>
       </div>
     </section>
   );
