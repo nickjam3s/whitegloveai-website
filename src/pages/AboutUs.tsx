@@ -1,11 +1,10 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowDown, Shield, Brain, Sparkles, Users, Target, Lightbulb } from 'lucide-react';
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import ExecutiveTeam from '@/components/about/ExecutiveTeam';
 import GetInTouch from '@/components/about/GetInTouch';
-import CoreBeliefs from '@/pages/vcaio/components/CoreBeliefs';
+import CoreBeliefs from '@/pages/vcaio/components/chiefaiofficer/CoreBeliefs';
 import { useIsMobile } from '@/hooks/use-mobile';
 import PageWrapper from '@/components/layout/PageWrapper';
 
