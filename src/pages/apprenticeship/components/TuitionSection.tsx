@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
@@ -65,11 +64,6 @@ const TuitionSection: React.FC = () => {
                   <span className="text-gray-300">Job placement assistance</span>
                 </li>
               </ul>
-              <Button className="w-full relative">
-                <span className="relative z-10 flex items-center">
-                  Apply Now <ArrowRight className="ml-2 h-4 w-4" />
-                </span>
-              </Button>
             </div>
           </motion.div>
 
