@@ -6,11 +6,11 @@ const HeroSection = () => {
   const isMobile = useIsMobile();
 
   return (
-    <section className="py-10 bg-black w-full min-h-[80vh] flex items-center">
+    <section className="py-10 pb-5 bg-black w-full min-h-[85vh] flex items-center">
       <div className="max-w-7xl mx-auto w-full px-4 md:px-6">
         <div className="flex flex-col md:flex-row items-center justify-between gap-10">
           {/* Left Section (Text & Logo) */}
-          <div className="flex-1">
+          <div className="flex-1 flex-grow md:flex-grow-[1.2]">
             {/* Logo */}
             <div className="mb-5 logo-container">
               <img 

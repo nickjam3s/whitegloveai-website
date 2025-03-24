@@ -3,7 +3,7 @@ import React from "react";
 
 const IntelligentInformationSection = () => {
   return (
-    <section className="py-16 bg-black w-full">
+    <section className="py-10 pt-5 bg-black w-full">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-4xl font-bold mb-16 text-white">
           Intelligent Information Access
