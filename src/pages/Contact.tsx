@@ -383,8 +383,10 @@ const Contact = () => {
             current openings and apply today!
           </p>
           <Link to="/about/apprentice">
-            <Button size="lg" className="px-8 py-6 text-lg">
-              View Opportunities
+            <Button size="lg" className="px-8 py-6 text-lg relative">
+              <span className="relative z-10">
+                View Opportunities
+              </span>
             </Button>
           </Link>
         </div>
