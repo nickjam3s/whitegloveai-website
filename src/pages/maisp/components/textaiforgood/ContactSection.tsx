@@ -1,6 +1,7 @@
 
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { toast } from "sonner";
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -18,7 +19,7 @@ const ContactSection = () => {
     e.preventDefault();
     console.log('Form submitted:', formData);
     setFormData({ name: '', email: '', message: '' });
-    alert('Message sent! We will get back to you soon.');
+    toast.success('Message sent! We will get back to you soon.');
   };
 
   return (

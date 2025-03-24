@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Mail, Phone, MapPin, Linkedin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
+import { toast } from "sonner";
 
 const GetInTouch: React.FC = () => {
   const fadeInUp = {
@@ -29,7 +30,7 @@ const GetInTouch: React.FC = () => {
     console.log('Form submitted:', formData);
     // Reset form
     setFormData({ name: '', email: '', message: '' });
-    alert('Message sent! We will get back to you soon.');
+    toast.success('Message sent! We will get back to you soon.');
   };
 
   return (
@@ -140,7 +141,7 @@ const GetInTouch: React.FC = () => {
               />
             </div>
             <div>
-              <Button type="submit" className="w-full">
+              <Button type="submit" className="w-full py-6 text-lg">
                 Submit
               </Button>
             </div>

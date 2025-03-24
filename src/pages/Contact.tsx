@@ -50,7 +50,7 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen bg-black text-white font-sans">
-      {/* Hero Section - Similar to About page */}
+      {/* Hero Section */}
       <section className="w-full relative overflow-hidden bg-black">
         {/* Animated Background */}
         <div className="absolute inset-0 z-0">
@@ -60,7 +60,6 @@ const Contact = () => {
         
         {/* Content Container */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-24 md:py-32 lg:py-40 flex flex-col items-start">
-          {/* Main heading */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -70,7 +69,6 @@ const Contact = () => {
             Get in <span className="text-[#7021EE]">Touch</span> with our team
           </motion.h1>
           
-          {/* Description */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -142,7 +140,7 @@ const Contact = () => {
                 </div>
               </div>
               
-              {/* New section: Business Hours */}
+              {/* Business Hours */}
               <div className="glass-card p-8">
                 <h2 className="text-2xl font-semibold mb-6 text-white">Business Hours</h2>
                 
@@ -256,7 +254,7 @@ const Contact = () => {
                 </form>
               </div>
               
-              {/* New section: FAQ */}
+              {/* FAQ */}
               <div className="glass-card p-8">
                 <h2 className="text-2xl font-semibold mb-6 text-white">
                   <span className="flex items-center">
@@ -296,7 +294,7 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* New section: Our Team */}
+      {/* Our Team Section */}
       <motion.section 
         className="relative py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-black to-[#0c0318]"
         initial={{ opacity: 0, y: 30 }}
@@ -367,7 +365,7 @@ const Contact = () => {
         </div>
       </motion.section>
 
-      {/* Career CTA Section - Similar to About page CTA */}
+      {/* Career CTA Section */}
       <motion.section 
         className="relative py-16 px-4 sm:px-6 lg:px-8 text-center"
         initial={{ opacity: 0, y: 30 }}

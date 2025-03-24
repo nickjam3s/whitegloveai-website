@@ -1,7 +1,25 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const ContactSection = () => {
+  useEffect(() => {
+    // Ensure Typeform script is loaded only once
+    const existingScript = document.getElementById('typeform-script');
+    if (!existingScript) {
+      const script = document.createElement('script');
+      script.id = 'typeform-script';
+      script.src = "//embed.typeform.com/next/embed.js";
+      script.async = true;
+      document.body.appendChild(script);
+      
+      return () => {
+        if (document.getElementById('typeform-script')) {
+          document.body.removeChild(script);
+        }
+      };
+    }
+  }, []);
+
   return (
     <section className="py-16 bg-black text-white">
       <div className="max-w-7xl mx-auto px-6 md:px-8">

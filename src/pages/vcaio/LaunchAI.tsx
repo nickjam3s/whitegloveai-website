@@ -11,14 +11,20 @@ import ContactSection from "./components/launchai/ContactSection";
 const LaunchAI = () => {
   useEffect(() => {
     // Add typeform script if needed
-    const script = document.createElement('script');
-    script.src = "//embed.typeform.com/next/embed.js";
-    script.async = true;
-    document.body.appendChild(script);
+    const existingScript = document.getElementById('typeform-script');
+    if (!existingScript) {
+      const script = document.createElement('script');
+      script.id = 'typeform-script';
+      script.src = "//embed.typeform.com/next/embed.js";
+      script.async = true;
+      document.body.appendChild(script);
 
-    return () => {
-      document.body.removeChild(script);
-    };
+      return () => {
+        if (document.getElementById('typeform-script')) {
+          document.body.removeChild(script);
+        }
+      };
+    }
   }, []);
 
   return (

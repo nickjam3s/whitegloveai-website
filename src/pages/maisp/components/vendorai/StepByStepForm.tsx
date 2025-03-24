@@ -65,7 +65,7 @@ const StepByStepForm = () => {
                 type="button" 
                 onClick={nextStep}
                 disabled={!formData.firstName}
-                className={formData.firstName ? 'px-6 py-2 text-base' : 'opacity-50 cursor-not-allowed px-6 py-2 text-base'}
+                className={`px-6 py-2 text-base ${formData.firstName ? '' : 'opacity-50 cursor-not-allowed'}`}
               >
                 Next
               </Button>
@@ -98,7 +98,7 @@ const StepByStepForm = () => {
                 type="button" 
                 onClick={nextStep}
                 disabled={!formData.lastName}
-                className={formData.lastName ? 'px-6 py-2 text-base' : 'opacity-50 cursor-not-allowed px-6 py-2 text-base'}
+                className={`px-6 py-2 text-base ${formData.lastName ? '' : 'opacity-50 cursor-not-allowed'}`}
               >
                 Next
               </Button>
@@ -153,7 +153,7 @@ const StepByStepForm = () => {
               <Button 
                 type="submit"
                 disabled={!formData.email || !formData.companyName}
-                className={(!formData.email || !formData.companyName) ? 'opacity-50 cursor-not-allowed px-6 py-2 text-base' : 'px-6 py-2 text-base'}
+                className={`px-6 py-2 text-base ${(!formData.email || !formData.companyName) ? 'opacity-50 cursor-not-allowed' : ''}`}
               >
                 Submit
               </Button>
