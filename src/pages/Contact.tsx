@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { useToast } from "@/components/ui/use-toast";
 import { motion } from "framer-motion";
@@ -246,7 +247,7 @@ const Contact = () => {
                   
                   <Button 
                     type="submit" 
-                    className="w-full"
+                    className="w-full py-6 text-lg"
                     disabled={isSubmitting}
                   >
                     {isSubmitting ? 'Sending...' : 'Send Message'} 
@@ -382,7 +383,7 @@ const Contact = () => {
             current openings and apply today!
           </p>
           <Link to="/about/apprentice">
-            <Button size="lg" className="px-8">
+            <Button size="lg" className="px-8 py-6 text-lg">
               View Opportunities
             </Button>
           </Link>

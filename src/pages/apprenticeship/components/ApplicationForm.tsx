@@ -1,3 +1,4 @@
+
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { Button } from "@/components/ui/button";
@@ -172,9 +173,9 @@ const ApplicationForm = () => {
                     type="button" 
                     onClick={prevStep} 
                     variant="outline" 
-                    className="flex items-center justify-center border-[#444]"
+                    className="flex items-center justify-center border-[#444] px-4 py-2 text-base"
                   >
-                    <span>Back</span>
+                    Back
                   </Button>
                 )}
                 <div className="ml-auto">
@@ -182,22 +183,22 @@ const ApplicationForm = () => {
                     <Button 
                       type="button" 
                       onClick={nextStep} 
-                      className="flex items-center justify-center"
+                      className="flex items-center justify-center px-4 py-2 text-base"
                       disabled={
                         (step === 1 && !formData.firstName) || 
                         (step === 2 && !formData.lastName) || 
                         (step === 3 && !formData.email)
                       }
                     >
-                      <span>Next</span>
+                      Next
                     </Button>
                   ) : (
                     <Button 
                       type="submit" 
-                      className="flex items-center justify-center"
+                      className="flex items-center justify-center px-4 py-2 text-base"
                       disabled={!formData.experience}
                     >
-                      <span>Submit Application</span>
+                      Submit Application
                     </Button>
                   )}
                 </div>

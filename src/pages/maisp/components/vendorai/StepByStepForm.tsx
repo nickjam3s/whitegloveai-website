@@ -45,10 +45,6 @@ const StepByStepForm = () => {
     setStep(1);
   };
 
-  const buttonStyle = "px-4 py-2 rounded font-medium transition-colors duration-200";
-  const primaryButtonStyle = `${buttonStyle} bg-[#7021EE] hover:bg-[#5c1bc7] text-white border-none`;
-  const secondaryButtonStyle = `${buttonStyle} bg-transparent border border-[#444] hover:bg-[#333] text-white`;
-
   return (
     <div className="max-w-2xl mx-auto">
       <form onSubmit={handleSubmit}>
@@ -65,14 +61,14 @@ const StepByStepForm = () => {
               required
             />
             <div className="flex justify-end mt-6">
-              <button 
+              <Button 
                 type="button" 
                 onClick={nextStep}
                 disabled={!formData.firstName}
-                className={primaryButtonStyle + (formData.firstName ? '' : ' opacity-50 cursor-not-allowed')}
+                className={formData.firstName ? 'px-6 py-2 text-base' : 'opacity-50 cursor-not-allowed px-6 py-2 text-base'}
               >
                 Next
-              </button>
+              </Button>
             </div>
           </div>
         )}
@@ -90,21 +86,22 @@ const StepByStepForm = () => {
               required
             />
             <div className="flex justify-between mt-6">
-              <button 
+              <Button 
                 type="button" 
                 onClick={prevStep}
-                className={secondaryButtonStyle}
+                className="px-6 py-2 text-base"
+                variant="outline"
               >
                 Back
-              </button>
-              <button 
+              </Button>
+              <Button 
                 type="button" 
                 onClick={nextStep}
                 disabled={!formData.lastName}
-                className={primaryButtonStyle + (formData.lastName ? '' : ' opacity-50 cursor-not-allowed')}
+                className={formData.lastName ? 'px-6 py-2 text-base' : 'opacity-50 cursor-not-allowed px-6 py-2 text-base'}
               >
                 Next
-              </button>
+              </Button>
             </div>
           </div>
         )}
@@ -145,20 +142,21 @@ const StepByStepForm = () => {
             />
             
             <div className="flex justify-between mt-6">
-              <button 
+              <Button 
                 type="button" 
                 onClick={prevStep}
-                className={secondaryButtonStyle}
+                className="px-6 py-2 text-base"
+                variant="outline"
               >
                 Back
-              </button>
-              <button 
+              </Button>
+              <Button 
                 type="submit"
                 disabled={!formData.email || !formData.companyName}
-                className={primaryButtonStyle + (!formData.email || !formData.companyName ? ' opacity-50 cursor-not-allowed' : '')}
+                className={(!formData.email || !formData.companyName) ? 'opacity-50 cursor-not-allowed px-6 py-2 text-base' : 'px-6 py-2 text-base'}
               >
                 Submit
-              </button>
+              </Button>
             </div>
           </div>
         )}
