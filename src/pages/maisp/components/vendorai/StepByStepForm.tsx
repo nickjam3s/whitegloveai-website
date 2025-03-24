@@ -65,9 +65,9 @@ const StepByStepForm = () => {
                 type="button" 
                 onClick={nextStep}
                 disabled={!formData.firstName}
-                className={`px-6 py-2 text-base ${formData.firstName ? '' : 'opacity-50 cursor-not-allowed'}`}
+                className={`px-6 py-2 text-base font-medium ${formData.firstName ? '' : 'opacity-50 cursor-not-allowed'}`}
               >
-                Next
+                <span className="relative z-20">Next</span>
               </Button>
             </div>
           </div>
@@ -89,18 +89,18 @@ const StepByStepForm = () => {
               <Button 
                 type="button" 
                 onClick={prevStep}
-                className="px-6 py-2 text-base"
+                className="px-6 py-2 text-base font-medium"
                 variant="outline"
               >
-                Back
+                <span className="relative z-20">Back</span>
               </Button>
               <Button 
                 type="button" 
                 onClick={nextStep}
                 disabled={!formData.lastName}
-                className={`px-6 py-2 text-base ${formData.lastName ? '' : 'opacity-50 cursor-not-allowed'}`}
+                className={`px-6 py-2 text-base font-medium ${formData.lastName ? '' : 'opacity-50 cursor-not-allowed'}`}
               >
-                Next
+                <span className="relative z-20">Next</span>
               </Button>
             </div>
           </div>
@@ -145,17 +145,17 @@ const StepByStepForm = () => {
               <Button 
                 type="button" 
                 onClick={prevStep}
-                className="px-6 py-2 text-base"
+                className="px-6 py-2 text-base font-medium"
                 variant="outline"
               >
-                Back
+                <span className="relative z-20">Back</span>
               </Button>
               <Button 
                 type="submit"
                 disabled={!formData.email || !formData.companyName}
-                className={`px-6 py-2 text-base ${(!formData.email || !formData.companyName) ? 'opacity-50 cursor-not-allowed' : ''}`}
+                className={`px-6 py-2 text-base font-medium ${(!formData.email || !formData.companyName) ? 'opacity-50 cursor-not-allowed' : ''}`}
               >
-                Submit
+                <span className="relative z-20">Submit</span>
               </Button>
             </div>
           </div>
