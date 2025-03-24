@@ -57,25 +57,40 @@ const ContactSection = () => {
         <div className="bg-card/50 p-6 rounded-lg shadow-lg max-w-4xl mx-auto">
           {/* Container with fixed height */}
           <div className="min-h-[400px] relative">
-            {/* Typeform Element */}
+            {/* Typeform Element - Only visible when loaded */}
             <div 
               data-tf-live="01JMAMXNY7NHGYM2YQDXCDRDW6" 
               className="absolute inset-0 z-10"
-              style={{ opacity: typeformLoaded ? 1 : 0 }}
+              style={{ 
+                opacity: typeformLoaded ? 1 : 0,
+                pointerEvents: typeformLoaded ? 'auto' : 'none' 
+              }}
             ></div>
             
             {/* Fallback that's always visible until Typeform loads */}
             <div 
-              className={`text-center p-8 absolute inset-0 flex flex-col items-center justify-center bg-card z-0 ${typeformLoaded ? 'hidden' : 'flex'}`}
+              className="text-center p-8 absolute inset-0 flex flex-col items-center justify-center bg-card z-0"
+              style={{ 
+                display: typeformLoaded ? 'none' : 'flex',
+                opacity: typeformLoaded ? 0 : 1
+              }}
             >
               <p className="mb-6 text-gray-600 font-medium">If the form doesn't load, please click the button below:</p>
-              <Button 
-                onClick={() => window.open('https://whitegloveai.com/contact', '_blank')}
-                className="px-8 py-4 text-white bg-primary hover:bg-primary/90"
-                size="lg"
+              <a 
+                href="https://whitegloveai.com/contact"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block"
               >
-                Contact Us
-              </Button>
+                <Button 
+                  className="px-8 py-4 relative z-20 overflow-visible"
+                  size="lg"
+                  variant="default"
+                  type="button"
+                >
+                  <span className="relative z-30">Contact Us</span>
+                </Button>
+              </a>
             </div>
           </div>
         </div>

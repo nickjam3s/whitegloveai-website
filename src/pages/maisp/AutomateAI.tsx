@@ -9,17 +9,9 @@ import CTASection from "./components/automateai/CTASection";
 import ContactSection from "./components/automateai/ContactSection";
 
 const AutomateAI = () => {
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.src = "//embed.typeform.com/next/embed.js";
-    script.async = true;
-    document.body.appendChild(script);
-
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
-
+  // We're removing the Typeform script loading from here
+  // because it's now handled in the ContactSection component
+  
   return (
     <div className="min-h-screen bg-background">
       <HeroSection />
