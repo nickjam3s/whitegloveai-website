@@ -58,7 +58,7 @@ const ContactSection = () => {
           <div className="flex flex-col items-center md:items-start">
             <h2 className="text-3xl font-bold text-white mb-8">Contact Us to Get Started</h2>
             
-            <div className="bg-[#111]/80 p-6 rounded-lg w-full max-w-xl shadow-lg">
+            <div className="bg-[#111]/80 p-6 rounded-lg w-full max-w-xl shadow-lg border border-gray-800">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="space-y-2">
                   <Label htmlFor="name" className="text-white">Your Name</Label>
