@@ -22,7 +22,7 @@ const ContactSection = () => {
         </div>
         
         <div className="text-gray-400 text-sm">
-          <p>© Copyright WhitegloveAI LLC 2025</p>
+          {/* Copyright text removed as requested */}
           {/* Removed the "Managed AI Service Provider™" text as requested */}
         </div>
       </div>
