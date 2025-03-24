@@ -2,6 +2,8 @@
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -56,10 +58,12 @@ const ContactSection = () => {
           <div className="flex flex-col items-center md:items-start">
             <h2 className="text-3xl font-bold text-white mb-8">Contact Us to Get Started</h2>
             
-            <div className="bg-[#111]/80 p-6 rounded-lg w-full max-w-xl">
+            <div className="bg-[#111]/80 p-6 rounded-lg w-full max-w-xl shadow-lg">
               <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <input
+                <div className="space-y-2">
+                  <Label htmlFor="name" className="text-white">Your Name</Label>
+                  <Input
+                    id="name"
                     type="text"
                     name="name"
                     value={formData.name}
@@ -69,8 +73,11 @@ const ContactSection = () => {
                     className="w-full p-4 bg-black/60 border border-[#333333] rounded-md text-white focus:outline-none focus:border-[#7021EE] transition-colors"
                   />
                 </div>
-                <div>
-                  <input
+                
+                <div className="space-y-2">
+                  <Label htmlFor="email" className="text-white">Your Email</Label>
+                  <Input
+                    id="email"
                     type="email"
                     name="email"
                     value={formData.email}
@@ -80,8 +87,11 @@ const ContactSection = () => {
                     className="w-full p-4 bg-black/60 border border-[#333333] rounded-md text-white focus:outline-none focus:border-[#7021EE] transition-colors"
                   />
                 </div>
-                <div>
+                
+                <div className="space-y-2">
+                  <Label htmlFor="message" className="text-white">Your Message</Label>
                   <textarea
+                    id="message"
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
@@ -91,8 +101,12 @@ const ContactSection = () => {
                     className="w-full p-4 bg-black/60 border border-[#333333] rounded-md text-white focus:outline-none focus:border-[#7021EE] transition-colors resize-none"
                   />
                 </div>
+                
                 <div>
-                  <Button type="submit" className="w-full">
+                  <Button 
+                    type="submit" 
+                    className="w-full relative overflow-hidden bg-[#7021EE] hover:bg-[#7021EE]/90"
+                  >
                     <span className="relative z-10">Submit</span>
                   </Button>
                 </div>
