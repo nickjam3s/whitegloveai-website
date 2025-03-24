@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -214,10 +215,10 @@ const ContactSection = () => {
               
               <Button 
                 type="submit" 
-                className="w-full text-white"
+                className="w-full text-white relative z-10 font-medium"
                 disabled={isSubmitting}
               >
-                {isSubmitting ? "Submitting..." : "Submit Inquiry"}
+                <span className="relative z-10">{isSubmitting ? "Submitting..." : "Submit Inquiry"}</span>
               </Button>
             </form>
           </Form>
