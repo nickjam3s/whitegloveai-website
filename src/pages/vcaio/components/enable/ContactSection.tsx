@@ -13,7 +13,7 @@ const ContactSection = () => {
           Our team of experts is ready to guide you through every step of the AI adoption process, from initial assessment to full implementation. Let's work together to unlock the power of AI while ensuring compliance and security remain top priorities.
         </p>
         
-        <div className="bg-gray-900 rounded-lg p-6">
+        <div className="bg-gray-900 rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-300">
           <div className="flex items-center mb-4">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2">
               <path d="M17.5 2.5H2.5V17.5H17.5V2.5Z" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
