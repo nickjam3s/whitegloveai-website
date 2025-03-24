@@ -1,5 +1,4 @@
-
-import { useEffect } from "react";
+import { useEffect, useLayoutEffect } from "react";
 import HeroSection from "./components/chiefaiofficer/HeroSection";
 import UnlockingSection from "./components/chiefaiofficer/UnlockingSection";
 import BenefitsSection from "./components/chiefaiofficer/BenefitsSection";
@@ -7,6 +6,12 @@ import FutureSection from "./components/chiefaiofficer/FutureSection";
 import WhyVCAIO from "./components/chiefaiofficer/WhyVCAIO";
 
 const ChiefAIOfficer = () => {
+  // Use useLayoutEffect to prevent flash of content before scroll position is set
+  useLayoutEffect(() => {
+    // Immediately scroll to top when component mounts
+    window.scrollTo(0, 0);
+  }, []);
+
   useEffect(() => {
     // Explicitly disable smooth scrolling
     document.documentElement.style.scrollBehavior = 'auto';
