@@ -1,9 +1,19 @@
 
 import { Button } from "@/components/ui/button";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const ContactSection = () => {
+  const [typeformLoaded, setTypeformLoaded] = useState(false);
+
   useEffect(() => {
+    // Check if Typeform is already loaded
+    const checkTypeformLoaded = () => {
+      const typeformElements = document.querySelectorAll('[data-tf-loaded="true"]');
+      if (typeformElements.length > 0) {
+        setTypeformLoaded(true);
+      }
+    };
+
     // Ensure Typeform script is loaded only once
     const existingScript = document.getElementById('typeform-script');
     if (!existingScript) {
@@ -11,6 +21,19 @@ const ContactSection = () => {
       script.id = 'typeform-script';
       script.src = "//embed.typeform.com/next/embed.js";
       script.async = true;
+      
+      // Set up event listener for script load
+      script.onload = () => {
+        // Check periodically if Typeform has loaded
+        const interval = setInterval(() => {
+          checkTypeformLoaded();
+          if (typeformLoaded) clearInterval(interval);
+        }, 1000);
+
+        // Clear interval after 10 seconds if Typeform hasn't loaded
+        setTimeout(() => clearInterval(interval), 10000);
+      };
+      
       document.body.appendChild(script);
       
       return () => {
@@ -18,8 +41,11 @@ const ContactSection = () => {
           document.body.removeChild(script);
         }
       };
+    } else {
+      // If script exists, check if Typeform is loaded
+      checkTypeformLoaded();
     }
-  }, []);
+  }, [typeformLoaded]);
 
   return (
     <section id="contact" className="py-20 bg-background">
@@ -29,14 +55,24 @@ const ContactSection = () => {
         </h2>
         
         <div className="bg-card/50 p-6 rounded-lg shadow-lg max-w-4xl mx-auto">
-          {/* Typeform Element */}
-          <div data-tf-live="01JMAMXNY7NHGYM2YQDXCDRDW6" className="min-h-[400px] relative">
-            {/* Fallback in case Typeform doesn't load */}
-            <div className="text-center p-8 absolute inset-0 flex flex-col items-center justify-center bg-background/80 z-0">
-              <p className="mb-6 text-gray-400">If the form doesn't load, please click the button below:</p>
+          {/* Container with fixed height */}
+          <div className="min-h-[400px] relative">
+            {/* Typeform Element */}
+            <div 
+              data-tf-live="01JMAMXNY7NHGYM2YQDXCDRDW6" 
+              className="absolute inset-0 z-10"
+              style={{ opacity: typeformLoaded ? 1 : 0 }}
+            ></div>
+            
+            {/* Fallback that's always visible until Typeform loads */}
+            <div 
+              className={`text-center p-8 absolute inset-0 flex flex-col items-center justify-center bg-card z-0 ${typeformLoaded ? 'hidden' : 'flex'}`}
+            >
+              <p className="mb-6 text-gray-600 font-medium">If the form doesn't load, please click the button below:</p>
               <Button 
                 onClick={() => window.open('https://whitegloveai.com/contact', '_blank')}
-                className="px-8 py-4"
+                className="px-8 py-4 text-white bg-primary hover:bg-primary/90"
+                size="lg"
               >
                 Contact Us
               </Button>
