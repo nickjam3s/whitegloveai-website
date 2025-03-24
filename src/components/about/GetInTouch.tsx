@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Mail, Phone, MapPin, Linkedin } from 'lucide-react';
@@ -141,8 +140,10 @@ const GetInTouch: React.FC = () => {
               />
             </div>
             <div>
-              <Button type="submit" className="w-full py-6 text-lg">
-                Submit
+              <Button type="submit" className="w-full py-6 text-lg relative">
+                <span className="relative z-10">
+                  Submit
+                </span>
               </Button>
             </div>
           </form>
