@@ -1,3 +1,4 @@
+
 import { Shield, PhoneCall, ArrowRight, BrainCircuit, BarChart4, CheckCircle2, Download } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
@@ -255,8 +256,20 @@ const VoiceAI = () => {
             Let's Discuss Integration
           </h2>
           
-          <div className="bg-card/80 p-8 rounded-xl border border-gray-800 shadow-lg max-w-4xl mx-auto">
-            <div data-tf-live="01JMAMXNY7NHGYM2YQDXCDRDW6" className="min-h-[400px]"></div>
+          <div className="grid md:grid-cols-3 gap-12 items-center">
+            <div className="md:col-span-1">
+              <img 
+                src="/lovable-uploads/8e477807-df5c-4b19-8aa1-18531d405987.png" 
+                alt="Contact illustration" 
+                className="w-full"
+                loading="lazy"
+              />
+            </div>
+            <div className="md:col-span-2">
+              <div className="bg-card/80 p-8 rounded-xl border border-gray-800 shadow-lg">
+                <div data-tf-live="01JMAMXNY7NHGYM2YQDXCDRDW6" className="min-h-[400px]"></div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
