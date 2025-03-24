@@ -93,7 +93,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <Button type="submit" className="w-full">
-                    Submit
+                    <span className="relative z-10">Submit</span>
                   </Button>
                 </div>
               </form>
