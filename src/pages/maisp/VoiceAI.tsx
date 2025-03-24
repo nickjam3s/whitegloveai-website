@@ -1,7 +1,9 @@
+
 import { Shield, PhoneCall, ArrowRight, BrainCircuit, BarChart4, CheckCircle2, Download } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
+import { Textarea } from "@/components/ui/textarea";
 
 const VoiceAI = () => {
   useEffect(() => {
@@ -28,6 +30,7 @@ const VoiceAI = () => {
     });
 
     return () => {
+      // Clean up
       document.body.removeChild(typeformScript);
       observer.disconnect();
     };
@@ -44,17 +47,17 @@ const VoiceAI = () => {
           }}></div>
           <div className="absolute inset-0 backdrop-blur-[100px]"></div>
         </div>
-        <div className="max-w-7xl mx-auto relative">
+        <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center animate-fade-up">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight mb-6 heading-highlight">
-             Managed VoiceAI Service
+              Managed VoiceAI Service
             </h1>
             <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto mb-8">
               Transform customer interactions with secure, intelligent automation using our cutting-edge Voice AI Agent solution.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a href="tel:4698092199" className="inline-flex items-center px-6 py-3 text-base font-medium text-white bg-secondary rounded-lg hover:bg-secondary/90 transition-colors">
-                Try Our VoiceAI: (469) 809-2199
+                <span>Try Our VoiceAI: (469) 809-2199</span>
                 <PhoneCall className="ml-2 h-5 w-5" />
               </a>
             </div>
@@ -65,18 +68,18 @@ const VoiceAI = () => {
       {/* Problem & Solution Section */}
       <section className="py-20 bg-card">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl font-semibold mb-16 text-center heading-highlight-scroll">
+          <h2 className="text-3xl font-semibold mb-16 text-center heading-highlight-scroll">
             The Problem & Our Solution
-          </h1>
+          </h2>
           <div className="grid md:grid-cols-2 gap-12">
-            <div className="space-y-6">
-              <h2 className="text-2xl font-semibold mb-4">The Problem</h2>
+            <div className="space-y-6 bg-background/30 p-8 rounded-xl border border-gray-800">
+              <h3 className="text-2xl font-semibold mb-4">The Problem</h3>
               <p className="text-gray-400">
                 In today's fast-paced business environment, providing exceptional customer service is paramount. However, managing high call volumes, ensuring prompt responses, and maintaining consistent quality can be challenging and resource-intensive. Traditional call centers often struggle with long wait times, high operational costs, and limited scalability, leading to frustrating experiences for both customers and employees.
               </p>
             </div>
-            <div className="space-y-6">
-              <h2 className="text-2xl font-semibold mb-4">The Solution: VoiceAI Agents</h2>
+            <div className="space-y-6 bg-background/30 p-8 rounded-xl border border-gray-800">
+              <h3 className="text-2xl font-semibold mb-4">The Solution: VoiceAI Agents</h3>
               <p className="text-gray-400">
                 WhitegloveAI VoiceAI Agents is a revolutionary solution that leverages cutting-edge AI technology to transform customer interactions. Our AI-powered agents can handle inbound and outbound calls, providing seamless and personalized experiences while addressing the challenges faced by traditional receptionist, customer support and call centers.
               </p>
@@ -88,19 +91,19 @@ const VoiceAI = () => {
       {/* Benefits Section */}
       <section className="py-20 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl font-semibold mb-16 text-center heading-highlight-scroll">
+          <h2 className="text-3xl font-semibold mb-16 text-center heading-highlight-scroll">
             Benefits of VoiceAI Agents
-          </h1>
+          </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center max-w-6xl mx-auto">
             {benefits.map((benefit, index) => (
-              <div key={index} className="bg-card p-6 rounded-lg border border-gray-800 hover:border-secondary/50 transition-colors">
-                <benefit.icon className="h-10 w-10 text-secondary mb-4" />
-                <h3 className="text-xl font-semibold mb-3">{benefit.title}</h3>
-                <ul className="space-y-2">
+              <div key={index} className="bg-card p-8 rounded-lg border border-gray-800 hover:border-secondary/50 transition-colors h-full">
+                <benefit.icon className="h-12 w-12 text-secondary mb-6" />
+                <h3 className="text-xl font-semibold mb-5">{benefit.title}</h3>
+                <ul className="space-y-3">
                   {benefit.features.map((feature, idx) => (
                     <li key={idx} className="text-gray-400 flex items-start">
-                      <CheckCircle2 className="h-5 w-5 text-secondary mr-2 flex-shrink-0 mt-1" />
-                      {feature}
+                      <CheckCircle2 className="h-5 w-5 text-secondary mr-3 flex-shrink-0 mt-1" />
+                      <span>{feature}</span>
                     </li>
                   ))}
                 </ul>
@@ -113,18 +116,18 @@ const VoiceAI = () => {
       {/* ROI Section */}
       <section className="py-20 bg-card">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl font-semibold mb-16 text-center heading-highlight-scroll">
+          <h2 className="text-3xl font-semibold mb-16 text-center heading-highlight-scroll">
             Long Term Return On Investment
-          </h1>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 justify-items-center max-w-6xl mx-auto">
+          </h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center max-w-6xl mx-auto">
             {roiMetrics.map((metric, index) => (
-              <div key={index} className="bg-background/50 p-6 rounded-lg border border-gray-800 hover:border-secondary/50 transition-colors w-full">
-                <h3 className="text-xl font-semibold mb-3">{metric.title}</h3>
-                <ul className="space-y-2">
+              <div key={index} className="bg-background/50 p-8 rounded-lg border border-gray-800 hover:border-secondary/50 transition-colors w-full h-full">
+                <h3 className="text-xl font-semibold mb-5">{metric.title}</h3>
+                <ul className="space-y-3">
                   {metric.points.map((point, idx) => (
                     <li key={idx} className="text-gray-400 flex items-start">
-                      <CheckCircle2 className="h-5 w-5 text-secondary mr-2 flex-shrink-0 mt-1" />
-                      {point}
+                      <CheckCircle2 className="h-5 w-5 text-secondary mr-3 flex-shrink-0 mt-1" />
+                      <span>{point}</span>
                     </li>
                   ))}
                 </ul>
@@ -137,9 +140,9 @@ const VoiceAI = () => {
       {/* Transforming Customer Service Section */}
       <section className="py-20 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl font-semibold mb-16 text-center heading-highlight-scroll">
+          <h2 className="text-3xl font-semibold mb-16 text-center heading-highlight-scroll">
             Transforming Customer Service: Replacing IVR Systems with Voice AI
-          </h1>
+          </h2>
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               <p className="text-gray-400 text-lg">
@@ -152,7 +155,7 @@ const VoiceAI = () => {
                 Learn how businesses are achieving higher customer satisfaction, reducing operational costs, 
                 and increasing efficiency by replacing outdated IVR systems with our advanced Voice AI technology.
               </p>
-              <div className="pt-4">
+              <div className="pt-6">
                 <a 
                   href="https://drive.google.com/file/d/10r8gpbiufVP3_STPaTMA6Y5v8jMCxU0L/view?usp=drive_link" 
                   target="_blank" 
@@ -165,28 +168,28 @@ const VoiceAI = () => {
                 </a>
               </div>
             </div>
-            <div className="glass-card p-8 rounded-xl border border-primary/20">
-              <h3 className="text-2xl font-semibold mb-4">Key Benefits Over IVR</h3>
-              <ul className="space-y-4">
+            <div className="bg-card/80 p-8 rounded-xl border border-primary/20 shadow-lg">
+              <h3 className="text-2xl font-semibold mb-6">Key Benefits Over IVR</h3>
+              <ul className="space-y-5">
                 <li className="flex items-start">
                   <CheckCircle2 className="h-6 w-6 text-secondary mr-3 flex-shrink-0 mt-1" />
-                  <span className="text-gray-400">Natural language understanding instead of rigid menu options</span>
+                  <span className="text-gray-300">Natural language understanding instead of rigid menu options</span>
                 </li>
                 <li className="flex items-start">
                   <CheckCircle2 className="h-6 w-6 text-secondary mr-3 flex-shrink-0 mt-1" />
-                  <span className="text-gray-400">Capable of instantly understanding and communicating in multiple languages.</span>
+                  <span className="text-gray-300">Capable of instantly understanding and communicating in multiple languages</span>
                 </li>
                 <li className="flex items-start">
                   <CheckCircle2 className="h-6 w-6 text-secondary mr-3 flex-shrink-0 mt-1" />
-                  <span className="text-gray-400">Immediate issue resolution without long wait times</span>
+                  <span className="text-gray-300">Immediate issue resolution without long wait times</span>
                 </li>
                 <li className="flex items-start">
                   <CheckCircle2 className="h-6 w-6 text-secondary mr-3 flex-shrink-0 mt-1" />
-                  <span className="text-gray-400">Personalized customer experiences based on context and history</span>
+                  <span className="text-gray-300">Personalized customer experiences based on context and history</span>
                 </li>
                 <li className="flex items-start">
                   <CheckCircle2 className="h-6 w-6 text-secondary mr-3 flex-shrink-0 mt-1" />
-                  <span className="text-gray-400">Seamless escalation to human agents when necessary</span>
+                  <span className="text-gray-300">Seamless escalation to human agents when necessary</span>
                 </li>
               </ul>
             </div>
@@ -197,14 +200,14 @@ const VoiceAI = () => {
       {/* Security Section */}
       <section className="py-20 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl font-semibold mb-16 text-center heading-highlight-scroll">
+          <h2 className="text-3xl font-semibold mb-16 text-center heading-highlight-scroll">
             Security & Compliance
-          </h1>
+          </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12 justify-items-center max-w-6xl mx-auto">
             {securityCompliance.map((item, index) => (
-              <div key={index} className="bg-card p-6 rounded-lg border border-gray-800 hover:border-secondary/50 transition-colors w-full">
-                <Shield className="h-10 w-10 text-secondary mb-4" />
-                <h3 className="text-xl font-semibold mb-3">{item.title}</h3>
+              <div key={index} className="bg-card p-8 rounded-lg border border-gray-800 hover:border-secondary/50 transition-colors w-full h-full">
+                <Shield className="h-12 w-12 text-secondary mb-6" />
+                <h3 className="text-xl font-semibold mb-4">{item.title}</h3>
                 <p className="text-gray-400">{item.description}</p>
               </div>
             ))}
@@ -215,14 +218,14 @@ const VoiceAI = () => {
       {/* Features Section */}
       <section className="py-20 bg-card">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl font-semibold mb-16 text-center heading-highlight-scroll">
+          <h2 className="text-3xl font-semibold mb-16 text-center heading-highlight-scroll">
             Additional Features & Support
-          </h1>
-          <div className="grid md:grid-cols-2 gap-4">
+          </h2>
+          <div className="grid md:grid-cols-2 gap-y-6 gap-x-8 bg-background/30 p-8 rounded-xl border border-gray-800 max-w-4xl mx-auto">
             {additionalFeatures.map((feature, index) => (
               <div key={index} className="flex items-start">
                 <CheckCircle2 className="h-6 w-6 text-secondary mt-1 mr-3 flex-shrink-0" />
-                <span className="text-gray-400">{feature}</span>
+                <span className="text-gray-300">{feature}</span>
               </div>
             ))}
           </div>
@@ -230,26 +233,29 @@ const VoiceAI = () => {
       </section>
 
       {/* Contact Form Section */}
-      <section className="py-20 bg-background">
+      <section className="py-20 bg-background" id="contact">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl font-semibold mb-16 text-center heading-highlight-scroll">
+          <h2 className="text-3xl font-semibold mb-16 text-center heading-highlight-scroll">
             Let's Discuss Integration
-          </h1>
-          <div data-tf-live="01JMAMXNY7NHGYM2YQDXCDRDW6"></div>
+          </h2>
+          
+          <div className="bg-card/80 p-8 rounded-xl border border-gray-800 shadow-lg max-w-4xl mx-auto">
+            <div data-tf-live="01JMAMXNY7NHGYM2YQDXCDRDW6" className="min-h-[400px]"></div>
+          </div>
         </div>
       </section>
 
       {/* Why Choose Section */}
       <section className="py-20 bg-card">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl font-semibold mb-16 text-center heading-highlight-scroll">
+          <h2 className="text-3xl font-semibold mb-16 text-center heading-highlight-scroll">
             Why Choose WhitegloveAI?
-          </h1>
+          </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {whyChooseUs.map((reason, index) => (
-              <div key={index} className="bg-background/50 p-6 rounded-lg border border-gray-800 hover:border-secondary/50 transition-colors">
-                <h3 className="text-xl font-semibold mb-3">{reason.title}</h3>
-                <p className="text-gray-400">{reason.description}</p>
+              <div key={index} className="bg-background/50 p-8 rounded-lg border border-gray-800 hover:border-secondary/50 transition-colors h-full">
+                <h3 className="text-xl font-semibold mb-4">{reason.title}</h3>
+                <p className="text-gray-300">{reason.description}</p>
               </div>
             ))}
           </div>
@@ -262,7 +268,7 @@ const VoiceAI = () => {
 const benefits = [
   {
     icon: BrainCircuit,
-    title: "Intelligent Comms",
+    title: "Intelligent Communication",
     features: [
       "Advanced natural language processing for intuitive conversations",
       "Real-time sentiment analysis for empathetic interactions",
@@ -314,59 +320,59 @@ const roiMetrics = [
   {
     title: "Business Impact",
     points: [
-      "Improved customer satisfaction",
-      "Enhanced data collection and analytics",
-      "Reduced employee burnout",
-      "Scalable solution for growth"
+      "Improved customer satisfaction scores by up to 40%",
+      "Enhanced data collection and analytics capabilities",
+      "Reduced employee burnout and higher retention",
+      "Scalable solution that grows with your business"
     ]
   }
 ];
 
 const securityCompliance = [
   {
-    title: "HIPAA",
-    description: "Health Insurance Portability and Accountability Act compliance"
+    title: "HIPAA Compliant",
+    description: "Health Insurance Portability and Accountability Act compliance ensures patient data security"
   },
   {
-    title: "SOC 2",
-    description: "Service Organization Control 2 Type II compliance"
+    title: "SOC 2 Certified",
+    description: "Service Organization Control 2 Type II compliance for secure data handling and processing"
   },
   {
-    title: "CCPA",
-    description: "California Consumer Privacy Act compliance"
+    title: "CCPA Compliant",
+    description: "California Consumer Privacy Act compliance protecting consumer personal information"
   },
   {
-    title: "GDPR",
-    description: "General Data Protection Regulation compliance"
+    title: "GDPR Compliant",
+    description: "General Data Protection Regulation compliance for EU data protection standards"
   }
 ];
 
 const additionalFeatures = [
-  "Call Transfer - Included",
-  "Additional Action (e.g., appointment booking, etc) - priced per use case",
-  "Full Set Up + AI Security Testing",
-  "Hallucination Prevention",
+  "Call Transfer - Included in all packages",
+  "Additional Actions (appointment booking, orders, etc.) - priced per use case",
+  "Full Set Up + AI Security Testing procedures",
+  "Advanced Hallucination Prevention technology",
   "Monthly Management by WhitegloveAI Team",
-  "Additional AI Voice Agents Available",
-  "Knowledge Base Updates"
+  "Additional AI Voice Agents available",
+  "Regular Knowledge Base Updates"
 ];
 
 const whyChooseUs = [
   {
     title: "Simple Implementation",
-    description: "We make implementing advanced AI simple and successful."
+    description: "We handle the complexity so you don't have to. Our team ensures a smooth, hassle-free implementation process with minimal disruption to your operations."
   },
   {
     title: "Expert Support",
-    description: "Our expert team ensures your voice assistant delivers measurable results from day one."
+    description: "Our team of AI specialists and customer experience experts ensure your voice assistant delivers measurable results from day one."
   },
   {
     title: "Seamless Management",
-    description: "We handle the complexities of AI deployment so you can focus on what matters most."
+    description: "We handle the ongoing management and optimization of your AI solution, allowing you to focus on your core business while reaping the benefits."
   },
   {
-    title: "Ongoing Optimization",
-    description: "We continuously refine and enhance your voice assistant to ensure peak performance and measurable impact."
+    title: "Continuous Improvement",
+    description: "We continuously refine and enhance your voice assistant to ensure peak performance and measurable impact on your business metrics."
   }
 ];
 
