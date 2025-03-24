@@ -29,8 +29,8 @@ const IntroductionSection = () => {
         <div className="grid md:grid-cols-2 gap-10 items-center">
           <div>
             <img 
-              src="/lovable-uploads/86e52a58-1a69-47d8-8a53-d995ec083b30.png" 
-              alt="AI Launchpad Workshop in action" 
+              src="https://images.unsplash.com/photo-1519389950473-47ba0277781c" 
+              alt="Team discussing AI strategy in office" 
               className="rounded-lg w-full"
             />
           </div>
@@ -63,14 +63,6 @@ const IntroductionSection = () => {
               ))}
             </div>
           </div>
-        </div>
-        
-        <div className="absolute top-6 right-10">
-          <img 
-            src="/lovable-uploads/ec4171f2-9cdd-4989-a991-a9806e663223.png" 
-            alt="WhitegloveAI Logo" 
-            className="w-16 h-16"
-          />
         </div>
       </div>
     </section>
