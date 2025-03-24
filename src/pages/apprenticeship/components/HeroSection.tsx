@@ -22,8 +22,8 @@ const HeroSection = () => {
             <p className="text-xl text-gray-300 mb-8 max-w-3xl">
               Our exclusive 6-month apprenticeship program offers an unparalleled opportunity to master cutting-edge AI technology while working on real-world solutions.
             </p>
-            <Button size="lg" className="bg-[#7021EE] hover:bg-[#7021EE]/90 flex items-center justify-center">
-              <span className="flex items-center justify-center">
+            <Button size="lg" className="bg-[#7021EE] hover:bg-[#7021EE]/90 flex items-center justify-center relative">
+              <span className="relative z-10 flex items-center justify-center">
                 Apply Now <ArrowRight className="ml-2 h-5 w-5" />
               </span>
             </Button>
