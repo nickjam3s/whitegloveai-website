@@ -47,12 +47,7 @@ export const navigationLinks = [
         to: "http://www.aiamf.ai",
         external: true
       },
-      {
-        text: "AI-Policy",
-        to: "https://polaicy.com",
-        external: true,
-        hidden: true  // Hidden from UI but maintained in codebase for future release
-      },
+     
       {
         text: "Lucidis",
         to: "https://lucidis.ai",
