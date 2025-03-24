@@ -17,7 +17,7 @@ const ContactSection = () => {
             className="w-full py-6 text-lg flex items-center justify-center"
             onClick={() => window.open('https://whitegloveai.com/contact', '_blank')}
           >
-            Contact Us to Schedule Your Workshop
+            Schedule Your AI Workshop Today
           </Button>
         </div>
         
