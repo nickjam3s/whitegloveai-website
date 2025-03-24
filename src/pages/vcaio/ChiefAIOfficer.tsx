@@ -3,9 +3,7 @@ import { useEffect } from "react";
 import HeroSection from "./components/chiefaiofficer/HeroSection";
 import UnlockingSection from "./components/chiefaiofficer/UnlockingSection";
 import BenefitsSection from "./components/chiefaiofficer/BenefitsSection";
-import MaturityLevels from "./components/chiefaiofficer/MaturityLevels";
 import FutureSection from "./components/chiefaiofficer/FutureSection";
-import CoreBeliefs from "./components/chiefaiofficer/CoreBeliefs";
 import WhyVCAIO from "./components/chiefaiofficer/WhyVCAIO";
 
 const ChiefAIOfficer = () => {
@@ -51,8 +49,6 @@ const ChiefAIOfficer = () => {
       <WhyVCAIO />
       <UnlockingSection />
       <BenefitsSection />
-      <CoreBeliefs />
-      <MaturityLevels />
       <FutureSection />
     </div>
   );

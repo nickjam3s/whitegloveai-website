@@ -18,21 +18,13 @@ const HeroSection = () => {
       <div className="max-w-7xl mx-auto relative">
         <div className="text-center animate-fade-up">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight mb-6 heading-highlight">
-            vCAIO, Strategic AI Leadership, On-Demand
+            On-Demand virtual Chief AI Officer
           </h1>
           <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto mb-8">
             Empower your business with the strategic guidance of a virtual Chief AI Officer (vCAIO), 
             a fractional executive role designed to propel your organization toward AI-driven success.
           </p>
-          <div className="flex justify-center">
-            <Link to="/contact" className="inline-block">
-              <button className="flex items-center justify-center bg-purple-600 hover:bg-purple-700 text-white font-medium rounded-md px-8 py-4 text-lg transition-colors relative">
-                <span className="inline-flex items-center">
-                  Get Started <ArrowRight className="ml-2 h-5 w-5" />
-                </span>
-              </button>
-            </Link>
-          </div>
+          
         </div>
       </div>
     </section>
