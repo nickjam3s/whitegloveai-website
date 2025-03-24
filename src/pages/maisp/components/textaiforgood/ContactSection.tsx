@@ -1,116 +1,96 @@
 
-import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { toast } from "sonner";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import { useEffect, useState } from "react";
 
 const ContactSection = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
+  const [typeformLoaded, setTypeformLoaded] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-  };
+  useEffect(() => {
+    // Check if Typeform is already loaded
+    const checkTypeformLoaded = () => {
+      const typeformElements = document.querySelectorAll('[data-tf-loaded="true"]');
+      if (typeformElements.length > 0) {
+        setTypeformLoaded(true);
+      }
+    };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log('Form submitted:', formData);
-    setFormData({ name: '', email: '', message: '' });
-    toast.success('Message sent! We will get back to you soon.');
-  };
+    // Ensure Typeform script is loaded only once
+    const existingScript = document.getElementById('typeform-script');
+    if (!existingScript) {
+      const script = document.createElement('script');
+      script.id = 'typeform-script';
+      script.src = "//embed.typeform.com/next/embed.js";
+      script.async = true;
+      
+      // Set up event listener for script load
+      script.onload = () => {
+        // Check periodically if Typeform has loaded
+        const interval = setInterval(() => {
+          checkTypeformLoaded();
+          if (typeformLoaded) clearInterval(interval);
+        }, 1000);
+
+        // Clear interval after 10 seconds if Typeform hasn't loaded
+        setTimeout(() => clearInterval(interval), 10000);
+      };
+      
+      document.body.appendChild(script);
+      
+      return () => {
+        if (document.getElementById('typeform-script')) {
+          document.body.removeChild(script);
+        }
+      };
+    } else {
+      // If script exists, check if Typeform is loaded
+      checkTypeformLoaded();
+    }
+  }, [typeformLoaded]);
 
   return (
-    <section id="contact" className="py-20 bg-black">
+    <section id="contact" className="py-20 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="flex justify-center md:justify-end">
-            {/* SVG with updated fill color to white */}
-            <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="300pt" height="300pt" viewBox="0 0 163.000000 300.000000" preserveAspectRatio="xMidYMid meet" className="max-w-full">
-              <g transform="translate(0.000000,300.000000) scale(0.100000,-0.100000)" fill="#ffffff" stroke="none">
-                <path d="M42 2880 c-40 -28 -42 -33 -41 -78 2 -33 3 -38 6 -17 5 31 62 95 85 95 7 -1 28 -14 47 -30 24 -20 34 -38 35 -59 1 -29 4 -31 37 -31 20 0 51 -3 69 -7 l33 -6 -7 -261 c-3 -144 -9 -314 -13 -378 l-6 -118 -143 0 c-121 0 -144 -2 -144 -15 0 -13 22 -15 139 -15 118 0 142 3 160 18 20 17 21 28 27 397 8 428 12 403 -69 412 -36 4 -45 10 -56 35 -13 30 -83 88 -106 88 -7 0 -31 -14 -53 -30z"/>
-                <path d="M86 2863 c-12 -12 -6 -43 9 -43 8 0 15 9 15 19 0 21 -13 34 -24 24z"/>
-                <path d="M30 2759 l0 -49 65 0 65 0 0 49 0 50 -65 0 -65 0 0 -50z m74 15 c9 -3 16 -10 16 -16 0 -14 -53 -5 -58 10 -4 13 16 16 42 6z"/>
-                <path d="M802 2736 c-26 -24 -56 -45 -66 -47 -65 -13 -82 -140 -30 -224 16 -26 35 -58 42 -71 8 -15 16 -83 20 -178 7 -144 9 -156 35 -195 21 -31 43 -48 93 -71 63 -28 66 -31 59 -57 -7 -29 -21 -43 -43 -43 -28 0 -122 -71 -154 -116 -59 -83 -81 -102 -129 -108 -24 -3 -102 -12 -173 -21 -175 -21 -176 -21 -176 -56 0 -32 32 -122 86 -241 l36 -79 -36 -39 c-20 -22 -38 -55 -42 -76 -15 -80 42 -227 104 -269 45 -30 80 -31 133 -4 64 32 69 25 69 -93 0 -57 -5 -130 -10 -163 -5 -33 -14 -98 -20 -145 -6 -47 -13 -102 -16 -122 l-6 -38 -289 0 c-159 0 -289 -4 -289 -8 0 -9 283 -22 486 -22 l123 0 5 33 c48 336 58 435 47 472 -6 22 -11 73 -11 114 l0 75 -27 -26 c-45 -41 -106 -78 -130 -78 -33 0 -88 53 -111 107 -44 104 -38 190 19 237 16 14 29 30 29 36 0 6 -26 73 -59 148 -75 176 -76 179 -54 186 10 3 97 15 193 27 96 11 182 25 191 30 9 5 30 32 47 61 44 79 97 121 195 157 25 10 27 14 27 70 l0 60 -42 12 c-61 16 -103 52 -124 104 -14 38 -16 65 -11 164 8 135 0 171 -45 218 -28 29 -33 41 -36 97 -7 102 24 133 80 79 30 -29 52 -25 25 5 -21 23 -22 51 -1 80 19 28 61 29 140 2 32 -12 113 -34 179 -51 184 -47 225 -70 225 -128 0 -28 14 -27 28 2 10 20 11 19 11 -13 1 -25 9 -43 30 -63 61 -57 65 -162 10 -274 -32 -67 -82 -116 -166 -164 l-53 -30 1 -57 c2 -89 7 -99 75 -131 111 -53 182 -136 223 -261 31 -98 41 -184 48 -427 5 -197 4 -228 -11 -268 -20 -51 -50 -76 -104 -84 -27 -5 -38 -12 -43 -31 -9 -34 -10 -156 -2 -338 l6 -152 109 0 c85 0 108 3 108 14 0 10 -22 15 -85 18 -47 2 -89 9 -94 14 -5 5 -11 105 -13 223 l-3 215 34 8 c51 14 80 37 104 82 21 39 22 53 22 271 -1 322 -33 487 -119 602 -54 72 -78 94 -139 123 -67 33 -87 55 -87 95 0 51 8 63 69 105 106 73 151 131 176 227 23 89 15 182 -20 216 -7 8 -22 30 -32 49 -27 50 -82 111 -123 135 -19 11 -87 33 -150 48 -63 15 -157 41 -209 56 -51 16 -98 29 -103 29 -5 0 -30 -20 -56 -44z"/>
-                <path d="M0 2708 c0 -33 19 -40 104 -39 39 0 78 7 100 18 50 23 60 11 51 -64 l-6 -58 -98 -1 c-124 -1 -151 -8 -151 -35 0 -18 2 -19 15 -9 25 21 30 2 7 -23 -27 -28 -33 -98 -7 -77 26 21 30 2 7 -30 -25 -33 -32 -90 -8 -71 7 6 16 25 20 41 6 32 12 35 36 20 13 -9 13 -12 -2 -24 -10 -7 -18 -18 -18 -23 0 -6 -11 -22 -25 -37 -37 -40 -32 -64 7 -29 17 15 19 15 38 -2 13 -12 43 -19 97 -24 l78 -6 3 -75 c5 -122 7 -120 -97 -120 -97 0 -151 -8 -151 -21 0 -5 60 -9 134 -9 l134 0 6 163 c3 89 8 251 11 360 l6 197 -55 0 c-39 0 -55 -4 -60 -15 -9 -24 -151 -21 -165 3 -9 15 -10 13 -11 -10z m220 -168 c10 -7 -9 -10 -62 -10 -46 0 -78 4 -78 10 0 13 120 13 140 0z m-4 -50 c13 0 24 -4 24 -10 0 -13 -157 -13 -165 -1 -6 11 47 20 89 15 16 -2 39 -4 52 -4z m-156 -25 c7 -9 11 -18 8 -20 -9 -10 -38 7 -38 21 0 18 14 18 30 -1z m158 -41 c46 -13 19 -24 -57 -24 -116 0 -116 24 -1 28 19 1 45 -1 58 -4z m-15 -80 c64 -11 41 -24 -43 -24 -102 0 -108 19 -10 28 8 1 32 -1 53 -4z m7 -64 c0 -5 -22 -10 -50 -10 -27 0 -50 5 -50 10 0 6 23 10 50 10 28 0 50 -4 50 -10z"/>
-                <path d="M937 2468 c-12 -29 -22 -38 -40 -38 -45 0 -58 -20 -73 -120 -32 -217 -3 -294 122 -320 57 -13 176 -4 227 15 9 4 17 3 17 -3 0 -15 -57 -32 -127 -39 l-63 -6 0 -48 c0 -61 13 -69 118 -69 l79 0 5 109 c5 88 10 119 31 165 22 47 30 56 52 56 38 0 89 53 80 82 -10 32 -46 59 -70 52 -11 -3 -32 -20 -46 -36 l-26 -31 -22 22 c-39 39 -63 107 -56 154 l6 42 -23 -28 c-22 -27 -25 -27 -77 -17 -64 12 -78 22 -90 64 l-8 31 -16 -37z m54 -96 c8 -19 21 -37 28 -41 9 -6 9 -13 0 -35 -11 -23 -10 -29 10 -50 20 -21 26 -23 42 -13 20 13 26 61 9 72 -13 8 6 35 24 35 6 -1 25 -24 41 -51 25 -43 44 -60 93 -86 9 -4 -81 -169 -96 -175 -9 -4 -61 -7 -115 -7 -128 -1 -160 13 -176 74 -13 50 -15 155 -3 155 4 0 16 -13 25 -30 10 -16 27 -35 38 -41 12 -6 18 -17 15 -25 -6 -15 9 -20 18 -5 3 5 19 14 36 19 47 17 37 -6 -12 -28 -40 -17 -41 -19 -15 -19 32 -1 77 25 77 45 0 19 -33 34 -58 27 -26 -6 -26 -6 -6 42 14 34 14 39 -1 61 -11 18 -22 23 -36 19 -23 -8 -25 7 -4 25 11 9 14 22 9 42 -5 27 -4 29 17 26 15 -2 30 -15 40 -36z m-71 -1 c0 -10 -40 -22 -52 -15 -18 11 -6 24 22 24 17 0 30 -4 30 -9z m158 -8 c2 -8 -6 -13 -22 -13 -26 0 -40 12 -29 24 11 11 46 2 51 -11z m-171 -97 c-4 -9 -11 -16 -17 -16 -11 0 -14 33 -3 44 11 10 26 -11 20 -28z m30 -35 c-6 -17 -15 -31 -19 -31 -16 0 -16 19 0 52 21 43 37 26 19 -21z m377 12 c5 -16 1 -25 -14 -33 -24 -13 -43 -4 -21 9 7 5 10 14 6 20 -9 16 3 47 14 35 5 -5 12 -19 15 -31z m-156 -374 c-20 -13 -92 -10 -112 4 -35 25 -16 49 54 66 l65 17 3 -40 c2 -24 -2 -42 -10 -47z"/>
-                <path d="M993 1814 c15 -16 33 -19 117 -19 66 0 103 4 111 13 10 10 -6 12 -83 12 -52 0 -111 3 -129 6 -33 6 -33 6 -16 -12z"/>
-                <path d="M899 1790 c-65 -33 -105 -72 -138 -134 l-25 -44 31 -59 c17 -32 41 -89 53 -128 37 -114 84 -189 121 -191 9 -1 24 -4 33 -7 8 -3 36 1 61 10 35 12 55 13 85 5 47 -12 44 -20 40 144 -1 57 2 104 7 107 10 7 23 -112 23 -213 l0 -55 55 -23 c31 -12 64 -22 74 -22 28 0 93 -29 119 -53 26 -24 30 -48 5 -25 -36 31 -105 61 -113 48 -6 -9 -28 -2 -82 25 -51 25 -94 38 -135 42 -79 7 -99 -4 -105 -60 -3 -27 -20 -69 -43 -106 -36 -58 -37 -62 -21 -80 57 -63 323 -161 457 -169 78 -4 88 -3 107 16 33 33 42 86 42 243 0 256 -28 448 -80 556 -32 65 -99 133 -164 167 -35 19 -39 19 -84 3 -70 -26 -169 -22 -224 7 l-44 23 -55 -27z m79 -24 c15 -8 42 -16 59 -19 17 -3 37 -8 42 -12 6 -3 52 1 103 10 51 9 105 13 120 10 33 -8 113 -86 138 -135 23 -45 48 -129 60 -206 18 -107 29 -336 20 -434 -11 -124 -13 -134 -25 -142 -19 -14 -132 -8 -206 11 -133 34 -329 123 -329 150 0 4 14 25 30 46 17 21 35 56 41 79 6 23 14 48 19 56 13 25 78 14 178 -30 51 -22 102 -39 115 -38 12 1 39 -6 59 -16 40 -19 79 -18 86 2 2 7 -11 27 -30 46 -31 31 -82 52 -168 71 -14 3 -35 13 -48 23 -21 16 -23 29 -29 127 -6 121 -15 155 -37 155 -27 0 -36 -36 -36 -139 0 -55 -3 -102 -7 -104 -5 -3 -47 -8 -94 -12 -86 -7 -87 -6 -118 22 -22 20 -42 58 -70 133 -21 58 -47 124 -56 147 -28 68 -5 116 88 178 59 40 59 40 95 21z"/>
-                <path d="M513 1561 c-101 -14 -183 -30 -183 -36 0 -5 23 -62 51 -125 28 -63 60 -139 71 -167 l21 -53 68 0 68 0 -11 30 c-5 17 -21 39 -34 49 -54 42 -16 71 92 71 48 0 64 4 64 14 0 31 25 36 66 12 l41 -23 -23 76 c-33 106 -72 181 -92 180 -9 -1 -99 -13 -199 -28z m199 -18 c17 -19 43 -67 58 -108 9 -22 6 -26 -34 -44 -24 -10 -70 -22 -103 -26 -70 -8 -123 -36 -123 -64 0 -11 13 -34 30 -52 34 -37 28 -52 -16 -43 -28 5 -36 17 -92 144 -34 76 -62 143 -62 149 0 13 11 15 180 39 74 11 138 20 141 21 3 0 13 -7 21 -16z"/>
-                <path d="M737 1343 c-14 -13 -6 -23 18 -23 16 0 25 -6 25 -16 0 -12 -6 -15 -22 -10 -38 12 -145 19 -172 12 -46 -12 -27 -26 34 -26 33 0 60 -4 60 -10 0 -5 -19 -10 -41 -10 -36 0 -40 -2 -29 -15 7 -8 19 -15 26 -15 8 0 14 -4 14 -10 0 -5 -7 -10 -15 -10 -26 0 -16 -20 15 -34 31 -12 32 -30 2 -18 -14 5 -15 3 -4 -10 23 -28 108 -58 173 -61 61 -2 63 -1 86 32 13 19 23 43 23 54 0 27 -76 115 -129 149 -48 30 -54 32 -64 21z m87 -69 c18 -7 76 -89 76 -107 0 -7 -7 -23 -16 -36 -15 -21 -22 -23 -68 -17 -78 10 -116 25 -116 46 0 9 -7 23 -15 30 -38 32 -7 71 64 81 25 3 49 7 53 8 3 0 13 -2 22 -5z"/>
-                <path d="M950 1186 c0 -36 -18 -78 -47 -108 -31 -32 -26 -66 7 -48 23 13 66 77 75 113 7 26 -9 67 -25 67 -6 0 -10 -11 -10 -24z"/>
-                <path d="M417 1170 c-39 -31 -51 -78 -37 -147 31 -146 100 -190 191 -120 24 17 41 37 38 42 -2 6 -22 9 -43 7 -71 -5 -119 63 -120 170 -1 38 -2 68 -2 68 -1 0 -13 -9 -27 -20z m7 -114 c8 -51 66 -126 98 -126 22 0 20 -18 -4 -34 -41 -26 -118 85 -118 172 0 54 16 47 24 -12z"/>
-                <path d="M466 1114 c9 -64 21 -94 46 -121 26 -28 39 -29 69 -3 l24 19 -22 1 c-34 0 -28 14 12 29 47 17 44 27 -6 23 -48 -5 -47 12 1 23 53 12 35 28 -25 22 -30 -3 -57 -2 -60 3 -7 12 21 20 68 20 36 0 45 -5 64 -32 l22 -31 -25 -42 c-30 -51 -30 -57 -1 -51 12 3 73 11 136 17 94 10 111 14 98 24 -10 7 -17 17 -17 23 0 16 -14 22 -82 33 -45 7 -76 20 -112 46 -45 32 -60 37 -124 41 l-74 5 8 -49z m54 -48 c0 -8 8 -17 17 -20 13 -5 14 -9 4 -19 -10 -9 -15 -8 -27 7 -16 23 -18 46 -4 46 6 0 10 -6 10 -14z m271 -26 c11 0 19 -4 19 -9 0 -10 -128 -27 -137 -18 -3 4 -3 14 1 23 5 14 15 16 53 10 25 -3 54 -6 64 -6z"/>
-                <path d="M850 979 c-25 -3 -75 -10 -112 -13 l-68 -8 0 -43 c0 -72 12 -91 67 -104 92 -21 219 -31 390 -31 95 0 173 3 173 8 0 4 -36 17 -80 29 -100 28 -232 91 -285 135 -37 31 -44 33 -85 27z m50 -49 c19 -11 55 -30 80 -43 25 -12 51 -28 58 -35 8 -6 33 -17 58 -23 24 -6 44 -16 44 -21 0 -20 -347 12 -406 37 -29 12 -34 19 -34 49 l0 34 63 10 c92 14 99 14 137 -8z"/>
-                <path d="M670 781 c0 -16 10 -26 34 -36 118 -50 492 -63 649 -24 30 8 37 14 37 34 0 30 4 29 -112 9 -133 -23 -427 -7 -582 32 -22 5 -26 3 -26 -15z"/>
-                <path d="M1140 587 c0 -41 119 -137 170 -137 33 0 23 17 -17 31 -54 17 -77 34 -108 79 -28 41 -45 51 -45 27z"/>
-                <path d="M949 318 c0 -24 -1 -63 0 -88 0 -45 0 -45 -26 33 -15 42 -31 77 -35 77 -13 0 -9 -20 22 -120 20 -63 30 -115 30 -158 0 -46 3 -63 13 -60 16 6 23 358 7 358 -5 0 -10 -19 -11 -42z"/>
-                <path d="M0 227 c0 -12 48 -16 291 -22 l290 -7 -6 -82 c-4 -44 -8 -86 -10 -92 -2 -8 -82 -12 -271 -13 -148 -1 -270 -4 -273 -7 -2 -2 126 -4 286 -4 l290 0 6 68 c4 37 7 90 7 118 l0 51 -305 2 c-259 2 -305 0 -305 -12z"/>
-                <path d="M1410 118 l0 -118 113 2 112 2 -97 3 -98 4 0 27 c0 15 3 57 7 95 l6 67 88 0 c78 0 89 2 89 18 0 15 -12 17 -110 17 l-110 0 0 -117z"/>
-              </g>
-            </svg>
-          </div>
-          
-          <div className="flex flex-col items-center md:items-start">
-            <h2 className="text-3xl font-bold text-white mb-8">Contact Us to Get Started</h2>
+        <h2 className="text-3xl font-semibold mb-16 text-center heading-highlight-scroll">
+          Contact Us
+        </h2>
+        
+        <div className="bg-card/50 p-6 rounded-lg shadow-lg max-w-4xl mx-auto">
+          {/* Container with fixed height */}
+          <div className="min-h-[400px] relative">
+            {/* Typeform Element - Only visible when loaded */}
+            <div 
+              data-tf-live="01JMAMXNY7NHGYM2YQDXCDRDW6" 
+              className="absolute inset-0 z-10"
+              style={{ 
+                opacity: typeformLoaded ? 1 : 0,
+                pointerEvents: typeformLoaded ? 'auto' : 'none' 
+              }}
+            ></div>
             
-            <div className="bg-[#111]/80 p-6 rounded-lg w-full max-w-xl shadow-lg border border-gray-800">
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="space-y-2">
-                  <Label htmlFor="name" className="text-white">Your Name</Label>
-                  <Input
-                    id="name"
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    placeholder="Your Name"
-                    required
-                    className="w-full p-4 bg-black/60 border border-[#333333] rounded-md text-white focus:outline-none focus:border-[#7021EE] transition-colors"
-                  />
-                </div>
-                
-                <div className="space-y-2">
-                  <Label htmlFor="email" className="text-white">Your Email</Label>
-                  <Input
-                    id="email"
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder="Your Email"
-                    required
-                    className="w-full p-4 bg-black/60 border border-[#333333] rounded-md text-white focus:outline-none focus:border-[#7021EE] transition-colors"
-                  />
-                </div>
-                
-                <div className="space-y-2">
-                  <Label htmlFor="message" className="text-white">Your Message</Label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    placeholder="Your Message"
-                    required
-                    rows={6}
-                    className="w-full p-4 bg-black/60 border border-[#333333] rounded-md text-white focus:outline-none focus:border-[#7021EE] transition-colors resize-none"
-                  />
-                </div>
-                
-                <div>
-                  <Button 
-                    type="submit" 
-                    className="w-full relative overflow-hidden bg-[#7021EE] hover:bg-[#7021EE]/90"
-                  >
-                    <span className="relative z-10">Submit</span>
-                  </Button>
-                </div>
-              </form>
+            {/* Fallback that's always visible until Typeform loads */}
+            <div 
+              className="text-center p-8 absolute inset-0 flex flex-col items-center justify-center bg-card z-0"
+              style={{ 
+                display: typeformLoaded ? 'none' : 'flex',
+                opacity: typeformLoaded ? 0 : 1
+              }}
+            >
+              <p className="mb-6 text-gray-600 font-medium">If the form doesn't load, please click the button below:</p>
+              <a 
+                href="https://whitegloveai.com/contact"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block"
+              >
+                <Button 
+                  className="px-8 py-4 relative z-20 overflow-visible"
+                  size="lg"
+                  variant="default"
+                  type="button"
+                >
+                  <span className="relative z-30">Contact Us</span>
+                </Button>
+              </a>
             </div>
           </div>
         </div>

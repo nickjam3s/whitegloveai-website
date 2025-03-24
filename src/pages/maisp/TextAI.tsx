@@ -8,7 +8,6 @@ import McKinneyEDCSection from "./components/textai/McKinneyEDCSection";
 import SecurityComplianceSection from "./components/textai/SecurityComplianceSection";
 import ImplementationProcessSection from "./components/textai/ImplementationProcessSection";
 import AdditionalServicesSection from "./components/textai/AdditionalServicesSection";
-import AboutWhitegloveSection from "./components/textai/AboutWhitegloveSection";
 import ContactSection from "./components/textai/ContactSection";
 
 const TextAI = () => {
