@@ -83,7 +83,7 @@ const UrgencySection = () => {
           organizations to turn AI challenges into wins, without sacrificing security.
         </p>
         
-        <h2 className="text-4xl font-bold mb-8 pt-6">The Urgency of AI Adoption</h2>
+        <h2 className="text-4xl font-bold mb-8 pt-16">The Urgency of AI Adoption</h2>
         <p className="text-xl font-semibold mb-8">The Time to Act Is Now</p>
         
         <div className="grid md:grid-cols-3 gap-8">
