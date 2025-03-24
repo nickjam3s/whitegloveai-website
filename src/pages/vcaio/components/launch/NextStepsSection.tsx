@@ -1,6 +1,5 @@
 
 import { ClipboardCheck, LayoutDashboard, Play, LineChart } from "lucide-react";
-import { Button } from "@/components/ui/button";
 
 const steps = [
   {
@@ -39,15 +38,6 @@ const NextStepsSection = () => {
               <step.icon className="h-10 w-10 text-secondary mb-4" />
               <h3 className="text-xl font-semibold mb-3">{step.title}</h3>
               <p className="text-gray-400 mb-4">{step.description}</p>
-              {step.link && (
-                <Button variant="outline" className="w-full flex items-center justify-center" asChild>
-                  <a href={step.link} target="_blank" rel="noopener noreferrer">
-                    <span className="flex items-center justify-center">
-                      Take Assessment
-                    </span>
-                  </a>
-                </Button>
-              )}
             </div>
           ))}
         </div>
