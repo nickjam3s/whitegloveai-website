@@ -1,4 +1,3 @@
-
 import { motion } from 'framer-motion';
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from 'lucide-react';
@@ -9,7 +8,7 @@ const HeroSection = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-[#7021EE]/20 to-black/90">
         <div className="absolute inset-0 backdrop-blur-sm" />
       </div>
-      <div className="container mx-auto px-4 pt-10 md:pt-16 relative z-10">
+      <div className="container mx-auto px-4 pt-16 md:pt-24 relative z-10">
         <div className="grid md:grid-cols-2 gap-10 items-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
