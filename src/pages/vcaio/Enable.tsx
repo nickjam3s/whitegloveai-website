@@ -5,6 +5,7 @@ import IntroductionSection from './components/enable/IntroductionSection';
 import MissionSection from './components/enable/MissionSection';
 import ChallengesTableSection from './components/enable/ChallengesTableSection';
 import SolutionSection from './components/enable/SolutionSection';
+import ResultsSection from './components/enable/ResultsSection';
 import ContactSection from './components/enable/ContactSection';
 import FooterSection from './components/enable/FooterSection';
 
@@ -27,6 +28,7 @@ const Enable = () => {
       <MissionSection />
       <ChallengesTableSection />
       <SolutionSection />
+      <ResultsSection />
       <ContactSection />
       <FooterSection />
     </div>
