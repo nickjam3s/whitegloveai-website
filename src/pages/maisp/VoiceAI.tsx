@@ -1,4 +1,3 @@
-
 import { Shield, PhoneCall, ArrowRight, BrainCircuit, BarChart4, CheckCircle2, Download } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
@@ -162,8 +161,8 @@ const VoiceAI = () => {
                   rel="noopener noreferrer"
                 >
                   <Button className="group" size="lg">
-                    <span>Download Whitepaper</span>
-                    <Download className="ml-2 h-5 w-5 group-hover:translate-y-1 transition-transform" />
+                    <span className="relative z-20">Download Whitepaper</span>
+                    <Download className="ml-2 h-5 w-5 group-hover:translate-y-1 transition-transform relative z-20" />
                   </Button>
                 </a>
               </div>
