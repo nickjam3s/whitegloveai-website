@@ -45,7 +45,7 @@ const HeroSection = () => {
             <img 
               src="/lovable-uploads/5352239c-c2ca-486d-bd4b-da740996eda0.png" 
               alt="WhitegloveAI Logo" 
-              className="w-96 h-96 object-contain mix-blend-screen" 
+              className="w-96 h-96 object-contain mix-blend-screen opacity-100 filter brightness-125" 
             />
           </div>
         </div>
