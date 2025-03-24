@@ -64,7 +64,7 @@ const StepByStepForm = () => {
                 type="button" 
                 onClick={nextStep}
                 disabled={!formData.firstName}
-                variant="default"
+                className="bg-purple-600 hover:bg-purple-700 text-white"
               >
                 Next
               </Button>
@@ -88,8 +88,7 @@ const StepByStepForm = () => {
               <Button 
                 type="button" 
                 onClick={prevStep}
-                variant="outline"
-                className="border-[#444] text-white"
+                className="bg-transparent border border-[#444] hover:bg-gray-800 text-white"
               >
                 Back
               </Button>
@@ -97,7 +96,7 @@ const StepByStepForm = () => {
                 type="button" 
                 onClick={nextStep}
                 disabled={!formData.lastName}
-                variant="default"
+                className="bg-purple-600 hover:bg-purple-700 text-white"
               >
                 Next
               </Button>
@@ -144,15 +143,14 @@ const StepByStepForm = () => {
               <Button 
                 type="button" 
                 onClick={prevStep}
-                variant="outline"
-                className="border-[#444] text-white"
+                className="bg-transparent border border-[#444] hover:bg-gray-800 text-white"
               >
                 Back
               </Button>
               <Button 
                 type="submit"
                 disabled={!formData.email || !formData.companyName}
-                variant="default"
+                className="bg-purple-600 hover:bg-purple-700 text-white"
               >
                 Submit
               </Button>
