@@ -35,7 +35,6 @@ export const navigationLinks = [
     children: [
       { to: "/vcaio", text: "vCAIO" },
       { to: "/vcaio/launch", text: "Launchpad" },
-      { to: "/vcaio/launchai", text: "LaunchAI" },
       { to: "/vcaio/adopt", text: "Adopt" },
       { to: "/vcaio/enable", text: "Enable" },
     ],
@@ -53,6 +52,7 @@ export const navigationLinks = [
         text: "AI-Policy",
         to: "https://polaicy.com",
         external: true
+        hidden: true  // Hidden from UI but maintained in codebase for future release
       },
       {
         text: "Lucidis",

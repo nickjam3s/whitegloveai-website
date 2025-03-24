@@ -15,11 +15,7 @@ const HeroSection = () => {
               AI-powered chatbots that help nonprofit organizations enhance their digital presence
               and better serve their communities.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-              <button className="bg-[#7021EE] text-white px-8 py-4 rounded-md font-medium hover:bg-[#7021EE]/90 transition-colors">
-                Get Started
-              </button>
-            </div>
+            
           </div>
           
           <div className="hidden md:block">

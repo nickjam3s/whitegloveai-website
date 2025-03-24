@@ -36,15 +36,9 @@ const ExecutiveTeam: React.FC = () => {
     },
     {
       name: "Binni Skariah",
-      title: "CEO & Lucidis.AI",
+      title: "CEO of Lucidis.AI",
       image: "/lovable-uploads/fceb5744-7f22-4174-ab60-aec65e9b5205.png",
       linkedinUrl: "https://www.linkedin.com/in/bskariah/"
-    },
-    {
-      name: "Albert Ramos",
-      title: "vCAIO",
-      image: "/lovable-uploads/5fe7ee0d-30ab-40a0-aaba-118ec81ae989.png",
-      linkedinUrl: "https://www.linkedin.com/in/albertramosjr/"
     },
     {
       name: "Tobalo Torress",
@@ -52,6 +46,13 @@ const ExecutiveTeam: React.FC = () => {
       image: "/lovable-uploads/9dbaee7c-d928-4958-92dd-4dd39b8923bc.png",
       linkedinUrl: "https://www.linkedin.com/in/tobalo/"
     },
+    {
+      name: "Albert Ramos",
+      title: "vCAIO",
+      image: "/lovable-uploads/5fe7ee0d-30ab-40a0-aaba-118ec81ae989.png",
+      linkedinUrl: "https://www.linkedin.com/in/albertramosjr/"
+    },
+    
     // Second row
     {
       name: "Dr. Donnie Wendt",
