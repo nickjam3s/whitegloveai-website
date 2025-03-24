@@ -30,6 +30,7 @@ import MediaAI from "./pages/maisp/MediaAI";
 
 // vCAIO Routes
 import VCAIO from "./pages/vcaio/Index";
+import ChiefAIOfficer from "./pages/vcaio/ChiefAIOfficer";
 import Launch from "./pages/vcaio/Launch";
 import LaunchAI from "./pages/vcaio/LaunchAI";
 import Adopt from "./pages/vcaio/Adopt";
@@ -73,6 +74,7 @@ const App = () => (
               
               {/* vCAIO Routes */}
               <Route path="/vcaio" element={<VCAIO />} />
+              <Route path="/vcaio/chiefaiofficer" element={<ChiefAIOfficer />} />
               <Route path="/vcaio/launch" element={<Launch />} />
               <Route path="/vcaio/launchai" element={<LaunchAI />} />
               <Route path="/vcaio/adopt" element={<Adopt />} />
