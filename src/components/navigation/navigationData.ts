@@ -1,4 +1,3 @@
-
 export const navigationLinks = [
   {
     text: "About",
@@ -51,7 +50,7 @@ export const navigationLinks = [
       {
         text: "AI-Policy",
         to: "https://polaicy.com",
-        external: true
+        external: true,
         hidden: true  // Hidden from UI but maintained in codebase for future release
       },
       {
