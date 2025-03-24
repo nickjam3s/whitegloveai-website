@@ -245,11 +245,13 @@ const Contact = () => {
                   
                   <Button 
                     type="submit" 
-                    className="w-full py-6 text-lg"
+                    className="w-full py-6 text-lg relative"
                     disabled={isSubmitting}
                   >
-                    {isSubmitting ? 'Sending...' : 'Send Message'} 
-                    <Send className="ml-2" size={18} />
+                    <span className="relative z-10">
+                      {isSubmitting ? 'Sending...' : 'Send Message'} 
+                      <Send className="ml-2 inline" size={18} />
+                    </span>
                   </Button>
                 </form>
               </div>
