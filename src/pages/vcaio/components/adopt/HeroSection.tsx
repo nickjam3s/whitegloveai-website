@@ -1,4 +1,6 @@
 
+import { Cpu } from "lucide-react";
+
 const HeroSection = () => {
   return (
     <section className="relative pt-40 pb-28 px-4 sm:px-6 lg:px-8 overflow-hidden">
@@ -13,6 +15,7 @@ const HeroSection = () => {
       </div>
       <div className="max-w-7xl mx-auto relative">
         <div className="text-center animate-fade-up">
+          <Cpu className="h-12 w-12 text-secondary mx-auto mb-6" />
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight mb-6 heading-highlight">
             AI Adoption Service: Powered by AI-AMF
           </h1>
