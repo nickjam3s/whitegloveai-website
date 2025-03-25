@@ -9,6 +9,7 @@ import SecurityCompliance from "./components/vendorai/SecurityCompliance";
 import PricingModels from "./components/vendorai/PricingModels";
 import Support from "./components/vendorai/Support";
 import ContactSection from "./components/vendorai/ContactSection";
+import StepByStepForm from "./components/vendorai/StepByStepForm";
 
 const VendorAI = () => {
   useEffect(() => {
@@ -27,7 +28,7 @@ const VendorAI = () => {
       <Support />
       <ContactSection />
       
-          </div>
+    </div>
   );
 };
 
