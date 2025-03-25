@@ -16,8 +16,8 @@ import ContactSection from "./apprenticeship/components/ContactSection"
 const Apprenticeship = () => {
   return (
     <div className="min-h-screen bg-black">
-      <HeroSection />
       <PageWrapper fullWidth>
+        <HeroSection />
         <WhyUs />
         <ProgramFeatures />
         <CareerProgression />
