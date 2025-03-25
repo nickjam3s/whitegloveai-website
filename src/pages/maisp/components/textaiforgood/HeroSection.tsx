@@ -1,6 +1,5 @@
 
 import React from "react";
-import PeopleIllustration from "./PeopleIllustration";
 
 const HeroSection = () => {
   return (
@@ -18,9 +17,7 @@ const HeroSection = () => {
             
           </div>
           
-          <div className="hidden md:block">
-            <PeopleIllustration />
-          </div>
+          
         </div>
       </div>
     </section>

@@ -10,7 +10,6 @@ import ImplementationProcessSection from "./components/textai/ImplementationProc
 import AdditionalServicesSection from "./components/textai/AdditionalServicesSection";
 import ContactSection from "./components/textai/ContactSection";
 import DemoExampleSection from "./components/textai/DemoExampleSection";
-import AboutWhitegloveSection from "./components/textai/AboutWhitegloveSection";
 import { ArrowRight, CheckCircle2, BarChart4, Shield } from "lucide-react";
 
 const TextAI = () => {
@@ -83,9 +82,6 @@ const TextAI = () => {
         </div>
       </section>
       
-      <div id="demo">
-        <DemoExampleSection />
-      </div>
       
       <McKinneyEDCSection />
       
@@ -109,7 +105,6 @@ const TextAI = () => {
       
       <ImplementationProcessSection />
       <AdditionalServicesSection />
-      <AboutWhitegloveSection />
       
       <div id="contact">
         <ContactSection />
