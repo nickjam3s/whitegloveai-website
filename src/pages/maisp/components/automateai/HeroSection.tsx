@@ -23,7 +23,6 @@ const HeroSection = () => {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a href="https://lucidis.ai" target="_blank" rel="noopener noreferrer" className="inline-flex items-center px-6 py-3 text-base font-medium text-white bg-secondary/20 hover:bg-secondary/30 rounded-lg transition-colors border border-secondary/50">
                 Learn More
-                <Video className="ml-2 h-5 w-5" />
               </a>
           
           </div>

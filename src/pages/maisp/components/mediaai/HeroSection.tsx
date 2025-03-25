@@ -35,13 +35,7 @@ const HeroSection = () => {
               of creators at every level. From basic production assistance to premium full-service solutions.
             </p>
             
-            <div className="flex justify-center gap-4 mt-8">
-              <Button className="relative">
-                <span className="relative z-10 flex items-center">
-                  Get Started <ArrowRight className="ml-2 h-4 w-4" />
-                </span>
-              </Button>
-            </div>
+            
           </motion.div>
         </div>
       </div>
