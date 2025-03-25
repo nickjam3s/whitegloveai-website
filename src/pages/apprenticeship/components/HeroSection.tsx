@@ -4,7 +4,7 @@ import { ArrowRight } from 'lucide-react';
 
 const HeroSection = () => {
   return (
-    <section className="min-h-[80vh] flex items-center justify-center relative bg-black overflow-hidden">
+    <section className="py-16 flex items-center justify-center relative bg-black overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-[#7021EE]/20 to-black/90">
         <div className="absolute inset-0 backdrop-blur-sm" />
       </div>
