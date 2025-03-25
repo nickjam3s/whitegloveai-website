@@ -25,7 +25,6 @@ const Apprenticeship = () => {
         <CandidateProfile />
         <ApplicationProcess />
         <ContactSection />
-        <TuitionSection />
         <FAQSection />
       </PageWrapper>
     </div>
