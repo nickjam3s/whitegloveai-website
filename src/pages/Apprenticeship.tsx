@@ -11,6 +11,7 @@ import ApplicationProcess from "./apprenticeship/components/ApplicationProcess";
 import FAQSection from "./apprenticeship/components/FAQSection";
 import VisionSection from "./apprenticeship/components/VisionSection";
 import ApplicationForm from "./apprenticeship/components/ApplicationForm";
+import ContactSection from "./apprenticeship/components/ContactSection"
 
 const Apprenticeship = () => {
   return (
@@ -23,7 +24,7 @@ const Apprenticeship = () => {
         <VisionSection />
         <CandidateProfile />
         <ApplicationProcess />
-        <ApplicationForm />
+        <ContactSection />
         <TuitionSection />
         <FAQSection />
       </PageWrapper>
