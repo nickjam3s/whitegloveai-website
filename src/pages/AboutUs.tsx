@@ -48,7 +48,6 @@ const AboutUs = () => {
     { value: "98%", label: "Client Retention" },
     { value: "250+", label: "AI Projects" },
     { value: "24/7", label: "Support" },
-    { value: "12+", label: "Years Experience" }
   ];
 
   return (

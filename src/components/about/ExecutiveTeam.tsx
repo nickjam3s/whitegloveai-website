@@ -29,14 +29,14 @@ const ExecutiveTeam: React.FC = () => {
     },
     {
       name: "Jason Hess",
-      title: "CTO & vCAIO",
+      title: "Chief Technology Officer & virtual Chief AI Officer",
       image: "/lovable-uploads/5cbfcfd0-e713-43d1-9e25-c1d4a1e33007.png",
       imagePosition: "object-top", // Keeping image position to adjust for Jason's head
       linkedinUrl: "https://www.linkedin.com/in/jasonhess/"
     },
     {
       name: "Binni Skariah",
-      title: "CEO of Lucidis.AI",
+      title: "Product Owner of Lucidis.AI",
       image: "/lovable-uploads/fceb5744-7f22-4174-ab60-aec65e9b5205.png",
       linkedinUrl: "https://www.linkedin.com/in/bskariah/"
     },
@@ -48,7 +48,7 @@ const ExecutiveTeam: React.FC = () => {
     },
     {
       name: "Albert Ramos",
-      title: "vCAIO",
+      title: "virtual Chief AI Officer",
       image: "/lovable-uploads/5fe7ee0d-30ab-40a0-aaba-118ec81ae989.png",
       linkedinUrl: "https://www.linkedin.com/in/albertramosjr/"
     },
@@ -56,7 +56,7 @@ const ExecutiveTeam: React.FC = () => {
     // Second row
     {
       name: "Dr. Donnie Wendt",
-      title: "vCAIO",
+      title: "virtual Chief AI Officer",
       image: "/lovable-uploads/b660279c-7698-487d-b20e-3a04479508d4.png",
       linkedinUrl: "https://www.linkedin.com/in/dr-donnie-wendt/"
     },
@@ -68,22 +68,17 @@ const ExecutiveTeam: React.FC = () => {
     },
     {
       name: "Daniel Valencia",
-      title: "CISO",
+      title: "Chief Information Security Officer",
       image: "/lovable-uploads/15e1ef3c-8f52-4735-b48e-159dea83470c.png",
       linkedinUrl: "https://www.linkedin.com/in/daniel-valencia/"
     },
     {
       name: "Ankur Desai",
-      title: "CMO",
+      title: "Chief Marketing Officer",
       image: "/lovable-uploads/980b7b84-6ac2-4825-a061-cf071a14cf9e.png",
       linkedinUrl: "https://www.linkedin.com/in/ankdes/"
     },
-    {
-      name: "Rhea Kaithal",
-      title: "AI Developer",
-      image: "/lovable-uploads/b0e7ff9d-6be0-4ad6-969e-ffdc16b04f42.png",
-      linkedinUrl: "https://www.linkedin.com/in/rheakaithal/"
-    },
+    
   ];
 
   return (
