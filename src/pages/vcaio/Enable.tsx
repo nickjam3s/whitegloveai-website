@@ -2,7 +2,6 @@
 import { useEffect } from "react";
 import NewHeroSection from './components/enable/NewHeroSection';
 import IntroductionSection from './components/enable/IntroductionSection';
-import MissionSection from './components/enable/MissionSection';
 import ChallengesTableSection from './components/enable/ChallengesTableSection';
 import SolutionSection from './components/enable/SolutionSection';
 import ResultsSection from './components/enable/ResultsSection';
@@ -25,7 +24,6 @@ const Enable = () => {
     <div className="min-h-screen bg-black">
       <NewHeroSection />
       <IntroductionSection />
-      <MissionSection />
       <ChallengesTableSection />
       <SolutionSection />
       <ResultsSection />
