@@ -27,17 +27,7 @@ const VendorAI = () => {
       <Support />
       <ContactSection />
       
-      <section id="contact" className="py-20 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-semibold mb-16 text-center heading-highlight-scroll">
-            Contact Us
-          </h2>
-          <div className="bg-card/50 p-6 rounded-lg shadow-lg max-w-4xl mx-auto">
-            <StepByStepForm />
           </div>
-        </div>
-      </section>
-    </div>
   );
 };
 
