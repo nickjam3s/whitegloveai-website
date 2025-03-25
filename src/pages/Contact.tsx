@@ -140,32 +140,6 @@ const Contact = () => {
                 </div>
               </div>
               
-              {/* Business Hours */}
-              <div className="glass-card p-8">
-                <h2 className="text-2xl font-semibold mb-6 text-white">Business Hours</h2>
-                
-                <div className="space-y-4">
-                  <div className="flex items-start gap-4">
-                    <div className="p-3 rounded-full bg-[#7021EE]/20 text-[#7021EE]">
-                      <Clock size={24} />
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-medium text-white">Weekdays</h3>
-                      <p className="text-gray-400">Monday - Friday: 9:00 AM - 6:00 PM CST</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start gap-4">
-                    <div className="p-3 rounded-full bg-[#7021EE]/20 text-[#7021EE]">
-                      <CalendarDays size={24} />
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-medium text-white">Weekends</h3>
-                      <p className="text-gray-400">By appointment only</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
               
               <Card className="overflow-hidden border-0">
                 <iframe 
@@ -255,143 +229,12 @@ const Contact = () => {
                   </Button>
                 </form>
               </div>
-              
-              {/* FAQ */}
-              <div className="glass-card p-8">
-                <h2 className="text-2xl font-semibold mb-6 text-white">
-                  <span className="flex items-center">
-                    <Sparkles className="mr-2 text-[#7021EE]" size={20} />
-                    Frequently Asked Questions
-                  </span>
-                </h2>
-                
-                <div className="space-y-6">
-                  <div>
-                    <h3 className="text-lg font-medium text-white mb-2">What services do you offer?</h3>
-                    <p className="text-gray-400">
-                      We offer a comprehensive suite of AI solutions including virtual CAIO services, 
-                      AI implementation, and custom AI development for businesses of all sizes.
-                    </p>
-                  </div>
-                  
-                  <div>
-                    <h3 className="text-lg font-medium text-white mb-2">How quickly can you respond to inquiries?</h3>
-                    <p className="text-gray-400">
-                      We typically respond to all inquiries within 24 business hours. For urgent matters, 
-                      please call our office directly.
-                    </p>
-                  </div>
-                  
-                  <div>
-                    <h3 className="text-lg font-medium text-white mb-2">Do you offer consultations?</h3>
-                    <p className="text-gray-400">
-                      Yes, we offer initial consultations to understand your needs and determine how our 
-                      AI solutions can best serve your business goals.
-                    </p>
-                  </div>
-                </div>
+              </motion.div>
               </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Our Team Section */}
-      <motion.section 
-        className="relative py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-black to-[#0c0318]"
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7 }}
-      >
-        <div className="max-w-7xl mx-auto text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">Meet Our <span className="text-[#7021EE]">Team</span></h2>
-          <p className="text-lg text-gray-300 max-w-3xl mx-auto">
-            Our experts are ready to help you navigate the world of AI innovation and implementation.
-          </p>
-        </div>
-        
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-          <motion.div 
-            className="glass-card p-6 text-center"
-            whileHover={{ y: -5, transition: { duration: 0.3 } }}
-          >
-            <div className="flex justify-center mb-4">
-              <div className="w-24 h-24 rounded-full bg-[#7021EE]/20 flex items-center justify-center">
-                <Users size={40} className="text-[#7021EE]" />
               </div>
-            </div>
-            <h3 className="text-xl font-semibold mb-2">AI Strategy Team</h3>
-            <p className="text-gray-400 mb-4">
-              Our strategists help businesses identify opportunities for AI integration and develop roadmaps for implementation.
-            </p>
-            <Link to="/aboutus" className="text-[#7021EE] hover:text-[#9b69f8] transition-colors">
-              Meet the strategists →
-            </Link>
-          </motion.div>
-          
-          <motion.div 
-            className="glass-card p-6 text-center"
-            whileHover={{ y: -5, transition: { duration: 0.3 } }}
-          >
-            <div className="flex justify-center mb-4">
-              <div className="w-24 h-24 rounded-full bg-[#7021EE]/20 flex items-center justify-center">
-                <Users size={40} className="text-[#7021EE]" />
-              </div>
-            </div>
-            <h3 className="text-xl font-semibold mb-2">Development Team</h3>
-            <p className="text-gray-400 mb-4">
-              Our developers build custom AI solutions tailored to your specific business needs and objectives.
-            </p>
-            <Link to="/aboutus" className="text-[#7021EE] hover:text-[#9b69f8] transition-colors">
-              Meet the developers →
-            </Link>
-          </motion.div>
-          
-          <motion.div 
-            className="glass-card p-6 text-center sm:col-span-2 lg:col-span-1"
-            whileHover={{ y: -5, transition: { duration: 0.3 } }}
-          >
-            <div className="flex justify-center mb-4">
-              <div className="w-24 h-24 rounded-full bg-[#7021EE]/20 flex items-center justify-center">
-                <Users size={40} className="text-[#7021EE]" />
-              </div>
-            </div>
-            <h3 className="text-xl font-semibold mb-2">Implementation Team</h3>
-            <p className="text-gray-400 mb-4">
-              Our implementation experts ensure smooth integration of AI solutions into your existing business processes.
-            </p>
-            <Link to="/aboutus" className="text-[#7021EE] hover:text-[#9b69f8] transition-colors">
-              Meet the experts →
-            </Link>
-          </motion.div>
-        </div>
-      </motion.section>
-
-      {/* Career CTA Section */}
-      <motion.section 
-        className="relative py-16 px-4 sm:px-6 lg:px-8 text-center"
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, delay: 0.2 }}
-      >
-        <div className="max-w-3xl mx-auto">
-          <h2 className="text-3xl font-semibold mb-6 text-white">
-            Want to join our team?
-          </h2>
-          <p className="text-gray-400 mb-8">
-            We're always looking for talented individuals to join our growing team. Check out our
-            current openings and apply today!
-          </p>
-          <Link to="/about/apprentice">
-            <Button size="lg" className="px-8 py-6 text-lg relative">
-              <span className="relative z-10">
-                View Opportunities
-              </span>
-            </Button>
-          </Link>
-        </div>
-      </motion.section>
+              </section>
     </div>
+    
   );
 };
 
