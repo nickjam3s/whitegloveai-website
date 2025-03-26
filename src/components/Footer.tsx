@@ -7,8 +7,8 @@ const Footer = () => {
   return (
     <footer className="bg-black border-t border-[#7021EE]/20">
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
-          {/* Contact Us section with more spacing */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+          {/* Contact Us section */}
           <div className="lg:col-span-1">
             <h4 className="text-white font-semibold mb-4">Contact Us</h4>
             <div className="space-y-3">
@@ -77,15 +77,6 @@ const Footer = () => {
               <li><Link to="/vcaio/launch" className="text-gray-400 hover:text-[#7021EE] transition-colors">Launchpad</Link></li>
               <li><Link to="/vcaio/adopt" className="text-gray-400 hover:text-[#7021EE] transition-colors">Adopt</Link></li>
               <li><Link to="/vcaio/enable" className="text-gray-400 hover:text-[#7021EE] transition-colors">Enable</Link></li>
-            </ul>
-          </div>
-
-          {/* Legal */}
-          <div className="lg:col-span-1">
-            <h4 className="text-white font-semibold mb-4">Legal</h4>
-            <ul className="space-y-2">
-              <li><Link to="/privacy" className="text-gray-400 hover:text-[#7021EE] transition-colors">Privacy Policy</Link></li>
-              <li><Link to="/terms" className="text-gray-400 hover:text-[#7021EE] transition-colors">Terms of Service</Link></li>
             </ul>
           </div>
         </div>
