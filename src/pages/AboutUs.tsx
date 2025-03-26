@@ -44,12 +44,6 @@ const AboutUs = () => {
     transition: { duration: 1, delay: 0.3 }
   };
 
-  const stats = [
-    { value: "98%", label: "Client Retention" },
-    { value: "250+", label: "AI Projects" },
-    { value: "24/7", label: "Support" },
-  ];
-
   return (
     <div className="min-h-screen bg-black text-white font-sans font-sora">
       <section className="relative h-[100vh] flex items-center overflow-hidden">
@@ -111,36 +105,18 @@ const AboutUs = () => {
             >
               At WhitegloveAI, we're pioneering AI-driven transformations to elevate enterprise operations through innovative, ethical, and secure solutions.
             </motion.p>
-          
+
             <motion.div 
-              className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 lg:gap-12 mt-8 md:mt-12"
-              variants={containerAnimation}
-              initial="hidden"
-              animate="show"
+              className="absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer"
+              initial={{ y: 0, opacity: 0.5 }}
+              animate={{ y: 10, opacity: 1 }}
+              transition={{ duration: 1, repeat: Infinity, repeatType: "reverse" }}
             >
-              {stats.map((stat, index) => (
-                <motion.div 
-                  key={index} 
-                  className="text-center"
-                  variants={itemAnimation}
-                >
-                  <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#7021EE]">{stat.value}</p>
-                  <p className="text-sm md:text-base text-gray-300 mt-1 md:mt-2">{stat.label}</p>
-                </motion.div>
-              ))}
+              <a href="#mission" aria-label="Scroll to learn more">
+                <ArrowDown className="h-6 w-6 md:h-8 md:w-8 text-[#7021EE]" />
+              </a>
             </motion.div>
           </div>
-
-          <motion.div 
-            className="absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer"
-            initial={{ y: 0, opacity: 0.5 }}
-            animate={{ y: 10, opacity: 1 }}
-            transition={{ duration: 1, repeat: Infinity, repeatType: "reverse" }}
-          >
-            <a href="#mission" aria-label="Scroll to learn more">
-              <ArrowDown className="h-6 w-6 md:h-8 md:w-8 text-[#7021EE]" />
-            </a>
-          </motion.div>
         </div>
       </section>
 
