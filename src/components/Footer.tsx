@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin, Linkedin, ArrowRight } from 'lucide-react';
@@ -6,8 +5,8 @@ import { Mail, Phone, MapPin, Linkedin, ArrowRight } from 'lucide-react';
 const Footer = () => {
   return (
     <footer className="bg-black border-t border-[#7021EE]/20">
-      <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 justify-between">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 items-center">
           {/* Contact Us section */}
           <div className="lg:col-span-1">
             <h4 className="text-white font-semibold mb-4">Contact Us</h4>
