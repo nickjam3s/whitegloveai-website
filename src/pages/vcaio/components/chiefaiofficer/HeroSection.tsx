@@ -33,10 +33,10 @@ const HeroSection = () => {
                 Math.random() * window.innerHeight,
                 Math.random() * window.innerHeight,
               ],
-              opacity: [0.2, 0.5, 0.2],
+              opacity: [0.15, 0.25, 0.15], // Reduced opacity slightly
             }}
             transition={{
-              duration: Math.random() * 20 + 20,
+              duration: Math.random() * 15 + 10, // Reduced duration to speed up animation
               repeat: Infinity,
               ease: "linear",
             }}
