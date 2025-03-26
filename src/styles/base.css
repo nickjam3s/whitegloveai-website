@@ -55,6 +55,14 @@ html {
 .heading-highlight-scroll {
   @apply text-white;
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.heading-highlight-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Add a CSS reset for better cross-browser consistency */
@@ -164,3 +172,28 @@ html {
 .text-shadow-lg {
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
 }
+
+/* Scroll animation helper classes */
+.animate-section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.animate-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in-up > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  transition-delay: calc(var(--delay, 0) * 100ms);
+}
+
+.fade-in-up.visible > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+

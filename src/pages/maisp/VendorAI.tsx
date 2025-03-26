@@ -54,6 +54,13 @@ const VendorAI = () => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
+          
+          // Add animations to child elements when section is in view
+          const animatableElements = entry.target.querySelectorAll('.animate-on-scroll');
+          animatableElements.forEach((el, index) => {
+            (el as HTMLElement).style.transitionDelay = `${index * 0.1}s`;
+            el.classList.add('visible');
+          });
         }
       });
     }, {
@@ -65,6 +72,12 @@ const VendorAI = () => {
     const headings = document.querySelectorAll('.heading-highlight-scroll');
     headings.forEach(heading => {
       observer.observe(heading);
+    });
+    
+    // Also observe sections with the animate-section class
+    const sections = document.querySelectorAll('.animate-section');
+    sections.forEach(section => {
+      observer.observe(section);
     });
     
     return () => {
