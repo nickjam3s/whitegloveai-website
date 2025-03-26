@@ -23,7 +23,7 @@ const ExecutiveTeam: React.FC = () => {
     // First row
     {
       name: "Nick James",
-      title: "Founder & CEO",
+      title: "Founder & Chief Executive Officer",
       image: "/lovable-uploads/12a890f3-210e-4059-8cbc-6647b5effb9a.png",
       linkedinUrl: "https://www.linkedin.com/in/nickjam3s/"
     },
@@ -60,12 +60,7 @@ const ExecutiveTeam: React.FC = () => {
       image: "/lovable-uploads/b660279c-7698-487d-b20e-3a04479508d4.png",
       linkedinUrl: "https://www.linkedin.com/in/dr-donnie-wendt/"
     },
-    {
-      name: "Kenneth Knapp",
-      title: "VP of Growth",
-      image: "/lovable-uploads/c4b72a4e-5b61-46cb-8462-ac71114f9af3.png",
-      linkedinUrl: "https://www.linkedin.com/in/yourcloudexperts/"
-    },
+    
     {
       name: "Daniel Valencia",
       title: "Chief Information Security Officer",
@@ -78,7 +73,12 @@ const ExecutiveTeam: React.FC = () => {
       image: "/lovable-uploads/980b7b84-6ac2-4825-a061-cf071a14cf9e.png",
       linkedinUrl: "https://www.linkedin.com/in/ankdes/"
     },
-    
+    {
+      name: "Kenneth Knapp",
+      title: "VP of Growth",
+      image: "/lovable-uploads/c4b72a4e-5b61-46cb-8462-ac71114f9af3.png",
+      linkedinUrl: "https://www.linkedin.com/in/yourcloudexperts/"
+    },
   ];
 
   return (
