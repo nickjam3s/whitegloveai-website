@@ -1,3 +1,4 @@
+
 import { motion } from 'framer-motion';
 import ScrollAnimation from '@/components/animations/ScrollAnimation';
 

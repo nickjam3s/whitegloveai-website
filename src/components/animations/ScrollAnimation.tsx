@@ -9,6 +9,16 @@ interface ScrollAnimationProps {
 }
 
 const ScrollAnimation: React.FC<ScrollAnimationProps> = ({ targetId, className }) => {
+  const handleClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const element = document.getElementById(targetId);
+    if (element) {
+      const yOffset = -80;
+      const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
+      window.scrollTo({ top: y, behavior: 'auto' });
+    }
+  };
+
   return (
     <motion.div 
       className={`absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer z-10 ${className || ''}`}
@@ -20,15 +30,7 @@ const ScrollAnimation: React.FC<ScrollAnimationProps> = ({ targetId, className }
       <a 
         href={`#${targetId}`} 
         aria-label="Scroll to learn more"
-        onClick={(e) => {
-          e.preventDefault();
-          const element = document.getElementById(targetId);
-          if (element) {
-            const yOffset = -80;
-            const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
-            window.scrollTo({ top: y, behavior: 'auto' });
-          }
-        }}
+        onClick={handleClick}
       >
         <ArrowDown className="h-6 w-6 md:h-8 md:w-8 text-[#7021EE] animate-pulse-slow" />
       </a>
