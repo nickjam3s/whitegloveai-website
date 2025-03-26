@@ -5,7 +5,6 @@ import UnlockingSection from "./components/chiefaiofficer/UnlockingSection";
 import BenefitsSection from "./components/chiefaiofficer/BenefitsSection";
 import FutureSection from "./components/chiefaiofficer/FutureSection";
 import WhyVCAIO from "./components/chiefaiofficer/WhyVCAIO";
-import ScrollAnimation from '@/components/animations/ScrollAnimation';
 import '@/styles/animations.css'; // Import animations CSS
 
 const ChiefAIOfficer = () => {
@@ -19,9 +18,7 @@ const ChiefAIOfficer = () => {
 
   useEffect(() => {
     // Force scroll to top on component mount
-    if (pageRef.current) {
-      pageRef.current.scrollIntoView({ behavior: 'auto' });
-    }
+    window.scrollTo(0, 0);
     
     // Explicitly disable smooth scrolling
     document.documentElement.style.scrollBehavior = 'auto';
@@ -90,7 +87,7 @@ const ChiefAIOfficer = () => {
       <UnlockingSection />
       <BenefitsSection />
       <FutureSection />
-      <ScrollAnimation targetId="why-vcaio" />
+      {/* Removed the ScrollAnimation component to eliminate duplicate arrow */}
     </div>
   );
 };
