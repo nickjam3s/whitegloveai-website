@@ -1,5 +1,5 @@
 
-import { useEffect, useLayoutEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import HeroSection from "./components/chiefaiofficer/HeroSection";
 import UnlockingSection from "./components/chiefaiofficer/UnlockingSection";
 import BenefitsSection from "./components/chiefaiofficer/BenefitsSection";
@@ -10,18 +10,19 @@ import '@/styles/animations.css'; // Import animations CSS
 const ChiefAIOfficer = () => {
   const pageRef = useRef<HTMLDivElement>(null);
 
-  // Use useLayoutEffect to prevent flash of content before scroll position is set
-  useLayoutEffect(() => {
-    // Immediately scroll to top when component mounts
-    window.scrollTo(0, 0);
-  }, []);
-
+  // Fix scroll issues - using multiple approaches to ensure it works
   useEffect(() => {
-    // Force scroll to top on component mount
+    // Immediately set scroll position to top
     window.scrollTo(0, 0);
     
-    // Explicitly disable smooth scrolling
+    // Explicitly disable smooth scrolling to prevent animation
     document.documentElement.style.scrollBehavior = 'auto';
+    document.body.style.scrollBehavior = 'auto';
+    
+    // Prevent default browser scroll restoration
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
     
     // Handle anchor links within the page without smooth scrolling
     const handleAnchorClick = (e: MouseEvent) => {
@@ -72,10 +73,20 @@ const ChiefAIOfficer = () => {
       observer.observe(section);
     });
     
+    // Schedule another scroll reset after a tiny delay to overcome any browser-specific behaviors
+    const timeoutId = setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 50);
+    
     return () => {
       document.removeEventListener('click', handleAnchorClick);
+      clearTimeout(timeoutId);
       // Reset scroll behavior when component unmounts
       document.documentElement.style.scrollBehavior = '';
+      document.body.style.scrollBehavior = '';
+      if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'auto';
+      }
       observer.disconnect();
     };
   }, []);

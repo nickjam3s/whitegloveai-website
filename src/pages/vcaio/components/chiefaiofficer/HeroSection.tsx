@@ -71,7 +71,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4"
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20"
           >
             <a 
               href="#contact" 
@@ -86,19 +86,20 @@ const HeroSection = () => {
               Learn More
             </a>
           </motion.div>
-          
-          <motion.div 
-            className="absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer"
-            initial={{ y: 0, opacity: 0.5 }}
-            animate={{ y: 10, opacity: 1 }}
-            transition={{ duration: 1, repeat: Infinity, repeatType: "reverse" }}
-          >
-            <a href="#why-vcaio" aria-label="Scroll to learn more">
-              <ArrowDown className="h-6 w-6 md:h-8 md:w-8 text-[#7021EE]" />
-            </a>
-          </motion.div>
         </div>
       </div>
+      
+      {/* Arrow moved to the bottom of the hero section, more separated from buttons */}
+      <motion.div 
+        className="absolute bottom-12 left-1/2 transform -translate-x-1/2 cursor-pointer"
+        initial={{ y: 0, opacity: 0.5 }}
+        animate={{ y: 10, opacity: 1 }}
+        transition={{ duration: 1, repeat: Infinity, repeatType: "reverse" }}
+      >
+        <a href="#why-vcaio" aria-label="Scroll to learn more">
+          <ArrowDown className="h-6 w-6 md:h-8 md:w-8 text-[#7021EE]" />
+        </a>
+      </motion.div>
     </section>
   );
 };
