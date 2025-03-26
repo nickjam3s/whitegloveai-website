@@ -6,13 +6,11 @@ import Logo from "./navigation/Logo";
 import DesktopMenuItem from "./navigation/DesktopMenuItem";
 import MobileMenu from "./navigation/MobileMenu";
 import { navigationLinks } from "./navigation/navigationData";
-import { useIsMobile } from "@/hooks/use-mobile";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
   const [scrolled, setScrolled] = useState(false);
-  const isMobile = useIsMobile();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,14 +29,12 @@ const Navigation = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          <div className="flex-shrink-0">
-            <Link to="/">
-              <Logo />
-            </Link>
-          </div>
+          <Link to="/">
+            <Logo />
+          </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-10 lg:space-x-12">
+          <div className="hidden md:flex items-center space-x-8">
             {navigationLinks.map((link) => (
               <div key={link.to || link.text} className="relative group">
                 <DesktopMenuItem
@@ -53,8 +49,7 @@ const Navigation = () => {
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-300 hover:text-white transition-colors p-2"
-              aria-label="Toggle menu"
+              className="text-gray-300 hover:text-white transition-colors"
             >
               {isOpen ? <X size={28} /> : <Menu size={28} />}
             </button>
