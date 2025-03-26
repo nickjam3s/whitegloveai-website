@@ -88,38 +88,42 @@ const Index = () => {
       {/* Services Section */}
       <section className="py-20 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-12 animate-fade-up">
-            <div className="space-y-6">
-              <h2 className="text-3xl font-semibold mb-4 heading-highlight-scroll">Strategic AI Leadership with vCAIO</h2>
-              <p className="text-gray-400">
-                Unlock the full potential of artificial intelligence with our virtual Chief AI Officer (vCAIO). Our fractional, executive-level service offers you:
-              </p>
-              <ul className="space-y-4">
-                {vcaioFeatures.map((feature, index) => <li key={index} className="flex items-start">
-                    <CheckCircle2 className="h-6 w-6 text-secondary mt-1 mr-3 flex-shrink-0" />
-                    <div>
-                      <h3 className="font-medium">{feature.title}</h3>
-                      <p className="text-gray-400">{feature.description}</p>
-                    </div>
-                  </li>)}
-              </ul>
-            </div>
+          {/* Strategic AI Leadership section - Now full width */}
+          <div className="space-y-6 mb-20 animate-fade-up">
+            <h2 className="text-3xl font-semibold mb-4 heading-highlight-scroll">Strategic AI Leadership with vCAIO</h2>
+            <p className="text-gray-400 max-w-3xl">
+              Unlock the full potential of artificial intelligence with our virtual Chief AI Officer (vCAIO). Our fractional, executive-level service offers you:
+            </p>
+            <ul className="space-y-4">
+              {vcaioFeatures.map((feature, index) => (
+                <li key={index} className="flex items-start">
+                  <CheckCircle2 className="h-6 w-6 text-secondary mt-1 mr-3 flex-shrink-0" />
+                  <div>
+                    <h3 className="font-medium">{feature.title}</h3>
+                    <p className="text-gray-400">{feature.description}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-            <div className="space-y-6">
-              <h2 className="text-3xl font-semibold mb-4 heading-highlight-scroll">Managed AI Services</h2>
-              <p className="text-gray-400">
-                Our Managed Artificial Intelligence Services empower your organization with round-the-clock support and robust AI solutions, including:
-              </p>
-              <ul className="space-y-4">
-                {managedAIFeatures.map((feature, index) => <li key={index} className="flex items-start">
-                    <CheckCircle2 className="h-6 w-6 text-secondary mt-1 mr-3 flex-shrink-0" />
-                    <div>
-                      <h3 className="font-medium">{feature.title}</h3>
-                      <p className="text-gray-400">{feature.description}</p>
-                    </div>
-                  </li>)}
-              </ul>
-            </div>
+          {/* Managed AI Services section - Now full width */}
+          <div className="space-y-6 animate-fade-up">
+            <h2 className="text-3xl font-semibold mb-4 heading-highlight-scroll">Managed AI Services</h2>
+            <p className="text-gray-400 max-w-3xl">
+              Our Managed Artificial Intelligence Services empower your organization with round-the-clock support and robust AI solutions, including:
+            </p>
+            <ul className="space-y-4">
+              {managedAIFeatures.map((feature, index) => (
+                <li key={index} className="flex items-start">
+                  <CheckCircle2 className="h-6 w-6 text-secondary mt-1 mr-3 flex-shrink-0" />
+                  <div>
+                    <h3 className="font-medium">{feature.title}</h3>
+                    <p className="text-gray-400">{feature.description}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
