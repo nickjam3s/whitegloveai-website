@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin, Linkedin, ArrowRight } from 'lucide-react';
@@ -8,8 +7,8 @@ const Footer = () => {
     <footer className="bg-black border-t border-[#7021EE]/20">
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
-          {/* Contact Us - Now moved to the leftmost side */}
-          <div>
+          {/* Contact Us - Now with more space from Solutions */}
+          <div className="lg:pr-12">
             <h4 className="text-white font-semibold mb-4">Contact Us</h4>
             <div className="space-y-3">
               <div className="flex items-start gap-2">
@@ -48,7 +47,16 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Solutions */}
+          {/* Company section moved before Solutions */}
+          <div>
+            <h4 className="text-white font-semibold mb-4">Company</h4>
+            <ul className="space-y-2">
+              <li><Link to="/about" className="text-gray-400 hover:text-[#7021EE] transition-colors">About Us</Link></li>
+              <li><Link to="/about/apprentice" className="text-gray-400 hover:text-[#7021EE] transition-colors">Apprenticeship</Link></li>
+            </ul>
+          </div>
+
+          {/* Solutions section moved after Company */}
           <div>
             <h4 className="text-white font-semibold mb-4">Solutions</h4>
             <ul className="space-y-2">
@@ -57,15 +65,6 @@ const Footer = () => {
               <li><Link to="/maisp/voiceai" className="text-gray-400 hover:text-[#7021EE] transition-colors">VoiceAI</Link></li>
               <li><Link to="/maisp/avatarai" className="text-gray-400 hover:text-[#7021EE] transition-colors">AvatarAI</Link></li>
               <li><Link to="/maisp/automateai" className="text-gray-400 hover:text-[#7021EE] transition-colors">AutomateAI</Link></li>
-            </ul>
-          </div>
-
-          {/* Company */}
-          <div>
-            <h4 className="text-white font-semibold mb-4">Company</h4>
-            <ul className="space-y-2">
-              <li><Link to="/about" className="text-gray-400 hover:text-[#7021EE] transition-colors">About Us</Link></li>
-              <li><Link to="/about/apprentice" className="text-gray-400 hover:text-[#7021EE] transition-colors">Apprenticeship</Link></li>
             </ul>
           </div>
 
@@ -109,3 +108,4 @@ const Footer = () => {
 };
 
 export default Footer;
+
