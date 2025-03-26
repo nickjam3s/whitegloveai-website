@@ -1,6 +1,71 @@
+
 import { motion } from 'framer-motion';
 import ScrollAnimation from '@/components/animations/ScrollAnimation';
 import PageWrapper from '@/components/layout/PageWrapper';
+
+// Define the solutions data
+const solutions = [
+  {
+    title: "AI Strategy & Implementation",
+    description: "We help organizations develop and implement AI strategies tailored to their specific needs and goals.",
+    features: [
+      "AI readiness assessment",
+      "Custom AI roadmap development",
+      "Implementation planning & execution",
+      "Change management support"
+    ]
+  },
+  {
+    title: "Text AI Services",
+    description: "Our Text AI services help organizations extract value from unstructured text data across various channels.",
+    features: [
+      "Natural language processing",
+      "Document analysis & summarization",
+      "Chatbot & virtual assistant development",
+      "Content generation & optimization"
+    ]
+  },
+  {
+    title: "Voice AI Solutions",
+    description: "Transform customer interactions and operational efficiency with our advanced Voice AI solutions.",
+    features: [
+      "Voice recognition & analysis",
+      "Conversational AI systems",
+      "Voice biometrics",
+      "IVR system enhancement"
+    ]
+  },
+  {
+    title: "Avatar AI Development",
+    description: "Create digital representatives for your brand with our state-of-the-art Avatar AI technology.",
+    features: [
+      "Customized digital avatars",
+      "Personality & brand alignment",
+      "Multimodal interaction capabilities",
+      "Integration with existing systems"
+    ]
+  },
+  {
+    title: "AI Automation",
+    description: "Streamline operations and increase productivity with our comprehensive AI automation solutions.",
+    features: [
+      "Process optimization",
+      "Workflow automation",
+      "Intelligent document processing",
+      "RPA integration with AI"
+    ]
+  },
+  {
+    title: "Custom AI Development",
+    description: "Tailored AI solutions designed to address your organization's unique challenges and opportunities.",
+    features: [
+      "Custom ML model development",
+      "AI application prototyping",
+      "Enterprise AI integration",
+      "Ongoing optimization & support"
+    ]
+  }
+];
 
 const Solutions = () => {
   return (
