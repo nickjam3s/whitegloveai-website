@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowDown, Shield, Brain, Sparkles, Users, Target, Lightbulb } from 'lucide-react';
@@ -122,156 +121,125 @@ const AboutUs = () => {
       </section>
 
       <PageWrapper>
-        {/* Mission Section - Styled like the main homepage */}
         <motion.section
           id="mission"
           initial="initial"
           whileInView="animate"
           viewport={{ once: true }}
           variants={fadeInUp}
-          className="scroll-mt-20 py-20 px-4 sm:px-6 lg:px-8 bg-background"
+          className="scroll-mt-20 px-2 sm:px-0"
         >
-          <div className="max-w-7xl mx-auto text-center">
-            <motion.h2 
-              variants={titleAnimation} 
-              className="text-3xl sm:text-4xl md:text-5xl font-bold mb-8 text-white heading-highlight-scroll"
-            >
-              Our Mission
-            </motion.h2>
-            <motion.p 
-              variants={textAnimation}
-              className="text-lg md:text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto"
-            >
-              At WhitegloveAI, our mission is to empower organizations to adopt secure, responsible, and scalable AI solutions. 
-              We believe in reshaping organizational efficiency through AI, unlocking new potentials in business processes, 
-              customer experiences, and digital transformation strategies.
-            </motion.p>
-          </div>
+          <motion.h2 
+            variants={titleAnimation} 
+            className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-8 text-[#7021EE]"
+          >
+            Our Mission
+          </motion.h2>
+          <motion.p 
+            variants={textAnimation}
+            className="text-lg md:text-xl text-gray-300 leading-relaxed"
+          >
+            At WhitegloveAI, our mission is to empower organizations to adopt secure, responsible, and scalable AI solutions. 
+            We believe in reshaping organizational efficiency through AI, unlocking new potentials in business processes, 
+            customer experiences, and digital transformation strategies.
+          </motion.p>
         </motion.section>
 
-        {/* Vision Section - Styled like the main homepage */}
         <motion.section
           initial="initial"
           whileInView="animate"
           viewport={{ once: true }}
           variants={fadeInUp}
-          className="py-20 px-4 sm:px-6 lg:px-8 bg-card"
+          className="px-2 sm:px-0 mt-16"
         >
-          <div className="max-w-7xl mx-auto text-center">
-            <motion.h2 
-              variants={titleAnimation}
-              className="text-3xl sm:text-4xl md:text-5xl font-bold mb-8 text-white heading-highlight-scroll"
-            >
-              Our Vision
-            </motion.h2>
-            <motion.p 
-              variants={textAnimation}
-              className="text-lg md:text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto"
-            >
-              Our vision is to be at the forefront of AI-driven digital transformations, catalyzing growth and efficiency 
-              through emerging technologies. We aim to establish AI as a transformative force that helps businesses 
-              solve complex problems, streamline operations, and enhance decision-making capabilities.
-            </motion.p>
-          </div>
+          <motion.h2 
+            variants={titleAnimation}
+            className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-8 text-[#7021EE]"
+          >
+            Our Vision
+          </motion.h2>
+          <motion.p 
+            variants={textAnimation}
+            className="text-lg md:text-xl text-gray-300 leading-relaxed"
+          >
+            Our vision is to be at the forefront of AI-driven digital transformations, catalyzing growth and efficiency 
+            through emerging technologies. We aim to establish AI as a transformative force that helps businesses 
+            solve complex problems, streamline operations, and enhance decision-making capabilities.
+          </motion.p>
         </motion.section>
         
-        {/* AI Philosophy Section - Styled like the main homepage */}
         <motion.section
           initial="initial"
           whileInView="animate"
           viewport={{ once: true }}
           variants={fadeInUp}
-          className="py-20 px-4 sm:px-6 lg:px-8 bg-background"
+          className="px-2 sm:px-0 mt-16"
         >
-          <div className="max-w-7xl mx-auto text-center">
-            <motion.h2 
-              variants={titleAnimation}
-              className="text-3xl sm:text-4xl md:text-5xl font-bold mb-8 text-white heading-highlight-scroll"
-            >
-              AI Philosophy
-            </motion.h2>
-            <motion.p 
-              variants={textAnimation}
-              className="text-lg md:text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto"
-            >
-              At WhitegloveAI, our philosophy is founded on the principle of harmonizing human ingenuity with the power 
-              of artificial intelligence to forge a brighter and more efficient future for enterprises. We believe AI is 
-              not just a tool but a transformative ally that amplifies human potential, drives innovation, and reshapes 
-              the very fabric of business.
-            </motion.p>
-          </div>
+          <motion.h2 
+            variants={titleAnimation}
+            className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-8 text-[#7021EE]"
+          >
+            AI Philosophy
+          </motion.h2>
+          <motion.p 
+            variants={textAnimation}
+            className="text-lg md:text-xl text-gray-300 leading-relaxed"
+          >
+            At WhitegloveAI, our philosophy is founded on the principle of harmonizing human ingenuity with the power 
+            of artificial intelligence to forge a brighter and more efficient future for enterprises. We believe AI is 
+            not just a tool but a transformative ally that amplifies human potential, drives innovation, and reshapes 
+            the very fabric of business.
+          </motion.p>
         </motion.section>
         
-        {/* Core Beliefs Section */}
-        <div className="py-20 px-4 sm:px-6 lg:px-8 bg-card">
-          <div className="max-w-7xl mx-auto text-center">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-8 text-white heading-highlight-scroll">
-              Our Core Beliefs
-            </h2>
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-            >
-              <CoreBeliefs />
-            </motion.div>
-          </div>
+        <div className="mt-16">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <CoreBeliefs />
+          </motion.div>
         </div>
         
-        {/* Philosophy Statement Section */}
         <motion.section
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="py-20 px-4 sm:px-6 lg:px-8 bg-background"
+          className="bg-gradient-to-br from-[#7021EE]/10 to-transparent border border-[#7021EE]/20 p-4 sm:p-8 rounded-xl mt-16"
         >
-          <div className="max-w-7xl mx-auto text-center">
-            <div className="bg-gradient-to-br from-[#7021EE]/10 to-transparent border border-[#7021EE]/20 p-8 rounded-xl max-w-3xl mx-auto">
-              <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
-                At WhitegloveAI, we are not just practitioners but advocates of an AI-enabled future where businesses thrive through the ethical, secure, and intelligent application of technology. We are dedicated to leading this charge, providing our clients and stakeholders with the tools and guidance to realize the full potential of artificial intelligence.
-              </p>
-            </div>
-          </div>
+          <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
+            At WhitegloveAI, we are not just practitioners but advocates of an AI-enabled future where businesses thrive through the ethical, secure, and intelligent application of technology. We are dedicated to leading this charge, providing our clients and stakeholders with the tools and guidance to realize the full potential of artificial intelligence. Our philosophy isn't just about what AI can do for us today, but how it will shape our tomorrow.
+          </p>
         </motion.section>
         
-        {/* Core Values Section */}
         <motion.section
           variants={containerAnimation}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="py-20 px-4 sm:px-6 lg:px-8 bg-card"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mt-16"
         >
-          <div className="max-w-7xl mx-auto text-center">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-12 text-white heading-highlight-scroll">Our Core Values</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              {coreValues.map((value, index) => (
-                <motion.div
-                  key={index}
-                  variants={itemAnimation}
-                  className="group p-6 rounded-xl bg-gradient-to-br from-[#7021EE]/10 to-transparent border border-[#7021EE]/20 hover:border-[#7021EE]/40 transition-all duration-300 hover-lift"
-                >
-                  <div className="flex flex-col items-center text-center">
-                    <div className="bg-secondary/10 p-4 rounded-full w-16 h-16 flex items-center justify-center mb-4">
-                      <value.icon className="h-8 w-8 text-secondary" />
-                    </div>
-                    <h3 className="text-xl font-semibold mb-3 text-white">{value.title}</h3>
-                    <p className="text-gray-400 group-hover:text-gray-300 transition-colors">
-                      {value.description}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 md:mb-8 text-[#7021EE] col-span-full">Our Core Values</h2>
+          {coreValues.map((value, index) => (
+            <motion.div
+              key={index}
+              variants={itemAnimation}
+              className="group p-4 sm:p-6 rounded-xl bg-gradient-to-br from-[#7021EE]/10 to-transparent border border-[#7021EE]/20 hover:border-[#7021EE]/40 transition-all duration-300 hover-lift"
+            >
+              <value.icon className="h-7 w-7 md:h-8 md:w-8 text-[#7021EE] mb-3 md:mb-4" />
+              <h3 className="text-lg md:text-xl font-semibold mb-2 md:mb-3 text-white">{value.title}</h3>
+              <p className="text-sm md:text-base text-gray-400 group-hover:text-gray-300 transition-colors">
+                {value.description}
+              </p>
+            </motion.div>
+          ))}
         </motion.section>
         
-        {/* Executive Team Section */}
         <ExecutiveTeam />
         
-        {/* Get In Touch Section */}
         <GetInTouch />
       </PageWrapper>
     </div>
