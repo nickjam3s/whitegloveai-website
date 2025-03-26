@@ -37,7 +37,7 @@ const BenefitsSection = () => {
               style={{ transitionDelay: `${index * 0.1}s` }}
             >
               <div className="absolute -right-20 -top-20 w-40 h-40 bg-purple-900/10 rounded-full blur-xl opacity-0 group-hover:opacity-70 transition-all duration-500"></div>
-              <benefit.icon className="h-10 w-10 text-purple-400 mb-6" />
+              <benefit.icon className="h-10 w-10 text-[#7021EE] mb-6" />
               <h3 className="text-xl font-semibold mb-3">{benefit.title}</h3>
               <p className="text-gray-400 relative z-10">{benefit.description}</p>
             </div>

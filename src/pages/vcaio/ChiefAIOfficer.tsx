@@ -73,14 +73,18 @@ const ChiefAIOfficer = () => {
       observer.observe(section);
     });
     
-    // Schedule another scroll reset after a tiny delay to overcome any browser-specific behaviors
-    const timeoutId = setTimeout(() => {
-      window.scrollTo(0, 0);
-    }, 50);
+    // Schedule multiple scroll resets to overcome any browser-specific behaviors
+    const timeoutIds = [];
+    [0, 50, 100, 250, 500].forEach(delay => {
+      const timeoutId = setTimeout(() => {
+        window.scrollTo(0, 0);
+      }, delay);
+      timeoutIds.push(timeoutId);
+    });
     
     return () => {
       document.removeEventListener('click', handleAnchorClick);
-      clearTimeout(timeoutId);
+      timeoutIds.forEach(id => clearTimeout(id));
       // Reset scroll behavior when component unmounts
       document.documentElement.style.scrollBehavior = '';
       document.body.style.scrollBehavior = '';

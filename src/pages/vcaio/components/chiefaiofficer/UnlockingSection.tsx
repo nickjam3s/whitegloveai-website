@@ -33,7 +33,7 @@ const UnlockingSection = () => {
             >
               <div className="flex flex-col items-center text-center">
                 <div className="p-4 rounded-full bg-purple-900/20 mb-6">
-                  <feature.icon className="h-8 w-8 text-purple-400" />
+                  <feature.icon className="h-8 w-8 text-[#7021EE]" />
                 </div>
                 <h3 className="text-xl font-semibold mb-4">{feature.title}</h3>
                 <p className="text-gray-400">{feature.description}</p>
