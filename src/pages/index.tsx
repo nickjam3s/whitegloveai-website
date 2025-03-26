@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { ArrowRight, CheckCircle2, Lightbulb, Shield, BrainCircuit, BarChart4, Download } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -89,9 +88,9 @@ const Index = () => {
       {/* Services Section */}
       <section className="py-20 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Strategic AI Leadership section - Now full width */}
+          {/* Strategic AI Leadership section */}
           <div className="space-y-8 mb-20 animate-fade-up text-center">
-            <h2 className="text-3xl font-semibold mb-4 heading-highlight-scroll">Strategic AI Leadership with vCAIO</h2>
+            <h2 className="text-3xl font-semibold mb-4 heading-highlight-scroll text-white">Strategic AI Leadership with vCAIO</h2>
             <p className="text-gray-400 max-w-3xl mx-auto">
               Unlock the full potential of artificial intelligence with our virtual Chief AI Officer (vCAIO). Our fractional, executive-level service offers you:
             </p>
@@ -108,9 +107,9 @@ const Index = () => {
             </div>
           </div>
 
-          {/* Managed AI Services section - Now full width */}
+          {/* Managed AI Services section */}
           <div className="space-y-8 animate-fade-up text-center">
-            <h2 className="text-3xl font-semibold mb-4 heading-highlight-scroll">Managed AI Services</h2>
+            <h2 className="text-3xl font-semibold mb-4 heading-highlight-scroll text-white">Managed AI Services</h2>
             <p className="text-gray-400 max-w-3xl mx-auto">
               Our Managed Artificial Intelligence Services empower your organization with round-the-clock support and robust AI solutions, including:
             </p>
@@ -136,7 +135,7 @@ const Index = () => {
             <a href="https://www.aiamf.ai" target="_blank" rel="noopener noreferrer" className="inline-block relative rounded-xl overflow-hidden group">
               <img src="/lovable-uploads/4647222e-2cb8-4c83-a56c-fafa2c6b70a0.png" alt="AI-AMF Framework Diagram" className="mx-auto mb-8 max-w-xl w-full transition-transform duration-300 group-hover:scale-[1.02] relative z-10" />
             </a>
-            <h2 className="text-3xl font-semibold mb-4 heading-highlight-scroll">AI Adoption & Management Framework (AI-AMF)</h2>
+            <h2 className="text-3xl font-semibold mb-4 heading-highlight-scroll text-white">AI Adoption & Management Framework (AI-AMF)</h2>
             <p className="text-gray-400 max-w-2xl mx-auto mb-8">
               Our proprietary and opensource AI-AMF framework is the cornerstone of our approach to AI transformation. It provides a structured, step-by-step pathway to AI success.
             </p>
@@ -160,7 +159,7 @@ const Index = () => {
       <section className="py-20 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 animate-fade-up">
-            <h2 className="text-3xl font-semibold mb-4 heading-highlight-scroll">The WhitegloveAI Difference</h2>
+            <h2 className="text-3xl font-semibold mb-4 heading-highlight-scroll text-white">The WhitegloveAI Difference</h2>
             <p className="text-gray-400 max-w-2xl mx-auto">
               Experience the difference of working with a trusted partner committed to your AI success.
             </p>
@@ -180,7 +179,7 @@ const Index = () => {
       <section className="py-20 bg-card">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="animate-fade-up">
-            <h2 className="text-3xl sm:text-4xl font-semibold mb-6 heading-highlight-scroll">
+            <h2 className="text-3xl sm:text-4xl font-semibold mb-6 heading-highlight-scroll text-white">
               Ready to Accelerate Your AI Journey?
             </h2>
             <p className="text-gray-400 max-w-2xl mx-auto mb-8">
