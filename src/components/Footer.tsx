@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Mail, Phone, MapPin, Linkedin, ArrowRight } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -48,15 +49,44 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Site Map */}
+          {/* Contact */}
           <div>
-            <h4 className="text-white font-semibold mb-4">Site Map</h4>
-            <ul className="space-y-2">
-              <li><Link to="/" className="text-gray-400 hover:text-[#7021EE] transition-colors">Home</Link></li>
-              <li><Link to="/about" className="text-gray-400 hover:text-[#7021EE] transition-colors">About</Link></li>
-              <li><Link to="/contact" className="text-gray-400 hover:text-[#7021EE] transition-colors">Contact</Link></li>
-              <li><a href="https://aiamf.ai" className="text-gray-400 hover:text-[#7021EE] transition-colors">AI-AMF</a></li>
-            </ul>
+            <h4 className="text-white font-semibold mb-4">Contact Us</h4>
+            <div className="space-y-3">
+              <div className="flex items-start gap-2">
+                <MapPin className="w-4 h-4 text-[#7021EE] mt-1" />
+                <p className="text-gray-400 hover:text-[#7021EE]">
+                  5 Cowboys Way, Suite 300<br />
+                  Frisco, TX 75034
+                </p>
+              </div>
+              <a 
+                href="mailto:workwith@whitegloveai.com" 
+                className="text-gray-400 flex items-center gap-2 hover:text-[#7021EE] transition-colors group"
+              >
+                <Mail className="w-4 h-4 text-[#7021EE]" />
+                workwith@whitegloveai.com
+                <ArrowRight className="w-3 h-3 opacity-0 -ml-2 group-hover:opacity-100 group-hover:ml-0 transition-all" />
+              </a>
+              <a 
+                href="tel:+14692099907" 
+                className="text-gray-400 flex items-center gap-2 hover:text-[#7021EE] transition-colors group"
+              >
+                <Phone className="w-4 h-4 text-[#7021EE]" />
+                +1-469-209-9907
+                <ArrowRight className="w-3 h-3 opacity-0 -ml-2 group-hover:opacity-100 group-hover:ml-0 transition-all" />
+              </a>
+              <a 
+                href="https://www.linkedin.com/company/whitegloveai/" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 flex items-center gap-2 hover:text-[#7021EE] transition-colors group"
+              >
+                <Linkedin className="w-4 h-4 text-[#7021EE]" />
+                LinkedIn
+                <ArrowRight className="w-3 h-3 opacity-0 -ml-2 group-hover:opacity-100 group-hover:ml-0 transition-all" />
+              </a>
+            </div>
           </div>
         </div>
 

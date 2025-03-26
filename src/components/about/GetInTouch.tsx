@@ -1,8 +1,7 @@
+
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Mail, Phone, MapPin, Linkedin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Separator } from '@/components/ui/separator';
 import { toast } from "sonner";
 
 const GetInTouch: React.FC = () => {
@@ -40,69 +39,11 @@ const GetInTouch: React.FC = () => {
       variants={fadeInUp}
       className="pt-24 pb-24"
     >
-      <h2 className="text-4xl md:text-5xl font-bold mb-16 text-white">
+      <h2 className="text-4xl md:text-5xl font-bold mb-16 text-white text-center">
         Get in <span className="text-[#7021EE]">Touch</span>
       </h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20">
-        {/* Contact Information */}
-        <div className="space-y-6">
-          <div>
-            <p className="text-gray-400 mb-2 uppercase tracking-wide text-sm">Office</p>
-            <div className="flex items-start gap-2">
-              <MapPin className="w-5 h-5 text-[#7021EE] mt-1" />
-              <p className="text-xl text-white font-medium">
-                5 Cowboys Way, Suite 300<br />
-                Frisco, TX 75034
-              </p>
-            </div>
-          </div>
-
-          <Separator className="bg-[#333333] my-4" />
-
-          <div>
-            <p className="text-gray-400 mb-2 uppercase tracking-wide text-sm">Email</p>
-            <a 
-              href="mailto:workwith@whitegloveai.com" 
-              className="text-xl text-white font-medium flex items-center gap-2 hover:text-[#7021EE] transition-colors group contact-link"
-            >
-              <Mail className="w-5 h-5 text-[#7021EE]" />
-              workwith@whitegloveai.com
-              <ArrowRight className="w-4 h-4 opacity-0 -ml-2 group-hover:opacity-100 group-hover:ml-0 transition-all" />
-            </a>
-          </div>
-
-          <Separator className="bg-[#333333] my-4" />
-
-          <div>
-            <p className="text-gray-400 mb-2 uppercase tracking-wide text-sm">Phone</p>
-            <a 
-              href="tel:+14692099907" 
-              className="text-xl text-white font-medium flex items-center gap-2 hover:text-[#7021EE] transition-colors group contact-link"
-            >
-              <Phone className="w-5 h-5 text-[#7021EE]" />
-              +1-469-209-9907
-              <ArrowRight className="w-4 h-4 opacity-0 -ml-2 group-hover:opacity-100 group-hover:ml-0 transition-all" />
-            </a>
-          </div>
-
-          <Separator className="bg-[#333333] my-4" />
-
-          <div>
-            <p className="text-gray-400 mb-2 uppercase tracking-wide text-sm">Follow WhitegloveAI</p>
-            <a 
-              href="https://www.linkedin.com/company/whitegloveai/" 
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xl text-white font-medium flex items-center gap-2 hover:text-[#7021EE] transition-colors group contact-link"
-            >
-              <Linkedin className="w-5 h-5 text-[#7021EE]" />
-              LinkedIn
-              <ArrowRight className="w-4 h-4 opacity-0 -ml-2 group-hover:opacity-100 group-hover:ml-0 transition-all" />
-            </a>
-          </div>
-        </div>
-
+      <div className="max-w-xl mx-auto">
         {/* Contact Form */}
         <div className="bg-[#111111]/70 rounded-xl p-8 border border-[#333333]">
           <form onSubmit={handleSubmit} className="space-y-6">
