@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin, Linkedin, ArrowRight, Rocket, Users, Shield, Bug } from 'lucide-react';
@@ -89,8 +90,8 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* AI Incubation Lab Section */}
-        <div className="mt-12 pt-8 border-t border-[#7021EE]/20">
+        {/* AI Incubation Lab Section - Ensure it's visible by moving it here */}
+        <div id="ai-incubation-lab" className="mt-16 pt-8 border-t border-[#7021EE]/20">
           <h4 className="text-white font-semibold mb-6 text-center">AI Incubation Lab</h4>
           <p className="text-gray-400 text-center mb-8 max-w-3xl mx-auto">
             Launch AI-powered products faster with enterprise-grade security, customer validation, and scalable architecture.
