@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { useToast } from "@/components/ui/use-toast";
 import { motion } from "framer-motion";
@@ -9,6 +8,7 @@ import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Link } from "react-router-dom";
+import ScrollAnimation from '@/components/animations/ScrollAnimation';
 
 const Contact = () => {
   const { toast } = useToast();
@@ -51,7 +51,7 @@ const Contact = () => {
   return (
     <div className="min-h-screen bg-black text-white font-sans">
       {/* Hero Section */}
-      <section className="w-full relative overflow-hidden bg-black">
+      <section className="w-full relative overflow-hidden bg-black h-[90vh] flex items-center">
         {/* Animated Background */}
         <div className="absolute inset-0 z-0">
           <div className="absolute h-full w-full bg-gradient-radial from-[#7021EE]/20 to-transparent opacity-50"></div>
@@ -59,7 +59,7 @@ const Contact = () => {
         </div>
         
         {/* Content Container */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-24 md:py-32 lg:py-40 flex flex-col items-start">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 lg:px-8 flex flex-col items-start">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -78,11 +78,13 @@ const Contact = () => {
             Ready to transform your business with AI? We're here to help.
             Contact us to discuss your needs and discover how we can help you succeed.
           </motion.p>
+          
+          <ScrollAnimation targetId="contact-info" />
         </div>
       </section>
 
       {/* Contact Information & Form Section */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8">
+      <section id="contact-info" className="relative py-20 px-4 sm:px-6 lg:px-8 scroll-mt-20">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12">
             <motion.div 

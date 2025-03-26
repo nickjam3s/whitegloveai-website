@@ -1,9 +1,9 @@
-
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const PatentedExpertise = () => {
   return (
-    <section className="py-16 px-4 md:px-6 lg:px-8 bg-card/50">
+    <section id="patented-expertise" className="py-20 bg-black scroll-mt-20">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-lg font-semibold text-primary mb-4">EXPERTISE & INNOVATION</h2>
         <h3 className="text-3xl md:text-4xl lg:text-6xl font-bold text-white mb-12 heading-highlight">

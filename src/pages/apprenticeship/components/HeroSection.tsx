@@ -1,6 +1,8 @@
+
 import { motion } from 'framer-motion';
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from 'lucide-react';
+import ScrollAnimation from '@/components/animations/ScrollAnimation';
 
 const HeroSection = () => {
   return (
@@ -22,8 +24,8 @@ const HeroSection = () => {
             <p className="text-xl text-gray-300 mb-8">
               Our exclusive 6-month apprenticeship program offers an unparalleled opportunity to master cutting-edge AI technology while working on real-world solutions.
             </p>
-            
           </motion.div>
+          <ScrollAnimation targetId="program-features" />
         </div>
       </div>
     </section>

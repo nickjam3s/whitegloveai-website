@@ -11,7 +11,7 @@ const features = [
 
 const ProgramFeatures = () => {
   return (
-    <section className="py-20 bg-black">
+    <section id="program-features" className="py-20 bg-black scroll-mt-20">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold mb-12 text-white">
           What Makes Our Program Unique
