@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { useToast } from "@/components/ui/use-toast";
 import { motion } from "framer-motion";
@@ -9,6 +8,8 @@ import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Link } from "react-router-dom";
+import HeroSection from "@/components/layout/HeroSection";
+import AnimatedSection from "@/components/layout/AnimatedSection";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -42,47 +43,16 @@ const Contact = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const fadeInUp = {
-    initial: { opacity: 0, y: 20 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.6 }
-  };
-
   return (
     <div className="min-h-screen bg-black text-white font-sans">
-      {/* Hero Section */}
-      <section className="w-full relative overflow-hidden bg-black">
-        {/* Animated Background */}
-        <div className="absolute inset-0 z-0">
-          <div className="absolute h-full w-full bg-gradient-radial from-[#7021EE]/20 to-transparent opacity-50"></div>
-          <div className="absolute h-full w-full bg-gradient-to-b from-black/0 via-black/0 to-black"></div>
-        </div>
-        
-        {/* Content Container */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-24 md:py-32 lg:py-40 flex flex-col items-start">
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.6 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white max-w-4xl mb-6"
-          >
-            Get in <span className="text-[#7021EE]">Touch</span> with our team
-          </motion.h1>
-          
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6, duration: 0.6 }}
-            className="text-lg md:text-xl text-gray-300 max-w-3xl mb-12"
-          >
-            Ready to transform your business with AI? We're here to help.
-            Contact us to discuss your needs and discover how we can help you succeed.
-          </motion.p>
-        </div>
-      </section>
+      <HeroSection 
+        title="Get in Touch with our team"
+        subtitle="Ready to transform your business with AI? We're here to help. Contact us to discuss your needs and discover how we can help you succeed."
+        id="contact-form"
+      />
 
       {/* Contact Information & Form Section */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8">
+      <AnimatedSection className="relative py-20 px-4 sm:px-6 lg:px-8" id="contact-form">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12">
             <motion.div 
@@ -139,7 +109,6 @@ const Contact = () => {
                   </div>
                 </div>
               </div>
-              
               
               <Card className="overflow-hidden border-0">
                 <iframe 
@@ -229,12 +198,11 @@ const Contact = () => {
                   </Button>
                 </form>
               </div>
-              </motion.div>
-              </div>
-              </div>
-              </section>
+            </motion.div>
+          </div>
+        </div>
+      </AnimatedSection>
     </div>
-    
   );
 };
 

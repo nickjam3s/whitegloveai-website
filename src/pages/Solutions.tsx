@@ -1,38 +1,57 @@
 
+import React from 'react';
+import HeroSection from '@/components/layout/HeroSection';
+import AnimatedSection from '@/components/layout/AnimatedSection';
+import { motion } from 'framer-motion';
+
 const Solutions = () => {
   return (
-    <div className="min-h-screen pt-20">
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16 animate-fade-up">
-            <h1 className="text-4xl font-semibold mb-6">Our Solutions</h1>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Discover our comprehensive range of AI solutions designed to transform
-              your business.
-            </p>
-          </div>
+    <div className="min-h-screen bg-black">
+      <HeroSection 
+        title="AI Solutions That Transform Business"
+        subtitle="Discover our comprehensive range of AI solutions designed to drive innovation and efficiency across your organization."
+        id="solutions"
+      />
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 animate-fade-up">
+      <AnimatedSection className="py-20 px-4 sm:px-6 lg:px-8" id="solutions">
+        <div className="max-w-7xl mx-auto">
+          <motion.div 
+            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+            variants={{
+              hidden: { opacity: 0 },
+              show: {
+                opacity: 1,
+                transition: { staggerChildren: 0.2 }
+              }
+            }}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+          >
             {solutions.map((solution, index) => (
-              <div
+              <motion.div
                 key={index}
-                className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-all duration-300"
+                className="bg-white/10 backdrop-blur-sm p-6 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 border border-gray-800"
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  show: { opacity: 1, y: 0 }
+                }}
               >
-                <h2 className="text-xl font-semibold mb-4">{solution.title}</h2>
-                <p className="text-gray-600 mb-6">{solution.description}</p>
+                <h2 className="text-xl font-semibold mb-4 text-white">{solution.title}</h2>
+                <p className="text-gray-300 mb-6">{solution.description}</p>
                 <ul className="space-y-2">
                   {solution.features.map((feature, fIndex) => (
-                    <li key={fIndex} className="flex items-center text-gray-600">
-                      <div className="w-1.5 h-1.5 bg-primary rounded-full mr-3" />
+                    <li key={fIndex} className="flex items-center text-gray-400">
+                      <div className="w-1.5 h-1.5 bg-[#7021EE] rounded-full mr-3" />
                       {feature}
                     </li>
                   ))}
                 </ul>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
-      </section>
+      </AnimatedSection>
     </div>
   );
 };
