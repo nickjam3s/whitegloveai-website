@@ -2,6 +2,7 @@
 import { motion } from 'framer-motion';
 import ScrollAnimation from '@/components/animations/ScrollAnimation';
 import PageWrapper from '@/components/layout/PageWrapper';
+import { useEffect, useLayoutEffect } from 'react';
 
 // Define the solutions data
 const solutions = [
@@ -68,8 +69,50 @@ const solutions = [
 ];
 
 const Solutions = () => {
+  // Use useLayoutEffect to prevent flash of content before scroll position is set
+  useLayoutEffect(() => {
+    // Immediately scroll to top when component mounts
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
+    // Explicitly disable smooth scrolling
+    document.documentElement.style.scrollBehavior = 'auto';
+    
+    // Handle anchor links within the page without smooth scrolling
+    const handleAnchorClick = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      const anchor = target.closest('a[href^="#"]');
+      
+      if (anchor) {
+        e.preventDefault();
+        const targetId = anchor.getAttribute('href')?.substring(1);
+        if (targetId) {
+          // Get the element position and scroll to it without smooth behavior
+          const targetElement = document.getElementById(targetId);
+          if (targetElement) {
+            const yOffset = -80; // Adjust offset if needed
+            const y = targetElement.getBoundingClientRect().top + window.scrollY + yOffset;
+            window.scrollTo({
+              top: y,
+              behavior: 'auto'
+            });
+          }
+        }
+      }
+    };
+    
+    document.addEventListener('click', handleAnchorClick);
+    
+    return () => {
+      document.removeEventListener('click', handleAnchorClick);
+      // Reset scroll behavior when component unmounts
+      document.documentElement.style.scrollBehavior = '';
+    };
+  }, []);
+
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-black text-white overflow-x-hidden">
       <section className="relative h-[90vh] flex items-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-[#7021EE]/20 to-black/90">
           <div className="absolute inset-0 backdrop-blur-sm" />
