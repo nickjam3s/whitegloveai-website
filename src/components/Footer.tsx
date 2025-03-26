@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin, Linkedin, ArrowRight, Rocket, Users, Shield, Bug } from 'lucide-react';
@@ -112,11 +111,11 @@ const Footer = () => {
             <div className="bg-black/40 p-5 rounded-lg border border-[#7021EE]/20 hover:border-[#7021EE]/40 transition-all">
               <div className="flex items-start gap-3">
                 <div className="bg-[#7021EE]/10 p-2 rounded-md">
-                  <Users className="w-5 h-5 text-[#7021EE]" />
+                  <Bug className="w-5 h-5 text-[#7021EE]" />
                 </div>
                 <div>
-                  <h5 className="text-white text-sm font-medium mb-2">Customer-Funded Acceleration</h5>
-                  <p className="text-gray-400 text-sm">Leverage approved SOWs to reduce risk and accelerate time-to-market.</p>
+                  <h5 className="text-white text-sm font-medium mb-2">Full-Lifecycle Build Service</h5>
+                  <p className="text-gray-400 text-sm">From ideation to launch, we deliver turnkey AI solutions with embedded compliance and real-time user feedback.</p>
                 </div>
               </div>
             </div>
