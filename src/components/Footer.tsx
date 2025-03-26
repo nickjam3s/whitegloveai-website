@@ -1,6 +1,7 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Mail, Phone, MapPin, Linkedin, ArrowRight } from 'lucide-react';
+import { Mail, Phone, MapPin, Linkedin, ArrowRight, Rocket, Users, Shield, Bug } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -89,8 +90,53 @@ const Footer = () => {
           </div>
         </div>
 
+        {/* AI Incubation Lab Section */}
+        <div className="mt-12 pt-8 border-t border-[#7021EE]/20">
+          <h4 className="text-white font-semibold mb-6 text-center">AI Incubation Lab</h4>
+          <p className="text-gray-400 text-center mb-8 max-w-3xl mx-auto">
+            Launch AI-powered products faster with enterprise-grade security, customer validation, and scalable architecture.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="bg-black/40 p-5 rounded-lg border border-[#7021EE]/20 hover:border-[#7021EE]/40 transition-all">
+              <div className="flex items-start gap-3">
+                <div className="bg-[#7021EE]/10 p-2 rounded-md">
+                  <Rocket className="w-5 h-5 text-[#7021EE]" />
+                </div>
+                <div>
+                  <h5 className="text-white text-sm font-medium mb-2">Problem-Led Prototyping</h5>
+                  <p className="text-gray-400 text-sm">We identify real customer challenges and build secure MVPs in weeks—not months.</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-black/40 p-5 rounded-lg border border-[#7021EE]/20 hover:border-[#7021EE]/40 transition-all">
+              <div className="flex items-start gap-3">
+                <div className="bg-[#7021EE]/10 p-2 rounded-md">
+                  <Users className="w-5 h-5 text-[#7021EE]" />
+                </div>
+                <div>
+                  <h5 className="text-white text-sm font-medium mb-2">Customer-Funded Acceleration</h5>
+                  <p className="text-gray-400 text-sm">Leverage approved SOWs to reduce risk and accelerate time-to-market.</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-black/40 p-5 rounded-lg border border-[#7021EE]/20 hover:border-[#7021EE]/40 transition-all">
+              <div className="flex items-start gap-3">
+                <div className="bg-[#7021EE]/10 p-2 rounded-md">
+                  <Shield className="w-5 h-5 text-[#7021EE]" />
+                </div>
+                <div>
+                  <h5 className="text-white text-sm font-medium mb-2">Enterprise-Ready from Day One</h5>
+                  <p className="text-gray-400 text-sm">Solutions are designed for compliance, scalability, and long-term value creation.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Certifications and Copyright */}
-        <div className="border-t border-[#7021EE]/20 pt-8">
+        <div className="border-t border-[#7021EE]/20 pt-8 mt-12">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-gray-400">
               <Link to="/privacy" className="text-gray-400 hover:text-[#7021EE] mr-4 transition-colors">Privacy Policy</Link>
