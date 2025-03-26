@@ -8,6 +8,46 @@ const Footer = () => {
     <footer className="bg-black border-t border-[#7021EE]/20">
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
+          {/* Contact Us - Now moved to the leftmost side */}
+          <div>
+            <h4 className="text-white font-semibold mb-4">Contact Us</h4>
+            <div className="space-y-3">
+              <div className="flex items-start gap-2">
+                <MapPin className="w-4 h-4 text-[#7021EE] mt-1" />
+                <p className="text-gray-400 hover:text-[#7021EE]">
+                  5 Cowboys Way, Suite 300<br />
+                  Frisco, TX 75034
+                </p>
+              </div>
+              <a 
+                href="mailto:workwith@whitegloveai.com" 
+                className="text-gray-400 flex items-center gap-2 hover:text-[#7021EE] transition-colors group"
+              >
+                <Mail className="w-4 h-4 text-[#7021EE]" />
+                workwith@whitegloveai.com
+                <ArrowRight className="w-3 h-3 opacity-0 -ml-2 group-hover:opacity-100 group-hover:ml-0 transition-all" />
+              </a>
+              <a 
+                href="tel:+14692099907" 
+                className="text-gray-400 flex items-center gap-2 hover:text-[#7021EE] transition-colors group"
+              >
+                <Phone className="w-4 h-4 text-[#7021EE]" />
+                +1-469-209-9907
+                <ArrowRight className="w-3 h-3 opacity-0 -ml-2 group-hover:opacity-100 group-hover:ml-0 transition-all" />
+              </a>
+              <a 
+                href="https://www.linkedin.com/company/whitegloveai/" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 flex items-center gap-2 hover:text-[#7021EE] transition-colors group"
+              >
+                <Linkedin className="w-4 h-4 text-[#7021EE]" />
+                LinkedIn
+                <ArrowRight className="w-3 h-3 opacity-0 -ml-2 group-hover:opacity-100 group-hover:ml-0 transition-all" />
+              </a>
+            </div>
+          </div>
+
           {/* Solutions */}
           <div>
             <h4 className="text-white font-semibold mb-4">Solutions</h4>
@@ -47,46 +87,6 @@ const Footer = () => {
               <li><Link to="/privacy" className="text-gray-400 hover:text-[#7021EE] transition-colors">Privacy Policy</Link></li>
               <li><Link to="/terms" className="text-gray-400 hover:text-[#7021EE] transition-colors">Terms of Service</Link></li>
             </ul>
-          </div>
-
-          {/* Contact */}
-          <div>
-            <h4 className="text-white font-semibold mb-4">Contact Us</h4>
-            <div className="space-y-3">
-              <div className="flex items-start gap-2">
-                <MapPin className="w-4 h-4 text-[#7021EE] mt-1" />
-                <p className="text-gray-400 hover:text-[#7021EE]">
-                  5 Cowboys Way, Suite 300<br />
-                  Frisco, TX 75034
-                </p>
-              </div>
-              <a 
-                href="mailto:workwith@whitegloveai.com" 
-                className="text-gray-400 flex items-center gap-2 hover:text-[#7021EE] transition-colors group"
-              >
-                <Mail className="w-4 h-4 text-[#7021EE]" />
-                workwith@whitegloveai.com
-                <ArrowRight className="w-3 h-3 opacity-0 -ml-2 group-hover:opacity-100 group-hover:ml-0 transition-all" />
-              </a>
-              <a 
-                href="tel:+14692099907" 
-                className="text-gray-400 flex items-center gap-2 hover:text-[#7021EE] transition-colors group"
-              >
-                <Phone className="w-4 h-4 text-[#7021EE]" />
-                +1-469-209-9907
-                <ArrowRight className="w-3 h-3 opacity-0 -ml-2 group-hover:opacity-100 group-hover:ml-0 transition-all" />
-              </a>
-              <a 
-                href="https://www.linkedin.com/company/whitegloveai/" 
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 flex items-center gap-2 hover:text-[#7021EE] transition-colors group"
-              >
-                <Linkedin className="w-4 h-4 text-[#7021EE]" />
-                LinkedIn
-                <ArrowRight className="w-3 h-3 opacity-0 -ml-2 group-hover:opacity-100 group-hover:ml-0 transition-all" />
-              </a>
-            </div>
           </div>
         </div>
 
