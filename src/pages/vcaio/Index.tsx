@@ -1,7 +1,6 @@
 
 import { useEffect } from "react";
-import HeroSection from "@/components/layout/HeroSection";
-import AnimatedSection from "@/components/layout/AnimatedSection";
+import HeroSection from "./components/chiefaiofficer/HeroSection";
 import UnlockingSection from "./components/chiefaiofficer/UnlockingSection";
 import BenefitsSection from "./components/chiefaiofficer/BenefitsSection";
 import MaturityLevels from "./components/chiefaiofficer/MaturityLevels";
@@ -51,35 +50,13 @@ const VCAIO = () => {
 
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
-      <HeroSection 
-        title="Virtual Chief AI Officer"
-        subtitle="Strategic AI leadership and expertise to guide your organization's AI journey"
-        id="why-vcaio"
-      />
-      
-      <AnimatedSection>
-        <WhyVCAIO />
-      </AnimatedSection>
-      
-      <AnimatedSection>
-        <UnlockingSection />
-      </AnimatedSection>
-      
-      <AnimatedSection>
-        <BenefitsSection />
-      </AnimatedSection>
-      
-      <AnimatedSection>
-        <CoreBeliefs />
-      </AnimatedSection>
-      
-      <AnimatedSection>
-        <MaturityLevels />
-      </AnimatedSection>
-      
-      <AnimatedSection>
-        <FutureSection />
-      </AnimatedSection>
+      <HeroSection />
+      <WhyVCAIO />
+      <UnlockingSection />
+      <BenefitsSection />
+      <CoreBeliefs />
+      <MaturityLevels />
+      <FutureSection />
     </div>
   );
 };

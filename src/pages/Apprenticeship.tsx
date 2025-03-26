@@ -1,8 +1,7 @@
 
 import React from 'react';
 import PageWrapper from '@/components/layout/PageWrapper';
-import HeroSection from '@/components/layout/HeroSection';
-import AnimatedSection from '@/components/layout/AnimatedSection';
+import HeroSection from "./apprenticeship/components/HeroSection";
 import ProgramFeatures from "./apprenticeship/components/ProgramFeatures";
 import CandidateProfile from "./apprenticeship/components/CandidateProfile";
 import CareerProgression from "./apprenticeship/components/CareerProgression";
@@ -18,43 +17,15 @@ const Apprenticeship = () => {
   return (
     <div className="min-h-screen bg-black">
       <PageWrapper fullWidth>
-        <HeroSection 
-          title="AI Apprenticeship Program"
-          subtitle="Join our immersive training program designed to transform beginners into AI professionals ready for industry challenges."
-          id="why-us"
-        />
-        
-        <AnimatedSection>
-          <WhyUs />
-        </AnimatedSection>
-        
-        <AnimatedSection>
-          <ProgramFeatures />
-        </AnimatedSection>
-        
-        <AnimatedSection>
-          <CareerProgression />
-        </AnimatedSection>
-        
-        <AnimatedSection>
-          <VisionSection />
-        </AnimatedSection>
-        
-        <AnimatedSection>
-          <CandidateProfile />
-        </AnimatedSection>
-        
-        <AnimatedSection>
-          <ApplicationProcess />
-        </AnimatedSection>
-        
-        <AnimatedSection>
-          <ContactSection />
-        </AnimatedSection>
-        
-        <AnimatedSection>
-          <FAQSection />
-        </AnimatedSection>
+        <HeroSection />
+        <WhyUs />
+        <ProgramFeatures />
+        <CareerProgression />
+        <VisionSection />
+        <CandidateProfile />
+        <ApplicationProcess />
+        <ContactSection />
+        <FAQSection />
       </PageWrapper>
     </div>
   );
