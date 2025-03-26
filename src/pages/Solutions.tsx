@@ -1,4 +1,3 @@
-
 import { motion } from 'framer-motion';
 import ScrollAnimation from '@/components/animations/ScrollAnimation';
 import PageWrapper from '@/components/layout/PageWrapper';
@@ -65,69 +64,5 @@ const Solutions = () => {
     </div>
   );
 };
-
-const solutions = [
-  {
-    title: "AI Consulting",
-    description:
-      "Strategic guidance to help you leverage AI technology effectively.",
-    features: [
-      "Technology Assessment",
-      "Implementation Strategy",
-      "ROI Analysis",
-      "Risk Management",
-    ],
-  },
-  {
-    title: "Custom AI Development",
-    description: "Tailored AI solutions designed for your specific needs.",
-    features: [
-      "Machine Learning Models",
-      "Natural Language Processing",
-      "Computer Vision",
-      "Predictive Analytics",
-    ],
-  },
-  {
-    title: "AI Integration",
-    description: "Seamlessly integrate AI into your existing systems.",
-    features: [
-      "API Development",
-      "System Integration",
-      "Data Pipeline Setup",
-      "Performance Optimization",
-    ],
-  },
-  {
-    title: "AI Training",
-    description: "Comprehensive training programs for your team.",
-    features: [
-      "Technical Workshops",
-      "Best Practices",
-      "Hands-on Training",
-      "Ongoing Support",
-    ],
-  },
-  {
-    title: "AI Maintenance",
-    description: "Ongoing support and maintenance for your AI systems.",
-    features: [
-      "Performance Monitoring",
-      "System Updates",
-      "Bug Fixes",
-      "Security Patches",
-    ],
-  },
-  {
-    title: "AI Analytics",
-    description: "Deep insights from your AI implementations.",
-    features: [
-      "Performance Metrics",
-      "Usage Analytics",
-      "ROI Tracking",
-      "Optimization Recommendations",
-    ],
-  },
-];
 
 export default Solutions;

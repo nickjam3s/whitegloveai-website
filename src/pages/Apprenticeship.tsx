@@ -1,6 +1,7 @@
 
 import React from 'react';
 import PageWrapper from '@/components/layout/PageWrapper';
+import ScrollAnimation from '@/components/animations/ScrollAnimation';
 import HeroSection from "./apprenticeship/components/HeroSection";
 import ProgramFeatures from "./apprenticeship/components/ProgramFeatures";
 import CandidateProfile from "./apprenticeship/components/CandidateProfile";
@@ -26,6 +27,7 @@ const Apprenticeship = () => {
         <ApplicationProcess />
         <ContactSection />
         <FAQSection />
+        <ScrollAnimation targetId="program-features" />
       </PageWrapper>
     </div>
   );
