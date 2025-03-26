@@ -7,7 +7,7 @@ const Footer = () => {
   return (
     <footer className="bg-black border-t border-[#7021EE]/20">
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 justify-between">
           {/* Contact Us section */}
           <div className="lg:col-span-1">
             <h4 className="text-white font-semibold mb-4">Contact Us</h4>
@@ -49,35 +49,41 @@ const Footer = () => {
           </div>
 
           {/* Company section */}
-          <div className="lg:col-span-1">
-            <h4 className="text-white font-semibold mb-4">Company</h4>
-            <ul className="space-y-2">
-              <li><Link to="/about" className="text-gray-400 hover:text-[#7021EE] transition-colors">About Us</Link></li>
-              <li><Link to="/about/apprentice" className="text-gray-400 hover:text-[#7021EE] transition-colors">Apprenticeship</Link></li>
-            </ul>
+          <div className="lg:col-span-1 lg:flex lg:justify-center">
+            <div>
+              <h4 className="text-white font-semibold mb-4">Company</h4>
+              <ul className="space-y-2">
+                <li><Link to="/about" className="text-gray-400 hover:text-[#7021EE] transition-colors">About Us</Link></li>
+                <li><Link to="/about/apprentice" className="text-gray-400 hover:text-[#7021EE] transition-colors">Apprenticeship</Link></li>
+              </ul>
+            </div>
           </div>
 
           {/* Managed AI Services section */}
-          <div className="lg:col-span-1">
-            <h4 className="text-white font-semibold mb-4">Managed AI Services</h4>
-            <ul className="space-y-2">
-              <li><Link to="/maisp" className="text-gray-400 hover:text-[#7021EE] transition-colors">Managed AI Services</Link></li>
-              <li><Link to="/maisp/textai" className="text-gray-400 hover:text-[#7021EE] transition-colors">TextAI</Link></li>
-              <li><Link to="/maisp/voiceai" className="text-gray-400 hover:text-[#7021EE] transition-colors">VoiceAI</Link></li>
-              <li><Link to="/maisp/avatarai" className="text-gray-400 hover:text-[#7021EE] transition-colors">AvatarAI</Link></li>
-              <li><Link to="/maisp/automateai" className="text-gray-400 hover:text-[#7021EE] transition-colors">AutomateAI</Link></li>
-            </ul>
+          <div className="lg:col-span-1 lg:flex lg:justify-center">
+            <div>
+              <h4 className="text-white font-semibold mb-4">Managed AI Services</h4>
+              <ul className="space-y-2">
+                <li><Link to="/maisp" className="text-gray-400 hover:text-[#7021EE] transition-colors">Managed AI Services</Link></li>
+                <li><Link to="/maisp/textai" className="text-gray-400 hover:text-[#7021EE] transition-colors">TextAI</Link></li>
+                <li><Link to="/maisp/voiceai" className="text-gray-400 hover:text-[#7021EE] transition-colors">VoiceAI</Link></li>
+                <li><Link to="/maisp/avatarai" className="text-gray-400 hover:text-[#7021EE] transition-colors">AvatarAI</Link></li>
+                <li><Link to="/maisp/automateai" className="text-gray-400 hover:text-[#7021EE] transition-colors">AutomateAI</Link></li>
+              </ul>
+            </div>
           </div>
 
           {/* Consulting section */}
-          <div className="lg:col-span-1">
-            <h4 className="text-white font-semibold mb-4">Consulting</h4>
-            <ul className="space-y-2">
-              <li><Link to="/vcaio" className="text-gray-400 hover:text-[#7021EE] transition-colors">Overview</Link></li>
-              <li><Link to="/vcaio/launch" className="text-gray-400 hover:text-[#7021EE] transition-colors">Launchpad</Link></li>
-              <li><Link to="/vcaio/adopt" className="text-gray-400 hover:text-[#7021EE] transition-colors">Adopt</Link></li>
-              <li><Link to="/vcaio/enable" className="text-gray-400 hover:text-[#7021EE] transition-colors">Enable</Link></li>
-            </ul>
+          <div className="lg:col-span-1 lg:flex lg:justify-center">
+            <div>
+              <h4 className="text-white font-semibold mb-4">Consulting</h4>
+              <ul className="space-y-2">
+                <li><Link to="/vcaio" className="text-gray-400 hover:text-[#7021EE] transition-colors">Overview</Link></li>
+                <li><Link to="/vcaio/launch" className="text-gray-400 hover:text-[#7021EE] transition-colors">Launchpad</Link></li>
+                <li><Link to="/vcaio/adopt" className="text-gray-400 hover:text-[#7021EE] transition-colors">Adopt</Link></li>
+                <li><Link to="/vcaio/enable" className="text-gray-400 hover:text-[#7021EE] transition-colors">Enable</Link></li>
+              </ul>
+            </div>
           </div>
         </div>
 
