@@ -17,9 +17,13 @@ const SecurityCompliance = () => {
         <h2 className="text-3xl font-semibold mb-16 text-center heading-highlight-scroll">
           Prioritizing Security & Compliance
         </h2>
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-8 animate-section">
           {securityFeatures.map((feature, index) => (
-            <div key={index} className="bg-background/50 p-6 rounded-lg border border-gray-800">
+            <div 
+              key={index} 
+              className="bg-background/50 p-6 rounded-lg border border-gray-800 animate-on-scroll"
+              style={{ transitionDelay: `${index * 0.1}s` }}
+            >
               <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
               <p className="text-gray-400">{feature.description}</p>
             </div>

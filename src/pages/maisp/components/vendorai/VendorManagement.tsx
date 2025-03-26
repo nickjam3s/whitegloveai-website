@@ -9,12 +9,12 @@ const VendorManagement = () => {
           <h2 className="text-3xl font-semibold mb-4 heading-highlight-scroll">
             AI Vendor Management Simplified
           </h2>
-          <p className="text-lg text-gray-400 max-w-3xl mx-auto heading-highlight-scroll">
+          <p className="text-lg text-gray-400 max-w-3xl mx-auto heading-highlight-scroll stagger-1">
             Our managed service takes the complexity out of working with multiple AI vendors.
           </p>
         </div>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 animate-section fade-in-up">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 animate-section">
           {[
             {
               title: "Vendor Selection",

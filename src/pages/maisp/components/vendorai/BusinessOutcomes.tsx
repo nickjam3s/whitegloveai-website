@@ -21,9 +21,13 @@ const BusinessOutcomes = () => {
         <h2 className="text-3xl font-semibold mb-16 text-center heading-highlight-scroll">
           Achieve Measurable Business Outcomes
         </h2>
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-8 animate-section">
           {outcomes.map((outcome, index) => (
-            <div key={index} className="bg-card p-6 rounded-lg border border-gray-800">
+            <div 
+              key={index} 
+              className="bg-card p-6 rounded-lg border border-gray-800 animate-on-scroll"
+              style={{ transitionDelay: `${index * 0.1}s` }}
+            >
               <h3 className="text-xl font-semibold mb-3">{outcome.title}</h3>
               <p className="text-gray-400">{outcome.description}</p>
             </div>

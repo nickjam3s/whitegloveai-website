@@ -19,12 +19,12 @@ const WhyUs = () => {
           viewport={{ once: true }}
           className="mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white heading-highlight-scroll">
             Why Choose WhitegloveAI
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10 animate-section">
           {benefits.slice(0, 3).map((benefit, index) => (
             <motion.div
               key={index}
@@ -32,14 +32,15 @@ const WhyUs = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="bg-[#7021EE] p-6 rounded-lg"
+              className="bg-[#7021EE] p-6 rounded-lg animate-on-scroll"
+              style={{ transitionDelay: `${index * 0.1}s` }}
             >
               <p className="text-white font-medium">{benefit}</p>
             </motion.div>
           ))}
         </div>
         
-        <div className="grid md:grid-cols-2 gap-6 mb-10">
+        <div className="grid md:grid-cols-2 gap-6 mb-10 animate-section">
           {benefits.slice(3).map((benefit, index) => (
             <motion.div
               key={index + 3}
@@ -47,7 +48,8 @@ const WhyUs = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: (index + 3) * 0.1 }}
               viewport={{ once: true }}
-              className="bg-[#7021EE] p-6 rounded-lg"
+              className="bg-[#7021EE] p-6 rounded-lg animate-on-scroll"
+              style={{ transitionDelay: `${index * 0.1}s` }}
             >
               <p className="text-white font-medium">{benefit}</p>
             </motion.div>
@@ -59,6 +61,7 @@ const WhyUs = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6 }}
           viewport={{ once: true }}
+          className="heading-highlight-scroll stagger-3"
         >
           <p className="text-gray-300 text-lg">
             Transform your career trajectory and join a team that's revolutionizing how businesses leverage AI technology. 

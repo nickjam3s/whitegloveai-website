@@ -17,13 +17,13 @@ const HeroSection = () => {
             <div className="flex flex-wrap justify-center gap-4 animate-on-scroll stagger-2">
               <a 
                 href="#benefits-section" 
-                className="px-6 py-3 bg-primary hover:bg-primary/90 text-white rounded-md transition-colors"
+                className="px-6 py-3 bg-primary hover:bg-primary/90 text-white rounded-md transition-colors animate-on-scroll stagger-2"
               >
                 Learn More
               </a>
               <a 
                 href="#contact" 
-                className="px-6 py-3 bg-transparent border border-white/20 hover:bg-white/5 text-white rounded-md transition-colors"
+                className="px-6 py-3 bg-transparent border border-white/20 hover:bg-white/5 text-white rounded-md transition-colors animate-on-scroll stagger-3"
               >
                 Contact Us
               </a>
