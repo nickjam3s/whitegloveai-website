@@ -3,6 +3,7 @@ import React from 'react';
 import { ArrowRight, CheckCircle2, Lightbulb, Shield, BrainCircuit, BarChart4, Download } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useEffect, useRef } from "react";
+import ScrollAnimation from '@/components/animations/ScrollAnimation';
 
 const Index = () => {
   useEffect(() => {
@@ -22,20 +23,19 @@ const Index = () => {
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          const heading = entry.target as HTMLElement;
-          heading.classList.add('visible');
-          // Add random animation delay and duration
-          heading.style.animation = `highlightText ${3 + Math.random() * 2}s ease-out forwards ${Math.random() * 0.5}s`;
+          entry.target.classList.add('visible');
         }
       });
     }, {
-      threshold: 0.1
+      threshold: 0.1,
+      rootMargin: '0px 0px -100px 0px'
     });
 
-    // Observe all scroll-animated headings
-    document.querySelectorAll('.heading-highlight-scroll').forEach(heading => {
-      observer.observe(heading);
+    // Observe all scroll-animated elements
+    document.querySelectorAll('.heading-highlight-scroll, .animate-on-scroll').forEach(element => {
+      observer.observe(element);
     });
+    
     return () => {
       document.body.removeChild(script);
       document.body.removeChild(typeformScript);
@@ -64,15 +64,15 @@ const Index = () => {
         <div className="max-w-7xl mx-auto relative">
           <div className="text-center animate-fade-up">
             <div className="logo-container">
-              <img src="/lovable-uploads/197ddc10-c159-4f39-a269-e35142af32c5.png" alt="WhitegloveAI Logo" className="h-32 mx-auto mb-8 logo-animation" />
+              <img src="/lovable-uploads/197ddc10-c159-4f39-a269-e35142af32c5.png" alt="WhitegloveAI Logo" className="h-32 mx-auto mb-8 logo-animation animate-on-scroll" />
             </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight mb-6 heading-highlight">
               Your Trusted AI Adoption Partner
             </h1>
-            <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto mb-8">
+            <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto mb-8 animate-on-scroll" style={{ transitionDelay: "0.1s" }}>
               At WhitegloveAI, we guide you through the transformative journey of AI adoption—ensuring every step is secure, compliant, and aligned with your business goals.
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-on-scroll" style={{ transitionDelay: "0.2s" }}>
               <Link to="/contact" className="inline-flex items-center px-6 py-3 text-base font-medium text-white bg-secondary rounded-lg hover:bg-secondary/90 transition-colors">
                 Get Started
                 <ArrowRight className="ml-2 h-5 w-5" />
@@ -84,41 +84,46 @@ const Index = () => {
             </div>
           </div>
         </div>
+        <ScrollAnimation targetId="services" />
       </section>
 
       {/* Services Section */}
-      <section className="py-20 bg-background">
+      <section className="py-20 bg-background" id="services">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-12 animate-fade-up">
+          <div className="grid md:grid-cols-2 gap-12 animate-section">
             <div className="space-y-6">
               <h2 className="text-3xl font-semibold mb-4 heading-highlight-scroll">Strategic AI Leadership with vCAIO</h2>
-              <p className="text-gray-400">
+              <p className="text-gray-400 animate-on-scroll">
                 Unlock the full potential of artificial intelligence with our virtual Chief AI Officer (vCAIO). Our fractional, executive-level service offers you:
               </p>
               <ul className="space-y-4">
-                {vcaioFeatures.map((feature, index) => <li key={index} className="flex items-start">
+                {vcaioFeatures.map((feature, index) => (
+                  <li key={index} className="flex items-start animate-on-scroll" style={{ transitionDelay: `${index * 0.1}s` }}>
                     <CheckCircle2 className="h-6 w-6 text-secondary mt-1 mr-3 flex-shrink-0" />
                     <div>
                       <h3 className="font-medium">{feature.title}</h3>
                       <p className="text-gray-400">{feature.description}</p>
                     </div>
-                  </li>)}
+                  </li>
+                ))}
               </ul>
             </div>
 
             <div className="space-y-6">
               <h2 className="text-3xl font-semibold mb-4 heading-highlight-scroll">Managed AI Services</h2>
-              <p className="text-gray-400">
+              <p className="text-gray-400 animate-on-scroll">
                 Our Managed Artificial Intelligence Services empower your organization with round-the-clock support and robust AI solutions, including:
               </p>
               <ul className="space-y-4">
-                {managedAIFeatures.map((feature, index) => <li key={index} className="flex items-start">
+                {managedAIFeatures.map((feature, index) => (
+                  <li key={index} className="flex items-start animate-on-scroll" style={{ transitionDelay: `${index * 0.1}s` }}>
                     <CheckCircle2 className="h-6 w-6 text-secondary mt-1 mr-3 flex-shrink-0" />
                     <div>
                       <h3 className="font-medium">{feature.title}</h3>
                       <p className="text-gray-400">{feature.description}</p>
                     </div>
-                  </li>)}
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
@@ -129,7 +134,7 @@ const Index = () => {
       <section className="py-20 bg-card">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 animate-fade-up">
-            <a href="https://www.aiamf.ai" target="_blank" rel="noopener noreferrer" className="inline-block relative rounded-xl overflow-hidden group">
+            <a href="https://www.aiamf.ai" target="_blank" rel="noopener noreferrer" className="inline-block relative rounded-xl overflow-hidden group animate-on-scroll">
               <div className="absolute inset-[10%] bg-[radial-gradient(circle_at_50%_50%,#7928CA,transparent_50%)] opacity-[0.15] animate-[morphing_8s_ease-in-out_infinite]" style={{
               transformOrigin: 'center',
               animation: 'morphing 8s ease-in-out infinite, rotating 12s linear infinite'
@@ -153,21 +158,23 @@ const Index = () => {
               </div>
             </a>
             <h2 className="text-3xl font-semibold mb-4 heading-highlight-scroll">AI Adoption & Management Framework (AI-AMF)</h2>
-            <p className="text-gray-400 max-w-2xl mx-auto mb-8">
+            <p className="text-gray-400 max-w-2xl mx-auto mb-8 animate-on-scroll" style={{ transitionDelay: "0.1s" }}>
               Our proprietary and opensource AI-AMF framework is the cornerstone of our approach to AI transformation. It provides a structured, step-by-step pathway to AI success.
             </p>
-            <a href="https://www.aiamf.ai" target="_blank" rel="noopener noreferrer" className="inline-flex items-center px-6 py-3 text-base font-medium text-white bg-secondary rounded-lg hover:bg-secondary/90 transition-colors">
+            <a href="https://www.aiamf.ai" target="_blank" rel="noopener noreferrer" className="inline-flex items-center px-6 py-3 text-base font-medium text-white bg-secondary rounded-lg hover:bg-secondary/90 transition-colors animate-on-scroll" style={{ transitionDelay: "0.2s" }}>
               Download the AI-AMF
               <Download className="ml-2 h-5 w-5" />
             </a>
           </div>
 
-          <div className="grid md:grid-cols-4 gap-8 animate-fade-up">
-            {frameworkSteps.map((step, index) => <div key={index} className="bg-card p-6 rounded-lg border border-gray-800 hover:border-secondary/50 transition-colors">
+          <div className="grid md:grid-cols-4 gap-8 animate-section">
+            {frameworkSteps.map((step, index) => (
+              <div key={index} className="bg-card p-6 rounded-lg border border-gray-800 hover:border-secondary/50 transition-colors animate-on-scroll" style={{ transitionDelay: `${index * 0.1}s` }}>
                 <step.icon className="h-10 w-10 text-secondary mb-4" />
                 <h3 className="text-xl font-semibold mb-3">{step.title}</h3>
                 <p className="text-gray-400">{step.description}</p>
-              </div>)}
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -177,17 +184,19 @@ const Index = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 animate-fade-up">
             <h2 className="text-3xl font-semibold mb-4 heading-highlight-scroll">The WhitegloveAI Difference</h2>
-            <p className="text-gray-400 max-w-2xl mx-auto">
+            <p className="text-gray-400 max-w-2xl mx-auto animate-on-scroll" style={{ transitionDelay: "0.1s" }}>
               Experience the difference of working with a trusted partner committed to your AI success.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 animate-fade-up">
-            {differenceFeatures.map((feature, index) => <div key={index} className="bg-background/50 p-6 rounded-lg border border-gray-800 hover:border-secondary/50 transition-colors">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 animate-section">
+            {differenceFeatures.map((feature, index) => (
+              <div key={index} className="bg-background/50 p-6 rounded-lg border border-gray-800 hover:border-secondary/50 transition-colors animate-on-scroll" style={{ transitionDelay: `${index * 0.1}s` }}>
                 <feature.icon className="h-10 w-10 text-secondary mb-4" />
                 <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
                 <p className="text-gray-400">{feature.description}</p>
-              </div>)}
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -199,10 +208,10 @@ const Index = () => {
             <h2 className="text-3xl sm:text-4xl font-semibold mb-6 heading-highlight-scroll">
               Ready to Accelerate Your AI Journey?
             </h2>
-            <p className="text-gray-400 max-w-2xl mx-auto mb-8">
+            <p className="text-gray-400 max-w-2xl mx-auto mb-8 animate-on-scroll" style={{ transitionDelay: "0.1s" }}>
               Partner with WhitegloveAI and experience a seamless, secure, and strategically guided AI transformation.
             </p>
-            <Link to="/contact" className="inline-flex items-center px-8 py-4 text-lg font-medium text-white bg-secondary rounded-lg hover:bg-secondary/90 transition-colors">
+            <Link to="/contact" className="inline-flex items-center px-8 py-4 text-lg font-medium text-white bg-secondary rounded-lg hover:bg-secondary/90 transition-colors animate-on-scroll" style={{ transitionDelay: "0.2s" }}>
               Get Started Today
               <ArrowRight className="ml-2 h-6 w-6" />
             </Link>
