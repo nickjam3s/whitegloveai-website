@@ -1,5 +1,5 @@
 
-import { useEffect } from "react";
+import { useEffect, useLayoutEffect } from "react";
 import HeroSection from "./components/textai/HeroSection";
 import IntelligentInformationSection from "./components/textai/IntelligentInformationSection";
 import OperationalEfficiencySection from "./components/textai/OperationalEfficiencySection";
@@ -11,11 +11,44 @@ import AdditionalServicesSection from "./components/textai/AdditionalServicesSec
 import ContactSection from "./components/textai/ContactSection";
 import DemoExampleSection from "./components/textai/DemoExampleSection";
 import { ArrowRight, CheckCircle2, BarChart4, Shield } from "lucide-react";
+import ScrollAnimation from '@/components/animations/ScrollAnimation';
+import '@/styles/animations.css'; // Import animations CSS
 
 const TextAI = () => {
-  useEffect(() => {
-    // Scroll to top when component mounts
+  // Use useLayoutEffect to prevent flash of content before scroll position is set
+  useLayoutEffect(() => {
+    // Immediately scroll to top when component mounts
     window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
+    // Explicitly disable smooth scrolling
+    document.documentElement.style.scrollBehavior = 'auto';
+    
+    // Handle anchor links within the page without smooth scrolling
+    const handleAnchorClick = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      const anchor = target.closest('a[href^="#"]');
+      
+      if (anchor) {
+        e.preventDefault();
+        const targetId = anchor.getAttribute('href')?.substring(1);
+        if (targetId) {
+          // Get the element position and scroll to it without smooth behavior
+          const targetElement = document.getElementById(targetId);
+          if (targetElement) {
+            const yOffset = -80; // Adjust offset if needed
+            const y = targetElement.getBoundingClientRect().top + window.scrollY + yOffset;
+            window.scrollTo({
+              top: y,
+              behavior: 'auto'
+            });
+          }
+        }
+      }
+    };
+    
+    document.addEventListener('click', handleAnchorClick);
     
     // Initialize intersection observer for scroll animations
     const observer = new IntersectionObserver(entries => {
@@ -36,16 +69,19 @@ const TextAI = () => {
     });
 
     return () => {
+      document.removeEventListener('click', handleAnchorClick);
+      // Reset scroll behavior when component unmounts
+      document.documentElement.style.scrollBehavior = '';
       observer.disconnect();
     };
   }, []);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background overflow-x-hidden">
       <HeroSection />
       
       {/* Key Features Section */}
-      <section className="py-20 bg-card">
+      <section className="py-20 bg-card scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-semibold mb-16 text-center heading-highlight-scroll">
             Intelligent Information Delivery
@@ -65,7 +101,7 @@ const TextAI = () => {
       <OperationalEfficiencySection />
       
       {/* ROI Benefits Section */}
-      <section className="py-20 bg-background">
+      <section className="py-20 bg-background scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-semibold mb-16 text-center heading-highlight-scroll">
             Expected ROI
@@ -82,11 +118,10 @@ const TextAI = () => {
         </div>
       </section>
       
-      
       <McKinneyEDCSection />
       
       {/* Security & Compliance Section */}
-      <section className="py-20 bg-card">
+      <section className="py-20 bg-card scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-semibold mb-16 text-center heading-highlight-scroll">
             Security & Compliance
@@ -109,6 +144,8 @@ const TextAI = () => {
       <div id="contact">
         <ContactSection />
       </div>
+      
+      <ScrollAnimation targetId="intelligent-information-delivery" />
     </div>
   );
 };

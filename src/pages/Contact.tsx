@@ -1,4 +1,3 @@
-
 import { useState, useEffect, useLayoutEffect } from "react";
 import { useToast } from "@/components/ui/use-toast";
 import { motion } from "framer-motion";
@@ -10,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import ScrollAnimation from '@/components/animations/ScrollAnimation';
+import '@/styles/animations.css';
 
 const Contact = () => {
   const { toast } = useToast();
@@ -21,17 +21,13 @@ const Contact = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Use useLayoutEffect to prevent flash of content before scroll position is set
   useLayoutEffect(() => {
-    // Immediately scroll to top when component mounts
     window.scrollTo(0, 0);
   }, []);
 
   useEffect(() => {
-    // Explicitly disable smooth scrolling
     document.documentElement.style.scrollBehavior = 'auto';
     
-    // Handle anchor links within the page without smooth scrolling
     const handleAnchorClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       const anchor = target.closest('a[href^="#"]');
@@ -40,10 +36,9 @@ const Contact = () => {
         e.preventDefault();
         const targetId = anchor.getAttribute('href')?.substring(1);
         if (targetId) {
-          // Get the element position and scroll to it without smooth behavior
           const targetElement = document.getElementById(targetId);
           if (targetElement) {
-            const yOffset = -80; // Adjust offset if needed
+            const yOffset = -80;
             const y = targetElement.getBoundingClientRect().top + window.scrollY + yOffset;
             window.scrollTo({
               top: y,
@@ -56,10 +51,26 @@ const Contact = () => {
     
     document.addEventListener('click', handleAnchorClick);
     
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -100px 0px'
+    });
+
+    const headings = document.querySelectorAll('.heading-highlight-scroll');
+    headings.forEach(heading => {
+      observer.observe(heading);
+    });
+    
     return () => {
       document.removeEventListener('click', handleAnchorClick);
-      // Reset scroll behavior when component unmounts
       document.documentElement.style.scrollBehavior = '';
+      observer.disconnect();
     };
   }, []);
 
@@ -67,7 +78,6 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate API call
     setTimeout(() => {
       toast({
         title: "Message Sent",
@@ -93,15 +103,12 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen bg-black text-white font-sans overflow-x-hidden">
-      {/* Hero Section */}
       <section className="w-full relative overflow-hidden bg-black h-[90vh] flex items-center">
-        {/* Animated Background */}
         <div className="absolute inset-0 z-0">
           <div className="absolute h-full w-full bg-gradient-radial from-[#7021EE]/20 to-transparent opacity-50"></div>
           <div className="absolute h-full w-full bg-gradient-to-b from-black/0 via-black/0 to-black"></div>
         </div>
         
-        {/* Content Container */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 lg:px-8 flex flex-col items-start">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
@@ -126,7 +133,6 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* Contact Information & Form Section */}
       <section id="contact-info" className="relative py-20 px-4 sm:px-6 lg:px-8 scroll-mt-20">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12">
@@ -184,7 +190,6 @@ const Contact = () => {
                   </div>
                 </div>
               </div>
-              
               
               <Card className="overflow-hidden border-0">
                 <iframe 
@@ -274,10 +279,10 @@ const Contact = () => {
                   </Button>
                 </form>
               </div>
-              </motion.div>
-              </div>
-              </div>
-              </section>
+            </motion.div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };

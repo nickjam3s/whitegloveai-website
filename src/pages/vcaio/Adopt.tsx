@@ -8,6 +8,7 @@ import ExpertTeam from "./components/adopt/ExpertTeam";
 import SecurityCompliance from "./components/adopt/SecurityCompliance";
 import Support from "./components/adopt/Support";
 import ScrollAnimation from '@/components/animations/ScrollAnimation';
+import '@/styles/animations.css'; // Import animations CSS
 
 const Adopt = () => {
   // Use useLayoutEffect to prevent flash of content before scroll position is set
@@ -50,11 +51,30 @@ const Adopt = () => {
     
     document.addEventListener('click', handleAnchorClick);
     
+    // Initialize intersection observer for scroll animations
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -100px 0px'
+    });
+
+    // Observe all scroll-animated headings
+    const headings = document.querySelectorAll('.heading-highlight-scroll');
+    headings.forEach(heading => {
+      observer.observe(heading);
+    });
+    
     return () => {
       document.body.removeChild(script);
       document.removeEventListener('click', handleAnchorClick);
       // Reset scroll behavior when component unmounts
       document.documentElement.style.scrollBehavior = '';
+      observer.disconnect();
     };
   }, []);
 
@@ -69,7 +89,7 @@ const Adopt = () => {
       <Support />
       <ScrollAnimation targetId="service-description" />
       
-      <section className="py-20 bg-background">
+      <section className="py-20 bg-background scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-semibold mb-16 text-center heading-highlight-scroll">
             Contact Us

@@ -1,5 +1,5 @@
 
-import { useEffect } from "react";
+import { useEffect, useLayoutEffect } from "react";
 import HeroSection from "./components/chiefaiofficer/HeroSection";
 import UnlockingSection from "./components/chiefaiofficer/UnlockingSection";
 import BenefitsSection from "./components/chiefaiofficer/BenefitsSection";
@@ -8,12 +8,16 @@ import FutureSection from "./components/chiefaiofficer/FutureSection";
 import CoreBeliefs from "./components/chiefaiofficer/CoreBeliefs";
 import WhyVCAIO from "./components/chiefaiofficer/WhyVCAIO";
 import ScrollAnimation from '@/components/animations/ScrollAnimation';
+import '@/styles/animations.css'; // Import animations CSS
 
 const VCAIO = () => {
-  useEffect(() => {
-    // Scroll to top when component mounts
+  // Use useLayoutEffect to prevent flash of content before scroll position is set
+  useLayoutEffect(() => {
+    // Immediately scroll to top when component mounts
     window.scrollTo(0, 0);
-    
+  }, []);
+
+  useEffect(() => {
     // Explicitly disable smooth scrolling
     document.documentElement.style.scrollBehavior = 'auto';
     
@@ -42,10 +46,29 @@ const VCAIO = () => {
     
     document.addEventListener('click', handleAnchorClick);
     
+    // Initialize intersection observer for scroll animations
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -100px 0px'
+    });
+
+    // Observe all scroll-animated headings
+    const headings = document.querySelectorAll('.heading-highlight-scroll');
+    headings.forEach(heading => {
+      observer.observe(heading);
+    });
+    
     return () => {
       document.removeEventListener('click', handleAnchorClick);
       // Reset scroll behavior when component unmounts
       document.documentElement.style.scrollBehavior = '';
+      observer.disconnect();
     };
   }, []);
 

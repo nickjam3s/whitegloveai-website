@@ -12,7 +12,8 @@ import ApplicationProcess from "./apprenticeship/components/ApplicationProcess";
 import FAQSection from "./apprenticeship/components/FAQSection";
 import VisionSection from "./apprenticeship/components/VisionSection";
 import ApplicationForm from "./apprenticeship/components/ApplicationForm";
-import ContactSection from "./apprenticeship/components/ContactSection"
+import ContactSection from "./apprenticeship/components/ContactSection";
+import '@/styles/animations.css'; // Import animations CSS
 
 const Apprenticeship = () => {
   // Use useLayoutEffect to prevent flash of content before scroll position is set
@@ -50,10 +51,29 @@ const Apprenticeship = () => {
     
     document.addEventListener('click', handleAnchorClick);
     
+    // Initialize intersection observer for scroll animations
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -100px 0px'
+    });
+
+    // Observe all scroll-animated headings
+    const headings = document.querySelectorAll('.heading-highlight-scroll');
+    headings.forEach(heading => {
+      observer.observe(heading);
+    });
+    
     return () => {
       document.removeEventListener('click', handleAnchorClick);
       // Reset scroll behavior when component unmounts
       document.documentElement.style.scrollBehavior = '';
+      observer.disconnect();
     };
   }, []);
 
