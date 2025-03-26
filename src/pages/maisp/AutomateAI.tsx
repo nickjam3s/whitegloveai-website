@@ -7,6 +7,7 @@ import FeaturesSection from "./components/automateai/FeaturesSection";
 import BenefitsSection from "./components/automateai/BenefitsSection";
 import CTASection from "./components/automateai/CTASection";
 import ContactSection from "./components/automateai/ContactSection";
+import ScrollAnimation from '@/components/animations/ScrollAnimation';
 
 const AutomateAI = () => {
   // We're removing the Typeform script loading from here
@@ -21,6 +22,7 @@ const AutomateAI = () => {
       <BenefitsSection />
       <CTASection />
       <ContactSection />
+      <ScrollAnimation targetId="challenges-section" />
     </div>
   );
 };

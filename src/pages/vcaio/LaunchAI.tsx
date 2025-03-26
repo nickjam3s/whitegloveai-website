@@ -7,6 +7,7 @@ import ProcessSection from "./components/launchai/ProcessSection";
 import ResultsSection from "./components/launchai/ResultsSection";
 import UrgencySection from "./components/launchai/UrgencySection";
 import ContactSection from "./components/launchai/ContactSection";
+import ScrollAnimation from '@/components/animations/ScrollAnimation';
 
 const LaunchAI = () => {
   useEffect(() => {
@@ -36,6 +37,7 @@ const LaunchAI = () => {
       <ResultsSection />
       <UrgencySection />
       <ContactSection />
+      <ScrollAnimation targetId="challenges-section" />
     </div>
   );
 };

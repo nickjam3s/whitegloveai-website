@@ -8,6 +8,7 @@ import Deliverables from "./components/humanoidai/Deliverables";
 import SecurityCompliance from "./components/humanoidai/SecurityCompliance";
 import StepByStepForm from "./components/vendorai/StepByStepForm";
 import ContactSection from "./components/humanoidai/ContactSection"; 
+import ScrollAnimation from '@/components/animations/ScrollAnimation';
 
 const HumanoidAI = () => {
   useEffect(() => {
@@ -23,6 +24,7 @@ const HumanoidAI = () => {
       <Deliverables />
       <SecurityCompliance />
       <ContactSection />
+      <ScrollAnimation targetId="service-features" />
       
       <section id="contact" className="py-20 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

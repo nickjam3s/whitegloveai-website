@@ -1,9 +1,11 @@
+
 import { useEffect, useLayoutEffect } from "react";
 import HeroSection from "./components/chiefaiofficer/HeroSection";
 import UnlockingSection from "./components/chiefaiofficer/UnlockingSection";
 import BenefitsSection from "./components/chiefaiofficer/BenefitsSection";
 import FutureSection from "./components/chiefaiofficer/FutureSection";
 import WhyVCAIO from "./components/chiefaiofficer/WhyVCAIO";
+import ScrollAnimation from '@/components/animations/ScrollAnimation';
 
 const ChiefAIOfficer = () => {
   // Use useLayoutEffect to prevent flash of content before scroll position is set
@@ -55,6 +57,7 @@ const ChiefAIOfficer = () => {
       <UnlockingSection />
       <BenefitsSection />
       <FutureSection />
+      <ScrollAnimation targetId="why-vcaio" />
     </div>
   );
 };

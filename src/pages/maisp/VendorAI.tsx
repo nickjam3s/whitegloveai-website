@@ -10,6 +10,7 @@ import PricingModels from "./components/vendorai/PricingModels";
 import Support from "./components/vendorai/Support";
 import ContactSection from "./components/vendorai/ContactSection";
 import StepByStepForm from "./components/vendorai/StepByStepForm";
+import ScrollAnimation from '@/components/animations/ScrollAnimation';
 
 const VendorAI = () => {
   useEffect(() => {
@@ -27,7 +28,7 @@ const VendorAI = () => {
       <PricingModels />
       <Support />
       <ContactSection />
-      
+      <ScrollAnimation targetId="vendor-management" />
     </div>
   );
 };

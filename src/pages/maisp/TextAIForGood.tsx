@@ -5,6 +5,7 @@ import BenefitsSection from "./components/textaiforgood/BenefitsSection";
 import EfficiencyImpactSection from "./components/textaiforgood/EfficiencyImpactSection";
 import PartnersSection from "./components/textaiforgood/PartnersSection";
 import ContactSection from "./components/textaiforgood/ContactSection";
+import ScrollAnimation from '@/components/animations/ScrollAnimation';
 
 const TextAIForGood = () => {
   useEffect(() => {
@@ -41,6 +42,7 @@ const TextAIForGood = () => {
       <EfficiencyImpactSection />
       <PartnersSection />
       <ContactSection />
+      <ScrollAnimation targetId="benefits-section" />
     </div>
   );
 };

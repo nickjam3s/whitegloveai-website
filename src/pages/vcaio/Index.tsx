@@ -7,6 +7,7 @@ import MaturityLevels from "./components/chiefaiofficer/MaturityLevels";
 import FutureSection from "./components/chiefaiofficer/FutureSection";
 import CoreBeliefs from "./components/chiefaiofficer/CoreBeliefs";
 import WhyVCAIO from "./components/chiefaiofficer/WhyVCAIO";
+import ScrollAnimation from '@/components/animations/ScrollAnimation';
 
 const VCAIO = () => {
   useEffect(() => {
@@ -57,6 +58,7 @@ const VCAIO = () => {
       <CoreBeliefs />
       <MaturityLevels />
       <FutureSection />
+      <ScrollAnimation targetId="why-vcaio" />
     </div>
   );
 };

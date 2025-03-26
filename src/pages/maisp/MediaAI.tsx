@@ -7,6 +7,7 @@ import AddOns from "./components/mediaai/AddOns";
 import PlanComparison from "./components/mediaai/PlanComparison";
 import GettingStarted from "./components/mediaai/GettingStarted";
 import ContactSection from "./components/mediaai/ContactSection";
+import ScrollAnimation from '@/components/animations/ScrollAnimation';
 
 const MediaAI = () => {
   useEffect(() => {
@@ -31,6 +32,7 @@ const MediaAI = () => {
       <PlanComparison />
       <GettingStarted />
       <ContactSection />
+      <ScrollAnimation targetId="service-overview" />
     </div>
   );
 };

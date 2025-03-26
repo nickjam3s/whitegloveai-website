@@ -2,6 +2,7 @@
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { motion } from "framer-motion";
+import ScrollAnimation from '@/components/animations/ScrollAnimation';
 
 const NotFound = () => {
   const location = useLocation();
@@ -47,6 +48,7 @@ const NotFound = () => {
           Return to Home
         </motion.a>
       </motion.div>
+      <ScrollAnimation targetId="error-info" />
     </div>
   );
 };

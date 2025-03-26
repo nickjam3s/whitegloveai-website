@@ -7,6 +7,7 @@ import Deliverables from "./components/adopt/Deliverables";
 import ExpertTeam from "./components/adopt/ExpertTeam";
 import SecurityCompliance from "./components/adopt/SecurityCompliance";
 import Support from "./components/adopt/Support";
+import ScrollAnimation from '@/components/animations/ScrollAnimation';
 
 const Adopt = () => {
   useEffect(() => {
@@ -29,6 +30,7 @@ const Adopt = () => {
       <ExpertTeam />
       <SecurityCompliance />
       <Support />
+      <ScrollAnimation targetId="service-description" />
       
       <section className="py-20 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
