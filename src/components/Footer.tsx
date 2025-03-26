@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin, Linkedin, ArrowRight } from 'lucide-react';
@@ -6,9 +7,9 @@ const Footer = () => {
   return (
     <footer className="bg-black border-t border-[#7021EE]/20">
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
-          {/* Contact Us - Now with more space from Solutions */}
-          <div className="lg:pr-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
+          {/* Contact Us section with more spacing */}
+          <div className="lg:col-span-1">
             <h4 className="text-white font-semibold mb-4">Contact Us</h4>
             <div className="space-y-3">
               <div className="flex items-start gap-2">
@@ -28,7 +29,7 @@ const Footer = () => {
               </a>
               <a 
                 href="tel:+14692099907" 
-                className="text-gray-400 flex items-center gap-2 hover:text-[#7021EE] transition-colors group"
+                className="text-gray-400 flex items-center gap-2 hover:text-[#7021EE] transition-colors group whitespace-nowrap"
               >
                 <Phone className="w-4 h-4 text-[#7021EE]" />
                 +1-469-209-9907
@@ -48,7 +49,7 @@ const Footer = () => {
           </div>
 
           {/* Company section */}
-          <div>
+          <div className="lg:col-span-1">
             <h4 className="text-white font-semibold mb-4">Company</h4>
             <ul className="space-y-2">
               <li><Link to="/about" className="text-gray-400 hover:text-[#7021EE] transition-colors">About Us</Link></li>
@@ -56,8 +57,8 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Solutions section with updated title */}
-          <div>
+          {/* Managed AI Services section */}
+          <div className="lg:col-span-1">
             <h4 className="text-white font-semibold mb-4">Managed AI Services</h4>
             <ul className="space-y-2">
               <li><Link to="/maisp" className="text-gray-400 hover:text-[#7021EE] transition-colors">Managed AI Services</Link></li>
@@ -68,8 +69,8 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* vCAIO Platform section with updated title */}
-          <div>
+          {/* Consulting section */}
+          <div className="lg:col-span-1">
             <h4 className="text-white font-semibold mb-4">Consulting</h4>
             <ul className="space-y-2">
               <li><Link to="/vcaio" className="text-gray-400 hover:text-[#7021EE] transition-colors">Overview</Link></li>
@@ -80,7 +81,7 @@ const Footer = () => {
           </div>
 
           {/* Legal */}
-          <div>
+          <div className="lg:col-span-1">
             <h4 className="text-white font-semibold mb-4">Legal</h4>
             <ul className="space-y-2">
               <li><Link to="/privacy" className="text-gray-400 hover:text-[#7021EE] transition-colors">Privacy Policy</Link></li>
