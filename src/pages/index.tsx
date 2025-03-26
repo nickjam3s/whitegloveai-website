@@ -1,8 +1,7 @@
-
 import React from 'react';
 import { ArrowRight, CheckCircle2, Lightbulb, Shield, BrainCircuit, BarChart4, Download } from "lucide-react";
 import { Link } from "react-router-dom";
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 
 const Index = () => {
   useEffect(() => {
@@ -130,27 +129,7 @@ const Index = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 animate-fade-up">
             <a href="https://www.aiamf.ai" target="_blank" rel="noopener noreferrer" className="inline-block relative rounded-xl overflow-hidden group">
-              <div className="absolute inset-[10%] bg-[radial-gradient(circle_at_50%_50%,#7928CA,transparent_50%)] opacity-[0.15] animate-[morphing_8s_ease-in-out_infinite]" style={{
-              transformOrigin: 'center',
-              animation: 'morphing 8s ease-in-out infinite, rotating 12s linear infinite'
-            }}></div>
-              <div className="absolute inset-[10%] bg-[radial-gradient(circle_at_50%_50%,#7021EE,transparent_40%)] opacity-20" style={{
-              transformOrigin: 'center',
-              animation: 'morphing 6s ease-in-out infinite reverse, rotating 10s linear infinite reverse'
-            }}></div>
-              <div className="absolute inset-[10%] bg-[radial-gradient(circle_at_50%_50%,#FF0080,transparent_45%)] opacity-10" style={{
-              transformOrigin: 'center',
-              animation: 'morphing 10s ease-in-out infinite, rotating 15s linear infinite'
-            }}></div>
-              <div className="absolute inset-0 backdrop-blur-[120px]"></div>
               <img src="/lovable-uploads/4647222e-2cb8-4c83-a56c-fafa2c6b70a0.png" alt="AI-AMF Framework Diagram" className="mx-auto mb-8 max-w-xl w-full transition-transform duration-300 group-hover:scale-[1.02] relative z-10" />
-              <div className="absolute inset-0 group-hover:opacity-100 opacity-0 transition-opacity duration-300 z-20">
-                <div className="absolute left-1/2 top-[15%] -translate-x-1/2 w-[80%] h-[80%]" style={{
-                clipPath: 'polygon(50% 0%, 100% 100%, 0% 100%)',
-                background: 'linear-gradient(transparent, rgba(255,255,255,0.2))',
-                animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite'
-              }}></div>
-              </div>
             </a>
             <h2 className="text-3xl font-semibold mb-4 heading-highlight-scroll">AI Adoption & Management Framework (AI-AMF)</h2>
             <p className="text-gray-400 max-w-2xl mx-auto mb-8">
