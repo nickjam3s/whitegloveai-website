@@ -47,7 +47,7 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Company section moved before Solutions */}
+          {/* Company section */}
           <div>
             <h4 className="text-white font-semibold mb-4">Company</h4>
             <ul className="space-y-2">
@@ -56,9 +56,9 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Solutions section moved after Company */}
+          {/* Solutions section with updated title */}
           <div>
-            <h4 className="text-white font-semibold mb-4">Solutions</h4>
+            <h4 className="text-white font-semibold mb-4">Managed AI Services</h4>
             <ul className="space-y-2">
               <li><Link to="/maisp" className="text-gray-400 hover:text-[#7021EE] transition-colors">Managed AI Services</Link></li>
               <li><Link to="/maisp/textai" className="text-gray-400 hover:text-[#7021EE] transition-colors">TextAI</Link></li>
@@ -68,9 +68,9 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* vCAIO */}
+          {/* vCAIO Platform section with updated title */}
           <div>
-            <h4 className="text-white font-semibold mb-4">vCAIO Platform</h4>
+            <h4 className="text-white font-semibold mb-4">Consulting</h4>
             <ul className="space-y-2">
               <li><Link to="/vcaio" className="text-gray-400 hover:text-[#7021EE] transition-colors">Overview</Link></li>
               <li><Link to="/vcaio/launch" className="text-gray-400 hover:text-[#7021EE] transition-colors">Launchpad</Link></li>
@@ -108,4 +108,3 @@ const Footer = () => {
 };
 
 export default Footer;
-
