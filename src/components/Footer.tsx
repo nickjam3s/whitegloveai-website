@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Mail, Phone, MapPin, Linkedin, ArrowRight, Rocket, Users, Shield, Bug } from 'lucide-react';
+import { Mail, Phone, MapPin, Linkedin, ArrowRight } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -86,51 +86,6 @@ const Footer = () => {
                 <li><Link to="/vcaio/adopt" className="text-gray-400 hover:text-[#7021EE] transition-colors">Adopt</Link></li>
                 <li><Link to="/vcaio/enable" className="text-gray-400 hover:text-[#7021EE] transition-colors">Enable</Link></li>
               </ul>
-            </div>
-          </div>
-        </div>
-
-        {/* AI Incubation Lab Section - Ensure it's visible by moving it here */}
-        <div id="ai-incubation-lab" className="mt-16 pt-8 border-t border-[#7021EE]/20">
-          <h4 className="text-white font-semibold mb-6 text-center">AI Incubation Lab</h4>
-          <p className="text-gray-400 text-center mb-8 max-w-3xl mx-auto">
-            Launch AI-powered products faster with enterprise-grade security, customer validation, and scalable architecture.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-black/40 p-5 rounded-lg border border-[#7021EE]/20 hover:border-[#7021EE]/40 transition-all">
-              <div className="flex items-start gap-3">
-                <div className="bg-[#7021EE]/10 p-2 rounded-md">
-                  <Rocket className="w-5 h-5 text-[#7021EE]" />
-                </div>
-                <div>
-                  <h5 className="text-white text-sm font-medium mb-2">Problem-Led Prototyping</h5>
-                  <p className="text-gray-400 text-sm">We identify real customer challenges and build secure MVPs in weeks—not months.</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-black/40 p-5 rounded-lg border border-[#7021EE]/20 hover:border-[#7021EE]/40 transition-all">
-              <div className="flex items-start gap-3">
-                <div className="bg-[#7021EE]/10 p-2 rounded-md">
-                  <Bug className="w-5 h-5 text-[#7021EE]" />
-                </div>
-                <div>
-                  <h5 className="text-white text-sm font-medium mb-2">Full-Lifecycle Build Service</h5>
-                  <p className="text-gray-400 text-sm">From ideation to launch, we deliver turnkey AI solutions with embedded compliance and real-time user feedback.</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-black/40 p-5 rounded-lg border border-[#7021EE]/20 hover:border-[#7021EE]/40 transition-all">
-              <div className="flex items-start gap-3">
-                <div className="bg-[#7021EE]/10 p-2 rounded-md">
-                  <Shield className="w-5 h-5 text-[#7021EE]" />
-                </div>
-                <div>
-                  <h5 className="text-white text-sm font-medium mb-2">Enterprise-Ready from Day One</h5>
-                  <p className="text-gray-400 text-sm">Solutions are designed for compliance, scalability, and long-term value creation.</p>
-                </div>
-              </div>
             </div>
           </div>
         </div>

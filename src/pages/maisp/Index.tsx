@@ -4,6 +4,7 @@ import ScrollAnimation from '@/components/animations/ScrollAnimation';
 import HeroSection from './components/HeroSection';
 import PatentedExpertise from './components/PatentedExpertise';
 import ServicesSection from './components/ServicesSection';
+import AIIncubationLab from './components/AIIncubationLab';
 import ScalableSolutions from './components/ScalableSolutions';
 import CaseStudy from './components/CaseStudy';
 import SupportSection from './components/SupportSection';
@@ -76,6 +77,7 @@ const MAISP = () => {
       <HeroSection />
       <PatentedExpertise />
       <ServicesSection />
+      <AIIncubationLab />
       <ScalableSolutions />
       <CaseStudy />
       <SupportSection />
