@@ -58,10 +58,13 @@ const Launch = () => {
       rootMargin: '0px 0px -100px 0px'
     });
 
-    // Observe all scroll-animated headings
-    const headings = document.querySelectorAll('.heading-highlight-scroll');
-    headings.forEach(heading => {
-      observer.observe(heading);
+    // Observe all elements with animation classes
+    const animatedElements = document.querySelectorAll(
+      '.heading-highlight-scroll, .animate-section, .animate-on-scroll, .fade-in-up'
+    );
+    
+    animatedElements.forEach(element => {
+      observer.observe(element);
     });
     
     return () => {
