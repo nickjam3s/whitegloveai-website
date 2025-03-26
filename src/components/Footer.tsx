@@ -64,7 +64,7 @@ const Footer = () => {
             <div>
               <h4 className="text-white font-semibold mb-4">Managed AI Services</h4>
               <ul className="space-y-2">
-                <li><Link to="/maisp" className="text-gray-400 hover:text-[#7021EE] transition-colors">Managed AI Services</Link></li>
+                <li><Link to="/maisp" className="text-gray-400 hover:text-[#7021EE] transition-colors">Overview</Link></li>
                 <li><Link to="/maisp/textai" className="text-gray-400 hover:text-[#7021EE] transition-colors">TextAI</Link></li>
                 <li><Link to="/maisp/voiceai" className="text-gray-400 hover:text-[#7021EE] transition-colors">VoiceAI</Link></li>
                 <li><Link to="/maisp/avatarai" className="text-gray-400 hover:text-[#7021EE] transition-colors">AvatarAI</Link></li>
