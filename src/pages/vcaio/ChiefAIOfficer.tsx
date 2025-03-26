@@ -1,5 +1,5 @@
 
-import { useEffect, useLayoutEffect } from "react";
+import { useEffect, useLayoutEffect, useRef } from "react";
 import HeroSection from "./components/chiefaiofficer/HeroSection";
 import UnlockingSection from "./components/chiefaiofficer/UnlockingSection";
 import BenefitsSection from "./components/chiefaiofficer/BenefitsSection";
@@ -9,6 +9,8 @@ import ScrollAnimation from '@/components/animations/ScrollAnimation';
 import '@/styles/animations.css'; // Import animations CSS
 
 const ChiefAIOfficer = () => {
+  const pageRef = useRef<HTMLDivElement>(null);
+
   // Use useLayoutEffect to prevent flash of content before scroll position is set
   useLayoutEffect(() => {
     // Immediately scroll to top when component mounts
@@ -16,6 +18,11 @@ const ChiefAIOfficer = () => {
   }, []);
 
   useEffect(() => {
+    // Force scroll to top on component mount
+    if (pageRef.current) {
+      pageRef.current.scrollIntoView({ behavior: 'auto' });
+    }
+    
     // Explicitly disable smooth scrolling
     document.documentElement.style.scrollBehavior = 'auto';
     
@@ -56,10 +63,16 @@ const ChiefAIOfficer = () => {
       rootMargin: '0px 0px -100px 0px'
     });
 
-    // Observe all scroll-animated headings
+    // Observe all scroll-animated elements
     const headings = document.querySelectorAll('.heading-highlight-scroll');
     headings.forEach(heading => {
       observer.observe(heading);
+    });
+    
+    // Observe all animated sections
+    const animatedSections = document.querySelectorAll('.animate-section, .animate-on-scroll');
+    animatedSections.forEach(section => {
+      observer.observe(section);
     });
     
     return () => {
@@ -71,7 +84,7 @@ const ChiefAIOfficer = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background overflow-x-hidden">
+    <div ref={pageRef} className="min-h-screen bg-background overflow-x-hidden">
       <HeroSection />
       <WhyVCAIO />
       <UnlockingSection />
