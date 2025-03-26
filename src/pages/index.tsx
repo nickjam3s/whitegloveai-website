@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { ArrowRight, CheckCircle2, Lightbulb, Shield, BrainCircuit, BarChart4, Download } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -89,41 +90,41 @@ const Index = () => {
       <section className="py-20 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Strategic AI Leadership section - Now full width */}
-          <div className="space-y-6 mb-20 animate-fade-up">
+          <div className="space-y-8 mb-20 animate-fade-up text-center">
             <h2 className="text-3xl font-semibold mb-4 heading-highlight-scroll">Strategic AI Leadership with vCAIO</h2>
-            <p className="text-gray-400 max-w-3xl">
+            <p className="text-gray-400 max-w-3xl mx-auto">
               Unlock the full potential of artificial intelligence with our virtual Chief AI Officer (vCAIO). Our fractional, executive-level service offers you:
             </p>
-            <ul className="space-y-4">
+            <div className="grid md:grid-cols-3 gap-6 mt-8">
               {vcaioFeatures.map((feature, index) => (
-                <li key={index} className="flex items-start">
-                  <CheckCircle2 className="h-6 w-6 text-secondary mt-1 mr-3 flex-shrink-0" />
-                  <div>
-                    <h3 className="font-medium">{feature.title}</h3>
-                    <p className="text-gray-400">{feature.description}</p>
+                <div key={index} className="bg-background/50 p-6 rounded-lg border border-secondary/30 hover:border-secondary/70 transition-colors">
+                  <div className="bg-secondary/10 p-3 rounded-lg w-14 h-14 flex items-center justify-center mx-auto mb-4">
+                    <feature.icon className="h-8 w-8 text-secondary" />
                   </div>
-                </li>
+                  <h3 className="font-medium mb-2">{feature.title}</h3>
+                  <p className="text-gray-400">{feature.description}</p>
+                </div>
               ))}
-            </ul>
+            </div>
           </div>
 
           {/* Managed AI Services section - Now full width */}
-          <div className="space-y-6 animate-fade-up">
+          <div className="space-y-8 animate-fade-up text-center">
             <h2 className="text-3xl font-semibold mb-4 heading-highlight-scroll">Managed AI Services</h2>
-            <p className="text-gray-400 max-w-3xl">
+            <p className="text-gray-400 max-w-3xl mx-auto">
               Our Managed Artificial Intelligence Services empower your organization with round-the-clock support and robust AI solutions, including:
             </p>
-            <ul className="space-y-4">
+            <div className="grid md:grid-cols-3 gap-6 mt-8">
               {managedAIFeatures.map((feature, index) => (
-                <li key={index} className="flex items-start">
-                  <CheckCircle2 className="h-6 w-6 text-secondary mt-1 mr-3 flex-shrink-0" />
-                  <div>
-                    <h3 className="font-medium">{feature.title}</h3>
-                    <p className="text-gray-400">{feature.description}</p>
+                <div key={index} className="bg-background/50 p-6 rounded-lg border border-secondary/30 hover:border-secondary/70 transition-colors">
+                  <div className="bg-secondary/10 p-3 rounded-lg w-14 h-14 flex items-center justify-center mx-auto mb-4">
+                    <feature.icon className="h-8 w-8 text-secondary" />
                   </div>
-                </li>
+                  <h3 className="font-medium mb-2">{feature.title}</h3>
+                  <p className="text-gray-400">{feature.description}</p>
+                </div>
               ))}
-            </ul>
+            </div>
           </div>
         </div>
       </section>
@@ -196,23 +197,29 @@ const Index = () => {
 };
 
 const vcaioFeatures = [{
+  icon: BrainCircuit,
   title: "Customized AI Roadmaps",
   description: "Tailored strategies that seamlessly integrate AI into your existing systems to drive growth and efficiency."
 }, {
+  icon: BarChart4,
   title: "Cost-Effective Expertise",
   description: "Access top-tier AI leadership without the overhead of a full-time hire."
 }, {
+  icon: Lightbulb,
   title: "Continuous Innovation",
   description: "Stay ahead with ongoing market insights and emerging best practices, all within a secure, compliant framework."
 }];
 
 const managedAIFeatures = [{
+  icon: BrainCircuit,
   title: "24/7 AI Agents",
   description: "From text-based chatbots to voice-responsive agents and human-like avatars, our AI tools are designed to serve your customers at any time."
 }, {
+  icon: Shield,
   title: "Seamless Integration & Customization",
   description: "We tailor AI solutions to your unique workflows, ensuring minimal disruption and maximum ROI."
 }, {
+  icon: Shield,
   title: "Scalable & Secure Solutions",
   description: "Our services grow with your business, prioritizing data security and compliance every step of the way."
 }];
