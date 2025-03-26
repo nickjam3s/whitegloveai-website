@@ -31,9 +31,8 @@ const ScrollAnimation: React.FC<ScrollAnimationProps> = ({ targetId, className }
         href={`#${targetId}`} 
         aria-label="Scroll to learn more"
         onClick={handleClick}
-        className="animate-pulse hover:animate-none"
       >
-        <ArrowDown className="h-6 w-6 md:h-8 md:w-8 text-[#7021EE]" />
+        <ArrowDown className="h-6 w-6 md:h-8 md:w-8 text-[#7021EE] animate-pulse-slow" />
       </a>
     </motion.div>
   );
