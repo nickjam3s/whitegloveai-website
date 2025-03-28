@@ -11,7 +11,7 @@ export const navigationLinks = [
     text: "Managed AI Services",
     to: "/maisp",
     children: [
-      { to: "maisp/index.tsx", text: "Overview" },
+      { to: "/maisp", text: "Overview" },
       { 
         text: "TextAI", 
         to: "/maisp/textai",
@@ -26,7 +26,6 @@ export const navigationLinks = [
       { to: "/maisp/vendorai", text: "VendorAI" },
       { to: "/maisp/mediaai", text: "MediaAI" },
       { to: "/maisp/humaniodai", text: "HumanoidAI" },
-      
     ],
   },
   {
