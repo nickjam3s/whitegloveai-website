@@ -1,5 +1,7 @@
+
 import { motion } from 'framer-motion';
 import ScrollAnimation from '@/components/animations/ScrollAnimation';
+
 const HeroSection = () => {
   return <section className="relative py-24 md:py-32 lg:py-40 overflow-hidden bg-black">
       <div className="absolute inset-0 z-0">
@@ -43,8 +45,6 @@ const HeroSection = () => {
           duration: 0.8,
           delay: 0.4
         }} className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            
-            
           </motion.div>
         </div>
         
@@ -55,4 +55,5 @@ const HeroSection = () => {
       </div>
     </section>;
 };
+
 export default HeroSection;

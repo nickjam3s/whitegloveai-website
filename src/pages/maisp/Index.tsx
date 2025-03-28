@@ -86,11 +86,14 @@ const MAISP = () => {
       <HeroSection />
       <PatentedExpertise />
       <ServicesSection />
+      <ScrollAnimation targetId="services" className="bottom-0 mb-0" />
       <AIIncubationLab />
+      <ScrollAnimation targetId="ai-incubation" className="bottom-0 mb-0" />
       <ScalableSolutions />
+      <ScrollAnimation targetId="case-study" className="bottom-0 mb-0" />
       <CaseStudy />
+      <ScrollAnimation targetId="support-section" className="bottom-0 mb-0" />
       <SupportSection />
-      <ScrollAnimation targetId="patented-expertise" />
     </div>
   );
 };

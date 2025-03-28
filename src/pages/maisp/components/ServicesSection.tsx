@@ -60,7 +60,7 @@ const ServicesSection = () => {
               <Link to={service.link}>
                 <Button variant="default" size="lg" className="flex items-center justify-center">
                   <span className="flex items-center justify-center font-bold text-white">
-                    Learn More → <ArrowRight className="ml-2 h-5 w-5" />
+                    Learn More <ArrowRight className="ml-2 h-5 w-5" />
                   </span>
                 </Button>
               </Link>
