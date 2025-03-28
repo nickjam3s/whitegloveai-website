@@ -15,6 +15,7 @@
 
 .logo-container:hover img {
   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  filter: hue-rotate(270deg) brightness(120%) saturate(150%);
+  filter: hue-rotate(270deg) brightness(120%) saturate(150%) sepia(0.5) contrast(1.2);
   transition: filter 0.3s ease;
+  /* Added sepia and contrast to enhance the deep purple effect */
 }
