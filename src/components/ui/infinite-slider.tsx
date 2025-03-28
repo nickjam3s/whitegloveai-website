@@ -59,7 +59,7 @@ export const InfiniteSlider = ({
       className={cn("scroller relative overflow-hidden", className)}
       {...props}
     >
-      <style jsx>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         @keyframes scrollX {
           from { transform: translateX(0); }
           to { transform: translateX(-50%); }
@@ -76,7 +76,7 @@ export const InfiniteSlider = ({
           from { transform: translateY(-50%); }
           to { transform: translateY(0); }
         }
-      `}</style>
+      `}} />
       <div 
         ref={contentRef}
         className={cn(
