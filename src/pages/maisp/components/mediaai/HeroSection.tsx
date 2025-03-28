@@ -18,7 +18,7 @@ const HeroSection = () => {
           y: 0
         }} transition={{
           duration: 0.8
-        }} className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 md:mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-[#7021EE]">
+        }} className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 md:mb-6 bg-clip-text text-transparent bg-gradient-to-r from-[#9b87f5] to-[#9b87f5]">
             MediaAI Managed Service
           </motion.h1>
           
@@ -46,13 +46,13 @@ const HeroSection = () => {
           duration: 0.8,
           delay: 0.4
         }} className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a href="#contact" className="inline-flex items-center px-6 py-3 text-base font-medium text-white bg-[#7021EE] hover:bg-[#7021EE]/90 rounded-lg transition-colors">
+            <a href="#contact" className="inline-flex items-center px-6 py-3 text-base font-medium text-white bg-[#9b87f5] hover:bg-[#9b87f5]/90 rounded-lg transition-colors">
               Contact Us
-              <ArrowRight className="ml-2 h-5 w-5" />
+              <ArrowRight className="ml-2 h-5 w-5 text-[#9b87f5]" />
             </a>
-            <a href="#service-plans" className="inline-flex items-center px-6 py-3 text-base font-medium text-white bg-[#7021EE]/20 hover:bg-[#7021EE]/30 rounded-lg transition-colors border border-[#7021EE]/50">
+            <a href="#service-plans" className="inline-flex items-center px-6 py-3 text-base font-medium text-white bg-[#9b87f5]/20 hover:bg-[#9b87f5]/30 rounded-lg transition-colors border border-[#9b87f5]/50">
               View Service Plans
-              <ArrowRight className="ml-2 h-5 w-5" />
+              <ArrowRight className="ml-2 h-5 w-5 text-[#9b87f5]" />
             </a>
           </motion.div>
         </div>
@@ -60,4 +60,3 @@ const HeroSection = () => {
     </section>;
 };
 export default HeroSection;
-
