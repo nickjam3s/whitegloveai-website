@@ -1,41 +1,63 @@
 
-import { ArrowRight, Mic, Podcast } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import React from "react";
 import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const HeroSection = () => {
+  const isMobile = useIsMobile();
+
   return (
-    <section className="relative pt-40 pb-28 px-4 sm:px-6 lg:px-8 overflow-hidden">
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute inset-[10%] bg-[radial-gradient(circle_at_50%_50%,#9b87f5,transparent_60%)] opacity-25" style={{
-          transformOrigin: '60% 40%',
-          animation: 'morphing 12s ease-in-out infinite, rotating 15s linear infinite'
-        }}></div>
-        <div className="absolute inset-0 backdrop-blur-[100px]"></div>
-      </div>
-      <div className="max-w-7xl mx-auto relative">
-        <div className="text-center">
+    <section id="hero" className="relative h-[100vh] flex items-center overflow-hidden">
+      <div className="container mx-auto px-4 flex flex-col items-center justify-center relative z-10">
+        <div className="max-w-5xl mx-auto text-center mb-8 md:mb-16">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8 }}
+            className="mb-8"
           >
-            <div className="flex justify-center mb-6">
-              <div className="p-3 bg-[#9b87f5]/20 rounded-full">
-                <Podcast className="w-10 h-10 text-[#9b87f5]" />
-              </div>
-            </div>
-            
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight mb-6 heading-highlight">
-              Managed Media AI Service 
-            </h1>
-            
-            <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto mb-8">
-              Elevate your podcasting journey with our tiered AI service packages designed to meet the needs 
-              of creators at every level. From basic production assistance to premium full-service solutions.
-            </p>
-            
-            
+            <img 
+              src="/lovable-uploads/351136e7-c241-4c56-a606-3ff7a65a05ac.png" 
+              alt="MediaAI Logo" 
+              className="h-24 md:h-32 mx-auto animate-float"
+              style={{ filter: "drop-shadow(0 0 10px rgba(112, 33, 238, 0.6))" }}
+            />
+          </motion.div>
+          
+          <motion.h1 
+            initial={{ opacity: 0, y: 30 }} 
+            animate={{ opacity: 1, y: 0 }} 
+            transition={{ duration: 0.8 }}
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 md:mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-[#7021EE]"
+          >
+            MediaAI Managed Service
+          </motion.h1>
+          
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }} 
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-lg md:text-xl lg:text-2xl text-gray-200 mb-8 md:mb-12 max-w-3xl mx-auto px-3 sm:px-0 text-shadow-sm"
+          >
+            WhitegloveAI's MediaAI service helps you create, manage, and optimize 
+            digital media content with our enterprise-grade AI solutions.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="flex flex-col sm:flex-row items-center justify-center gap-4"
+          >
+            <a href="#contact" className="inline-flex items-center px-6 py-3 text-base font-medium text-white bg-[#7021EE] hover:bg-[#7021EE]/90 rounded-lg transition-colors">
+              Contact Us
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </a>
+            <a href="#service-plans" className="inline-flex items-center px-6 py-3 text-base font-medium text-white bg-[#7021EE]/20 hover:bg-[#7021EE]/30 rounded-lg transition-colors border border-[#7021EE]/50">
+              View Service Plans
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </a>
           </motion.div>
         </div>
       </div>
