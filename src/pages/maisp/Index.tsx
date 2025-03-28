@@ -46,12 +46,11 @@ const MAISP = () => {
     
     document.addEventListener('click', handleAnchorClick);
     
-    // Initialize intersection observer for scroll animations
+    // Initialize intersection observer for scroll animations - make elements visible immediately
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
+        // Mark all elements as visible immediately
+        entry.target.classList.add('visible');
       });
     }, {
       threshold: 0.1,
@@ -62,6 +61,16 @@ const MAISP = () => {
     const headings = document.querySelectorAll('.heading-highlight-scroll');
     headings.forEach(heading => {
       observer.observe(heading);
+      // Force visibility
+      heading.classList.add('visible');
+    });
+    
+    // Also observe animate-section and animate-on-scroll elements
+    const animateSections = document.querySelectorAll('.animate-section, .animate-on-scroll');
+    animateSections.forEach(section => {
+      observer.observe(section);
+      // Force visibility
+      section.classList.add('visible');
     });
     
     return () => {

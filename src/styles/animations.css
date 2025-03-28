@@ -90,10 +90,10 @@
   animation: glow 3s ease-in-out infinite;
 }
 
-/* Scroll animation classes */
+/* Scroll animation classes - FIXED: Initial state should be visible */
 .heading-highlight-scroll {
-  opacity: 0;
-  transform: translateY(20px);
+  opacity: 1; /* Changed from 0 to 1 */
+  transform: translateY(0); /* Changed from translateY(20px) to 0 */
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
@@ -103,8 +103,8 @@
 }
 
 .animate-section {
-  opacity: 0;
-  transform: translateY(30px);
+  opacity: 1; /* Changed from 0 to 1 */
+  transform: translateY(0); /* Changed from translateY(30px) to 0 */
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
@@ -114,8 +114,8 @@
 }
 
 .animate-on-scroll {
-  opacity: 0;
-  transform: translateY(20px);
+  opacity: 1; /* Changed from 0 to 1 */
+  transform: translateY(0); /* Changed from translateY(20px) to 0 */
   transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
@@ -124,10 +124,10 @@
   transform: translateY(0);
 }
 
-/* Fade-in animations for staggered children */
+/* Fade-in animations for staggered children - FIXED: Initial state visible */
 .fade-in-up > * {
-  opacity: 0;
-  transform: translateY(20px);
+  opacity: 1; /* Changed from 0 to 1 */
+  transform: translateY(0); /* Changed from translateY(20px) to 0 */
   transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
