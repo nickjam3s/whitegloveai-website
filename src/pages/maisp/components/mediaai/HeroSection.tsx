@@ -1,13 +1,14 @@
+
 import React from "react";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
+
 const HeroSection = () => {
   const isMobile = useIsMobile();
-  return <section id="hero" className="relative h-[100vh] flex items-center overflow-hidden">
+  return <section id="hero" className="relative h-[75vh] flex items-center overflow-hidden">
       <div className="container mx-auto px-4 flex flex-col items-center justify-center relative z-10">
         <div className="max-w-5xl mx-auto text-center mb-8 md:mb-16">
-          
           
           <motion.h1 initial={{
           opacity: 0,
@@ -59,3 +60,4 @@ const HeroSection = () => {
     </section>;
 };
 export default HeroSection;
+
