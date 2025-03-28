@@ -1,7 +1,9 @@
+
 import React from 'react';
 import { ArrowRight, CheckCircle2, Lightbulb, Shield, BrainCircuit, BarChart4, Download } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
+import ScrollAnimation from '@/components/animations/ScrollAnimation';
 
 const Index = () => {
   useEffect(() => {
@@ -44,7 +46,7 @@ const Index = () => {
 
   return <div className="min-h-screen bg-background text-white">
       {/* Hero Section */}
-      <section className="relative pt-40 pb-28 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <section id="hero" className="relative pt-40 pb-28 px-4 sm:px-6 lg:px-8 overflow-hidden scroll-mt-20">
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute inset-[10%] bg-[radial-gradient(circle_at_50%_50%,#7928CA,transparent_60%)] opacity-25 animate-[morphing_12s_ease-in-out_infinite]" style={{
           transformOrigin: '60% 40%',
@@ -83,10 +85,13 @@ const Index = () => {
             </div>
           </div>
         </div>
+        
+        {/* Add ScrollAnimation to point to the next section */}
+        <ScrollAnimation targetId="services" />
       </section>
 
       {/* Services Section */}
-      <section className="py-20 bg-background">
+      <section id="services" className="py-20 bg-background scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Strategic AI Leadership section */}
           <div className="space-y-8 mb-20 animate-fade-up text-center">
@@ -130,10 +135,13 @@ const Index = () => {
             </div>
           </div>
         </div>
+        
+        {/* Add ScrollAnimation to point to the AI-AMF Framework Section */}
+        <ScrollAnimation targetId="ai-amf" />
       </section>
 
       {/* AI-AMF Framework Section */}
-      <section className="py-20 bg-card">
+      <section id="ai-amf" className="py-20 bg-card scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 animate-fade-up">
             <a href="https://www.aiamf.ai" target="_blank" rel="noopener noreferrer" className="inline-block relative rounded-xl overflow-hidden group">
@@ -159,10 +167,13 @@ const Index = () => {
               </div>)}
           </div>
         </div>
+        
+        {/* Add ScrollAnimation to point to the WhitegloveAI Difference Section */}
+        <ScrollAnimation targetId="difference" />
       </section>
       
       {/* WhitegloveAI Difference Section */}
-      <section className="py-20 bg-background">
+      <section id="difference" className="py-20 bg-background scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 animate-fade-up">
             <h2 className="text-3xl font-semibold mb-4 heading-highlight-scroll text-white">
@@ -181,10 +192,13 @@ const Index = () => {
               </div>)}
           </div>
         </div>
+        
+        {/* Add ScrollAnimation to point to the CTA Section */}
+        <ScrollAnimation targetId="cta" />
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-card">
+      <section id="cta" className="py-20 bg-card scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="animate-fade-up">
             <h2 className="text-3xl sm:text-4xl font-semibold mb-6 heading-highlight-scroll text-white">
