@@ -42,22 +42,22 @@ const ServiceOverview = () => {
               title: "Basic Plan",
               description: "Perfect for beginners and small businesses looking to establish their podcast presence with essential production support.",
               icon: Mic,
-              color: "from-blue-500/20 to-blue-800/20",
-              borderColor: "border-blue-500/30"
+              color: "from-[#9b87f5]/20 to-[#9b87f5]/10",
+              borderColor: "border-[#9b87f5]/30"
             },
             {
               title: "Professional Plan",
               description: "Comprehensive solution for established creators seeking to elevate production quality and expand their audience reach.",
               icon: Headphones,
-              color: "from-[#9b87f5]/20 to-purple-800/20",
+              color: "from-[#9b87f5]/20 to-[#9b87f5]/10",
               borderColor: "border-[#9b87f5]/30"
             },
             {
               title: "Premium Plan",
               description: "All-inclusive package offering the highest level of support with additional sessions and exclusive features for serious podcasters.",
               icon: Star,
-              color: "from-amber-500/20 to-amber-800/20",
-              borderColor: "border-amber-500/30"
+              color: "from-[#9b87f5]/20 to-[#9b87f5]/10",
+              borderColor: "border-[#9b87f5]/30"
             }
           ].map((plan, index) => (
             <motion.div
@@ -67,7 +67,7 @@ const ServiceOverview = () => {
             >
               <div className="flex justify-center mb-6">
                 <div className="p-3 bg-black/30 rounded-full">
-                  <plan.icon className="w-8 h-8 text-white" />
+                  <plan.icon className="w-8 h-8 text-[#9b87f5]" />
                 </div>
               </div>
               <h3 className="text-2xl font-semibold mb-4 text-center text-white">{plan.title}</h3>

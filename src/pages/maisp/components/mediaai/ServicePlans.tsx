@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import { Check, LayoutPanelTop, Mic, Scissors, Search, Share2 } from "lucide-react";
 
@@ -115,7 +114,7 @@ const ServicePlans = () => {
     <section className="py-20 px-4 sm:px-6 lg:px-8" id="plans">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white heading-highlight-scroll">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#9b87f5] heading-highlight-scroll">
             Our Podcast Service Plans
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
