@@ -13,10 +13,15 @@ const HeroSection = () => {
         <div className="absolute inset-0 backdrop-blur-[100px]"></div>
       </div>
       <div className="max-w-7xl mx-auto relative">
-        <div className="text-center animate-fade-up">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight mb-6 heading-highlight">
-            Managed AutomateAI Service by Lucidis
-          </h1>
+      <motion.h1 
+              initial={{ opacity: 0, y: 30 }} 
+              animate={{ opacity: 1, y: 0 }} 
+              transition={{ duration: 0.8 }}
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 md:mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-[#7021EE]"
+            >
+Managed AutomateAI Service by Lucidis            
+</motion.h1>
+ 
           <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto mb-8">
             A managed service designed to revolutionize your business operations through intelligent automation. Built on the robust Lucidis.ai platform, AutomateAI employs agentic workflows to streamline and optimize your processes.
           </p>
