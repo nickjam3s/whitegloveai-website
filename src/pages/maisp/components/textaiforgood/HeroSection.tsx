@@ -1,4 +1,7 @@
+
 import React from "react";
+import { Button } from "@/components/ui/button";
+
 const HeroSection = () => {
   return <section className="bg-black text-white py-20 md:py-28">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -12,8 +15,7 @@ const HeroSection = () => {
               and better serve their communities.
             </p>
             <div className="flex flex-wrap justify-center gap-4 animate-on-scroll stagger-2">
-              
-              <a href="#contact" className="px-6 py-3 bg-transparent border border-white/20 hover:bg-white/5 text-white rounded-md transition-colors animate-on-scroll stagger-3">
+              <a href="#contact" className="px-6 py-3 bg-[#9b87f5] hover:bg-[#9b87f5]/80 text-white rounded-md transition-colors animate-on-scroll stagger-3">
                 Contact Us
               </a>
             </div>
