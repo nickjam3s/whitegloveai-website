@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { MessageSquare, Mic, Video, Users, Bot } from "lucide-react";
+import { MessageSquare, Mic, Video, Users, Bot, ArrowRight } from "lucide-react";
 
 const services = [
   {
@@ -60,7 +60,7 @@ const ServicesSection = () => {
               <Link to={service.link}>
                 <Button variant="default" size="lg" className="flex items-center justify-center">
                   <span className="flex items-center justify-center">
-                    Learn More
+                    Learn More <ArrowRight className="ml-2 h-5 w-5" />
                   </span>
                 </Button>
               </Link>
