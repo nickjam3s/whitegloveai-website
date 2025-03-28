@@ -50,10 +50,14 @@ const HeroSection = () => {
           </motion.div>
         </div>
         
-        <ScrollAnimation targetId="patented-expertise" />
+        {/* Move ScrollAnimation closer to the bottom */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 w-full">
+          <ScrollAnimation targetId="patented-expertise" />
+        </div>
       </div>
     </section>
   );
 };
 
 export default HeroSection;
+
