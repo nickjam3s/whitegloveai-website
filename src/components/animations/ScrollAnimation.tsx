@@ -21,7 +21,7 @@ const ScrollAnimation: React.FC<ScrollAnimationProps> = ({ targetId, className }
 
   return (
     <motion.div 
-      className={`absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer z-10 ${className || ''}`}
+      className={`absolute bottom-10 left-1/2 transform -translate-x-1/2 cursor-pointer z-10 ${className || ''}`}
       initial={{ y: 0, opacity: 0.5 }}
       animate={{ y: 10, opacity: 1 }}
       transition={{ duration: 1, repeat: Infinity, repeatType: "reverse" }}
