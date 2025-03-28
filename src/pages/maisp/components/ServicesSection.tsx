@@ -59,8 +59,8 @@ const ServicesSection = () => {
               <p className="text-gray-400 mb-6">{service.description}</p>
               <Link to={service.link}>
                 <Button variant="default" size="lg" className="flex items-center justify-center">
-                  <span className="flex items-center justify-center">
-                    Learn More <ArrowRight className="ml-2 h-5 w-5" />
+                  <span className="flex items-center justify-center font-bold text-white">
+                    Learn More → <ArrowRight className="ml-2 h-5 w-5" />
                   </span>
                 </Button>
               </Link>

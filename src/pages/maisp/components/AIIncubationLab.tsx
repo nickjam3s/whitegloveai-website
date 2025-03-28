@@ -34,8 +34,8 @@ const AIIncubationLab = () => {
         
         <div className="mt-12 text-center">
           <Button variant="default" size="lg" className="flex items-center justify-center mx-auto">
-            <span className="flex items-center justify-center">
-              Explore Our Innovation Process
+            <span className="flex items-center justify-center font-bold text-white">
+              Explore Our Innovation Process →
             </span>
           </Button>
         </div>
