@@ -1,4 +1,3 @@
-
 import React, { useRef, useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 
@@ -29,8 +28,8 @@ export const InfiniteSlider = ({
     if (isScrolling) {
       // Calculate the width of a single set of logos
       const contentWidth = contentRef.current.scrollWidth / 5; // Now we have 5 sets
-      // Duration calculation with 30% slower animation
-      const duration = (contentWidth / 100) * 1.6; // Increase duration by 60% to slow down more
+      // Duration calculation with slowed animation
+      const duration = (contentWidth / 100) * 3; // Increased multiplier from 1.6 to 3
       
       contentRef.current.style.animation = `${direction === 'horizontal' ? 'scroll' : 'scrollY'}${reverse ? 'Reverse' : ''} ${duration}s linear forwards`; // Using 'forwards' to stop at the end
     } else {
