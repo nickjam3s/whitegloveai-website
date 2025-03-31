@@ -38,8 +38,8 @@ export const InfiniteSlider = ({
       if (scrollerRef.current && contentRef.current) {
         const contentWidth = contentRef.current.scrollWidth / 2; // Divide by 2 because we duplicated content
         
-        // Reduce duration by 50% to increase scroll speed
-        const duration = contentWidth / 75;
+        // Reduce duration by 1/3 to triple the scroll speed
+        const duration = contentWidth / 225; // Changed from 75 to 225 (x3 speed)
         
         // Use linear infinite animation to ensure continuous scrolling
         contentRef.current.style.animation = `scroll${direction === 'horizontal' ? 'X' : 'Y'}${reverse ? 'Reverse' : ''} ${duration}s linear infinite`;
