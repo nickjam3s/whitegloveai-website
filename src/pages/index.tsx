@@ -6,6 +6,7 @@ import ServicesSection from '@/components/home/ServicesSection';
 import AIIncubationLabSection from '@/components/AIIncubationLabSection';
 import AIAMFFrameworkSection from '@/components/home/AIAMFFrameworkSection';
 import WhitegloveAIDifference from '@/components/home/WhitegloveAIDifference';
+import PartnerLogos from '@/components/home/PartnerLogos';
 import CTASection from '@/components/home/CTASection';
 import ScrollAnimation from '@/components/animations/ScrollAnimation';
 
@@ -65,6 +66,7 @@ const Index = () => {
       <ServicesSection />
       <AIIncubationLabSection />
       <AIAMFFrameworkSection />
+      <PartnerLogos />
       <WhitegloveAIDifference />
       <CTASection />
     </div>
