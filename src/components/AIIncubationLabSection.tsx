@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Sparkles, Rocket, Shield } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
@@ -71,7 +70,7 @@ const AIIncubationLabSection = () => {
                     <img 
                       src="/lovable-uploads/efce8320-0d23-4c5d-847e-b9010ffe74b6.png" 
                       alt="Lucidis.ai Logo" 
-                      className="h-24 w-auto"
+                      className="h-36 w-auto"
                     />
                   </div>
                   <p className="text-gray-400 text-center">
