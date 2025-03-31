@@ -10,6 +10,9 @@ const AIIncubationLabSection = () => {
           <h2 className="text-3xl font-semibold mb-4 heading-highlight-scroll text-white">
             AI Incubation Lab
           </h2>
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-10">
+            We can help you prototype your next app idea to life, as fast as 4 Weeks!
+          </p>
           <p className="text-gray-400 max-w-3xl mx-auto mb-10">
             Launch AI-powered products faster with enterprise-grade security, customer validation, and scalable architecture.
           </p>
