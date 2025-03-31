@@ -1,3 +1,4 @@
+
 import React, { useRef, useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 
@@ -29,9 +30,9 @@ export const InfiniteSlider = ({
       // Calculate the width of a single set of logos
       const contentWidth = contentRef.current.scrollWidth / 5; // Now we have 5 sets
       // Duration calculation with 30% slower animation
-      const duration = (contentWidth / 100) * 1.3; // Increase duration by 30% to slow down
+      const duration = (contentWidth / 100) * 1.6; // Increase duration by 60% to slow down more
       
-      contentRef.current.style.animation = `${direction === 'horizontal' ? 'scroll' : 'scrollY'}${reverse ? 'Reverse' : ''} ${duration}s linear infinite`;
+      contentRef.current.style.animation = `${direction === 'horizontal' ? 'scroll' : 'scrollY'}${reverse ? 'Reverse' : ''} ${duration}s linear forwards`; // Using 'forwards' to stop at the end
     } else {
       contentRef.current.style.animation = 'none';
     }
@@ -106,18 +107,18 @@ export const InfiniteSlider = ({
       <style dangerouslySetInnerHTML={{ __html: `
         @keyframes scroll {
           from { transform: translateX(0); }
-          to { transform: translateX(-50%); }
+          to { transform: translateX(-80%); } /* Stop before full scroll */
         }
         @keyframes scrollReverse {
-          from { transform: translateX(-50%); }
+          from { transform: translateX(-80%); } /* Stop before full scroll */
           to { transform: translateX(0); }
         }
         @keyframes scrollY {
           from { transform: translateY(0); }
-          to { transform: translateY(-50%); }
+          to { transform: translateY(-80%); } /* Stop before full scroll */
         }
         @keyframes scrollYReverse {
-          from { transform: translateY(-50%); }
+          from { transform: translateY(-80%); } /* Stop before full scroll */
           to { transform: translateY(0); }
         }
       `}} />
