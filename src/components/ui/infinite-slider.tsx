@@ -25,28 +25,31 @@ export const InfiniteSlider = ({
     const scrollContent = Array.from(contentRef.current.children);
     if (scrollContent.length === 0) return;
 
-    // Clone multiple sets to ensure a smooth infinite scroll
-    // Create 4 complete sets of the logos
-    for (let i = 0; i < 3; i++) {
-      scrollContent.forEach((item) => {
-        const clone = item.cloneNode(true);
-        if (contentRef.current) {
-          contentRef.current.appendChild(clone);
-        }
-      });
-    }
+    // Clear any previously cloned elements to prevent duplicates on re-renders
+    const originalItemsCount = scrollContent.length;
+    const existingClones = Array.from(contentRef.current.children).slice(originalItemsCount);
+    existingClones.forEach(clone => clone.remove());
+
+    // Clone enough items to ensure continuous scrolling
+    // Create 2 complete sets of logos (original + 1 clone set is enough)
+    scrollContent.slice(0, originalItemsCount).forEach((item) => {
+      const clone = item.cloneNode(true);
+      if (contentRef.current) {
+        contentRef.current.appendChild(clone);
+      }
+    });
 
     // Setup animation based on direction and reverse options
     const setupAnimation = () => {
       if (scrollerRef.current && contentRef.current) {
-        // Calculate the width of a single set of logos (total width divided by 4 sets)
-        const contentWidth = contentRef.current.scrollWidth / 4;
+        // Calculate the width of a single set of logos
+        // We're using only 2 sets total (original + 1 clone)
+        const contentWidth = contentRef.current.scrollWidth / 2;
         
-        // Increase speed by reducing the duration (from 175 to 100)
+        // Duration calculation to maintain consistent speed regardless of content width
         const duration = contentWidth / 100; 
         
-        // Use linear infinite animation to ensure continuous scrolling
-        contentRef.current.style.animation = `scroll${direction === 'horizontal' ? 'X' : 'Y'}${reverse ? 'Reverse' : ''} ${duration}s linear infinite`;
+        contentRef.current.style.animation = `${direction === 'horizontal' ? 'scroll' : 'scrollY'}${reverse ? 'Reverse' : ''} ${duration}s linear infinite`;
       }
     };
 
@@ -55,7 +58,7 @@ export const InfiniteSlider = ({
     // Reset animation on window resize
     window.addEventListener('resize', setupAnimation);
     return () => window.removeEventListener('resize', setupAnimation);
-  }, [reverse, direction]);
+  }, [reverse, direction, children]); // Add children to dependency array to re-run on content change
 
   return (
     <div 
@@ -64,20 +67,20 @@ export const InfiniteSlider = ({
       {...props}
     >
       <style dangerouslySetInnerHTML={{ __html: `
-        @keyframes scrollX {
+        @keyframes scroll {
           from { transform: translateX(0); }
-          to { transform: translateX(-25%); }
+          to { transform: translateX(-50%); }
         }
-        @keyframes scrollXReverse {
-          from { transform: translateX(-25%); }
+        @keyframes scrollReverse {
+          from { transform: translateX(-50%); }
           to { transform: translateX(0); }
         }
         @keyframes scrollY {
           from { transform: translateY(0); }
-          to { transform: translateY(-25%); }
+          to { transform: translateY(-50%); }
         }
         @keyframes scrollYReverse {
-          from { transform: translateY(-25%); }
+          from { transform: translateY(-50%); }
           to { transform: translateY(0); }
         }
       `}} />
