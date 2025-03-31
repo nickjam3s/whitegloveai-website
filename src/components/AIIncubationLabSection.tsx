@@ -56,17 +56,31 @@ const AIIncubationLabSection = () => {
           </h3>
           
           <div className="grid md:grid-cols-3 gap-8">
-            <Card className="bg-card/60 border border-gray-800 hover:border-[#9b87f5]/50 transition-colors overflow-hidden">
-              <CardContent className="p-6">
-                <div className="h-16 flex items-center justify-center mb-4">
-                  <div className="text-2xl font-bold text-[#9b87f5]">Lucidis.ai</div>
-                </div>
-                <p className="text-gray-400">
-                  Lucidis is an innovative Machine Vision-powered solution designed to revolutionize 
-                  data cleaning, extraction and delivery.
-                </p>
-              </CardContent>
-            </Card>
+            <a 
+              href="https://lucidis.ai" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="block hover:scale-105 transition-transform"
+            >
+              <Card className="bg-card/60 border border-gray-800 hover:border-[#9b87f5]/50 transition-colors overflow-hidden h-full">
+                <CardContent className="p-6 flex flex-col items-center">
+                  <div className="h-16 flex items-center justify-center mb-4">
+                    <div className="text-2xl font-bold text-[#9b87f5]">Lucidis.ai</div>
+                  </div>
+                  <div className="flex justify-center my-4">
+                    <img 
+                      src="/lovable-uploads/efce8320-0d23-4c5d-847e-b9010ffe74b6.png" 
+                      alt="Lucidis.ai Logo" 
+                      className="h-24 w-auto"
+                    />
+                  </div>
+                  <p className="text-gray-400 text-center">
+                    Lucidis is an innovative Machine Vision-powered solution designed to revolutionize 
+                    data cleaning, extraction and delivery.
+                  </p>
+                </CardContent>
+              </Card>
+            </a>
 
             <Card className="bg-card/60 border border-gray-800 hover:border-[#9b87f5]/50 transition-colors overflow-hidden">
               <CardContent className="p-6">
