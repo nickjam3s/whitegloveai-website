@@ -8,10 +8,10 @@ const AIIncubationLabSection = () => {
     <section id="ai-incubation-lab" className="py-20 bg-background scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 animate-fade-up">
-          <h2 className="text-3xl font-semibold mb-4 heading-highlight-scroll text-white">
+          <h2 className="text-3xl font-semibold mb-4 heading-highlight-scroll text-[#9b87f5]">
             AI Incubation Lab
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-10">
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-4">
             We can help you prototype your next app idea to life, as fast as 4 Weeks!
           </p>
           <p className="text-gray-400 max-w-3xl mx-auto mb-10">
@@ -25,7 +25,7 @@ const AIIncubationLabSection = () => {
             <div className="bg-secondary/10 p-3 rounded-lg w-14 h-14 flex items-center justify-center mx-auto mb-4">
               <Sparkles className="h-8 w-8 text-[#9b87f5]" />
             </div>
-            <h3 className="text-xl font-medium mb-3 text-center">Problem-Led Prototyping</h3>
+            <h3 className="text-xl font-medium mb-3 text-center text-[#9b87f5]">Problem-Led Prototyping</h3>
             <p className="text-gray-400 text-center">
               We identify real customer challenges and build secure MVPs in weeks—not months.
             </p>
@@ -35,7 +35,7 @@ const AIIncubationLabSection = () => {
             <div className="bg-secondary/10 p-3 rounded-lg w-14 h-14 flex items-center justify-center mx-auto mb-4">
               <Rocket className="h-8 w-8 text-[#9b87f5]" />
             </div>
-            <h3 className="text-xl font-medium mb-3 text-center">Full-Lifecycle Build Service</h3>
+            <h3 className="text-xl font-medium mb-3 text-center text-[#9b87f5]">Full-Lifecycle Build Service</h3>
             <p className="text-gray-400 text-center">
               From ideation to launch, we deliver turnkey AI solutions with embedded compliance and real-time user feedback.
             </p>
@@ -45,7 +45,7 @@ const AIIncubationLabSection = () => {
             <div className="bg-secondary/10 p-3 rounded-lg w-14 h-14 flex items-center justify-center mx-auto mb-4">
               <Shield className="h-8 w-8 text-[#9b87f5]" />
             </div>
-            <h3 className="text-xl font-medium mb-3 text-center">Enterprise-Ready from Day One</h3>
+            <h3 className="text-xl font-medium mb-3 text-center text-[#9b87f5]">Enterprise-Ready from Day One</h3>
             <p className="text-gray-400 text-center">
               Solutions are designed for compliance, scalability, and long-term value creation.
             </p>
@@ -54,7 +54,7 @@ const AIIncubationLabSection = () => {
 
         {/* AI Solutions */}
         <div className="animate-fade-up">
-          <h3 className="text-2xl font-semibold mb-8 text-center text-white">
+          <h3 className="text-2xl font-semibold mb-8 text-center text-[#9b87f5]">
             AI Solutions Built in the Lab
           </h3>
           
