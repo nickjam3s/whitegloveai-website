@@ -118,8 +118,10 @@ const Index = () => {
             {/* Updated button with centered "Learn More" text */}
             <div className="flex justify-center mt-8">
               <Link to="/vcaio/chiefaiofficer">
-                <Button className="text-white bg-[#9b87f5] hover:bg-[#9b87f5]/90 font-bold relative z-10 flex items-center justify-center">
-                  <span className="relative z-20 font-bold text-white">Learn More</span>
+                <Button className="text-white bg-[#9b87f5] hover:bg-[#9b87f5]/90 font-bold relative z-10 flex items-center justify-center w-full">
+                  <span className="absolute inset-0 flex items-center justify-center">
+                    <span className="relative z-20 font-bold text-white">Learn More</span>
+                  </span>
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
@@ -149,8 +151,10 @@ const Index = () => {
             {/* Updated "Learn More" button with centered text */}
             <div className="flex justify-center mt-8">
               <Link to="/maisp">
-                <Button className="text-white bg-[#9b87f5] hover:bg-[#9b87f5]/90 font-bold relative z-10 flex items-center justify-center">
-                  <span className="relative z-20 font-bold text-white">Learn More</span>
+                <Button className="text-white bg-[#9b87f5] hover:bg-[#9b87f5]/90 font-bold relative z-10 flex items-center justify-center w-full">
+                  <span className="absolute inset-0 flex items-center justify-center">
+                    <span className="relative z-20 font-bold text-white">Learn More</span>
+                  </span>
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
