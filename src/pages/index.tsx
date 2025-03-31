@@ -1,6 +1,7 @@
 
 import React, { useEffect } from 'react';
 import HeroSection from '@/components/home/HeroSection';
+import TrustedBy from '@/components/home/TrustedBy';
 import ServicesSection from '@/components/home/ServicesSection';
 import AIIncubationLabSection from '@/components/AIIncubationLabSection';
 import AIAMFFrameworkSection from '@/components/home/AIAMFFrameworkSection';
@@ -60,6 +61,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background text-white">
       <HeroSection />
+      <TrustedBy />
       <ServicesSection />
       <AIIncubationLabSection />
       <AIAMFFrameworkSection />

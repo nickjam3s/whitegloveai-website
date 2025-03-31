@@ -46,7 +46,7 @@ const HeroSection = () => {
         </div>
       </div>
       
-      {/* Add ScrollAnimation to point to the next section */}
+      {/* Add ScrollAnimation to point to the trusted by section */}
       <ScrollAnimation targetId="services" />
     </section>
   );
