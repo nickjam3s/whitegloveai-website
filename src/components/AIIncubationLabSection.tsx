@@ -90,6 +90,13 @@ const AIIncubationLabSection = () => {
                 <div className="h-16 flex items-center justify-center mb-4">
                   <div className="text-2xl font-bold text-[#9b87f5]">The AI Executive</div>
                 </div>
+                <div className="flex justify-center my-4">
+                  <img 
+                    src="/lovable-uploads/3115d5e9-51d8-496f-b324-22397addb268.png" 
+                    alt="The AI Executive Logo" 
+                    className="h-48 w-auto"
+                  />
+                </div>
                 <p className="text-gray-400 text-center">
                   The AI Executive is our comprehensive media platform for navigating the world of artificial 
                   intelligence in business. Featuring a Podcast, Blog Daily Newsletter and an AI Marketplace, 
