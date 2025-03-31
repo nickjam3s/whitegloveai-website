@@ -10,6 +10,9 @@ import ScrollAnimation from '@/components/animations/ScrollAnimation';
 
 const Index = () => {
   useEffect(() => {
+    // Scroll to top when component mounts
+    window.scrollTo(0, 0);
+    
     // Load the chat script
     const script = document.createElement('script');
     script.src = "https://chat.whitegloveai.com/api/script/chat.js?iframe&id=11eee546-15ce-7f30-aa68-03cf75d045b5";
@@ -40,6 +43,13 @@ const Index = () => {
     document.querySelectorAll('.heading-highlight-scroll').forEach(heading => {
       observer.observe(heading);
     });
+
+    // Also observe animate-section and animate-on-scroll elements
+    const animateSections = document.querySelectorAll('.animate-section, .animate-on-scroll');
+    animateSections.forEach(section => {
+      observer.observe(section);
+    });
+    
     return () => {
       document.body.removeChild(script);
       document.body.removeChild(typeformScript);

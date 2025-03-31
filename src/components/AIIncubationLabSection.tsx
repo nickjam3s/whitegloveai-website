@@ -2,6 +2,7 @@
 import React from 'react';
 import { Sparkles, Rocket, Shield } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
+import ScrollAnimation from '@/components/animations/ScrollAnimation';
 
 const AIIncubationLabSection = () => {
   return (
@@ -145,6 +146,8 @@ const AIIncubationLabSection = () => {
           </div>
         </div>
       </div>
+      
+      <ScrollAnimation targetId="aiamf-framework" showArrow={true} />
     </section>
   );
 };

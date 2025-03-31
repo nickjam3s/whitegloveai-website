@@ -13,7 +13,7 @@ const ServicesSection = () => {
       </div>
       
       {/* Add ScrollAnimation to point to the AI Incubation Lab Section */}
-      <ScrollAnimation targetId="ai-incubation-lab" />
+      <ScrollAnimation targetId="ai-incubation-lab" showArrow={true} />
     </section>
   );
 };
