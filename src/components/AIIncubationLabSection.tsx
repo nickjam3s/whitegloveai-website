@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Sparkles, Rocket, Shield } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
@@ -88,7 +89,7 @@ const AIIncubationLabSection = () => {
               rel="noopener noreferrer"
               className="block hover:scale-105 transition-transform"
             >
-              <Card className="bg-card/60 border border-gray-800 hover:border-[#9b87f5]/50 transition-colors overflow-hidden">
+              <Card className="bg-card/60 border border-gray-800 hover:border-[#9b87f5]/50 transition-colors overflow-hidden h-full">
                 <CardContent className="p-6 flex flex-col items-center">
                   <div className="h-16 flex items-center justify-center mb-4">
                     <div className="text-2xl font-bold text-[#9b87f5]">The AI Executive</div>
@@ -115,7 +116,7 @@ const AIIncubationLabSection = () => {
               rel="noopener noreferrer"
               className="block hover:scale-105 transition-transform"
             >
-              <Card className="bg-card/60 border border-gray-800 hover:border-[#9b87f5]/50 transition-colors overflow-hidden">
+              <Card className="bg-card/60 border border-gray-800 hover:border-[#9b87f5]/50 transition-colors overflow-hidden h-full">
                 <CardContent className="p-6 flex flex-col items-center">
                   <div className="h-16 flex items-center justify-center mb-4">
                     <div className="text-2xl text-[#9b87f5]">
