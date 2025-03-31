@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Sparkles, Rocket, Shield } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
@@ -119,8 +118,10 @@ const AIIncubationLabSection = () => {
               <Card className="bg-card/60 border border-gray-800 hover:border-[#9b87f5]/50 transition-colors overflow-hidden">
                 <CardContent className="p-6 flex flex-col items-center">
                   <div className="h-16 flex items-center justify-center mb-4">
-                    <div className="text-2xl font-bold text-[#9b87f5]">
-                      Polaicy.com
+                    <div className="text-2xl text-[#9b87f5]">
+                      <span className="font-bold">Pol</span>
+                      <span className="font-normal">ai</span>
+                      <span className="font-bold">cy.com</span>
                       <div className="text-sm italic text-gray-500 mt-1 text-center">Coming Soon</div>
                     </div>
                   </div>
