@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Sparkles, Rocket, Shield } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
@@ -87,29 +88,29 @@ const AIIncubationLabSection = () => {
             <Card className="bg-card/60 border border-gray-800 hover:border-[#9b87f5]/50 transition-colors overflow-hidden">
               <CardContent className="p-6">
                 <div className="h-16 flex items-center justify-center mb-4">
-                  <div className="text-2xl font-bold text-[#9b87f5]">
-                    Polaicy.com
-                    <div className="text-sm italic text-gray-500 mt-1">Coming Soon</div>
-                  </div>
-                </div>
-                <p className="text-gray-400">
-                  Polaicy.com is an innovative AI policy generator designed to help organizations 
-                  develop and manage AI governance policies efficiently. It offers customizable templates, 
-                  process orchestration, and integrates with existing compliance systems to ensure 
-                  responsible AI use.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-card/60 border border-gray-800 hover:border-[#9b87f5]/50 transition-colors overflow-hidden">
-              <CardContent className="p-6">
-                <div className="h-16 flex items-center justify-center mb-4">
                   <div className="text-2xl font-bold text-[#9b87f5]">The AI Executive</div>
                 </div>
                 <p className="text-gray-400">
                   The AI Executive is our comprehensive media platform for navigating the world of artificial 
                   intelligence in business. Featuring a Podcast, Blog Daily Newsletter and an AI Marketplace, 
                   matching buyers and vendors.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-card/60 border border-gray-800 hover:border-[#9b87f5]/50 transition-colors overflow-hidden">
+              <CardContent className="p-6 flex flex-col items-center">
+                <div className="h-16 flex items-center justify-center mb-4">
+                  <div className="text-2xl font-bold text-[#9b87f5]">
+                    Polaicy.com
+                    <div className="text-sm italic text-gray-500 mt-1 text-center">Coming Soon</div>
+                  </div>
+                </div>
+                <p className="text-gray-400 text-center">
+                  Polaicy.com is an innovative AI policy generator designed to help organizations 
+                  develop and manage AI governance policies efficiently. It offers customizable templates, 
+                  process orchestration, and integrates with existing compliance systems to ensure 
+                  responsible AI use.
                 </p>
               </CardContent>
             </Card>
