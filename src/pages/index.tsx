@@ -1,9 +1,11 @@
+
 import React from 'react';
 import { ArrowRight, CheckCircle2, Lightbulb, Shield, BrainCircuit, BarChart4, Download } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import ScrollAnimation from '@/components/animations/ScrollAnimation';
 import AIIncubationLabSection from '@/components/AIIncubationLabSection';
+import { Button } from '@/components/ui/button';
 
 const Index = () => {
   useEffect(() => {
@@ -111,6 +113,16 @@ const Index = () => {
                   <p className="text-gray-400">{feature.description}</p>
                 </div>
               ))}
+            </div>
+            
+            {/* New button added here */}
+            <div className="flex justify-center mt-8">
+              <Link to="/vcaio/chiefaiofficer">
+                <Button className="text-white bg-[#9b87f5] hover:bg-[#9b87f5]/90">
+                  Learn More About vCAIO
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </Link>
             </div>
           </div>
 
