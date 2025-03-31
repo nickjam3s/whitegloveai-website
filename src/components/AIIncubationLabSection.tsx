@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Sparkles, Rocket, Shield } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
@@ -77,8 +76,7 @@ const AIIncubationLabSection = () => {
                     />
                   </div>
                   <p className="text-gray-400 text-center">
-                    Lucidis is an innovative Machine Vision-powered solution designed to revolutionize 
-                    data cleaning, extraction and delivery.
+                    Lucidis is a private, closed-loop AI platform powered by machine vision that transforms how organizations clean, extract, and deliver data. With real-time automation, Lucidis eliminates manual tasks and streamlines operations across industries like property management, healthcare, and compliance—reducing processing time by up to 80% and increasing data accuracy to 100%.
                   </p>
                 </CardContent>
               </Card>
@@ -103,9 +101,7 @@ const AIIncubationLabSection = () => {
                     />
                   </div>
                   <p className="text-gray-400 text-center">
-                    The AI Executive is our comprehensive media platform for navigating the world of artificial 
-                    intelligence in business. Featuring a Podcast, Blog Daily Newsletter and an AI Marketplace, 
-                    matching buyers and vendors.
+                    The AI Executive is a premier media and education platform built for business leaders navigating the AI revolution. It features a podcast, daily newsletter, and expert insights—equipping executives with strategies for secure AI adoption. An AI Marketplace is launching soon, enabling seamless discovery and matching of enterprise-grade AI vendors and solutions.
                   </p>
                 </CardContent>
               </Card>
@@ -135,10 +131,7 @@ const AIIncubationLabSection = () => {
                     />
                   </div>
                   <p className="text-gray-400 text-center">
-                    Polaicy.com is an innovative AI policy generator designed to help organizations 
-                    develop and manage AI governance policies efficiently. It offers customizable templates, 
-                    process orchestration, and integrates with existing compliance systems to ensure 
-                    responsible AI use.
+                    Polaicy.com is an AI-powered governance platform that helps organizations create, manage, and operationalize AI policies with ease. Designed for compliance and security teams, it includes customizable templates, automation tools, and seamless integration with enterprise systems—ensuring responsible AI use aligned with industry standards and regulations.
                   </p>
                 </CardContent>
               </Card>
