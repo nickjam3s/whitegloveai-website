@@ -55,6 +55,16 @@ const TrustedBy = () => {
               alt="Parker Logo"
               className="h-[80px] w-auto object-contain"
             />
+            <img
+              src="/lovable-uploads/a95e8c96-a49c-4c52-bb1b-c2a6241c1d1f.png"
+              alt="Paychex Logo"
+              className="h-[60px] w-auto object-contain"
+            />
+            <img
+              src="/lovable-uploads/3c830014-ce8c-4b9e-9e89-952c3a7c04e1.png"
+              alt="McKinney Texas Unique Logo"
+              className="h-[80px] w-auto object-contain"
+            />
           </InfiniteSlider>
         </div>
       </div>
