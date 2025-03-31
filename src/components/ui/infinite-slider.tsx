@@ -1,4 +1,3 @@
-
 import React, { useRef, useEffect } from "react";
 import { cn } from "@/lib/utils";
 
@@ -39,8 +38,8 @@ export const InfiniteSlider = ({
         const scrollerWidth = scrollerRef.current.offsetWidth;
         const contentWidth = contentRef.current.scrollWidth;
         
-        // Calculate animation duration based on content length
-        const duration = contentWidth / 50; // Adjust speed as needed
+        // Reduce duration by 50% to increase scroll speed
+        const duration = contentWidth / 75; // Changed from 50 to 75
         
         contentRef.current.style.animation = `scroll${direction === 'horizontal' ? 'X' : 'Y'}${reverse ? 'Reverse' : ''} ${duration}s linear infinite`;
       }
