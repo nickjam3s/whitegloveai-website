@@ -13,6 +13,16 @@ const TrustedBy = () => {
         <div className="h-[100px] overflow-hidden">
           <InfiniteSlider gap={120} className="w-full h-full">
             <img
+              src="/lovable-uploads/f0ca996d-42e2-4524-b115-7ff8ed634282.png"
+              alt="Principal Logo"
+              className="h-[60px] w-auto object-contain"
+            />
+            <img
+              src="/lovable-uploads/7a4a8a1b-9c9a-4bb0-96f4-4e10213073d5.png"
+              alt="McKinney Texas Unique By Nature Logo"
+              className="h-[80px] w-auto object-contain"
+            />
+            <img
               src="/lovable-uploads/1ca9f7e9-12e2-46cd-9d26-bf3264c8282c.png"
               alt="Allen Star Logo"
               className="h-[80px] w-auto object-contain"
