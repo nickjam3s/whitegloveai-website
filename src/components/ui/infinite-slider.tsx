@@ -42,8 +42,8 @@ export const InfiniteSlider = ({
         // Calculate the width of a single set of logos (total width divided by 4 sets)
         const contentWidth = contentRef.current.scrollWidth / 4;
         
-        // Set the speed to the requested value
-        const duration = contentWidth / 175; 
+        // Increase speed by reducing the duration (from 175 to 100)
+        const duration = contentWidth / 100; 
         
         // Use linear infinite animation to ensure continuous scrolling
         contentRef.current.style.animation = `scroll${direction === 'horizontal' ? 'X' : 'Y'}${reverse ? 'Reverse' : ''} ${duration}s linear infinite`;
