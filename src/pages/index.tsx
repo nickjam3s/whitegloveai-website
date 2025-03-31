@@ -117,8 +117,8 @@ const Index = () => {
             {/* Updated button with "Learn More" text */}
             <div className="flex justify-center mt-8">
               <Link to="/vcaio/chiefaiofficer">
-                <Button className="text-white bg-[#9b87f5] hover:bg-[#9b87f5]/90 font-bold">
-                  Learn More
+                <Button className="text-white bg-[#9b87f5] hover:bg-[#9b87f5]/90 font-bold relative z-10">
+                  <span className="relative z-20 font-bold text-white">Learn More</span>
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
@@ -148,8 +148,8 @@ const Index = () => {
             {/* Added "Learn More" button */}
             <div className="flex justify-center mt-8">
               <Link to="/maisp">
-                <Button className="text-white bg-[#9b87f5] hover:bg-[#9b87f5]/90 font-bold">
-                  Learn More
+                <Button className="text-white bg-[#9b87f5] hover:bg-[#9b87f5]/90 font-bold relative z-10">
+                  <span className="relative z-20 font-bold text-white">Learn More</span>
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
