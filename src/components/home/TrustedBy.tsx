@@ -11,7 +11,11 @@ const TrustedBy = () => {
         </h2>
         
         <div className="h-[100px] overflow-hidden">
-          <InfiniteSlider gap={120} className="w-full h-full">
+          <InfiniteSlider 
+            gap={120} 
+            className="w-full h-full" 
+            autoplay={false} // Only scroll on hover or when visible
+          >
             <img
               src="/lovable-uploads/f0ca996d-42e2-4524-b115-7ff8ed634282.png"
               alt="Principal Logo"

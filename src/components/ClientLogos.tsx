@@ -8,7 +8,12 @@ const ClientLogos = () => {
       <div className="max-w-7xl mx-auto">
         <h2 className="text-lg font-semibold text-primary mb-4 text-center">TRUSTED BY INDUSTRY LEADERS</h2>
         <div className="h-[150px] overflow-hidden">
-          <InfiniteSlider gap={48} reverse className="w-full h-full">
+          <InfiniteSlider 
+            gap={48} 
+            reverse 
+            className="w-full h-full"
+            autoplay={false} // Only scroll on hover or when visible
+          >
             <img
               src="/placeholder.svg"
               alt="Placeholder Logo 1"
