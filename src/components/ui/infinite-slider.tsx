@@ -29,8 +29,8 @@ export const InfiniteSlider = ({
     if (isScrolling) {
       // Calculate the width of a single set of logos
       const contentWidth = contentRef.current.scrollWidth / 5; // Now we have 5 sets
-      // Duration calculation
-      const duration = contentWidth / 100;
+      // Duration calculation with 30% slower animation
+      const duration = (contentWidth / 100) * 1.3; // Increase duration by 30% to slow down
       
       contentRef.current.style.animation = `${direction === 'horizontal' ? 'scroll' : 'scrollY'}${reverse ? 'Reverse' : ''} ${duration}s linear infinite`;
     } else {
@@ -107,18 +107,18 @@ export const InfiniteSlider = ({
       <style dangerouslySetInnerHTML={{ __html: `
         @keyframes scroll {
           from { transform: translateX(0); }
-          to { transform: translateX(-80%); }
+          to { transform: translateX(-50%); }
         }
         @keyframes scrollReverse {
-          from { transform: translateX(-80%); }
+          from { transform: translateX(-50%); }
           to { transform: translateX(0); }
         }
         @keyframes scrollY {
           from { transform: translateY(0); }
-          to { transform: translateY(-80%); }
+          to { transform: translateY(-50%); }
         }
         @keyframes scrollYReverse {
-          from { transform: translateY(-80%); }
+          from { transform: translateY(-50%); }
           to { transform: translateY(0); }
         }
       `}} />
