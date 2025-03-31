@@ -1,3 +1,4 @@
+
 import React, { useRef, useEffect } from "react";
 import { cn } from "@/lib/utils";
 
@@ -35,12 +36,12 @@ export const InfiniteSlider = ({
     // Setup animation based on direction and reverse options
     const setupAnimation = () => {
       if (scrollerRef.current && contentRef.current) {
-        const scrollerWidth = scrollerRef.current.offsetWidth;
-        const contentWidth = contentRef.current.scrollWidth;
+        const contentWidth = contentRef.current.scrollWidth / 2; // Divide by 2 because we duplicated content
         
         // Reduce duration by 50% to increase scroll speed
-        const duration = contentWidth / 75; // Changed from 50 to 75
+        const duration = contentWidth / 75;
         
+        // Use linear infinite animation to ensure continuous scrolling
         contentRef.current.style.animation = `scroll${direction === 'horizontal' ? 'X' : 'Y'}${reverse ? 'Reverse' : ''} ${duration}s linear infinite`;
       }
     };
