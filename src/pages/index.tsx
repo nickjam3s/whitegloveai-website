@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { ArrowRight, CheckCircle2, Lightbulb, Shield, BrainCircuit, BarChart4, Download } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -115,11 +114,11 @@ const Index = () => {
               ))}
             </div>
             
-            {/* New button added here */}
+            {/* Updated button with "Learn More" text */}
             <div className="flex justify-center mt-8">
               <Link to="/vcaio/chiefaiofficer">
-                <Button className="text-white bg-[#9b87f5] hover:bg-[#9b87f5]/90">
-                  Learn More About vCAIO
+                <Button className="text-white bg-[#9b87f5] hover:bg-[#9b87f5]/90 font-bold">
+                  Learn More
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
