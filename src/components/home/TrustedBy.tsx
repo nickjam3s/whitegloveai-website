@@ -9,7 +9,7 @@ const TrustedBy = () => {
         <h2 className="text-2xl font-semibold text-center mb-8 heading-highlight-scroll text-white">TRUSTED BY INDUSTRY LEADERS</h2>
         
         <div className="h-[100px] overflow-hidden">
-          <InfiniteSlider gap={80} className="w-full h-full">
+          <InfiniteSlider gap={120} className="w-full h-full">
             <img
               src="/lovable-uploads/1ca9f7e9-12e2-46cd-9d26-bf3264c8282c.png"
               alt="Allen Star Logo"
@@ -23,67 +23,37 @@ const TrustedBy = () => {
             <img
               src="/lovable-uploads/347f5cb7-7b00-4459-8370-240641f6d41a.png"
               alt="City of Anna Logo"
-              className="h-[80px] w-auto object-contain invert"
+              className="h-[80px] w-auto object-contain"
             />
             <img
               src="/lovable-uploads/546436a1-1e57-4c15-bcb5-67b2a4387326.png"
               alt="Frisco Logo"
-              className="h-[80px] w-auto object-contain invert"
+              className="h-[80px] w-auto object-contain"
             />
             <img
               src="/lovable-uploads/427931fd-d653-41d3-bbfa-1c3f3a160044.png"
               alt="Insight One Logo"
-              className="h-[60px] w-auto object-contain invert"
+              className="h-[60px] w-auto object-contain"
             />
             <img
               src="/lovable-uploads/31ce2c79-4446-474c-944b-387098eef691.png"
               alt="Kofile Logo"
-              className="h-[60px] w-auto object-contain invert"
+              className="h-[60px] w-auto object-contain"
             />
             <img
               src="/lovable-uploads/b6a654ad-cab3-433b-b6d1-d7783e010859.png"
               alt="MEDC Logo"
-              className="h-[60px] w-auto object-contain invert"
+              className="h-[60px] w-auto object-contain"
             />
             <img
               src="/lovable-uploads/ffe8ec7f-c754-4b67-9abf-358cf9af31cf.png"
               alt="McKinney Texas Logo"
-              className="h-[80px] w-auto object-contain invert"
+              className="h-[80px] w-auto object-contain"
             />
             <img
               src="/lovable-uploads/00ec88d7-072d-4ba5-8d23-fba3e5d934c4.png"
               alt="Parker Logo"
-              className="h-[80px] w-auto object-contain invert"
-            />
-          </InfiniteSlider>
-        </div>
-        
-        <div className="h-[100px] overflow-hidden mt-8">
-          <InfiniteSlider gap={80} reverse={true} className="w-full h-full">
-            <img
-              src="/lovable-uploads/1ca9f7e9-12e2-46cd-9d26-bf3264c8282c.png"
-              alt="Allen Star Logo"
               className="h-[80px] w-auto object-contain"
-            />
-            <img
-              src="/lovable-uploads/17e63cce-7a22-4959-b5a9-2ba2208cb774.png"
-              alt="Black Dome Logo"
-              className="h-[80px] w-auto object-contain"
-            />
-            <img
-              src="/lovable-uploads/347f5cb7-7b00-4459-8370-240641f6d41a.png"
-              alt="City of Anna Logo"
-              className="h-[80px] w-auto object-contain invert"
-            />
-            <img
-              src="/lovable-uploads/546436a1-1e57-4c15-bcb5-67b2a4387326.png"
-              alt="Frisco Logo"
-              className="h-[80px] w-auto object-contain invert"
-            />
-            <img
-              src="/lovable-uploads/427931fd-d653-41d3-bbfa-1c3f3a160044.png"
-              alt="Insight One Logo"
-              className="h-[60px] w-auto object-contain invert"
             />
           </InfiniteSlider>
         </div>
