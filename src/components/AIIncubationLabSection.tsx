@@ -86,11 +86,11 @@ const AIIncubationLabSection = () => {
             </a>
 
             <Card className="bg-card/60 border border-gray-800 hover:border-[#9b87f5]/50 transition-colors overflow-hidden">
-              <CardContent className="p-6">
+              <CardContent className="p-6 flex flex-col items-center">
                 <div className="h-16 flex items-center justify-center mb-4">
                   <div className="text-2xl font-bold text-[#9b87f5]">The AI Executive</div>
                 </div>
-                <p className="text-gray-400">
+                <p className="text-gray-400 text-center">
                   The AI Executive is our comprehensive media platform for navigating the world of artificial 
                   intelligence in business. Featuring a Podcast, Blog Daily Newsletter and an AI Marketplace, 
                   matching buyers and vendors.
