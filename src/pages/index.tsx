@@ -144,6 +144,16 @@ const Index = () => {
                 </div>
               ))}
             </div>
+            
+            {/* Added "Learn More" button */}
+            <div className="flex justify-center mt-8">
+              <Link to="/maisp">
+                <Button className="text-white bg-[#9b87f5] hover:bg-[#9b87f5]/90 font-bold">
+                  Learn More
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
         
