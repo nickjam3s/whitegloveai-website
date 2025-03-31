@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Sparkles, Rocket, Shield } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
@@ -19,7 +18,6 @@ const AIIncubationLabSection = () => {
           </p>
         </div>
 
-        {/* Key Features */}
         <div className="grid md:grid-cols-3 gap-8 mb-16 animate-fade-up">
           <div className="bg-background/50 p-6 rounded-lg border border-secondary/30 hover:border-secondary/70 transition-colors">
             <div className="bg-secondary/10 p-3 rounded-lg w-14 h-14 flex items-center justify-center mx-auto mb-4">
@@ -52,7 +50,6 @@ const AIIncubationLabSection = () => {
           </div>
         </div>
 
-        {/* AI Solutions */}
         <div className="animate-fade-up">
           <h3 className="text-2xl font-semibold mb-8 text-center text-[#9b87f5]">
             AI Solutions Built in the Lab
@@ -85,25 +82,32 @@ const AIIncubationLabSection = () => {
               </Card>
             </a>
 
-            <Card className="bg-card/60 border border-gray-800 hover:border-[#9b87f5]/50 transition-colors overflow-hidden">
-              <CardContent className="p-6 flex flex-col items-center">
-                <div className="h-16 flex items-center justify-center mb-4">
-                  <div className="text-2xl font-bold text-[#9b87f5]">The AI Executive</div>
-                </div>
-                <div className="flex justify-center my-4">
-                  <img 
-                    src="/lovable-uploads/3115d5e9-51d8-496f-b324-22397addb268.png" 
-                    alt="The AI Executive Logo" 
-                    className="h-48 w-auto"
-                  />
-                </div>
-                <p className="text-gray-400 text-center">
-                  The AI Executive is our comprehensive media platform for navigating the world of artificial 
-                  intelligence in business. Featuring a Podcast, Blog Daily Newsletter and an AI Marketplace, 
-                  matching buyers and vendors.
-                </p>
-              </CardContent>
-            </Card>
+            <a 
+              href="https://aiexecutive.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="block hover:scale-105 transition-transform"
+            >
+              <Card className="bg-card/60 border border-gray-800 hover:border-[#9b87f5]/50 transition-colors overflow-hidden">
+                <CardContent className="p-6 flex flex-col items-center">
+                  <div className="h-16 flex items-center justify-center mb-4">
+                    <div className="text-2xl font-bold text-[#9b87f5]">The AI Executive</div>
+                  </div>
+                  <div className="flex justify-center my-4">
+                    <img 
+                      src="/lovable-uploads/3115d5e9-51d8-496f-b324-22397addb268.png" 
+                      alt="The AI Executive Logo" 
+                      className="h-48 w-auto"
+                    />
+                  </div>
+                  <p className="text-gray-400 text-center">
+                    The AI Executive is our comprehensive media platform for navigating the world of artificial 
+                    intelligence in business. Featuring a Podcast, Blog Daily Newsletter and an AI Marketplace, 
+                    matching buyers and vendors.
+                  </p>
+                </CardContent>
+              </Card>
+            </a>
 
             <Card className="bg-card/60 border border-gray-800 hover:border-[#9b87f5]/50 transition-colors overflow-hidden">
               <CardContent className="p-6 flex flex-col items-center">
