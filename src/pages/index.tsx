@@ -4,6 +4,7 @@ import { ArrowRight, CheckCircle2, Lightbulb, Shield, BrainCircuit, BarChart4, D
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import ScrollAnimation from '@/components/animations/ScrollAnimation';
+import AIIncubationLabSection from '@/components/AIIncubationLabSection';
 
 const Index = () => {
   useEffect(() => {
@@ -136,9 +137,12 @@ const Index = () => {
           </div>
         </div>
         
-        {/* Add ScrollAnimation to point to the AI-AMF Framework Section */}
-        <ScrollAnimation targetId="ai-amf" />
+        {/* Add ScrollAnimation to point to the AI Incubation Lab Section */}
+        <ScrollAnimation targetId="ai-incubation-lab" />
       </section>
+
+      {/* AI Incubation Lab Section */}
+      <AIIncubationLabSection />
 
       {/* AI-AMF Framework Section */}
       <section id="ai-amf" className="py-20 bg-card scroll-mt-20">
