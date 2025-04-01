@@ -29,7 +29,7 @@ export const InfiniteSlider = ({
       // Calculate the width of a single set of logos
       const contentWidth = contentRef.current.scrollWidth / 5; // Now we have 5 sets
       // Duration calculation with slowed animation
-      const duration = (contentWidth / 100) * 3; // Increased multiplier from 1.6 to 3
+      const duration = (contentWidth / 100) * 2; // Changed multiplier to 2
       
       contentRef.current.style.animation = `${direction === 'horizontal' ? 'scroll' : 'scrollY'}${reverse ? 'Reverse' : ''} ${duration}s linear forwards`; // Using 'forwards' to stop at the end
     } else {
