@@ -1,3 +1,4 @@
+
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useEffect, useRef } from "react";
@@ -26,8 +27,8 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="relative h-[90vh] overflow-hidden">
-      {/* 3D model iframe */}
+    <section className="relative h-[200vh] overflow-hidden">
+      {/* 3D model iframe with purple overlay */}
       <div className="absolute inset-0 w-full h-full">
         <iframe 
           ref={iframeRef}
@@ -38,6 +39,8 @@ const HeroSection = () => {
           title="Humanoid Robot 3D Model"
           className="absolute inset-0"
         />
+        {/* Transparent purple overlay */}
+        <div className="absolute inset-0 bg-purple-600/50"></div>
       </div>
 
       {/* Text content positioned on top of the iframe */}
