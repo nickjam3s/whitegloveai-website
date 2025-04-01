@@ -27,7 +27,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="relative h-[200vh] overflow-hidden">
+    <section className="relative h-[100vh] overflow-hidden">
       {/* 3D model iframe with purple overlay */}
       <div className="absolute inset-0 w-full h-full">
         <iframe 
