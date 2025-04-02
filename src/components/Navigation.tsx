@@ -23,12 +23,14 @@ const Navigation = () => {
 
   return (
     <nav
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        scrolled ? "bg-black/80 backdrop-blur-md border-b border-gray-800" : "bg-transparent"
+      className={`fixed w-full z-50 transition-all duration-300 px-4 sm:px-6 lg:px-8 py-2 ${
+        scrolled ? "top-4" : "top-6"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+      <div className={`max-w-7xl mx-auto rounded-full backdrop-blur-md ${
+        scrolled ? "bg-black/80 shadow-lg border border-gray-800" : "bg-black/50"
+      }`}>
+        <div className="flex items-center justify-between h-16 px-4">
           <Link to="/">
             <Logo />
           </Link>
