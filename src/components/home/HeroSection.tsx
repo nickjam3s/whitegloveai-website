@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -35,13 +34,18 @@ const HeroSection = () => {
           </spline-viewer>
         </div>
         
-        <div className="absolute inset-0 bg-black/50"></div>
+        {/* Added 90% opaque overlay */}
+        <div className="absolute inset-0 bg-black/90"></div>
       </div>
       
       <div className="max-w-7xl mx-auto relative z-10 py-8">
         <div className="text-center animate-fade-up">
           <div className="logo-container">
-            <img src="/lovable-uploads/197ddc10-c159-4f39-a269-e35142af32c5.png" alt="WhitegloveAI Logo" className="h-32 mx-auto mb-8 logo-animation" />
+            <img 
+              src="/lovable-uploads/197ddc10-c159-4f39-a269-e35142af32c5.png" 
+              alt="WhitegloveAI Logo" 
+              className="h-32 mx-auto mb-8" 
+            />
           </div>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight mb-6 heading-highlight text-white">
             Your Trusted AI Adoption Partner
