@@ -8,7 +8,6 @@ import AIAMFFrameworkSection from '@/components/home/AIAMFFrameworkSection';
 import WhitegloveAIDifference from '@/components/home/WhitegloveAIDifference';
 import PartnerLogos from '@/components/home/PartnerLogos';
 import CTASection from '@/components/home/CTASection';
-import ScrollAnimation from '@/components/animations/ScrollAnimation';
 
 const Index = () => {
   useEffect(() => {
@@ -60,7 +59,7 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background text-white">
+    <div className="min-h-screen bg-black text-white">
       <HeroSection />
       <TrustedBy />
       <ServicesSection />
