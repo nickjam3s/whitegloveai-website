@@ -17,7 +17,7 @@ declare global {
 
 const HeroSection = () => {
   return (
-    <section id="hero" className="relative pt-20 pb-14 px-4 sm:px-6 lg:px-8 overflow-hidden scroll-mt-20 h-[33vh]">
+    <section id="hero" className="relative pt-20 pb-14 px-4 sm:px-6 lg:px-8 overflow-hidden scroll-mt-20 h-[66vh]">
       <div className="absolute inset-0 w-full h-full">
         <spline-viewer 
           hint 
