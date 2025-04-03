@@ -34,9 +34,7 @@ const ScrollAnimation: React.FC<ScrollAnimationProps> = ({
     repeat: Infinity,
     repeatType: "reverse"
   }} aria-hidden="true">
-      <a href={`#${targetId}`} aria-label="Scroll to learn more" onClick={handleClick} className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-r from-purple-500/30 to-purple-700/30 backdrop-blur-md border border-purple-500/30 hover:from-purple-500/40 hover:to-purple-700/40 transition-colors">
-        {showArrow}
-      </a>
+      
     </motion.div>;
 };
 export default ScrollAnimation;
