@@ -34,8 +34,8 @@ const HeroSection = () => {
           </spline-viewer>
         </div>
         
-        {/* Added 90% opaque overlay */}
-        <div className="absolute inset-0 bg-black/90"></div>
+        {/* Reduced overlay opacity to make animation more visible */}
+        <div className="absolute inset-0 bg-black/30"></div>
       </div>
       
       <div className="max-w-7xl mx-auto relative z-10 py-8">
