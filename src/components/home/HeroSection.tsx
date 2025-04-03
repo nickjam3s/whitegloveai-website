@@ -20,17 +20,20 @@ const HeroSection = () => {
   return (
     <section id="hero" className="relative px-4 sm:px-6 lg:px-8 overflow-hidden scroll-mt-20 h-[66vh] flex items-center">
       <div className="absolute inset-0 w-full h-full">
-        <spline-viewer 
-          loading-anim-type="spinner-small-dark" 
-          url="https://prod.spline.design/eXgd-TV6iF8bX-pB/scene.splinecode"
-          className="absolute inset-0"
-        >
-          <img 
-            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAA4CAYAAAALrl3YAAAAAXNSR0IArs4c6QAAAhhJREFUeF7tm2tywyAQg8sR/Lj/Vd3BUzJxayOBsYod5W82K9AH2AskzPO8fIHPssAQlMLfkw4EAyGdEoUZiMhoVgYC8XLFWtkmLgvEMNqYzGaJfh8CMQzWxvNx717/AWIQ5w1mM+x5HaZp8jst62CjuNygN5BGJrNp0Ap0CkiWdAhsGz8iDoFIJlQBYZO/Ox0KANXkf3WI1KnVKOlHbFOpThGQ0uQfMfQbd5ICYhCNXc+kywIxCB2I5PUuEIPQgIB1iEFoQOQe9mEcRxeGOg6rUrZcMBAtDbQKeYYIeSAYsSkG8kQgm+1jslIW+tCFFDM7ms0QA8HMpUBwcxxhIB2OAQaKH+picAiKgfQGJB3hInLidj9arugI12A0Y+HIZ+/2avzfVYG7vb9/5dmiobWp49A1IEPRQEm7wD7C1flNKRkIZZMuiAKCDlV0zX2+koF0xpgG4lmSJxcv0LV4ATKQu86QFvQ763uXzaFniIFo+FFADEMDYz3CdaWuM5tR8t1exqWLY+Belpeoiwn8pIe7vQahAZGr6XyEq2OwKqFB3wSI72VhqghEylAFhE3+Eqm8zViiU/rfv9S2qzVK8q+vvSW330uT43Fz/4i9gXDGJwrIGYH7W67tAQRiGNcD2TyDj5Ysg9CCOHyoG8T1ILJ1yDAM/o+hhgFXhxiIkAZTGBqIDgjzOAitgESx2uJMZ8n/KTEwYuu+AQmNRXRmbTAoAAAAAElFTkSuQmCC" 
-            alt="Spline preview" 
-            style={{width: '100%', height: '100%'}} 
-          />
-        </spline-viewer>
+        {/* Magnify the animation by making the container larger and positioning it to stay centered */}
+        <div className="absolute w-[200%] h-[200%] left-[-50%] top-[-50%]">
+          <spline-viewer 
+            loading-anim-type="spinner-small-dark" 
+            url="https://prod.spline.design/eXgd-TV6iF8bX-pB/scene.splinecode"
+            className="absolute inset-0"
+          >
+            <img 
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAA4CAYAAAALrl3YAAAAAXNSR0IArs4c6QAAAhhJREFUeF7tm2tywyAQg8sR/Lj/Vd3BUzJxayOBsYod5W82K9AH2AskzPO8fIHPssAQlMLfkw4EAyGdEoUZiMhoVgYC8XLFWtkmLgvEMNqYzGaJfh8CMQzWxvNx717/AWIQ5w1mM+x5HaZp8jst62CjuNygN5BGJrNp0Ap0CkiWdAhsGz8iDoFIJlQBYZO/Ox0KANXkf3WI1KnVKOlHbFOpThGQ0uQfMfQbd5ICYhCNXc+kywIxCB2I5PUuEIPQgIB1iEFoQOQe9mEcRxeGOg6rUrZcMBAtDbQKeYYIeSAYsSkG8kQgm+1jslIW+tCFFDM7ms0QA8HMpUBwcxxhIB2OAQaKH+picAiKgfQGJB3hInLidj9arugI12A0Y+HIZ+/2avzfVYG7vb9/5dmiobWp49A1IEPRQEm7wD7C1flNKRkIZZMuiAKCDlV0zX2+koF0xpgG4lmSJxcv0LV4ATKQu86QFvQ763uXzaFniIFo+FFADEMDYz3CdaWuM5tR8t1exqWLY+Belpeoiwn8pIe7vQahAZGr6XyEq2OwKqFB3wSI72VhqghEylAFhE3+Eqm8zViiU/rfv9S2qzVK8q+vvSW330uT43Fz/4i9gXDGJwrIGYH7W67tAQRiGNcD2TyDj5Ysg9CCOHyoG8T1ILJ1yDAM/o+hhgFXhxiIkAZTGBqIDgjzOAitgESx2uJMZ8n/KTEwYuu+AQmNRXRmbTAoAAAAAElFTkSuQmCC" 
+              alt="Spline preview" 
+              style={{width: '100%', height: '100%'}} 
+            />
+          </spline-viewer>
+        </div>
         
         <div className="absolute inset-0 bg-black/50"></div>
       </div>
