@@ -1,28 +1,41 @@
-
 import React, { useEffect } from 'react';
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import ScrollAnimation from '@/components/animations/ScrollAnimation';
 
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      'spline-viewer': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement> & {
+        hint?: boolean;
+        'loading-anim-type'?: string;
+        url?: string;
+      }, HTMLElement>;
+    }
+  }
+}
+
 const HeroSection = () => {
   return (
-    <section id="hero" className="relative pt-40 pb-28 px-4 sm:px-6 lg:px-8 overflow-hidden scroll-mt-20">
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute inset-[10%] bg-[radial-gradient(circle_at_50%_50%,#7928CA,transparent_60%)] opacity-25 animate-[morphing_12s_ease-in-out_infinite]" style={{
-          transformOrigin: '60% 40%',
-          animation: 'morphing 12s ease-in-out infinite, rotating 15s linear infinite'
-        }}></div>
-        <div className="absolute inset-[10%] bg-[radial-gradient(circle_at_50%_50%,#7021EE,transparent_50%)] opacity-30" style={{
-          transformOrigin: '40% 60%',
-          animation: 'morphing 8s ease-in-out infinite reverse, rotating 20s linear infinite reverse'
-        }}></div>
-        <div className="absolute inset-[10%] bg-[radial-gradient(circle_at_50%_50%,#FF0080,transparent_55%)] opacity-20" style={{
-          transformOrigin: '30% 70%',
-          animation: 'morphing 15s ease-in-out infinite, rotating 25s linear infinite'
-        }}></div>
-        <div className="absolute inset-0 backdrop-blur-[100px]"></div>
+    <section id="hero" className="relative pt-40 pb-28 px-4 sm:px-6 lg:px-8 overflow-hidden scroll-mt-20 h-[100vh]">
+      <div className="absolute inset-0 w-full h-full">
+        <spline-viewer 
+          hint 
+          loading-anim-type="spinner-small-dark" 
+          url="https://prod.spline.design/MBTE3Y7nCIJv3C8Q/scene.splinecode"
+          className="absolute inset-0"
+        >
+          <img 
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAA4CAYAAAALrl3YAAAAAXNSR0IArs4c6QAAAydJREFUeF7tm2uWwyAIhesS+tj/VjsnPU0mNSoXUIIt83NqBO6HCqZNj8fjeWn8PZ/Nj1uPDvkspSSe11sspUDSrwCZAcYCqAnEaxCSVeI1lnyVTAnklUmMrWsWGM0VMlUQBTgz+b/39bBCZgpEfLo7ebCkdbrf777KKCdijXSjlfQBZKTy2dzI7iMGQk3OOXQNNamaqsXTIw5Kq71TbCCcyYuNT6M60s6NVF8WNta4JbZgIJLJPWT+bD6QQAKELdIqkABhAyLX+QAkQJwDYrWabrdb9CE2DDYrzT4kgNjSoHagWCFGPCgQXbasw4HEuIE10gEyM7IpXBxAYbz6KOmWNToISEnlIEQobaeO2Pjo1CVAesMo3noarDZELPdAmhWCQEQt3JpgiNjImGmBSB2XAkHttUT/CiClQwoVp7TlS4Bw7dVsuASyvqBCnNsLuoznCtMDiNRmKT4qZqmtXCdO7eHi6gQtn2sC5f9HxbcAwi5781e4lJMc2uhYKZBWBmuh9FgdkpVSvO09AwoFLxcIESyPA4WEvOii/OVsz1uXntJlmut3CZDSdoFAQWBLgCDPTAFECgMFgghlNab5xtDL1uUNCFJESAEGEKZympsBxNTwd+pLANqV1nOFcMvQXERuZYdA+LhcpL65qBFz73yvefYVCRIscogj8yCVlybGLS4KiCajAgiK+n8cuWVpgKxZpc0ctEPPw9fcYdWkPH3L0gLh58jxCaov4FY9mgQJIG8+FBQUvAYGdX51mZs6Q3oYQcWixvWA4imeUrzkGeIxAAkYj3GwgUwTROXV8Sz+Q33IjMFQW57Hzw+vHjy8D/EolIVPpaQXfy/LwuFvtdHafQKIIXXkGFABoQxIqqGaPpa2RjCi/N96nJ7fXKQCQQGhzlP2aheC2vnROCS3HKwVog0EEfDXx0BAAoRdmjSBBAgbEHudi0AChD2I6qEeMMbDgPqQAHEuiG2FXK/X+BXuW401KTllLYoRTfikAfJxGAl+rIMGM3Jcc/voFBMK49U3SYDUDGgza2SGlqAiQvWKCU2qrkBqnTHlzCjAUrv5cxooCPS9vT+KAiyJ1QmzwwAAAABJRU5ErkJggg==" 
+            alt="Spline preview" 
+            style={{width: '100%', height: '100%'}} 
+          />
+        </spline-viewer>
+        
+        <div className="absolute inset-0 bg-black/50"></div>
       </div>
-      <div className="max-w-7xl mx-auto relative">
+      
+      <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center animate-fade-up">
           <div className="logo-container">
             <img src="/lovable-uploads/197ddc10-c159-4f39-a269-e35142af32c5.png" alt="WhitegloveAI Logo" className="h-32 mx-auto mb-8 logo-animation" />
@@ -46,7 +59,6 @@ const HeroSection = () => {
         </div>
       </div>
       
-      {/* Add ScrollAnimation to point to the trusted by section */}
       <ScrollAnimation targetId="services" />
     </section>
   );
