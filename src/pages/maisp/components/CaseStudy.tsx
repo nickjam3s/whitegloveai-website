@@ -1,38 +1,74 @@
 
 import React from 'react';
+import { motion } from "framer-motion";
+import { Quote } from "lucide-react";
 
 const CaseStudy = () => {
   return (
-    <section id="case-study" className="py-16 px-4 md:px-6 lg:px-8 bg-card/50 scroll-mt-20">
-      <div className="max-w-7xl mx-auto">
-        <h2 className="text-lg font-semibold text-primary mb-4">SUCCESS STORY</h2>
-        <h3 className="text-3xl md:text-4xl lg:text-6xl font-bold text-white mb-12 heading-highlight-scroll">
-          City of McKinney HR AI Transformation
-        </h3>
-        <div className="animate-section">
-          <p className="text-gray-400 mb-6 animate-on-scroll">
-            The City of McKinney partnered with WhitegloveAI (WG) to enhance HR efficiency through AI-powered agents. Facing a high volume of routine inquiries, the city needed a secure, scalable solution. WG deployed custom voice and text-based AI chat agents, provided staff training, and implemented performance analytics.
-          </p>
-          <div className="bg-card p-6 rounded-lg mb-6 animate-on-scroll" style={{ transitionDelay: "0.1s" }}>
-            <h3 className="text-xl font-semibold text-white mb-4">Impact:</h3>
-            <ul className="text-gray-400 space-y-2">
-              <li>• 68% deflection rate of general inquiries to AI, reducing HR workload</li>
-              <li>• Improved resolution rates for employee questions</li>
-              <li>• Positive staff feedback on AI effectiveness</li>
-            </ul>
+    <section id="case-study" className="relative z-10 scroll-mt-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.h2 
+          initial={{ opacity: 0, y: -10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-3xl sm:text-4xl md:text-5xl font-bold mb-10 text-[#7021EE]"
+        >
+          Success Stories
+        </motion.h2>
+        
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="glass-card p-8 relative"
+        >
+          <div className="absolute top-6 left-6 text-[#7021EE] opacity-20">
+            <Quote size={60} />
           </div>
-          <blockquote className="border-l-4 border-primary pl-6 italic text-gray-400 animate-on-scroll" style={{ transitionDelay: "0.2s" }}>
-            "WhitegloveAI has been a transformative partner, blending deep expertise with agility. Their responsiveness and collaborative approach ensured AI solutions evolved to meet our needs. More than a provider, WG is a true partner in AI-driven change."
-            <footer className="mt-2 text-white">— Jim Parrish, Director of HR, City of McKinney</footer>
-          </blockquote>
-          <div className="mt-8 flex justify-start animate-on-scroll" style={{ transitionDelay: "0.3s" }}>
-            <img 
-              src="/lovable-uploads/8d6b7902-56b6-4ba7-86ba-67aa9f3bccb8.png" 
-              alt="Additional McKinney Logo"
-              className="h-24 w-auto"
-            />
+          
+          <div className="relative z-10">
+            <h3 className="text-2xl font-semibold mb-4">Transforming Customer Service with AI</h3>
+            
+            <div className="mb-6">
+              <p className="text-gray-300 italic mb-4">
+                "WhitegloveAI's managed service transformed our customer service operations. 
+                We reduced response times by 80% while improving customer satisfaction scores. 
+                Their expertise in implementation and ongoing optimization has been invaluable."
+              </p>
+              
+              <div className="flex items-center">
+                <div className="mr-4">
+                  <img 
+                    src="/lovable-uploads/2c69b0c6-9e6a-4fe8-9f6b-5781bdde4c3b.png" 
+                    alt="Client Portrait" 
+                    className="w-12 h-12 rounded-full border-2 border-[#7021EE]/40"
+                  />
+                </div>
+                <div>
+                  <p className="font-semibold">Sarah Johnson</p>
+                  <p className="text-gray-400 text-sm">CTO, Global Financial Services Inc.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="grid md:grid-cols-3 gap-4 mt-8">
+              <div className="bg-[#7021EE]/10 p-4 rounded-lg text-center">
+                <p className="text-2xl font-bold text-[#7021EE]">80%</p>
+                <p className="text-sm text-gray-300">Reduction in Response Time</p>
+              </div>
+              <div className="bg-[#7021EE]/10 p-4 rounded-lg text-center">
+                <p className="text-2xl font-bold text-[#7021EE]">42%</p>
+                <p className="text-sm text-gray-300">Increase in Customer Satisfaction</p>
+              </div>
+              <div className="bg-[#7021EE]/10 p-4 rounded-lg text-center">
+                <p className="text-2xl font-bold text-[#7021EE]">$1.2M</p>
+                <p className="text-sm text-gray-300">Annual Cost Savings</p>
+              </div>
+            </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

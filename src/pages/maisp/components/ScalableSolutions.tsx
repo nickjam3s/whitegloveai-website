@@ -1,34 +1,86 @@
 
 import React from 'react';
+import { motion } from "framer-motion";
 
 const ScalableSolutions = () => {
+  const solutions = [
+    {
+      title: "Modular Architecture",
+      description: "Our AI solutions are built with modular components that allow for seamless scaling as your needs grow."
+    },
+    {
+      title: "Enterprise Integration",
+      description: "Seamless integration with your existing enterprise systems and workflows for maximum value."
+    },
+    {
+      title: "Future-Proof Technology",
+      description: "Built on flexible frameworks that adapt to evolving AI capabilities and business requirements."
+    },
+    {
+      title: "Customizable Deployment",
+      description: "From cloud-based to on-premises solutions, we adapt to your specific infrastructure requirements."
+    }
+  ];
+
+  const containerAnimation = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const itemAnimation = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0 }
+  };
+
   return (
-    <section id="scalable-solutions" className="py-16 px-4 md:px-6 lg:px-8 bg-card/50 scroll-mt-20">
-      <div className="max-w-7xl mx-auto">
-        <h2 className="text-lg font-semibold text-primary mb-4">SCALABLE SOLUTIONS</h2>
-        <h3 className="text-3xl md:text-4xl lg:text-6xl font-bold text-white mb-12 heading-highlight-scroll">
-          Grow with Confidence
-        </h3>
-        <div className="grid md:grid-cols-3 gap-8 animate-section">
-          <div className="bg-card p-8 rounded-lg animate-on-scroll">
-            <h3 className="text-2xl font-semibold text-white mb-4">Security & Compliance</h3>
-            <p className="text-gray-400">
-              We prioritize data security and compliance, ensuring your information is protected at every step.
-            </p>
-          </div>
-          <div className="bg-card p-8 rounded-lg animate-on-scroll" style={{ transitionDelay: "0.1s" }}>
-            <h3 className="text-2xl font-semibold text-white mb-4">Scalable Solutions</h3>
-            <p className="text-gray-400">
-              Our solutions are designed to grow with your business, offering flexibility and adaptability to meet your evolving needs.
-            </p>
-          </div>
-          <div className="bg-card p-8 rounded-lg animate-on-scroll" style={{ transitionDelay: "0.2s" }}>
-            <h3 className="text-2xl font-semibold text-white mb-4">Ongoing Support</h3>
-            <p className="text-gray-400">
-              From initial setup to ongoing maintenance, our team provides comprehensive support to ensure your AI solutions operate seamlessly.
-            </p>
-          </div>
-        </div>
+    <section id="scalable-solutions" className="relative z-10 scroll-mt-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.h2 
+          initial={{ opacity: 0, y: -10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-3xl sm:text-4xl md:text-5xl font-bold mb-10 text-[#7021EE]"
+        >
+          Scalable Solutions
+        </motion.h2>
+        
+        <motion.div 
+          variants={containerAnimation}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="grid md:grid-cols-2 gap-6"
+        >
+          {solutions.map((solution, index) => (
+            <motion.div
+              key={index}
+              variants={itemAnimation}
+              className="glass-card p-6 transition-all hover-lift"
+            >
+              <h3 className="text-xl font-semibold mb-3">{solution.title}</h3>
+              <p className="text-gray-300">{solution.description}</p>
+            </motion.div>
+          ))}
+        </motion.div>
+        
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="mt-12 bg-gradient-to-br from-[#7021EE]/10 to-transparent border border-[#7021EE]/20 p-6 rounded-xl"
+        >
+          <p className="text-lg text-center text-gray-200">
+            Our solutions grow with your business, adapting to changing needs and 
+            expanding capabilities without requiring complete redesigns or rebuilds.
+          </p>
+        </motion.div>
       </div>
     </section>
   );

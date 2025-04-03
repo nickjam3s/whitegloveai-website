@@ -1,53 +1,12 @@
 
-/* Basic animations */
-@keyframes gradient {
+@keyframes highlightText {
   0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
+    background-size: 0% 0.2em;
+    background-position: 0 88%;
   }
   100% {
-    background-position: 0% 50%;
-  }
-}
-
-@keyframes shine {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(100%);
-  }
-}
-
-@keyframes float {
-  0% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
-}
-
-@keyframes pulse {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.7;
-  }
-}
-
-@keyframes glow {
-  0%, 100% {
-    box-shadow: 0 0 5px rgba(112, 33, 238, 0.5);
-  }
-  50% {
-    box-shadow: 0 0 20px rgba(112, 33, 238, 0.8);
+    background-size: 100% 0.2em;
+    background-position: 0 88%;
   }
 }
 
@@ -64,48 +23,35 @@
 }
 
 @keyframes rotating {
-  0% {
+  from {
     transform: rotate(0deg);
   }
-  100% {
+  to {
     transform: rotate(360deg);
   }
 }
 
-/* Animation classes */
-.animate-float {
-  animation: float 6s ease-in-out infinite;
+.animate-fade-up {
+  animation: fadeUp 0.8s ease-out forwards;
+  opacity: 0;
 }
 
-.animate-pulse-slow {
-  animation: pulse 3s ease-in-out infinite;
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.animate-gradient {
-  background-size: 200% 100%;
-  animation: gradient 4s linear infinite;
-}
-
-.animate-glow {
-  animation: glow 3s ease-in-out infinite;
-}
-
-/* Scroll animation classes - FIXED: Initial state should be visible */
-.heading-highlight-scroll {
-  opacity: 1; /* Changed from 0 to 1 */
-  transform: translateY(0); /* Changed from translateY(20px) to 0 */
-  transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-.heading-highlight-scroll.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
+/* Add animation for sections that appear on scroll */
 .animate-section {
-  opacity: 1; /* Changed from 0 to 1 */
-  transform: translateY(0); /* Changed from translateY(30px) to 0 */
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
 .animate-section.visible {
@@ -114,9 +60,9 @@
 }
 
 .animate-on-scroll {
-  opacity: 1; /* Changed from 0 to 1 */
-  transform: translateY(0); /* Changed from translateY(20px) to 0 */
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
 
 .animate-on-scroll.visible {
@@ -124,139 +70,63 @@
   transform: translateY(0);
 }
 
-/* Fade-in animations for staggered children - FIXED: Initial state visible */
-.fade-in-up > * {
-  opacity: 1; /* Changed from 0 to 1 */
-  transform: translateY(0); /* Changed from translateY(20px) to 0 */
-  transition: opacity 0.5s ease, transform 0.5s ease;
+/* Staggered animations */
+.stagger-1 {
+  transition-delay: 0.1s;
 }
 
-.fade-in-up.visible > * {
-  opacity: 1;
-  transform: translateY(0);
+.stagger-2 {
+  transition-delay: 0.2s;
 }
 
-/* Hover effects */
-.hover-scale {
-  transition: transform 0.3s ease;
+.stagger-3 {
+  transition-delay: 0.3s;
 }
 
-.hover-scale:hover {
-  transform: scale(1.05);
+/* Heading highlight animation */
+.heading-highlight-scroll {
+  position: relative;
+  display: inline-block;
 }
 
-/* Transition effects */
-.transition-all {
-  transition: all 0.3s ease;
+.heading-highlight-scroll::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0.2em;
+  background: linear-gradient(90deg, #7021EE, #7021EE/50);
+  z-index: -1;
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.5s ease-out;
 }
 
-.transition-transform {
-  transition: transform 0.3s ease;
+.heading-highlight-scroll.visible::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
 }
 
-.transition-colors {
-  transition: color 0.3s ease, background-color 0.3s ease;
-}
-
-/* Fade-in animations */
-.fade-in {
-  opacity: 0;
-  animation: fadeIn 0.5s ease-out forwards;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Logo animation */
-.logo-animation {
-  animation: float 6s ease-in-out infinite, glow 3s ease-in-out infinite;
-}
-
-/* Staggered animation delays */
-.stagger-1 { animation-delay: 0.1s; transition-delay: 0.1s; }
-.stagger-2 { animation-delay: 0.2s; transition-delay: 0.2s; }
-.stagger-3 { animation-delay: 0.3s; transition-delay: 0.3s; }
-.stagger-4 { animation-delay: 0.4s; transition-delay: 0.4s; }
-.stagger-5 { animation-delay: 0.5s; transition-delay: 0.5s; }
-
-/* Enhanced visual effects */
-.hover-shadow {
-  transition: box-shadow 0.3s ease;
-}
-
-.hover-shadow:hover {
-  box-shadow: 0 5px 15px rgba(112, 33, 238, 0.4);
-}
-
+/* Card hover lift effect */
 .hover-lift {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .hover-lift:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 20px -5px rgba(112, 33, 238, 0.3);
+  box-shadow: 0 10px 25px -5px rgba(112, 33, 238, 0.15);
 }
 
-/* Smooth slide-in animations */
-@keyframes slideInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+/* Glass card styling */
+.glass-card {
+  background: rgba(17, 17, 17, 0.5);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(112, 33, 238, 0.2);
+  border-radius: 0.75rem;
+  transition: all 0.3s ease;
 }
 
-@keyframes slideInRight {
-  from {
-    opacity: 0;
-    transform: translateX(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+.glass-card:hover {
+  border-color: rgba(112, 33, 238, 0.4);
 }
-
-.slide-in-left {
-  animation: slideInLeft 0.5s ease-out forwards;
-}
-
-.slide-in-right {
-  animation: slideInRight 0.5s ease-out forwards;
-}
-
-/* Responsive animation adjustments */
-@media (prefers-reduced-motion: reduce) {
-  *, ::before, ::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-}
-
-/* Animate fade up for section content */
-.animate-fade-up {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeUp 0.8s ease forwards;
-}
-
-@keyframes fadeUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
