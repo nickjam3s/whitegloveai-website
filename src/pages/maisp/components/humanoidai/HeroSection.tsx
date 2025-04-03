@@ -14,6 +14,7 @@ const HeroSection = () => {
         <Spline 
           scene="https://prod.spline.design/yctn6RDnJLxlncBa/scene.splinecode" 
           className="absolute inset-0"
+          interactive={true} // Enable interactive features like pan, zoom, and orbit
         />
         {/* Transparent purple overlay */}
         <div className="absolute inset-0 bg-purple-600/50"></div>
