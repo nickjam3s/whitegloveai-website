@@ -1,6 +1,20 @@
+
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useEffect, useRef } from "react";
+
+// Add this declaration to handle the custom element
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      'spline-viewer': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement> & {
+        hint?: boolean;
+        'loading-anim-type'?: string;
+        url?: string;
+      }, HTMLElement>;
+    }
+  }
+}
 
 const HeroSection = () => {
   const splineContainerRef = useRef<HTMLDivElement>(null);
@@ -9,13 +23,13 @@ const HeroSection = () => {
     <section className="relative h-[80vh] overflow-hidden">
       {/* 3D model container with Spline animation */}
       <div className="absolute inset-0 w-full h-full" ref={splineContainerRef}>
-        {/* Using spline-viewer web component instead of React component */}
+        {/* Using spline-viewer web component */}
         <spline-viewer 
           hint 
           loading-anim-type="spinner-small-dark" 
           url="https://prod.spline.design/yctn6RDnJLxlncBa/scene.splinecode"
           className="absolute inset-0"
-        ></spline-viewer>
+        />
         
         {/* Transparent purple overlay */}
         <div className="absolute inset-0 bg-purple-600/50"></div>
