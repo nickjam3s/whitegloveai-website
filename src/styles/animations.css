@@ -137,12 +137,12 @@
   backdrop-filter: blur(10px);
   border: 1px solid rgba(112, 33, 238, 0.2);
   border-radius: 0.75rem;
-  transition: all 0.3s ease;
+  transition: all 0.5s ease;
 }
 
 .glass-card:hover {
   border-color: rgba(112, 33, 238, 0.4);
-  box-shadow: 0 0 20px rgba(112, 33, 238, 0.15);
+  box-shadow: 0 0 30px rgba(112, 33, 238, 0.2);
 }
 
 /* AboutUs style glow effect */
@@ -200,4 +200,50 @@
 
 .animate-float-slower {
   animation: float 15s ease-in-out infinite;
+}
+
+/* MediaAI page custom animations */
+.card-glow {
+  position: relative;
+}
+
+.card-glow::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: inherit;
+  box-shadow: 0 0 25px rgba(112, 33, 238, 0.4);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.card-glow:hover::after {
+  opacity: 1;
+}
+
+.gradient-border {
+  position: relative;
+  border-radius: 0.75rem;
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(45deg, rgba(112, 33, 238, 0.5), rgba(155, 135, 245, 0.2), rgba(112, 33, 238, 0.5));
+  border-radius: inherit;
+  z-index: -1;
+  animation: rotate 10s linear infinite;
+}
+
+@keyframes rotate {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 400% 0%;
+  }
 }

@@ -1,3 +1,4 @@
+
 import { useEffect, useLayoutEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
@@ -11,6 +12,8 @@ import ContactSection from "./components/mediaai/ContactSection";
 import PageWrapper from '@/components/layout/PageWrapper';
 import { useIsMobile } from '@/hooks/use-mobile';
 import '@/styles/animations.css'; // Import animations CSS
+import { Separator } from "@/components/ui/separator";
+import ScrollAnimation from "@/components/animations/ScrollAnimation";
 
 const MediaAI = () => {
   const isMobile = useIsMobile();
@@ -20,6 +23,7 @@ const MediaAI = () => {
     // Immediately scroll to top when component mounts
     window.scrollTo(0, 0);
   }, []);
+
   useEffect(() => {
     const script = document.createElement('script');
     script.src = "//embed.typeform.com/next/embed.js";
@@ -69,6 +73,7 @@ const MediaAI = () => {
     headings.forEach(heading => {
       observer.observe(heading);
     });
+    
     return () => {
       document.body.removeChild(script);
       document.removeEventListener('click', handleAnchorClick);
@@ -77,107 +82,131 @@ const MediaAI = () => {
       observer.disconnect();
     };
   }, []);
-  const fadeInUp = {
-    initial: {
-      opacity: 0,
-      y: 20
-    },
-    animate: {
-      opacity: 1,
-      y: 0
-    },
-    transition: {
-      duration: 0.6
-    }
-  };
-  return <div className="min-h-screen bg-black text-white font-sans font-sora">
-      {/* Background Animations */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#7021EE]/20 to-black/90">
-        <div className="absolute inset-0 backdrop-blur-sm" />
-      </div>
-      
-      <div className="absolute inset-0 overflow-hidden">
-        {[...Array(20)].map((_, i) => <motion.div key={i} className="absolute rounded-full bg-[#7021EE]/20" initial={{
-        x: Math.random() * window.innerWidth,
-        y: Math.random() * window.innerHeight,
-        scale: Math.random() * 0.5 + 0.5
-      }} animate={{
-        x: [Math.random() * window.innerWidth, Math.random() * window.innerWidth, Math.random() * window.innerWidth],
-        y: [Math.random() * window.innerHeight, Math.random() * window.innerHeight, Math.random() * window.innerHeight],
-        opacity: [0.2, 0.5, 0.2]
-      }} transition={{
-        duration: Math.random() * 20 + 20,
-        repeat: Infinity,
-        ease: "linear"
-      }} style={{
-        width: isMobile ? `${Math.random() * 100 + 30}px` : `${Math.random() * 200 + 50}px`,
-        height: isMobile ? `${Math.random() * 100 + 30}px` : `${Math.random() * 200 + 50}px`
-      }} />)}
-      </div>
 
-      <div className="relative z-10">
-        <motion.div initial={{
-        opacity: 0
-      }} animate={{
-        opacity: 1
-      }} transition={{
-        duration: 0.8
-      }}>
-          <HeroSection />
-        </motion.div>
-
-        <motion.div initial="initial" whileInView="animate" viewport={{
-        once: true
-      }} variants={fadeInUp}>
-          <ServiceOverview />
-        </motion.div>
-
-        <motion.div initial="initial" whileInView="animate" viewport={{
-        once: true
-      }} variants={fadeInUp}>
-          <ServicePlans />
-        </motion.div>
-
-        <motion.div initial="initial" whileInView="animate" viewport={{
-        once: true
-      }} variants={fadeInUp}>
-          <AddOns />
-        </motion.div>
-
-        <motion.div initial="initial" whileInView="animate" viewport={{
-        once: true
-      }} variants={fadeInUp}>
-          <PlanComparison />
-        </motion.div>
-
-        <motion.div initial="initial" whileInView="animate" viewport={{
-        once: true
-      }} variants={fadeInUp}>
-          <GettingStarted />
-        </motion.div>
-
-        <motion.div initial="initial" whileInView="animate" viewport={{
-        once: true
-      }} variants={fadeInUp}>
-          <ContactSection />
-        </motion.div>
-      </div>
-
-      <motion.div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer z-10" initial={{
-      y: 0,
-      opacity: 0.5
-    }} animate={{
-      y: 10,
-      opacity: 1
-    }} transition={{
-      duration: 1,
-      repeat: Infinity,
-      repeatType: "reverse"
-    }}>
-        <a href="#service-overview" aria-label="Scroll to learn more">
+  return (
+    <PageWrapper>
+      <div className="relative min-h-screen bg-black text-white font-sans font-sora overflow-hidden">
+        {/* Background Elements */}
+        <div className="fixed inset-0 z-0">
+          {/* Main gradient background */}
+          <div className="absolute inset-0 bg-gradient-to-b from-purple-900/30 via-background to-background"></div>
           
-        </a>
-      </motion.div>
-    </div>;
+          {/* Abstract shapes */}
+          <div className="absolute inset-0 opacity-30">
+            {[...Array(6)].map((_, i) => (
+              <motion.div
+                key={i}
+                className="absolute rounded-full bg-gradient-to-br from-purple-700/20 to-purple-400/5"
+                initial={{
+                  x: Math.random() * window.innerWidth,
+                  y: Math.random() * window.innerHeight,
+                  scale: Math.random() * 0.5 + 0.5
+                }}
+                animate={{
+                  x: [
+                    Math.random() * window.innerWidth,
+                    Math.random() * window.innerWidth,
+                    Math.random() * window.innerWidth
+                  ],
+                  y: [
+                    Math.random() * window.innerHeight,
+                    Math.random() * window.innerHeight,
+                    Math.random() * window.innerHeight
+                  ],
+                  opacity: [0.2, 0.5, 0.2]
+                }}
+                transition={{
+                  duration: Math.random() * 25 + 15,
+                  repeat: Infinity,
+                  ease: "linear"
+                }}
+                style={{
+                  width: isMobile ? `${Math.random() * 150 + 50}px` : `${Math.random() * 300 + 100}px`,
+                  height: isMobile ? `${Math.random() * 150 + 50}px` : `${Math.random() * 300 + 100}px`,
+                  filter: "blur(50px)"
+                }}
+              />
+            ))}
+          </div>
+          
+          {/* Grid overlay */}
+          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0wIDBoNjB2NjBIMHoiLz48cGF0aCBkPSJNNjAgMEgwdjYwaDYwVjB6IiBzdHJva2Utb3BhY2l0eT0iLjAyIiBzdHJva2U9IiNmZmYiIGZpbGw9IiMwMDAiLz48L2c+PC9zdmc+')] opacity-20"></div>
+        </div>
+        
+        <div className="relative z-10">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8 }}
+          >
+            <HeroSection />
+            <Separator className="w-3/4 mx-auto opacity-30 my-8" />
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <ServiceOverview />
+            <Separator className="w-3/4 mx-auto opacity-30 my-8" />
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <ServicePlans />
+            <Separator className="w-3/4 mx-auto opacity-30 my-8" />
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <AddOns />
+            <Separator className="w-3/4 mx-auto opacity-30 my-8" />
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <PlanComparison />
+            <Separator className="w-3/4 mx-auto opacity-30 my-8" />
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <GettingStarted />
+            <Separator className="w-3/4 mx-auto opacity-30 my-8" />
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <ContactSection />
+          </motion.div>
+        </div>
+        
+        <ScrollAnimation targetId="service-overview" className="bottom-4" showArrow={true} />
+      </div>
+    </PageWrapper>
+  );
 };
+
 export default MediaAI;
