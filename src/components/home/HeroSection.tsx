@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -31,7 +32,7 @@ const HeroSection = () => {
   }, []);
   
   return (
-    <section id="hero" className="relative px-4 sm:px-6 lg:px-8 overflow-hidden scroll-mt-20 h-[80vh] flex items-center justify-center">
+    <section id="hero" className="relative px-4 sm:px-6 lg:px-8 overflow-hidden scroll-mt-20 h-[96vh] flex items-center justify-center">
       <div className="absolute inset-0 w-full h-full">
         {/* Spline container with scaling for zoom effect */}
         <div className="absolute w-full h-full" style={{
@@ -51,29 +52,29 @@ const HeroSection = () => {
           </spline-viewer>
         </div>
         
-        <div className="max-w-7xl mx-auto relative z-10 py-8 flex items-center justify-center h-full">
+        <div className="max-w-7xl mx-auto relative z-10 py-12 flex items-center justify-center h-full">
           <div className="text-center animate-fade-up">
-            <div className="logo-container mb-6 md:mb-8">
+            <div className="logo-container mb-8 md:mb-10">
               <img 
                 src="/lovable-uploads/197ddc10-c159-4f39-a269-e35142af32c5.png" 
                 alt="WhitegloveAI Logo" 
-                className="h-24 md:h-32 mx-auto" 
+                className="h-32 md:h-40 mx-auto" 
               />
             </div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight mb-6 heading-highlight text-white">
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-semibold tracking-tight mb-8 heading-highlight text-white">
               Your Trusted AI Adoption Partner
             </h1>
-            <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto mb-8">
+            <p className="text-xl sm:text-2xl text-gray-400 max-w-3xl mx-auto mb-10">
               At WhitegloveAI, we guide you through the transformative journey of AI adoption—ensuring every step is secure, compliant, and aligned with your business goals.
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link to="/contact" className="inline-flex items-center px-6 py-3 text-base font-medium text-white bg-secondary rounded-lg hover:bg-secondary/90 transition-colors">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
+              <Link to="/contact" className="inline-flex items-center px-7 py-4 text-lg font-medium text-white bg-secondary rounded-lg hover:bg-secondary/90 transition-colors">
                 Get Started
-                <ArrowRight className="ml-2 h-5 w-5" />
+                <ArrowRight className="ml-3 h-6 w-6" />
               </Link>
-              <a href="https://jzaxt350p9j.typeform.com/to/JlpkD8L8#name=xxxxx&email=xxxxx" target="_blank" rel="noopener noreferrer" className="inline-flex items-center px-6 py-3 text-base font-medium text-white bg-secondary/20 hover:bg-secondary/30 rounded-lg transition-colors border border-secondary/50">
+              <a href="https://jzaxt350p9j.typeform.com/to/JlpkD8L8#name=xxxxx&email=xxxxx" target="_blank" rel="noopener noreferrer" className="inline-flex items-center px-7 py-4 text-lg font-medium text-white bg-secondary/20 hover:bg-secondary/30 rounded-lg transition-colors border border-secondary/50">
                 Take the AI Readiness Assessment
-                <ArrowRight className="ml-2 h-5 w-5" />
+                <ArrowRight className="ml-3 h-6 w-6" />
               </a>
             </div>
           </div>
