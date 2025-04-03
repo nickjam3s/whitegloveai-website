@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -52,8 +51,8 @@ const HeroSection = () => {
           </spline-viewer>
         </div>
         
-        {/* Purple overlay */}
-        <div className="absolute inset-0 bg-purple-900/50"></div>
+        {/* Purple overlay with increased opacity */}
+        <div className="absolute inset-0 bg-purple-900/80"></div>
       </div>
       
       <div className="max-w-7xl mx-auto relative z-10 py-8">
