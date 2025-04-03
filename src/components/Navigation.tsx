@@ -28,7 +28,9 @@ const Navigation = () => {
       }`}
     >
       <div className={`max-w-7xl mx-auto rounded-full backdrop-blur-md ${
-        scrolled ? "bg-black/80 shadow-lg border border-gray-800" : "bg-black/50"
+        scrolled 
+          ? "bg-purple-900/20 shadow-lg border border-purple-900/30" 
+          : "bg-black/30"
       }`}>
         <div className="flex items-center justify-between h-16 px-4">
           <Link to="/">
