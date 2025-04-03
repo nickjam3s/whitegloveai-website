@@ -53,11 +53,11 @@ const HeroSection = () => {
         
         <div className="max-w-7xl mx-auto relative z-10 py-8 flex items-center justify-center h-full">
           <div className="text-center animate-fade-up">
-            <div className="logo-container">
+            <div className="logo-container mb-6 md:mb-8">
               <img 
                 src="/lovable-uploads/197ddc10-c159-4f39-a269-e35142af32c5.png" 
                 alt="WhitegloveAI Logo" 
-                className="h-32 mx-auto mb-8" 
+                className="h-24 md:h-32 mx-auto" 
               />
             </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight mb-6 heading-highlight text-white">
