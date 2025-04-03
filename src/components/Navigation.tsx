@@ -32,8 +32,8 @@ const Navigation = () => {
           ? "bg-purple-900/20 shadow-lg border border-purple-900/30" 
           : "bg-black/30"
       }`}>
-        {/* Animated border trace effect */}
-        <div className="absolute inset-0 overflow-hidden">
+        {/* Animated border trace effect OUTSIDE the menu */}
+        <div className="absolute -inset-[2px]">
           <div className="nav-border-trace"></div>
         </div>
         
