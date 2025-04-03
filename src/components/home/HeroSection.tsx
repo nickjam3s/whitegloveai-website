@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -31,7 +32,7 @@ const HeroSection = () => {
   }, []);
   
   return (
-    <section id="hero" className="relative px-4 sm:px-6 lg:px-8 overflow-hidden scroll-mt-20 h-[66vh] flex items-center">
+    <section id="hero" className="relative px-4 sm:px-6 lg:px-8 overflow-hidden scroll-mt-20 h-[80vh] flex items-center">
       <div className="absolute inset-0 w-full h-full">
         {/* Spline container with scaling for zoom effect */}
         <div className="absolute w-full h-full" style={{
