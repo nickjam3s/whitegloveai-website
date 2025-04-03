@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -16,11 +17,28 @@ declare global {
 }
 
 const HeroSection = () => {
+  React.useEffect(() => {
+    // Load the Spline viewer script
+    const script = document.createElement('script');
+    script.type = 'module';
+    script.src = 'https://unpkg.com/@splinetool/viewer@1.9.82/build/spline-viewer.js';
+    script.async = true;
+    document.body.appendChild(script);
+    
+    return () => {
+      // Clean up the script when component unmounts
+      document.body.removeChild(script);
+    };
+  }, []);
+  
   return (
     <section id="hero" className="relative px-4 sm:px-6 lg:px-8 overflow-hidden scroll-mt-20 h-[66vh] flex items-center">
       <div className="absolute inset-0 w-full h-full">
-        {/* Magnify the animation by making the container larger and positioning it to stay centered */}
-        <div className="absolute w-[200%] h-[200%] left-[-50%] top-[-50%]">
+        {/* Spline container with scaling for zoom effect */}
+        <div className="absolute w-full h-full" style={{
+          transform: 'scale(1.5)',
+          transformOrigin: 'center'
+        }}>
           <spline-viewer 
             loading-anim-type="spinner-small-dark" 
             url="https://prod.spline.design/eXgd-TV6iF8bX-pB/scene.splinecode"
@@ -34,8 +52,8 @@ const HeroSection = () => {
           </spline-viewer>
         </div>
         
-        {/* Reduced overlay opacity to make animation more visible */}
-        <div className="absolute inset-0 bg-black/30"></div>
+        {/* Purple overlay */}
+        <div className="absolute inset-0 bg-purple-900/50"></div>
       </div>
       
       <div className="max-w-7xl mx-auto relative z-10 py-8">
