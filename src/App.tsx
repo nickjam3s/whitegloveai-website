@@ -10,7 +10,6 @@ import ScrollToTop from "./components/ScrollToTop";
 
 // Main Pages
 import Index from "./pages/index";
-import About from "./pages/About";
 import AboutUs from "./pages/AboutUs";
 import Apprenticeship from "./pages/Apprenticeship";
 import Privacy from "./pages/Privacy";
@@ -51,7 +50,6 @@ const App = () => (
             <Routes>
               {/* Main Routes */}
               <Route path="/" element={<Index />} />
-              <Route path="/about" element={<About />} />
               <Route path="/aboutus" element={<AboutUs />} />
               <Route path="/aboutus/apprenticeship" element={<Apprenticeship />} />
               <Route path="/about/apprentice" element={<Apprenticeship />} />
@@ -93,6 +91,9 @@ const App = () => (
                 path="/lucidis"
                 element={<Navigate to="https://lucidis.ai" replace />}
               />
+              
+              {/* Redirect /about to /aboutus since we're removing the About page */}
+              <Route path="/about" element={<Navigate to="/aboutus" replace />} />
             </Routes>
           </main>
           <Footer />
