@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -17,16 +18,15 @@ declare global {
 
 const HeroSection = () => {
   return (
-    <section id="hero" className="relative pt-20 pb-14 px-4 sm:px-6 lg:px-8 overflow-hidden scroll-mt-20 h-[66vh]">
+    <section id="hero" className="relative px-4 sm:px-6 lg:px-8 overflow-hidden scroll-mt-20 h-[66vh] flex items-center">
       <div className="absolute inset-0 w-full h-full">
         <spline-viewer 
-          hint 
           loading-anim-type="spinner-small-dark" 
-          url="https://prod.spline.design/MBTE3Y7nCIJv3C8Q/scene.splinecode"
+          url="https://prod.spline.design/eXgd-TV6iF8bX-pB/scene.splinecode"
           className="absolute inset-0"
         >
           <img 
-            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAA4CAYAAAALrl3YAAAAAXNSR0IArs4c6QAAAydJREFUeF7tm2uWwyAIhesS+tj/VjsnPU0mNSoXUIIt83NqBO6HCqZNj8fjeWn8PZ/Nj1uPDvkspSSe11sspUDSrwCZAcYCqAnEaxCSVeI1lnyVTAnklUmMrWsWGM0VMlUQBTgz+b/39bBCZgpEfLo7ebCkdbrf777KKCdijXSjlfQBZKTy2dzI7iMGQk3OOXQNNamaqsXTIw5Kq71TbCCcyYuNT6M60s6NVF8WNta4JbZgIJLJPWT+bD6QQAKELdIqkABhAyLX+QAkQJwDYrWabrdb9CE2DDYrzT4kgNjSoHagWCFGPCgQXbasw4HEuIE10gEyM7IpXBxAYbz6KOmWNToISEnlIEQobaeO2Pjo1CVAesMo3noarDZELPdAmhWCQEQt3JpgiNjImGmBSB2XAkHttUT/CiClQwoVp7TlS4Bw7dVsuASyvqBCnNsLuoznCtMDiNRmKT4qZqmtXCdO7eHi6gQtn2sC5f9HxbcAwi5781e4lJMc2uhYKZBWBmuh9FgdkpVSvO09AwoFLxcIESyPA4WEvOii/OVsz1uXntJlmut3CZDSdoFAQWBLgCDPTAFECgMFgghlNab5xtDL1uUNCFJESAEGEKZympsBxNTwd+pLANqV1nOFcMvQXERuZYdA+LhcpL65qBFz73yvefYVCRIscogj8yCVlybGLS4KiCajAgiK+n8cuWVpgKxZpc0ctEPPw9fcYdWkPH3L0gLh58jxCaov4FY9mgQJIG8+FBQUvAYGdX51mZs6Q3oYQcWixvWA4imeUrzkGeIxAAkYj3GwgUwTROXV8Sz+Q33IjMFQW57Hzw+vHjy8D/EolIVPpaQXfy/LwuFvtdHafQKIIXXkGFABoQxIqqGaPpa2RjCi/N96nJ7fXKQCQQGhzlP2aheC2vnROCS3HKwVog0EEfDXx0BAAoRdmjSBBAgbEHudi0AChD2I6qEeMMbDgPqQAHEuiG2FXK/X+BXuW401KTllLYoRTfikAfJxGAl+rIMGM3Jcc/voFBMK49U3SYDUDGgza2SGlqAiQvWKCU2qrkBqnTHlzCjAUrv5cxooCPS9vT+KAiyJ1QmzwwAAAABJRU5ErkJggg==" 
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAA4CAYAAAALrl3YAAAAAXNSR0IArs4c6QAAAhhJREFUeF7tm2tywyAQg8sR/Lj/Vd3BUzJxayOBsYod5W82K9AH2AskzPO8fIHPssAQlMLfkw4EAyGdEoUZiMhoVgYC8XLFWtkmLgvEMNqYzGaJfh8CMQzWxvNx717/AWIQ5w1mM+x5HaZp8jst62CjuNygN5BGJrNp0Ap0CkiWdAhsGz8iDoFIJlQBYZO/Ox0KANXkf3WI1KnVKOlHbFOpThGQ0uQfMfQbd5ICYhCNXc+kywIxCB2I5PUuEIPQgIB1iEFoQOQe9mEcRxeGOg6rUrZcMBAtDbQKeYYIeSAYsSkG8kQgm+1jslIW+tCFFDM7ms0QA8HMpUBwcxxhIB2OAQaKH+picAiKgfQGJB3hInLidj9arugI12A0Y+HIZ+/2avzfVYG7vb9/5dmiobWp49A1IEPRQEm7wD7C1flNKRkIZZMuiAKCDlV0zX2+koF0xpgG4lmSJxcv0LV4ATKQu86QFvQ763uXzaFniIFo+FFADEMDYz3CdaWuM5tR8t1exqWLY+Belpeoiwn8pIe7vQahAZGr6XyEq2OwKqFB3wSI72VhqghEylAFhE3+Eqm8zViiU/rfv9S2qzVK8q+vvSW330uT43Fz/4i9gXDGJwrIGYH7W67tAQRiGNcD2TyDj5Ysg9CCOHyoG8T1ILJ1yDAM/o+hhgFXhxiIkAZTGBqIDgjzOAitgESx2uJMZ8n/KTEwYuu+AQmNRXRmbTAoAAAAAElFTkSuQmCC" 
             alt="Spline preview" 
             style={{width: '100%', height: '100%'}} 
           />
@@ -35,7 +35,7 @@ const HeroSection = () => {
         <div className="absolute inset-0 bg-black/50"></div>
       </div>
       
-      <div className="max-w-7xl mx-auto relative z-10">
+      <div className="max-w-7xl mx-auto relative z-10 py-8">
         <div className="text-center animate-fade-up">
           <div className="logo-container">
             <img src="/lovable-uploads/197ddc10-c159-4f39-a269-e35142af32c5.png" alt="WhitegloveAI Logo" className="h-32 mx-auto mb-8 logo-animation" />
