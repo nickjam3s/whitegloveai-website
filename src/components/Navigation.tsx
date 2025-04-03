@@ -27,12 +27,17 @@ const Navigation = () => {
         scrolled ? "top-4" : "top-6"
       }`}
     >
-      <div className={`max-w-7xl mx-auto rounded-full backdrop-blur-md ${
+      <div className={`max-w-7xl mx-auto rounded-full backdrop-blur-md relative overflow-hidden ${
         scrolled 
           ? "bg-purple-900/20 shadow-lg border border-purple-900/30" 
           : "bg-black/30"
       }`}>
-        <div className="flex items-center justify-between h-16 px-4">
+        {/* Animated border trace effect */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="nav-border-trace"></div>
+        </div>
+        
+        <div className="flex items-center justify-between h-16 px-4 relative z-10">
           <Link to="/">
             <Logo />
           </Link>
