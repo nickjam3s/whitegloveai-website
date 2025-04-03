@@ -53,9 +53,6 @@ const HeroSection = () => {
             />
           </spline-viewer>
         </div>
-        
-        {/* Purple overlay with adjusted opacity */}
-        <div className="absolute inset-0 bg-purple-600/50"></div>
       </div>
 
       {/* Text content positioned on top of the 3D model */}

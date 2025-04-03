@@ -4,7 +4,7 @@ import { InfiniteSlider } from "@/components/ui/infinite-slider";
 
 const TrustedBy = () => {
   return (
-    <section className="py-12 bg-black border-t border-gray-800">
+    <section className="py-12 bg-[#7021EE] border-t border-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl font-semibold text-center mb-8 heading-highlight-scroll text-white">
           Trusted by Industry Leaders
