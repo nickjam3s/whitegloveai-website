@@ -1,4 +1,3 @@
-
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useEffect, useRef } from "react";
@@ -7,7 +6,7 @@ const HeroSection = () => {
   const splineContainerRef = useRef<HTMLDivElement>(null);
 
   return (
-    <section className="relative h-[100vh] overflow-hidden">
+    <section className="relative h-[80vh] overflow-hidden">
       {/* 3D model container with Spline animation */}
       <div className="absolute inset-0 w-full h-full" ref={splineContainerRef}>
         {/* Using spline-viewer web component instead of React component */}
