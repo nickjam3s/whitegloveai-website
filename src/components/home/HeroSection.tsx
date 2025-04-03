@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import ScrollAnimation from '@/components/animations/ScrollAnimation';
@@ -17,7 +17,7 @@ declare global {
 
 const HeroSection = () => {
   return (
-    <section id="hero" className="relative pt-40 pb-28 px-4 sm:px-6 lg:px-8 overflow-hidden scroll-mt-20 h-[100vh]">
+    <section id="hero" className="relative pt-20 pb-14 px-4 sm:px-6 lg:px-8 overflow-hidden scroll-mt-20 h-[33vh]">
       <div className="absolute inset-0 w-full h-full">
         <spline-viewer 
           hint 
