@@ -32,6 +32,11 @@ const PartnerLogos = () => {
               className="h-[60px] w-auto object-contain brightness-0 invert"
             />
             <img
+              src="/lovable-uploads/35aef5de-a56d-4151-bf55-77e3fc703c83.png"
+              alt="New Partner Logo"
+              className="h-[60px] w-auto object-contain brightness-0 invert"
+            />
+            <img
               src="/lovable-uploads/46ec57ce-1710-4a25-aa34-a9c3b8220689.png"
               alt="NVIDIA Logo"
               className="h-[60px] w-auto object-contain brightness-0 invert"
@@ -52,7 +57,7 @@ const PartnerLogos = () => {
               className="h-[60px] w-auto object-contain brightness-0 invert"
             />
             <img
-              src="/lovable-uploads/c1c12d4e-edd7-4cf9-a233-ee09233260d5.png"
+              src="/lovable-uploads/c1c12d4e-edd7-4cf9-a233-ee09233260c5.png"
               alt="OpenAI Logo"
               className="h-[60px] w-auto object-contain brightness-0 invert"
             />
