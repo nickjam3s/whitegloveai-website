@@ -6,7 +6,7 @@ const VendorManagement = () => {
     <section id="vendor-management" className="py-20 bg-background scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-12 text-center">
-          <h2 className="text-3xl font-semibold mb-4 heading-highlight-scroll">
+          <h2 className="text-3xl font-semibold mb-4 heading-highlight-scroll text-white">
             AI Vendor Management Simplified
           </h2>
           <p className="text-lg text-gray-400 max-w-3xl mx-auto heading-highlight-scroll stagger-1">

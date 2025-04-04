@@ -18,7 +18,7 @@ const PricingModels = () => {
   return (
     <section className="py-20 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-semibold mb-16 text-center heading-highlight-scroll">
+        <h2 className="text-3xl font-semibold mb-16 text-center heading-highlight-scroll text-white">
           Flexible Pricing Models
         </h2>
         <div className="grid md:grid-cols-3 gap-8 animate-section">
@@ -28,7 +28,7 @@ const PricingModels = () => {
               className="bg-card p-6 rounded-lg border border-gray-800 animate-on-scroll"
               style={{ transitionDelay: `${index * 0.1}s` }}
             >
-              <h3 className="text-xl font-semibold mb-3">{option.title}</h3>
+              <h3 className="text-xl font-semibold mb-3 text-white">{option.title}</h3>
               <p className="text-gray-400">{option.description}</p>
             </div>
           ))}
