@@ -1,11 +1,13 @@
 
+import React from 'react';
+
 const outcomes = [
   {
     title: "Cost Savings",
     description: "Reduce procurement and licensing costs through expert negotiation."
   },
   {
-    title: "Improved Efficiency",
+    title: "Improved Efficiency", 
     description: "Faster deployment and integration of AI solutions, minimizing time-to-value."
   },
   {
@@ -28,7 +30,7 @@ const BusinessOutcomes = () => {
               className="bg-card p-6 rounded-lg border border-gray-800 animate-on-scroll"
               style={{ transitionDelay: `${index * 0.1}s` }}
             >
-              <h3 className="text-xl font-semibold mb-3">{outcome.title}</h3>
+              <h3 className="text-xl font-semibold mb-3 text-white">{outcome.title}</h3>
               <p className="text-gray-400">{outcome.description}</p>
             </div>
           ))}
