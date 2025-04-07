@@ -10,12 +10,16 @@ import {
   Store, 
   Building, 
   Wallet, 
-  Users2 
+  Users2,
+  Video,
+  Users,
+  BrainCircuit,
+  BarChart3,
+  HeartPulse,
+  GraduationCap
 } from "lucide-react";
 
-
-// Import all sections
-
+// Import all sections - note the lowercase "avatarai" in the path
 import HeroSection from "./components/avatarai/HeroSection";
 import EvolutionSection from "./components/avatarai/EvolutionSection";
 import TransformSection from "./components/avatarai/TransformSection";
@@ -24,8 +28,7 @@ import CaseStudySection from "./components/avatarai/CaseStudySection";
 import HowItWorksSection from "./components/avatarai/HowItWorksSection";
 import BenefitsSection from "./components/avatarai/BenefitsSection";
 import WhyChooseSection from "./components/avatarai/WhyChooseSection";
-import ContactSection from "./components/avatarai/ContactSection"
-
+import ContactSection from "./components/avatarai/ContactSection";
 
 const AvatarAI = () => {
   // Use useLayoutEffect to prevent flash of content
@@ -108,7 +111,7 @@ const AvatarAI = () => {
   );
 };
 
-// Data objects remain the same
+// Data objects
 const evolutionFeatures = [
   {
     icon: QrCode,
@@ -266,3 +269,4 @@ const whyChooseUs = [
   }
 ];
 
+export default AvatarAI;
