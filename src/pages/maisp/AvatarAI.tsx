@@ -1,7 +1,4 @@
-
 import { useEffect, useLayoutEffect } from "react";
-import ScrollAnimation from '@/components/animations/ScrollAnimation';
-import '@/styles/animations.css';
 import { 
   QrCode, 
   ShoppingBag, 
@@ -18,8 +15,10 @@ import {
   HeartPulse,
   GraduationCap
 } from "lucide-react";
+import ScrollAnimation from '@/components/animations/ScrollAnimation';
+import '@/styles/animations.css';
 
-// Import all sections - note the lowercase "avatarai" in the path
+// Import all sections
 import HeroSection from "./components/avatarai/HeroSection";
 import EvolutionSection from "./components/avatarai/EvolutionSection";
 import TransformSection from "./components/avatarai/TransformSection";
@@ -30,19 +29,24 @@ import BenefitsSection from "./components/avatarai/BenefitsSection";
 import WhyChooseSection from "./components/avatarai/WhyChooseSection";
 import ContactSection from "./components/avatarai/ContactSection";
 
-const AvatarAI = () => {
-  // Use useLayoutEffect to prevent flash of content
+// TypeScript interfaces
+interface AvatarAIProps {}
+
+interface AnchorClickEvent extends MouseEvent {
+  target: HTMLElement;
+}
+
+// Define the component
+const AvatarAI: React.FC<AvatarAIProps> = () => {
   useLayoutEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   useEffect(() => {
-    // Disable smooth scrolling
     document.documentElement.style.scrollBehavior = 'auto';
     
-    // Handle anchor links
-    const handleAnchorClick = (e) => {
-      const target = e.target;
+    const handleAnchorClick = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
       const anchor = target.closest('a[href^="#"]');
       
       if (anchor) {
@@ -62,7 +66,6 @@ const AvatarAI = () => {
       }
     };
     
-    // Initialize intersection observer
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -74,11 +77,9 @@ const AvatarAI = () => {
       rootMargin: '0px 0px -100px 0px'
     });
 
-    // Observe headings
     const headings = document.querySelectorAll('.heading-highlight-scroll');
     headings.forEach(heading => observer.observe(heading));
     
-    // Load Typeform script
     const typeformScript = document.createElement('script');
     typeformScript.src = "//embed.typeform.com/next/embed.js";
     typeformScript.defer = true;
@@ -86,12 +87,13 @@ const AvatarAI = () => {
     
     document.addEventListener('click', handleAnchorClick);
     
-    // Cleanup
     return () => {
       document.removeEventListener('click', handleAnchorClick);
       document.documentElement.style.scrollBehavior = '';
       observer.disconnect();
-      document.body.removeChild(typeformScript);
+      if (document.body.contains(typeformScript)) {
+        document.body.removeChild(typeformScript);
+      }
     };
   }, []);
 
