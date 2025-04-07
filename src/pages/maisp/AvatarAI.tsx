@@ -1,20 +1,19 @@
 
 import { useEffect, useLayoutEffect } from "react";
-import { Link } from "react-router-dom";
 import ScrollAnimation from '@/components/animations/ScrollAnimation';
 import '@/styles/animations.css';
 import { BrainCircuit, Users, BarChart3, ShoppingCart, Building2, HeartPulse, GraduationCap, Video } from "lucide-react";
 
 // Import all sections
-import HeroSection from "./components/avatarAI/HeroSection";
-import EvolutionSection from "./components/avatarAI/EvolutionSection";
-import TransformSection from "./components/avatarAI/TransformSection";
-import IndustriesSection from "./components/avatarAI/IndustriesSection";
-import CaseStudySection from "./components/avatarAI/CaseStudySection";
-import HowItWorksSection from "./components/avatarAI/HowItWorksSection";
-import BenefitsSection from "./components/avatarAI/BenefitsSection";
-import WhyChooseSection from "./components/avatarAI/WhyChooseSection";
-import ContactSection from "./components/avatarAI/ContactSection";
+import HeroSection from "./components/avatarai/HeroSection";
+import EvolutionSection from "./components/avatarai/EvolutionSection";
+import TransformSection from "./components/avatarai/TransformSection";
+import IndustriesSection from "./components/avatarai/IndustriesSection";
+import CaseStudySection from "./components/avatarai/CaseStudySection";
+import HowItWorksSection from "./components/avatarai/HowItWorksSection";
+import BenefitsSection from "./components/avatarai/BenefitsSection";
+import WhyChooseSection from "./components/avatarai/WhyChooseSection";
+import ContactSection from "./components/avatarai/ContactSection";
 
 const AvatarAI = () => {
   // Use useLayoutEffect to prevent flash of content
