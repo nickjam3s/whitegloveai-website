@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowDown, Shield, Brain, Sparkles, Users, Target, Lightbulb } from 'lucide-react';
+import { Shield, Brain, Sparkles, Users, Target, Lightbulb } from 'lucide-react';
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import ExecutiveTeam from '@/components/about/ExecutiveTeam';
 import GetInTouch from '@/components/about/GetInTouch';
@@ -112,9 +112,7 @@ const AboutUs = () => {
               animate={{ y: 10, opacity: 1 }}
               transition={{ duration: 1, repeat: Infinity, repeatType: "reverse" }}
             >
-              <a href="#mission" aria-label="Scroll to learn more">
-                <ArrowDown className="h-6 w-6 md:h-8 md:w-8 text-[#7021EE]" />
-              </a>
+            
             </motion.div>
           </div>
         </div>
