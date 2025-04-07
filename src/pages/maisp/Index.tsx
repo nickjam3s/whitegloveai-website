@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
-import ScrollAnimation from '@/components/animations/ScrollAnimation';
 import PatentedExpertise from './components/PatentedExpertise';
 import ServicesSection from './components/ServicesSection';
 import ScalableSolutions from './components/ScalableSolutions';
