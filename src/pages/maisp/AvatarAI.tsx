@@ -2,9 +2,20 @@
 import { useEffect, useLayoutEffect } from "react";
 import ScrollAnimation from '@/components/animations/ScrollAnimation';
 import '@/styles/animations.css';
-import { BrainCircuit, Users, BarChart3, ShoppingCart, Building2, HeartPulse, GraduationCap, Video } from "lucide-react";
+import { 
+  QrCode, 
+  ShoppingBag, 
+  Building2, 
+  MessagesSquare, 
+  Store, 
+  Building, 
+  Wallet, 
+  Users2 
+} from "lucide-react";
+
 
 // Import all sections
+
 import HeroSection from "./components/avatarai/HeroSection";
 import EvolutionSection from "./components/avatarai/EvolutionSection";
 import TransformSection from "./components/avatarai/TransformSection";
@@ -13,7 +24,8 @@ import CaseStudySection from "./components/avatarai/CaseStudySection";
 import HowItWorksSection from "./components/avatarai/HowItWorksSection";
 import BenefitsSection from "./components/avatarai/BenefitsSection";
 import WhyChooseSection from "./components/avatarai/WhyChooseSection";
-import ContactSection from "./components/avatarai/ContactSection";
+import ContactSection from "./components/avatarai/ContactSection"
+
 
 const AvatarAI = () => {
   // Use useLayoutEffect to prevent flash of content
@@ -96,160 +108,161 @@ const AvatarAI = () => {
   );
 };
 
-// Define actual data instead of using the [...] placeholder
+// Data objects remain the same
 const evolutionFeatures = [
   {
-    icon: BrainCircuit,
-    title: "Advanced AI Avatars",
-    description: "Lifelike digital twins powered by state-of-the-art AI that create genuine connections with customers across all your digital channels."
+    icon: QrCode,
+    title: "Scan QR Code for Instant Assistance",
+    description: "Customers can instantly connect with a personal shopping assistant in-store."
   },
   {
-    icon: Users,
-    title: "Personal Connection at Scale",
-    description: "Provide face-to-face interaction at scale while maintaining the human touch that builds trust and loyalty."
+    icon: ShoppingBag,
+    title: "Product Advice on the Go",
+    description: "Get expert guidance while browsing through your phone."
   },
   {
-    icon: Video,
-    title: "Rich Interactive Experiences",
-    description: "Go beyond text and voice with visual communication that engages customers and enhances their experience with your brand."
+    icon: Building2,
+    title: "Virtual Concierge at Interactive Kiosks",
+    description: "Access personalized help at convenient locations."
   },
   {
-    icon: BarChart3,
-    title: "24/7 Availability",
-    description: "Your avatars are always available, ensuring consistent service quality at any time of day or night."
+    icon: MessagesSquare,
+    title: "Expert Help on Your Website",
+    description: "Provide face-to-face support directly through your online platform."
   }
 ];
 
 const transformExperience = [
   {
-    title: "Create Omnichannel Consistency",
-    description: "Our avatars provide a unified face for your brand across all touchpoints, ensuring a consistent experience whether customers interact through your website, app, kiosk, or in-store.",
+    title: "In-Store Magic",
+    description: "Imagine having friendly AI avatars throughout your store. Customers simply scan a QR code to instantly connect with a personal shopping assistant who can:",
     features: [
-      "Seamless experience across web, mobile, in-store, and physical locations",
-      "Consistent brand representation with the same digital identity everywhere",
-      "Personalized interactions that pick up where previous conversations left off",
-      "Easy deployment to any channel with our flexible integration options"
+      "Provide detailed product information",
+      "Offer personalized recommendations based on preferences",
+      "Help locate items in the store",
+      "Share product comparisons and reviews",
+      "Connect them with human staff for complex needs"
     ]
   },
   {
-    title: "Build Emotional Connections",
-    description: "Humans connect with faces. Our avatars create genuine emotional bonds with your customers through expressive visual interactions that text and voice alone cannot achieve.",
+    title: "Digital Connection, Human Feel",
+    description: "On your website or mobile app, customers enjoy video call-like interactions that feel natural and engaging:",
     features: [
-      "Lifelike expressions and emotions that create authentic connections",
-      "Natural conversation flows with appropriate emotional responses",
-      "Cultural and contextual awareness for appropriate interactions",
-      "Personalized experiences based on customer history and preferences"
+      "Face-to-face conversations that flow naturally",
+      "Screen sharing for product demonstrations",
+      "Real-time product recommendations",
+      "Instant answers to questions",
+      "Seamless handoff to human staff when needed"
     ]
   }
 ];
 
 const industries = [
   {
-    icon: ShoppingCart,
+    icon: Store,
     title: "Retail",
-    description: "Create virtual shopping assistants that guide customers through product selection, answer questions, and provide personalized recommendations both online and in-store."
+    description: "Give every customer their own personal shopping assistant, providing attentive service that drives sales and satisfaction."
   },
   {
     icon: Building2,
+    title: "Hotels & Hospitality",
+    description: "From virtual concierge services to in-room assistance, deliver personalized guest experiences at scale."
+  },
+  {
+    icon: Wallet,
     title: "Financial Services",
-    description: "Offer friendly financial advisors that help customers understand complex products, complete applications, and receive support with a human touch."
+    description: "Provide face-to-face advisory services through any device, making complex discussions feel more personal and engaging."
   },
   {
-    icon: HeartPulse,
+    icon: Building,
     title: "Healthcare",
-    description: "Provide compassionate virtual care assistants that can handle intake, answer questions, and guide patients through healthcare processes with empathy."
+    description: "Offer friendly, accessible patient support for scheduling, basic questions, and care coordination."
   },
   {
-    icon: GraduationCap,
-    title: "Education",
-    description: "Deliver engaging tutors and teaching assistants that make learning more interactive, personalized, and effective for students of all ages."
+    icon: Building2,
+    title: "Municipalities",
+    description: "Provide 24/7 citizen services, from permit applications to bill payments, making local government more accessible and efficient."
   },
   {
-    icon: Users,
-    title: "Human Resources",
-    description: "Transform onboarding, training, and employee support with interactive avatars that make corporate processes more engaging and human."
-  },
-  {
-    icon: BrainCircuit,
-    title: "Technology",
-    description: "Enhance technical support and product education with visual avatars that can demonstrate features and walk users through complex troubleshooting."
+    icon: Users2,
+    title: "Public Figures",
+    description: "Create scalable, personal connections with fans through virtual meet-and-greets, Q&A sessions, and personalized interactions."
   }
 ];
 
 const caseStudySteps = [
   {
-    title: "The Challenge",
-    description: "A leading retail chain struggled with inconsistent customer experiences across their online store, mobile app, and physical locations. Customer satisfaction scores varied widely, and their digital channels lacked the personal touch of in-store interactions."
+    title: "Starting Online",
+    description: "Customer browses your website and engages with the AI avatar, discusses products, receives recommendations, and creates a wishlist. Avatar learns preferences and shopping history."
   },
   {
-    title: "Our Solution",
-    description: "We implemented custom AI avatars as virtual brand ambassadors across all customer touchpoints, creating a unified face for the brand that customers would recognize whether shopping online or in-store."
+    title: "Transitioning to Store",
+    description: "Customer visits physical store and scans QR code. Same avatar instantly recognizes them and recalls previous conversation."
   },
   {
-    title: "Integration Approach",
-    description: "Digital kiosks in physical stores featured the same avatars as the website and mobile app. The avatars recognized returning customers, recalled their preferences, and maintained conversation context across channels."
+    title: "Seamless Experience",
+    description: "Avatar guides customer to products discussed online, provides additional recommendations based on in-person preferences."
   },
   {
-    title: "The Results",
-    description: "Customer satisfaction increased by 35% within three months. Online conversion rates improved by 28%, and in-store dwell time increased. Customers reported feeling more connected to the brand, with 87% stating they appreciated the consistent experience."
+    title: "Ongoing Relationship",
+    description: "Conversation history maintains context across all future interactions. Personalized recommendations improve with each engagement."
   }
 ];
 
 const howItWorks = [
   {
-    title: "Custom Avatar Development",
-    description: "We create a digital twin that embodies your brand identity, with customizable appearance, voice, personality, and knowledge base."
+    title: "Choose Your Avatar",
+    description: "Select from our library of professional, friendly faces or create a custom avatar."
   },
   {
-    title: "Powerful AI Integration",
-    description: "Your avatar is powered by advanced AI language models, emotional intelligence, and computer vision to create natural, meaningful interactions."
+    title: "Place Your Access Points",
+    description: "Add QR codes in-store, embed on your website, or integrate with your mobile app."
   },
   {
-    title: "Omnichannel Deployment",
-    description: "We implement your digital twin across your website, mobile app, in-store kiosks, and any other customer touchpoints to ensure consistency."
+    title: "Start Connecting",
+    description: "Customers instantly access face-to-face support whenever and wherever they need it."
   },
   {
-    title: "Continuous Optimization",
-    description: "Our team monitors performance, gathers insights, and continuously improves your avatar's knowledge and responsiveness based on real interactions."
+    title: "Watch It Grow",
+    description: "Your avatar learns and improves with every interaction."
   }
 ];
 
 const benefits = [
   {
-    title: "Increased Conversion Rates",
-    description: "Clients typically see 20-35% higher conversion rates when visual avatars guide customers through purchase decisions compared to text-only interfaces."
+    title: "Higher Engagement",
+    description: "Face-to-face interactions drive 3x more engagement than chatbots."
   },
   {
-    title: "Enhanced Customer Loyalty",
-    description: "Face-to-face interactions, even digital ones, build stronger emotional connections that translate to 40% higher customer retention rates."
+    title: "Increased Sales",
+    description: "25% increase in customer engagement leads to larger basket sizes."
   },
   {
-    title: "Reduced Support Costs",
-    description: "Our avatars can handle up to 85% of routine customer inquiries, reducing support costs while maintaining high satisfaction levels."
+    title: "Always Available",
+    description: "Personal service that never sleeps, available 24/7."
   },
   {
-    title: "Valuable Customer Insights",
-    description: "Every interaction provides structured data about customer needs, preferences, and pain points that can inform business decisions."
+    title: "Brand Consistency",
+    description: "Perfect service delivery every time, ensuring 100% brand consistency."
   }
 ];
 
 const whyChooseUs = [
   {
-    title: "Enterprise-Grade Security",
-    description: "All avatar interactions are secured with enterprise-level encryption and comply with industry standards like GDPR, HIPAA, and SOC 2."
+    title: "Simple Implementation",
+    description: "We make implementing advanced AI simple and successful."
   },
   {
-    title: "Full White-Glove Service",
-    description: "Our team handles everything from avatar creation to integration, training, deployment, and ongoing optimization so you can focus on your business."
+    title: "Expert Support",
+    description: "Our expert team ensures your avatar delivers measurable results from day one."
   },
   {
-    title: "Rapid Deployment",
-    description: "Get your custom avatars up and running in weeks, not months, with our streamlined development and integration process."
+    title: "Seamless Management",
+    description: "We handle the complexities of AI deployment so you can focus on what matters most."
   },
   {
-    title: "Measurable ROI",
-    description: "We provide comprehensive analytics and reporting to track the impact of your avatars on key business metrics and customer satisfaction."
+    title: "Ongoing Optimization",
+    description: "We continuously refine and enhance your AI Avatar to ensure peak performance and measurable impact."
   }
 ];
 
-export default AvatarAI;
