@@ -3,7 +3,7 @@
 import { useAutoScroll } from '@/hooks/useAutoScroll';
 
 const PartnerLogos = () => {
-  const { scrollRef, scrollContainerRef } = useAutoScroll(1, 'left', true);
+  const { scrollRef, scrollContainerRef } = useAutoScroll(1);
 
   return (
     <section className="py-12 bg-black">

@@ -2,7 +2,7 @@
 import { useAutoScroll } from '@/hooks/useAutoScroll';
 
 const TrustedBy = () => {
-  const { scrollRef, scrollContainerRef } = useAutoScroll(1, 'left', true);
+  const { scrollRef, scrollContainerRef } = useAutoScroll(1);
 
   return (
     <section className="py-12 bg-black">
@@ -10,11 +10,16 @@ const TrustedBy = () => {
         <h2 className="text-center mb-8">Trusted By</h2>
         <div 
           ref={scrollContainerRef}
-          className="overflow-hidden relative"
+          className="overflow-hidden relative w-full"
         >
           <div 
             ref={scrollRef}
-            className="flex items-center space-x-8 whitespace-nowrap"
+            className="flex items-center space-x-8 animate-scroll"
+            style={{
+              display: 'flex',
+              whiteSpace: 'nowrap',
+              transition: 'transform 0.05s linear'
+            }}
           >
             <img
               src="/lovable-uploads/f0ca996d-42e2-4524-b115-7ff8ed634282.png"

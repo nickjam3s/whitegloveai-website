@@ -15,31 +15,30 @@ export const useAutoScroll = (
 
     if (!scrollContainer || !scrollContent) return;
 
-    // Clone the content for seamless scrolling
-    const clone = scrollContent.cloneNode(true) as HTMLElement;
-    scrollContainer.appendChild(clone);
-
-    let animationFrameId: number;
     let scrollPos = 0;
-
+    const contentWidth = scrollContent.offsetWidth;
+    
     const scroll = () => {
       if (!scrollContainer) return;
       
       scrollPos += scrollSpeed;
-      if (scrollPos >= scrollContent.offsetWidth) {
+      
+      // Reset position when reaching the end
+      if (scrollPos >= contentWidth / 2) {
         scrollPos = 0;
       }
       
-      scrollContainer.scrollLeft = scrollPos;
-      animationFrameId = requestAnimationFrame(scroll);
+      scrollContent.style.transform = `translateX(${direction === 'left' ? -scrollPos : scrollPos}px)`;
+      return requestAnimationFrame(scroll);
     };
 
-    // Start scrolling
-    animationFrameId = requestAnimationFrame(scroll);
+    let animationFrameId = requestAnimationFrame(scroll);
 
-    // Pause on hover if enabled
     if (pauseOnHover) {
-      const pauseScroll = () => cancelAnimationFrame(animationFrameId);
+      const pauseScroll = () => {
+        cancelAnimationFrame(animationFrameId);
+      };
+      
       const resumeScroll = () => {
         animationFrameId = requestAnimationFrame(scroll);
       };
