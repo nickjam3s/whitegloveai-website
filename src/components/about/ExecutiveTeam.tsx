@@ -46,14 +46,15 @@ const ExecutiveTeam: React.FC = () => {
       image: "/lovable-uploads/9dbaee7c-d928-4958-92dd-4dd39b8923bc.png",
       linkedinUrl: "https://www.linkedin.com/in/tobalo/"
     },
+    
+    // Second row
+  
     {
       name: "Albert Ramos",
       title: "virtual Chief AI Officer",
       image: "/lovable-uploads/5fe7ee0d-30ab-40a0-aaba-118ec81ae989.png",
       linkedinUrl: "https://www.linkedin.com/in/albertramosjr/"
     },
-    
-    // Second row
     {
       name: "Dr. Donnie Wendt",
       title: "virtual Chief AI Officer",
@@ -72,12 +73,6 @@ const ExecutiveTeam: React.FC = () => {
       title: "Chief Marketing Officer",
       image: "/lovable-uploads/980b7b84-6ac2-4825-a061-cf071a14cf9e.png",
       linkedinUrl: "https://www.linkedin.com/in/ankdes/"
-    },
-    {
-      name: "Kenneth Knapp",
-      title: "VP of Growth",
-      image: "/lovable-uploads/c4b72a4e-5b61-46cb-8462-ac71114f9af3.png",
-      linkedinUrl: "https://www.linkedin.com/in/yourcloudexperts/"
     },
   ];
 
