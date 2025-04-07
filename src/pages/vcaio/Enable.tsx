@@ -51,30 +51,51 @@ const Enable = () => {
     
     document.addEventListener('click', handleAnchorClick);
     
-    // Initialize intersection observer for scroll animations
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
+    // Initialize intersection observer for scroll animations with a slight delay
+    // to ensure DOM elements are fully loaded
+    const initializeObserver = () => {
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
       });
-    }, {
-      threshold: 0.1,
-      rootMargin: '0px 0px -100px 0px'
-    });
 
-    // Observe all scroll-animated headings
-    const headings = document.querySelectorAll('.heading-highlight-scroll');
-    headings.forEach(heading => {
-      observer.observe(heading);
-    });
+      // Observe all scroll-animated headings
+      const headings = document.querySelectorAll('.heading-highlight-scroll');
+      headings.forEach(heading => {
+        observer.observe(heading);
+      });
+      
+      // Also observe animate-section and animate-on-scroll elements
+      const animateSections = document.querySelectorAll('.animate-section, .animate-on-scroll');
+      animateSections.forEach(section => {
+        observer.observe(section);
+      });
+      
+      return observer;
+    };
+    
+    // Use a short timeout to ensure all elements are rendered
+    const timeoutId = setTimeout(() => {
+      const observer = initializeObserver();
+      
+      // Clean up function
+      return () => {
+        observer.disconnect();
+      };
+    }, 100);
 
     return () => {
       document.body.removeChild(script);
       document.removeEventListener('click', handleAnchorClick);
       // Reset scroll behavior when component unmounts
       document.documentElement.style.scrollBehavior = '';
-      observer.disconnect();
+      clearTimeout(timeoutId);
     };
   }, []);
 

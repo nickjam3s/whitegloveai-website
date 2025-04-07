@@ -1,10 +1,39 @@
 
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Lightbulb } from 'lucide-react';
 
 const SolutionSection = () => {
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    // Initialize intersection observer for this specific section
+    const observer = new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting) {
+        // When section is visible, find and animate its children
+        if (sectionRef.current) {
+          const headings = sectionRef.current.querySelectorAll('.heading-highlight-scroll');
+          headings.forEach(heading => heading.classList.add('visible'));
+          
+          const animatedElements = sectionRef.current.querySelectorAll('.animate-section, .animate-on-scroll');
+          animatedElements.forEach(el => el.classList.add('visible'));
+        }
+      }
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -100px 0px'
+    });
+    
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+    
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   return (
-    <section className="py-20 bg-black text-white">
+    <section ref={sectionRef} className="py-20 bg-black text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <Lightbulb className="h-12 w-12 text-secondary mx-auto mb-6" />
