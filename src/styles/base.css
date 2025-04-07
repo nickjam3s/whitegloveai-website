@@ -202,3 +202,12 @@ html {
 .hover-lift {
   @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-lg;
 }
+/* styles/globals.css */
+.overflow-hidden {
+  overflow: hidden;
+}
+
+[data-scroll] {
+  will-change: transform;
+  backface-visibility: hidden;
+}

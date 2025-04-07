@@ -1,20 +1,20 @@
-
-import React from 'react';
-import { InfiniteSlider } from "@/components/ui/infinite-slider";
+// components/home/TrustedBy.tsx
+import { useAutoScroll } from '@/hooks/useAutoScroll';
 
 const TrustedBy = () => {
+  const { scrollRef, scrollContainerRef } = useAutoScroll(1, 'left', true);
+
   return (
-    <section className="py-12 bg-black border-t border-gray-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-semibold text-center mb-8 heading-highlight-scroll text-white">
-          Trusted by Industry Leaders
-        </h2>
-        
-        <div className="h-[100px] overflow-hidden">
-          <InfiniteSlider 
-            gap={120} 
-            className="w-full h-full" 
-            autoplay={false} // Only scroll on hover or when visible
+    <section className="py-12 bg-black">
+      <div className="container mx-auto">
+        <h2 className="text-center mb-8">Trusted By</h2>
+        <div 
+          ref={scrollContainerRef}
+          className="overflow-hidden relative"
+        >
+          <div 
+            ref={scrollRef}
+            className="flex items-center space-x-8 whitespace-nowrap"
           >
             <img
               src="/lovable-uploads/f0ca996d-42e2-4524-b115-7ff8ed634282.png"
@@ -81,7 +81,7 @@ const TrustedBy = () => {
               alt="McKinney Texas Unique Logo"
               className="h-[80px] w-auto object-contain"
             />
-          </InfiniteSlider>
+        </div>
         </div>
       </div>
     </section>
