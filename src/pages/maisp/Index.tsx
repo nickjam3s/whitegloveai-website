@@ -5,9 +5,7 @@ import { ArrowDown } from "lucide-react";
 import ScrollAnimation from '@/components/animations/ScrollAnimation';
 import PatentedExpertise from './components/PatentedExpertise';
 import ServicesSection from './components/ServicesSection';
-import AIIncubationLab from './components/AIIncubationLab';
 import ScalableSolutions from './components/ScalableSolutions';
-import CaseStudy from './components/CaseStudy';
 import SupportSection from './components/SupportSection';
 import '@/styles/animations.css'; // Import animations CSS
 import PageWrapper from '@/components/layout/PageWrapper';
@@ -158,7 +156,7 @@ const MAISP = () => {
           variants={fadeInUp}
           className="mt-16 scroll-mt-20"
         >
-          <AIIncubationLab />
+         
         </motion.section>
 
         <motion.section
@@ -180,7 +178,7 @@ const MAISP = () => {
           variants={fadeInUp}
           className="mt-16 scroll-mt-20"
         >
-          <CaseStudy />
+         
         </motion.section>
 
         <motion.section
