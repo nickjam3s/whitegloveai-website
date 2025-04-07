@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
@@ -7,15 +6,13 @@ import PatentedExpertise from './components/PatentedExpertise';
 import ServicesSection from './components/ServicesSection';
 import ScalableSolutions from './components/ScalableSolutions';
 import SupportSection from './components/SupportSection';
-import '@/styles/animations.css'; // Import animations CSS
+import '@/styles/animations.css';
 import PageWrapper from '@/components/layout/PageWrapper';
 
 const MAISP = () => {
   useEffect(() => {
-    // Scroll to top when component mounts
     window.scrollTo(0, 0);
     
-    // Initialize intersection observer for scroll animations
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -27,12 +24,10 @@ const MAISP = () => {
       rootMargin: '0px 0px -100px 0px'
     });
 
-    // Observe all scroll-animated headings
     document.querySelectorAll('.heading-highlight-scroll').forEach(heading => {
       observer.observe(heading);
     });
     
-    // Also observe animate-section and animate-on-scroll elements
     const animateSections = document.querySelectorAll('.animate-section, .animate-on-scroll');
     animateSections.forEach(section => {
       observer.observe(section);
@@ -149,17 +144,6 @@ const MAISP = () => {
         </motion.section>
 
         <motion.section
-          id="ai-incubation"
-          initial="initial"
-          whileInView="animate"
-          viewport={{ once: true }}
-          variants={fadeInUp}
-          className="mt-16 scroll-mt-20"
-        >
-         
-        </motion.section>
-
-        <motion.section
           id="scalable-solutions"
           initial="initial"
           whileInView="animate"
@@ -168,17 +152,6 @@ const MAISP = () => {
           className="mt-16 scroll-mt-20"
         >
           <ScalableSolutions />
-        </motion.section>
-
-        <motion.section
-          id="case-study"
-          initial="initial"
-          whileInView="animate"
-          viewport={{ once: true }}
-          variants={fadeInUp}
-          className="mt-16 scroll-mt-20"
-        >
-         
         </motion.section>
 
         <motion.section
