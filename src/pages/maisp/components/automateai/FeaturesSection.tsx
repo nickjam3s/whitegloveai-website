@@ -29,7 +29,7 @@ const FeaturesSection = () => {
           {features.map((feature, index) => (
             <div key={index} className="bg-background/50 p-6 rounded-lg border border-gray-800 hover:border-secondary/50 transition-colors">
               <feature.icon className="h-10 w-10 text-secondary mb-4" />
-              <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
+              <h3 className="text-xl font-semibold mb-3 text-white">{feature.title}</h3>
               <p className="text-gray-400">{feature.description}</p>
             </div>
           ))}

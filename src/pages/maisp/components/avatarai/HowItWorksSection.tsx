@@ -9,7 +9,7 @@ const HowItWorksSection = ({ steps }) => {
             {steps.map((step, index) => (
               <div key={index} className="flex flex-col items-center text-center p-6">
                 <div className="text-4xl font-bold text-secondary mb-4">{index + 1}</div>
-                <h3 className="text-xl font-semibold mb-3">{step.title}</h3>
+                <h3 className="text-xl font-semibold mb-3 text-white">{step.title}</h3>
                 <p className="text-gray-400">{step.description}</p>
               </div>
             ))}

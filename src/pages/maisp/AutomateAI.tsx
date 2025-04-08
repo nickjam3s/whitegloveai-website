@@ -1,4 +1,3 @@
-
 import { useEffect, useLayoutEffect } from "react";
 import HeroSection from "./components/automateai/HeroSection";
 import ChallengesSection from "./components/automateai/ChallengesSection";

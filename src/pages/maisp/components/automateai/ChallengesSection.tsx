@@ -19,7 +19,7 @@ const ChallengesSection = () => {
         <div className="grid md:grid-cols-2 gap-8">
           {challenges.map((challenge, index) => (
             <div key={index} className="bg-background/50 p-6 rounded-lg border border-gray-800 hover:border-secondary/50 transition-colors">
-              <h3 className="text-xl font-semibold mb-3">{challenge.title}</h3>
+              <h3 className="text-xl font-semibold mb-3 text-white">{challenge.title}</h3>
               <p className="text-gray-400">{challenge.description}</p>
             </div>
           ))}
