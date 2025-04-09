@@ -58,7 +58,7 @@ const ComprehensiveDeliverables = () => {
                 href={deliverable.website} 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="text-blue-400 hover:text-blue-300 transition-colors mb-3 text-sm"
+                className="text-blue-400 hover:text-blue-300 transition-colors mb-1 text-sm"
               >
                 {deliverable.website}
               </a>
