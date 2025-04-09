@@ -28,7 +28,7 @@ const BenefitsSection = () => {
   return (
     <section className="py-24 bg-gradient-to-b from-card to-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold mb-12 text-center heading-highlight-scroll">Benefits of a vCAIO</h2>
+        <h2 className="text-3xl font-bold mb-12 text-center heading-highlight-scroll">Benefits</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 animate-section">
           {benefits.map((benefit, index) => (
             <div 
