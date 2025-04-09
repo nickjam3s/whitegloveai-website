@@ -45,7 +45,14 @@ const HeroSection = () => {
       </div>
       <div className="max-w-7xl mx-auto relative">
         <div className="text-center">
-
+        <img 
+              src="/lovable-uploads/351136e7-c241-4c56-a606-3ff7a65a05ac.png" 
+              alt="AutomateAI Logo" 
+              width="100" 
+              height="100" 
+              className="logo-animation"
+              style={{ filter: "hue-rotate(260deg) brightness(150%) drop-shadow(0 0 10px rgba(112, 33, 238, 0.6))" }}
+            />
           <motion.h1 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
