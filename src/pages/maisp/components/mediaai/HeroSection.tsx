@@ -46,14 +46,7 @@ const HeroSection = () => {
           duration: 0.8,
           delay: 0.4
         }} className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a href="#contact" className="inline-flex items-center px-6 py-3 text-base font-medium text-white bg-[#9b87f5] hover:bg-[#9b87f5]/90 rounded-lg transition-colors">
-              Contact Us
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </a>
-            <a href="#ServicePlans" className="inline-flex items-center px-6 py-3 text-base font-medium text-white bg-[#9b87f5]/20 hover:bg-[#9b87f5]/30 rounded-lg transition-colors border border-[#9b87f5]/50">
-              View Service Plans
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </a>
+            
           </motion.div>
         </div>
       </div>
