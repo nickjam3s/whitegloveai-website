@@ -1,6 +1,6 @@
 
 import { motion } from "framer-motion";
-import { Plus, Users, TrendingUp, Globe, Search, Film } from "lucide-react";
+import { Clock, Users, Video, Share2, Paintbrush, FileText, Edit, Image, Monitor, Headphones } from "lucide-react";
 
 const AddOns = () => {
   const containerAnimation = {
@@ -22,36 +22,38 @@ const AddOns = () => {
     {
       title: "Production Enhancements",
       items: [
-        "Additional episode production",
-        "Guest booking and coordination"
+        "Additional Monthly Episodes (Tokens)",
+        "Extra Guest Booking and Coordination",
+        "Enhanced Post-Production Editing"
       ],
-      icon: Plus
+      icon: Video
     },
     {
-      title: "SEO Processing",
+      title: "Content Creation",
       items: [
-        "Comprehensive keyword research",
-        "Optimization for podcast titles, descriptions, and show notes"
+        "Advanced Topic Research and Script Drafting",
+        "Increased Short-Form and Clip Creation",
+        "Additional Episode Thumbnail Creation"
       ],
-      icon: Search
+      icon: FileText
     },
     {
-      title: "Video Cutups",
+      title: "Distribution & Design",
       items: [
-        "Professionally edited short-form video clips (30–60 seconds)",
-        "For Instagram, TikTok, and YouTube Shorts",
-        "Up to 3 clips per episode"
+        "Additional Social Account Delivery",
+        "Custom Podcast and Social Banner Design",
+        "Extended Studio Software and Setup Support"
       ],
-      icon: Film
+      icon: Share2
     },
     {
-      title: "Growth & Visibility",
+      title: "Professional Support",
       items: [
-        "Advanced marketing campaigns",
-        "Subscriber Booster",
-        "Custom podcast website"
+        "Dedicated In-Virtual-Studio Producer",
+        "Priority scheduling and technical assistance",
+        "Custom integration with existing marketing workflows"
       ],
-      icon: TrendingUp
+      icon: Headphones
     }
   ];
 
