@@ -7,14 +7,19 @@ const HeroSection = () => {
     <section className="relative pt-40 pb-28 px-4 sm:px-6 lg:px-8 overflow-hidden">
       <div className="max-w-7xl mx-auto relative">
         <div className="text-center">
-        <img 
+          <div className="flex justify-center mb-6"> {/* Added container for centering */}
+            <img 
               src="/lovable-uploads/351136e7-c241-4c56-a606-3ff7a65a05ac.png" 
               alt="MediaAI Logo" 
               width="100" 
               height="100" 
-              className="logo-animation"
-              style={{ filter: "hue-rotate(260deg) brightness(150%) drop-shadow(0 0 10px rgba(112, 33, 238, 0.6))" }}
+              className="logo-animation mx-auto" // Added mx-auto class
+              style={{ 
+                filter: "hue-rotate(260deg) brightness(150%) drop-shadow(0 0 10px rgba(112, 33, 238, 0.6))",
+                display: "block" // Ensures block-level display
+              }}
             />
+          </div>
           <motion.h1 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
