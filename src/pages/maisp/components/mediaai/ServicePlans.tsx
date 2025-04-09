@@ -69,7 +69,7 @@ const ServicePlans = () => {  // Added component function declaration
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#9b87f5] heading-highlight-scroll">
-            Our Podcast Service Plans
+            Our Podcast Service Includes
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             Carefully crafted features to match your podcasting ambitions
