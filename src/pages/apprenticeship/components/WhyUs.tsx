@@ -1,4 +1,3 @@
-
 import { motion } from 'framer-motion';
 
 const benefits = [
@@ -14,7 +13,8 @@ const WhyUs = () => {
     <section className="py-20 bg-black">
       <div className="container mx-auto px-4">
         <motion.div
-          initial={{ opacity: 0 }}
+          initial={{ opacity: 0.5 }}
+          animate={{ opacity: 1 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           className="mb-12"
@@ -24,32 +24,32 @@ const WhyUs = () => {
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10 animate-section">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
           {benefits.slice(0, 3).map((benefit, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0.7, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="bg-[#7021EE] p-6 rounded-lg animate-on-scroll"
-              style={{ transitionDelay: `${index * 0.1}s` }}
+              className="bg-[#7021EE] p-6 rounded-lg"
             >
               <p className="text-white font-medium">{benefit}</p>
             </motion.div>
           ))}
         </div>
         
-        <div className="grid md:grid-cols-2 gap-6 mb-10 animate-section">
+        <div className="grid md:grid-cols-2 gap-6 mb-10">
           {benefits.slice(3).map((benefit, index) => (
             <motion.div
               key={index + 3}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0.7, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: (index + 3) * 0.1 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="bg-[#7021EE] p-6 rounded-lg animate-on-scroll"
-              style={{ transitionDelay: `${index * 0.1}s` }}
+              className="bg-[#7021EE] p-6 rounded-lg"
             >
               <p className="text-white font-medium">{benefit}</p>
             </motion.div>
