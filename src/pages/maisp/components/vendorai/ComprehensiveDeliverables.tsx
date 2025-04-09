@@ -1,27 +1,27 @@
 
 const deliverables = [
   {
-    icon: "/lovable-uploads/95c2f2b9-cb3b-4b1a-baf7-39f668fb617f.png",
+    icon: <img src="/lovable-uploads/95c2f2b9-cb3b-4b1a-baf7-39f668fb617f.png"/>,
     website: "https://www.liminal.ai/",
     title: "Secure GenAI Platform",
     description: "Empower your workforce to safely leverage generative AI across any site, web application, and desktop platform, all while maintaining complete AI data security, oversight, administration, and observability."
   },
   {
-    icon: "/lovable-uploads/35aef5de-a56d-4151-bf55-77e3fc703c83.png",
+    icon: <img src="/lovable-uploads/35aef5de-a56d-4151-bf55-77e3fc703c83.png" />,
     website:"https://www.atomicwork.com/",
     title: "IT Service Management",
     description: "Agentic service management platform to modernize ITSM, ESM and enterprise workflows."
     
   },
   {
-    icon: "/lovable-uploads/3fadd016-1248-42b7-9190-18c9ba852b4e.png",
+    icon: <img src="/lovable-uploads/3fadd016-1248-42b7-9190-18c9ba852b4e.png" />,
     website: "https://www.halcyon.ai/",
     title: "Ransomware Prevention",
     description: "Stop ransomware, prevent business downtime, and recover without backups."
     
   },
   {
-    icon: "/lovable-uploads/c2a42923-14a6-458e-9548-ef253921c5d0.png",
+    icon: <img src="/lovable-uploads/c2a42923-14a6-458e-9548-ef253921c5d0.png" />,
     website: "https://protectai.com/",
     title: "AI Security Platform",
     description: "Enables you to implement capabilities to see, know, and manage security risks and defend against unique AI security threats, end-to-end."
