@@ -50,7 +50,7 @@ const HeroSection = () => {
               Contact Us
               <ArrowRight className="ml-2 h-5 w-5" />
             </a>
-            <a href="#service-plans" className="inline-flex items-center px-6 py-3 text-base font-medium text-white bg-[#9b87f5]/20 hover:bg-[#9b87f5]/30 rounded-lg transition-colors border border-[#9b87f5]/50">
+            <a href="#ServicePlans" className="inline-flex items-center px-6 py-3 text-base font-medium text-white bg-[#9b87f5]/20 hover:bg-[#9b87f5]/30 rounded-lg transition-colors border border-[#9b87f5]/50">
               View Service Plans
               <ArrowRight className="ml-2 h-5 w-5" />
             </a>
