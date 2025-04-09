@@ -1,7 +1,6 @@
-
 import React from 'react';
 import { Linkedin } from 'lucide-react';
-import "../styles/executive-profile.css";
+// Remove this line: import "../styles/executive-profile.css";
 
 const ExecutiveTeam = () => {
   const executives = [
@@ -60,7 +59,7 @@ const ExecutiveTeam = () => {
         rel="noopener noreferrer"
         className="text-blue-400 hover:text-blue-300"
       >
-        <Linkedin className="w-5 h-5" />
+        <Linkedin size={24} />
       </a>
     </div>
   );
@@ -69,7 +68,7 @@ const ExecutiveTeam = () => {
     <div className="min-h-screen bg-gray-900 py-16 px-4">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-8 text-white">Meet the Executive Team</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-8 text-[#7021EE]">Meet the Executive Team</h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             We are a dynamic coalition of seasoned AI pioneers and visionary executives, united by a shared passion for harnessing the transformative potential of artificial intelligence. Our mission is to unlock AI's promises while proactively addressing its challenges to ensure a positive and ethical impact on humanity.
           </p>
@@ -88,6 +87,6 @@ const ExecutiveTeam = () => {
       </div>
     </div>
   );
-};
+}
 
 export default ExecutiveTeam;
