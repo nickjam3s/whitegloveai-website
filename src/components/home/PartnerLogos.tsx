@@ -34,7 +34,7 @@ const PartnerLogos = () => {
             />
             <img
               src="/lovable-uploads/35aef5de-a56d-4151-bf55-77e3fc703c83.png"
-              alt="New Partner Logo"
+              alt="Atomicwork Logo"
               className="h-[60px] w-auto object-contain brightness-0 invert"
             />
             <img
