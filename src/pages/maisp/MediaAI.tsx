@@ -1,4 +1,3 @@
-
 import { useEffect, useLayoutEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
@@ -89,48 +88,46 @@ const MediaAI = () => {
         {/* Background Elements */}
         <div className="fixed inset-0 z-0">
           {/* Main gradient background */}
-          <div className="absolute inset-0 bg-gradient-to-b from-purple-900/30 via-background to-background"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-[#7021EE]/20 to-black/90">
+            <div className="absolute inset-0 backdrop-blur-sm" />
+          </div>
           
           {/* Abstract shapes */}
           <div className="absolute inset-0 opacity-30">
-            {[...Array(6)].map((_, i) => (
+            {[...Array(20)].map((_, i) => (
               <motion.div
                 key={i}
-                className="absolute rounded-full bg-gradient-to-br from-purple-700/20 to-purple-400/5"
+                className="absolute rounded-full bg-[#7021EE]/20"
                 initial={{
                   x: Math.random() * window.innerWidth,
                   y: Math.random() * window.innerHeight,
-                  scale: Math.random() * 0.5 + 0.5
+                  scale: Math.random() * 0.5 + 0.5,
                 }}
                 animate={{
                   x: [
                     Math.random() * window.innerWidth,
                     Math.random() * window.innerWidth,
-                    Math.random() * window.innerWidth
+                    Math.random() * window.innerWidth,
                   ],
                   y: [
                     Math.random() * window.innerHeight,
                     Math.random() * window.innerHeight,
-                    Math.random() * window.innerHeight
+                    Math.random() * window.innerHeight,
                   ],
-                  opacity: [0.2, 0.5, 0.2]
+                  opacity: [0.2, 0.5, 0.2],
                 }}
                 transition={{
-                  duration: Math.random() * 25 + 15,
+                  duration: Math.random() * 20 + 20,
                   repeat: Infinity,
-                  ease: "linear"
+                  ease: "linear",
                 }}
                 style={{
-                  width: isMobile ? `${Math.random() * 150 + 50}px` : `${Math.random() * 300 + 100}px`,
-                  height: isMobile ? `${Math.random() * 150 + 50}px` : `${Math.random() * 300 + 100}px`,
-                  filter: "blur(50px)"
+                  width: isMobile ? `${Math.random() * 200 + 50}px` : `${Math.random() * 200 + 50}px`,
+                  height: isMobile ? `${Math.random() * 200 + 50}px` : `${Math.random() * 200 + 50}px`,
                 }}
               />
             ))}
           </div>
-          
-          {/* Grid overlay */}
-          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0wIDBoNjB2NjBIMHoiLz48cGF0aCBkPSJNNjAgMEgwdjYwaDYwVjB6IiBzdHJva2Utb3BhY2l0eT0iLjAyIiBzdHJva2U9IiNmZmYiIGZpbGw9IiMwMDAiLz48L2c+PC9zdmc+')] opacity-20"></div>
         </div>
         
         <div className="relative z-10">

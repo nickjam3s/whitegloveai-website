@@ -24,7 +24,7 @@ const MethodologySection = () => {
         <div className="grid md:grid-cols-3 gap-8">
           {steps.map((step, index) => (
             <div key={index} className="bg-card p-6 rounded-lg border border-gray-800">
-              <h3 className="text-xl font-semibold mb-3">{step.title}</h3>
+              <h3 className="text-xl font-semibold mb-3 text-white">{step.title}</h3>
               <p className="text-gray-400">{step.description}</p>
             </div>
           ))}

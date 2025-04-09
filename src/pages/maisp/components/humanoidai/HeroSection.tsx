@@ -2,6 +2,7 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
+import { useIsMobile } from '@/hooks/use-mobile';
 
 // Add this declaration to handle the custom element
 declare global {
@@ -17,6 +18,8 @@ declare global {
 }
 
 const HeroSection = () => {
+  const isMobile = useIsMobile();
+  
   useEffect(() => {
     // Load the Spline viewer script
     const script = document.createElement('script');
@@ -45,26 +48,60 @@ const HeroSection = () => {
 
   return (
     <section className="relative h-[100vh] flex items-center overflow-hidden">
+      {/* Background Elements */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#7021EE]/20 to-black/90">
-        <div className="absolute inset-[10%] bg-[radial-gradient(circle_at_50%_50%,#7928CA,transparent_60%)] opacity-25" style={{
-          transformOrigin: '60% 40%',
-          animation: 'morphing 12s ease-in-out infinite, rotating 15s linear infinite'
-        }} />
-        <div className="absolute inset-0 backdrop-blur-[100px]" />
+        <div className="absolute inset-0 backdrop-blur-sm" />
+      </div>
+      
+      {/* Animated floating elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        {[...Array(20)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute rounded-full bg-[#7021EE]/20"
+            initial={{
+              x: Math.random() * window.innerWidth,
+              y: Math.random() * window.innerHeight,
+              scale: Math.random() * 0.5 + 0.5,
+            }}
+            animate={{
+              x: [
+                Math.random() * window.innerWidth,
+                Math.random() * window.innerWidth,
+                Math.random() * window.innerWidth,
+              ],
+              y: [
+                Math.random() * window.innerHeight,
+                Math.random() * window.innerHeight,
+                Math.random() * window.innerHeight,
+              ],
+              opacity: [0.2, 0.5, 0.2],
+            }}
+            transition={{
+              duration: Math.random() * 20 + 20,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+            style={{
+              width: isMobile ? `${Math.random() * 100 + 30}px` : `${Math.random() * 200 + 50}px`,
+              height: isMobile ? `${Math.random() * 100 + 30}px` : `${Math.random() * 200 + 50}px`,
+            }}
+          />
+        ))}
       </div>
       
       <div className="max-w-7xl mx-auto relative px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <motion.h1 
             {...titleAnimation}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 md:mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-[#7021EE]"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 md:mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-[#7021EE] font-sora"
           >
             Managed Service Offering for Humanoid Robots
           </motion.h1>
           
           <motion.p 
             {...fadeInUp}
-            className="text-lg md:text-xl lg:text-2xl text-gray-200 mb-8 md:mb-12 max-w-3xl mx-auto px-3 sm:px-0 text-shadow-sm"
+            className="text-lg md:text-xl lg:text-2xl text-gray-200 mb-8 md:mb-12 max-w-3xl mx-auto px-3 sm:px-0 text-shadow-sm font-sora"
           >
             Seamless integration, operation, and maintenance of humanoid robots for your enterprise needs.
           </motion.p>

@@ -37,7 +37,7 @@ const SecurityCompliance = () => {
               <div className="flex items-start">
                 <feature.icon className="h-6 w-6 text-secondary mt-1 mr-3 flex-shrink-0" />
                 <div>
-                  <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
+                  <h3 className="text-xl font-semibold mb-3 text-white">{feature.title}</h3>
                   <p className="text-gray-400">{feature.description}</p>
                 </div>
               </div>

@@ -174,7 +174,7 @@ const HumanoidAI = () => {
           >
             Contact Us
           </motion.h2>
-          <div className="glass-card backdrop-blur-md p-8 rounded-xl border border-purple-500/20 shadow-[0_0_15px_rgba(112,33,238,0.15)] max-w-4xl mx-auto">
+          <div className="glass-card backdrop-blur-md p-8 rounded-xl border border-purple-500/20 shadow-[0_0_15px_rgba(112,33,238,0.15)] max-w-4xl mx-auto tezt">
             <StepByStepForm />
           </div>
         </div>

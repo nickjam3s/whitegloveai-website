@@ -27,7 +27,7 @@ const BusinessOutcomes = () => {
         <div className="grid md:grid-cols-3 gap-8">
           {outcomes.map((outcome, index) => (
             <div key={index} className="bg-background/50 p-6 rounded-lg border border-gray-800">
-              <h3 className="text-xl font-semibold mb-3">{outcome.title}</h3>
+              <h3 className="text-xl font-semibold mb-3 text-white">{outcome.title}</h3>
               <p className="text-gray-400">{outcome.description}</p>
             </div>
           ))}

@@ -35,7 +35,7 @@ const ServiceDescription = () => {
           {services.map((service, index) => (
             <div key={index} className="bg-card p-6 rounded-lg border border-gray-800">
               <service.icon className="h-10 w-10 text-secondary mb-4" />
-              <h3 className="text-xl font-semibold mb-3">{service.title}</h3>
+              <h3 className="text-xl font-semibold mb-3 text-white">{service.title}</h3>
               <p className="text-gray-400">{service.description}</p>
             </div>
           ))}

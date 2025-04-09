@@ -5,24 +5,45 @@ const HeroSection = () => {
   return (
     <section className="relative pt-40 pb-28 px-4 sm:px-6 lg:px-8 overflow-hidden">
       <div className="absolute inset-0 overflow-hidden">
-        <div 
-          className="absolute inset-[10%] bg-[radial-gradient(circle_at_50%_50%,#7928CA,transparent_60%)] opacity-25" 
-          style={{
-            transformOrigin: '60% 40%',
-            animation: 'morphing 12s ease-in-out infinite, rotating 15s linear infinite'
-          }}
-        />
-        <div className="absolute inset-0 backdrop-blur-[100px]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#7021EE]/20 to-black/90">
+          <div className="absolute inset-0 backdrop-blur-sm" />
+        </div>
+        {[...Array(20)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute rounded-full bg-[#7021EE]/20"
+            initial={{
+              x: Math.random() * window.innerWidth,
+              y: Math.random() * window.innerHeight,
+              scale: Math.random() * 0.5 + 0.5,
+            }}
+            animate={{
+              x: [
+                Math.random() * window.innerWidth,
+                Math.random() * window.innerWidth,
+                Math.random() * window.innerWidth,
+              ],
+              y: [
+                Math.random() * window.innerHeight,
+                Math.random() * window.innerHeight,
+                Math.random() * window.innerHeight,
+              ],
+              opacity: [0.2, 0.5, 0.2],
+            }}
+            transition={{
+              duration: Math.random() * 20 + 20,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+            style={{
+              width: `${Math.random() * 200 + 50}px`,
+              height: `${Math.random() * 200 + 50}px`,
+            }}
+          />
+        ))}
       </div>
       <div className="max-w-7xl mx-auto relative">
         <div className="text-center">
-          {/* <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <Video className="h-12 w-12 text-secondary mx-auto mb-6" />
-          </motion.div> */}
           <motion.h1 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}

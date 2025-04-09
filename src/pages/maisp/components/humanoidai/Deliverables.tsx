@@ -37,7 +37,7 @@ const Deliverables = () => {
               <div className="flex items-start">
                 <deliverable.icon className="h-6 w-6 text-secondary mt-1 mr-3 flex-shrink-0" />
                 <div>
-                  <h3 className="text-xl font-semibold mb-3">{deliverable.title}</h3>
+                  <h3 className="text-xl font-semibold mb-3 text-white">{deliverable.title}</h3>
                   <p className="text-gray-400">{deliverable.description}</p>
                 </div>
               </div>
