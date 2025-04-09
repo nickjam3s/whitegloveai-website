@@ -1,6 +1,5 @@
 import React from 'react';
 import { Linkedin } from 'lucide-react';
-// Remove this line: import "../styles/executive-profile.css";
 
 const ExecutiveTeam = () => {
   const executives = [
