@@ -84,3 +84,22 @@ input, button, textarea, select {
     font-size: 14px;
   }
 }
+
+/* styles/globals.css or Tailwind config */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 20s linear infinite;
+}
+
+.slow-scroll {
+  animation: scroll 60s linear infinite;
+}
+
