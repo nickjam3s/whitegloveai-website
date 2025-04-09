@@ -42,7 +42,7 @@ const ProcessSection = () => {
           {stages.map((stage, index) => (
             <div key={index} className="bg-card p-6 rounded-lg border border-gray-800">
               <div className="text-secondary font-semibold mb-2">Stage {index + 1}</div>
-              <h3 className="text-xl font-semibold mb-3">{stage.title}</h3>
+              <h3 className="text-xl font-semibold mb-3 text-white">{stage.title}</h3>
               <p className="text-gray-400">{stage.description}</p>
             </div>
           ))}

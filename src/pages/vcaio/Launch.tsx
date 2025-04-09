@@ -6,7 +6,7 @@ import ProcessSection from "./components/launch/ProcessSection";
 import DeliverablesSection from "./components/launch/DeliverablesSection";
 import ResultsSection from "./components/launch/ResultsSection";
 import NextStepsSection from "./components/launch/NextStepsSection";
-import ContactSection from "./components/launchai/ContactSection";
+import ContactSection from "./components/launch/ContactSection"
 import ScrollAnimation from '@/components/animations/ScrollAnimation';
 import '@/styles/animations.css'; // Import animations CSS
 

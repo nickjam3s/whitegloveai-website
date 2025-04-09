@@ -12,7 +12,7 @@ const ResultsSection = () => {
         <div className="grid md:grid-cols-3 gap-8 animate-section">
           <div className="bg-card p-6 rounded-lg border border-gray-800 animate-on-scroll" style={{ transitionDelay: "0s" }}>
             <CheckCircle className="h-10 w-10 text-secondary mb-4" />
-            <h3 className="text-xl font-semibold mb-3">Successfully Implemented AI Solutions</h3>
+            <h3 className="text-xl font-semibold mb-3 text-white">Successfully Implemented AI Solutions</h3>
             <p className="text-gray-400">
               The AI Launchpad Workshop delivers tailored AI solutions that meet your specific business needs. Seamless integration ensures immediate impact on your workflows.
             </p>
@@ -20,7 +20,7 @@ const ResultsSection = () => {
           
           <div className="bg-card p-6 rounded-lg border border-gray-800 animate-on-scroll" style={{ transitionDelay: "0.1s" }}>
             <TrendingUp className="h-10 w-10 text-secondary mb-4" />
-            <h3 className="text-xl font-semibold mb-3">Improved Efficiency and Demonstrated ROI</h3>
+            <h3 className="text-xl font-semibold mb-3 text-white">Improved Efficiency and Demonstrated ROI</h3>
             <p className="text-gray-400">
               Experience enhanced operational efficiency with reduced manual effort and time spent on repetitive tasks. Our detailed reports showcase the value and financial benefits of your AI solution.
             </p>
@@ -28,7 +28,7 @@ const ResultsSection = () => {
           
           <div className="bg-card p-6 rounded-lg border border-gray-800 animate-on-scroll" style={{ transitionDelay: "0.2s" }}>
             <Users className="h-10 w-10 text-secondary mb-4" />
-            <h3 className="text-xl font-semibold mb-3">Empowered Teams and Future-Ready Businesses</h3>
+            <h3 className="text-xl font-semibold mb-3 text-white">Empowered Teams and Future-Ready Businesses</h3>
             <p className="text-gray-400">
               The AI Launchpad Workshop empowers stakeholders to understand AI's potential and confidently drive future AI projects. You'll identify new opportunities for AI implementation, ensuring your business stays ahead.
             </p>

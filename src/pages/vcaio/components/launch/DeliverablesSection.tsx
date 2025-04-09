@@ -33,7 +33,7 @@ const DeliverablesSection = () => {
               style={{ transitionDelay: `${index * 0.1}s` }}
             >
               {item.icon}
-              <h3 className="text-xl font-semibold mb-3">{item.title}</h3>
+              <h3 className="text-xl font-semibold mb-3 text-white">{item.title}</h3>
               <p className="text-gray-400">{item.description}</p>
             </div>
           ))}
