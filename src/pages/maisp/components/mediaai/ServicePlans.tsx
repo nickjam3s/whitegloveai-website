@@ -42,11 +42,6 @@ const ServicePlans = () => {  // Added component function declaration
       description: "Advanced SEO and multi-platform publishing.",
       icon: FileSearch
     },
-    {
-      title: "Social Media",
-      description: "Setup on your platforms establishment.",
-      icon: Share2
-    }
   ];
 
   const containerAnimation = {
