@@ -6,46 +6,56 @@ const ExecutiveTeam = () => {
     {
       name: "Nick James",
       title: "Founder & Chief Executive Officer",
+      image: "/lovable-uploads/12a890f3-210e-4059-8cbc-6647b5effb9a.png",
       linkedinUrl: "https://www.linkedin.com/in/nickjam3s/"
     },
     {
       name: "Jason Hess",
       title: "Chief Technology Officer & virtual Chief AI Officer",
+      image: "/lovable-uploads/5cbfcfd0-e713-43d1-9e25-c1d4a1e33007.png",
+      imagePosition: "object-top",
       linkedinUrl: "https://www.linkedin.com/in/jasonhess/"
     },
     {
       name: "Binni Skariah",
       title: "Product Owner of Lucidis.AI",
+      image: "/lovable-uploads/fceb5744-7f22-4174-ab60-aec65e9b5205.png",
       linkedinUrl: "https://www.linkedin.com/in/bskariah/"
     },
     {
       name: "Tobalo Torress",
       title: "VP of AI Labs", 
+      image: "/lovable-uploads/9dbaee7c-d928-4958-92dd-4dd39b8923bc.png",
       linkedinUrl: "https://www.linkedin.com/in/tobalo/"
     },
     {
       name: "Albert Ramos",
       title: "virtual Chief AI Officer",
+      image: "/lovable-uploads/5fe7ee0d-30ab-40a0-aaba-118ec81ae989.png",
       linkedinUrl: "https://www.linkedin.com/in/albertramosjr/"
     },
     {
       name: "Dr. Donnie Wendt",
       title: "virtual Chief AI Officer",
+      image: "/lovable-uploads/b660279c-7698-487d-b20e-3a04479508d4.png",
       linkedinUrl: "https://www.linkedin.com/in/dr-donnie-wendt/"
     },
     {
       name: "Daniel Valencia",
       title: "Chief Information Security Officer",
+      image: "/lovable-uploads/15e1ef3c-8f52-4735-b48e-159dea83470c.png",
       linkedinUrl: "https://www.linkedin.com/in/daniel-valencia/"
     },
     {
       name: "Ankur Desai",
       title: "Chief Marketing Officer",
+      image: "/lovable-uploads/980b7b84-6ac2-4825-a061-cf071a14cf9e.png",
       linkedinUrl: "https://www.linkedin.com/in/ankdes/"
     },
   ];
 
-  const ExecutiveProfile = ({ name, title, linkedinUrl }) => (
+  const ExecutiveProfile = ({ name, title, image, imagePosition, linkedinUrl }) => (
+
     <div className="bg-gray-800 rounded-lg p-6 flex flex-col items-center text-center">
       <div className="w-24 h-24 mb-4 bg-gray-700 rounded-full flex items-center justify-center">
         <span className="text-3xl text-gray-400">{name.charAt(0)}</span>
@@ -79,7 +89,6 @@ const ExecutiveTeam = () => {
               key={index} 
               className="transform transition-all duration-300 hover:scale-105"
             >
-              <ExecutiveProfile {...executive} />
             </div>
           ))}
         </div>
