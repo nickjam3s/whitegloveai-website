@@ -20,7 +20,7 @@ const WhyVCAIO = () => {
           className="max-w-4xl mx-auto"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-8 text-white text-center">
-            Why Your Business Needs a <span className="text-primary">vCAIO</span>
+            Why Your Business Needs a <span className="text-primary">Chief AI Officer</span>
           </h2>
           
           <div className="space-y-8">
@@ -31,7 +31,7 @@ const WhyVCAIO = () => {
             >
               <h3 className="text-xl font-semibold mb-3 text-primary">Strategic AI Leadership Without the Full-Time Cost</h3>
               <p className="text-gray-300">
-                Access C-level AI expertise and strategic guidance without the expense of a full-time executive. Our vCAIO service provides the leadership you need at a fraction of the cost.
+                Access C-level AI expertise and strategic guidance without the expense of a full-time executive. Our consulting service provides the leadership you need at a fraction of the cost.
               </p>
             </motion.div>
             
@@ -53,7 +53,7 @@ const WhyVCAIO = () => {
             >
               <h3 className="text-xl font-semibold mb-3 text-primary">Bridge the AI Knowledge Gap</h3>
               <p className="text-gray-300">
-                Our vCAIOs bring deep technical knowledge and business acumen, helping translate complex AI concepts into clear business strategies your entire organization can understand.
+                Our leaders bring deep technical knowledge and business acumen, helping translate complex AI concepts into clear business strategies your entire organization can understand.
               </p>
             </motion.div>
             

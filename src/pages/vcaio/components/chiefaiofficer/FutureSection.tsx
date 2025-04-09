@@ -16,7 +16,7 @@ const FutureSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           <div className="bg-card/60 backdrop-blur-sm p-8 rounded-xl border border-gray-800 hover:border-secondary/50 transition-all hover:shadow-lg hover:shadow-purple-900/20">
             <p className="text-gray-400">
-              Our vCAIO service provides a flexible and cost-effective way to access the expert AI leadership you need to thrive.
+              Our consulting service provides a flexible and cost-effective way to access the expert AI leadership you need to thrive.
             </p>
           </div>
           
@@ -37,7 +37,7 @@ const FutureSection = () => {
           <div className="text-center mb-8">
             <h3 className="text-2xl font-semibold mb-4 text-white">Ready to Transform Your AI Strategy?</h3>
             <p className="text-gray-400 max-w-2xl mx-auto">
-              Take the first step toward AI-driven success by connecting with our vCAIO team today.
+              Take the first step toward AI-driven success by connecting with our team today.
             </p>
           </div>
           

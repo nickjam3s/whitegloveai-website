@@ -14,7 +14,7 @@ const benefits = [
   },
   {
     title: "Flexible Engagement",
-    description: "Tailor our vCAIO services to your specific needs and budget, with options for short-term or ongoing support.",
+    description: "Tailor our services to your specific needs and budget, with options for short-term or ongoing support.",
     icon: Settings
   },
   {

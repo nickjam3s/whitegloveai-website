@@ -42,7 +42,7 @@ const MaturityLevels = () => {
         </div>
         
         <p className="text-center mt-12 text-gray-400">
-          The vCAIO tailors the AI-AMF framework to an organization's maturity level, ensuring incremental and measurable progress.
+          The our fractional CAIO tailors the AI-AMF framework to an organization's maturity level, ensuring incremental and measurable progress.
         </p>
       </div>
     </section>
