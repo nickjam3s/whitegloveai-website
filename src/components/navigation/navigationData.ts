@@ -56,8 +56,8 @@ export const navigationLinks = [
     ]
   },
   {
-    text: "The AI Executive",
-    to: "https://aiexec.whitegloveai.com/",
+    text: "Podcast",
+    to: "https://linke.ro/aiexec",
     external: true
   }
 ];
