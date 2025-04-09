@@ -14,12 +14,7 @@ const HeroSection = () => {
           <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto mb-8">
             At WhitegloveAI, we guide you through the transformative journey of AI adoption—ensuring every step is secure, compliant, and aligned with your business goals.
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link to="/contact" className="inline-flex items-center px-6 py-3 text-base font-medium text-white bg-secondary rounded-lg hover:bg-secondary/90 transition-colors">
-              Get Started
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Link>
-            <a 
+                      <a 
               href="https://jzaxt350p9j.typeform.com/to/JlpkD8L8#name=xxxxx&email=xxxxx" 
               target="_blank" 
               rel="noopener noreferrer" 
@@ -30,7 +25,6 @@ const HeroSection = () => {
             </a>
           </div>
         </div>
-      </div>
     </section>
   );
 };
