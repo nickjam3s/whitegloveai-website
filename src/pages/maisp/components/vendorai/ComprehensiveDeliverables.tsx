@@ -1,7 +1,7 @@
-import liminalIcon from '../lovable-uploads/95c2f2b9-cb3b-4b1a-baf7-39f668fb617f.png';
-import atomicIcon from '../lovable-uploads/35aef5de-a56d-4151-bf55-77e3fc703c83.png';
-import halcyonIcon from '../lovable-uploads/3fadd016-1248-42b7-9190-18c9ba852b4e.png';
-import protectIcon from '../lovable-uploads/c2a42923-14a6-458e-9548-ef253921c5d0.png' 
+import liminalIcon from '/lovable-uploads/95c2f2b9-cb3b-4b1a-baf7-39f668fb617f.png';
+import atomicIcon from '/lovable-uploads/35aef5de-a56d-4151-bf55-77e3fc703c83.png';
+import halcyonIcon from '/lovable-uploads/3fadd016-1248-42b7-9190-18c9ba852b4e.png';
+import protectIcon from '/lovable-uploads/c2a42923-14a6-458e-9548-ef253921c5d0.png' 
 
 const deliverables = [
   {
