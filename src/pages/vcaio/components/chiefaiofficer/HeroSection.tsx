@@ -69,7 +69,7 @@ const HeroSection = () => {
             transition={{ duration: 0.8 }}
             className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 md:mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-[#7021EE]"
           >
-            Virtual Chief AI Officer
+            Fractional Chief AI Officer
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 20 }} 
@@ -109,7 +109,7 @@ const HeroSection = () => {
         animate={{ y: 10, opacity: 1 }}
         transition={{ duration: 1, repeat: Infinity, repeatType: "reverse" }}
       >
-        <a href="#why-vcaio" aria-label="Scroll to learn more">
+        <a href="#why-caio" aria-label="Scroll to learn more">
           <ArrowDown className="h-6 w-6 md:h-8 md:w-8 text-[#7021EE]" />
         </a>
       </motion.div>

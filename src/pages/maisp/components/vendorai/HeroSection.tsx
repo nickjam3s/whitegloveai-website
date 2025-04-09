@@ -84,10 +84,7 @@ const HeroSection = () => {
               Contact Us
               <ArrowRight className="ml-3 h-6 w-6" />
             </a>
-            <a href="#vendor-management" className="inline-flex items-center px-7 py-4 text-lg font-medium text-white bg-secondary/20 hover:bg-secondary/30 rounded-lg transition-colors border border-secondary/50">
-              Learn More
-              <ArrowRight className="ml-3 h-6 w-6" />
-            </a>
+           
           </motion.div>
         </div>
       </div>
