@@ -15,6 +15,7 @@ import {
   HeartPulse,
   GraduationCap
 } from "lucide-react";
+import { motion } from "framer-motion";
 import ScrollAnimation from '@/components/animations/ScrollAnimation';
 import '@/styles/animations.css';
 

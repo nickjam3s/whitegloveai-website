@@ -1,5 +1,5 @@
-
 import { Cpu } from "lucide-react";
+import { motion } from "framer-motion";
 
 const NewHeroSection = () => {
   return (
@@ -14,14 +14,30 @@ const NewHeroSection = () => {
         <div className="absolute inset-0 backdrop-blur-[100px]" />
       </div>
       <div className="max-w-7xl mx-auto relative">
-        <div className="text-center animate-fade-up">
-          <Cpu className="h-12 w-12 text-secondary mx-auto mb-6" />
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight mb-6 heading-highlight">
+        <div className="text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <Cpu className="h-12 w-12 text-secondary mx-auto mb-6" />
+          </motion.div>
+          <motion.h1 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 md:mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-[#7021EE]"
+          >
             vCAIO Service: Enable
-          </h1>
-          <p className="text-xl text-gray-400 mb-12 max-w-3xl mx-auto">
+          </motion.h1>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-lg md:text-xl lg:text-2xl text-gray-200 mb-8 md:mb-12 max-w-3xl mx-auto px-3 sm:px-0 text-shadow-sm"
+          >
             Empower your organization or department to harness generative AI with confidence through our Whiteglove training and engagement program.
-          </p>
+          </motion.p>
         </div>
       </div>
     </section>

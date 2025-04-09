@@ -26,7 +26,7 @@ const SolutionsSection = () => {
           {solutions.map((solution, index) => (
             <div key={index} className="bg-card p-6 rounded-lg border border-gray-800 hover:border-secondary/50 transition-colors">
               <Workflow className="h-10 w-10 text-secondary mb-4" />
-              <h3 className="text-xl font-semibold mb-3">{solution.title}</h3>
+              <h3 className="text-xl font-semibold mb-3 text-white">{solution.title}</h3>
               <p className="text-gray-400">{solution.description}</p>
             </div>
           ))}

@@ -36,7 +36,7 @@ const FutureSection = () => {
         
         <div className="w-full max-w-4xl mx-auto mt-12 bg-gradient-to-r from-card/90 to-card/50 backdrop-blur-sm rounded-xl border border-gray-800 p-8 hover:border-secondary/30 transition-all duration-300">
           <div className="text-center mb-8">
-            <h3 className="text-2xl font-semibold mb-4">Ready to Transform Your AI Strategy?</h3>
+            <h3 className="text-2xl font-semibold mb-4 text-white">Ready to Transform Your AI Strategy?</h3>
             <p className="text-gray-400 max-w-2xl mx-auto">
               Take the first step toward AI-driven success by connecting with our vCAIO team today.
             </p>

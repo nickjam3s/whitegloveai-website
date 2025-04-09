@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, ArrowDown } from "lucide-react";
@@ -34,6 +33,18 @@ const HeroSection = () => {
       document.body.removeChild(script);
     };
   }, []);
+
+  const fadeInUp = {
+    initial: { opacity: 0, y: 20 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.6 }
+  };
+
+  const titleAnimation = {
+    initial: { opacity: 0, scale: 0.9, y: -10 },
+    animate: { opacity: 1, scale: 1, y: 0 },
+    transition: { duration: 1.2, type: "spring", stiffness: 80 }
+  };
   
   return (
     <section id="hero" className="relative h-[100vh] flex items-center overflow-hidden">
@@ -77,35 +88,33 @@ const HeroSection = () => {
         ))}
       </div>
       
-      <div className="container mx-auto px-4 flex flex-col items-center justify-center relative z-10">
-        <div className="text-center animate-fade-up">
-          <div className="logo-container mb-8 md:mb-10">
+      <div className="max-w-7xl mx-auto relative px-4 sm:px-6 lg:px-8">
+        <div className="text-center">
+          <motion.div
+            {...fadeInUp}
+            className="logo-container mb-8 md:mb-10"
+          >
             <img 
               src="/lovable-uploads/197ddc10-c159-4f39-a269-e35142af32c5.png" 
               alt="WhitegloveAI Logo" 
               className="h-32 md:h-40 mx-auto" 
             />
-          </div>
+          </motion.div>
           <motion.h1 
-            initial={{ opacity: 0, y: 30 }} 
-            animate={{ opacity: 1, y: 0 }} 
-            transition={{ duration: 0.8 }}
-            className="text-5xl sm:text-6xl lg:text-7xl font-semibold tracking-tight mb-8 heading-highlight text-white"
+            {...titleAnimation}
+            className="text-5xl sm:text-6xl lg:text-7xl font-semibold tracking-tight mb-8 bg-clip-text text-transparent bg-gradient-to-r from-white to-[#7021EE]"
           >
             Your Trusted AI Adoption Partner
           </motion.h1>
           <motion.p 
-            initial={{ opacity: 0, y: 20 }} 
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-xl sm:text-2xl text-gray-400 max-w-3xl mx-auto mb-10"
+            {...fadeInUp}
+            className="text-xl sm:text-2xl text-gray-200 max-w-3xl mx-auto mb-10 text-shadow-sm"
           >
             At WhitegloveAI, we guide you through the transformative journey of AI adoption—ensuring every step is secure, compliant, and aligned with your business goals.
           </motion.p>
           <motion.div 
-            initial={{ opacity: 0, y: 20 }} 
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            {...fadeInUp}
+            transition={{ duration: 0.6, delay: 0.2 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-5"
           >
             <Link to="/contact" className="inline-flex items-center px-7 py-4 text-lg font-medium text-white bg-secondary rounded-lg hover:bg-secondary/90 transition-colors">

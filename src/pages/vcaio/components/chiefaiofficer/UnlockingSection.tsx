@@ -1,4 +1,3 @@
-
 import { Target, TrendingUp, Laptop } from "lucide-react";
 
 const features = [
@@ -23,7 +22,7 @@ const UnlockingSection = () => {
   return (
     <section id="services" className="py-24 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold mb-12 text-center heading-highlight-scroll">Unlocking the Potential of AI</h2>
+        <h2 className="text-3xl font-bold mb-12 text-center heading-highlight-scroll text-white">Unlocking the Potential of AI</h2>
         <div className="grid md:grid-cols-3 gap-8 animate-section">
           {features.map((feature, index) => (
             <div 
@@ -35,7 +34,7 @@ const UnlockingSection = () => {
                 <div className="p-4 rounded-full bg-purple-900/20 mb-6">
                   <feature.icon className="h-8 w-8 text-[#7021EE]" />
                 </div>
-                <h3 className="text-xl font-semibold mb-4">{feature.title}</h3>
+                <h3 className="text-xl font-semibold mb-4 text-white">{feature.title}</h3>
                 <p className="text-gray-400">{feature.description}</p>
               </div>
             </div>

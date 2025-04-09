@@ -10,7 +10,7 @@ const TransformSection = ({ experiences }) => {
         <div className="grid md:grid-cols-2 gap-12">
           {experiences.map((experience, index) => (
             <div key={index} className="space-y-6">
-              <h3 className="text-2xl font-semibold mb-4">{experience.title}</h3>
+              <h3 className="text-2xl font-semibold mb-4 text-white">{experience.title}</h3>
               <p className="text-gray-400 mb-6">{experience.description}</p>
               <ul className="space-y-4">
                 {experience.features.map((feature, idx) => (
