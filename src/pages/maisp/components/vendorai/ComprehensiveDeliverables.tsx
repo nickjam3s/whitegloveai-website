@@ -47,7 +47,7 @@ const ComprehensiveDeliverables = () => {
               className="bg-background/50 p-6 rounded-lg border border-gray-800 animate-on-scroll flex flex-col items-center"
               style={{ transitionDelay: `${index * 0.1}s` }}
             >
-              <div className="w-24 h-24 mb-4 flex-shrink-0">
+              <div className="w-48 h-48 mb-4 flex-shrink-0">
                 <img 
                   src={deliverable.icon} 
                   alt={`${deliverable.title} logo`} 
