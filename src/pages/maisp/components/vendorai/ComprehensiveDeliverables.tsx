@@ -44,28 +44,26 @@ const ComprehensiveDeliverables = () => {
           {deliverables.map((deliverable, index) => (
             <div 
               key={index} 
-              className="bg-background/50 p-6 rounded-lg border border-gray-800 animate-on-scroll"
+              className="bg-background/50 p-6 rounded-lg border border-gray-800 animate-on-scroll flex flex-col items-center"
               style={{ transitionDelay: `${index * 0.1}s` }}
             >
-              <div className="flex items-center mb-4">
-                <div className="w-12 h-12 mr-4 flex-shrink-0">
-                  <img 
-                    src={deliverable.icon} 
-                    alt={`${deliverable.title} logo`} 
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-                <a 
-                  href={deliverable.website} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="text-blue-400 hover:text-blue-300 transition-colors"
-                >
-                  {deliverable.website}
-                </a>
+              <div className="w-24 h-24 mb-4 flex-shrink-0">
+                <img 
+                  src={deliverable.icon} 
+                  alt={`${deliverable.title} logo`} 
+                  className="w-full h-full object-contain"
+                />
               </div>
-              <h3 className="text-xl font-semibold mb-3 text-white">{deliverable.title}</h3>
-              <p className="text-gray-400">{deliverable.description}</p>
+              <a 
+                href={deliverable.website} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-blue-400 hover:text-blue-300 transition-colors mb-3 text-sm"
+              >
+                {deliverable.website}
+              </a>
+              <h3 className="text-xl font-semibold mb-3 text-center text-white">{deliverable.title}</h3>
+              <p className="text-gray-400 text-center">{deliverable.description}</p>
             </div>
           ))}
         </div>
