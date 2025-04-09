@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -43,10 +42,11 @@ const FutureSection = () => {
           </div>
           
           <iframe
-            src="https://jzaxt350p9j.typeform.com/to/jiKH5Ab2?typeform-medium=embed-oembed"
+            src="https://jzaxt350p9j.typeform.com/to/jiKH5Ab2?typeform-medium=embed-oembed&disable-auto-focus=true"
             allow="camera; microphone; autoplay; encrypted-media;"
             className="w-full aspect-[3/2] border-0 rounded-lg"
             title="vCAIO Contact Form"
+            loading="lazy"
           />
         </div>
       </div>
