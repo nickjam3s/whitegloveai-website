@@ -14,7 +14,6 @@ const logos = [
   { src: '/lovable-uploads/ffe8ec7f-c754-4b67-9abf-358cf9af31cf.png', alt: 'McKinney Texas Logo', height: 80 },
   { src: '/lovable-uploads/00ec88d7-072d-4ba5-8d23-fba3e5d934c4.png', alt: 'Parker Logo', height: 80 },
   { src: '/lovable-uploads/a95e8c96-a49c-4c52-bb1b-c2a6241c1d1f.png', alt: 'Paychex Logo', height: 60 },
-  { src: '/lovable-uploads/3c830014-ce8c-4b9e-9e89-952c3a7c04e1.png', alt: 'McKinney Texas Unique Logo', height: 80 },
 ];
 
 const TrustedBy = () => {
