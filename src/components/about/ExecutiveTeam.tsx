@@ -1,4 +1,9 @@
-function App() {
+
+import React from 'react';
+import { Linkedin } from 'lucide-react';
+import "../styles/executive-profile.css";
+
+const ExecutiveTeam = () => {
   const executives = [
     {
       name: "Nick James",
@@ -55,7 +60,7 @@ function App() {
         rel="noopener noreferrer"
         className="text-blue-400 hover:text-blue-300"
       >
-        <i className="fab fa-linkedin text-xl"></i>
+        <Linkedin className="w-5 h-5" />
       </a>
     </div>
   );
@@ -64,7 +69,7 @@ function App() {
     <div className="min-h-screen bg-gray-900 py-16 px-4">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-8 text-[#7021EE]">Meet the Executive Team</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-8 text-white">Meet the Executive Team</h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             We are a dynamic coalition of seasoned AI pioneers and visionary executives, united by a shared passion for harnessing the transformative potential of artificial intelligence. Our mission is to unlock AI's promises while proactively addressing its challenges to ensure a positive and ethical impact on humanity.
           </p>
@@ -83,4 +88,6 @@ function App() {
       </div>
     </div>
   );
-}
+};
+
+export default ExecutiveTeam;

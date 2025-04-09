@@ -1,58 +1,25 @@
 
 import React from 'react';
-import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
-import { Button } from "@/components/ui/button";
+import { ChevronRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
-const GetInTouch: React.FC = () => {
+const GetInTouch = () => {
   return (
-    <motion.section
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.7 }}
-      className="py-16 mt-16 bg-gradient-to-br from-[#7021EE]/10 to-transparent border border-[#7021EE]/20 rounded-xl"
-    >
-      <div className="container mx-auto px-4">
-        <div className="max-w-3xl mx-auto text-center">
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.1 }}
-            className="text-3xl font-bold mb-6 text-white"
-          >
-            Get in Touch
-          </motion.h2>
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="text-lg text-gray-300 mb-8"
-          >
-            Ready to begin your AI journey with WhitegloveAI? Reach out to our team today to discover how we can help transform your business with secure, ethical, and innovative AI solutions.
-          </motion.p>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.3 }}
-            className="flex justify-center"
-          >
-            <a href="/contact">
-              <Button 
-                size="lg" 
-                className="bg-[#7021EE] hover:bg-[#7021EE]/80 text-white px-8"
-              >
-                Contact Us
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </a>
-          </motion.div>
-        </div>
+    <section className="py-16 mt-16 bg-gradient-to-br from-[#7021EE]/10 to-transparent border border-[#7021EE]/20 rounded-xl">
+      <div className="max-w-5xl mx-auto px-4 text-center">
+        <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">Ready to Transform Your Business with AI?</h2>
+        <p className="text-lg text-gray-300 mb-8 max-w-3xl mx-auto">
+          Contact us today to discuss how our AI expertise can help your organization thrive in the digital era.
+        </p>
+        <Link 
+          to="/contact" 
+          className="inline-flex items-center px-6 py-3 rounded-md bg-[#7021EE] text-white font-medium hover:bg-[#7021EE]/80 transition-colors"
+        >
+          Get in Touch
+          <ChevronRight className="ml-2 h-5 w-5" />
+        </Link>
       </div>
-    </motion.section>
+    </section>
   );
 };
 
