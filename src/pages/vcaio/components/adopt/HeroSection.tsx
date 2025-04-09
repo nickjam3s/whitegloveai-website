@@ -74,7 +74,7 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <Cpu className="h-12 w-12 text-secondary mx-auto mb-6" />
+           
           </motion.div>
           <motion.h1 
             {...titleAnimation}
