@@ -1,86 +1,51 @@
-
 import { motion } from "framer-motion";
-import { Check, LayoutPanelTop, Mic, Scissors, Search, Share2 } from "lucide-react";
+import { 
+  LayoutPanelTop,
+  BookOpen,
+  Mic2,
+  Scissors,
+  Video,
+  FileSearch,
+  Share2,
+  PenTool
+} from "lucide-react";
 
-const ServicePlans = () => {
+const ServicePlans = () => {  // Added component function declaration
   const features = [
-    // Planning & Design features
     {
       title: "Planning & Design",
-      description: "Up to 5 hours of strategy sessions and thumbnail creation to establish your visual identity.",
+      description: "Comprehensive strategy sessions.",
       icon: LayoutPanelTop
     },
     {
-      title: "Production Support",
-      description: "Basic topic research and agenda creation for 3 episodes monthly, virtual studio access, and essential equipment rental.",
-      icon: Mic
+      title: "Pre-Production Support",
+      description: "Automated topic research and agenda creation.",
+      icon: BookOpen
+    },
+    {
+      title: "In-Production Support",
+      description: "Dedicated producer to assist in the episode creation.",
+      icon: Mic2
     },
     {
       title: "Post-Production Editing",
-      description: "Editing for three 30-minute episodes per month.",
-      icon: Scissors
+      description: "Editing for episodes.",
+      icon: PenTool
     },
     {
-      title: "Short Clips",
-      description: "One clip per episode.",
-      icon: Scissors
-    },
-    {
-      title: "SEO Optimization",
-      description: "Basic SEO optimization included.",
-      icon: Search
-    },
-    {
-      title: "Social Media Setup",
-      description: "Help with setting up on two platforms.",
-      icon: Share2
-    },
-    // Professional Plan features
-    {
-      title: "Enhanced Planning",
-      description: "Up to 10 hours of comprehensive strategy sessions, logo design with 2 concepts and revisions, and multiple thumbnail designs.",
-      icon: LayoutPanelTop
-    },
-    {
-      title: "Premium Production",
-      description: "Detailed research and agendas for 5 monthly episodes, executive producer and production assistant support, and advanced equipment access.",
-      icon: Mic
-    },
-    {
-      title: "Post-Production Services",
-      description: "Editing of five 60-minute episodes.",
-      icon: Scissors
-    },
-    {
-      title: "Short Clips",
-      description: "Creation of three clips per episode.",
-      icon: Scissors
+      title: "Short & Clips",
+      description: "Creation of Shorts and Clips per episode.",
+      icon: Video
     },
     {
       title: "SEO & Publishing",
       description: "Advanced SEO and multi-platform publishing.",
-      icon: Search
+      icon: FileSearch
     },
     {
-      title: "Social Media & Newsletter",
-      description: "Setup on four platforms and newsletter establishment.",
+      title: "Social Media",
+      description: "Setup on your platforms establishment.",
       icon: Share2
-    },
-    // Premium Plan features
-    {
-      title: "Comprehensive Package",
-      description: "The Premium Plan includes all Professional Plan features plus 8 monthly recording sessions for maximum content production.",
-      icon: LayoutPanelTop
-    },
-    {
-      title: "Full-Service Solution",
-      description: "Enjoy worry-free podcasting with all possible add-ons included in your subscription: additional episode production, guest coordination, marketing campaigns, and more.",
-      icon: Mic
-    },
-    {
-      title: "Exclusive Benefits",
-      description: "Receive priority support with dedicated consultation, a custom podcast website, the Subscriber Booster package, and enhanced post-production for all episodes.",
-      icon: Check
     }
   ];
 
