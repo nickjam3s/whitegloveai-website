@@ -2,7 +2,7 @@
 import { useAutoScroll } from '@/hooks/useAutoScroll';
 
 const TrustedBy = () => {
-  const { scrollRef, scrollContainerRef } = useAutoScroll(1);
+  const { scrollRef, scrollContainerRef } = useAutoScroll(6.0, 'left', true);
 
   return (
     <section className="py-12 bg-black">
@@ -14,13 +14,14 @@ const TrustedBy = () => {
         >
           <div 
             ref={scrollRef}
-            className="flex items-center space-x-8 animate-scroll"
+            className="flex items-center"
             style={{
               display: 'flex',
               whiteSpace: 'nowrap',
-              transition: 'transform 0.05s linear'
+              gap: '2rem' // Add consistent gap between logos
             }}
           >
+            {/* Original logo items */}
             <img
               src="/lovable-uploads/f0ca996d-42e2-4524-b115-7ff8ed634282.png"
               alt="Principal Logo"
@@ -86,7 +87,7 @@ const TrustedBy = () => {
               alt="McKinney Texas Unique Logo"
               className="h-[80px] w-auto object-contain"
             />
-        </div>
+          </div>
         </div>
       </div>
     </section>
