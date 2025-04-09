@@ -86,13 +86,7 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20"
           >
-            <a 
-              href="#contact" 
-              className="bg-[#7021EE] hover:bg-[#7021EE]/90 text-white px-6 py-3 rounded-md font-medium transition-colors"
-            >
-              Get Started
-            </a>
-            <a 
+                        <a 
               href="#services" 
               className="bg-transparent border border-[#7021EE] text-white px-6 py-3 rounded-md font-medium hover:bg-[#7021EE]/10 transition-colors"
             >
