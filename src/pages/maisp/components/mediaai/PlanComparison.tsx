@@ -18,11 +18,84 @@ const PlanComparison = () => {
   };
   
   const features = [
-    { name: "Monthly Sessions", basic: "4", professional: "4", premium: "8" },
-    { name: "Episodes Produced", basic: "3 (30 min each)", professional: "5 (60 min each)", premium: "5+ (60 min each)" },
-    { name: "Strategy Hours", basic: "Up to 5 hours", professional: "Up to 10 hours", premium: "Unlimited" },
-    { name: "Promotional Clips", basic: "1 per episode", professional: "3 per episode", premium: "3+ per episode" },
-    { name: "Add-Ons Included", basic: <X className="h-5 w-5 text-red-500 mx-auto" />, professional: <X className="h-5 w-5 text-red-500 mx-auto" />, premium: <Check className="h-5 w-5 text-green-500 mx-auto" /> }
+    { 
+      name: "Monthly Episodes Tokens\nEach Token = 15 mins\n(Live-streamed or Pre-recorded)", 
+      basic: "8 Tokens", 
+      professional: "20 Tokens", 
+      premium: "40 Tokens" 
+    },
+    { 
+      name: "Initial Strategy Session", 
+      basic: "Included", 
+      professional: "Included", 
+      premium: "Included" 
+    },
+    { 
+      name: "Calibration Meetings (Monthly)", 
+      basic: "Included", 
+      professional: "Included", 
+      premium: "Included" 
+    },
+    { 
+      name: "Podcast Account Delivery\n(Spotify, Apple and/or YouTube)", 
+      basic: "1", 
+      professional: "2", 
+      premium: "3 (All)" 
+    },
+    { 
+      name: "Social Account Delivery\n(LinkedIn, YouTube, Instagram,\nTikTok, Facebook and/or X)", 
+      basic: "1", 
+      professional: "3", 
+      premium: "6 (All)" 
+    },
+    { 
+      name: "Social & Podcast Banner Design", 
+      basic: "Included", 
+      professional: "Included", 
+      premium: "Included" 
+    },
+    { 
+      name: "Guest booking and\ncoordination", 
+      basic: <X className="h-5 w-5 text-red-500 mx-auto" />, 
+      professional: "Included", 
+      premium: "Included" 
+    },
+    { 
+      name: "Short-Form and Clip Creation\nand Distribution", 
+      basic: "2 per episode with\ncaption and hashtags\noptimized for social\nalgorithms", 
+      professional: "4 per episode with\ncaption and hashtags\noptimized for social\nalgorithms", 
+      premium: "8 per episode with\ncaption and hashtags\noptimized for social\nalgorithms" 
+    },
+    { 
+      name: "Episode Thumbnail Creation", 
+      basic: "Included", 
+      professional: "Included", 
+      premium: "Included" 
+    },
+    { 
+      name: "Topic Research and Script\nDrafting", 
+      basic: "Included", 
+      professional: "Included", 
+      premium: "Included" 
+    },
+    { 
+      name: "Studio Software and Setup", 
+      basic: "Included", 
+      professional: "Included", 
+      premium: "Included" 
+    },
+    { 
+      name: "In-Virtual-Studio Producer", 
+      basic: "Included", 
+      professional: "Included", 
+      premium: "Included" 
+    },
+    { 
+      name: "Post-Production Editing", 
+      basic: "Included", 
+      professional: "Included", 
+      premium: "Included" 
+    }
   ];
 
   return (
@@ -69,14 +142,14 @@ const PlanComparison = () => {
                     key={index}
                     className="border-[#9b87f5]/20 hover:bg-[#9b87f5]/5"
                   >
-                    <TableCell className="font-medium text-white">{feature.name}</TableCell>
-                    <TableCell className="text-center text-gray-300">
+                    <TableCell className="font-medium text-white whitespace-pre-line">{feature.name}</TableCell>
+                    <TableCell className="text-center text-gray-300 whitespace-pre-line">
                       {feature.basic}
                     </TableCell>
-                    <TableCell className="text-center text-gray-300">
+                    <TableCell className="text-center text-gray-300 whitespace-pre-line">
                       {feature.professional}
                     </TableCell>
-                    <TableCell className="text-center text-gray-300">
+                    <TableCell className="text-center text-gray-300 whitespace-pre-line">
                       {feature.premium}
                     </TableCell>
                   </TableRow>
