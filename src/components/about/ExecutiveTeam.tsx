@@ -11,7 +11,7 @@ const ExecutiveTeam = () => {
     },
     {
       name: "Jason Hess",
-      title: "Chief Technology Officer & virtual Chief AI Officer",
+      title: "Chief Technology Officer & Chief AI Officer",
       image: "/lovable-uploads/5cbfcfd0-e713-43d1-9e25-c1d4a1e33007.png",
       imagePosition: "object-top",
       linkedinUrl: "https://www.linkedin.com/in/jasonhess/"
@@ -30,13 +30,13 @@ const ExecutiveTeam = () => {
     },
     {
       name: "Albert Ramos",
-      title: "virtual Chief AI Officer",
+      title: "Fractional Chief AI Officer",
       image: "/lovable-uploads/5fe7ee0d-30ab-40a0-aaba-118ec81ae989.png",
       linkedinUrl: "https://www.linkedin.com/in/albertramosjr/"
     },
     {
       name: "Dr. Donnie Wendt",
-      title: "virtual Chief AI Officer",
+      title: "Fractional Chief AI Officer",
       image: "/lovable-uploads/b660279c-7698-487d-b20e-3a04479508d4.png",
       linkedinUrl: "https://www.linkedin.com/in/dr-donnie-wendt/"
     },
@@ -54,11 +54,15 @@ const ExecutiveTeam = () => {
     },
   ];
 
-  const ExecutiveProfile = ({ name, title, image, imagePosition, linkedinUrl }) => (
-
+  const ExecutiveProfile = ({ name, title, image, imagePosition = 'object-center', linkedinUrl }) => (
     <div className="bg-gray-800 rounded-lg p-6 flex flex-col items-center text-center">
-      <div className="w-24 h-24 mb-4 bg-gray-700 rounded-full flex items-center justify-center">
-        <span className="text-3xl text-gray-400">{name.charAt(0)}</span>
+      {/* Use the image instead of the letter placeholder */}
+      <div className="w-24 h-24 mb-4 overflow-hidden rounded-full">
+        <img 
+          src={image} 
+          alt={name}
+          className={`w-full h-full object-cover ${imagePosition}`}
+        />
       </div>
       <h3 className="text-lg font-bold text-white mb-2">{name}</h3>
       <p className="text-sm text-gray-400 mb-4">{title}</p>
@@ -89,6 +93,8 @@ const ExecutiveTeam = () => {
               key={index} 
               className="transform transition-all duration-300 hover:scale-105"
             >
+              {/* Actually render the ExecutiveProfile component here */}
+              <ExecutiveProfile {...executive} />
             </div>
           ))}
         </div>
