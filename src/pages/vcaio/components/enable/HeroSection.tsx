@@ -15,14 +15,19 @@ const HeroSection = () => {
       </div>
       <div className="max-w-7xl mx-auto relative">
         <div className="text-center animate-fade-up">
-        <img 
+        <div className="flex justify-center mb-6"> {/* Added container for centering */}
+            <img 
               src="/lovable-uploads/351136e7-c241-4c56-a606-3ff7a65a05ac.png" 
               alt="WGAI Logo" 
               width="100" 
               height="100" 
-              className="logo-animation"
-              style={{ filter: "hue-rotate(260deg) brightness(150%) drop-shadow(0 0 10px rgba(112, 33, 238, 0.6))" }}
+              className="logo-animation mx-auto" // Added mx-auto class
+              style={{ 
+                filter: "hue-rotate(260deg) brightness(150%) drop-shadow(0 0 10px rgba(112, 33, 238, 0.6))",
+                display: "block" // Ensures block-level display
+              }}
             />
+          </div>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight mb-6 heading-highlight">
             AI Enablement Service
           </h1>

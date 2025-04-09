@@ -10,7 +10,7 @@ const HeroSection = () => {
           <div className="flex justify-center mb-6"> {/* Added container for centering */}
             <img 
               src="/lovable-uploads/351136e7-c241-4c56-a606-3ff7a65a05ac.png" 
-              alt="MediaAI Logo" 
+              alt="WGAI Logo" 
               width="100" 
               height="100" 
               className="logo-animation mx-auto" // Added mx-auto class
