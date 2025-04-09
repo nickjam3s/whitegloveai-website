@@ -11,7 +11,7 @@ const ExecutiveTeam = () => {
     },
     {
       name: "Jason Hess",
-      title: "Chief Technology Officer & Chief AI Officer",
+      title: "Chief Technology & AI Officer",
       image: "/lovable-uploads/5cbfcfd0-e713-43d1-9e25-c1d4a1e33007.png",
       imagePosition: "object-top",
       linkedinUrl: "https://www.linkedin.com/in/jasonhess/"
@@ -41,17 +41,18 @@ const ExecutiveTeam = () => {
       linkedinUrl: "https://www.linkedin.com/in/dr-donnie-wendt/"
     },
     {
-      name: "Daniel Valencia",
-      title: "Chief Information Security Officer",
-      image: "/lovable-uploads/15e1ef3c-8f52-4735-b48e-159dea83470c.png",
-      linkedinUrl: "https://www.linkedin.com/in/daniel-valencia/"
-    },
-    {
       name: "Ankur Desai",
       title: "Chief Marketing Officer",
       image: "/lovable-uploads/980b7b84-6ac2-4825-a061-cf071a14cf9e.png",
       linkedinUrl: "https://www.linkedin.com/in/ankdes/"
     },
+    {
+      name: "Daniel Valencia",
+      title: "Chief Information Security Officer",
+      image: "/lovable-uploads/15e1ef3c-8f52-4735-b48e-159dea83470c.png",
+      linkedinUrl: "https://www.linkedin.com/in/daniel-valencia/"
+    },
+    
   ];
 
   const ExecutiveProfile = ({ name, title, image, imagePosition = 'object-center', linkedinUrl }) => (
