@@ -1,3 +1,4 @@
+
 const ImportanceSection = () => {
   return (
     <section className="py-20 bg-background">
