@@ -75,8 +75,17 @@ const Enable = () => {
         <IntroductionSection />
         <ChallengesTableSection />
         <SolutionSection />
-        <ResultsSection />
-        <SecuritySection />
+
+        <motion.section
+    id="results"
+    initial="initial"
+    whileInView="animate"
+    viewport={{ once: true }}
+    variants={fadeInUp}
+    className="mt-16 scroll-mt-20"
+  >
+    <ResultsSection />
+
         <ContactSection />
         <FooterSection />
         <ScrollAnimation targetId="introduction-section" />

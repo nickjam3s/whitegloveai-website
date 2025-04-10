@@ -48,7 +48,7 @@ const ExecutiveTeam = () => {
     },
     {
       name: "Daniel Valencia",
-      title: "Chief Information Security Officer",
+      title: "Chief Security Officer",
       image: "/lovable-uploads/15e1ef3c-8f52-4735-b48e-159dea83470c.png",
       linkedinUrl: "https://www.linkedin.com/in/daniel-valencia/"
     },
