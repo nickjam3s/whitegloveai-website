@@ -52,17 +52,17 @@ const DesktopMenuItem = ({ link, isActive }: MenuItemProps) => {
 
   if (link.children) {
     return (
-      <div className="flex items-center cursor-pointer text-gray-300 nav-item-hover text-lg">
+      <div className="flex items-center cursor-pointer text-gray-300 nav-item-hover text-lg relative group">
         <span>{link.text}</span>
         <ChevronDown className="ml-1 h-4 w-4" />
-        <div className="absolute top-full left-0 mt-2 w-52 bg-black/90 backdrop-blur-md border border-gray-800 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+        <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-52 bg-black/90 backdrop-blur-md border border-gray-800 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 text-center">
           {link.children.map((child) => (
             <div key={child.to || child.text} className="relative group/nested">
               {child.children ? (
                 <div className="px-4 py-2.5 text-base text-gray-300 hover:text-secondary hover:bg-white/5 flex items-center justify-between transition-colors duration-200">
                   <span>{child.text}</span>
                   <ChevronDown className="h-3 w-3" />
-                  <div className="absolute left-full top-0 ml-2 w-52 bg-black/90 backdrop-blur-md border border-gray-800 rounded-lg shadow-lg opacity-0 invisible group-hover/nested:opacity-100 group-hover/nested:visible transition-all duration-200">
+                  <div className="absolute left-1/2 -translate-x-1/2 top-full ml-2 w-52 bg-black/90 backdrop-blur-md border border-gray-800 rounded-lg shadow-lg opacity-0 invisible group-hover/nested:opacity-100 group-hover/nested:visible transition-all duration-200 text-center">
                     {child.children.map((subChild) => (
                       <Link
                         key={subChild.to}
