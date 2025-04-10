@@ -1,5 +1,5 @@
-
-import React, { useEffect, useLayoutEffect } from 'react';
+import React, { useEffect } from 'react';
+import { motion } from "framer-motion";
 import PageWrapper from '@/components/layout/PageWrapper';
 import ScrollAnimation from '@/components/animations/ScrollAnimation';
 import HeroSection from "./apprenticeship/components/HeroSection";
@@ -7,51 +7,16 @@ import ProgramFeatures from "./apprenticeship/components/ProgramFeatures";
 import CandidateProfile from "./apprenticeship/components/CandidateProfile";
 import CareerProgression from "./apprenticeship/components/CareerProgression";
 import WhyUs from "./apprenticeship/components/WhyUs";
-import TuitionSection from "./apprenticeship/components/TuitionSection";
+import VisionSection from "./apprenticeship/components/VisionSection";
 import ApplicationProcess from "./apprenticeship/components/ApplicationProcess";
 import FAQSection from "./apprenticeship/components/FAQSection";
-import VisionSection from "./apprenticeship/components/VisionSection";
-import ApplicationForm from "./apprenticeship/components/ApplicationForm";
 import ContactSection from "./apprenticeship/components/ContactSection";
-import '@/styles/animations.css'; // Import animations CSS
+import '@/styles/animations.css';
 
 const Apprenticeship = () => {
-  // Use useLayoutEffect to prevent flash of content before scroll position is set
-  useLayoutEffect(() => {
-    // Immediately scroll to top when component mounts
-    window.scrollTo(0, 0);
-  }, []);
-
   useEffect(() => {
-    // Explicitly disable smooth scrolling
-    document.documentElement.style.scrollBehavior = 'auto';
-    
-    // Handle anchor links within the page without smooth scrolling
-    const handleAnchorClick = (e: MouseEvent) => {
-      const target = e.target as HTMLElement;
-      const anchor = target.closest('a[href^="#"]');
-      
-      if (anchor) {
-        e.preventDefault();
-        const targetId = anchor.getAttribute('href')?.substring(1);
-        if (targetId) {
-          // Get the element position and scroll to it without smooth behavior
-          const targetElement = document.getElementById(targetId);
-          if (targetElement) {
-            const yOffset = -80; // Adjust offset if needed
-            const y = targetElement.getBoundingClientRect().top + window.scrollY + yOffset;
-            window.scrollTo({
-              top: y,
-              behavior: 'auto'
-            });
-          }
-        }
-      }
-    };
-    
-    document.addEventListener('click', handleAnchorClick);
-    
-    // Initialize intersection observer for scroll animations
+    window.scrollTo(0, 0);
+
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -63,34 +28,120 @@ const Apprenticeship = () => {
       rootMargin: '0px 0px -100px 0px'
     });
 
-    // Observe all scroll-animated headings
-    const headings = document.querySelectorAll('.heading-highlight-scroll');
-    headings.forEach(heading => {
+    // Observe headings
+    document.querySelectorAll('.heading-highlight-scroll').forEach(heading => {
       observer.observe(heading);
     });
-    
+
+    // Observe animated sections
+    const animateSections = document.querySelectorAll('.animate-section, .animate-on-scroll');
+    animateSections.forEach(section => {
+      observer.observe(section);
+    });
+
     return () => {
-      document.removeEventListener('click', handleAnchorClick);
-      // Reset scroll behavior when component unmounts
-      document.documentElement.style.scrollBehavior = '';
       observer.disconnect();
     };
   }, []);
 
+  const fadeInUp = {
+    initial: { opacity: 0, y: 20 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.6 }
+  };
+
   return (
-    <div className="min-h-screen bg-black overflow-x-hidden">
-      <PageWrapper fullWidth>
-        <HeroSection />
-        <WhyUs />
-        <ProgramFeatures />
-        <CareerProgression />
-        <VisionSection />
-        <CandidateProfile />
-        <ApplicationProcess />
-        <ContactSection />
-        <FAQSection />
-        <ScrollAnimation targetId="program-features" />
+    <div className="min-h-screen bg-black text-white font-sans font-sora overflow-x-hidden">
+      <section className="relative h-[100vh] flex items-center overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-[#7021EE]/20 to-black/90">
+          <div className="absolute inset-0 backdrop-blur-sm" />
+        </div>
+
+        <div className="container mx-auto px-4 flex flex-col items-center justify-center relative z-10">
+          <HeroSection />
+        </div>
+      </section>
+
+      <PageWrapper>
+        <motion.section
+          id="why-us"
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true }}
+          variants={fadeInUp}
+          className="scroll-mt-20"
+        >
+          <WhyUs />
+        </motion.section>
+
+        <motion.section
+          id="program-features"
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true }}
+          variants={fadeInUp}
+          className="mt-16 scroll-mt-20"
+        >
+          <ProgramFeatures />
+        </motion.section>
+
+        <motion.section
+          id="career-progression"
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true }}
+          variants={fadeInUp}
+          className="mt-16 scroll-mt-20"
+        >
+          <CareerProgression />
+        </motion.section>
+
+        <motion.section
+          id="vision"
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true }}
+          variants={fadeInUp}
+          className="mt-16 scroll-mt-20"
+        >
+          <VisionSection />
+        </motion.section>
+
+        <motion.section
+          id="candidate-profile"
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true }}
+          variants={fadeInUp}
+          className="mt-16 scroll-mt-20"
+        >
+          <CandidateProfile />
+        </motion.section>
+
+        <motion.section
+          id="application-process"
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true }}
+          variants={fadeInUp}
+          className="mt-16 scroll-mt-20"
+        >
+          <ApplicationProcess />
+        </motion.section>
+
+        <motion.section
+          id="faq"
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true }}
+          variants={fadeInUp}
+          className="mt-16 scroll-mt-20"
+        >
+          <FAQSection />
+        </motion.section>
       </PageWrapper>
+      
+      <ContactSection />
     </div>
   );
 };
