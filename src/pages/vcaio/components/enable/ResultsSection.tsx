@@ -1,13 +1,15 @@
 
+import React from 'react';
+
 const ResultsSection = () => {
   return (
-    <section className="py-20 bg-black text-white">
+    <section id="results-section" className="py-20 bg-black text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl font-semibold mb-16 text-center heading-highlight-scroll">
           Key Results
         </h2>
         
-        <div className="grid md:grid-cols-3 gap-8 animate-section">
+        <div className="grid md:grid-cols-3 gap-8">
           {[
             {
               title: "AI Literacy & Confidence",

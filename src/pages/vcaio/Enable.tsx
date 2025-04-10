@@ -1,3 +1,4 @@
+
 import { useEffect, useLayoutEffect } from "react";
 import { motion } from "framer-motion";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -9,6 +10,7 @@ import ResultsSection from './components/enable/ResultsSection';
 import ContactSection from './components/enable/ContactSection';
 import FooterSection from './components/enable/FooterSection';
 import ScrollAnimation from '@/components/animations/ScrollAnimation';
+import SecuritySection from './components/enable/SecuritySection';
 
 const Enable = () => {
   const isMobile = useIsMobile();
@@ -74,6 +76,7 @@ const Enable = () => {
         <ChallengesTableSection />
         <SolutionSection />
         <ResultsSection />
+        <SecuritySection />
         <ContactSection />
         <FooterSection />
         <ScrollAnimation targetId="introduction-section" />
