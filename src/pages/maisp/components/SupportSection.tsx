@@ -1,10 +1,9 @@
-
 import { motion } from "framer-motion";
 
 const SupportSection = () => {
   return (
     <section id="support-section" className="relative z-10 scroll-mt-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center">
         <motion.h2 
           initial={{ opacity: 0, y: -10 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -20,13 +19,13 @@ const SupportSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="grid md:grid-cols-2 gap-10 items-center"
+          className="grid md:grid-cols-1 gap-10 items-center w-full max-w-3xl"
         >
           <div className="glass-card p-6 space-y-4">
             <h3 className="text-2xl font-semibold mb-4">Our Support Includes</h3>
             
             <div className="space-y-4">
-              <div className="flex items-start">
+              <div className="flex items-start justify-center text-left">
                 <span className="text-[#7021EE] mr-3 text-2xl leading-none">•</span>
                 <div>
                   <h4 className="font-semibold">24/7 Monitoring & Support</h4>
@@ -34,7 +33,7 @@ const SupportSection = () => {
                 </div>
               </div>
               
-              <div className="flex items-start">
+              <div className="flex items-start justify-center text-left">
                 <span className="text-[#7021EE] mr-3 text-2xl leading-none">•</span>
                 <div>
                   <h4 className="font-semibold">Performance Optimization</h4>
@@ -42,7 +41,7 @@ const SupportSection = () => {
                 </div>
               </div>
               
-              <div className="flex items-start">
+              <div className="flex items-start justify-center text-left">
                 <span className="text-[#7021EE] mr-3 text-2xl leading-none">•</span>
                 <div>
                   <h4 className="font-semibold">Ongoing Training</h4>
@@ -50,7 +49,7 @@ const SupportSection = () => {
                 </div>
               </div>
               
-              <div className="flex items-start">
+              <div className="flex items-start justify-center text-left">
                 <span className="text-[#7021EE] mr-3 text-2xl leading-none">•</span>
                 <div>
                   <h4 className="font-semibold">Regular Updates</h4>
@@ -59,8 +58,6 @@ const SupportSection = () => {
               </div>
             </div>
           </div>
-          
-          
         </motion.div>
       </div>
     </section>
