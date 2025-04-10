@@ -80,7 +80,7 @@ const HumanoidAI = () => {
       {/* Animated background elements similar to AboutUs page */}
       <div className="fixed inset-0 z-0 overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-screen bg-gradient-to-b from-black via-background to-background opacity-90"></div>
-        <div className="absolute top-0 left-0 w-full h-full bg-[url('/lovable-uploads/0eac5844-55aa-4db3-8fae-fa8029305014.png')] bg-cover bg-center opacity-5"></div>
+        
         <div className="absolute top-10 right-10 w-96 h-96 bg-purple-600/20 rounded-full blur-[120px] animate-pulse"></div>
         <div className="absolute bottom-10 left-10 w-80 h-80 bg-purple-600/10 rounded-full blur-[100px] animate-pulse" style={{ animationDuration: '15s' }}></div>
       </div>
@@ -162,22 +162,10 @@ const HumanoidAI = () => {
         <ScrollAnimation targetId="service-features" />
       </div>
       
-      <section id="contact" className="py-20 bg-transparent relative z-10 scroll-mt-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.h2 
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="text-3xl sm:text-4xl md:text-5xl font-bold mb-16 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-primary to-purple-600 text-center"
-          >
-            Contact Us
-          </motion.h2>
           <div className="glass-card backdrop-blur-md p-8 rounded-xl border border-purple-500/20 shadow-[0_0_15px_rgba(112,33,238,0.15)] max-w-4xl mx-auto tezt">
             
           </div>
-        </div>
-      </section>
+       
     </div>
   );
 };
