@@ -89,10 +89,7 @@ const HeroSection = () => {
             className="text-lg md:text-xl lg:text-2xl text-gray-200 mb-8 md:mb-12 max-w-3xl mx-auto px-3 sm:px-0 text-shadow-sm font-sora"
           >
             Seamlessly integrate artificial intelligence into your operations with our structured, step-by-step approach. Align AI adoption with business goals, mitigate risks, and achieve measurable outcomes using our proven AI Adoption & Management Framework (AI-AMF).
-            <a href="#contact" className="inline-flex items-center px-7 py-4 text-lg font-medium text-white bg-secondary rounded-lg hover:bg-secondary/90 transition-colors">
-              Contact Us
-              <ArrowRight className="ml-3 h-6 w-6" />
-            </a>
+            
           </motion.p>
         </div>
       </div>

@@ -8,6 +8,7 @@ import AIAMFFrameworkSection from '@/components/home/AIAMFFrameworkSection';
 import WhitegloveAIDifference from '@/components/home/WhitegloveAIDifference';
 import PartnerLogos from '@/components/home/PartnerLogos';
 import CTASection from '@/components/home/CTASection';
+import ContactSection from './Contact';
 
 const Index = () => {
   useEffect(() => {
@@ -68,6 +69,7 @@ const Index = () => {
       <PartnerLogos />
       <WhitegloveAIDifference />
       <CTASection />
+      <ContactSection />
     </div>
   );
 };

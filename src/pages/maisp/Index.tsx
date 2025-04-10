@@ -7,6 +7,7 @@ import ScalableSolutions from './components/ScalableSolutions';
 import SupportSection from './components/SupportSection';
 import '@/styles/animations.css';
 import PageWrapper from '@/components/layout/PageWrapper';
+import ContactSection from './components/ContactSection';
 
 const MAISP = () => {
   useEffect(() => {
@@ -164,6 +165,7 @@ const MAISP = () => {
           <SupportSection />
         </motion.section>
       </PageWrapper>
+      <ContactSection />
     </div>
   );
 };
