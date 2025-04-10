@@ -1,8 +1,9 @@
+
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { useIsMobile } from '@/hooks/use-mobile';
 
-const HeroSection = () => {
+const NewHeroSection = () => {
   const isMobile = useIsMobile();
 
   const titleAnimation = {
