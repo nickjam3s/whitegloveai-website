@@ -1,17 +1,8 @@
 
 import { motion } from 'framer-motion';
 import ScrollAnimation from '@/components/animations/ScrollAnimation';
-import { useIsMobile } from '@/hooks/use-mobile';
 
 const HeroSection = () => {
-  const isMobile = useIsMobile();
-  
-  const titleAnimation = {
-    initial: { opacity: 0, scale: 0.9, y: -10 },
-    animate: { opacity: 1, scale: 1, y: 0 },
-    transition: { duration: 1.2, type: "spring", stiffness: 80 }
-  };
-
   return (
     <section className="py-16 flex items-center justify-center relative bg-black overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-[#7021EE]/20 to-black/90">
@@ -73,16 +64,17 @@ const HeroSection = () => {
             {...titleAnimation}
             className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 md:mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-[#7021EE]"
           >
-            Transform Your Career in AI with WhitegloveAI
-          </motion.h1>
+              Transform Your Career in AI with WhitegloveAI
+              </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-lg md:text-xl lg:text-2xl text-gray-200 mb-8 md:mb-12 max-w-3xl mx-auto px-3 sm:px-0 text-shadow-sm"
           >
-            Our exclusive 6-month apprenticeship program offers an unparalleled opportunity to master cutting-edge AI technology while working on real-world solutions.
-          </motion.p>
+              Our exclusive 6-month apprenticeship program offers an unparalleled opportunity to master cutting-edge AI technology while working on real-world solutions.
+           
+          </motion.div>
         </div>
       </div>
     </section>
