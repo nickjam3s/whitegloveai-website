@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +18,7 @@
     <meta name="theme-color" content="#ffffff">
 
     <!-- Security Headers -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https: https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https: https://www.googletagmanager.com https://cdn.gpteng.co; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:;">
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://whitegloveai.com">
@@ -36,7 +37,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://whitegloveai.com">
     <meta name="twitter:title" content="WhitegloveAI - Managed AI Solutions, Products & Consulting">
-    <meta name="twitter:description" content="Transform your business with whiteGloveAI's enterprise-grade artificial intelligence solutions. Expert consulting, custom AI implementation, and seamless integration services.">
+    <meta name="twitter:description" content="Transform your business with whiteGloveAI's  artificial intelligence solutions. Expert consulting, custom AI implementation, and seamless integration services.">
     <meta name="twitter:image" content="https://whitegloveai.com/loveable-uploads/WebsiteBanner.png">
     <meta name="twitter:creator" content="@whitegloveai">
     <meta name="twitter:site" content="@whitegloveai">
@@ -112,6 +113,9 @@
         <p>Please enable JavaScript to experience whiteGloveAI.</p>
     </noscript>
 
+    <!-- Lovable Script (required for new features) -->
+    <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
+    
     <!-- Main Application Script -->
     <script type="module" src="/src/main.tsx"></script>
 </body>
