@@ -1,3 +1,4 @@
+
 import { useEffect, useLayoutEffect } from "react";
 import { motion } from "framer-motion";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -67,8 +68,7 @@ const Enable = () => {
   }, []);
 
   return (
-    
-
+    <div className="relative">
       {/* Your existing content */}
       <div className="relative z-10"> {/* Add relative positioning and z-index */}
         <NewHeroSection />
