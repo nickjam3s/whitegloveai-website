@@ -1,8 +1,16 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const HeroSection = () => {
+  const isMobile = useIsMobile();
+
+  const titleAnimation = {
+    initial: { opacity: 0, scale: 0.9, y: -10 },
+    animate: { opacity: 1, scale: 1, y: 0 },
+    transition: { duration: 1.2, type: "spring", stiffness: 80 }
+  };
   return (
     <section className="relative pt-40 pb-28 px-4 sm:px-6 lg:px-8 overflow-hidden">
       <div className="max-w-7xl mx-auto relative">

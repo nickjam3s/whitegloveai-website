@@ -1,8 +1,5 @@
 
-import React from 'react';
 import { motion } from "framer-motion";
-import { ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
 
 const SupportSection = () => {
   return (
@@ -63,32 +60,7 @@ const SupportSection = () => {
             </div>
           </div>
           
-          <motion.div 
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="space-y-8"
-          >
-            <p className="text-lg text-gray-200">
-              Our commitment doesn't end with deployment. We provide ongoing support and optimization 
-              to ensure your AI solutions continue to deliver maximum value as your business evolves.
-            </p>
-            
-            <div className="bg-gradient-to-br from-[#7021EE]/10 to-transparent border border-[#7021EE]/20 p-6 rounded-xl">
-              <h3 className="text-xl font-semibold mb-4">Ready to Transform Your Business with AI?</h3>
-              <p className="text-gray-300 mb-6">
-                Contact us today to discuss how our managed AI services can address your specific challenges.
-              </p>
-              <Link 
-                to="/contact" 
-                className="inline-flex items-center px-6 py-3 bg-[#7021EE] hover:bg-[#7021EE]/80 text-white rounded-md transition-colors"
-              >
-                Get Started
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
-            </div>
-          </motion.div>
+          
         </motion.div>
       </div>
     </section>

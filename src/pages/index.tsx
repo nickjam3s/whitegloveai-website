@@ -7,7 +7,6 @@ import AIIncubationLabSection from '@/components/AIIncubationLabSection';
 import AIAMFFrameworkSection from '@/components/home/AIAMFFrameworkSection';
 import WhitegloveAIDifference from '@/components/home/WhitegloveAIDifference';
 import PartnerLogos from '@/components/home/PartnerLogos';
-import CTASection from '@/components/home/CTASection';
 import ContactSection from './Contact';
 
 const Index = () => {
@@ -68,7 +67,6 @@ const Index = () => {
       <AIAMFFrameworkSection />
       <PartnerLogos />
       <WhitegloveAIDifference />
-      <CTASection />
       <ContactSection />
     </div>
   );

@@ -137,7 +137,7 @@ const MediaAI = () => {
             transition={{ duration: 0.8 }}
           >
             <HeroSection />
-            <Separator className="w-3/4 mx-auto opacity-30 my-8" />
+            
           </motion.div>
 
           <motion.div
@@ -147,7 +147,7 @@ const MediaAI = () => {
             transition={{ duration: 0.8 }}
           >
             <ServiceOverview />
-            <Separator className="w-3/4 mx-auto opacity-30 my-8" />
+            
           </motion.div>
 
           <motion.div
@@ -157,7 +157,7 @@ const MediaAI = () => {
             transition={{ duration: 0.8 }}
           >
             <ServicePlans />
-            <Separator className="w-3/4 mx-auto opacity-30 my-8" />
+            
           </motion.div>
 
           <motion.div
@@ -167,7 +167,7 @@ const MediaAI = () => {
             transition={{ duration: 0.8 }}
           >
             <AddOns />
-            <Separator className="w-3/4 mx-auto opacity-30 my-8" />
+            
           </motion.div>
 
           <motion.div
@@ -177,7 +177,7 @@ const MediaAI = () => {
             transition={{ duration: 0.8 }}
           >
             <PlanComparison />
-            <Separator className="w-3/4 mx-auto opacity-30 my-8" />
+            
           </motion.div>
 
           <motion.div
@@ -187,7 +187,7 @@ const MediaAI = () => {
             transition={{ duration: 0.8 }}
           >
             <GettingStarted />
-            <Separator className="w-3/4 mx-auto opacity-30 my-8" />
+            
           </motion.div>
 
           <motion.div

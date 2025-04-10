@@ -18,13 +18,9 @@ const Enable = () => {
   }, []);
 
   useEffect(() => {
-    const script = document.createElement('script');
-    script.src = "//embed.typeform.com/next/embed.js";
-    script.async = true;
-    document.body.appendChild(script);
-
     // Explicitly disable smooth scrolling
     document.documentElement.style.scrollBehavior = 'auto';
+ 
     
     // Handle anchor links within the page without smooth scrolling
     const handleAnchorClick = (e: MouseEvent) => {
@@ -71,32 +67,23 @@ const Enable = () => {
         observer.observe(heading);
       });
       
-      // Also observe animate-section and animate-on-scroll elements
-      const animateSections = document.querySelectorAll('.animate-section, .animate-on-scroll');
-      animateSections.forEach(section => {
-        observer.observe(section);
-      });
-      
-      return observer;
+   // Observe all elements with animation classes
+   const animatedElements = document.querySelectorAll(
+    '.heading-highlight-scroll, .animate-section, .animate-on-scroll, .fade-in-up'
+  );
+  
+  animatedElements.forEach(element => {
+    observer.observe(element);
+  });
+  
+  return () => {
+    document.removeEventListener('click', handleAnchorClick);
+    // Reset scroll behavior when component unmounts
+    document.documentElement.style.scrollBehavior = '';
+    observer.disconnect();
+  };
     };
-    
-    // Use a short timeout to ensure all elements are rendered
-    const timeoutId = setTimeout(() => {
-      const observer = initializeObserver();
-      
-      // Clean up function
-      return () => {
-        observer.disconnect();
-      };
-    }, 100);
 
-    return () => {
-      document.body.removeChild(script);
-      document.removeEventListener('click', handleAnchorClick);
-      // Reset scroll behavior when component unmounts
-      document.documentElement.style.scrollBehavior = '';
-      clearTimeout(timeoutId);
-    };
   }, []);
 
   return (

@@ -6,7 +6,6 @@ import MethodologySection from "./components/humanoidai/MethodologySection";
 import BusinessOutcomes from "./components/humanoidai/BusinessOutcomes";
 import Deliverables from "./components/humanoidai/Deliverables";
 import SecurityCompliance from "./components/humanoidai/SecurityCompliance";
-import StepByStepForm from "./components/vendorai/StepByStepForm";
 import ContactSection from "./components/humanoidai/ContactSection"; 
 import ScrollAnimation from '@/components/animations/ScrollAnimation';
 import '@/styles/animations.css'; // Import animations CSS
@@ -175,7 +174,7 @@ const HumanoidAI = () => {
             Contact Us
           </motion.h2>
           <div className="glass-card backdrop-blur-md p-8 rounded-xl border border-purple-500/20 shadow-[0_0_15px_rgba(112,33,238,0.15)] max-w-4xl mx-auto tezt">
-            <StepByStepForm />
+            
           </div>
         </div>
       </section>
