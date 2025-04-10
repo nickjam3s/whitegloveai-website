@@ -12,6 +12,13 @@ import FooterSection from './components/enable/FooterSection';
 import ScrollAnimation from '@/components/animations/ScrollAnimation';
 import SecuritySection from './components/enable/SecuritySection';
 
+// Define the fadeInUp animation variant
+const fadeInUp = {
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.5 }
+};
+
 const Enable = () => {
   const isMobile = useIsMobile();
   
@@ -77,15 +84,17 @@ const Enable = () => {
         <SolutionSection />
 
         <motion.section
-    id="results"
-    initial="initial"
-    whileInView="animate"
-    viewport={{ once: true }}
-    variants={fadeInUp}
-    className="mt-16 scroll-mt-20"
-  >
-    <ResultsSection />
+          id="results"
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true }}
+          variants={fadeInUp}
+          className="mt-16 scroll-mt-20"
+        >
+          <ResultsSection />
+        </motion.section>
 
+        <SecuritySection />
         <ContactSection />
         <FooterSection />
         <ScrollAnimation targetId="introduction-section" />
