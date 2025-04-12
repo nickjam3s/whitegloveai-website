@@ -75,14 +75,12 @@ const StrategicAdvisors = () => {
 
         <section className="py-20 container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <ScrollAnimation>
-              <div className="mb-16 text-center">
-                <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gradient-primary">Our Strategic Advisors</h2>
-                <p className="text-lg text-gray-300 max-w-3xl mx-auto">
-                  WhitegloveAI's Strategic Advisors bring decades of expertise across various industries, helping guide our company's vision and strategic direction. Their leadership and insights enable us to stay at the forefront of AI innovation while delivering exceptional value to our clients.
-                </p>
-              </div>
-            </ScrollAnimation>
+            <div className="mb-16 text-center">
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gradient-primary">Our Strategic Advisors</h2>
+              <p className="text-lg text-gray-300 max-w-3xl mx-auto">
+                WhitegloveAI's Strategic Advisors bring decades of expertise across various industries, helping guide our company's vision and strategic direction. Their leadership and insights enable us to stay at the forefront of AI innovation while delivering exceptional value to our clients.
+              </p>
+            </div>
 
             {/* Advisors Grid */}
             <h2 className="text-3xl font-bold mb-8 text-center heading-highlight-scroll">Meet Our Advisors</h2>
