@@ -11,6 +11,7 @@ import ScrollToTop from "./components/ScrollToTop";
 // Main Pages
 import Index from "./pages/index";
 import AboutUs from "./pages/AboutUs";
+import StrategicAdvisors from "./pages/StrategicAdvisors";
 import Apprenticeship from "./pages/Apprenticeship";
 import Privacy from "./pages/Privacy";
 import TermsOfService from "./pages/TermsOfService";
@@ -51,6 +52,7 @@ const App = () => (
               {/* Main Routes */}
               <Route path="/" element={<Index />} />
               <Route path="/aboutus" element={<AboutUs />} />
+              <Route path="/aboutus/strategic-advisors" element={<StrategicAdvisors />} />
               <Route path="/aboutus/apprenticeship" element={<Apprenticeship />} />
               <Route path="/about/apprentice" element={<Apprenticeship />} />
               <Route path="/privacy" element={<Privacy />} />
