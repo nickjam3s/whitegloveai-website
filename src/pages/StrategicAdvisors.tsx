@@ -1,9 +1,9 @@
+
 import React from 'react';
 import { motion } from "framer-motion";
 import PageWrapper from '@/components/layout/PageWrapper';
 import { Card } from '@/components/ui/card';
 import { useIsMobile } from "@/hooks/use-mobile";
-import { Briefcase, Users } from 'lucide-react';
 import ScrollAnimation from '@/components/animations/ScrollAnimation';
 import HeroSection from './advisors/heroSection';
 
@@ -37,6 +37,7 @@ const advisorData: AdvisorProps[] = [
   { name: 'Rodriguez Richard', title: 'CEO', company: 'ClearSync' },
   { name: 'Michelle Rider', title: 'CMO', company: 'Endeavor Management' },
   { name: 'Ted Sanders', title: 'BISO', company: 'Bank of America' },
+  { name: 'Binni Skariah', title: 'CEO', company: 'Interaxion' },
   { name: 'Jill Stelfox', title: 'CEO', company: 'FounderGro' },
   { name: 'Ichan Stall', title: 'Partner', company: 'Forever Young Agency' },
   { name: 'Tim Tatarowicz', title: 'Co-Founder', company: 'Phoenix Power Supply' },
@@ -74,6 +75,15 @@ const StrategicAdvisors = () => {
 
         <section className="py-20 container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
+            <ScrollAnimation>
+              <div className="mb-16 text-center">
+                <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gradient-primary">Our Strategic Advisors</h2>
+                <p className="text-lg text-gray-300 max-w-3xl mx-auto">
+                  WhitegloveAI's Strategic Advisors bring decades of expertise across various industries, helping guide our company's vision and strategic direction. Their leadership and insights enable us to stay at the forefront of AI innovation while delivering exceptional value to our clients.
+                </p>
+              </div>
+            </ScrollAnimation>
+
             {/* Advisors Grid */}
             <h2 className="text-3xl font-bold mb-8 text-center heading-highlight-scroll">Meet Our Advisors</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
