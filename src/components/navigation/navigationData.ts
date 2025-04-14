@@ -49,10 +49,14 @@ export const navigationLinks = [
         to: "http://www.aiamf.ai",
         external: true
       },
-     
       {
         text: "Lucidis",
         to: "https://lucidis.ai",
+        external: true
+      },
+      {
+        text: "vCAIO",
+        to: "https://vcaio.whitegloveai.com/",
         external: true
       }
     ]
