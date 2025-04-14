@@ -55,7 +55,7 @@ export const navigationLinks = [
         external: true
       },
       {
-        text: "vCAIO",
+        text: "vCAIO Platform",
         to: "https://vcaio.whitegloveai.com/",
         external: true
       }
