@@ -12,8 +12,7 @@ const logos = [
   { src: '/lovable-uploads/31ce2c79-4446-474c-944b-387098eef691.png', alt: 'Kofile Logo', height: 60 },
   { src: '/lovable-uploads/b6a654ad-cab3-433b-b6d1-d7783e010859.png', alt: 'MEDC Logo', height: 60 },
   { src: '/lovable-uploads/ffe8ec7f-c754-4b67-9abf-358cf9af31cf.png', alt: 'McKinney Texas Logo', height: 80 },
-  { src: '/lovable-uploads/00ec88d7-072d-4ba5-8d23-fba3e5d934c4.png', alt: 'Parker Logo', height: 80 },
-  { src: '/lovable-uploads/a95e8c96-a49c-4c52-bb1b-c2a6241c1d1f.png', alt: 'Paychex Logo', height: 60 },
+  { src: '/lovable-uploads/a95e8c96-a49c-4c52-bb1b-c2a6241c1d1f.png', alt: 'Patriot Logo', height: 60 },
 ];
 
 const TrustedBy = () => {
