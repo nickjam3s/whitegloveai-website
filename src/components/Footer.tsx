@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin, Linkedin, ArrowRight } from 'lucide-react';
@@ -93,7 +94,8 @@ const Footer = () => {
         {/* Certifications and Copyright */}
         <div className="border-t border-[#7021EE]/20 pt-8 mt-12">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <div className="text-gray-400 mb-4 md:mb-0 text-center md:text-left">
+            {/* Vendor Number - Now above the privacy/terms */}
+            <div className="text-gray-400 mb-4 md:mb-0 text-center md:text-left w-full md:w-auto">
               Historically Underutilized Business Vendor Number: 19340294370
             </div>
             <div className="text-gray-400">
@@ -112,3 +114,4 @@ const Footer = () => {
 };
 
 export default Footer;
+

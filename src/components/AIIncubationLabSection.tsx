@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Sparkles, Rocket, Shield } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
@@ -108,7 +109,7 @@ const AIIncubationLabSection = () => {
             </a>
 
             <a 
-              href="https://polaicy.com" 
+              href="https://vcaio.com" 
               target="_blank" 
               rel="noopener noreferrer"
               className="block hover:scale-105 transition-transform"
@@ -116,22 +117,20 @@ const AIIncubationLabSection = () => {
               <Card className="bg-card/60 border border-gray-800 hover:border-[#9b87f5]/50 transition-colors overflow-hidden h-full">
                 <CardContent className="p-6 flex flex-col items-center">
                   <div className="h-16 flex items-center justify-center mb-4">
-                    <div className="text-2xl text-[#9b87f5]">
-                      <span className="font-bold">Pol</span>
-                      <span className="font-normal">ai</span>
-                      <span className="font-bold">cy.com</span>
-                      <div className="text-sm italic text-gray-500 mt-1 text-center">Coming Soon</div>
+                    <div className="text-2xl text-[#9b87f5] flex flex-col items-center">
+                      <span className="font-bold">vCAIO.ai</span>
+                      <div className="text-sm italic text-[#9b87f5] mt-1 text-center font-medium">Join the Waitlist</div>
                     </div>
                   </div>
                   <div className="flex justify-center my-4">
                     <img 
-                      src="/lovable-uploads/26655709-cde4-41ab-95e9-8015e823142a.png" 
-                      alt="Polaicy.com Logo" 
+                      src="/lovable-uploads/3abbd406-8a19-4bd7-973c-7fbe57e36ef1.png" 
+                      alt="vCAIO.ai Logo" 
                       className="h-48 w-auto"
                     />
                   </div>
                   <p className="text-gray-400 text-center">
-                    Polaicy.com is an AI-powered governance platform that helps organizations create, manage, and operationalize AI policies with ease. Designed for compliance and security teams, it includes customizable templates, automation tools, and seamless integration with enterprise systems—ensuring responsible AI use aligned with industry standards and regulations.
+                    vCAIO.ai is an intelligent AI adoption platform with agentic consultants that act as your virtual Chief AI Officer, guiding organizations through strategy, AI vendor selection, and governance. Built for executives and their teams, it features specialized agents, the AI-AMF, and seamless integration—accelerating AI adoption while reducing risk, cost, and complexity.
                   </p>
                 </CardContent>
               </Card>
@@ -146,3 +145,4 @@ const AIIncubationLabSection = () => {
 };
 
 export default AIIncubationLabSection;
+
