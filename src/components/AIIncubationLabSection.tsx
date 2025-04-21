@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Sparkles, Rocket, Shield } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
@@ -57,6 +58,7 @@ const AIIncubationLabSection = () => {
           </h3>
           
           <div className="grid md:grid-cols-3 gap-8">
+            {/* Lucidis.ai tile */}
             <a 
               href="https://lucidis.ai" 
               target="_blank" 
@@ -81,9 +83,9 @@ const AIIncubationLabSection = () => {
                 </CardContent>
               </Card>
             </a>
-
+            {/* 0-1Labs tile (previously "The AI Executive") */}
             <a 
-              href="https://aiexecutive.com" 
+              href="https://www.0-1labs.com" 
               target="_blank" 
               rel="noopener noreferrer"
               className="block hover:scale-105 transition-transform"
@@ -91,22 +93,27 @@ const AIIncubationLabSection = () => {
               <Card className="bg-card/60 border border-gray-800 hover:border-[#9b87f5]/50 transition-colors overflow-hidden h-full">
                 <CardContent className="p-6 flex flex-col items-center">
                   <div className="h-16 flex items-center justify-center mb-4">
-                    <div className="text-2xl font-bold text-[#9b87f5]">The AI Executive</div>
+                    <div className="text-2xl font-bold text-[#9b87f5] flex flex-col items-center">
+                      0-1Labs
+                      <div className="text-sm italic text-[#9b87f5] mt-1 text-center font-medium">
+                        Join the Waitlist
+                      </div>
+                    </div>
                   </div>
                   <div className="flex justify-center my-4">
                     <img 
-                      src="/lovable-uploads/3115d5e9-51d8-496f-b324-22397addb268.png" 
-                      alt="The AI Executive Logo" 
+                      src="/lovable-uploads/1137bcd5-bbd1-436f-a813-b703f3e7be6a.png" 
+                      alt="0-1Labs Logo" 
                       className="h-48 w-auto"
                     />
                   </div>
                   <p className="text-gray-400 text-center">
-                    The AI Executive is a premier media and education platform built for business leaders navigating the AI revolution. It features a podcast, daily newsletter, and expert insights—equipping executives with strategies for secure AI adoption. An AI Marketplace is launching soon, enabling seamless discovery and matching of enterprise-grade AI vendors and solutions.
+                    0-1Labs is an AI-powered business creation platform that transforms ideas into operational companies in days, not months. Designed for entrepreneurs and founders, it automates business planning, brand development, application building, and market launch—consolidating dozens of tools into one seamless system. With intelligent workflows and ready-made templates, 0-1Labs eliminates technical barriers and reduces startup costs while ensuring professional quality across all business components.
                   </p>
                 </CardContent>
               </Card>
             </a>
-
+            {/* vCAIO.ai tile */}
             <a 
               href="https://www.vcaio.ai" 
               target="_blank" 
