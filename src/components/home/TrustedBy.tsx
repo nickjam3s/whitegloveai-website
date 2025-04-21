@@ -1,4 +1,4 @@
-
+import { useEffect, useRef } from "react";
 import { Star } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -47,6 +47,67 @@ This year, they helped us to successful pilot/onboard TeamGPT, which is a must h
   }
 ];
 
+const starAnimKeyframes = [
+  [0, 10],   // star 0 starts at 0%, peak at 10%
+  [10, 30],  // star 1 starts at 10%, peak at 30%
+  [30, 50],  // star 2 starts at 30%, peak at 50%
+  [50, 70],  // star 3 starts at 50%, peak at 70%
+  [70, 90],  // star 4 starts at 70%, peak at 90%
+];
+
+const getStarFill = (progress: number, i: number) => {
+  const [start, end] = starAnimKeyframes[i];
+  if (progress >= start && progress < end) {
+    const frac = (progress - start) / (end - start);
+    return Math.min(1, 0.5 + frac * 0.5);
+  } else if (progress >= end) {
+    return 1;
+  }
+  return 0.5;
+};
+
+const StarRow = () => {
+  const [progress, setProgress] = React.useState(0);
+  const rafRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    let frame: number;
+    let start: number | null = null;
+    const duration = 1400;
+
+    const loop = (timestamp: number) => {
+      if (!start) start = timestamp;
+      const delta = timestamp - start;
+      let pct = ((delta % duration) / duration) * 100;
+      setProgress(pct);
+      frame = requestAnimationFrame(loop);
+    };
+    rafRef.current = requestAnimationFrame(loop);
+    return () => {
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+      if (frame) cancelAnimationFrame(frame);
+    };
+  }, []);
+
+  return (
+    <div className="flex gap-1 mb-4">
+      {[...Array(5)].map((_, i) => (
+        <Star
+          key={i}
+          className="w-6 h-6 transition-all duration-300"
+          color="#FEF7CD"
+          fill={`rgba(254, 247, 205, ${getStarFill(progress, i)})`}
+          strokeWidth={i === 0 ? 1.5 : 1}
+          aria-label="Star"
+          style={{
+            filter: `drop-shadow(0 0 ${getStarFill(progress, i)*6}px #FEF7CD${getStarFill(progress,i) > 0.7 ? '99':''})`
+          }}
+        />
+      ))}
+    </div>
+  );
+};
+
 const TrustedBy = () => {
   return (
     <>
@@ -74,28 +135,19 @@ const TrustedBy = () => {
         </div>
       </section>
 
-      {/* New reviews tiles section with hover animations */}
       <section className="py-12 bg-black">
         <div className="container mx-auto max-w-7xl px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {reviews.map((review, idx) => (
-              <Card key={idx} className="bg-[#111] border-[#333] shadow-lg h-full flex flex-col hover:-translate-y-1 hover:shadow-lg transition-transform duration-300">
-                <CardContent className="py-6 px-6 flex flex-col items-center">
-                  <div className="flex gap-1 mb-4">
-                    {[...Array(5)].map((_, i) => (
-                      <Star
-                        key={i}
-                        className="w-6 h-6"
-                        color="#FEF7CD"
-                        fill="#FEF7CD"
-                        strokeWidth={1}
-                        aria-label="Star"
-                      />
-                    ))}
-                  </div>
+              <Card
+                key={idx}
+                className="bg-[#111] border border-[#333] shadow-lg h-full flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-[#7021EE] hover:shadow-[#7021EE]/20 card-glow group"
+              >
+                <CardContent className="py-8 px-8 flex flex-col items-center">
+                  <StarRow />
                   <div className="w-full flex-1 flex flex-col">
                     <p className="text-gray-200 font-light italic text-sm whitespace-pre-line mb-6">{review.text}</p>
-                    <div className="mt-auto text-center">
+                    <div className="mt-auto text-center not-italic">
                       <span className="block text-white font-semibold not-italic">{review.author}</span>
                       <span className="block text-gray-400 not-italic text-sm">{review.title}</span>
                       <span className="block text-gray-400 not-italic text-sm">{review.company}</span>
@@ -112,4 +164,3 @@ const TrustedBy = () => {
 };
 
 export default TrustedBy;
-
