@@ -108,7 +108,7 @@ const AIIncubationLabSection = () => {
                     />
                   </div>
                   <p className="text-gray-400 text-center">
-                    0-1Labs is an AI-powered business creation platform that transforms ideas into operational companies in days, not months. Designed for entrepreneurs and founders, it automates business planning, brand development, application building, and market launch—consolidating dozens of tools into one seamless system. With intelligent workflows and ready-made templates, 0-1Labs eliminates technical barriers and reduces startup costs while ensuring professional quality across all business components.
+                    0-1Labs is an AI-powered business creation platform that transforms ideas into operational companies in days, not months. Designed for entrepreneurs and founders, it automates business planning, brand development, application building, and market launch—consolidating dozens of tools into one seamless system. 0-1Labs eliminates technical barriers and reduces startup costs.
                   </p>
                 </CardContent>
               </Card>
@@ -151,3 +151,4 @@ const AIIncubationLabSection = () => {
 };
 
 export default AIIncubationLabSection;
+
