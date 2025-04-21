@@ -46,12 +46,12 @@ const StrategicAdvisors = () => {
   return (
     <PageWrapper>
       <div className="min-h-screen bg-black text-white font-sans font-sora overflow-x-hidden">
-        <section className="relative h-[100vh] flex items-center overflow-hidden">
+        {/* Make hero section go edge-to-edge */}
+        <section className="relative w-full h-[100vh] flex items-center overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-b from-[#7021EE]/20 to-black/90">
             <div className="absolute inset-0 backdrop-blur-sm" />
           </div>
-
-          <div className="container mx-auto px-4 flex flex-col items-center justify-center relative z-10">
+          <div className="w-full flex flex-col items-center justify-center relative z-10">
             <HeroSection />
           </div>
         </section>
@@ -64,7 +64,6 @@ const StrategicAdvisors = () => {
                 WhitegloveAI's Strategic Advisors bring decades of expertise across various industries, helping guide our company's vision and strategic direction. Their leadership and insights enable us to stay at the forefront of AI innovation while delivering exceptional value to our clients.
               </p>
             </div>
-
             {/* Advisors Grid */}
             <h2 className="text-3xl font-bold mb-8 text-center heading-highlight-scroll">Meet Our Advisors</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
