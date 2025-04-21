@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Sparkles, Rocket, Shield } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
@@ -109,7 +108,7 @@ const AIIncubationLabSection = () => {
             </a>
 
             <a 
-              href="https://vcaio.com" 
+              href="https://www.vcaio.ai" 
               target="_blank" 
               rel="noopener noreferrer"
               className="block hover:scale-105 transition-transform"
@@ -145,4 +144,3 @@ const AIIncubationLabSection = () => {
 };
 
 export default AIIncubationLabSection;
-
