@@ -1,3 +1,4 @@
+
 import { Star } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -72,11 +73,13 @@ const TrustedBy = () => {
           </div>
         </div>
       </section>
-      <section className="py-8 bg-black">
-        <div className="container mx-auto">
-          <div className="grid md:grid-cols-3 gap-8">
+
+      {/* New reviews tiles section with hover animations */}
+      <section className="py-12 bg-black">
+        <div className="container mx-auto max-w-7xl px-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {reviews.map((review, idx) => (
-              <Card key={idx} className="bg-[#111] border-[#333] shadow-lg h-full flex flex-col">
+              <Card key={idx} className="bg-[#111] border-[#333] shadow-lg h-full flex flex-col hover:-translate-y-1 hover:shadow-lg transition-transform duration-300">
                 <CardContent className="py-6 px-6 flex flex-col items-center">
                   <div className="flex gap-1 mb-4">
                     {[...Array(5)].map((_, i) => (
@@ -92,7 +95,7 @@ const TrustedBy = () => {
                   </div>
                   <div className="w-full flex-1 flex flex-col">
                     <p className="text-gray-200 font-light italic text-sm whitespace-pre-line mb-6">{review.text}</p>
-                    <div className="mt-auto">
+                    <div className="mt-auto text-center">
                       <span className="block text-white font-semibold not-italic">{review.author}</span>
                       <span className="block text-gray-400 not-italic text-sm">{review.title}</span>
                       <span className="block text-gray-400 not-italic text-sm">{review.company}</span>
@@ -109,3 +112,4 @@ const TrustedBy = () => {
 };
 
 export default TrustedBy;
+
