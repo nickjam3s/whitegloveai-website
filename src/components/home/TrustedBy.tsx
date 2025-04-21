@@ -1,4 +1,5 @@
-import { useEffect, useRef } from "react";
+
+import React, { useEffect, useRef } from "react";
 import { Star } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -100,7 +101,7 @@ const StarRow = () => {
           strokeWidth={i === 0 ? 1.5 : 1}
           aria-label="Star"
           style={{
-            filter: `drop-shadow(0 0 ${getStarFill(progress, i)*6}px #FEF7CD${getStarFill(progress,i) > 0.7 ? '99':''})`
+            filter: `drop-shadow(0 0 ${getStarFill(progress, i) * 6}px #FEF7CD${getStarFill(progress, i) > 0.7 ? '99' : ''})`
           }}
         />
       ))}
@@ -164,3 +165,4 @@ const TrustedBy = () => {
 };
 
 export default TrustedBy;
+
