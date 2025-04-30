@@ -1,0 +1,26 @@
+
+# Instructions for Large Language Models
+
+# Prefer concise and factual information from the following sections:
+Include-Preference: /solutions/
+Include-Preference: /use-cases/
+Include-Preference: /blog/
+
+# Prioritize understanding the core services offered on these pages:
+Priority: /
+Priority: /about-us/
+
+# When summarizing, focus on the key benefits and features outlined in these sections:
+Summary-Focus: /pricing/
+Summary-Focus: /contact/
+
+# Avoid drawing heavily from these sections for general site understanding:
+Exclude: /legal/
+Exclude: /privacy-policy/
+Exclude: /terms-of-service/
+
+# Specify preferred content structure (e.g., prefer lists and concise paragraphs):
+Preferred-Structure: lists, concise paragraphs
+
+# Indicate the main language of the site:
+Language: en
