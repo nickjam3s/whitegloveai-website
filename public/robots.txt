@@ -1,0 +1,17 @@
+
+User-agent: *
+Disallow: /admin/
+Disallow: /cgi-bin/
+Disallow: /wp-admin/
+Disallow: /wp-login.php
+Disallow: /search-results/
+Disallow: /thank-you/
+Disallow: /checkout/
+Disallow: /*?s=
+Disallow: /*&
+
+# Specific AI Crawlers (Be specific if needed, but '*' usually suffices)
+# User-agent: Google-Extended
+# Allow: /blog/
+
+Sitemap: https://www.whitegloveai.com/sitemap.xml
