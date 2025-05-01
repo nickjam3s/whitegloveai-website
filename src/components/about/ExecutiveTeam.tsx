@@ -29,12 +29,6 @@ const ExecutiveTeam = () => {
       linkedinUrl: "https://www.linkedin.com/in/tobalo/"
     },
     {
-      name: "Albert Ramos",
-      title: "Fractional Chief AI Officer",
-      image: "/lovable-uploads/5fe7ee0d-30ab-40a0-aaba-118ec81ae989.png",
-      linkedinUrl: "https://www.linkedin.com/in/albertramosjr/"
-    },
-    {
       name: "Dr. Donnie Wendt",
       title: "Fractional Chief AI Officer",
       image: "/lovable-uploads/b660279c-7698-487d-b20e-3a04479508d4.png",
