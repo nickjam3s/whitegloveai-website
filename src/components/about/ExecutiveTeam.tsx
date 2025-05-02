@@ -18,19 +18,19 @@ const ExecutiveTeam = () => {
       linkedinUrl: "https://www.linkedin.com/in/jasonhess/"
     },
     {
-      name: "Andi Lee",
-      title: "SVP of Sales",
-      image: "/lovable-uploads/23fbf27a-948c-4266-8ffa-8814512042c2.png",
-      linkedinUrl: "https://www.linkedin.com/in/andi-l-20022b7/"
-    },
-    {
       name: "Binni Skariah",
       title: "Product Owner of Lucidis.AI",
       image: "/employee/Binni.jpeg",
       linkedinUrl: "https://www.linkedin.com/in/bskariah/"
     },
     {
-      name: "Tobalo Torres",
+      name: "Andi Lee",
+      title: "SVP of Sales",
+      image: "/lovable-uploads/23fbf27a-948c-4266-8ffa-8814512042c2.png",
+      linkedinUrl: "https://www.linkedin.com/in/andi-l-20022b7/"
+    },
+    {
+      name: "Tobalo Torre",
       title: "VP of AI Labs", 
       image: "/lovable-uploads/9dbaee7c-d928-4958-92dd-4dd39b8923bc.png",
       linkedinUrl: "https://www.linkedin.com/in/tobalo/"
@@ -79,7 +79,7 @@ const ExecutiveTeam = () => {
   );
 
   return (
-    <div className="bg-gray-900 py-12 px-4">
+    <div className="bg-gray-900 py-12 px-4 mt-20">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-10">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#7021EE]">Meet the Executive Team</h2>
