@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Linkedin } from 'lucide-react';
 
@@ -17,13 +18,19 @@ const ExecutiveTeam = () => {
       linkedinUrl: "https://www.linkedin.com/in/jasonhess/"
     },
     {
+      name: "Andi Lee",
+      title: "SVP of Sales",
+      image: "/lovable-uploads/23fbf27a-948c-4266-8ffa-8814512042c2.png",
+      linkedinUrl: "https://www.linkedin.com/in/andi-l-20022b7/"
+    },
+    {
       name: "Binni Skariah",
       title: "Product Owner of Lucidis.AI",
       image: "/employee/Binni.jpeg",
       linkedinUrl: "https://www.linkedin.com/in/bskariah/"
     },
     {
-      name: "Tobalo Torress",
+      name: "Tobalo Torres",
       title: "VP of AI Labs", 
       image: "/lovable-uploads/9dbaee7c-d928-4958-92dd-4dd39b8923bc.png",
       linkedinUrl: "https://www.linkedin.com/in/tobalo/"
@@ -45,12 +52,6 @@ const ExecutiveTeam = () => {
       title: "Chief Security Officer",
       image: "/lovable-uploads/15e1ef3c-8f52-4735-b48e-159dea83470c.png",
       linkedinUrl: "https://www.linkedin.com/in/daniel-valencia/"
-    },
-    {
-      name: "Andi Lee",
-      title: "SVP of Sales",
-      image: "/lovable-uploads/23fbf27a-948c-4266-8ffa-8814512042c2.png",
-      linkedinUrl: "https://www.linkedin.com/in/andi-l-20022b7/"
     },
   ];
 
