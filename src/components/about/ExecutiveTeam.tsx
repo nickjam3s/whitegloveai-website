@@ -79,12 +79,12 @@ const ExecutiveTeam = () => {
   );
 
   return (
-    <div className="min-h-screen bg-gray-900 py-16 px-4">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-8 text-[#7021EE]">Meet the Executive Team</h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            We are a dynamic coalition of seasoned AI pioneers and visionary executives, united by a shared passion for harnessing the transformative potential of artificial intelligence. Our mission is to unlock AI's promises while proactively addressing its challenges to ensure a positive and ethical impact on humanity.
+    <div className="bg-gray-900 py-12 px-4">
+      <div className="max-w-6xl mx-auto">
+        <div className="text-center mb-10">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#7021EE]">Meet the Executive Team</h2>
+          <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+            We are a dynamic coalition of seasoned AI pioneers and visionary executives, united by a shared passion for harnessing the transformative potential of artificial intelligence.
           </p>
         </div>
 
