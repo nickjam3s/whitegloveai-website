@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Linkedin } from 'lucide-react';
 
@@ -6,7 +5,7 @@ const ExecutiveTeam = () => {
   const executives = [
     {
       name: "Nick James",
-      title: "Founder & Chief Executive Officer",
+      title: "Chief Executive Officer",
       image: "/lovable-uploads/12a890f3-210e-4059-8cbc-6647b5effb9a.png",
       linkedinUrl: "https://www.linkedin.com/in/nickjam3s/"
     },
