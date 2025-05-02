@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Linkedin } from 'lucide-react';
 
@@ -46,7 +47,12 @@ const ExecutiveTeam = () => {
       image: "/lovable-uploads/15e1ef3c-8f52-4735-b48e-159dea83470c.png",
       linkedinUrl: "https://www.linkedin.com/in/daniel-valencia/"
     },
-    
+    {
+      name: "Andi Lee",
+      title: "SVP of Sales",
+      image: "/lovable-uploads/23fbf27a-948c-4266-8ffa-8814512042c2.png",
+      linkedinUrl: "https://www.linkedin.com/in/andi-l-20022b7/"
+    },
   ];
 
   const ExecutiveProfile = ({ name, title, image, imagePosition = 'object-center', linkedinUrl }) => (
