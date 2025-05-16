@@ -1,9 +1,10 @@
+
 import React, { useState, useEffect } from 'react';
 import { Calculator, Info } from 'lucide-react';
 import { Slider } from "@/components/ui/slider";
 import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+
 const AICallEstimator = () => {
   // State for user inputs
   const [totalDailyCalls, setTotalDailyCalls] = useState<number>(100);
@@ -122,7 +123,7 @@ const AICallEstimator = () => {
                   <PopoverTrigger>
                     <Info className="h-4 w-4 text-gray-400 cursor-pointer hover:text-primary transition-colors" />
                   </PopoverTrigger>
-                  <PopoverContent className="w-80 text-gray-800 border border-gray-200 bg-purple-300">
+                  <PopoverContent className="w-80 text-gray-800 border border-gray-200 bg-white/90">
                     <div className="space-y-2">
                       <h4 className="font-medium">Common deflectable call types:</h4>
                       <ul className="list-disc pl-5 text-sm">
@@ -182,15 +183,11 @@ const AICallEstimator = () => {
                     <p>• {estimatedDailyMinutes} min/day × {operatingDaysPerMonth} days = {estimatedMonthlyMinutes} min/month</p>
                   </div>}
               </div>
-              
-              {/* Call to Action */}
-              <Button className="w-full" size="lg">
-                Contact Us to Get Started
-              </Button>
             </div>
           </div>
         </div>
       </div>
     </div>;
 };
+
 export default AICallEstimator;
