@@ -118,7 +118,7 @@ const AICallEstimator = () => {
                   <PopoverTrigger>
                     <Info className="h-4 w-4 text-gray-400 cursor-pointer hover:text-primary transition-colors" />
                   </PopoverTrigger>
-                  <PopoverContent className="w-80 bg-popover text-popover-foreground">
+                  <PopoverContent className="w-80 bg-white/90 text-gray-800 border border-gray-200">
                     <div className="space-y-2">
                       <h4 className="font-medium">Common deflectable call types:</h4>
                       <ul className="list-disc pl-5 text-sm">
