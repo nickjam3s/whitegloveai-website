@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Linkedin } from 'lucide-react';
 
@@ -17,11 +16,10 @@ const ExecutiveTeam = () => {
       linkedinUrl: "https://www.linkedin.com/in/ankdes/"
     },
     {
-      name: "Jason Hess",
-      title: "Chief Technology & AI Officer",
-      image: "/lovable-uploads/5cbfcfd0-e713-43d1-9e25-c1d4a1e33007.png",
-      imagePosition: "object-top",
-      linkedinUrl: "https://www.linkedin.com/in/jasonhess/"
+      name: "Dr. Donnie Wendt",
+      title: "Fractional Chief AI Officer",
+      image: "/lovable-uploads/b660279c-7698-487d-b20e-3a04479508d4.png",
+      linkedinUrl: "https://www.linkedin.com/in/dr-donnie-wendt/"
     },
     {
       name: "Binni Skariah",
@@ -42,10 +40,11 @@ const ExecutiveTeam = () => {
       linkedinUrl: "https://www.linkedin.com/in/tobalo/"
     },
     {
-      name: "Dr. Donnie Wendt",
-      title: "Fractional Chief AI Officer",
-      image: "/lovable-uploads/b660279c-7698-487d-b20e-3a04479508d4.png",
-      linkedinUrl: "https://www.linkedin.com/in/dr-donnie-wendt/"
+      name: "Jason Hess",
+      title: "Chief Technology & AI Officer",
+      image: "/lovable-uploads/5cbfcfd0-e713-43d1-9e25-c1d4a1e33007.png",
+      imagePosition: "object-top",
+      linkedinUrl: "https://www.linkedin.com/in/jasonhess/"
     },
     {
       name: "Andi Lee",
