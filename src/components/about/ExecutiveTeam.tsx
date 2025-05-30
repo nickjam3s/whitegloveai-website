@@ -30,10 +30,10 @@ const ExecutiveTeam = () => {
       linkedinUrl: "https://www.linkedin.com/in/tobalo/"
     },
     {
-      name: "Samantha Habib",
-      title: "AI Solutions Consultant",
-      image: "/lovable-uploads/53280f09-a22a-4332-8223-bd75d002241c.png",
-      linkedinUrl: "https://www.linkedin.com/in/samantha-habib/"
+      name: "Binni Skariah",
+      title: "Product Owner of Lucidis.AI",
+      image: "/employee/Binni.jpeg",
+      linkedinUrl: "https://www.linkedin.com/in/bskariah/"
     },
     {
       name: "Daniel Valencia",
@@ -42,10 +42,10 @@ const ExecutiveTeam = () => {
       linkedinUrl: "https://www.linkedin.com/in/daniel-valencia/"
     },
     {
-      name: "Binni Skariah",
-      title: "Product Owner of Lucidis.AI",
-      image: "/employee/Binni.jpeg",
-      linkedinUrl: "https://www.linkedin.com/in/bskariah/"
+      name: "Samantha Habib",
+      title: "AI Solutions Consultant",
+      image: "/lovable-uploads/53280f09-a22a-4332-8223-bd75d002241c.png",
+      linkedinUrl: "https://www.linkedin.com/in/samantha-habib/"
     },
     {
       name: "Rhea Kaithal",
