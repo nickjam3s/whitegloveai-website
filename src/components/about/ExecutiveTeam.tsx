@@ -11,6 +11,12 @@ const ExecutiveTeam = () => {
       linkedinUrl: "https://www.linkedin.com/in/nickjam3s/"
     },
     {
+      name: "Ankur Desai",
+      title: "Chief Marketing Officer",
+      image: "/lovable-uploads/980b7b84-6ac2-4825-a061-cf071a14cf9e.png",
+      linkedinUrl: "https://www.linkedin.com/in/ankdes/"
+    },
+    {
       name: "Jason Hess",
       title: "Chief Technology & AI Officer",
       image: "/lovable-uploads/5cbfcfd0-e713-43d1-9e25-c1d4a1e33007.png",
@@ -24,10 +30,10 @@ const ExecutiveTeam = () => {
       linkedinUrl: "https://www.linkedin.com/in/bskariah/"
     },
     {
-      name: "Andi Lee",
-      title: "SVP of Sales",
-      image: "/lovable-uploads/23fbf27a-948c-4266-8ffa-8814512042c2.png",
-      linkedinUrl: "https://www.linkedin.com/in/andi-l-20022b7/"
+      name: "Daniel Valencia",
+      title: "Chief Security Officer",
+      image: "/lovable-uploads/15e1ef3c-8f52-4735-b48e-159dea83470c.png",
+      linkedinUrl: "https://www.linkedin.com/in/daniel-valencia/"
     },
     {
       name: "Tobalo Torre",
@@ -42,16 +48,10 @@ const ExecutiveTeam = () => {
       linkedinUrl: "https://www.linkedin.com/in/dr-donnie-wendt/"
     },
     {
-      name: "Ankur Desai",
-      title: "Chief Marketing Officer",
-      image: "/lovable-uploads/980b7b84-6ac2-4825-a061-cf071a14cf9e.png",
-      linkedinUrl: "https://www.linkedin.com/in/ankdes/"
-    },
-    {
-      name: "Daniel Valencia",
-      title: "Chief Security Officer",
-      image: "/lovable-uploads/15e1ef3c-8f52-4735-b48e-159dea83470c.png",
-      linkedinUrl: "https://www.linkedin.com/in/daniel-valencia/"
+      name: "Andi Lee",
+      title: "SVP of Sales",
+      image: "/lovable-uploads/23fbf27a-948c-4266-8ffa-8814512042c2.png",
+      linkedinUrl: "https://www.linkedin.com/in/andi-l-20022b7/"
     },
   ];
 
@@ -82,7 +82,7 @@ const ExecutiveTeam = () => {
     <div className="bg-gray-900 py-12 px-4 mt-20">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-10">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#7021EE]">Meet the Executive Team</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#7021EE]">Meet the Team</h2>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto">
             We are a dynamic coalition of seasoned AI pioneers and visionary executives, united by a shared passion for harnessing the transformative potential of artificial intelligence.
           </p>
