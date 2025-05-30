@@ -1,4 +1,4 @@
-import { Shield, PhoneCall, ArrowRight, BrainCircuit, BarChart4, CheckCircle2, Download } from "lucide-react";
+import { Shield, PhoneCall, ArrowRight, BrainCircuit, BarChart4, CheckCircle2, Download, Globe } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
@@ -180,7 +180,7 @@ const VoiceAI = () => {
           >
             Benefits of VoiceAI Agents
           </motion.h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 justify-items-center max-w-8xl mx-auto">
             {benefits.map((benefit, index) => (
               <motion.div
                 key={index}
@@ -476,6 +476,16 @@ const benefits = [
       "Instant inbound lead engagement",
       "24/7 customer support coverage",
       "Comprehensive B2B data collection and analysis"
+    ]
+  },
+  {
+    icon: Globe,
+    title: "Multilingual Support",
+    features: [
+      "English, Spanish, French, German, Italian, Portuguese, Dutch",
+      "Japanese, Korean, Chinese (Mandarin), Arabic, Hindi",
+      "Russian, Polish, Turkish, Swedish, Norwegian, Danish",
+      "Real-time language detection and seamless switching"
     ]
   }
 ];
