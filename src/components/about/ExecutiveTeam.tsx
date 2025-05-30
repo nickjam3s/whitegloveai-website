@@ -11,23 +11,10 @@ const ExecutiveTeam = () => {
       linkedinUrl: "https://www.linkedin.com/in/nickjam3s/"
     },
     {
-      name: "Jason Hess",
-      title: "Chief Technology & AI Officer",
-      image: "/lovable-uploads/5cbfcfd0-e713-43d1-9e25-c1d4a1e33007.png",
-      imagePosition: "object-top",
-      linkedinUrl: "https://www.linkedin.com/in/jasonhess/"
-    },
-    {
       name: "Binni Skariah",
       title: "Product Owner of Lucidis.AI",
       image: "/employee/Binni.jpeg",
       linkedinUrl: "https://www.linkedin.com/in/bskariah/"
-    },
-    {
-      name: "Andi Lee",
-      title: "SVP of Sales",
-      image: "/lovable-uploads/23fbf27a-948c-4266-8ffa-8814512042c2.png",
-      linkedinUrl: "https://www.linkedin.com/in/andi-l-20022b7/"
     },
     {
       name: "Tobalo Torre",
@@ -82,22 +69,41 @@ const ExecutiveTeam = () => {
     <div className="bg-gray-900 py-12 px-4 mt-20">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-10">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#7021EE]">Meet the Executive Team</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#7021EE]">Meet the Team</h2>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto">
             We are a dynamic coalition of seasoned AI pioneers and visionary executives, united by a shared passion for harnessing the transformative potential of artificial intelligence.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {executives.map((executive, index) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
+          {/* First row - 3 executives */}
+          {executives.slice(0, 3).map((executive, index) => (
             <div 
               key={index} 
               className="transform transition-all duration-300 hover:scale-105"
             >
-              {/* Actually render the ExecutiveProfile component here */}
               <ExecutiveProfile {...executive} />
             </div>
           ))}
+        </div>
+        
+        {/* Second row - 2 executives centered */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 justify-items-center mt-6 max-w-2xl mx-auto">
+          {executives.slice(3, 5).map((executive, index) => (
+            <div 
+              key={index + 3} 
+              className="transform transition-all duration-300 hover:scale-105"
+            >
+              <ExecutiveProfile {...executive} />
+            </div>
+          ))}
+        </div>
+        
+        {/* Third row - 1 executive centered */}
+        <div className="flex justify-center mt-6">
+          <div className="transform transition-all duration-300 hover:scale-105">
+            <ExecutiveProfile {...executives[5]} />
+          </div>
         </div>
       </div>
     </div>
