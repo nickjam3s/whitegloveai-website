@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Linkedin } from 'lucide-react';
 
@@ -5,19 +6,19 @@ const ExecutiveTeam = () => {
   const executives = [
     {
       name: "Nick James",
-      title: "Chief Executive Officer",
+      title: "Founder & Principal",
       image: "/lovable-uploads/12a890f3-210e-4059-8cbc-6647b5effb9a.png",
       linkedinUrl: "https://www.linkedin.com/in/nickjam3s/"
     },
     {
       name: "Ankur Desai",
-      title: "Chief Marketing Officer",
+      title: "Head of Business Development",
       image: "/lovable-uploads/980b7b84-6ac2-4825-a061-cf071a14cf9e.png",
       linkedinUrl: "https://www.linkedin.com/in/ankdes/"
     },
     {
       name: "Dr. Donnie Wendt",
-      title: "Fractional Chief AI Officer",
+      title: "Principal AI Consultant",
       image: "/lovable-uploads/b660279c-7698-487d-b20e-3a04479508d4.png",
       linkedinUrl: "https://www.linkedin.com/in/dr-donnie-wendt/"
     },
@@ -35,7 +36,7 @@ const ExecutiveTeam = () => {
     },
     {
       name: "Daniel Valencia",
-      title: "Chief Security Officer",
+      title: "Head of Security",
       image: "/lovable-uploads/15e1ef3c-8f52-4735-b48e-159dea83470c.png",
       linkedinUrl: "https://www.linkedin.com/in/daniel-valencia/"
     },
