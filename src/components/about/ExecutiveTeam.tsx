@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Linkedin } from 'lucide-react';
 
@@ -41,7 +40,7 @@ const ExecutiveTeam = () => {
       linkedinUrl: "https://www.linkedin.com/in/daniel-valencia/"
     },
     {
-      name: "Tobalo Torre",
+      name: "Tobalo Torres",
       title: "VP of AI Labs", 
       image: "/lovable-uploads/9dbaee7c-d928-4958-92dd-4dd39b8923bc.png",
       linkedinUrl: "https://www.linkedin.com/in/tobalo/"
