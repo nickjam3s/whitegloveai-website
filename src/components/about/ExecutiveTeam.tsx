@@ -1,4 +1,5 @@
 
+
 import React from 'react';
 import { Linkedin } from 'lucide-react';
 
@@ -23,10 +24,10 @@ const ExecutiveTeam = () => {
       linkedinUrl: "https://www.linkedin.com/in/dr-donnie-wendt/"
     },
     {
-      name: "Binni Skariah",
-      title: "Product Owner of Lucidis.AI",
-      image: "/employee/Binni.jpeg",
-      linkedinUrl: "https://www.linkedin.com/in/bskariah/"
+      name: "Tobalo Torres",
+      title: "VP of AI Labs", 
+      image: "/lovable-uploads/9dbaee7c-d928-4958-92dd-4dd39b8923bc.png",
+      linkedinUrl: "https://www.linkedin.com/in/tobalo/"
     },
     {
       name: "Samantha Habib",
@@ -41,10 +42,10 @@ const ExecutiveTeam = () => {
       linkedinUrl: "https://www.linkedin.com/in/daniel-valencia/"
     },
     {
-      name: "Tobalo Torres",
-      title: "VP of AI Labs", 
-      image: "/lovable-uploads/9dbaee7c-d928-4958-92dd-4dd39b8923bc.png",
-      linkedinUrl: "https://www.linkedin.com/in/tobalo/"
+      name: "Binni Skariah",
+      title: "Product Owner of Lucidis.AI",
+      image: "/employee/Binni.jpeg",
+      linkedinUrl: "https://www.linkedin.com/in/bskariah/"
     },
     {
       name: "Rhea Kaithal",
