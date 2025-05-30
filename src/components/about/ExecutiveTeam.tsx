@@ -29,10 +29,10 @@ const ExecutiveTeam = () => {
       linkedinUrl: "https://www.linkedin.com/in/bskariah/"
     },
     {
-      name: "Andi Lee",
-      title: "SVP of Sales",
-      image: "/lovable-uploads/23fbf27a-948c-4266-8ffa-8814512042c2.png",
-      linkedinUrl: "https://www.linkedin.com/in/andi-l-20022b7/"
+      name: "Samantha Habib",
+      title: "AI Solutions Consultant",
+      image: "/lovable-uploads/53280f09-a22a-4332-8223-bd75d002241c.png",
+      linkedinUrl: "https://www.linkedin.com/in/samantha-habib/"
     },
     {
       name: "Daniel Valencia",
