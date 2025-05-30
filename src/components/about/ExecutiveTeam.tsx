@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Linkedin } from 'lucide-react';
 
@@ -28,6 +29,12 @@ const ExecutiveTeam = () => {
       linkedinUrl: "https://www.linkedin.com/in/bskariah/"
     },
     {
+      name: "Andi Lee",
+      title: "SVP of Sales",
+      image: "/lovable-uploads/23fbf27a-948c-4266-8ffa-8814512042c2.png",
+      linkedinUrl: "https://www.linkedin.com/in/andi-l-20022b7/"
+    },
+    {
       name: "Daniel Valencia",
       title: "Chief Security Officer",
       image: "/lovable-uploads/15e1ef3c-8f52-4735-b48e-159dea83470c.png",
@@ -40,17 +47,10 @@ const ExecutiveTeam = () => {
       linkedinUrl: "https://www.linkedin.com/in/tobalo/"
     },
     {
-      name: "Jason Hess",
-      title: "Chief Technology & AI Officer",
-      image: "/lovable-uploads/5cbfcfd0-e713-43d1-9e25-c1d4a1e33007.png",
-      imagePosition: "object-top",
-      linkedinUrl: "https://www.linkedin.com/in/jasonhess/"
-    },
-    {
-      name: "Andi Lee",
-      title: "SVP of Sales",
-      image: "/lovable-uploads/23fbf27a-948c-4266-8ffa-8814512042c2.png",
-      linkedinUrl: "https://www.linkedin.com/in/andi-l-20022b7/"
+      name: "Rhea Kaithal",
+      title: "AI Labs Consultant",
+      image: "/lovable-uploads/6a399a58-ddf1-4257-aa1f-e193b98ac34d.png",
+      linkedinUrl: "https://www.linkedin.com/in/rheakaithal/"
     },
   ];
 
