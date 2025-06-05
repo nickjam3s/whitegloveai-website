@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -6,6 +7,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
+import { useEffect } from "react";
 
 // Main Pages
 import Index from "./pages/index";
@@ -37,71 +39,92 @@ import Enable from "./pages/vcaio/Enable";
 
 const queryClient = new QueryClient();
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <BrowserRouter>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <div className="flex flex-col min-h-screen">
-          <Navigation />
-          <ScrollToTop />
-          <main className="flex-grow">
-            <Routes>
-              {/* Main Routes */}
-              <Route path="/" element={<Index />} />
-              <Route path="/aboutus" element={<AboutUs />} />
-              <Route path="/aboutus/strategic-advisors" element={<StrategicAdvisors />} />
-              <Route path="/aboutus/apprenticeship" element={<Apprenticeship />} />
-              <Route path="/about/apprentice" element={<Apprenticeship />} />
-              <Route path="/privacy" element={<Privacy />} />
-              <Route path="/privacy-policy" element={<Privacy />} />
-              <Route path="/terms-of-service" element={<TermsOfService />} />
-              <Route path="/terms" element={<TermsOfService />} />
-              <Route path="/contact" element={<Contact />} />
-              
-              {/* MAISP Routes */}
-              <Route path="/maisp" element={<MAISP />} />
-              <Route path="/maisp/textai" element={<TextAI />} />
-              <Route path="/maisp/textai/textaiforgood" element={<TextAIForGood />} />
-              <Route path="/maisp/voiceai" element={<VoiceAI />} />
-              <Route path="/maisp/avatarai" element={<AvatarAI />} />
-              <Route path="/maisp/automateai" element={<AutomateAI />} />
-              <Route path="/maisp/humaniodai" element={<HumanoidAI />} />
-              <Route path="/maisp/vendorai" element={<VendorAI />} />
-              <Route path="/maisp/mediaai" element={<MediaAI />} />
-              
-              {/* vCAIO Routes */}
-              <Route path="/vcaio" element={<VCAIO />} />
-              <Route path="/vcaio/chiefaiofficer" element={<ChiefAIOfficer />} />
-              <Route path="/vcaio/launch" element={<Launch />} />
-              <Route path="/vcaio/launchai" element={<LaunchAI />} />
-              <Route path="/vcaio/adopt" element={<Adopt />} />
-              <Route path="/vcaio/enable" element={<Enable />} />
-              
-              {/* External Redirects */}
-              <Route
-                path="/aiamf"
-                element={<Navigate to="http://www.aiamf.ai" replace />}
-              />
-              <Route
-                path="/aipolicy"
-                element={<Navigate to="https://polaicy.com" replace />}
-              />
-              <Route
-                path="/lucidis"
-                element={<Navigate to="https://lucidis.ai" replace />}
-              />
-              
-              {/* Redirect /about to /aboutus since we're removing the About page */}
-              <Route path="/about" element={<Navigate to="/aboutus" replace />} />
-            </Routes>
-          </main>
-          <Footer />
-        </div>
-      </TooltipProvider>
-    </BrowserRouter>
-  </QueryClientProvider>
-);
+const App = () => {
+  useEffect(() => {
+    // Load the ElevenLabs widget script
+    const script = document.createElement('script');
+    script.src = "https://unpkg.com/@elevenlabs/convai-widget-embed";
+    script.async = true;
+    script.type = "text/javascript";
+    document.body.appendChild(script);
+
+    return () => {
+      // Cleanup script on unmount
+      if (document.body.contains(script)) {
+        document.body.removeChild(script);
+      }
+    };
+  }, []);
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      <BrowserRouter>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <div className="flex flex-col min-h-screen">
+            <Navigation />
+            <ScrollToTop />
+            <main className="flex-grow">
+              <Routes>
+                {/* Main Routes */}
+                <Route path="/" element={<Index />} />
+                <Route path="/aboutus" element={<AboutUs />} />
+                <Route path="/aboutus/strategic-advisors" element={<StrategicAdvisors />} />
+                <Route path="/aboutus/apprenticeship" element={<Apprenticeship />} />
+                <Route path="/about/apprentice" element={<Apprenticeship />} />
+                <Route path="/privacy" element={<Privacy />} />
+                <Route path="/privacy-policy" element={<Privacy />} />
+                <Route path="/terms-of-service" element={<TermsOfService />} />
+                <Route path="/terms" element={<TermsOfService />} />
+                <Route path="/contact" element={<Contact />} />
+                
+                {/* MAISP Routes */}
+                <Route path="/maisp" element={<MAISP />} />
+                <Route path="/maisp/textai" element={<TextAI />} />
+                <Route path="/maisp/textai/textaiforgood" element={<TextAIForGood />} />
+                <Route path="/maisp/voiceai" element={<VoiceAI />} />
+                <Route path="/maisp/avatarai" element={<AvatarAI />} />
+                <Route path="/maisp/automateai" element={<AutomateAI />} />
+                <Route path="/maisp/humaniodai" element={<HumanoidAI />} />
+                <Route path="/maisp/vendorai" element={<VendorAI />} />
+                <Route path="/maisp/mediaai" element={<MediaAI />} />
+                
+                {/* vCAIO Routes */}
+                <Route path="/vcaio" element={<VCAIO />} />
+                <Route path="/vcaio/chiefaiofficer" element={<ChiefAIOfficer />} />
+                <Route path="/vcaio/launch" element={<Launch />} />
+                <Route path="/vcaio/launchai" element={<LaunchAI />} />
+                <Route path="/vcaio/adopt" element={<Adopt />} />
+                <Route path="/vcaio/enable" element={<Enable />} />
+                
+                {/* External Redirects */}
+                <Route
+                  path="/aiamf"
+                  element={<Navigate to="http://www.aiamf.ai" replace />}
+                />
+                <Route
+                  path="/aipolicy"
+                  element={<Navigate to="https://polaicy.com" replace />}
+                />
+                <Route
+                  path="/lucidis"
+                  element={<Navigate to="https://lucidis.ai" replace />}
+                />
+                
+                {/* Redirect /about to /aboutus since we're removing the About page */}
+                <Route path="/about" element={<Navigate to="/aboutus" replace />} />
+              </Routes>
+            </main>
+            <Footer />
+            
+            {/* ElevenLabs Conversational AI Widget */}
+            <elevenlabs-convai agent-id="jTvgAy2qrSmT5UzQ57N9"></elevenlabs-convai>
+          </div>
+        </TooltipProvider>
+      </BrowserRouter>
+    </QueryClientProvider>
+  );
+};
 
 export default App;
