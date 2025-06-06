@@ -7,7 +7,6 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
-import { useEffect } from "react";
 
 // Main Pages
 import Index from "./pages/index";
@@ -40,22 +39,6 @@ import Enable from "./pages/vcaio/Enable";
 const queryClient = new QueryClient();
 
 const App = () => {
-  useEffect(() => {
-    // Load the ElevenLabs widget script
-    const script = document.createElement('script');
-    script.src = "https://unpkg.com/@elevenlabs/convai-widget-embed";
-    script.async = true;
-    script.type = "text/javascript";
-    document.body.appendChild(script);
-
-    return () => {
-      // Cleanup script on unmount
-      if (document.body.contains(script)) {
-        document.body.removeChild(script);
-      }
-    };
-  }, []);
-
   return (
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
@@ -117,9 +100,6 @@ const App = () => {
               </Routes>
             </main>
             <Footer />
-            
-            {/* ElevenLabs Conversational AI Widget */}
-            <elevenlabs-convai agent-id="jTvgAy2qrSmT5UzQ57N9"></elevenlabs-convai>
           </div>
         </TooltipProvider>
       </BrowserRouter>
