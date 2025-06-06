@@ -18,7 +18,7 @@
     <meta name="theme-color" content="#ffffff">
 
     <!-- Security Headers -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https: https://www.googletagmanager.com https://cdn.gpteng.co https://unpkg.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; connect-src 'self' https: wss://api.us.elevenlabs.io https://api.us.elevenlabs.io;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https: https://www.googletagmanager.com https://cdn.gpteng.co https://unpkg.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:;">
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://whitegloveai.com">
@@ -84,14 +84,6 @@
             margin: 0 auto;
             display: block;
         }
-        
-        /* ElevenLabs widget styling */
-        elevenlabs-convai {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 1000;
-        }
     </style>
 
     <!-- Google Tag Manager -->
@@ -101,6 +93,10 @@
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-N8N28RHG');</script>
     <!-- End Google Tag Manager -->
+
+    <!-- ElevenLabs ConvAI Widget -->
+    <elevenlabs-convai agent-id="jTvgAy2qrSmT5UzQ57N9"></elevenlabs-convai>
+    <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
 </head>
 <body>
     <!-- Google Tag Manager (noscript) -->
@@ -115,10 +111,6 @@
     <noscript>
         <p>Please enable JavaScript to experience whiteGloveAI.</p>
     </noscript>
-
-    <!-- ElevenLabs ConvAI Widget -->
-    <elevenlabs-convai agent-id="jTvgAy2qrSmT5UzQ57N9"></elevenlabs-convai>
-    <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
 
     <!-- Lovable Script (required for new features) -->
     <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
