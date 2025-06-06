@@ -17,8 +17,8 @@
     <meta name="revisit-after" content="7 days">
     <meta name="theme-color" content="#ffffff">
 
-    <!-- Security Headers -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https: https://www.googletagmanager.com https://cdn.gpteng.co https://unpkg.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:;">
+    <!-- More permissive Security Headers for troubleshooting -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: data:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https: data:; style-src 'self' 'unsafe-inline' https: data:; img-src 'self' data: https: blob:; connect-src 'self' https: wss: ws:; frame-src 'self' https:;">
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://whitegloveai.com">
@@ -52,11 +52,69 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="dns-prefetch" href="//www.google-analytics.com">
     <link rel="dns-prefetch" href="//www.googletagmanager.com">
+    <link rel="dns-prefetch" href="//unpkg.com">
     <link rel="preload" href="/lovable-uploads/WebsiteBanner.png" as="image">
 
-    <!-- ElevenLabs Conversational AI Widget -->
+    <!-- ElevenLabs Conversational AI Widget - Debug Version -->
+    <script>
+        console.log('ElevenLabs: Starting widget initialization...');
+        
+        // Check if the agent ID is valid
+        const agentId = 'jTvgAy2qrSmT5UzQ57N9';
+        console.log('ElevenLabs: Agent ID:', agentId);
+        
+        // Monitor for script loading
+        window.elevenLabsWidgetLoaded = false;
+        
+        // Add error handling for the widget
+        window.addEventListener('error', function(e) {
+            if (e.filename && e.filename.includes('elevenlabs')) {
+                console.error('ElevenLabs: Script error:', e.message, e.filename, e.lineno);
+            }
+        });
+    </script>
+    
     <elevenlabs-convai agent-id="jTvgAy2qrSmT5UzQ57N9"></elevenlabs-convai>
-    <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
+    
+    <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" 
+            async 
+            type="text/javascript"
+            onload="console.log('ElevenLabs: Widget script loaded successfully'); window.elevenLabsWidgetLoaded = true;"
+            onerror="console.error('ElevenLabs: Failed to load widget script');">
+    </script>
+
+    <!-- Additional debugging script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('ElevenLabs: DOM loaded, checking widget status...');
+            
+            // Check if widget element exists
+            const widget = document.querySelector('elevenlabs-convai');
+            console.log('ElevenLabs: Widget element found:', !!widget);
+            
+            if (widget) {
+                console.log('ElevenLabs: Widget attributes:', {
+                    agentId: widget.getAttribute('agent-id'),
+                    tagName: widget.tagName
+                });
+            }
+            
+            // Check if script loaded
+            setTimeout(() => {
+                console.log('ElevenLabs: Script loaded status:', window.elevenLabsWidgetLoaded);
+                
+                // Check for any custom elements
+                const customElements = document.querySelectorAll('elevenlabs-convai');
+                console.log('ElevenLabs: Custom elements count:', customElements.length);
+                
+                // Check if the widget is visible
+                if (customElements.length > 0) {
+                    const rect = customElements[0].getBoundingClientRect();
+                    console.log('ElevenLabs: Widget dimensions:', rect);
+                }
+            }, 2000);
+        });
+    </script>
 
     <!-- Schema.org Markup -->
     <script type="application/ld+json">
@@ -88,6 +146,13 @@
             margin: 0 auto;
             display: block;
         }
+        
+        /* Debug styles for ElevenLabs widget */
+        elevenlabs-convai {
+            border: 2px dashed red !important;
+            min-height: 50px !important;
+            display: block !important;
+        }
     </style>
 
     <!-- Google Tag Manager -->
@@ -106,6 +171,26 @@
 
     <!-- React Root -->
     <div id="root"></div>
+
+    <!-- Alternative widget placement for testing -->
+    <script>
+        // Try alternative widget creation if the head version doesn't work
+        setTimeout(() => {
+            console.log('ElevenLabs: Checking if widget initialized...');
+            const existingWidget = document.querySelector('elevenlabs-convai');
+            
+            if (!existingWidget || !existingWidget.shadowRoot) {
+                console.log('ElevenLabs: Widget not initialized, trying alternative approach...');
+                
+                // Create widget programmatically
+                const widget = document.createElement('elevenlabs-convai');
+                widget.setAttribute('agent-id', 'jTvgAy2qrSmT5UzQ57N9');
+                document.body.appendChild(widget);
+                
+                console.log('ElevenLabs: Alternative widget created');
+            }
+        }, 3000);
+    </script>
 
     <!-- JavaScript Support Notice -->
     <noscript>
