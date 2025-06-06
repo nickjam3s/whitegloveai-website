@@ -4,7 +4,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
@@ -40,12 +40,26 @@ import Enable from "./pages/vcaio/Enable";
 const queryClient = new QueryClient();
 
 const App = () => {
+  const [isElevenLabsReady, setIsElevenLabsReady] = useState(false);
+
   useEffect(() => {
+    console.log('Loading ElevenLabs script...');
+    
     // Load the ElevenLabs widget script
     const script = document.createElement('script');
     script.src = "https://unpkg.com/@elevenlabs/convai-widget-embed";
     script.async = true;
     script.type = "text/javascript";
+    
+    script.onload = () => {
+      console.log('ElevenLabs script loaded successfully');
+      setIsElevenLabsReady(true);
+    };
+    
+    script.onerror = (error) => {
+      console.error('Failed to load ElevenLabs script:', error);
+    };
+    
     document.body.appendChild(script);
 
     return () => {
@@ -118,8 +132,13 @@ const App = () => {
             </main>
             <Footer />
             
-            {/* ElevenLabs Conversational AI Widget */}
-            <elevenlabs-convai agent-id="jTvgAy2qrSmT5UzQ57N9"></elevenlabs-convai>
+            {/* ElevenLabs Conversational AI Widget - Only render when script is ready */}
+            {isElevenLabsReady && (
+              <elevenlabs-convai agent-id="jTvgAy2qrSmT5UzQ57N9"></elevenlabs-convai>
+            )}
+            {!isElevenLabsReady && (
+              <div style={{ display: 'none' }}>Loading ElevenLabs widget...</div>
+            )}
           </div>
         </TooltipProvider>
       </BrowserRouter>
