@@ -81,7 +81,7 @@ const MediaAIEquipment = () => {
             >
               Welcome, content creator! You're about to embark on an exciting journey into high-quality digital media. 
               This guide will gently walk you through choosing and setting up your new WhitegloveAI MediaAI studio, ensuring everything 
-              is <span className="text-[#E0BBE4] font-bold">purr-fectly ready</span> for Evmux. Let's make some magic!
+              is <span className="text-[#E0BBE4] font-bold">purr-fectly ready</span> for your virtual creator studio. Let's make some magic!
             </motion.p>
           </div>
         </div>
@@ -351,7 +351,7 @@ const MediaAIEquipment = () => {
 
                 <h4 className="text-xl font-semibold text-white mb-4">Your First Visual Check:</h4>
                 <ul className="text-white space-y-3 mb-8">
-                  <li>• Open any application that uses your webcam (like Photo Booth, Zoom, or even Evmux itself!).</li>
+                  <li>• Open any application that uses your webcam (like Photo Booth, Zoom, or even your virtual creator studio itself!).</li>
                   <li>• Head to System Settings {'>'}  Camera. Confirm that <span className="text-[#E0BBE4] font-bold">'Logitech MX Brio'</span> is happily selected.</li>
                   <li>• Take a peek at your video feed. Are you looking fantastic and ready for your close-up?</li>
                 </ul>
@@ -451,43 +451,43 @@ const MediaAIEquipment = () => {
               </AccordionContent>
             </AccordionItem>
 
-            {/* Section 5: Evmux Integration */}
+            {/* Section 5: Virtual Creator Studio Integration */}
             <AccordionItem value="item-5" className="bg-gray-800/30 rounded-lg px-6">
               <AccordionTrigger className="text-left hover:no-underline">
                 <div className="flex flex-col md:flex-row items-start gap-4 w-full">
                   <div className="md:w-1/4 flex-shrink-0">
                     <img 
                       src="/lovable-uploads/af402ddf-73a3-479b-9916-5d0085439648.png" 
-                      alt="Evmux interface screenshot"
+                      alt="Virtual creator studio interface screenshot"
                       className="w-full h-32 object-cover rounded-lg"
                     />
                   </div>
                   <div className="md:w-3/4">
-                    <h3 className="text-2xl font-bold text-[#E0BBE4] mb-2">Your Grand Finale: Integrating Everything with Evmux</h3>
+                    <h3 className="text-2xl font-bold text-[#E0BBE4] mb-2">Your Grand Finale: Integrating Everything with Your Virtual Creator Studio</h3>
                     <p className="text-white text-base">
-                      You've built a magnificent studio! Now for the exciting last step: connecting your incredible setup to Evmux.
+                      You've built a magnificent studio! Now for the exciting last step: connecting your incredible setup to your virtual creator studio.
                     </p>
                   </div>
                 </div>
               </AccordionTrigger>
               <AccordionContent className="text-white space-y-6 pt-6">
-                <h4 className="text-xl font-semibold text-white mb-4">Launching Evmux:</h4>
+                <h4 className="text-xl font-semibold text-white mb-4">Launching Your Virtual Creator Studio:</h4>
                 <ul className="text-white space-y-3 mb-8">
-                  <li>• Open your favorite web browser and gracefully navigate to Evmux. Log in to your creative studio space.</li>
+                  <li>• Open your favorite web browser and gracefully navigate to your virtual creator studio. Log in to your creative studio space.</li>
                 </ul>
 
-                <h4 className="text-xl font-semibold text-white mb-4">Selecting Your Amazing Audio Input in Evmux:</h4>
+                <h4 className="text-xl font-semibold text-white mb-4">Selecting Your Amazing Audio Input in Your Virtual Creator Studio:</h4>
                 <ul className="text-white space-y-3 mb-8">
-                  <li>• Within the Evmux studio interface, find the audio input settings (they're usually found in the 'Sources' or 'Audio' section – keep an eye out!).</li>
+                  <li>• Within the virtual creator studio interface, find the audio input settings (they're usually found in the 'Sources' or 'Audio' section – keep an eye out!).</li>
                   <li>• From the list of available microphones, proudly select <span className="text-[#E0BBE4] font-bold">'Shure MV7i'</span>.</li>
                   <li>• You'll see your audio levels happily reacting as you speak. Fine-tune the gain on your MV7i (via its touch panel or the MOTIV Mix app) to ensure your audio levels are robust and lively, but never, ever 'clipping' (hitting that red zone, which means distortion!).</li>
                 </ul>
 
-                <h4 className="text-xl font-semibold text-white mb-4">Selecting Your Stunning Video Input in Evmux:</h4>
+                <h4 className="text-xl font-semibold text-white mb-4">Selecting Your Stunning Video Input in Your Virtual Creator Studio:</h4>
                 <ul className="text-white space-y-3 mb-8">
-                  <li>• In the Evmux studio, locate the video input settings (typically under 'Sources' or 'Camera').</li>
+                  <li>• In your virtual creator studio, locate the video input settings (typically under 'Sources' or 'Camera').</li>
                   <li>• Select <span className="text-[#E0BBE4] font-bold">'Logitech MX Brio'</span> from the camera options.</li>
-                  <li>• And just like magic, your crystal-clear video feed from the webcam should now beautifully appear in Evmux! You're looking fantastic!</li>
+                  <li>• And just like magic, your crystal-clear video feed from the webcam should now beautifully appear in your virtual creator studio! You're looking fantastic!</li>
                 </ul>
 
                 <h4 className="text-xl font-semibold text-white mb-4">Your Final Polish & Positioning (Ready for your desk pic!):</h4>
