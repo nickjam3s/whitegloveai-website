@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import {
@@ -236,6 +237,19 @@ const MediaAIEquipment = () => {
           className="mb-20"
         >
           <h2 className="text-3xl font-bold text-[#E0BBE4] mb-8 text-center">Installation Guide</h2>
+          
+          {/* Setup Reference Image */}
+          <div className="mb-12 text-center">
+            <img 
+              src="/lovable-uploads/4040e3a6-212a-4a03-a3fd-ed1f131a9e30.png" 
+              alt="Professional MediaAI studio setup with microphone on boom arm, LED lights, and clean workspace"
+              className="w-full max-w-3xl mx-auto rounded-lg shadow-lg"
+            />
+            <p className="text-gray-300 text-sm mt-4 italic">
+              Reference example of a complete MediaAI studio setup
+            </p>
+          </div>
+
           <p className="text-white text-lg mb-12 text-center">
             Now that you have your equipment, let's set everything up for professional-quality content creation!
           </p>
