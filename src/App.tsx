@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -27,6 +26,7 @@ import AutomateAI from "./pages/maisp/AutomateAI";
 import HumanoidAI from "./pages/maisp/HumanoidAI";
 import VendorAI from "./pages/maisp/VendorAI";
 import MediaAI from "./pages/maisp/MediaAI";
+import MediaAIEquipment from "./pages/maisp/MediaAIEquipment";
 
 // vCAIO Routes
 import VCAIO from "./pages/vcaio/Index";
@@ -72,6 +72,7 @@ const App = () => {
                 <Route path="/maisp/humaniodai" element={<HumanoidAI />} />
                 <Route path="/maisp/vendorai" element={<VendorAI />} />
                 <Route path="/maisp/mediaai" element={<MediaAI />} />
+                <Route path="/maisp/mediaai/equipment" element={<MediaAIEquipment />} />
                 
                 {/* vCAIO Routes */}
                 <Route path="/vcaio" element={<VCAIO />} />
