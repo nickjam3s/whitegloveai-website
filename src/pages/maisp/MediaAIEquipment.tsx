@@ -147,9 +147,11 @@ const MediaAIEquipment = () => {
             <div className="bg-gray-800/50 rounded-lg p-6 mb-6">
               <div className="flex flex-col md:flex-row gap-6">
                 <div className="md:w-1/3">
-                  <div className="bg-gray-500 p-8 rounded-lg text-center italic text-gray-300 h-48 flex items-center justify-center">
-                    [LED Desk Lamps Image]
-                  </div>
+                  <img 
+                    src="/lovable-uploads/36acb779-b82b-4a51-b6d1-d928e28dc856.png" 
+                    alt="2 Packs Led Desk Lamps for Home Office"
+                    className="w-full h-48 object-contain rounded-lg bg-white p-4"
+                  />
                 </div>
                 <div className="md:w-2/3">
                   <h4 className="text-xl font-bold text-white mb-3">2 Packs Led Desk Lamps for Home Office</h4>
