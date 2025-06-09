@@ -1,7 +1,6 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Mail } from "lucide-react";
 
@@ -61,12 +60,12 @@ const PinProtection = ({ onSuccess, title, description }: PinProtectionProps) =>
             <p className="text-red-400 text-sm">{error}</p>
           )}
           
-          <Button
+          <button
             type="submit"
-            className="w-full bg-[#E0BBE4] text-black hover:bg-[#d4a5d8] font-semibold"
+            className="w-full bg-[#E0BBE4] text-black hover:bg-[#d4a5d8] font-semibold px-4 py-2 rounded-md transition-colors"
           >
             Access Content
-          </Button>
+          </button>
         </form>
         
         <div className="mt-6 pt-6 border-t border-gray-700">
