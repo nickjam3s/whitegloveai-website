@@ -1,4 +1,5 @@
 
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import {
@@ -10,29 +11,85 @@ import {
 
 const MediaAIEquipment = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#1A0D33] to-black font-sora pt-20">
+    <div className="min-h-screen bg-gradient-to-b from-[#1A0D33] to-black font-sora">
+      {/* Hero Section */}
+      <section className="relative pt-40 pb-28 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        {/* Sound Wave Animation Background */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-b from-[#7021EE]/20 to-black/90" />
+          {[...Array(12)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute bg-[#E0BBE4]/20 rounded-full"
+              initial={{
+                x: Math.random() * window.innerWidth,
+                y: Math.random() * window.innerHeight,
+                scaleY: Math.random() * 0.5 + 0.5,
+              }}
+              animate={{
+                scaleY: [0.3, 1.5, 0.3],
+                opacity: [0.2, 0.8, 0.2],
+                y: [
+                  Math.random() * window.innerHeight,
+                  Math.random() * window.innerHeight * 0.5,
+                  Math.random() * window.innerHeight,
+                ],
+              }}
+              transition={{
+                duration: Math.random() * 3 + 2,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: i * 0.2,
+              }}
+              style={{
+                width: `${Math.random() * 8 + 4}px`,
+                height: `${Math.random() * 200 + 100}px`,
+                left: `${10 + i * 7}%`,
+              }}
+            />
+          ))}
+        </div>
+
+        <div className="max-w-4xl mx-auto relative z-10">
+          <div className="text-center">
+            <div className="flex justify-center mb-6">
+              <img 
+                src="/lovable-uploads/351136e7-c241-4c56-a606-3ff7a65a05ac.png" 
+                alt="WGAI Logo" 
+                width="100" 
+                height="100" 
+                className="logo-animation mx-auto" 
+                style={{ 
+                  filter: "hue-rotate(260deg) brightness(150%) drop-shadow(0 0 10px rgba(112, 33, 238, 0.6))",
+                  display: "block" 
+                }}
+              />
+            </div>
+            <motion.h1 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="text-4xl md:text-5xl font-bold text-center text-[#E0BBE4] mb-8"
+            >
+              WhitegloveAI MediaAI Setup
+            </motion.h1>
+
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-center text-white text-lg md:text-xl mb-12 leading-relaxed max-w-3xl mx-auto"
+            >
+              Welcome, content creator! You're about to embark on an exciting journey into high-quality digital media. 
+              This guide will gently walk you through choosing and setting up your new WhitegloveAI MediaAI studio, ensuring everything 
+              is <span className="text-[#E0BBE4] font-bold">purr-fectly ready</span> for Evmux. Let's make some magic!
+            </motion.p>
+          </div>
+        </div>
+      </section>
+
+      {/* Main Content */}
       <div className="max-w-4xl mx-auto px-6 py-12">
-        {/* Main Title */}
-        <motion.h1 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-4xl md:text-5xl font-bold text-center text-[#E0BBE4] mb-8"
-        >
-          WhitegloveAI MediaAI Setup
-        </motion.h1>
-
-        {/* Introduction */}
-        <motion.p 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          className="text-center text-white text-lg md:text-xl mb-12 leading-relaxed"
-        >
-          Welcome, content creator! You're about to embark on an exciting journey into high-quality digital media. 
-          This guide will gently walk you through choosing and setting up your new WhitegloveAI MediaAI studio, ensuring everything 
-          is <span className="text-[#E0BBE4] font-bold">purr-fectly ready</span> for Evmux. Let's make some magic!
-        </motion.p>
-
         {/* Buying Guide Section */}
         <motion.section 
           initial={{ opacity: 0, y: 20 }}
@@ -477,3 +534,4 @@ const MediaAIEquipment = () => {
 };
 
 export default MediaAIEquipment;
+
