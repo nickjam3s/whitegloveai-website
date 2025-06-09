@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import {
@@ -81,9 +80,11 @@ const MediaAIEquipment = () => {
             <div className="bg-gray-800/50 rounded-lg p-6 mb-6">
               <div className="flex flex-col md:flex-row gap-6">
                 <div className="md:w-1/3">
-                  <div className="bg-gray-500 p-8 rounded-lg text-center italic text-gray-300 h-48 flex items-center justify-center">
-                    [Boom Arm Image]
-                  </div>
+                  <img 
+                    src="/lovable-uploads/429d9e4b-84a2-4f60-b2a2-eb35c4e1ca80.png" 
+                    alt="Shure by Gator Deluxe Articulating Desktop Podcasting Mic Boom Arm"
+                    className="w-full h-48 object-contain rounded-lg bg-white p-4"
+                  />
                 </div>
                 <div className="md:w-2/3">
                   <h4 className="text-xl font-bold text-white mb-3">Shure by Gator Deluxe Articulating Desktop Podcasting Mic Boom Arm</h4>
@@ -198,7 +199,6 @@ const MediaAIEquipment = () => {
                 </div>
               </AccordionTrigger>
               <AccordionContent className="text-white space-y-6 pt-6">
-                {/* ... keep existing code (MV7i setup content) */}
                 <h4 className="text-xl font-semibold text-white mb-4">Getting Your MV7i Ready on the Boom Arm:</h4>
                 <ul className="text-white space-y-3 mb-8">
                   <li>• First, let's unbox your stylish <span className="text-[#E0BBE4] font-bold">Shure by Gator Deluxe Articulating Desktop Podcasting Mic Boom Arm</span>. So professional!</li>
@@ -271,7 +271,6 @@ const MediaAIEquipment = () => {
                 </div>
               </AccordionTrigger>
               <AccordionContent className="text-white space-y-6 pt-6">
-                {/* ... keep existing code (MX Brio setup content) */}
                 <h4 className="text-xl font-semibold text-white mb-4">Mounting Your MX Brio:</h4>
                 <ul className="text-white space-y-3 mb-8">
                   <li>• Your MX Brio comes with a super clever mount. Gently place it securely on top of your monitor, laptop screen, or even on a small desktop tripod if that's your preferred vantage point. Just ensure it's stable and beautifully facing you.</li>
@@ -327,7 +326,6 @@ const MediaAIEquipment = () => {
                 </div>
               </AccordionTrigger>
               <AccordionContent className="text-white space-y-6 pt-6">
-                {/* ... keep existing code (LED lights setup content) */}
                 <h4 className="text-xl font-semibold text-white mb-4">Assembling and Positioning Your Lights:</h4>
                 <ul className="text-white space-y-3 mb-6">
                   <li>• Unbox your <span className="text-[#E0BBE4] font-bold">2 Pack LED Desk Lamps</span> and set them up following their simple instructions.</li>
@@ -370,7 +368,6 @@ const MediaAIEquipment = () => {
                 </div>
               </AccordionTrigger>
               <AccordionContent className="text-white space-y-6 pt-6">
-                {/* ... keep existing code (background setup content) */}
                 <h4 className="text-xl font-semibold text-white mb-4">Embrace the Power of Simplicity:</h4>
                 <ul className="text-white space-y-3 mb-8">
                   <li>• The golden rule for backgrounds: <span className="text-[#E0BBE4] font-bold">less is almost always more!</span> Gently remove anything that looks cluttered, messy, or might pull attention away from your amazing self. Think clean, organized, and inviting.</li>
@@ -422,7 +419,6 @@ const MediaAIEquipment = () => {
                 </div>
               </AccordionTrigger>
               <AccordionContent className="text-white space-y-6 pt-6">
-                {/* ... keep existing code (Evmux integration content) */}
                 <h4 className="text-xl font-semibold text-white mb-4">Launching Evmux:</h4>
                 <ul className="text-white space-y-3 mb-8">
                   <li>• Open your favorite web browser and gracefully navigate to Evmux. Log in to your creative studio space.</li>
