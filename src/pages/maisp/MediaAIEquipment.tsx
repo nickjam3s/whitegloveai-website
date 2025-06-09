@@ -264,9 +264,11 @@ const MediaAIEquipment = () => {
               <AccordionTrigger className="text-left hover:no-underline">
                 <div className="flex flex-col md:flex-row items-start gap-4 w-full">
                   <div className="md:w-1/4 flex-shrink-0">
-                    <div className="bg-gray-500 p-4 rounded-lg text-center italic text-gray-300 h-32 flex items-center justify-center text-sm">
-                      [Pic of MX Brio mounted on a monitor]
-                    </div>
+                    <img 
+                      src="/lovable-uploads/758e2466-2b11-45ff-b235-a8e4c5912bdb.png" 
+                      alt="MX Brio mounted on a monitor"
+                      className="w-full h-32 object-cover rounded-lg"
+                    />
                   </div>
                   <div className="md:w-3/4">
                     <h3 className="text-2xl font-bold text-[#E0BBE4] mb-2">Your Vision, Captured: Logitech MX Brio 4K Webcam Setup</h3>
