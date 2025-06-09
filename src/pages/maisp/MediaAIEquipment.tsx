@@ -86,7 +86,7 @@ const MediaAIEquipment = () => {
 
           <h3 className="text-2xl font-semibold text-white mb-4">Your First Sound Check:</h3>
           <ul className="text-white space-y-3 mb-8">
-            <li>• Once connected, your MacBook should give a friendly nod to the MV7i. Head to System Settings > Sound > Input.</li>
+            <li>• Once connected, your MacBook should give a friendly nod to the MV7i. Head to System Settings {'>'}  Sound {'>'}  Input.</li>
             <li>• Select <span className="text-[#E0BBE4] font-bold">'Shure MV7i'</span> as your input device – you're almost there!</li>
             <li>• Now, plug your favorite headphones into the headphone jack on the back of the MV7i.</li>
             <li>• Speak naturally into the microphone. Watch the input level meter in System Settings dance! You want it to mostly stay in the 'good' range, happily avoiding the red zone (that means distortion, and we don't like clipping!). Adjust the gain on the MV7i itself (via its touch panel or the MOTIV Mix app) until your levels are just right.</li>
@@ -140,7 +140,7 @@ const MediaAIEquipment = () => {
           <h3 className="text-2xl font-semibold text-white mb-4">Your First Visual Check:</h3>
           <ul className="text-white space-y-3 mb-8">
             <li>• Open any application that uses your webcam (like Photo Booth, Zoom, or even Evmux itself!).</li>
-            <li>• Head to System Settings > Camera. Confirm that <span className="text-[#E0BBE4] font-bold">'Logitech MX Brio'</span> is happily selected.</li>
+            <li>• Head to System Settings {'>'}  Camera. Confirm that <span className="text-[#E0BBE4] font-bold">'Logitech MX Brio'</span> is happily selected.</li>
             <li>• Take a peek at your video feed. Are you looking fantastic and ready for your close-up?</li>
           </ul>
 
