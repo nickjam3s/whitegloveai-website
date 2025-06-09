@@ -41,10 +41,10 @@ const MediaAI = () => {
             <Link to="/maisp/mediaai/equipment">
               <Button 
                 size="lg" 
-                className="bg-gradient-to-r from-[#7021EE] to-[#E0BBE4] text-white font-semibold px-8 py-4 text-lg hover:opacity-90 transition-opacity"
+                className="bg-gradient-to-r from-[#7021EE] to-[#E0BBE4] hover:from-[#5d1bc7] hover:to-[#d4a5d8] text-white font-semibold px-8 py-4 text-lg transition-all duration-300 relative z-10"
               >
-                View Our Recommended Equipment List
-                <ArrowRight className="ml-2 h-5 w-5" />
+                <span className="relative z-20">View Our Recommended Equipment List</span>
+                <ArrowRight className="ml-2 h-5 w-5 relative z-20" />
               </Button>
             </Link>
           </motion.div>

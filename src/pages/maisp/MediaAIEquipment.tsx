@@ -1,10 +1,9 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 
 const MediaAIEquipment = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#1A0D33] to-black font-sora">
+    <div className="min-h-screen bg-gradient-to-b from-[#1A0D33] to-black font-sora pt-20">
       <div className="max-w-4xl mx-auto px-6 py-12">
         {/* Main Title */}
         <motion.h1 
@@ -23,15 +22,160 @@ const MediaAIEquipment = () => {
           className="text-center text-white text-lg md:text-xl mb-12 leading-relaxed"
         >
           Welcome, content creator! You're about to embark on an exciting journey into high-quality digital media. 
-          This guide will gently walk you through setting up your new WhitegloveAI MediaAI studio, ensuring everything 
+          This guide will gently walk you through choosing and setting up your new WhitegloveAI MediaAI studio, ensuring everything 
           is <span className="text-[#E0BBE4] font-bold">purr-fectly ready</span> for Evmux. Let's make some magic!
         </motion.p>
+
+        {/* Buying Guide Section */}
+        <motion.section 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+          className="mb-20"
+        >
+          <h2 className="text-3xl font-bold text-[#E0BBE4] mb-8 text-center">Equipment Buying Guide</h2>
+          <p className="text-white text-lg mb-12 text-center">
+            Here's everything you need to create your professional MediaAI studio. Click on any product to purchase directly from Amazon!
+          </p>
+
+          {/* Audio Equipment */}
+          <div className="mb-12">
+            <h3 className="text-2xl font-semibold text-[#E0BBE4] mb-6">Audio Equipment</h3>
+            
+            {/* Shure MV7i */}
+            <div className="bg-gray-800/50 rounded-lg p-6 mb-6">
+              <div className="flex flex-col md:flex-row gap-6">
+                <div className="md:w-1/3">
+                  <div className="bg-gray-500 p-8 rounded-lg text-center italic text-gray-300 h-48 flex items-center justify-center">
+                    [Shure MV7i Microphone Image]
+                  </div>
+                </div>
+                <div className="md:w-2/3">
+                  <h4 className="text-xl font-bold text-white mb-3">Shure MV7i Smart Microphone with Built-in Audio Interface</h4>
+                  <p className="text-gray-300 mb-4">
+                    The ultimate all-in-one solution featuring a premium microphone with built-in equalizer and audio interface. 
+                    Perfect for professional podcast recording with zero additional hardware needed.
+                  </p>
+                  <a 
+                    href="https://amzn.to/43SQqVM" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-block bg-[#E0BBE4] text-black px-6 py-2 rounded-lg font-semibold hover:bg-[#d4a5d8] transition-colors"
+                  >
+                    Buy on Amazon
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Boom Arm */}
+            <div className="bg-gray-800/50 rounded-lg p-6 mb-6">
+              <div className="flex flex-col md:flex-row gap-6">
+                <div className="md:w-1/3">
+                  <div className="bg-gray-500 p-8 rounded-lg text-center italic text-gray-300 h-48 flex items-center justify-center">
+                    [Boom Arm Image]
+                  </div>
+                </div>
+                <div className="md:w-2/3">
+                  <h4 className="text-xl font-bold text-white mb-3">Shure by Gator Deluxe Articulating Desktop Podcasting Mic Boom Arm</h4>
+                  <p className="text-gray-300 mb-4">
+                    Professional boom arm with cable management channel, designed specifically for the Shure MV7i. 
+                    Provides perfect positioning and keeps your desk clean and organized.
+                  </p>
+                  <a 
+                    href="https://amzn.to/43AmtL7" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-block bg-[#E0BBE4] text-black px-6 py-2 rounded-lg font-semibold hover:bg-[#d4a5d8] transition-colors"
+                  >
+                    Buy on Amazon
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Video Equipment */}
+          <div className="mb-12">
+            <h3 className="text-2xl font-semibold text-[#E0BBE4] mb-6">Video Equipment</h3>
+            
+            {/* Logitech MX Brio */}
+            <div className="bg-gray-800/50 rounded-lg p-6 mb-6">
+              <div className="flex flex-col md:flex-row gap-6">
+                <div className="md:w-1/3">
+                  <div className="bg-gray-500 p-8 rounded-lg text-center italic text-gray-300 h-48 flex items-center justify-center">
+                    [Logitech MX Brio Image]
+                  </div>
+                </div>
+                <div className="md:w-2/3">
+                  <h4 className="text-xl font-bold text-white mb-3">Logitech MX Brio Ultra HD 4K Collaboration and Streaming Webcam</h4>
+                  <p className="text-gray-300 mb-4">
+                    Crystal-clear 4K video quality with advanced autofocus and light correction. 
+                    The perfect webcam for professional streaming and video calls.
+                  </p>
+                  <a 
+                    href="https://amzn.to/4l2EZSq" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-block bg-[#E0BBE4] text-black px-6 py-2 rounded-lg font-semibold hover:bg-[#d4a5d8] transition-colors"
+                  >
+                    Buy on Amazon
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Lighting Equipment */}
+          <div className="mb-12">
+            <h3 className="text-2xl font-semibold text-[#E0BBE4] mb-6">Lighting Equipment</h3>
+            
+            {/* LED Desk Lamps */}
+            <div className="bg-gray-800/50 rounded-lg p-6 mb-6">
+              <div className="flex flex-col md:flex-row gap-6">
+                <div className="md:w-1/3">
+                  <div className="bg-gray-500 p-8 rounded-lg text-center italic text-gray-300 h-48 flex items-center justify-center">
+                    [LED Desk Lamps Image]
+                  </div>
+                </div>
+                <div className="md:w-2/3">
+                  <h4 className="text-xl font-bold text-white mb-3">2 Packs Led Desk Lamps for Home Office</h4>
+                  <p className="text-gray-300 mb-4">
+                    Professional lighting setup with adjustable brightness and color temperature. 
+                    Perfect for creating flattering, professional lighting for your video content.
+                  </p>
+                  <a 
+                    href="https://amzn.to/45ggzjC" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-block bg-[#E0BBE4] text-black px-6 py-2 rounded-lg font-semibold hover:bg-[#d4a5d8] transition-colors"
+                  >
+                    Buy on Amazon
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.section>
+
+        {/* Installation Guide Section */}
+        <motion.section 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4 }}
+          className="mb-20"
+        >
+          <h2 className="text-3xl font-bold text-[#E0BBE4] mb-8 text-center">Installation Guide</h2>
+          <p className="text-white text-lg mb-12 text-center">
+            Now that you have your equipment, let's set everything up for professional-quality content creation!
+          </p>
+        </motion.section>
 
         {/* Section 1: Shure MV7i Setup */}
         <motion.section 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
+          transition={{ delay: 0.5 }}
           className="mb-16"
         >
           <h2 className="text-3xl font-bold text-[#E0BBE4] mb-6">Your Voice, Amplified: Shure MV7i & Boom Arm Setup</h2>
@@ -101,7 +245,7 @@ const MediaAIEquipment = () => {
         <motion.section 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4 }}
+          transition={{ delay: 0.6 }}
           className="mb-16"
         >
           <h2 className="text-3xl font-bold text-[#E0BBE4] mb-6">Your Vision, Captured: Logitech MX Brio 4K Webcam Setup</h2>
@@ -149,14 +293,14 @@ const MediaAIEquipment = () => {
           </div>
         </motion.section>
 
-        {/* Section 3: Neewer LED Lights Setup */}
+        {/* Section 3: LED Lights Setup */}
         <motion.section 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5 }}
+          transition={{ delay: 0.7 }}
           className="mb-16"
         >
-          <h2 className="text-3xl font-bold text-[#E0BBE4] mb-6">Your Glow-Up: Neewer USB LED Video Lights (2-Pack) Setup</h2>
+          <h2 className="text-3xl font-bold text-[#E0BBE4] mb-6">Your Glow-Up: LED Desk Lamps Setup</h2>
           <p className="text-white text-lg mb-8">
             <span className="text-[#E0BBE4] font-bold">Shine bright like a diamond!</span> Fantastic lighting is the secret sauce for professional-looking video. 
             With two lights, you'll create a flattering, captivating look that truly sets you apart.
@@ -164,8 +308,7 @@ const MediaAIEquipment = () => {
 
           <h3 className="text-2xl font-semibold text-white mb-4">Assembling and Positioning Your Lights:</h3>
           <ul className="text-white space-y-3 mb-6">
-            <li>• Unbox your <span className="text-[#E0BBE4] font-bold">Neewer 2-Pack Dimmable 5600K USB LED Video Lights</span> and assemble them following their simple instructions.</li>
-            <li>• Attach each sleek light panel to its mini tripod stand.</li>
+            <li>• Unbox your <span className="text-[#E0BBE4] font-bold">2 Pack LED Desk Lamps</span> and set them up following their simple instructions.</li>
             <li>• <span className="text-[#E0BBE4] font-bold">Placement is everything!</span>
               <ul className="ml-6 mt-2 space-y-2">
                 <li>- Place one light slightly to your left-front (imagine a 45-degree angle from your camera). This is your powerful 'key light' – it defines your features!</li>
@@ -173,17 +316,16 @@ const MediaAIEquipment = () => {
               </ul>
             </li>
             <li>• Adjust the height and angle of each light so they lovingly illuminate your face, banishing harsh shadows. Try to avoid pointing them straight at you, as that can flatten your features. We want that beautiful dimension!</li>
-            <li>• Connect each light to an available USB port on your MacBook or a trusty USB wall adapter/power bank.</li>
           </ul>
 
           <div className="bg-gray-500 p-8 rounded-lg mb-8 text-center italic text-gray-300">
-            [Pic of two Neewer lights positioned on desk for lighting]
+            [Pic of two LED desk lamps positioned for lighting]
           </div>
 
           <h3 className="text-2xl font-semibold text-white mb-4">Dialing in Brightness and Color:</h3>
           <ul className="text-white space-y-3 mb-8">
-            <li>• Switch on both lights! If they have adjustable brightness, play around until you find a comfortable, bright, yet soft glow on your face.</li>
-            <li>• The <span className="text-[#E0BBE4] font-bold">5600K color temperature</span> is designed to mimic natural daylight, which is absolutely perfect for video. Make sure both lights are set consistently for a beautifully uniform glow.</li>
+            <li>• Switch on both lights! Adjust the brightness until you find a comfortable, bright, yet soft glow on your face.</li>
+            <li>• Set both lights to a consistent color temperature for a beautifully uniform glow across your face.</li>
           </ul>
 
           <div className="bg-gray-500 p-8 rounded-lg mb-8 text-center italic text-gray-300">
@@ -195,7 +337,7 @@ const MediaAIEquipment = () => {
         <motion.section 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6 }}
+          transition={{ delay: 0.8 }}
           className="mb-16"
         >
           <h2 className="text-3xl font-bold text-[#E0BBE4] mb-6">Crafting Your Canvas: Background Setup Tips</h2>
@@ -240,7 +382,7 @@ const MediaAIEquipment = () => {
         <motion.section 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.7 }}
+          transition={{ delay: 0.9 }}
           className="mb-16"
         >
           <h2 className="text-3xl font-bold text-[#E0BBE4] mb-6">Your Grand Finale: Integrating Everything with Evmux</h2>
