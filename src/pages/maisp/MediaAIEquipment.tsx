@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import {
@@ -321,9 +322,11 @@ const MediaAIEquipment = () => {
               <AccordionTrigger className="text-left hover:no-underline">
                 <div className="flex flex-col md:flex-row items-start gap-4 w-full">
                   <div className="md:w-1/4 flex-shrink-0">
-                    <div className="bg-gray-500 p-4 rounded-lg text-center italic text-gray-300 h-32 flex items-center justify-center text-sm">
-                      [Pic of two LED desk lamps positioned for lighting]
-                    </div>
+                    <img 
+                      src="/lovable-uploads/923a41b1-bccb-4480-aba6-948960182afa.png" 
+                      alt="Two LED desk lamps positioned for lighting"
+                      className="w-full h-32 object-cover rounded-lg"
+                    />
                   </div>
                   <div className="md:w-3/4">
                     <h3 className="text-2xl font-bold text-[#E0BBE4] mb-2">Your Glow-Up: LED Desk Lamps Setup</h3>
