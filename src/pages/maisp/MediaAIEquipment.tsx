@@ -1,5 +1,3 @@
-
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import {
@@ -278,10 +276,6 @@ const MediaAIEquipment = () => {
                   <li>• <span className="text-[#E0BBE4] font-bold">Psst:</span> We'll personalize the mic's exact placement after you share your desk layout. That's where the real magic happens!</li>
                 </ul>
 
-                <div className="bg-gray-500 p-8 rounded-lg mb-8 text-center italic text-gray-300">
-                  [Pic of boom arm clamped to desk]
-                </div>
-
                 <h4 className="text-xl font-semibold text-white mb-4">Connecting Your MV7i to Your MacBook:</h4>
                 <ul className="text-white space-y-3 mb-8">
                   <li>• Spot the USB-C port nestled on the back of your Shure MV7i.</li>
@@ -289,19 +283,11 @@ const MediaAIEquipment = () => {
                   <li>• <span className="text-[#E0BBE4] font-bold">Isn't it smart?</span> Your MV7i gets all the power it needs right from your computer – simple and sweet!</li>
                 </ul>
 
-                <div className="bg-gray-500 p-8 rounded-lg mb-8 text-center italic text-gray-300">
-                  [Pic of USB-C cable connected from MV7i to MacBook]
-                </div>
-
                 <h4 className="text-xl font-semibold text-white mb-4">Unleash More Power with ShurePlus MOTIV Mix Desktop App (Highly Recommended!):</h4>
                 <ul className="text-white space-y-3 mb-8">
                   <li>• Head over to the official Shure website (shure.com) and download the <span className="text-[#E0BBE4] font-bold">ShurePlus MOTIV Mix Desktop App</span> tailored for macOS.</li>
                   <li>• Install it with a smile! This incredible app is your control center, allowing you to fine-tune gain, EQ, monitoring mix, and activate fantastic features like Auto Level Mode and SmartGate for truly pristine audio.</li>
                 </ul>
-
-                <div className="bg-gray-500 p-8 rounded-lg mb-8 text-center italic text-gray-300">
-                  [Pic of MOTIV Mix App interface]
-                </div>
 
                 <h4 className="text-xl font-semibold text-white mb-4">Your First Sound Check:</h4>
                 <ul className="text-white space-y-3 mb-8">
@@ -310,10 +296,6 @@ const MediaAIEquipment = () => {
                   <li>• Now, plug your favorite headphones into the headphone jack on the back of the MV7i.</li>
                   <li>• Speak naturally into the microphone. Watch the input level meter in System Settings dance! You want it to mostly stay in the 'good' range, happily avoiding the red zone (that means distortion, and we don't like clipping!). Adjust the gain on the MV7i itself (via its touch panel or the MOTIV Mix app) until your levels are just right.</li>
                 </ul>
-
-                <div className="bg-gray-500 p-8 rounded-lg mb-8 text-center italic text-gray-300">
-                  [Pic of MacBook Sound Input settings showing MV7i selected]
-                </div>
               </AccordionContent>
             </AccordionItem>
 
@@ -347,19 +329,11 @@ const MediaAIEquipment = () => {
                   <li>• Using the provided USB-C to USB-C cable (or the USB-C to USB-A adapter if your computer prefers), connect your MX Brio directly to an available USB port on your MacBook. <span className="text-[#E0BBE4] font-bold">Easy peasy!</span></li>
                 </ul>
 
-                <div className="bg-gray-500 p-8 rounded-lg mb-8 text-center italic text-gray-300">
-                  [Pic of MX Brio USB cable connected to MacBook]
-                </div>
-
                 <h4 className="text-xl font-semibold text-white mb-4">Refining Your Look with Logi Options+ (Highly Recommended!):</h4>
                 <ul className="text-white space-y-3 mb-8">
                   <li>• Download the <span className="text-[#E0BBE4] font-bold">Logi Options+</span> software from Logitech's official website.</li>
                   <li>• This powerful software is like having your own personal video director! It lets you fine-tune your webcam's settings, from resolution and field of view to brightness, contrast, and color balance. Get ready to look amazing!</li>
                 </ul>
-
-                <div className="bg-gray-500 p-8 rounded-lg mb-8 text-center italic text-gray-300">
-                  [Pic of Logi Options+ interface]
-                </div>
 
                 <h4 className="text-xl font-semibold text-white mb-4">Your First Visual Check:</h4>
                 <ul className="text-white space-y-3 mb-8">
@@ -367,10 +341,6 @@ const MediaAIEquipment = () => {
                   <li>• Head to System Settings {'>'}  Camera. Confirm that <span className="text-[#E0BBE4] font-bold">'Logitech MX Brio'</span> is happily selected.</li>
                   <li>• Take a peek at your video feed. Are you looking fantastic and ready for your close-up?</li>
                 </ul>
-
-                <div className="bg-gray-500 p-8 rounded-lg mb-8 text-center italic text-gray-300">
-                  [Pic of MacBook Camera settings showing MX Brio selected]
-                </div>
               </AccordionContent>
             </AccordionItem>
 
@@ -411,10 +381,6 @@ const MediaAIEquipment = () => {
                   <li>• Switch on both lights! Adjust the brightness until you find a comfortable, bright, yet soft glow on your face.</li>
                   <li>• Set both lights to a consistent color temperature for a beautifully uniform glow across your face.</li>
                 </ul>
-
-                <div className="bg-gray-500 p-8 rounded-lg mb-8 text-center italic text-gray-300">
-                  [Pic of the lights turned on and illuminating a person]
-                </div>
               </AccordionContent>
             </AccordionItem>
 
@@ -534,4 +500,3 @@ const MediaAIEquipment = () => {
 };
 
 export default MediaAIEquipment;
-
