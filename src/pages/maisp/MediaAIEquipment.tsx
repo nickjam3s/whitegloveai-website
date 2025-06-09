@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import {
@@ -52,9 +53,11 @@ const MediaAIEquipment = () => {
             <div className="bg-gray-800/50 rounded-lg p-6 mb-6">
               <div className="flex flex-col md:flex-row gap-6">
                 <div className="md:w-1/3">
-                  <div className="bg-gray-500 p-8 rounded-lg text-center italic text-gray-300 h-48 flex items-center justify-center">
-                    [Shure MV7i Microphone Image]
-                  </div>
+                  <img 
+                    src="/lovable-uploads/07f5c978-8f08-41bb-84d9-e07adfdd4de3.png" 
+                    alt="Shure MV7i Smart Microphone with Built-in Audio Interface"
+                    className="w-full h-48 object-contain rounded-lg bg-white p-4"
+                  />
                 </div>
                 <div className="md:w-2/3">
                   <h4 className="text-xl font-bold text-white mb-3">Shure MV7i Smart Microphone with Built-in Audio Interface</h4>
