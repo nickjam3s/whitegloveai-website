@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import {
@@ -444,20 +443,12 @@ const MediaAIEquipment = () => {
                   <li>• You'll see your audio levels happily reacting as you speak. Fine-tune the gain on your MV7i (via its touch panel or the MOTIV Mix app) to ensure your audio levels are robust and lively, but never, ever 'clipping' (hitting that red zone, which means distortion!).</li>
                 </ul>
 
-                <div className="bg-gray-500 p-8 rounded-lg mb-8 text-center italic text-gray-300">
-                  [Screenshot of Evmux audio input settings showing Shure MV7i selected]
-                </div>
-
                 <h4 className="text-xl font-semibold text-white mb-4">Selecting Your Stunning Video Input in Evmux:</h4>
                 <ul className="text-white space-y-3 mb-8">
                   <li>• In the Evmux studio, locate the video input settings (typically under 'Sources' or 'Camera').</li>
                   <li>• Select <span className="text-[#E0BBE4] font-bold">'Logitech MX Brio'</span> from the camera options.</li>
                   <li>• And just like magic, your crystal-clear video feed from the webcam should now beautifully appear in Evmux! You're looking fantastic!</li>
                 </ul>
-
-                <div className="bg-gray-500 p-8 rounded-lg mb-8 text-center italic text-gray-300">
-                  [Screenshot of Evmux video input settings showing Logitech MX Brio selected]
-                </div>
 
                 <h4 className="text-xl font-semibold text-white mb-4">Your Final Polish & Positioning (Ready for your desk pic!):</h4>
                 <ul className="text-white space-y-3 mb-8">
