@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import {
@@ -113,9 +114,11 @@ const MediaAIEquipment = () => {
             <div className="bg-gray-800/50 rounded-lg p-6 mb-6">
               <div className="flex flex-col md:flex-row gap-6">
                 <div className="md:w-1/3">
-                  <div className="bg-gray-500 p-8 rounded-lg text-center italic text-gray-300 h-48 flex items-center justify-center">
-                    [Logitech MX Brio Image]
-                  </div>
+                  <img 
+                    src="/lovable-uploads/6ae7318d-0d54-4516-9a73-85626e4a58d0.png" 
+                    alt="Logitech MX Brio Ultra HD 4K Collaboration and Streaming Webcam"
+                    className="w-full h-48 object-contain rounded-lg bg-white p-4"
+                  />
                 </div>
                 <div className="md:w-2/3">
                   <h4 className="text-xl font-bold text-white mb-3">Logitech MX Brio Ultra HD 4K Collaboration and Streaming Webcam</h4>
