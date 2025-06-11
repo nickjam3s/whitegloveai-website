@@ -1,7 +1,6 @@
-
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { ChevronDown, Download, Calendar, ExternalLink, Code, Building, Heart, GraduationCap, Home, DollarSign, Shield, AlertTriangle, CheckCircle, Users, Timer } from 'lucide-react';
+import { ChevronDown, Download, Calendar, ExternalLink, Code, Building, Heart, GraduationCap, Home, DollarSign, Shield, AlertTriangle, CheckCircle, Users, Timer, FileText } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
@@ -535,13 +534,45 @@ const TRAIGA = () => {
       <section className="py-20">
         <div className="max-w-6xl mx-auto px-4">
           <motion.h2
-            className="text-4xl md:text-5xl font-bold text-center mb-16 animate-on-scroll gradient-text"
+            className="text-4xl md:text-5xl font-bold text-center mb-8 animate-on-scroll gradient-text"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
             TRAIGA Compliance Resources & Tools
           </motion.h2>
+
+          {/* New Resource Bar */}
+          <motion.div
+            className="mb-16 bg-card/30 border border-border rounded-lg p-4 md:p-6 glass-card animate-on-scroll"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+              <div className="flex items-start gap-4 flex-1">
+                <FileText className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
+                <div>
+                  <h3 className="font-medium text-lg mb-2">Want to read the original TRAIGA legislation?</h3>
+                  <p className="text-muted-foreground text-sm md:text-base">
+                    Access the full official version of HB 149 directly from the Texas Capitol.
+                  </p>
+                </div>
+              </div>
+              <div className="flex-shrink-0 w-full md:w-auto">
+                <a 
+                  href="https://capitol.texas.gov/tlodocs/89R/billtext/pdf/HB00149H.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button className="bg-accent hover:bg-accent/90 text-white w-full md:w-auto">
+                    <Download className="mr-2 h-4 w-4" />
+                    Download HB-149
+                  </Button>
+                </a>
+              </div>
+            </div>
+          </motion.div>
 
           <div className="grid md:grid-cols-2 gap-8">
             {/* Left Column - Downloads */}
@@ -558,9 +589,15 @@ const TRAIGA = () => {
                     Reader-Friendly Version of Texas AI Law 2025
                   </h3>
                   <p className="text-muted-foreground mb-4">Download our simplified breakdown of TRAIGA's key provisions and AI deployer obligations.</p>
-                  <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">
-                    Download PDF
-                  </Button>
+                  <a 
+                    href="https://jzaxt350p9j.typeform.com/to/xFzg0azE"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">
+                      Download PDF
+                    </Button>
+                  </a>
                 </CardContent>
               </Card>
 
@@ -751,3 +788,5 @@ const TRAIGA = () => {
 };
 
 export default TRAIGA;
+
+</edits_to_apply>
