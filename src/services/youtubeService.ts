@@ -39,12 +39,10 @@ interface YouTubeVideoDetailsResponse {
 
 export const fetchYouTubePlaylist = async (playlistId: string): Promise<YouTubeVideo[]> => {
   try {
-    // Check if we have a YouTube API key
-    const apiKey = process.env.YOUTUBE_API_KEY;
-    if (!apiKey) {
-      console.log('YouTube API key not found, using placeholder data');
-      return getPlaceholderVideos(playlistId);
-    }
+    // Use the provided API key
+    const apiKey = 'AIzaSyBiB4qj8hTKYjr_Y3WGQhSlfZAVN8J2jUs';
+    
+    console.log('Fetching YouTube playlist with ID:', playlistId);
 
     // Fetch playlist items
     const playlistResponse = await fetch(
@@ -52,33 +50,54 @@ export const fetchYouTubePlaylist = async (playlistId: string): Promise<YouTubeV
     );
 
     if (!playlistResponse.ok) {
-      throw new Error(`YouTube API error: ${playlistResponse.status}`);
+      const errorText = await playlistResponse.text();
+      console.error('YouTube API playlist error:', playlistResponse.status, errorText);
+      throw new Error(`YouTube API error: ${playlistResponse.status} - ${errorText}`);
     }
 
     const playlistData: YouTubePlaylistResponse = await playlistResponse.json();
+    console.log('Playlist data received:', playlistData);
+
+    if (!playlistData.items || playlistData.items.length === 0) {
+      console.log('No videos found in playlist, using placeholder data');
+      return getPlaceholderVideos(playlistId);
+    }
 
     // Get video IDs for duration fetching
     const videoIds = playlistData.items.map(item => 
       item.snippet.resourceId?.videoId || item.contentDetails?.videoId
     ).filter(Boolean);
 
+    console.log('Video IDs:', videoIds);
+
     // Fetch video details for duration
     const videoDetailsResponse = await fetch(
       `https://www.googleapis.com/youtube/v3/videos?part=contentDetails&id=${videoIds.join(',')}&key=${apiKey}`
     );
 
+    if (!videoDetailsResponse.ok) {
+      console.error('YouTube API video details error:', videoDetailsResponse.status);
+    }
+
     const videoDetailsData: YouTubeVideoDetailsResponse = await videoDetailsResponse.json();
+    console.log('Video details data:', videoDetailsData);
 
     // Combine data
-    const videos: YouTubeVideo[] = playlistData.items.map((item, index) => ({
-      id: item.snippet.resourceId?.videoId || item.contentDetails?.videoId || `video-${index}`,
-      title: item.snippet.title,
-      thumbnail: item.snippet.thumbnails.high.url,
-      link: `https://www.youtube.com/watch?v=${item.snippet.resourceId?.videoId || item.contentDetails?.videoId}&list=${playlistId}`,
-      duration: formatDuration(videoDetailsData.items[index]?.contentDetails.duration || 'PT0S'),
-      uploadDate: new Date(item.snippet.publishedAt).toISOString().split('T')[0]
-    }));
+    const videos: YouTubeVideo[] = playlistData.items.map((item, index) => {
+      const videoId = item.snippet.resourceId?.videoId || item.contentDetails?.videoId || `video-${index}`;
+      const duration = videoDetailsData.items[index]?.contentDetails.duration || 'PT0S';
+      
+      return {
+        id: videoId,
+        title: item.snippet.title,
+        thumbnail: item.snippet.thumbnails.high.url,
+        link: `https://www.youtube.com/watch?v=${videoId}&list=${playlistId}`,
+        duration: formatDuration(duration),
+        uploadDate: new Date(item.snippet.publishedAt).toISOString().split('T')[0]
+      };
+    });
 
+    console.log('Final processed videos:', videos);
     return videos;
   } catch (error) {
     console.error('Error fetching YouTube playlist:', error);
