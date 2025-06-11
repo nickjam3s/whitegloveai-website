@@ -37,10 +37,10 @@ serve(async (req) => {
       throw new Error('BEEHIIV_API_KEY not configured');
     }
 
-    console.log('Fetching Beehiiv posts...');
+    console.log('Fetching Beehiiv posts for publication pub_4b3b9bb2-3bbc-43c3-82c6-b96e5eb5892f...');
     
-    // Call Beehiiv API directly from server
-    const response = await fetch('https://api.beehiiv.com/v2/posts?status=confirmed&limit=50', {
+    // Call Beehiiv API with publication ID
+    const response = await fetch('https://api.beehiiv.com/v2/publications/pub_4b3b9bb2-3bbc-43c3-82c6-b96e5eb5892f/posts?status=confirmed&limit=50', {
       headers: {
         'Authorization': `Bearer ${apiKey}`,
         'Content-Type': 'application/json'
@@ -49,7 +49,9 @@ serve(async (req) => {
 
     if (!response.ok) {
       console.error('Beehiiv API error:', response.status, response.statusText);
-      throw new Error(`Beehiiv API error: ${response.status}`);
+      const errorText = await response.text();
+      console.error('Error response:', errorText);
+      throw new Error(`Beehiiv API error: ${response.status} - ${errorText}`);
     }
 
     const data: BeehiivApiResponse = await response.json();
@@ -59,18 +61,22 @@ serve(async (req) => {
     const traiagaPosts = data.data.filter(post => {
       const titleMatch = post.title.toLowerCase().includes('traiga') || 
                         post.title.toLowerCase().includes('texas ai') ||
-                        post.title.toLowerCase().includes('ai governance');
+                        post.title.toLowerCase().includes('ai governance') ||
+                        post.title.toLowerCase().includes('artificial intelligence');
       
       const tagMatch = post.content_tags && post.content_tags.some(tag => 
         tag.toLowerCase().includes('traiga') || 
         tag.toLowerCase().includes('ai governance') ||
-        tag.toLowerCase().includes('texas ai')
+        tag.toLowerCase().includes('texas ai') ||
+        tag.toLowerCase().includes('artificial intelligence') ||
+        tag.toLowerCase().includes('ai regulation')
       );
       
       const subtitleMatch = post.subtitle && (
         post.subtitle.toLowerCase().includes('traiga') ||
         post.subtitle.toLowerCase().includes('texas ai') ||
-        post.subtitle.toLowerCase().includes('ai governance')
+        post.subtitle.toLowerCase().includes('ai governance') ||
+        post.subtitle.toLowerCase().includes('artificial intelligence')
       );
 
       return titleMatch || tagMatch || subtitleMatch;
@@ -90,6 +96,8 @@ serve(async (req) => {
 
     // Return the latest 3 posts
     const result = newsletterEntries.slice(0, 3);
+    
+    console.log('Returning', result.length, 'newsletter entries');
     
     return new Response(JSON.stringify(result), {
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },
