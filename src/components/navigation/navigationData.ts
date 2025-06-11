@@ -1,4 +1,5 @@
 
+
 export const navigationLinks = [
   {
     text: "About",
@@ -35,10 +36,10 @@ export const navigationLinks = [
     to: "/vcaio",
     children: [
       { 
-        text: "Overview",
+        text: "vCAIO",
         to: "/vcaio/chiefaiofficer",
         children: [
-          { to: "/vcaio/chiefaiofficer", text: "vCAIO" },
+          { to: "/vcaio/chiefaiofficer", text: "Overview" },
           { to: "/vcaio/launch", text: "Launchpad" },
           { to: "/vcaio/adopt", text: "Adopt" },
           { to: "/vcaio/enable", text: "Enable" }
@@ -74,3 +75,4 @@ export const navigationLinks = [
     external: true
   }
 ];
+
