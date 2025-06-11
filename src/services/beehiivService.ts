@@ -1,20 +1,5 @@
 
-interface BeehiivPost {
-  id: string;
-  title: string;
-  subtitle?: string;
-  web_url: string;
-  thumbnail_url?: string;
-  published_at: string;
-  content_tags: string[];
-}
-
-interface BeehiivApiResponse {
-  data: BeehiivPost[];
-  page: number;
-  limit: number;
-  total_count: number;
-}
+import { supabase } from '@/integrations/supabase/client';
 
 export interface NewsletterEntry {
   id: string;
@@ -27,71 +12,22 @@ export interface NewsletterEntry {
 
 export const fetchBeehiivPosts = async (): Promise<NewsletterEntry[]> => {
   try {
-    // For now, we'll use a proxy approach to handle CORS
-    // In production, this should be moved to a server-side endpoint
-    console.log('Attempting to fetch Beehiiv posts...');
+    console.log('Calling Beehiiv Edge Function...');
     
-    // Use a CORS proxy temporarily to test the API
-    const proxyUrl = 'https://api.allorigins.win/raw?url=';
-    const apiUrl = 'https://api.beehiiv.com/v2/posts?status=confirmed&limit=50';
-    const apiKey = 'i6iGL2a3eYZ3HIQlcmLgE19ucQyssOvysqdGs19rl32LKI4pIQdWbPd4K5gJ0crI';
+    const { data, error } = await supabase.functions.invoke('fetch-beehiiv-posts');
     
-    const response = await fetch(proxyUrl + encodeURIComponent(apiUrl), {
-      headers: {
-        'Authorization': `Bearer ${apiKey}`,
-        'Content-Type': 'application/json'
-      }
-    });
-
-    if (!response.ok) {
-      console.warn('Beehiiv API request failed, using fallback data');
-      return getFallbackNewsletterEntries();
+    if (error) {
+      console.error('Edge Function error:', error);
+      throw error;
     }
 
-    const data: BeehiivApiResponse = await response.json();
-    console.log('Beehiiv API response:', data);
-
-    // Filter posts that contain TRAIGA-related content
-    const traiagaPosts = data.data.filter(post => {
-      const titleMatch = post.title.toLowerCase().includes('traiga') || 
-                        post.title.toLowerCase().includes('texas ai') ||
-                        post.title.toLowerCase().includes('ai governance');
-      
-      const tagMatch = post.content_tags && post.content_tags.some(tag => 
-        tag.toLowerCase().includes('traiga') || 
-        tag.toLowerCase().includes('ai governance') ||
-        tag.toLowerCase().includes('texas ai')
-      );
-      
-      const subtitleMatch = post.subtitle && (
-        post.subtitle.toLowerCase().includes('traiga') ||
-        post.subtitle.toLowerCase().includes('texas ai') ||
-        post.subtitle.toLowerCase().includes('ai governance')
-      );
-
-      return titleMatch || tagMatch || subtitleMatch;
-    });
-
-    console.log('Filtered TRAIGA posts:', traiagaPosts);
-
-    // Transform to our format
-    const newsletterEntries: NewsletterEntry[] = traiagaPosts.map(post => ({
-      id: post.id,
-      title: post.title,
-      thumbnail: post.thumbnail_url || 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=320&h=180&fit=crop',
-      link: post.web_url,
-      date: new Date(post.published_at).toISOString().split('T')[0],
-      description: post.subtitle || undefined
-    }));
-
-    console.log('Final newsletter entries:', newsletterEntries);
-    
-    // Return the latest 3 posts, or fallback if none found
-    return newsletterEntries.length > 0 ? newsletterEntries.slice(0, 3) : getFallbackNewsletterEntries();
+    console.log('Edge Function response:', data);
+    return data as NewsletterEntry[];
     
   } catch (error) {
-    console.error('Error fetching Beehiiv posts:', error);
-    console.log('Using fallback newsletter entries');
+    console.error('Error calling Beehiiv Edge Function:', error);
+    
+    // Return fallback data if Edge Function fails
     return getFallbackNewsletterEntries();
   }
 };
