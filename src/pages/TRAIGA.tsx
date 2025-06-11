@@ -5,13 +5,14 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { fetchYouTubePlaylist } from '@/services/youtubeService';
-import { getLatestNewsletterEntries, NewsletterEntry } from '@/data/newsletterContent';
+import { fetchBeehiivPosts, NewsletterEntry } from '@/services/beehiivService';
 
 const TRAIGA = () => {
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0 });
   const [youtubeVideos, setYoutubeVideos] = useState([]);
   const [loadingVideos, setLoadingVideos] = useState(true);
   const [newsletterEntries, setNewsletterEntries] = useState<NewsletterEntry[]>([]);
+  const [loadingNewsletter, setLoadingNewsletter] = useState(true);
 
   // Newsletter/Blog entries (static content)
   const blogEntries = [
@@ -221,9 +222,10 @@ const TRAIGA = () => {
   const loadRealContent = async () => {
     try {
       setLoadingVideos(true);
+      setLoadingNewsletter(true);
       
-      // Load newsletter entries from our content management system
-      const latestNewsletters = getLatestNewsletterEntries(3);
+      // Load newsletter entries from Beehiiv API
+      const latestNewsletters = await fetchBeehiivPosts();
       setNewsletterEntries(latestNewsletters);
       
       // Fetch real YouTube videos
@@ -233,6 +235,7 @@ const TRAIGA = () => {
       console.error('Error loading content:', error);
     } finally {
       setLoadingVideos(false);
+      setLoadingNewsletter(false);
     }
   };
 
@@ -721,32 +724,48 @@ const TRAIGA = () => {
                     <FileText className="mr-2 text-primary" />
                     AI Executive Insights Newsletter
                   </h3>
-                  <p className="text-muted-foreground mb-6">Latest insights covering TRAIGA compliance and AI governance from our leadership team.</p>
-                  <div className="space-y-4">
-                    {newsletterEntries.map((entry) => (
-                      <div key={entry.id} className="border border-border rounded-lg p-4 hover:bg-card/50 transition-colors">
-                        <div className="flex items-start gap-3">
-                          <img 
-                            src={entry.thumbnail} 
-                            alt={entry.title}
-                            className="w-16 h-16 rounded-lg object-cover flex-shrink-0"
-                          />
-                          <div className="flex-1 min-w-0">
-                            <h4 className="font-medium text-sm mb-1 line-clamp-2">{entry.title}</h4>
-                            <p className="text-xs text-muted-foreground mb-2">{entry.date}</p>
-                            <a 
-                              href={entry.link}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="inline-flex items-center text-xs text-primary hover:text-primary/80"
-                            >
-                              Read Article <ExternalLink className="ml-1 h-3 w-3" />
-                            </a>
+                  <p className="text-muted-foreground mb-6">Latest insights covering TRAIGA compliance and AI governance from our Beehiiv publication.</p>
+                  {loadingNewsletter ? (
+                    <div className="space-y-4">
+                      {[1, 2, 3].map((i) => (
+                        <div key={i} className="border border-border rounded-lg p-4 animate-pulse">
+                          <div className="flex items-start gap-3">
+                            <div className="w-16 h-16 bg-muted rounded-lg flex-shrink-0"></div>
+                            <div className="flex-1">
+                              <div className="h-4 bg-muted rounded mb-2"></div>
+                              <div className="h-3 bg-muted rounded w-1/2"></div>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    ))}
-                  </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <div className="space-y-4">
+                      {newsletterEntries.map((entry) => (
+                        <div key={entry.id} className="border border-border rounded-lg p-4 hover:bg-card/50 transition-colors">
+                          <div className="flex items-start gap-3">
+                            <img 
+                              src={entry.thumbnail} 
+                              alt={entry.title}
+                              className="w-16 h-16 rounded-lg object-cover flex-shrink-0"
+                            />
+                            <div className="flex-1 min-w-0">
+                              <h4 className="font-medium text-sm mb-1 line-clamp-2">{entry.title}</h4>
+                              <p className="text-xs text-muted-foreground mb-2">{entry.date}</p>
+                              <a 
+                                href={entry.link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center text-xs text-primary hover:text-primary/80"
+                              >
+                                Read Article <ExternalLink className="ml-1 h-3 w-3" />
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </CardContent>
               </Card>
             </motion.div>
