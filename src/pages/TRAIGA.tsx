@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronDown, Download, Calendar, ExternalLink, Code, Building, Heart, GraduationCap, Home, DollarSign, Shield, AlertTriangle, CheckCircle, Users, Timer, FileText } from 'lucide-react';
@@ -345,6 +344,25 @@ const TRAIGA = () => {
           >
             Navigate the Texas Responsible AI Governance Act with expert guidance and compliance tools
           </motion.p>
+
+          {/* Countdown Timer - Moved to Hero and Made Bigger */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.5 }}
+            className="mb-8"
+          >
+            <div className="inline-flex items-center justify-center bg-primary/20 border border-primary/30 rounded-lg px-8 py-6 mb-4">
+              <Timer className="h-8 w-8 text-primary mr-4" />
+              <span className="text-2xl md:text-3xl font-semibold text-primary">
+                TRAIGA Enforcement Begins In: 
+              </span>
+            </div>
+            <div className="text-3xl md:text-4xl font-bold text-foreground">
+              {timeLeft.days} Days : {timeLeft.hours} Hours : {timeLeft.minutes} Minutes
+            </div>
+          </motion.div>
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -652,28 +670,15 @@ const TRAIGA = () => {
         </div>
       </section>
 
-      {/* Readiness Assessment Section */}
+      {/* Readiness Assessment Section - Remove countdown from here */}
       <section id="readiness-assessment" className="py-20 bg-card/50">
         <div className="max-w-4xl mx-auto px-4">
-          {/* Countdown Timer */}
-          <motion.div
-            className="text-center mb-12"
-            {...fadeInUp}
-          >
-            <div className="inline-flex items-center justify-center bg-primary/20 border border-primary/30 rounded-lg px-6 py-4 mb-8">
-              <Timer className="h-6 w-6 text-primary mr-3" />
-              <span className="text-lg font-semibold text-primary">
-                TRAIGA Enforcement Begins In: 
-                <span className="ml-2 text-foreground">
-                  {timeLeft.days} Days : {timeLeft.hours} Hours : {timeLeft.minutes} Minutes
-                </span>
-              </span>
-            </div>
-          </motion.div>
-
           <motion.h2
             className="text-4xl md:text-5xl font-bold text-center mb-8 gradient-text"
-            {...fadeInUp}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8 }}
           >
             Start Your TRAIGA Readiness Assessment
           </motion.h2>
@@ -791,3 +796,5 @@ const TRAIGA = () => {
 };
 
 export default TRAIGA;
+
+}

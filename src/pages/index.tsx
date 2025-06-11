@@ -1,5 +1,4 @@
-
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import HeroSection from '@/components/home/HeroSection';
 import TrustedBy from '@/components/home/TrustedBy';
 import ServicesSection from '@/components/home/ServicesSection';
@@ -10,10 +9,12 @@ import PartnerLogos from '@/components/home/PartnerLogos';
 import ContactSection from './Contact';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, AlertTriangle, Calendar, Scale } from 'lucide-react';
+import { ArrowRight, AlertTriangle, Calendar, Scale, Timer } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Index = () => {
+  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0 });
+
   useEffect(() => {
     // Scroll to top when component mounts
     window.scrollTo(0, 0);
@@ -29,6 +30,24 @@ const Index = () => {
     typeformScript.src = "//embed.typeform.com/next/embed.js";
     typeformScript.defer = true;
     document.body.appendChild(typeformScript);
+
+    // Countdown timer calculation
+    const calculateTimeLeft = () => {
+      const targetDate = new Date('2026-01-01T00:00:00');
+      const now = new Date();
+      const difference = targetDate.getTime() - now.getTime();
+
+      if (difference > 0) {
+        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
+        const minutes = Math.floor((difference / 1000 / 60) % 60);
+        
+        setTimeLeft({ days, hours, minutes });
+      }
+    };
+
+    calculateTimeLeft();
+    const timer = setInterval(calculateTimeLeft, 60000); // Update every minute
 
     // Initialize intersection observer for scroll animations
     const observer = new IntersectionObserver(entries => {
@@ -58,6 +77,7 @@ const Index = () => {
     return () => {
       document.body.removeChild(script);
       document.body.removeChild(typeformScript);
+      clearInterval(timer);
       observer.disconnect();
     };
   }, []);
@@ -93,6 +113,17 @@ const Index = () => {
                 <Calendar className="h-4 w-4 text-accent" />
                 <p className="text-gray-300 text-sm md:text-base">
                   The most sweeping state AI law in the U.S. goes into effect January 1, 2026.
+                </p>
+              </div>
+              
+              {/* Countdown Timer in CTA Bar */}
+              <div className="flex items-center justify-center lg:justify-start gap-2 mb-3">
+                <Timer className="h-5 w-5 text-primary" />
+                <p className="text-accent font-medium text-sm md:text-base">
+                  Enforcement begins in: 
+                  <span className="ml-2 text-white font-bold">
+                    {timeLeft.days}d : {timeLeft.hours}h : {timeLeft.minutes}m
+                  </span>
                 </p>
               </div>
               
