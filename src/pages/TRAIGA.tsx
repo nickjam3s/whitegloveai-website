@@ -4,11 +4,14 @@ import { ChevronDown, Download, Calendar, ExternalLink, Code, Building, Heart, G
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import { fetchYouTubePlaylist } from '@/services/youtubeService';
+import { getLatestNewsletterEntries, NewsletterEntry } from '@/data/newsletterContent';
 
 const TRAIGA = () => {
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0 });
   const [youtubeVideos, setYoutubeVideos] = useState([]);
   const [loadingVideos, setLoadingVideos] = useState(true);
+  const [newsletterEntries, setNewsletterEntries] = useState<NewsletterEntry[]>([]);
 
   // Newsletter/Blog entries (static content)
   const blogEntries = [
@@ -195,8 +198,8 @@ const TRAIGA = () => {
     typeformScript.defer = true;
     document.body.appendChild(typeformScript);
 
-    // Fetch YouTube videos
-    fetchYouTubeVideos();
+    // Load real content
+    loadRealContent();
 
     return () => {
       clearInterval(timer);
@@ -215,39 +218,19 @@ const TRAIGA = () => {
     };
   }, []);
 
-  const fetchYouTubeVideos = async () => {
+  const loadRealContent = async () => {
     try {
       setLoadingVideos(true);
-      // For now, we'll use placeholder data until YouTube API is set up
-      const placeholderVideos = [
-        {
-          id: 1,
-          title: "TRAIGA Overview: What Texas Businesses Need to Know",
-          thumbnail: "/placeholder.svg",
-          link: "https://www.youtube.com/playlist?list=PLhbRcrokyx5crQ2HE9tDwIH-ecT1BIutW",
-          duration: "15:30",
-          uploadDate: "2024-12-10"
-        },
-        {
-          id: 2,
-          title: "High-Risk AI Systems Under TRAIGA",
-          thumbnail: "/placeholder.svg",
-          link: "https://www.youtube.com/playlist?list=PLhbRcrokyx5crQ2HE9tDwIH-ecT1BIutW",
-          duration: "12:45",
-          uploadDate: "2024-12-09"
-        },
-        {
-          id: 3,
-          title: "TRAIGA Compliance Timeline and Deadlines",
-          thumbnail: "/placeholder.svg",
-          link: "https://www.youtube.com/playlist?list=PLhbRcrokyx5crQ2HE9tDwIH-ecT1BIutW",
-          duration: "18:20",
-          uploadDate: "2024-12-08"
-        }
-      ];
-      setYoutubeVideos(placeholderVideos);
+      
+      // Load newsletter entries from our content management system
+      const latestNewsletters = getLatestNewsletterEntries(3);
+      setNewsletterEntries(latestNewsletters);
+      
+      // Fetch real YouTube videos
+      const videos = await fetchYouTubePlaylist('PLhbRcrokyx5crQ2HE9tDwIH-ecT1BIutW');
+      setYoutubeVideos(videos);
     } catch (error) {
-      console.error('Error fetching YouTube videos:', error);
+      console.error('Error loading content:', error);
     } finally {
       setLoadingVideos(false);
     }
@@ -629,7 +612,7 @@ const TRAIGA = () => {
         </div>
       </section>
 
-      {/* Resources Section - Updated with 2x2 Grid */}
+      {/* Resources Section - Updated with Real Content */}
       <section className="py-20">
         <div className="max-w-6xl mx-auto px-4">
           <motion.h2
@@ -672,7 +655,7 @@ const TRAIGA = () => {
             </div>
           </motion.div>
 
-          {/* 2x2 Grid Layout */}
+          {/* 2x2 Grid Layout with Real Content */}
           <div className="grid md:grid-cols-2 gap-8">
             {/* Row 1: Downloads and AI Agent */}
             <motion.div
@@ -725,7 +708,7 @@ const TRAIGA = () => {
               </Card>
             </motion.div>
 
-            {/* Row 2: Blogs and YouTube Podcast */}
+            {/* Row 2: Real Newsletter and YouTube Content */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -736,23 +719,23 @@ const TRAIGA = () => {
                 <CardContent className="p-6">
                   <h3 className="text-xl font-semibold mb-4 flex items-center">
                     <FileText className="mr-2 text-primary" />
-                    Blogs
+                    AI Executive Insights Newsletter
                   </h3>
-                  <p className="text-muted-foreground mb-6">Latest insights from our AI Executive Insights newsletter covering TRAIGA compliance.</p>
+                  <p className="text-muted-foreground mb-6">Latest insights covering TRAIGA compliance and AI governance from our leadership team.</p>
                   <div className="space-y-4">
-                    {blogEntries.map((blog) => (
-                      <div key={blog.id} className="border border-border rounded-lg p-4 hover:bg-card/50 transition-colors">
+                    {newsletterEntries.map((entry) => (
+                      <div key={entry.id} className="border border-border rounded-lg p-4 hover:bg-card/50 transition-colors">
                         <div className="flex items-start gap-3">
                           <img 
-                            src={blog.thumbnail} 
-                            alt={blog.title}
+                            src={entry.thumbnail} 
+                            alt={entry.title}
                             className="w-16 h-16 rounded-lg object-cover flex-shrink-0"
                           />
                           <div className="flex-1 min-w-0">
-                            <h4 className="font-medium text-sm mb-1 line-clamp-2">{blog.title}</h4>
-                            <p className="text-xs text-muted-foreground mb-2">{blog.date}</p>
+                            <h4 className="font-medium text-sm mb-1 line-clamp-2">{entry.title}</h4>
+                            <p className="text-xs text-muted-foreground mb-2">{entry.date}</p>
                             <a 
-                              href={blog.link}
+                              href={entry.link}
                               target="_blank"
                               rel="noopener noreferrer"
                               className="inline-flex items-center text-xs text-primary hover:text-primary/80"
