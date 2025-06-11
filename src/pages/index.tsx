@@ -8,6 +8,10 @@ import AIAMFFrameworkSection from '@/components/home/AIAMFFrameworkSection';
 import WhitegloveAIDifference from '@/components/home/WhitegloveAIDifference';
 import PartnerLogos from '@/components/home/PartnerLogos';
 import ContactSection from './Contact';
+import { motion } from 'framer-motion';
+import { Button } from '@/components/ui/button';
+import { ArrowRight, AlertTriangle } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Index = () => {
   useEffect(() => {
@@ -60,9 +64,59 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-black text-white">
+      {/* TRAIGA Announcement Bar */}
+      <div className="w-full bg-gradient-to-r from-blue-900 via-red-800 to-blue-900 py-3 relative z-10">
+        <div className="max-w-7xl mx-auto px-4 flex items-center justify-between">
+          <div className="flex items-center space-x-3">
+            <AlertTriangle className="h-5 w-5 text-yellow-400" />
+            <span className="text-white font-medium">Are you ready for TRAIGA?</span>
+          </div>
+          <Link to="/traiga">
+            <Button size="sm" className="bg-white text-blue-900 hover:bg-gray-100 font-medium">
+              Visit the TRAIGA Center
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
+          </Link>
+        </div>
+      </div>
+
       <HeroSection />
       <TrustedBy />
       <ServicesSection />
+
+      {/* TRAIGA Triage Center Section */}
+      <section className="py-20 bg-gradient-to-r from-blue-900/20 via-red-900/20 to-blue-900/20 relative overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute top-0 left-0 w-1/3 h-full bg-blue-900/10"></div>
+          <div className="absolute top-0 right-0 w-1/3 h-full bg-red-900/10"></div>
+        </div>
+        
+        <div className="max-w-6xl mx-auto px-4 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-white via-red-200 to-blue-200 bg-clip-text text-transparent">
+              TRAIGA Triage Center
+            </h2>
+            <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
+              Is your business ready for Texas's sweeping new AI law?
+            </p>
+            <p className="text-lg text-gray-400 mb-10 max-w-4xl mx-auto">
+              With TRAIGA taking effect in 2026, businesses that develop or use AI in Texas must now meet strict legal requirements. WhitegloveAI's TRAIGA Triage Center helps you understand your exposure, prepare, and stay ahead. Don't wait for enforcement—start your compliance journey today.
+            </p>
+            <Link to="/traiga">
+              <Button size="lg" className="bg-red-700 hover:bg-red-600 text-white px-8 py-4 text-lg rounded-lg transition-all duration-300 transform hover:scale-105">
+                Visit the TRAIGA Center
+                <ArrowRight className="ml-3 h-6 w-6" />
+              </Button>
+            </Link>
+          </motion.div>
+        </div>
+      </section>
+
       <AIIncubationLabSection />
       <AIAMFFrameworkSection />
       <PartnerLogos />

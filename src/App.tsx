@@ -16,6 +16,7 @@ import Apprenticeship from "./pages/Apprenticeship";
 import Privacy from "./pages/Privacy";
 import TermsOfService from "./pages/TermsOfService";
 import Contact from "./pages/Contact";
+import TRAIGA from "./pages/TRAIGA";
 
 // MAISP (Managed AI Services) Routes
 import MAISP from "./pages/maisp/Index";
@@ -62,6 +63,7 @@ const App = () => {
                 <Route path="/terms-of-service" element={<TermsOfService />} />
                 <Route path="/terms" element={<TermsOfService />} />
                 <Route path="/contact" element={<Contact />} />
+                <Route path="/traiga" element={<TRAIGA />} />
                 
                 {/* MAISP Routes */}
                 <Route path="/maisp" element={<MAISP />} />

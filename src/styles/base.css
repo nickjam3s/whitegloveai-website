@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -78,7 +79,44 @@ html {
 /* Add Sora font import */
 @import url('https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600;700;800&display=swap');
 
-/* Add additional animations for better UI interactions */
+/* ... keep existing code (add additional animations for better UI interactions through scroll animation helper classes) the same ... */
+
+/* Texas-inspired scroll animations for TRAIGA page */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* TRAIGA specific animations */
+.traiga-star {
+  animation: twinkle 3s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; transform: scale(0.5); }
+  50% { opacity: 1; transform: scale(1); }
+}
+
+/* Texas flag gradient animation */
+.texas-gradient {
+  background: linear-gradient(-45deg, #002868, #BF0A30, #FFFFFF, #002868);
+  background-size: 400% 400%;
+  animation: gradient-shift 8s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ... keep existing code (all the previous styles including card hover, glassmorphism, gradient text, etc.) */
 .card-hover {
   @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-lg;
 }

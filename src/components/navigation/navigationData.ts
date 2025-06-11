@@ -38,6 +38,7 @@ export const navigationLinks = [
       { to: "/vcaio/launch", text: "Launchpad" },
       { to: "/vcaio/adopt", text: "Adopt" },
       { to: "/vcaio/enable", text: "Enable" },
+      { to: "/traiga", text: "TRAIGA Triage Center" },
     ],
   },
   {
