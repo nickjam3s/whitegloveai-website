@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronDown, Download, Calendar, ExternalLink, Code, Building, Heart, GraduationCap, Home, DollarSign, Shield, AlertTriangle, CheckCircle, Users, Timer } from 'lucide-react';
@@ -304,12 +305,12 @@ const TRAIGA = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-black text-white font-sora">
+    <div className="min-h-screen bg-background text-foreground font-sora">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Gradient Background */}
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-b from-primary/20 to-black"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-primary/20 to-background"></div>
           {/* Subtle animated particles */}
           {[...Array(20)].map((_, i) => (
             <motion.div
@@ -343,7 +344,7 @@ const TRAIGA = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.3 }}
-            className="text-xl md:text-2xl mb-8 text-gray-300"
+            className="text-xl md:text-2xl mb-8 text-muted-foreground"
           >
             Navigate the Texas Responsible AI Governance Act with expert guidance and compliance tools
           </motion.p>
@@ -355,7 +356,7 @@ const TRAIGA = () => {
             <Button
               onClick={scrollToAssessment}
               size="lg"
-              className="bg-primary hover:bg-primary/90 text-white px-8 py-4 text-lg rounded-lg transition-all duration-300 transform hover:scale-105"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 text-lg rounded-lg transition-all duration-300 transform hover:scale-105"
             >
               Start TRAIGA Readiness Assessment
               <ChevronDown className="ml-2 h-5 w-5" />
@@ -393,7 +394,7 @@ const TRAIGA = () => {
                     {item.status === 'completed' ? <CheckCircle className="h-8 w-8" /> : <span className="text-2xl font-bold">{index + 1}</span>}
                   </div>
                   <h3 className="text-lg font-semibold mb-2">{item.event}</h3>
-                  <p className="text-sm text-gray-300">{item.date}</p>
+                  <p className="text-sm text-muted-foreground">{item.date}</p>
                   {index < timelineItems.length - 1 && (
                     <div className="hidden md:block absolute top-8 left-full w-20 h-0.5 bg-primary"></div>
                   )}
@@ -450,18 +451,18 @@ const TRAIGA = () => {
               </div>
               
               <div className="flex-1 mx-8">
-                <div className="h-1 bg-gradient-to-r from-primary to-accent rounded"></div>
+                <div className="h-1 bg-gradient-to-r from-primary to-secondary rounded"></div>
               </div>
               
               <div className="text-center">
-                <div className="w-24 h-24 bg-accent rounded-full flex items-center justify-center mb-4 mx-auto">
+                <div className="w-24 h-24 bg-secondary rounded-full flex items-center justify-center mb-4 mx-auto">
                   <Shield className="h-12 w-12" />
                 </div>
                 <h3 className="text-xl font-semibold">AI System</h3>
               </div>
               
               <div className="flex-1 mx-8">
-                <div className="h-1 bg-gradient-to-r from-accent to-primary rounded"></div>
+                <div className="h-1 bg-gradient-to-r from-secondary to-primary rounded"></div>
               </div>
               
               <div className="text-center">
@@ -488,7 +489,7 @@ const TRAIGA = () => {
                 <div key={index} className="text-center p-4 glass-card">
                   <item.icon className="h-8 w-8 mx-auto mb-2 text-primary" />
                   <h4 className="font-semibold text-lg">{item.domain}</h4>
-                  <p className="text-sm text-gray-300 mt-2">High-Risk AI Domain</p>
+                  <p className="text-sm text-muted-foreground mt-2">High-Risk AI Domain</p>
                 </div>
               ))}
             </motion.div>
@@ -520,7 +521,7 @@ const TRAIGA = () => {
                   <AccordionTrigger className="px-6 py-4 text-left text-lg font-semibold hover:text-primary">
                     {section.title}
                   </AccordionTrigger>
-                  <AccordionContent className="px-6 pb-4 text-gray-300">
+                  <AccordionContent className="px-6 pb-4 text-muted-foreground">
                     {section.content}
                   </AccordionContent>
                 </AccordionItem>
@@ -556,8 +557,8 @@ const TRAIGA = () => {
                     <Download className="mr-2 text-primary" />
                     Reader-Friendly Version of Texas AI Law 2025
                   </h3>
-                  <p className="text-gray-300 mb-4">Download our simplified breakdown of TRAIGA's key provisions and AI deployer obligations.</p>
-                  <Button className="bg-primary hover:bg-primary/90 text-white">
+                  <p className="text-muted-foreground mb-4">Download our simplified breakdown of TRAIGA's key provisions and AI deployer obligations.</p>
+                  <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">
                     Download PDF
                   </Button>
                 </CardContent>
@@ -566,8 +567,8 @@ const TRAIGA = () => {
               <Card className="glass-card opacity-60">
                 <CardContent className="p-6">
                   <h3 className="text-xl font-semibold mb-4">TRAIGA Implementation Checklist</h3>
-                  <p className="text-gray-400 mb-4">Comprehensive checklist for Texas AI regulation compliance preparation.</p>
-                  <Button disabled className="bg-gray-600 text-gray-400">
+                  <p className="text-muted-foreground mb-4">Comprehensive checklist for Texas AI regulation compliance preparation.</p>
+                  <Button disabled className="bg-muted text-muted-foreground">
                     Coming Soon
                   </Button>
                 </CardContent>
@@ -576,8 +577,8 @@ const TRAIGA = () => {
               <Card className="glass-card opacity-60">
                 <CardContent className="p-6">
                   <h3 className="text-xl font-semibold mb-4">High-Risk AI System Tracker</h3>
-                  <p className="text-gray-400 mb-4">Interactive tool to classify your AI systems under TRAIGA compliance standards.</p>
-                  <Button disabled className="bg-gray-600 text-gray-400">
+                  <p className="text-muted-foreground mb-4">Interactive tool to classify your AI systems under TRAIGA compliance standards.</p>
+                  <Button disabled className="bg-muted text-muted-foreground">
                     Coming Soon
                   </Button>
                 </CardContent>
@@ -594,7 +595,7 @@ const TRAIGA = () => {
               <Card className="glass-card">
                 <CardContent className="p-6">
                   <h3 className="text-xl font-semibold mb-4">WhitegloveAI TRAIGA Expert Agent</h3>
-                  <p className="text-gray-300 mb-4">Chat with our AI agent for instant answers about Texas Responsible AI Governance Act compliance.</p>
+                  <p className="text-muted-foreground mb-4">Chat with our AI agent for instant answers about Texas Responsible AI Governance Act compliance.</p>
                   <div className="bg-white rounded-lg overflow-hidden">
                     <iframe
                       src="https://app.thinkstack.ai/bot/index.html?chatbot_id=6848c90420c59f9de50e9272&type=inline"
@@ -626,7 +627,7 @@ const TRAIGA = () => {
               <Timer className="h-6 w-6 text-primary mr-3" />
               <span className="text-lg font-semibold text-primary">
                 TRAIGA Enforcement Begins In: 
-                <span className="ml-2 text-white">
+                <span className="ml-2 text-foreground">
                   {timeLeft.days} Days : {timeLeft.hours} Hours : {timeLeft.minutes} Minutes
                 </span>
               </span>
@@ -643,7 +644,7 @@ const TRAIGA = () => {
           </motion.h2>
           
           <motion.div
-            className="text-center text-gray-300 mb-16 animate-on-scroll max-w-3xl mx-auto"
+            className="text-center text-muted-foreground mb-16 animate-on-scroll max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -660,7 +661,7 @@ const TRAIGA = () => {
           </motion.div>
 
           <motion.div
-            className="bg-white rounded-lg overflow-hidden shadow-2xl animate-on-scroll"
+            className="bg-background rounded-lg overflow-hidden shadow-2xl animate-on-scroll"
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -668,7 +669,7 @@ const TRAIGA = () => {
             <div 
               data-tf-live="01JXE4ZG1X8FP317J0M84716RA" 
               style={{ 
-                minHeight: '700px',
+                minHeight: '600px',
                 width: '100%',
                 border: 'none'
               }}
@@ -690,7 +691,7 @@ const TRAIGA = () => {
           </motion.h2>
           
           <motion.p
-            className="text-xl text-gray-300 mb-12 animate-on-scroll"
+            className="text-xl text-muted-foreground mb-12 animate-on-scroll"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -704,7 +705,7 @@ const TRAIGA = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <Button size="lg" className="bg-primary hover:bg-primary/90 text-white px-8 py-4 text-lg rounded-lg">
+            <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 text-lg rounded-lg">
               <Calendar className="mr-2 h-5 w-5" />
               Schedule a TRAIGA Consultation
             </Button>
@@ -736,7 +737,7 @@ const TRAIGA = () => {
                   <AccordionTrigger className="px-6 py-4 text-left text-lg font-semibold hover:text-primary">
                     {faq.question}
                   </AccordionTrigger>
-                  <AccordionContent className="px-6 pb-4 text-gray-300">
+                  <AccordionContent className="px-6 pb-4 text-muted-foreground">
                     {faq.answer}
                   </AccordionContent>
                 </AccordionItem>
@@ -750,5 +751,3 @@ const TRAIGA = () => {
 };
 
 export default TRAIGA;
-
-</edits_to_apply>
