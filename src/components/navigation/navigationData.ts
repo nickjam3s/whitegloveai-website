@@ -63,8 +63,8 @@ export const navigationLinks = [
     ]
   },
   {
-    text: "Podcast",
-    to: "https://linke.ro/aiexec",
+    text: "News",
+    to: "https://news.whitegloveai.com",
     external: true
   }
 ];

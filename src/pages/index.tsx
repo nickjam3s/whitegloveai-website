@@ -10,7 +10,7 @@ import PartnerLogos from '@/components/home/PartnerLogos';
 import ContactSection from './Contact';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, AlertTriangle } from 'lucide-react';
+import { ArrowRight, AlertTriangle, Calendar, Scale } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Index = () => {
@@ -66,19 +66,54 @@ const Index = () => {
     <div className="min-h-screen bg-black text-white">
       <HeroSection />
       
-      {/* TRAIGA Announcement Bar - Now positioned after hero */}
-      <div className="w-full bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 py-3 relative z-10">
-        <div className="max-w-7xl mx-auto px-4 flex items-center justify-between">
-          <div className="flex items-center space-x-3">
-            <AlertTriangle className="h-5 w-5 text-primary" />
-            <span className="text-white font-medium">Are you ready for TRAIGA?</span>
+      {/* Enhanced TRAIGA Announcement Bar */}
+      <div className="w-full bg-gradient-to-r from-primary/15 via-accent/20 to-primary/15 border-t border-b border-primary/30 py-6 relative z-10 overflow-hidden">
+        {/* Background pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.1"%3E%3Ccircle cx="30" cy="30" r="2"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
+        </div>
+        
+        <div className="max-w-7xl mx-auto px-4 relative">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
+            {/* Left side - Main content */}
+            <div className="flex-1 text-center lg:text-left">
+              <div className="flex items-center justify-center lg:justify-start gap-3 mb-3">
+                <div className="flex items-center gap-2">
+                  <Scale className="h-6 w-6 text-primary" />
+                  <AlertTriangle className="h-5 w-5 text-accent animate-pulse" />
+                </div>
+                <span className="text-primary font-semibold text-lg">TEXAS AI LAW ALERT</span>
+              </div>
+              
+              <h3 className="text-xl md:text-2xl font-bold text-white mb-2 leading-tight">
+                Are You Ready for the Texas Responsible AI Governance Act (TRAIGA)?
+              </h3>
+              
+              <div className="flex items-center justify-center lg:justify-start gap-2 mb-3">
+                <Calendar className="h-4 w-4 text-accent" />
+                <p className="text-gray-300 text-sm md:text-base">
+                  The most sweeping state AI law in the U.S. goes into effect January 1, 2026.
+                </p>
+              </div>
+              
+              <p className="text-accent font-medium text-sm md:text-base">
+                Know your risk—start preparing today.
+              </p>
+            </div>
+
+            {/* Right side - CTA Button */}
+            <div className="flex-shrink-0">
+              <Link to="/traiga">
+                <Button 
+                  size="lg" 
+                  className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white font-semibold px-8 py-4 text-base rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl border border-primary/20"
+                >
+                  Visit the TRAIGA Center
+                  <ArrowRight className="ml-3 h-5 w-5" />
+                </Button>
+              </Link>
+            </div>
           </div>
-          <Link to="/traiga">
-            <Button size="sm" className="bg-primary text-white hover:bg-primary/90 font-medium">
-              Visit the TRAIGA Center
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-          </Link>
         </div>
       </div>
 
