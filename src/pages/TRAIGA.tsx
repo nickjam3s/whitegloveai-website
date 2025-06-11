@@ -1,7 +1,7 @@
 
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ChevronDown, Download, Calendar, ExternalLink } from 'lucide-react';
+import { ChevronDown, Download, Calendar, ExternalLink, Code, Building, Heart, GraduationCap, Home, DollarSign, Shield, AlertTriangle, CheckCircle, Users } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
@@ -284,19 +284,17 @@ const TRAIGA = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-900 via-blue-900 to-red-900 text-white font-sora">
+    <div className="min-h-screen bg-black text-white font-sora">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Texas Flag Inspired Background */}
+        {/* Gradient Background */}
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-900 via-white/10 to-red-900 opacity-30"></div>
-          <div className="absolute top-0 left-0 w-1/3 h-full bg-blue-900 opacity-40"></div>
-          <div className="absolute top-0 right-0 w-1/3 h-full bg-red-900 opacity-40"></div>
-          {/* Subtle stars pattern */}
+          <div className="absolute inset-0 bg-gradient-to-b from-primary/20 to-black"></div>
+          {/* Subtle animated particles */}
           {[...Array(20)].map((_, i) => (
             <motion.div
               key={i}
-              className="absolute w-1 h-1 bg-white rounded-full opacity-60"
+              className="absolute w-1 h-1 bg-primary rounded-full opacity-60"
               initial={{ opacity: 0, scale: 0 }}
               animate={{ opacity: [0.3, 1, 0.3], scale: [0.5, 1, 0.5] }}
               transition={{
@@ -317,7 +315,7 @@ const TRAIGA = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
-            className="text-6xl md:text-8xl font-bold mb-6 bg-gradient-to-r from-white via-red-200 to-blue-200 bg-clip-text text-transparent"
+            className="text-6xl md:text-8xl font-bold mb-6 gradient-text"
           >
             TRAIGA Triage Center: Your Hub for Texas AI Compliance
           </motion.h1>
@@ -325,7 +323,7 @@ const TRAIGA = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.3 }}
-            className="text-xl md:text-2xl mb-8 text-gray-200"
+            className="text-xl md:text-2xl mb-8 text-gray-300"
           >
             Navigate the Texas Responsible AI Governance Act with expert guidance and compliance tools
           </motion.p>
@@ -337,7 +335,7 @@ const TRAIGA = () => {
             <Button
               onClick={scrollToAssessment}
               size="lg"
-              className="bg-red-700 hover:bg-red-600 text-white px-8 py-4 text-lg rounded-lg transition-all duration-300 transform hover:scale-105"
+              className="bg-primary hover:bg-primary/90 text-white px-8 py-4 text-lg rounded-lg transition-all duration-300 transform hover:scale-105"
             >
               Start TRAIGA Readiness Assessment
               <ChevronDown className="ml-2 h-5 w-5" />
@@ -347,10 +345,10 @@ const TRAIGA = () => {
       </section>
 
       {/* What is TRAIGA Section */}
-      <section className="py-20 bg-slate-800/50">
+      <section className="py-20 bg-card/50">
         <div className="max-w-6xl mx-auto px-4">
           <motion.h2
-            className="text-4xl md:text-5xl font-bold text-center mb-16 animate-on-scroll"
+            className="text-4xl md:text-5xl font-bold text-center mb-16 animate-on-scroll gradient-text"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -370,14 +368,14 @@ const TRAIGA = () => {
                   transition={{ duration: 0.6, delay: index * 0.2 }}
                 >
                   <div className={`w-16 h-16 rounded-full flex items-center justify-center mb-4 ${
-                    item.status === 'completed' ? 'bg-green-600' : 'bg-blue-600'
+                    item.status === 'completed' ? 'bg-green-600' : 'bg-primary'
                   }`}>
-                    <span className="text-2xl font-bold">{index + 1}</span>
+                    {item.status === 'completed' ? <CheckCircle className="h-8 w-8" /> : <span className="text-2xl font-bold">{index + 1}</span>}
                   </div>
                   <h3 className="text-lg font-semibold mb-2">{item.event}</h3>
                   <p className="text-sm text-gray-300">{item.date}</p>
                   {index < timelineItems.length - 1 && (
-                    <div className="hidden md:block absolute top-8 left-full w-20 h-0.5 bg-blue-400"></div>
+                    <div className="hidden md:block absolute top-8 left-full w-20 h-0.5 bg-primary"></div>
                   )}
                 </motion.div>
               ))}
@@ -393,7 +391,7 @@ const TRAIGA = () => {
             ].map((point, index) => (
               <motion.div
                 key={index}
-                className="text-center p-6 bg-blue-900/30 rounded-lg animate-on-scroll"
+                className="text-center p-6 glass-card animate-on-scroll"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.2 }}
@@ -406,10 +404,10 @@ const TRAIGA = () => {
       </section>
 
       {/* Animated Explainer Section */}
-      <section className="py-20 bg-red-900/20">
+      <section className="py-20">
         <div className="max-w-6xl mx-auto px-4">
           <motion.h2
-            className="text-4xl md:text-5xl font-bold text-center mb-16 animate-on-scroll"
+            className="text-4xl md:text-5xl font-bold text-center mb-16 animate-on-scroll gradient-text"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -425,30 +423,30 @@ const TRAIGA = () => {
               transition={{ duration: 1 }}
             >
               <div className="text-center">
-                <div className="w-24 h-24 bg-blue-600 rounded-full flex items-center justify-center mb-4 mx-auto">
-                  <span className="text-2xl">👨‍💻</span>
+                <div className="w-24 h-24 bg-primary rounded-full flex items-center justify-center mb-4 mx-auto">
+                  <Code className="h-12 w-12" />
                 </div>
                 <h3 className="text-xl font-semibold">AI Developer</h3>
               </div>
               
               <div className="flex-1 mx-8">
-                <div className="h-1 bg-gradient-to-r from-blue-600 to-red-600 rounded"></div>
+                <div className="h-1 bg-gradient-to-r from-primary to-accent rounded"></div>
               </div>
               
               <div className="text-center">
-                <div className="w-24 h-24 bg-purple-600 rounded-full flex items-center justify-center mb-4 mx-auto">
-                  <span className="text-2xl">🤖</span>
+                <div className="w-24 h-24 bg-accent rounded-full flex items-center justify-center mb-4 mx-auto">
+                  <Shield className="h-12 w-12" />
                 </div>
                 <h3 className="text-xl font-semibold">AI System</h3>
               </div>
               
               <div className="flex-1 mx-8">
-                <div className="h-1 bg-gradient-to-r from-purple-600 to-red-600 rounded"></div>
+                <div className="h-1 bg-gradient-to-r from-accent to-primary rounded"></div>
               </div>
               
               <div className="text-center">
-                <div className="w-24 h-24 bg-red-600 rounded-full flex items-center justify-center mb-4 mx-auto">
-                  <span className="text-2xl">🏢</span>
+                <div className="w-24 h-24 bg-primary rounded-full flex items-center justify-center mb-4 mx-auto">
+                  <Users className="h-12 w-12" />
                 </div>
                 <h3 className="text-xl font-semibold">Texas User</h3>
               </div>
@@ -460,9 +458,16 @@ const TRAIGA = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
             >
-              {["Hiring", "Healthcare", "Finance", "Housing", "Education"].map((domain, index) => (
-                <div key={index} className="text-center p-4 bg-red-700/30 rounded-lg">
-                  <h4 className="font-semibold text-lg">{domain}</h4>
+              {[
+                { domain: "Hiring", icon: Building },
+                { domain: "Healthcare", icon: Heart },
+                { domain: "Finance", icon: DollarSign },
+                { domain: "Housing", icon: Home },
+                { domain: "Education", icon: GraduationCap }
+              ].map((item, index) => (
+                <div key={index} className="text-center p-4 glass-card">
+                  <item.icon className="h-8 w-8 mx-auto mb-2 text-primary" />
+                  <h4 className="font-semibold text-lg">{item.domain}</h4>
                   <p className="text-sm text-gray-300 mt-2">High-Risk AI Domain</p>
                 </div>
               ))}
@@ -472,10 +477,10 @@ const TRAIGA = () => {
       </section>
 
       {/* Bill Breakdown Section */}
-      <section className="py-20 bg-slate-800/50">
+      <section className="py-20 bg-card/50">
         <div className="max-w-4xl mx-auto px-4">
           <motion.h2
-            className="text-4xl md:text-5xl font-bold text-center mb-16 animate-on-scroll"
+            className="text-4xl md:text-5xl font-bold text-center mb-16 animate-on-scroll gradient-text"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -491,8 +496,8 @@ const TRAIGA = () => {
           >
             <Accordion type="single" collapsible className="space-y-4">
               {billSections.map((section, index) => (
-                <AccordionItem key={index} value={`item-${index}`} className="border border-blue-700/30 rounded-lg">
-                  <AccordionTrigger className="px-6 py-4 text-left text-lg font-semibold hover:text-blue-300">
+                <AccordionItem key={index} value={`item-${index}`} className="border border-border rounded-lg glass-card">
+                  <AccordionTrigger className="px-6 py-4 text-left text-lg font-semibold hover:text-primary">
                     {section.title}
                   </AccordionTrigger>
                   <AccordionContent className="px-6 pb-4 text-gray-300">
@@ -506,10 +511,10 @@ const TRAIGA = () => {
       </section>
 
       {/* Resources Section */}
-      <section className="py-20 bg-blue-900/20">
+      <section className="py-20">
         <div className="max-w-6xl mx-auto px-4">
           <motion.h2
-            className="text-4xl md:text-5xl font-bold text-center mb-16 animate-on-scroll"
+            className="text-4xl md:text-5xl font-bold text-center mb-16 animate-on-scroll gradient-text"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -525,34 +530,34 @@ const TRAIGA = () => {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <Card className="bg-slate-800/50 border-blue-700/30">
+              <Card className="glass-card">
                 <CardContent className="p-6">
                   <h3 className="text-xl font-semibold mb-4 flex items-center">
-                    <Download className="mr-2" />
+                    <Download className="mr-2 text-primary" />
                     Reader-Friendly Version of Texas AI Law 2025
                   </h3>
                   <p className="text-gray-300 mb-4">Download our simplified breakdown of TRAIGA's key provisions and AI deployer obligations.</p>
-                  <Button className="bg-blue-600 hover:bg-blue-500">
+                  <Button className="bg-primary hover:bg-primary/90 text-white">
                     Download PDF
                   </Button>
                 </CardContent>
               </Card>
 
-              <Card className="bg-slate-800/50 border-gray-600/30 opacity-60">
+              <Card className="glass-card opacity-60">
                 <CardContent className="p-6">
                   <h3 className="text-xl font-semibold mb-4">TRAIGA Implementation Checklist</h3>
                   <p className="text-gray-400 mb-4">Comprehensive checklist for Texas AI regulation compliance preparation.</p>
-                  <Button disabled className="bg-gray-600">
+                  <Button disabled className="bg-gray-600 text-gray-400">
                     Coming Soon
                   </Button>
                 </CardContent>
               </Card>
 
-              <Card className="bg-slate-800/50 border-gray-600/30 opacity-60">
+              <Card className="glass-card opacity-60">
                 <CardContent className="p-6">
                   <h3 className="text-xl font-semibold mb-4">High-Risk AI System Tracker</h3>
                   <p className="text-gray-400 mb-4">Interactive tool to classify your AI systems under TRAIGA compliance standards.</p>
-                  <Button disabled className="bg-gray-600">
+                  <Button disabled className="bg-gray-600 text-gray-400">
                     Coming Soon
                   </Button>
                 </CardContent>
@@ -566,7 +571,7 @@ const TRAIGA = () => {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <Card className="bg-slate-800/50 border-red-700/30">
+              <Card className="glass-card">
                 <CardContent className="p-6">
                   <h3 className="text-xl font-semibold mb-4">WhitegloveAI TRAIGA Expert Agent</h3>
                   <p className="text-gray-300 mb-4">Chat with our AI agent for instant answers about Texas Responsible AI Governance Act compliance.</p>
@@ -588,10 +593,10 @@ const TRAIGA = () => {
       </section>
 
       {/* Readiness Assessment Section */}
-      <section id="readiness-assessment" className="py-20 bg-red-900/20">
+      <section id="readiness-assessment" className="py-20 bg-card/50">
         <div className="max-w-4xl mx-auto px-4">
           <motion.h2
-            className="text-4xl md:text-5xl font-bold text-center mb-8 animate-on-scroll"
+            className="text-4xl md:text-5xl font-bold text-center mb-8 animate-on-scroll gradient-text"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -620,10 +625,10 @@ const TRAIGA = () => {
       </section>
 
       {/* Engage WhitegloveAI Section */}
-      <section className="py-20 bg-slate-800/50">
+      <section className="py-20">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <motion.h2
-            className="text-4xl md:text-5xl font-bold mb-8 animate-on-scroll"
+            className="text-4xl md:text-5xl font-bold mb-8 animate-on-scroll gradient-text"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -646,7 +651,7 @@ const TRAIGA = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <Button size="lg" className="bg-red-700 hover:bg-red-600 text-white px-8 py-4 text-lg rounded-lg">
+            <Button size="lg" className="bg-primary hover:bg-primary/90 text-white px-8 py-4 text-lg rounded-lg">
               <Calendar className="mr-2 h-5 w-5" />
               Schedule a TRAIGA Consultation
             </Button>
@@ -655,10 +660,10 @@ const TRAIGA = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-blue-900/20">
+      <section className="py-20 bg-card/50">
         <div className="max-w-4xl mx-auto px-4">
           <motion.h2
-            className="text-4xl md:text-5xl font-bold text-center mb-16 animate-on-scroll"
+            className="text-4xl md:text-5xl font-bold text-center mb-16 animate-on-scroll gradient-text"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -674,8 +679,8 @@ const TRAIGA = () => {
           >
             <Accordion type="single" collapsible className="space-y-4">
               {faqItems.map((faq, index) => (
-                <AccordionItem key={index} value={`faq-${index}`} className="border border-red-700/30 rounded-lg">
-                  <AccordionTrigger className="px-6 py-4 text-left text-lg font-semibold hover:text-red-300">
+                <AccordionItem key={index} value={`faq-${index}`} className="border border-border rounded-lg glass-card">
+                  <AccordionTrigger className="px-6 py-4 text-left text-lg font-semibold hover:text-primary">
                     {faq.question}
                   </AccordionTrigger>
                   <AccordionContent className="px-6 pb-4 text-gray-300">

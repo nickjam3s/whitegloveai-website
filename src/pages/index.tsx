@@ -64,15 +64,17 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-black text-white">
-      {/* TRAIGA Announcement Bar */}
-      <div className="w-full bg-gradient-to-r from-blue-900 via-red-800 to-blue-900 py-3 relative z-10">
+      <HeroSection />
+      
+      {/* TRAIGA Announcement Bar - Now positioned after hero */}
+      <div className="w-full bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 py-3 relative z-10">
         <div className="max-w-7xl mx-auto px-4 flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <AlertTriangle className="h-5 w-5 text-yellow-400" />
+            <AlertTriangle className="h-5 w-5 text-primary" />
             <span className="text-white font-medium">Are you ready for TRAIGA?</span>
           </div>
           <Link to="/traiga">
-            <Button size="sm" className="bg-white text-blue-900 hover:bg-gray-100 font-medium">
+            <Button size="sm" className="bg-primary text-white hover:bg-primary/90 font-medium">
               Visit the TRAIGA Center
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
@@ -80,15 +82,14 @@ const Index = () => {
         </div>
       </div>
 
-      <HeroSection />
       <TrustedBy />
       <ServicesSection />
 
       {/* TRAIGA Triage Center Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-900/20 via-red-900/20 to-blue-900/20 relative overflow-hidden">
+      <section className="py-20 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 relative overflow-hidden">
         <div className="absolute inset-0">
-          <div className="absolute top-0 left-0 w-1/3 h-full bg-blue-900/10"></div>
-          <div className="absolute top-0 right-0 w-1/3 h-full bg-red-900/10"></div>
+          <div className="absolute top-0 left-0 w-1/3 h-full bg-primary/5"></div>
+          <div className="absolute top-0 right-0 w-1/3 h-full bg-accent/5"></div>
         </div>
         
         <div className="max-w-6xl mx-auto px-4 relative z-10">
@@ -98,7 +99,7 @@ const Index = () => {
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-white via-red-200 to-blue-200 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 gradient-text">
               TRAIGA Triage Center
             </h2>
             <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
@@ -108,7 +109,7 @@ const Index = () => {
               With TRAIGA taking effect in 2026, businesses that develop or use AI in Texas must now meet strict legal requirements. WhitegloveAI's TRAIGA Triage Center helps you understand your exposure, prepare, and stay ahead. Don't wait for enforcement—start your compliance journey today.
             </p>
             <Link to="/traiga">
-              <Button size="lg" className="bg-red-700 hover:bg-red-600 text-white px-8 py-4 text-lg rounded-lg transition-all duration-300 transform hover:scale-105">
+              <Button size="lg" className="bg-primary hover:bg-primary/90 text-white px-8 py-4 text-lg rounded-lg transition-all duration-300 transform hover:scale-105">
                 Visit the TRAIGA Center
                 <ArrowRight className="ml-3 h-6 w-6" />
               </Button>
