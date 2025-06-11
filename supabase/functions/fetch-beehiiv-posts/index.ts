@@ -24,6 +24,21 @@ interface BeehiivApiResponse {
   total_count: number;
 }
 
+// Helper function to safely parse dates
+const parseDate = (dateString: string): string => {
+  try {
+    const date = new Date(dateString);
+    if (isNaN(date.getTime())) {
+      console.warn('Invalid date received:', dateString, 'using current date as fallback');
+      return new Date().toISOString().split('T')[0];
+    }
+    return date.toISOString().split('T')[0];
+  } catch (error) {
+    console.error('Error parsing date:', dateString, error);
+    return new Date().toISOString().split('T')[0];
+  }
+};
+
 serve(async (req) => {
   // Handle CORS preflight requests
   if (req.method === 'OPTIONS') {
@@ -57,6 +72,11 @@ serve(async (req) => {
     const data: BeehiivApiResponse = await response.json();
     console.log('Beehiiv API response received:', data.data?.length, 'posts');
 
+    // Log first post to see the data structure
+    if (data.data && data.data.length > 0) {
+      console.log('Sample post data:', JSON.stringify(data.data[0], null, 2));
+    }
+
     // Filter posts that contain TRAIGA-related content
     const traiagaPosts = data.data.filter(post => {
       const titleMatch = post.title.toLowerCase().includes('traiga') || 
@@ -84,15 +104,19 @@ serve(async (req) => {
 
     console.log('Filtered TRAIGA posts:', traiagaPosts.length);
 
-    // Transform to our format
-    const newsletterEntries = traiagaPosts.map(post => ({
-      id: post.id,
-      title: post.title,
-      thumbnail: post.thumbnail_url || 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=320&h=180&fit=crop',
-      link: post.web_url,
-      date: new Date(post.published_at).toISOString().split('T')[0],
-      description: post.subtitle || undefined
-    }));
+    // Transform to our format with safe date parsing
+    const newsletterEntries = traiagaPosts.map(post => {
+      console.log('Processing post:', post.title, 'Published at:', post.published_at);
+      
+      return {
+        id: post.id,
+        title: post.title,
+        thumbnail: post.thumbnail_url || 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=320&h=180&fit=crop',
+        link: post.web_url,
+        date: parseDate(post.published_at),
+        description: post.subtitle || undefined
+      };
+    });
 
     // Return the latest 3 posts
     const result = newsletterEntries.slice(0, 3);
