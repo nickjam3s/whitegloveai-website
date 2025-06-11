@@ -13,7 +13,8 @@ interface BeehiivPost {
   subtitle?: string;
   web_url: string;
   thumbnail_url?: string;
-  published_at: string;
+  publish_date: number | null;
+  displayed_date?: string | null;
   content_tags: string[];
 }
 
@@ -24,17 +25,25 @@ interface BeehiivApiResponse {
   total_count: number;
 }
 
-// Helper function to safely parse dates
-const parseDate = (dateString: string): string => {
+// Helper function to safely parse Unix timestamps
+const parseDate = (timestamp: number | null): string => {
   try {
-    const date = new Date(dateString);
-    if (isNaN(date.getTime())) {
-      console.warn('Invalid date received:', dateString, 'using current date as fallback');
+    if (!timestamp || isNaN(timestamp)) {
+      console.warn('Invalid timestamp received:', timestamp, 'using current date as fallback');
       return new Date().toISOString().split('T')[0];
     }
+    
+    // Convert Unix timestamp to JavaScript Date (multiply by 1000 for milliseconds)
+    const date = new Date(timestamp * 1000);
+    
+    if (isNaN(date.getTime())) {
+      console.warn('Invalid date from timestamp:', timestamp, 'using current date as fallback');
+      return new Date().toISOString().split('T')[0];
+    }
+    
     return date.toISOString().split('T')[0];
   } catch (error) {
-    console.error('Error parsing date:', dateString, error);
+    console.error('Error parsing timestamp:', timestamp, error);
     return new Date().toISOString().split('T')[0];
   }
 };
@@ -104,16 +113,16 @@ serve(async (req) => {
 
     console.log('Filtered TRAIGA posts:', traiagaPosts.length);
 
-    // Transform to our format with safe date parsing
+    // Transform to our format with proper Unix timestamp parsing
     const newsletterEntries = traiagaPosts.map(post => {
-      console.log('Processing post:', post.title, 'Published at:', post.published_at);
+      console.log('Processing post:', post.title, 'Publish date timestamp:', post.publish_date);
       
       return {
         id: post.id,
         title: post.title,
         thumbnail: post.thumbnail_url || 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=320&h=180&fit=crop',
         link: post.web_url,
-        date: parseDate(post.published_at),
+        date: parseDate(post.publish_date),
         description: post.subtitle || undefined
       };
     });
