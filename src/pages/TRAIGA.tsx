@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronDown, Download, Calendar, ExternalLink, Code, Building, Heart, GraduationCap, Home, DollarSign, Shield, AlertTriangle, CheckCircle, Users, Timer, FileText } from 'lucide-react';
@@ -172,23 +173,6 @@ const TRAIGA = () => {
     typeformScript.defer = true;
     document.body.appendChild(typeformScript);
 
-    // Initialize intersection observer for scroll animations
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, {
-      threshold: 0.1
-    });
-
-    // Observe all animate-on-scroll elements
-    const animateElements = document.querySelectorAll('.animate-on-scroll');
-    animateElements.forEach(element => {
-      observer.observe(element);
-    });
-    
     return () => {
       clearInterval(timer);
       // Cleanup meta tags
@@ -203,7 +187,6 @@ const TRAIGA = () => {
       if (schemaScript) schemaScript.remove();
       
       document.body.removeChild(typeformScript);
-      observer.disconnect();
     };
   }, []);
 
@@ -303,6 +286,21 @@ const TRAIGA = () => {
     }
   ];
 
+  // Optimized animation settings for better performance
+  const fadeInUp = {
+    initial: { opacity: 0, y: 30 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true, amount: 0.3 },
+    transition: { duration: 0.8 }
+  };
+
+  const staggerChildren = {
+    initial: { opacity: 0 },
+    whileInView: { opacity: 1 },
+    viewport: { once: true, amount: 0.2 },
+    transition: { staggerChildren: 0.2 }
+  };
+
   return (
     <div className="min-h-screen bg-background text-foreground font-sora">
       {/* Hero Section */}
@@ -368,23 +366,25 @@ const TRAIGA = () => {
       <section className="py-20 bg-card/50">
         <div className="max-w-6xl mx-auto px-4">
           <motion.h2
-            className="text-4xl md:text-5xl font-bold text-center mb-16 animate-on-scroll gradient-text"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            className="text-4xl md:text-5xl font-bold text-center mb-16 gradient-text"
+            {...fadeInUp}
           >
             Understanding the Texas Responsible AI Governance Act
           </motion.h2>
 
           {/* Timeline */}
           <div className="mb-16">
-            <div className="flex flex-col md:flex-row justify-between items-center space-y-8 md:space-y-0 md:space-x-4">
+            <motion.div 
+              className="flex flex-col md:flex-row justify-between items-center space-y-8 md:space-y-0 md:space-x-4"
+              {...staggerChildren}
+            >
               {timelineItems.map((item, index) => (
                 <motion.div
                   key={index}
-                  className="relative flex flex-col items-center text-center animate-on-scroll"
+                  className="relative flex flex-col items-center text-center"
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.3 }}
                   transition={{ duration: 0.6, delay: index * 0.2 }}
                 >
                   <div className={`w-16 h-16 rounded-full flex items-center justify-center mb-4 ${
@@ -399,11 +399,14 @@ const TRAIGA = () => {
                   )}
                 </motion.div>
               ))}
-            </div>
+            </motion.div>
           </div>
 
           {/* Key Points */}
-          <div className="grid md:grid-cols-3 gap-8">
+          <motion.div 
+            className="grid md:grid-cols-3 gap-8"
+            {...staggerChildren}
+          >
             {[
               "First U.S. state bill modeled after EU AI Act",
               "Covers AI developers, deployers, and distributors", 
@@ -411,15 +414,16 @@ const TRAIGA = () => {
             ].map((point, index) => (
               <motion.div
                 key={index}
-                className="text-center p-6 glass-card animate-on-scroll"
+                className="text-center p-6 glass-card"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.6, delay: index * 0.2 }}
               >
                 <p className="text-lg">{point}</p>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -427,19 +431,18 @@ const TRAIGA = () => {
       <section className="py-20">
         <div className="max-w-6xl mx-auto px-4">
           <motion.h2
-            className="text-4xl md:text-5xl font-bold text-center mb-16 animate-on-scroll gradient-text"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            className="text-4xl md:text-5xl font-bold text-center mb-16 gradient-text"
+            {...fadeInUp}
           >
             How AI Regulation Texas Works: HB 149 AI Law Framework
           </motion.h2>
 
           <div className="relative">
             <motion.div
-              className="flex flex-col md:flex-row items-center justify-between space-y-8 md:space-y-0 animate-on-scroll"
+              className="flex flex-col md:flex-row items-center justify-between space-y-8 md:space-y-0"
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 1 }}
             >
               <div className="text-center">
@@ -473,9 +476,10 @@ const TRAIGA = () => {
             </motion.div>
 
             <motion.div
-              className="mt-16 grid md:grid-cols-2 lg:grid-cols-5 gap-4 animate-on-scroll"
+              className="mt-16 grid md:grid-cols-2 lg:grid-cols-5 gap-4"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.8, delay: 0.3 }}
             >
               {[
@@ -500,18 +504,16 @@ const TRAIGA = () => {
       <section className="py-20 bg-card/50">
         <div className="max-w-4xl mx-auto px-4">
           <motion.h2
-            className="text-4xl md:text-5xl font-bold text-center mb-16 animate-on-scroll gradient-text"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            className="text-4xl md:text-5xl font-bold text-center mb-16 gradient-text"
+            {...fadeInUp}
           >
             TRAIGA Compliance Requirements: What's in HB 149 AI Law?
           </motion.h2>
 
           <motion.div
-            className="animate-on-scroll"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8 }}
           >
             <Accordion type="single" collapsible className="space-y-4">
@@ -534,19 +536,18 @@ const TRAIGA = () => {
       <section className="py-20">
         <div className="max-w-6xl mx-auto px-4">
           <motion.h2
-            className="text-4xl md:text-5xl font-bold text-center mb-8 animate-on-scroll gradient-text"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            className="text-4xl md:text-5xl font-bold text-center mb-8 gradient-text"
+            {...fadeInUp}
           >
             TRAIGA Compliance Resources & Tools
           </motion.h2>
 
           {/* New Resource Bar */}
           <motion.div
-            className="mb-16 bg-card/30 border border-border rounded-lg p-4 md:p-6 glass-card animate-on-scroll"
+            className="mb-16 bg-card/30 border border-border rounded-lg p-4 md:p-6 glass-card"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
@@ -577,9 +578,10 @@ const TRAIGA = () => {
           <div className="grid md:grid-cols-2 gap-8">
             {/* Left Column - Downloads */}
             <motion.div
-              className="space-y-6 animate-on-scroll"
+              className="space-y-6"
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.8 }}
             >
               <Card className="glass-card">
@@ -624,9 +626,9 @@ const TRAIGA = () => {
 
             {/* Right Column - AI Agent */}
             <motion.div
-              className="animate-on-scroll"
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.8 }}
             >
               <Card className="glass-card">
@@ -655,10 +657,8 @@ const TRAIGA = () => {
         <div className="max-w-4xl mx-auto px-4">
           {/* Countdown Timer */}
           <motion.div
-            className="text-center mb-12 animate-on-scroll"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            className="text-center mb-12"
+            {...fadeInUp}
           >
             <div className="inline-flex items-center justify-center bg-primary/20 border border-primary/30 rounded-lg px-6 py-4 mb-8">
               <Timer className="h-6 w-6 text-primary mr-3" />
@@ -672,18 +672,17 @@ const TRAIGA = () => {
           </motion.div>
 
           <motion.h2
-            className="text-4xl md:text-5xl font-bold text-center mb-8 animate-on-scroll gradient-text"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            className="text-4xl md:text-5xl font-bold text-center mb-8 gradient-text"
+            {...fadeInUp}
           >
             Start Your TRAIGA Readiness Assessment
           </motion.h2>
           
           <motion.div
-            className="text-center text-muted-foreground mb-16 animate-on-scroll max-w-3xl mx-auto"
+            className="text-center text-muted-foreground mb-16 max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <p className="text-xl mb-4">
@@ -698,9 +697,10 @@ const TRAIGA = () => {
           </motion.div>
 
           <motion.div
-            className="bg-background rounded-lg overflow-hidden shadow-2xl animate-on-scroll"
+            className="bg-background rounded-lg overflow-hidden shadow-2xl"
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
             <div 
@@ -719,27 +719,26 @@ const TRAIGA = () => {
       <section className="py-20">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <motion.h2
-            className="text-4xl md:text-5xl font-bold mb-8 animate-on-scroll gradient-text"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            className="text-4xl md:text-5xl font-bold mb-8 gradient-text"
+            {...fadeInUp}
           >
             Need Expert Help with Texas AI Regulation Compliance?
           </motion.h2>
           
           <motion.p
-            className="text-xl text-muted-foreground mb-12 animate-on-scroll"
+            className="text-xl text-muted-foreground mb-12"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             WhitegloveAI offers expert-led workshops, virtual CAIO services, and tailored TRAIGA compliance strategies. Let our team help you turn this regulatory shift into a growth opportunity while meeting all AI deployer obligations.
           </motion.p>
 
           <motion.div
-            className="animate-on-scroll"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
             <a 
@@ -760,18 +759,16 @@ const TRAIGA = () => {
       <section className="py-20 bg-card/50">
         <div className="max-w-4xl mx-auto px-4">
           <motion.h2
-            className="text-4xl md:text-5xl font-bold text-center mb-16 animate-on-scroll gradient-text"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            className="text-4xl md:text-5xl font-bold text-center mb-16 gradient-text"
+            {...fadeInUp}
           >
             Frequently Asked Questions About TRAIGA Compliance
           </motion.h2>
 
           <motion.div
-            className="animate-on-scroll"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8 }}
           >
             <Accordion type="single" collapsible className="space-y-4">
