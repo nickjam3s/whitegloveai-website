@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronDown, Download, Calendar, ExternalLink, Code, Building, Heart, GraduationCap, Home, DollarSign, Shield, AlertTriangle, CheckCircle, Users, Timer, FileText } from 'lucide-react';
@@ -55,7 +54,6 @@ const TRAIGA = () => {
     canonical.href = 'https://www.whitegloveai.com/traiga';
     document.head.appendChild(canonical);
 
-    // Add FAQPage Schema
     const faqSchema = {
       "@context": "https://schema.org",
       "@type": "FAQPage",
@@ -163,9 +161,6 @@ const TRAIGA = () => {
     script.type = 'application/ld+json';
     script.textContent = JSON.stringify(faqSchema);
     document.head.appendChild(script);
-
-    // Scroll to top when component mounts
-    window.scrollTo(0, 0);
     
     // Load the Typeform script for the readiness assessment
     const typeformScript = document.createElement('script');

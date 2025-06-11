@@ -17,11 +17,16 @@ const ScrollToTop = () => {
       behavior: 'auto'
     });
     
-    // Ensure smooth scrolling is disabled
+    // Ensure smooth scrolling is disabled temporarily
     document.documentElement.style.scrollBehavior = 'auto';
+    
+    // Re-enable smooth scrolling after a short delay
+    const timer = setTimeout(() => {
+      document.documentElement.style.scrollBehavior = 'smooth';
+    }, 100);
 
     return () => {
-      // No need to change anything on unmount
+      clearTimeout(timer);
     };
   }, [pathname]);
 
