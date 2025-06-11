@@ -307,6 +307,10 @@ const TRAIGA = () => {
         {/* Gradient Background */}
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-b from-primary/20 to-background"></div>
+        </div>
+
+        {/* Animated Background Elements */}
+        <div className="absolute inset-0 overflow-hidden">
           {/* Optimized animated particles - reduced count and improved performance */}
           <div style={{ contain: 'layout', willChange: 'transform' }}>
             {[...Array(6)].map((_, i) => (
@@ -336,7 +340,7 @@ const TRAIGA = () => {
           </div>
         </div>
 
-        <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
+        <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-6xl">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}

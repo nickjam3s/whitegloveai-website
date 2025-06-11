@@ -37,8 +37,8 @@ const Navigation = () => {
             <Logo />
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          {/* Desktop Navigation - Moved 20% to the left */}
+          <div className="hidden md:flex items-center space-x-8 transform -translate-x-[20%]">
             {navigationLinks.map((link) => (
               <div key={link.to || link.text} className="relative group">
                 <DesktopMenuItem
