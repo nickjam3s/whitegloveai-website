@@ -1,13 +1,32 @@
-
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { ChevronDown, Download, Calendar, ExternalLink, Code, Building, Heart, GraduationCap, Home, DollarSign, Shield, AlertTriangle, CheckCircle, Users } from 'lucide-react';
+import { ChevronDown, Download, Calendar, ExternalLink, Code, Building, Heart, GraduationCap, Home, DollarSign, Shield, AlertTriangle, CheckCircle, Users, Timer } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 
 const TRAIGA = () => {
+  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0 });
+
   useEffect(() => {
+    // Countdown timer calculation
+    const calculateTimeLeft = () => {
+      const targetDate = new Date('2026-01-01T00:00:00');
+      const now = new Date();
+      const difference = targetDate.getTime() - now.getTime();
+
+      if (difference > 0) {
+        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
+        const minutes = Math.floor((difference / 1000 / 60) % 60);
+        
+        setTimeLeft({ days, hours, minutes });
+      }
+    };
+
+    calculateTimeLeft();
+    const timer = setInterval(calculateTimeLeft, 60000); // Update every minute
+
     // SEO Meta Tags
     document.title = "TRAIGA Triage Center | Prepare for Texas AI Compliance with WhitegloveAI";
     
@@ -171,6 +190,7 @@ const TRAIGA = () => {
     });
     
     return () => {
+      clearInterval(timer);
       // Cleanup meta tags
       const metaDesc = document.querySelector('meta[name="description"]');
       const metaKeys = document.querySelector('meta[name="keywords"]');
@@ -595,6 +615,24 @@ const TRAIGA = () => {
       {/* Readiness Assessment Section */}
       <section id="readiness-assessment" className="py-20 bg-card/50">
         <div className="max-w-4xl mx-auto px-4">
+          {/* Countdown Timer */}
+          <motion.div
+            className="text-center mb-12 animate-on-scroll"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <div className="inline-flex items-center justify-center bg-primary/20 border border-primary/30 rounded-lg px-6 py-4 mb-8">
+              <Timer className="h-6 w-6 text-primary mr-3" />
+              <span className="text-lg font-semibold text-primary">
+                TRAIGA Enforcement Begins In: 
+                <span className="ml-2 text-white">
+                  {timeLeft.days} Days : {timeLeft.hours} Hours : {timeLeft.minutes} Minutes
+                </span>
+              </span>
+            </div>
+          </motion.div>
+
           <motion.h2
             className="text-4xl md:text-5xl font-bold text-center mb-8 animate-on-scroll gradient-text"
             initial={{ opacity: 0, y: 30 }}
@@ -604,14 +642,22 @@ const TRAIGA = () => {
             Start Your TRAIGA Readiness Assessment
           </motion.h2>
           
-          <motion.p
-            className="text-xl text-center text-gray-300 mb-16 animate-on-scroll"
+          <motion.div
+            className="text-center text-gray-300 mb-16 animate-on-scroll max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Take our interactive assessment to gauge whether your AI systems fall under TRAIGA's scope and identify AI deployer obligations you may need to address.
-          </motion.p>
+            <p className="text-xl mb-4">
+              TRAIGA is more than a policy—it's a legal shift in how AI must be developed and deployed in Texas.
+            </p>
+            <p className="text-lg mb-4">
+              This assessment will help you determine if your organization is in scope, how "high-risk" your AI systems are, and whether you're ready to comply.
+            </p>
+            <p className="text-lg">
+              It's fast, non-technical, and designed for business leaders and compliance owners.
+            </p>
+          </motion.div>
 
           <motion.div
             className="bg-white rounded-lg overflow-hidden shadow-2xl animate-on-scroll"
@@ -619,7 +665,14 @@ const TRAIGA = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <div data-tf-live="01JXE4ZG1X8FP317J0M84716RA" style={{ minHeight: '600px' }}></div>
+            <div 
+              data-tf-live="01JXE4ZG1X8FP317J0M84716RA" 
+              style={{ 
+                minHeight: '700px',
+                width: '100%',
+                border: 'none'
+              }}
+            ></div>
           </motion.div>
         </div>
       </section>
@@ -697,3 +750,5 @@ const TRAIGA = () => {
 };
 
 export default TRAIGA;
+
+</edits_to_apply>
