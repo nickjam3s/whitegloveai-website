@@ -1,12 +1,39 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { ChevronDown, Download, Calendar, ExternalLink, Code, Building, Heart, GraduationCap, Home, DollarSign, Shield, AlertTriangle, CheckCircle, Users, Timer, FileText } from 'lucide-react';
+import { ChevronDown, Download, Calendar, ExternalLink, Code, Building, Heart, GraduationCap, Home, DollarSign, Shield, AlertTriangle, CheckCircle, Users, Timer, FileText, Play, Clock, User } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 
 const TRAIGA = () => {
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0 });
+  const [youtubeVideos, setYoutubeVideos] = useState([]);
+  const [loadingVideos, setLoadingVideos] = useState(true);
+
+  // Newsletter/Blog entries (static content)
+  const blogEntries = [
+    {
+      id: 1,
+      title: "TRAIGA Implementation: What Texas Businesses Need to Know",
+      thumbnail: "/placeholder.svg",
+      link: "https://www.linkedin.com/newsletters/ai-executive-insights-7244466745988505600/",
+      date: "2024-12-10"
+    },
+    {
+      id: 2,
+      title: "High-Risk AI Systems Under Texas Law",
+      thumbnail: "/placeholder.svg", 
+      link: "https://www.linkedin.com/newsletters/ai-executive-insights-7244466745988505600/",
+      date: "2024-12-09"
+    },
+    {
+      id: 3,
+      title: "AI Compliance Roadmap for 2025",
+      thumbnail: "/placeholder.svg",
+      link: "https://www.linkedin.com/newsletters/ai-executive-insights-7244466745988505600/",
+      date: "2024-12-08"
+    }
+  ];
 
   useEffect(() => {
     // Countdown timer calculation
@@ -168,6 +195,9 @@ const TRAIGA = () => {
     typeformScript.defer = true;
     document.body.appendChild(typeformScript);
 
+    // Fetch YouTube videos
+    fetchYouTubeVideos();
+
     return () => {
       clearInterval(timer);
       // Cleanup meta tags
@@ -184,6 +214,44 @@ const TRAIGA = () => {
       document.body.removeChild(typeformScript);
     };
   }, []);
+
+  const fetchYouTubeVideos = async () => {
+    try {
+      setLoadingVideos(true);
+      // For now, we'll use placeholder data until YouTube API is set up
+      const placeholderVideos = [
+        {
+          id: 1,
+          title: "TRAIGA Overview: What Texas Businesses Need to Know",
+          thumbnail: "/placeholder.svg",
+          link: "https://www.youtube.com/playlist?list=PLhbRcrokyx5crQ2HE9tDwIH-ecT1BIutW",
+          duration: "15:30",
+          uploadDate: "2024-12-10"
+        },
+        {
+          id: 2,
+          title: "High-Risk AI Systems Under TRAIGA",
+          thumbnail: "/placeholder.svg",
+          link: "https://www.youtube.com/playlist?list=PLhbRcrokyx5crQ2HE9tDwIH-ecT1BIutW",
+          duration: "12:45",
+          uploadDate: "2024-12-09"
+        },
+        {
+          id: 3,
+          title: "TRAIGA Compliance Timeline and Deadlines",
+          thumbnail: "/placeholder.svg",
+          link: "https://www.youtube.com/playlist?list=PLhbRcrokyx5crQ2HE9tDwIH-ecT1BIutW",
+          duration: "18:20",
+          uploadDate: "2024-12-08"
+        }
+      ];
+      setYoutubeVideos(placeholderVideos);
+    } catch (error) {
+      console.error('Error fetching YouTube videos:', error);
+    } finally {
+      setLoadingVideos(false);
+    }
+  };
 
   const scrollToAssessment = () => {
     const element = document.getElementById('readiness-assessment');
@@ -561,7 +629,7 @@ const TRAIGA = () => {
         </div>
       </section>
 
-      {/* Resources Section */}
+      {/* Resources Section - Updated with 2x2 Grid */}
       <section className="py-20">
         <div className="max-w-6xl mx-auto px-4">
           <motion.h2
@@ -604,16 +672,16 @@ const TRAIGA = () => {
             </div>
           </motion.div>
 
+          {/* 2x2 Grid Layout */}
           <div className="grid md:grid-cols-2 gap-8">
-            {/* Left Column - Downloads */}
+            {/* Row 1: Downloads and AI Agent */}
             <motion.div
-              className="space-y-6"
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.5, ease: "easeOut" }}
             >
-              <Card className="glass-card">
+              <Card className="glass-card h-full">
                 <CardContent className="p-6">
                   <h3 className="text-xl font-semibold mb-4 flex items-center">
                     <Download className="mr-2 text-primary" />
@@ -631,36 +699,15 @@ const TRAIGA = () => {
                   </a>
                 </CardContent>
               </Card>
-
-              <Card className="glass-card opacity-60">
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold mb-4">TRAIGA Implementation Checklist</h3>
-                  <p className="text-muted-foreground mb-4">Comprehensive checklist for Texas AI regulation compliance preparation.</p>
-                  <Button disabled className="bg-muted text-muted-foreground">
-                    Coming Soon
-                  </Button>
-                </CardContent>
-              </Card>
-
-              <Card className="glass-card opacity-60">
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold mb-4">High-Risk AI System Tracker</h3>
-                  <p className="text-muted-foreground mb-4">Interactive tool to classify your AI systems under TRAIGA compliance standards.</p>
-                  <Button disabled className="bg-muted text-muted-foreground">
-                    Coming Soon
-                  </Button>
-                </CardContent>
-              </Card>
             </motion.div>
 
-            {/* Right Column - AI Agent */}
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.5, ease: "easeOut" }}
             >
-              <Card className="glass-card">
+              <Card className="glass-card h-full">
                 <CardContent className="p-6">
                   <h3 className="text-xl font-semibold mb-4">WhitegloveAI TRAIGA Expert Agent</h3>
                   <p className="text-muted-foreground mb-4">Chat with our AI agent for instant answers about Texas Responsible AI Governance Act compliance.</p>
@@ -669,14 +716,143 @@ const TRAIGA = () => {
                       src="https://app.thinkstack.ai/bot/index.html?chatbot_id=6848c90420c59f9de50e9272&type=inline"
                       frameBorder="0"
                       width="100%"
-                      height="500"
-                      style={{ minHeight: '500px' }}
+                      height="400"
+                      style={{ minHeight: '400px' }}
                       title="TRAIGA AI Compliance Agent"
                     />
                   </div>
                 </CardContent>
               </Card>
             </motion.div>
+
+            {/* Row 2: Blogs and YouTube Podcast */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
+            >
+              <Card className="glass-card h-full">
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-semibold mb-4 flex items-center">
+                    <FileText className="mr-2 text-primary" />
+                    Blogs
+                  </h3>
+                  <p className="text-muted-foreground mb-6">Latest insights from our AI Executive Insights newsletter covering TRAIGA compliance.</p>
+                  <div className="space-y-4">
+                    {blogEntries.map((blog) => (
+                      <div key={blog.id} className="border border-border rounded-lg p-4 hover:bg-card/50 transition-colors">
+                        <div className="flex items-start gap-3">
+                          <img 
+                            src={blog.thumbnail} 
+                            alt={blog.title}
+                            className="w-16 h-16 rounded-lg object-cover flex-shrink-0"
+                          />
+                          <div className="flex-1 min-w-0">
+                            <h4 className="font-medium text-sm mb-1 line-clamp-2">{blog.title}</h4>
+                            <p className="text-xs text-muted-foreground mb-2">{blog.date}</p>
+                            <a 
+                              href={blog.link}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center text-xs text-primary hover:text-primary/80"
+                            >
+                              Read Article <ExternalLink className="ml-1 h-3 w-3" />
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
+            >
+              <Card className="glass-card h-full">
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-semibold mb-4 flex items-center">
+                    <Play className="mr-2 text-primary" />
+                    WhitegloveAI: Texas TRAIGA Explained
+                  </h3>
+                  <p className="text-muted-foreground mb-6">Video series breaking down TRAIGA compliance requirements for business leaders.</p>
+                  {loadingVideos ? (
+                    <div className="space-y-4">
+                      {[1, 2, 3].map((i) => (
+                        <div key={i} className="border border-border rounded-lg p-4 animate-pulse">
+                          <div className="flex items-start gap-3">
+                            <div className="w-16 h-16 bg-muted rounded-lg flex-shrink-0"></div>
+                            <div className="flex-1">
+                              <div className="h-4 bg-muted rounded mb-2"></div>
+                              <div className="h-3 bg-muted rounded w-1/2"></div>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <div className="space-y-4">
+                      {youtubeVideos.map((video) => (
+                        <div key={video.id} className="border border-border rounded-lg p-4 hover:bg-card/50 transition-colors">
+                          <div className="flex items-start gap-3">
+                            <img 
+                              src={video.thumbnail} 
+                              alt={video.title}
+                              className="w-16 h-16 rounded-lg object-cover flex-shrink-0"
+                            />
+                            <div className="flex-1 min-w-0">
+                              <h4 className="font-medium text-sm mb-1 line-clamp-2">{video.title}</h4>
+                              <div className="flex items-center gap-2 text-xs text-muted-foreground mb-2">
+                                <Clock className="h-3 w-3" />
+                                <span>{video.duration}</span>
+                                <span>•</span>
+                                <span>{video.uploadDate}</span>
+                              </div>
+                              <a 
+                                href={video.link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center text-xs text-primary hover:text-primary/80"
+                              >
+                                Watch Video <ExternalLink className="ml-1 h-3 w-3" />
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </CardContent>
+              </Card>
+            </motion.div>
+          </div>
+
+          {/* Coming Soon Cards */}
+          <div className="grid md:grid-cols-2 gap-8 mt-8">
+            <Card className="glass-card opacity-60">
+              <CardContent className="p-6">
+                <h3 className="text-xl font-semibold mb-4">TRAIGA Implementation Checklist</h3>
+                <p className="text-muted-foreground mb-4">Comprehensive checklist for Texas AI regulation compliance preparation.</p>
+                <Button disabled className="bg-muted text-muted-foreground">
+                  Coming Soon
+                </Button>
+              </CardContent>
+            </Card>
+
+            <Card className="glass-card opacity-60">
+              <CardContent className="p-6">
+                <h3 className="text-xl font-semibold mb-4">High-Risk AI System Tracker</h3>
+                <p className="text-muted-foreground mb-4">Interactive tool to classify your AI systems under TRAIGA compliance standards.</p>
+                <Button disabled className="bg-muted text-muted-foreground">
+                  Coming Soon
+                </Button>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
