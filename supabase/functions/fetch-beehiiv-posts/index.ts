@@ -1,4 +1,3 @@
-
 import "https://deno.land/x/xhr@0.1.0/mod.ts";
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 
@@ -86,29 +85,15 @@ serve(async (req) => {
       console.log('Sample post data:', JSON.stringify(data.data[0], null, 2));
     }
 
-    // Filter posts that contain TRAIGA-related content
+    // Filter posts that contain TRAIGA content tag specifically
     const traiagaPosts = data.data.filter(post => {
-      const titleMatch = post.title.toLowerCase().includes('traiga') || 
-                        post.title.toLowerCase().includes('texas ai') ||
-                        post.title.toLowerCase().includes('ai governance') ||
-                        post.title.toLowerCase().includes('artificial intelligence');
-      
-      const tagMatch = post.content_tags && post.content_tags.some(tag => 
-        tag.toLowerCase().includes('traiga') || 
-        tag.toLowerCase().includes('ai governance') ||
-        tag.toLowerCase().includes('texas ai') ||
-        tag.toLowerCase().includes('artificial intelligence') ||
-        tag.toLowerCase().includes('ai regulation')
+      const hasTraigaTag = post.content_tags && post.content_tags.some(tag => 
+        tag.toLowerCase().includes('traiga')
       );
       
-      const subtitleMatch = post.subtitle && (
-        post.subtitle.toLowerCase().includes('traiga') ||
-        post.subtitle.toLowerCase().includes('texas ai') ||
-        post.subtitle.toLowerCase().includes('ai governance') ||
-        post.subtitle.toLowerCase().includes('artificial intelligence')
-      );
-
-      return titleMatch || tagMatch || subtitleMatch;
+      console.log('Post:', post.title, 'Tags:', post.content_tags, 'Has TRAIGA tag:', hasTraigaTag);
+      
+      return hasTraigaTag;
     });
 
     console.log('Filtered TRAIGA posts:', traiagaPosts.length);
