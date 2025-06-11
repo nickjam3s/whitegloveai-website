@@ -35,7 +35,7 @@ export const navigationLinks = [
     to: "/vcaio",
     children: [
       { 
-        text: "vCAIO",
+        text: "Overview",
         to: "/vcaio/chiefaiofficer",
         children: [
           { to: "/vcaio/chiefaiofficer", text: "vCAIO" },
