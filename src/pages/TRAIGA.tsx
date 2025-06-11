@@ -8,6 +8,142 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 
 const TRAIGA = () => {
   useEffect(() => {
+    // SEO Meta Tags
+    document.title = "TRAIGA Triage Center | Prepare for Texas AI Compliance with WhitegloveAI";
+    
+    // Remove existing meta description if it exists
+    const existingMeta = document.querySelector('meta[name="description"]');
+    if (existingMeta) {
+      existingMeta.remove();
+    }
+    
+    // Add meta description
+    const metaDescription = document.createElement('meta');
+    metaDescription.name = 'description';
+    metaDescription.content = 'Learn how to comply with the Texas Responsible AI Governance Act (TRAIGA). Access readiness tools, expert guidance, and AI compliance resources from WhitegloveAI.';
+    document.head.appendChild(metaDescription);
+
+    // Add keywords meta tag
+    const metaKeywords = document.createElement('meta');
+    metaKeywords.name = 'keywords';
+    metaKeywords.content = 'Texas Responsible AI Governance Act, TRAIGA compliance, AI regulation Texas, HB 149 AI law, AI deployer obligations, Texas AI law 2025, WhitegloveAI TRAIGA, high-risk AI systems';
+    document.head.appendChild(metaKeywords);
+
+    // Add canonical URL
+    const canonical = document.createElement('link');
+    canonical.rel = 'canonical';
+    canonical.href = 'https://www.whitegloveai.com/traiga';
+    document.head.appendChild(canonical);
+
+    // Add FAQPage Schema
+    const faqSchema = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is TRAIGA?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "TRAIGA is Texas's comprehensive AI regulation bill, modeled after the EU AI Act. It establishes requirements for AI developers, deployers, and distributors operating in or affecting Texas residents."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "When does TRAIGA take effect?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The Texas Responsible AI Governance Act is expected to take effect on September 1, 2025, with enforcement beginning January 1, 2026."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Who does TRAIGA apply to?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "TRAIGA applies to any entity that develops, deploys, or distributes AI systems that impact Texas residents, regardless of where the company is located."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are high-risk AI systems under TRAIGA?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "High-risk AI systems are those used in critical domains like hiring, healthcare, finance, housing, and education that could significantly impact individuals' rights or opportunities."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What documentation is required for TRAIGA compliance?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Developers must maintain technical documentation, risk assessments, and compliance records. AI deployers must document their governance processes and impact assessments."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are there penalties for non-compliance with Texas AI law 2025?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, TRAIGA includes significant penalties for violations, including fines and potential enforcement actions by the Texas Attorney General's office."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I know if my AI system is covered by HB 149 AI law?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Use our TRAIGA Readiness Assessment to determine if your AI systems fall under the law's scope and what compliance steps you may need to take."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What about AI used for research under TRAIGA?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Certain research activities may qualify for exemptions, particularly those conducted by academic institutions or in controlled research environments."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does TRAIGA compare to other AI regulations?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "TRAIGA is the first U.S. state law modeled after the EU AI Act, making Texas a pioneer in comprehensive AI regulation at the state level."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the innovation sandbox in Texas AI regulation?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The innovation sandbox allows companies to test new AI technologies under relaxed regulatory requirements for a limited time and scope."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need to register my AI system under TRAIGA compliance?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "High-risk AI systems may require registration and ongoing reporting. The specific requirements depend on your system's classification and use case."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How can WhitegloveAI help with TRAIGA compliance?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "WhitegloveAI offers expert-led workshops, virtual CAIO services, compliance assessments, and tailored strategies to help you navigate TRAIGA requirements effectively."
+          }
+        }
+      ]
+    };
+
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.textContent = JSON.stringify(faqSchema);
+    document.head.appendChild(script);
+
     // Scroll to top when component mounts
     window.scrollTo(0, 0);
     
@@ -35,6 +171,17 @@ const TRAIGA = () => {
     });
     
     return () => {
+      // Cleanup meta tags
+      const metaDesc = document.querySelector('meta[name="description"]');
+      const metaKeys = document.querySelector('meta[name="keywords"]');
+      const canonicalLink = document.querySelector('link[rel="canonical"]');
+      const schemaScript = document.querySelector('script[type="application/ld+json"]');
+      
+      if (metaDesc) metaDesc.remove();
+      if (metaKeys) metaKeys.remove();
+      if (canonicalLink) canonicalLink.remove();
+      if (schemaScript) schemaScript.remove();
+      
       document.body.removeChild(typeformScript);
       observer.disconnect();
     };
@@ -48,40 +195,40 @@ const TRAIGA = () => {
   };
 
   const timelineItems = [
-    { date: "May 2025", event: "Bill Passed", status: "completed" },
-    { date: "Summer 2025", event: "Signed", status: "upcoming" },
-    { date: "Sept 1, 2025", event: "Takes Effect", status: "upcoming" },
-    { date: "Jan 1, 2026", event: "Enforcement Begins", status: "upcoming" }
+    { date: "May 2025", event: "HB 149 AI Law Passed", status: "completed" },
+    { date: "Summer 2025", event: "Signed into Law", status: "upcoming" },
+    { date: "Sept 1, 2025", event: "Texas AI Law 2025 Takes Effect", status: "upcoming" },
+    { date: "Jan 1, 2026", event: "TRAIGA Enforcement Begins", status: "upcoming" }
   ];
 
   const billSections = [
     {
-      title: "High-Risk AI Systems",
-      content: "AI systems that significantly impact hiring, healthcare, finance, housing, or education decisions are subject to enhanced requirements including impact assessments and ongoing monitoring."
+      title: "High-Risk AI Systems Under TRAIGA",
+      content: "AI systems that significantly impact hiring, healthcare, finance, housing, or education decisions are subject to enhanced requirements including impact assessments and ongoing monitoring under the Texas Responsible AI Governance Act."
     },
     {
-      title: "Developer & Deployer Responsibilities", 
-      content: "Developers must conduct risk assessments and provide documentation. Deployers must implement appropriate governance measures and ensure transparency to users."
+      title: "AI Developer & Deployer Responsibilities", 
+      content: "Under TRAIGA compliance requirements, developers must conduct risk assessments and provide documentation. AI deployers must implement appropriate governance measures and ensure transparency to users."
     },
     {
-      title: "Prohibited Practices",
-      content: "Certain AI applications are banned outright, including those that manipulate human behavior in harmful ways or use subliminal techniques beyond user awareness."
+      title: "Prohibited AI Practices in Texas",
+      content: "Certain AI applications are banned outright under HB 149 AI law, including those that manipulate human behavior in harmful ways or use subliminal techniques beyond user awareness."
     },
     {
-      title: "Generative AI Requirements",
-      content: "Foundation models and generative AI systems must meet specific transparency requirements and provide clear disclosures about their capabilities and limitations."
+      title: "Generative AI Requirements Under Texas AI Regulation",
+      content: "Foundation models and generative AI systems must meet specific transparency requirements and provide clear disclosures about their capabilities and limitations per TRAIGA compliance standards."
     },
     {
       title: "State Agency AI Disclosures",
-      content: "Government agencies using AI systems must provide public disclosure and maintain transparency about automated decision-making processes affecting citizens."
+      content: "Government agencies using AI systems must provide public disclosure and maintain transparency about automated decision-making processes affecting Texas citizens under the new AI regulation."
     },
     {
-      title: "Penalties & Enforcement",
-      content: "Violations can result in significant fines and enforcement actions. The Texas Attorney General's office will oversee compliance and investigate violations."
+      title: "TRAIGA Penalties & Enforcement",
+      content: "Violations of the Texas Responsible AI Governance Act can result in significant fines and enforcement actions. The Texas Attorney General's office will oversee compliance and investigate violations."
     },
     {
       title: "Exemptions & Innovation Sandbox",
-      content: "Certain research activities and small-scale deployments may qualify for exemptions. An innovation sandbox program allows controlled testing of new AI technologies."
+      content: "Certain research activities and small-scale deployments may qualify for exemptions under Texas AI law 2025. An innovation sandbox program allows controlled testing of new AI technologies."
     }
   ];
 
@@ -92,7 +239,7 @@ const TRAIGA = () => {
     },
     {
       question: "When does TRAIGA take effect?", 
-      answer: "The bill is expected to take effect on September 1, 2025, with enforcement beginning January 1, 2026."
+      answer: "The Texas Responsible AI Governance Act is expected to take effect on September 1, 2025, with enforcement beginning January 1, 2026."
     },
     {
       question: "Who does TRAIGA apply to?",
@@ -103,31 +250,31 @@ const TRAIGA = () => {
       answer: "High-risk AI systems are those used in critical domains like hiring, healthcare, finance, housing, and education that could significantly impact individuals' rights or opportunities."
     },
     {
-      question: "What documentation is required?",
-      answer: "Developers must maintain technical documentation, risk assessments, and compliance records. Deployers must document their governance processes and impact assessments."
+      question: "What documentation is required for TRAIGA compliance?",
+      answer: "Developers must maintain technical documentation, risk assessments, and compliance records. AI deployers must document their governance processes and impact assessments."
     },
     {
-      question: "Are there penalties for non-compliance?",
+      question: "Are there penalties for non-compliance with Texas AI law 2025?",
       answer: "Yes, TRAIGA includes significant penalties for violations, including fines and potential enforcement actions by the Texas Attorney General's office."
     },
     {
-      question: "How do I know if my AI system is covered?",
+      question: "How do I know if my AI system is covered by HB 149 AI law?",
       answer: "Use our TRAIGA Readiness Assessment to determine if your AI systems fall under the law's scope and what compliance steps you may need to take."
     },
     {
-      question: "What about AI used for research?",
+      question: "What about AI used for research under TRAIGA?",
       answer: "Certain research activities may qualify for exemptions, particularly those conducted by academic institutions or in controlled research environments."
     },
     {
-      question: "How does this compare to other AI regulations?",
+      question: "How does TRAIGA compare to other AI regulations?",
       answer: "TRAIGA is the first U.S. state law modeled after the EU AI Act, making Texas a pioneer in comprehensive AI regulation at the state level."
     },
     {
-      question: "What is the innovation sandbox?",
+      question: "What is the innovation sandbox in Texas AI regulation?",
       answer: "The innovation sandbox allows companies to test new AI technologies under relaxed regulatory requirements for a limited time and scope."
     },
     {
-      question: "Do I need to register my AI system?",
+      question: "Do I need to register my AI system under TRAIGA compliance?",
       answer: "High-risk AI systems may require registration and ongoing reporting. The specific requirements depend on your system's classification and use case."
     },
     {
@@ -172,7 +319,7 @@ const TRAIGA = () => {
             transition={{ duration: 1 }}
             className="text-6xl md:text-8xl font-bold mb-6 bg-gradient-to-r from-white via-red-200 to-blue-200 bg-clip-text text-transparent"
           >
-            The TRAIGA Triage Center
+            TRAIGA Triage Center: Your Hub for Texas AI Compliance
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -180,7 +327,7 @@ const TRAIGA = () => {
             transition={{ duration: 1, delay: 0.3 }}
             className="text-xl md:text-2xl mb-8 text-gray-200"
           >
-            Your command center for navigating Texas's landmark AI law
+            Navigate the Texas Responsible AI Governance Act with expert guidance and compliance tools
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -192,7 +339,7 @@ const TRAIGA = () => {
               size="lg"
               className="bg-red-700 hover:bg-red-600 text-white px-8 py-4 text-lg rounded-lg transition-all duration-300 transform hover:scale-105"
             >
-              Start Readiness Assessment
+              Start TRAIGA Readiness Assessment
               <ChevronDown className="ml-2 h-5 w-5" />
             </Button>
           </motion.div>
@@ -208,7 +355,7 @@ const TRAIGA = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            What is TRAIGA?
+            Understanding the Texas Responsible AI Governance Act
           </motion.h2>
 
           {/* Timeline */}
@@ -241,8 +388,8 @@ const TRAIGA = () => {
           <div className="grid md:grid-cols-3 gap-8">
             {[
               "First U.S. state bill modeled after EU AI Act",
-              "Covers developers, deployers, and distributors", 
-              "Applies to any AI impacting Texas residents"
+              "Covers AI developers, deployers, and distributors", 
+              "Applies to any AI system impacting Texas residents"
             ].map((point, index) => (
               <motion.div
                 key={index}
@@ -267,7 +414,7 @@ const TRAIGA = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            How TRAIGA Works
+            How AI Regulation Texas Works: HB 149 AI Law Framework
           </motion.h2>
 
           <div className="relative">
@@ -281,7 +428,7 @@ const TRAIGA = () => {
                 <div className="w-24 h-24 bg-blue-600 rounded-full flex items-center justify-center mb-4 mx-auto">
                   <span className="text-2xl">👨‍💻</span>
                 </div>
-                <h3 className="text-xl font-semibold">Developer</h3>
+                <h3 className="text-xl font-semibold">AI Developer</h3>
               </div>
               
               <div className="flex-1 mx-8">
@@ -292,7 +439,7 @@ const TRAIGA = () => {
                 <div className="w-24 h-24 bg-purple-600 rounded-full flex items-center justify-center mb-4 mx-auto">
                   <span className="text-2xl">🤖</span>
                 </div>
-                <h3 className="text-xl font-semibold">AI Tool</h3>
+                <h3 className="text-xl font-semibold">AI System</h3>
               </div>
               
               <div className="flex-1 mx-8">
@@ -316,7 +463,7 @@ const TRAIGA = () => {
               {["Hiring", "Healthcare", "Finance", "Housing", "Education"].map((domain, index) => (
                 <div key={index} className="text-center p-4 bg-red-700/30 rounded-lg">
                   <h4 className="font-semibold text-lg">{domain}</h4>
-                  <p className="text-sm text-gray-300 mt-2">High-Risk Domain</p>
+                  <p className="text-sm text-gray-300 mt-2">High-Risk AI Domain</p>
                 </div>
               ))}
             </motion.div>
@@ -333,7 +480,7 @@ const TRAIGA = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            What's in the Bill?
+            TRAIGA Compliance Requirements: What's in HB 149 AI Law?
           </motion.h2>
 
           <motion.div
@@ -367,7 +514,7 @@ const TRAIGA = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            Resources
+            TRAIGA Compliance Resources & Tools
           </motion.h2>
 
           <div className="grid md:grid-cols-2 gap-8">
@@ -382,9 +529,9 @@ const TRAIGA = () => {
                 <CardContent className="p-6">
                   <h3 className="text-xl font-semibold mb-4 flex items-center">
                     <Download className="mr-2" />
-                    Reader-Friendly Version of the Bill
+                    Reader-Friendly Version of Texas AI Law 2025
                   </h3>
-                  <p className="text-gray-300 mb-4">Download our simplified breakdown of TRAIGA's key provisions.</p>
+                  <p className="text-gray-300 mb-4">Download our simplified breakdown of TRAIGA's key provisions and AI deployer obligations.</p>
                   <Button className="bg-blue-600 hover:bg-blue-500">
                     Download PDF
                   </Button>
@@ -394,7 +541,7 @@ const TRAIGA = () => {
               <Card className="bg-slate-800/50 border-gray-600/30 opacity-60">
                 <CardContent className="p-6">
                   <h3 className="text-xl font-semibold mb-4">TRAIGA Implementation Checklist</h3>
-                  <p className="text-gray-400 mb-4">Comprehensive checklist for compliance preparation.</p>
+                  <p className="text-gray-400 mb-4">Comprehensive checklist for Texas AI regulation compliance preparation.</p>
                   <Button disabled className="bg-gray-600">
                     Coming Soon
                   </Button>
@@ -404,7 +551,7 @@ const TRAIGA = () => {
               <Card className="bg-slate-800/50 border-gray-600/30 opacity-60">
                 <CardContent className="p-6">
                   <h3 className="text-xl font-semibold mb-4">High-Risk AI System Tracker</h3>
-                  <p className="text-gray-400 mb-4">Interactive tool to classify your AI systems.</p>
+                  <p className="text-gray-400 mb-4">Interactive tool to classify your AI systems under TRAIGA compliance standards.</p>
                   <Button disabled className="bg-gray-600">
                     Coming Soon
                   </Button>
@@ -421,8 +568,8 @@ const TRAIGA = () => {
             >
               <Card className="bg-slate-800/50 border-red-700/30">
                 <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold mb-4">TRAIGA AI Agent</h3>
-                  <p className="text-gray-300 mb-4">Chat with our AI agent for instant answers about TRAIGA compliance.</p>
+                  <h3 className="text-xl font-semibold mb-4">WhitegloveAI TRAIGA Expert Agent</h3>
+                  <p className="text-gray-300 mb-4">Chat with our AI agent for instant answers about Texas Responsible AI Governance Act compliance.</p>
                   <div className="bg-white rounded-lg overflow-hidden">
                     <iframe
                       src="https://app.thinkstack.ai/bot/index.html?chatbot_id=6848c90420c59f9de50e9272&type=inline"
@@ -430,7 +577,7 @@ const TRAIGA = () => {
                       width="100%"
                       height="500"
                       style={{ minHeight: '500px' }}
-                      title="TRAIGA AI Agent"
+                      title="TRAIGA AI Compliance Agent"
                     />
                   </div>
                 </CardContent>
@@ -458,7 +605,7 @@ const TRAIGA = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Take our interactive Typeform to gauge whether you fall under TRAIGA's scope and where you may need to take action.
+            Take our interactive assessment to gauge whether your AI systems fall under TRAIGA's scope and identify AI deployer obligations you may need to address.
           </motion.p>
 
           <motion.div
@@ -481,7 +628,7 @@ const TRAIGA = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            Need Help Navigating TRAIGA?
+            Need Expert Help with Texas AI Regulation Compliance?
           </motion.h2>
           
           <motion.p
@@ -490,7 +637,7 @@ const TRAIGA = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            WhitegloveAI offers expert-led workshops, virtual CAIO services, and tailored compliance strategies. Let our team help you turn this regulatory shift into a growth opportunity.
+            WhitegloveAI offers expert-led workshops, virtual CAIO services, and tailored TRAIGA compliance strategies. Let our team help you turn this regulatory shift into a growth opportunity while meeting all AI deployer obligations.
           </motion.p>
 
           <motion.div
@@ -501,7 +648,7 @@ const TRAIGA = () => {
           >
             <Button size="lg" className="bg-red-700 hover:bg-red-600 text-white px-8 py-4 text-lg rounded-lg">
               <Calendar className="mr-2 h-5 w-5" />
-              Schedule a Consultation
+              Schedule a TRAIGA Consultation
             </Button>
           </motion.div>
         </div>
@@ -516,7 +663,7 @@ const TRAIGA = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            Frequently Asked Questions
+            Frequently Asked Questions About TRAIGA Compliance
           </motion.h2>
 
           <motion.div

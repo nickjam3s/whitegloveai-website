@@ -10,6 +10,9 @@ Disallow: /checkout/
 Disallow: /*?s=
 Disallow: /*&
 
+# Allow TRAIGA page for indexing
+Allow: /traiga
+
 # Specific AI Crawlers (Be specific if needed, but '*' usually suffices)
 # User-agent: Google-Extended
 # Allow: /blog/
