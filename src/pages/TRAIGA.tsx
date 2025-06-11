@@ -14,31 +14,6 @@ const TRAIGA = () => {
   const [newsletterEntries, setNewsletterEntries] = useState<NewsletterEntry[]>([]);
   const [loadingNewsletter, setLoadingNewsletter] = useState(true);
 
-  // Newsletter/Blog entries (static content)
-  const blogEntries = [
-    {
-      id: 1,
-      title: "TRAIGA Implementation: What Texas Businesses Need to Know",
-      thumbnail: "/placeholder.svg",
-      link: "https://www.linkedin.com/newsletters/ai-executive-insights-7244466745988505600/",
-      date: "2024-12-10"
-    },
-    {
-      id: 2,
-      title: "High-Risk AI Systems Under Texas Law",
-      thumbnail: "/placeholder.svg", 
-      link: "https://www.linkedin.com/newsletters/ai-executive-insights-7244466745988505600/",
-      date: "2024-12-09"
-    },
-    {
-      id: 3,
-      title: "AI Compliance Roadmap for 2025",
-      thumbnail: "/placeholder.svg",
-      link: "https://www.linkedin.com/newsletters/ai-executive-insights-7244466745988505600/",
-      date: "2024-12-08"
-    }
-  ];
-
   useEffect(() => {
     // Countdown timer calculation
     const calculateTimeLeft = () => {
@@ -615,7 +590,7 @@ const TRAIGA = () => {
         </div>
       </section>
 
-      {/* Resources Section - Updated with Real Content */}
+      {/* Resources Section - Updated Layout */}
       <section className="py-20">
         <div className="max-w-6xl mx-auto px-4">
           <motion.h2
@@ -625,9 +600,9 @@ const TRAIGA = () => {
             TRAIGA Compliance Resources & Tools
           </motion.h2>
 
-          {/* New Resource Bar */}
+          {/* Original TRAIGA legislation section */}
           <motion.div
-            className="mb-16 bg-card/30 border border-border rounded-lg p-4 md:p-6 glass-card"
+            className="mb-8 bg-card/30 border border-border rounded-lg p-4 md:p-6 glass-card"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.5 }}
@@ -658,65 +633,73 @@ const TRAIGA = () => {
             </div>
           </motion.div>
 
-          {/* 2x2 Grid Layout with Real Content */}
+          {/* Reader-Friendly Version section - Same width as above */}
+          <motion.div
+            className="mb-16 bg-card/30 border border-border rounded-lg p-4 md:p-6 glass-card"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.4, delay: 0.2, ease: "easeOut" }}
+          >
+            <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+              <div className="flex items-start gap-4 flex-1">
+                <Download className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
+                <div>
+                  <h3 className="font-medium text-lg mb-2">Reader-Friendly Version of Texas AI Law 2025</h3>
+                  <p className="text-muted-foreground text-sm md:text-base">
+                    Download our simplified breakdown of TRAIGA's key provisions and AI deployer obligations.
+                  </p>
+                </div>
+              </div>
+              <div className="flex-shrink-0 w-full md:w-auto">
+                <a 
+                  href="https://jzaxt350p9j.typeform.com/to/xFzg0azE"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button className="bg-primary hover:bg-primary/90 text-primary-foreground w-full md:w-auto">
+                    <Download className="mr-2 h-4 w-4" />
+                    Download PDF
+                  </Button>
+                </a>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* TRAIGA Expert Agent - Full width like above sections */}
+          <motion.div
+            className="mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+          >
+            <Card className="glass-card">
+              <CardContent className="p-6">
+                <h3 className="text-xl font-semibold mb-4">WhitegloveAI TRAIGA Expert Agent</h3>
+                <p className="text-muted-foreground mb-4">Chat with our AI agent for instant answers about Texas Responsible AI Governance Act compliance.</p>
+                <div className="bg-white rounded-lg overflow-hidden">
+                  <iframe
+                    src="https://app.thinkstack.ai/bot/index.html?chatbot_id=6848c90420c59f9de50e9272&type=inline"
+                    frameBorder="0"
+                    width="100%"
+                    height="400"
+                    style={{ minHeight: '400px' }}
+                    title="TRAIGA AI Compliance Agent"
+                  />
+                </div>
+              </CardContent>
+            </Card>
+          </motion.div>
+
+          {/* 2-column layout for Newsletter and YouTube */}
           <div className="grid md:grid-cols-2 gap-8">
-            {/* Row 1: Downloads and AI Agent */}
+            {/* Real Newsletter Content from Beehiiv */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.5, ease: "easeOut" }}
-            >
-              <Card className="glass-card h-full">
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold mb-4 flex items-center">
-                    <Download className="mr-2 text-primary" />
-                    Reader-Friendly Version of Texas AI Law 2025
-                  </h3>
-                  <p className="text-muted-foreground mb-4">Download our simplified breakdown of TRAIGA's key provisions and AI deployer obligations.</p>
-                  <a 
-                    href="https://jzaxt350p9j.typeform.com/to/xFzg0azE"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">
-                      Download PDF
-                    </Button>
-                  </a>
-                </CardContent>
-              </Card>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.5, ease: "easeOut" }}
-            >
-              <Card className="glass-card h-full">
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold mb-4">WhitegloveAI TRAIGA Expert Agent</h3>
-                  <p className="text-muted-foreground mb-4">Chat with our AI agent for instant answers about Texas Responsible AI Governance Act compliance.</p>
-                  <div className="bg-white rounded-lg overflow-hidden">
-                    <iframe
-                      src="https://app.thinkstack.ai/bot/index.html?chatbot_id=6848c90420c59f9de50e9272&type=inline"
-                      frameBorder="0"
-                      width="100%"
-                      height="400"
-                      style={{ minHeight: '400px' }}
-                      title="TRAIGA AI Compliance Agent"
-                    />
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-
-            {/* Row 2: Real Newsletter and YouTube Content */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
             >
               <Card className="glass-card h-full">
                 <CardContent className="p-6">
@@ -770,6 +753,7 @@ const TRAIGA = () => {
               </Card>
             </motion.div>
 
+            {/* Real YouTube Content */}
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
