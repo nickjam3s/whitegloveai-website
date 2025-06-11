@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronDown, Download, Calendar, ExternalLink, Code, Building, Heart, GraduationCap, Home, DollarSign, Shield, AlertTriangle, CheckCircle, Users, Timer, FileText, Play, Clock, User } from 'lucide-react';
@@ -991,5 +992,3 @@ const TRAIGA = () => {
 };
 
 export default TRAIGA;
-
-</edits_to_apply>
