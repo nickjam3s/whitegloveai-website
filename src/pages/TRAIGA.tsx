@@ -13,6 +13,7 @@ const TRAIGA = () => {
   const [loadingVideos, setLoadingVideos] = useState(true);
   const [newsletterEntries, setNewsletterEntries] = useState<NewsletterEntry[]>([]);
   const [loadingNewsletter, setLoadingNewsletter] = useState(true);
+  const [apiError, setApiError] = useState<string | null>(null);
 
   useEffect(() => {
     // Countdown timer calculation
@@ -198,9 +199,12 @@ const TRAIGA = () => {
     try {
       setLoadingVideos(true);
       setLoadingNewsletter(true);
+      setApiError(null);
       
       // Load newsletter entries from Beehiiv API
+      console.log('Starting to load Beehiiv content...');
       const latestNewsletters = await fetchBeehiivPosts();
+      console.log('Loaded newsletters:', latestNewsletters);
       setNewsletterEntries(latestNewsletters);
       
       // Fetch real YouTube videos
@@ -208,6 +212,7 @@ const TRAIGA = () => {
       setYoutubeVideos(videos);
     } catch (error) {
       console.error('Error loading content:', error);
+      setApiError('Unable to load latest content. Displaying cached articles.');
     } finally {
       setLoadingVideos(false);
       setLoadingNewsletter(false);
@@ -692,6 +697,20 @@ const TRAIGA = () => {
             </Card>
           </motion.div>
 
+          {/* Debug information for API issues */}
+          {apiError && (
+            <motion.div
+              className="mb-8 bg-yellow-50 border border-yellow-200 rounded-lg p-4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+            >
+              <div className="flex items-center gap-2 text-yellow-800">
+                <AlertTriangle className="h-5 w-5" />
+                <span className="font-medium">API Notice: {apiError}</span>
+              </div>
+            </motion.div>
+          )}
+
           {/* 2-column layout for Newsletter and YouTube */}
           <div className="grid md:grid-cols-2 gap-8">
             {/* Real Newsletter Content from Beehiiv */}
@@ -735,6 +754,9 @@ const TRAIGA = () => {
                             <div className="flex-1 min-w-0">
                               <h4 className="font-medium text-sm mb-1 line-clamp-2">{entry.title}</h4>
                               <p className="text-xs text-muted-foreground mb-2">{entry.date}</p>
+                              {entry.id.startsWith('fallback') && (
+                                <p className="text-xs text-yellow-600 mb-2">Cached Article</p>
+                              )}
                               <a 
                                 href={entry.link}
                                 target="_blank"
@@ -969,3 +991,5 @@ const TRAIGA = () => {
 };
 
 export default TRAIGA;
+
+</edits_to_apply>
