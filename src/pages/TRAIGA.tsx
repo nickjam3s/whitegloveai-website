@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronDown, Download, Calendar, ExternalLink, Code, Building, Heart, GraduationCap, Home, DollarSign, Shield, AlertTriangle, CheckCircle, Users, Timer, FileText, Play, Clock, User } from 'lucide-react';
@@ -38,7 +37,7 @@ const TRAIGA = () => {
     // SEO Meta Tags
     document.title = "TRAIGA Triage Center | Prepare for Texas AI Compliance with WhitegloveAI";
     
-    // Remove existing meta description if it exists
+    // Remove existing meta tags if they exist
     const existingMeta = document.querySelector('meta[name="description"]');
     if (existingMeta) {
       existingMeta.remove();
@@ -61,6 +60,53 @@ const TRAIGA = () => {
     canonical.rel = 'canonical';
     canonical.href = 'https://www.whitegloveai.com/traiga';
     document.head.appendChild(canonical);
+
+    // Add Open Graph meta tags for custom thumbnail
+    const ogTitle = document.createElement('meta');
+    ogTitle.setAttribute('property', 'og:title');
+    ogTitle.content = 'TRAIGA Triage Center | Texas AI Compliance with WhitegloveAI';
+    document.head.appendChild(ogTitle);
+
+    const ogDescription = document.createElement('meta');
+    ogDescription.setAttribute('property', 'og:description');
+    ogDescription.content = 'Navigate the Texas Responsible AI Governance Act with expert guidance and compliance tools from WhitegloveAI.';
+    document.head.appendChild(ogDescription);
+
+    const ogImage = document.createElement('meta');
+    ogImage.setAttribute('property', 'og:image');
+    ogImage.content = 'https://www.whitegloveai.com/lovable-uploads/4b26cf48-8284-40f8-9bd7-9f85f49234a5.png';
+    document.head.appendChild(ogImage);
+
+    const ogUrl = document.createElement('meta');
+    ogUrl.setAttribute('property', 'og:url');
+    ogUrl.content = 'https://www.whitegloveai.com/traiga';
+    document.head.appendChild(ogUrl);
+
+    const ogType = document.createElement('meta');
+    ogType.setAttribute('property', 'og:type');
+    ogType.content = 'website';
+    document.head.appendChild(ogType);
+
+    // Add Twitter Card meta tags
+    const twitterCard = document.createElement('meta');
+    twitterCard.name = 'twitter:card';
+    twitterCard.content = 'summary_large_image';
+    document.head.appendChild(twitterCard);
+
+    const twitterTitle = document.createElement('meta');
+    twitterTitle.name = 'twitter:title';
+    twitterTitle.content = 'TRAIGA Triage Center | Texas AI Compliance with WhitegloveAI';
+    document.head.appendChild(twitterTitle);
+
+    const twitterDescription = document.createElement('meta');
+    twitterDescription.name = 'twitter:description';
+    twitterDescription.content = 'Navigate the Texas Responsible AI Governance Act with expert guidance and compliance tools from WhitegloveAI.';
+    document.head.appendChild(twitterDescription);
+
+    const twitterImage = document.createElement('meta');
+    twitterImage.name = 'twitter:image';
+    twitterImage.content = 'https://www.whitegloveai.com/lovable-uploads/4b26cf48-8284-40f8-9bd7-9f85f49234a5.png';
+    document.head.appendChild(twitterImage);
 
     const faqSchema = {
       "@context": "https://schema.org",
@@ -187,10 +233,32 @@ const TRAIGA = () => {
       const canonicalLink = document.querySelector('link[rel="canonical"]');
       const schemaScript = document.querySelector('script[type="application/ld+json"]');
       
+      // Cleanup Open Graph meta tags
+      const ogTitleTag = document.querySelector('meta[property="og:title"]');
+      const ogDescTag = document.querySelector('meta[property="og:description"]');
+      const ogImageTag = document.querySelector('meta[property="og:image"]');
+      const ogUrlTag = document.querySelector('meta[property="og:url"]');
+      const ogTypeTag = document.querySelector('meta[property="og:type"]');
+      
+      // Cleanup Twitter Card meta tags
+      const twitterCardTag = document.querySelector('meta[name="twitter:card"]');
+      const twitterTitleTag = document.querySelector('meta[name="twitter:title"]');
+      const twitterDescTag = document.querySelector('meta[name="twitter:description"]');
+      const twitterImageTag = document.querySelector('meta[name="twitter:image"]');
+      
       if (metaDesc) metaDesc.remove();
       if (metaKeys) metaKeys.remove();
       if (canonicalLink) canonicalLink.remove();
       if (schemaScript) schemaScript.remove();
+      if (ogTitleTag) ogTitleTag.remove();
+      if (ogDescTag) ogDescTag.remove();
+      if (ogImageTag) ogImageTag.remove();
+      if (ogUrlTag) ogUrlTag.remove();
+      if (ogTypeTag) ogTypeTag.remove();
+      if (twitterCardTag) twitterCardTag.remove();
+      if (twitterTitleTag) twitterTitleTag.remove();
+      if (twitterDescTag) twitterDescTag.remove();
+      if (twitterImageTag) twitterImageTag.remove();
       
       document.body.removeChild(typeformScript);
     };
