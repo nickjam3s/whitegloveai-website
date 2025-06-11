@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronDown, Download, Calendar, ExternalLink, Code, Building, Heart, GraduationCap, Home, DollarSign, Shield, AlertTriangle, CheckCircle, Users, Timer, FileText } from 'lucide-react';
@@ -288,17 +287,17 @@ const TRAIGA = () => {
 
   // Optimized animation settings for better performance
   const fadeInUp = {
-    initial: { opacity: 0, y: 30 },
+    initial: { opacity: 0, y: 20 },
     whileInView: { opacity: 1, y: 0 },
-    viewport: { once: true, amount: 0.3 },
-    transition: { duration: 0.8 }
+    viewport: { once: true, amount: 0.5, margin: "-100px" },
+    transition: { duration: 0.4, ease: "easeOut" }
   };
 
   const staggerChildren = {
     initial: { opacity: 0 },
     whileInView: { opacity: 1 },
-    viewport: { once: true, amount: 0.2 },
-    transition: { staggerChildren: 0.2 }
+    viewport: { once: true, amount: 0.3, margin: "-50px" },
+    transition: { staggerChildren: 0.1, duration: 0.3 }
   };
 
   return (
@@ -308,31 +307,40 @@ const TRAIGA = () => {
         {/* Gradient Background */}
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-b from-primary/20 to-background"></div>
-          {/* Subtle animated particles */}
-          {[...Array(20)].map((_, i) => (
-            <motion.div
-              key={i}
-              className="absolute w-1 h-1 bg-primary rounded-full opacity-60"
-              initial={{ opacity: 0, scale: 0 }}
-              animate={{ opacity: [0.3, 1, 0.3], scale: [0.5, 1, 0.5] }}
-              transition={{
-                duration: 3 + Math.random() * 2,
-                repeat: Infinity,
-                delay: Math.random() * 2
-              }}
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-              }}
-            />
-          ))}
+          {/* Optimized animated particles - reduced count and improved performance */}
+          <div style={{ contain: 'layout', willChange: 'transform' }}>
+            {[...Array(6)].map((_, i) => (
+              <motion.div
+                key={i}
+                className="absolute w-1 h-1 bg-primary rounded-full opacity-40"
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ 
+                  opacity: [0.2, 0.6, 0.2], 
+                  scale: [0.5, 1, 0.5],
+                  x: [0, Math.random() * 20 - 10, 0],
+                  y: [0, Math.random() * 20 - 10, 0]
+                }}
+                transition={{
+                  duration: 4 + Math.random(),
+                  repeat: Infinity,
+                  delay: Math.random() * 2,
+                  ease: "easeInOut"
+                }}
+                style={{
+                  left: `${20 + Math.random() * 60}%`,
+                  top: `${20 + Math.random() * 60}%`,
+                  transform: 'translate3d(0, 0, 0)'
+                }}
+              />
+            ))}
+          </div>
         </div>
 
         <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
             className="text-6xl md:text-8xl font-bold mb-6 gradient-text"
           >
             TRAIGA Triage Center: Your Hub for Texas AI Compliance
@@ -340,26 +348,26 @@ const TRAIGA = () => {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.3 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
             className="text-xl md:text-2xl mb-8 text-muted-foreground"
           >
             Navigate the Texas Responsible AI Governance Act with expert guidance and compliance tools
           </motion.p>
 
-          {/* Countdown Timer - Moved to Hero and Made Bigger */}
+          {/* Countdown Timer - Optimized */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.5 }}
+            transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
             className="mb-8"
           >
-            <div className="inline-flex items-center justify-center bg-primary/20 border border-primary/30 rounded-lg px-8 py-6 mb-4">
-              <Timer className="h-8 w-8 text-primary mr-4" />
-              <span className="text-2xl md:text-3xl font-semibold text-primary">
+            <div className="inline-flex items-center justify-center bg-primary/20 border border-primary/30 rounded-lg px-6 md:px-8 py-4 md:py-6 mb-4">
+              <Timer className="h-6 w-6 md:h-8 md:w-8 text-primary mr-3 md:mr-4" />
+              <span className="text-lg md:text-2xl lg:text-3xl font-semibold text-primary">
                 TRAIGA Enforcement Begins In: 
               </span>
             </div>
-            <div className="text-3xl md:text-4xl font-bold text-foreground">
+            <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground">
               {timeLeft.days} Days : {timeLeft.hours} Hours : {timeLeft.minutes} Minutes
             </div>
           </motion.div>
@@ -367,7 +375,7 @@ const TRAIGA = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.6 }}
+            transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
           >
             <Button
               onClick={scrollToAssessment}
@@ -395,16 +403,17 @@ const TRAIGA = () => {
           <div className="mb-16">
             <motion.div 
               className="flex flex-col md:flex-row justify-between items-center space-y-8 md:space-y-0 md:space-x-4"
+              style={{ contain: 'layout' }}
               {...staggerChildren}
             >
               {timelineItems.map((item, index) => (
                 <motion.div
                   key={index}
                   className="relative flex flex-col items-center text-center"
-                  initial={{ opacity: 0, y: 30 }}
+                  initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.3 }}
-                  transition={{ duration: 0.6, delay: index * 0.2 }}
+                  viewport={{ once: true, amount: 0.5 }}
+                  transition={{ duration: 0.4, delay: index * 0.1, ease: "easeOut" }}
                 >
                   <div className={`w-16 h-16 rounded-full flex items-center justify-center mb-4 ${
                     item.status === 'completed' ? 'bg-green-600' : 'bg-primary'
@@ -424,6 +433,7 @@ const TRAIGA = () => {
           {/* Key Points */}
           <motion.div 
             className="grid md:grid-cols-3 gap-8"
+            style={{ contain: 'layout' }}
             {...staggerChildren}
           >
             {[
@@ -434,10 +444,10 @@ const TRAIGA = () => {
               <motion.div
                 key={index}
                 className="text-center p-6 glass-card"
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
+                viewport={{ once: true, amount: 0.5 }}
+                transition={{ duration: 0.4, delay: index * 0.1, ease: "easeOut" }}
               >
                 <p className="text-lg">{point}</p>
               </motion.div>
@@ -459,10 +469,10 @@ const TRAIGA = () => {
           <div className="relative">
             <motion.div
               className="flex flex-col md:flex-row items-center justify-between space-y-8 md:space-y-0"
-              initial={{ opacity: 0, scale: 0.9 }}
+              initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 1 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
             >
               <div className="text-center">
                 <div className="w-24 h-24 bg-primary rounded-full flex items-center justify-center mb-4 mx-auto">
@@ -496,10 +506,10 @@ const TRAIGA = () => {
 
             <motion.div
               className="mt-16 grid md:grid-cols-2 lg:grid-cols-5 gap-4"
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
+              transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
             >
               {[
                 { domain: "Hiring", icon: Building },
@@ -530,10 +540,10 @@ const TRAIGA = () => {
           </motion.h2>
 
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
           >
             <Accordion type="single" collapsible className="space-y-4">
               {billSections.map((section, index) => (
@@ -566,8 +576,8 @@ const TRAIGA = () => {
             className="mb-16 bg-card/30 border border-border rounded-lg p-4 md:p-6 glass-card"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.4, delay: 0.1, ease: "easeOut" }}
           >
             <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
               <div className="flex items-start gap-4 flex-1">
@@ -598,10 +608,10 @@ const TRAIGA = () => {
             {/* Left Column - Downloads */}
             <motion.div
               className="space-y-6"
-              initial={{ opacity: 0, x: -30 }}
+              initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
             >
               <Card className="glass-card">
                 <CardContent className="p-6">
@@ -645,10 +655,10 @@ const TRAIGA = () => {
 
             {/* Right Column - AI Agent */}
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
+              initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
             >
               <Card className="glass-card">
                 <CardContent className="p-6">
@@ -671,15 +681,15 @@ const TRAIGA = () => {
         </div>
       </section>
 
-      {/* Readiness Assessment Section - Remove countdown from here */}
+      {/* Readiness Assessment Section */}
       <section id="readiness-assessment" className="py-20 bg-card/50">
         <div className="max-w-4xl mx-auto px-4">
           <motion.h2
             className="text-4xl md:text-5xl font-bold text-center mb-8 gradient-text"
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.8 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
           >
             Start Your TRAIGA Readiness Assessment
           </motion.h2>
@@ -688,8 +698,8 @@ const TRAIGA = () => {
             className="text-center text-muted-foreground mb-16 max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
           >
             <p className="text-xl mb-4">
               TRAIGA is more than a policy—it's a legal shift in how AI must be developed and deployed in Texas.
@@ -704,10 +714,10 @@ const TRAIGA = () => {
 
           <motion.div
             className="bg-background rounded-lg overflow-hidden shadow-2xl"
-            initial={{ opacity: 0, scale: 0.95 }}
+            initial={{ opacity: 0, scale: 0.98 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
           >
             <div 
               data-tf-live="01JXE4ZG1X8FP317J0M84716RA" 
@@ -735,8 +745,8 @@ const TRAIGA = () => {
             className="text-xl text-muted-foreground mb-12"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
           >
             WhitegloveAI offers expert-led workshops, virtual CAIO services, and tailored TRAIGA compliance strategies. Let our team help you turn this regulatory shift into a growth opportunity while meeting all AI deployer obligations.
           </motion.p>
@@ -744,8 +754,8 @@ const TRAIGA = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
           >
             <a 
               href="https://calendar.app.google/xXijsicKqwNeFnjA7"
@@ -772,10 +782,10 @@ const TRAIGA = () => {
           </motion.h2>
 
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
           >
             <Accordion type="single" collapsible className="space-y-4">
               {faqItems.map((faq, index) => (
