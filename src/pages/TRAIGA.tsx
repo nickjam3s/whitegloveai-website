@@ -302,8 +302,8 @@ const TRAIGA = () => {
 
   return (
     <div className="min-h-screen bg-background text-foreground font-sora">
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Hero Section - Added proper top padding for mobile navigation */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 md:pt-0">
         {/* Gradient Background */}
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-b from-primary/20 to-background"></div>
@@ -341,7 +341,7 @@ const TRAIGA = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-6xl md:text-8xl font-bold mb-6 gradient-text"
+            className="text-4xl md:text-6xl lg:text-8xl font-bold mb-6 gradient-text"
           >
             TRAIGA Triage Center: Your Hub for Texas AI Compliance
           </motion.h1>
@@ -807,3 +807,5 @@ const TRAIGA = () => {
 };
 
 export default TRAIGA;
+
+</edits_to_apply>

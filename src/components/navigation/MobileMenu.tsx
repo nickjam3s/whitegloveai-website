@@ -20,7 +20,7 @@ const MobileMenu = ({ isOpen, onClose, currentPath }: MobileMenuProps) => {
 
   return (
     <div className="md:hidden">
-      <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-card rounded-lg border border-gray-800 animate-fade-in">
+      <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-card rounded-lg border border-gray-800 animate-fade-in max-h-96 overflow-y-auto">
         {navigationLinks.map((link) => (
           <div key={link.to || link.text}>
             {link.external ? (
@@ -38,15 +38,15 @@ const MobileMenu = ({ isOpen, onClose, currentPath }: MobileMenuProps) => {
                     <div key={child.to || child.text}>
                       {child.children ? (
                         <div className="mb-2">
-                          <div className="text-base font-medium text-gray-400 mb-1">
+                          <div className="text-sm font-medium text-gray-400 mb-1">
                             {child.text}
                           </div>
-                          <div className="pl-4 space-y-1">
+                          <div className="pl-3 space-y-1">
                             {child.children.map((subChild) => (
                               <Link
                                 key={subChild.to}
                                 to={subChild.to}
-                                className="block py-1.5 text-base text-gray-400 hover:text-secondary"
+                                className="block py-1 text-sm text-gray-400 hover:text-secondary"
                                 onClick={onClose}
                               >
                                 {subChild.text}
@@ -59,21 +59,21 @@ const MobileMenu = ({ isOpen, onClose, currentPath }: MobileMenuProps) => {
                           child.external ? (
                             <button
                               onClick={() => handleExternalNavigation(child.to!)}
-                              className="block w-full text-left py-1.5 text-base text-gray-400 hover:text-secondary"
+                              className="block w-full text-left py-1.5 text-sm text-gray-400 hover:text-secondary"
                             >
                               {child.text}
                             </button>
                           ) : (
                             <Link
                               to={child.to}
-                              className="block py-1.5 text-base text-gray-400 hover:text-secondary"
+                              className="block py-1.5 text-sm text-gray-400 hover:text-secondary"
                               onClick={onClose}
                             >
                               {child.text}
                             </Link>
                           )
                         ) : (
-                          <div className="text-base font-medium text-gray-400 mb-1">
+                          <div className="text-sm font-medium text-gray-400 mb-1">
                             {child.text}
                           </div>
                         )
