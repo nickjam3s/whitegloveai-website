@@ -794,5 +794,3 @@ const TRAIGA = () => {
 };
 
 export default TRAIGA;
-
-</edits_to_apply>
