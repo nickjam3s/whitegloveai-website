@@ -136,6 +136,29 @@ const TrustedBy = () => {
         </div>
       </section>
 
+      {/* Static Logo Grid Experiment */}
+      <section className="py-12 bg-black border-t border-gray-800">
+        <div className="container mx-auto px-4">
+          <h2 className="text-center text-white text-2xl font-semibold mb-8">Trusted By (Static Grid)</h2>
+          
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 max-w-6xl mx-auto">
+            {logos.map((logo, index) => (
+              <div
+                key={index}
+                className="flex items-center justify-center h-[80px] relative group"
+              >
+                <div className="absolute inset-0 bg-gray-600/40 rounded-lg"></div>
+                <img
+                  src={logo.src}
+                  alt={logo.alt}
+                  className="object-contain w-auto h-full max-h-[60px] relative z-10 grayscale opacity-70 group-hover:opacity-90 group-hover:grayscale-0 transition-all duration-300"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="py-12 bg-black">
         <div className="container mx-auto max-w-7xl px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -165,4 +188,3 @@ const TrustedBy = () => {
 };
 
 export default TrustedBy;
-
