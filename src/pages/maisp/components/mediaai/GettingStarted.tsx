@@ -35,9 +35,6 @@ const GettingStarted = () => {
         </div>
         
         <div className="relative">
-          {/* Vertical line */}
-          <div className="absolute left-[50px] md:left-[110px] top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#9b87f5] to-transparent"></div>
-          
           <div className="space-y-20 relative">
             {steps.map((step, index) => (
               <motion.div 
