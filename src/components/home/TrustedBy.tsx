@@ -1,4 +1,5 @@
-import React, { useEffect, useRef } from "react";
+
+import React from "react";
 import { Star } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -53,60 +54,19 @@ This year, they helped us to successful pilot/onboard TeamGPT, which is a must h
   }
 ];
 
-const starAnimKeyframes = [
-  [0, 10],   // star 0 starts at 0%, peak at 10%
-  [10, 30],  // star 1 starts at 10%, peak at 30%
-  [30, 50],  // star 2 starts at 30%, peak at 50%
-  [50, 70],  // star 3 starts at 50%, peak at 70%
-  [70, 90],  // star 4 starts at 70%, peak at 90%
-];
-
-const getStarFill = (progress: number, i: number) => {
-  const [start, end] = starAnimKeyframes[i];
-  if (progress >= start && progress < end) {
-    const frac = (progress - start) / (end - start);
-    return Math.min(1, 0.5 + frac * 0.5);
-  } else if (progress >= end) {
-    return 1;
-  }
-  return 0.5;
-};
-
 const StarRow = () => {
-  const [progress, setProgress] = React.useState(0);
-  const rafRef = useRef<number | null>(null);
-
-  useEffect(() => {
-    let frame: number;
-    let start: number | null = null;
-    const duration = 1400;
-
-    const loop = (timestamp: number) => {
-      if (!start) start = timestamp;
-      const delta = timestamp - start;
-      let pct = ((delta % duration) / duration) * 100;
-      setProgress(pct);
-      frame = requestAnimationFrame(loop);
-    };
-    rafRef.current = requestAnimationFrame(loop);
-    return () => {
-      if (rafRef.current) cancelAnimationFrame(rafRef.current);
-      if (frame) cancelAnimationFrame(frame);
-    };
-  }, []);
-
   return (
     <div className="flex gap-1 mb-4">
       {[...Array(5)].map((_, i) => (
         <Star
           key={i}
-          className="w-6 h-6 transition-all duration-300"
-          color="#FEF7CD"
-          fill={`rgba(254, 247, 205, ${getStarFill(progress, i)})`}
-          strokeWidth={i === 0 ? 1.5 : 1}
+          className="w-6 h-6"
+          color="#FFD700"
+          fill="#FFD700"
+          strokeWidth={1.5}
           aria-label="Star"
           style={{
-            filter: `drop-shadow(0 0 ${getStarFill(progress, i) * 6}px #FEF7CD${getStarFill(progress, i) > 0.7 ? '99' : ''})`
+            filter: 'drop-shadow(0 0 8px #FFD700) drop-shadow(0 0 16px rgba(255, 215, 0, 0.5))'
           }}
         />
       ))}
