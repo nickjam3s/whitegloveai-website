@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from "react";
 import { Star } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
@@ -14,12 +13,12 @@ const logos = [
   { src: '/lovable-uploads/17e63cce-7a22-4959-b5a9-2ba2208cb774.png', alt: 'Black Dome Logo', height: 80 },
   { src: '/lovable-uploads/347f5cb7-7b00-4459-8370-240641f6d41a.png', alt: 'City of Anna Logo', height: 80 },
   { src: '/lovable-uploads/ffe8ec7f-c754-4b67-9abf-358cf9af31cf.png', alt: 'McKinney Texas Logo', height: 80 },
-  { src: '/lovable-uploads/a95e8c96-a49c-4c52-bb1b-c2a6241c1d1f.png', alt: 'Patriot Logo', height: 60 },
+  { src: '/lovable-uploads/59a4884a-03e1-43ef-a6d1-e79c5ca8e3ea.png', alt: 'New Logo', height: 60 },
 ];
 
 const reviews = [
   {
-    text: `Working with WhitegloveAI was a truly refreshing experience. From the start, their team demonstrated a high level of knowledge and innovation—bringing creative solutions to the table. They didn’t just meet the requirements —they elevated them.
+    text: `Working with WhitegloveAI was a truly refreshing experience. From the start, their team demonstrated a high level of knowledge and innovation—bringing creative solutions to the table. They didn't just meet the requirements —they elevated them.
 
 What stood out most was their level of engagement. Every step of the way, Nick and team were communicative, responsive, and genuinely invested in the success of the project. They took the time to understand our goals and worked collaboratively to deliver results that aligned with our vision.
 
@@ -31,7 +30,7 @@ Overall, Whiteglove delivered exceptional value and proved to be a forward-think
   {
     text: `Whiteglove.ai has been a great partner in helping us modernize city services through voice AI. They supported our Traffic department in understanding service requests and building automated workflows that now provide valuable data analytics. Their agile project management approach gave us visibility into the product early on and allowed for continuous input, ensuring the final solution met our needs.
 
-What really stood out was how reusable the model is—we’re now able to apply it to other departments that handle citizen inquiries. The Whiteglove.ai team was easy to work with, highly responsive, and their Texas-based location made collaboration even smoother. Based on this successful engagement, we’ve already brought them in on a new project with another department. They’ve truly proven themselves as a trusted and innovative partner.`,
+What really stood out was how reusable the model is—we're now able to apply it to other departments that handle citizen inquiries. The Whiteglove.ai team was easy to work with, highly responsive, and their Texas-based location made collaboration even smoother. Based on this successful engagement, we've already brought them in on a new project with another department. They've truly proven themselves as a trusted and innovative partner.`,
     author: "Melissa Kraft",
     title: "Chief Information Officer",
     company: "City of Frisco",
@@ -145,13 +144,12 @@ const TrustedBy = () => {
             {logos.map((logo, index) => (
               <div
                 key={index}
-                className="flex items-center justify-center h-[80px] relative group"
+                className="flex items-center justify-center h-[80px] group"
               >
-                <div className="absolute inset-0 bg-gray-600/40 rounded-lg"></div>
                 <img
                   src={logo.src}
                   alt={logo.alt}
-                  className="object-contain w-auto h-full max-h-[60px] relative z-10 grayscale opacity-70 group-hover:opacity-90 group-hover:grayscale-0 transition-all duration-300"
+                  className="object-contain w-auto h-full max-h-[60px] grayscale opacity-70 group-hover:opacity-90 group-hover:grayscale-0 transition-all duration-300"
                 />
               </div>
             ))}
