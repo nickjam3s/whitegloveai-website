@@ -118,33 +118,8 @@ const TrustedBy = () => {
   return (
     <>
       <section className="py-12 bg-black">
-        <div className="container mx-auto overflow-hidden">
-          <h2 className="text-center text-white text-2xl font-semibold mb-8">Trusted By</h2>
-
-          <div className="relative w-full overflow-hidden">
-            <div className="flex items-center gap-8 animate-scroll whitespace-nowrap w-max h-[100px]">
-              {[...logos, ...logos].map((logo, index) => (
-                <div
-                  key={index}
-                  className="flex items-center justify-center h-full"
-                >
-                  <img
-                    src={logo.src}
-                    alt={logo.alt}
-                    style={{ height: `${logo.height}px` }}
-                    className="object-contain w-auto"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Static Logo Grid Experiment */}
-      <section className="py-12 bg-black border-t border-gray-800">
         <div className="container mx-auto px-4">
-          <h2 className="text-center text-white text-2xl font-semibold mb-8">Trusted By (Static Grid)</h2>
+          <h2 className="text-center text-white text-2xl font-semibold mb-8">Trusted By</h2>
           
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 max-w-6xl mx-auto">
             {staticGridLogos.map((logo, index) => (
