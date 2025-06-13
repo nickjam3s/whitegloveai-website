@@ -1,3 +1,4 @@
+
 const partnerLogos = [
   { src: "/lovable-uploads/c2a42923-14a6-458e-9548-ef253921c5d0.png", alt: "Protect AI Logo" },
   { src: "/lovable-uploads/3fadd016-1248-42b7-9190-18c9ba852b4e.png", alt: "Halcyon Logo" },
@@ -14,24 +15,22 @@ const partnerLogos = [
 const PartnerLogos = () => {
   return (
     <section className="py-12 bg-black">
-      <div className="container mx-auto overflow-hidden">
+      <div className="container mx-auto px-4">
         <h2 className="text-center text-white text-2xl font-semibold mb-8">Our Partners</h2>
 
-        <div className="relative w-full overflow-hidden">
-          <div className="flex items-center gap-8 slow-scroll whitespace-nowrap w-max h-[100px]">
-            {[...partnerLogos, ...partnerLogos].map((logo, index) => (
-              <div
-                key={index}
-                className="flex items-center justify-center h-full"
-              >
-                <img
-                  src={logo.src}
-                  alt={logo.alt}
-                  className="h-[60px] w-auto object-contain brightness-0 invert"
-                />
-              </div>
-            ))}
-          </div>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 max-w-6xl mx-auto">
+          {partnerLogos.map((logo, index) => (
+            <div
+              key={index}
+              className="flex items-center justify-center h-[80px] group"
+            >
+              <img
+                src={logo.src}
+                alt={logo.alt}
+                className="object-contain w-auto h-full max-h-[60px] brightness-0 invert opacity-70 group-hover:opacity-90 transition-all duration-300"
+              />
+            </div>
+          ))}
         </div>
       </div>
     </section>

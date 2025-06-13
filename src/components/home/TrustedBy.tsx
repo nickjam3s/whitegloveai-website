@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Star } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
@@ -60,12 +61,12 @@ const StarRow = () => {
         <Star
           key={i}
           className="w-6 h-6"
-          color="#FFD700"
-          fill="#FFD700"
+          color="#7021EE"
+          fill="#7021EE"
           strokeWidth={1.5}
           aria-label="Star"
           style={{
-            filter: 'drop-shadow(0 0 8px #FFD700) drop-shadow(0 0 16px rgba(255, 215, 0, 0.5))'
+            filter: 'drop-shadow(0 0 8px #7021EE) drop-shadow(0 0 16px rgba(112, 33, 238, 0.5))'
           }}
         />
       ))}
