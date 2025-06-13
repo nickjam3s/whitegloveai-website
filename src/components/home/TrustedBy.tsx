@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from "react";
 import { Star } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
@@ -15,6 +14,12 @@ const logos = [
   { src: '/lovable-uploads/347f5cb7-7b00-4459-8370-240641f6d41a.png', alt: 'City of Anna Logo', height: 80 },
   { src: '/lovable-uploads/70c9104c-d289-4a52-b28e-49337cc8409a.png', alt: 'Tackle Tomorrow Logo', height: 80 },
   { src: '/lovable-uploads/59a4884a-03e1-43ef-a6d1-e79c5ca8e3ea.png', alt: 'New Logo', height: 60 },
+];
+
+// Static grid logos with the new logo added at the beginning
+const staticGridLogos = [
+  { src: '/lovable-uploads/c0e45a43-6f9f-4579-af85-ed5c9bfa2e58.png', alt: 'New Client Logo', height: 60 },
+  ...logos
 ];
 
 const reviews = [
@@ -142,7 +147,7 @@ const TrustedBy = () => {
           <h2 className="text-center text-white text-2xl font-semibold mb-8">Trusted By (Static Grid)</h2>
           
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 max-w-6xl mx-auto">
-            {logos.map((logo, index) => (
+            {staticGridLogos.map((logo, index) => (
               <div
                 key={index}
                 className="flex items-center justify-center h-[80px] group"
