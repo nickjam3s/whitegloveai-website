@@ -37,10 +37,8 @@ const AIAMFFrameworkSection = () => {
             Our proprietary and opensource AI-AMF framework is the cornerstone of our approach to AI transformation. It provides a structured, step-by-step pathway to AI success.
           </p>
           <a href="https://www.aiamf.ai" target="_blank" rel="noopener noreferrer" className="w-full max-w-xs inline-block">
-            <Button className="text-white bg-[#9b87f5] hover:bg-[#9b87f5]/90 font-bold relative z-10 flex items-center justify-center w-full">
-              <span className="absolute inset-0 flex items-center justify-center">
-                <span className="relative z-20 font-bold text-white">Download the AI-AMF</span>
-              </span>
+            <Button className="text-white bg-[#9b87f5] hover:bg-[#9b87f5]/90 font-bold w-full flex items-center justify-center">
+              Download the AI-AMF
               <Download className="ml-2 h-5 w-5" />
             </Button>
           </a>
