@@ -33,7 +33,7 @@ const Navigation = () => {
           : "bg-purple-900/30 border border-purple-900/30"
       }`}>
         <div className="flex items-center justify-between h-16 px-4 relative z-10">
-          <Link to="/">
+          <Link to="/" className="flex-shrink-0">
             <Logo />
           </Link>
 
@@ -49,13 +49,13 @@ const Navigation = () => {
             ))}
           </div>
 
-          {/* Mobile Navigation Button */}
-          <div className="md:hidden">
+          {/* Mobile Navigation Button - Added proper spacing */}
+          <div className="md:hidden flex-shrink-0 ml-4">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-300 hover:text-white transition-colors"
+              className="text-gray-300 hover:text-white transition-colors p-2"
             >
-              {isOpen ? <X size={28} /> : <Menu size={28} />}
+              {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
         </div>

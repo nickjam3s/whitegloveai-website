@@ -9,7 +9,157 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
-      [_ in never]: never
+      bias_scores: {
+        Row: {
+          created_at: string
+          gender: number
+          id: string
+          overall_score: number
+          political: number
+          race: number
+          test_id: string
+          toxicity: number
+        }
+        Insert: {
+          created_at?: string
+          gender?: number
+          id?: string
+          overall_score?: number
+          political?: number
+          race?: number
+          test_id: string
+          toxicity?: number
+        }
+        Update: {
+          created_at?: string
+          gender?: number
+          id?: string
+          overall_score?: number
+          political?: number
+          race?: number
+          test_id?: string
+          toxicity?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "bias_scores_test_id_fkey"
+            columns: ["test_id"]
+            isOneToOne: false
+            referencedRelation: "tests"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      model_results: {
+        Row: {
+          cost_usd: number
+          created_at: string
+          id: string
+          latency_ms: number
+          model_name: string
+          response: string
+          test_id: string
+          tokens: number
+        }
+        Insert: {
+          cost_usd?: number
+          created_at?: string
+          id?: string
+          latency_ms?: number
+          model_name: string
+          response: string
+          test_id: string
+          tokens?: number
+        }
+        Update: {
+          cost_usd?: number
+          created_at?: string
+          id?: string
+          latency_ms?: number
+          model_name?: string
+          response?: string
+          test_id?: string
+          tokens?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "model_results_test_id_fkey"
+            columns: ["test_id"]
+            isOneToOne: false
+            referencedRelation: "tests"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      profiles: {
+        Row: {
+          created_at: string
+          email: string
+          id: string
+          role: Database["public"]["Enums"]["user_role"]
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          id: string
+          role?: Database["public"]["Enums"]["user_role"]
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          id?: string
+          role?: Database["public"]["Enums"]["user_role"]
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      tests: {
+        Row: {
+          created_at: string
+          id: string
+          prompt: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          prompt: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          prompt?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      thresholds: {
+        Row: {
+          bias_max: number
+          created_at: string
+          toxicity_max: number
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          bias_max?: number
+          created_at?: string
+          toxicity_max?: number
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          bias_max?: number
+          created_at?: string
+          toxicity_max?: number
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
@@ -18,7 +168,7 @@ export type Database = {
       [_ in never]: never
     }
     Enums: {
-      [_ in never]: never
+      user_role: "user" | "admin"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -133,6 +283,8 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      user_role: ["user", "admin"],
+    },
   },
 } as const
