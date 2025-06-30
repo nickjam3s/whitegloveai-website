@@ -25,6 +25,19 @@ const Admin = () => {
 
   useEffect(() => {
     checkAuth();
+    // Hide the main navigation when on admin page
+    const navigation = document.querySelector('nav');
+    if (navigation) {
+      navigation.style.display = 'none';
+    }
+
+    // Show navigation again when leaving the page
+    return () => {
+      const navigation = document.querySelector('nav');
+      if (navigation) {
+        navigation.style.display = 'block';
+      }
+    };
   }, []);
 
   const checkAuth = async () => {
@@ -112,15 +125,15 @@ const Admin = () => {
   };
 
   if (loading) {
-    return <div className="flex justify-center items-center min-h-screen">Loading...</div>;
+    return <div className="flex justify-center items-center min-h-screen bg-black text-white">Loading...</div>;
   }
 
   if (!isAuthenticated) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <Card className="w-full max-w-md">
+      <div className="min-h-screen bg-black flex items-center justify-center">
+        <Card className="w-full max-w-md bg-gray-900 border-gray-700">
           <CardHeader>
-            <CardTitle>Admin Login</CardTitle>
+            <CardTitle className="text-white">Admin Login</CardTitle>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleLogin} className="space-y-4">
@@ -129,6 +142,7 @@ const Admin = () => {
                 placeholder="Email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                className="bg-gray-800 border-gray-600 text-white placeholder-gray-400"
                 required
               />
               <Input
@@ -136,9 +150,10 @@ const Admin = () => {
                 placeholder="Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+                className="bg-gray-800 border-gray-600 text-white placeholder-gray-400"
                 required
               />
-              <Button type="submit" className="w-full">
+              <Button type="submit" className="w-full bg-primary hover:bg-primary/90">
                 Login
               </Button>
             </form>
@@ -149,12 +164,12 @@ const Admin = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <header className="bg-white shadow">
+    <div className="min-h-screen bg-black text-white">
+      <header className="bg-gray-900 shadow-lg border-b border-gray-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-6">
-            <h1 className="text-3xl font-bold text-gray-900">CMS Admin</h1>
-            <Button onClick={handleLogout} variant="outline">
+            <h1 className="text-3xl font-bold text-white">CMS Admin</h1>
+            <Button onClick={handleLogout} variant="outline" className="border-gray-600 text-white hover:bg-gray-800">
               Logout
             </Button>
           </div>
@@ -163,11 +178,11 @@ const Admin = () => {
 
       <main className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
         <Tabs defaultValue="posts" className="space-y-6">
-          <TabsList>
-            <TabsTrigger value="posts">Posts</TabsTrigger>
-            <TabsTrigger value="editor">New Post</TabsTrigger>
-            <TabsTrigger value="subscribers">Subscribers</TabsTrigger>
-            <TabsTrigger value="campaigns">Campaigns</TabsTrigger>
+          <TabsList className="bg-gray-900 border-gray-700">
+            <TabsTrigger value="posts" className="data-[state=active]:bg-primary data-[state=active]:text-white">Posts</TabsTrigger>
+            <TabsTrigger value="editor" className="data-[state=active]:bg-primary data-[state=active]:text-white">New Post</TabsTrigger>
+            <TabsTrigger value="subscribers" className="data-[state=active]:bg-primary data-[state=active]:text-white">Subscribers</TabsTrigger>
+            <TabsTrigger value="campaigns" className="data-[state=active]:bg-primary data-[state=active]:text-white">Campaigns</TabsTrigger>
           </TabsList>
 
           <TabsContent value="posts">
