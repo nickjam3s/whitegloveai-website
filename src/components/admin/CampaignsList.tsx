@@ -27,6 +27,7 @@ const CampaignsList = () => {
   const [loading, setLoading] = useState(true);
   const [selectedPostId, setSelectedPostId] = useState("");
   const [subject, setSubject] = useState("");
+  const [sendingCampaign, setSendingCampaign] = useState<string | null>(null);
   const { toast } = useToast();
 
   useEffect(() => {
@@ -113,6 +114,36 @@ const CampaignsList = () => {
     }
   };
 
+  const sendCampaign = async (campaignId: string) => {
+    setSendingCampaign(campaignId);
+    
+    try {
+      const { data, error } = await supabase.functions.invoke('send-campaign', {
+        body: { campaignId }
+      });
+
+      if (error) throw error;
+
+      if (data.success) {
+        toast({
+          title: "Success",
+          description: data.message,
+        });
+        fetchCampaigns();
+      } else {
+        throw new Error(data.error || "Failed to send campaign");
+      }
+    } catch (error: any) {
+      toast({
+        title: "Error",
+        description: error.message || "Failed to send campaign",
+        variant: "destructive",
+      });
+    } finally {
+      setSendingCampaign(null);
+    }
+  };
+
   if (loading) {
     return <div>Loading campaigns...</div>;
   }
@@ -130,7 +161,7 @@ const CampaignsList = () => {
               <select
                 value={selectedPostId}
                 onChange={(e) => setSelectedPostId(e.target.value)}
-                className="w-full p-2 border rounded-md"
+                className="w-full p-2 border rounded-md bg-gray-800 border-gray-600 text-white"
                 required
               >
                 <option value="">Choose a post...</option>
@@ -148,7 +179,7 @@ const CampaignsList = () => {
                 value={subject}
                 onChange={(e) => setSubject(e.target.value)}
                 placeholder="Email subject line"
-                className="w-full p-2 border rounded-md"
+                className="w-full p-2 border rounded-md bg-gray-800 border-gray-600 text-white placeholder-gray-400"
                 required
               />
             </div>
@@ -174,11 +205,11 @@ const CampaignsList = () => {
                   <div className="flex-1">
                     <h3 className="font-medium mb-2">{campaign.subject}</h3>
                     {campaign.posts && (
-                      <p className="text-sm text-gray-600 mb-2">
+                      <p className="text-sm text-gray-400 mb-2">
                         Post: {campaign.posts.title}
                       </p>
                     )}
-                    <div className="flex items-center gap-4 text-sm text-gray-500">
+                    <div className="flex items-center gap-4 text-sm text-gray-400">
                       <Badge variant={campaign.status === "sent" ? "default" : "secondary"}>
                         {campaign.status}
                       </Badge>
@@ -195,8 +226,12 @@ const CampaignsList = () => {
                     </div>
                   </div>
                   {campaign.status === "draft" && (
-                    <Button size="sm" disabled>
-                      Send (Resend integration needed)
+                    <Button 
+                      size="sm" 
+                      onClick={() => sendCampaign(campaign.id)}
+                      disabled={sendingCampaign === campaign.id}
+                    >
+                      {sendingCampaign === campaign.id ? "Sending..." : "Send Campaign"}
                     </Button>
                   )}
                 </div>
