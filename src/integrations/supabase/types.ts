@@ -50,6 +50,50 @@ export type Database = {
           },
         ]
       }
+      email_campaigns: {
+        Row: {
+          click_count: number
+          created_at: string
+          id: string
+          open_count: number
+          post_id: string | null
+          recipient_count: number
+          sent_at: string
+          status: string
+          subject: string
+        }
+        Insert: {
+          click_count?: number
+          created_at?: string
+          id?: string
+          open_count?: number
+          post_id?: string | null
+          recipient_count?: number
+          sent_at?: string
+          status?: string
+          subject: string
+        }
+        Update: {
+          click_count?: number
+          created_at?: string
+          id?: string
+          open_count?: number
+          post_id?: string | null
+          recipient_count?: number
+          sent_at?: string
+          status?: string
+          subject?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "email_campaigns_post_id_fkey"
+            columns: ["post_id"]
+            isOneToOne: false
+            referencedRelation: "posts"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       model_results: {
         Row: {
           cost_usd: number
@@ -91,6 +135,57 @@ export type Database = {
           },
         ]
       }
+      posts: {
+        Row: {
+          author_id: string
+          content: string
+          created_at: string
+          excerpt: string | null
+          featured_image: string | null
+          id: string
+          published_at: string | null
+          seo_description: string | null
+          seo_title: string | null
+          slug: string
+          status: string
+          tags: string[] | null
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          author_id: string
+          content: string
+          created_at?: string
+          excerpt?: string | null
+          featured_image?: string | null
+          id?: string
+          published_at?: string | null
+          seo_description?: string | null
+          seo_title?: string | null
+          slug: string
+          status?: string
+          tags?: string[] | null
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          author_id?: string
+          content?: string
+          created_at?: string
+          excerpt?: string | null
+          featured_image?: string | null
+          id?: string
+          published_at?: string | null
+          seo_description?: string | null
+          seo_title?: string | null
+          slug?: string
+          status?: string
+          tags?: string[] | null
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           created_at: string
@@ -112,6 +207,39 @@ export type Database = {
           id?: string
           role?: Database["public"]["Enums"]["user_role"]
           updated_at?: string
+        }
+        Relationships: []
+      }
+      subscribers: {
+        Row: {
+          confirmed_at: string | null
+          email: string
+          id: string
+          preferences: Json | null
+          status: string
+          subscribed_at: string
+          unsubscribed_at: string | null
+          utm_source: string | null
+        }
+        Insert: {
+          confirmed_at?: string | null
+          email: string
+          id?: string
+          preferences?: Json | null
+          status?: string
+          subscribed_at?: string
+          unsubscribed_at?: string | null
+          utm_source?: string | null
+        }
+        Update: {
+          confirmed_at?: string | null
+          email?: string
+          id?: string
+          preferences?: Json | null
+          status?: string
+          subscribed_at?: string
+          unsubscribed_at?: string | null
+          utm_source?: string | null
         }
         Relationships: []
       }
@@ -165,7 +293,10 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      generate_slug: {
+        Args: { title: string }
+        Returns: string
+      }
     }
     Enums: {
       user_role: "user" | "admin"

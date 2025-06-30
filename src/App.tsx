@@ -18,6 +18,11 @@ import TermsOfService from "./pages/TermsOfService";
 import Contact from "./pages/Contact";
 import TRAIGA from "./pages/TRAIGA";
 
+// Blog & CMS Pages
+import Blog from "./pages/Blog";
+import BlogPost from "./pages/BlogPost";
+import Admin from "./pages/Admin";
+
 // MAISP (Managed AI Services) Routes
 import MAISP from "./pages/maisp/Index";
 import TextAI from "./pages/maisp/TextAI";
@@ -64,6 +69,11 @@ const App = () => {
                 <Route path="/terms" element={<TermsOfService />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/traiga" element={<TRAIGA />} />
+                
+                {/* Blog & CMS Routes */}
+                <Route path="/blog" element={<Blog />} />
+                <Route path="/blog/:slug" element={<BlogPost />} />
+                <Route path="/admin" element={<Admin />} />
                 
                 {/* MAISP Routes */}
                 <Route path="/maisp" element={<MAISP />} />
