@@ -12,8 +12,11 @@ import PostsList from "@/components/admin/PostsList";
 import SubscribersList from "@/components/admin/SubscribersList";
 import CampaignsList from "@/components/admin/CampaignsList";
 
+const ADMIN_EMAIL = "nick@whitegloveai.com";
+const ADMIN_PASSWORD = 'J$TswNju}0^`)q"!v}p!';
+
 const Admin = () => {
-  const [user, setUser] = useState<any>(null);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [loading, setLoading] = useState(true);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -27,9 +30,14 @@ const Admin = () => {
   const checkAuth = async () => {
     try {
       const { data: { session } } = await supabase.auth.getSession();
-      setUser(session?.user || null);
+      if (session?.user?.email === ADMIN_EMAIL) {
+        setIsAuthenticated(true);
+      } else {
+        setIsAuthenticated(false);
+      }
     } catch (error) {
       console.error("Auth check error:", error);
+      setIsAuthenticated(false);
     } finally {
       setLoading(false);
     }
@@ -37,18 +45,57 @@ const Admin = () => {
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    if (email !== ADMIN_EMAIL || password !== ADMIN_PASSWORD) {
+      toast({
+        title: "Error",
+        description: "Invalid credentials",
+        variant: "destructive",
+      });
+      return;
+    }
+
     try {
       const { error } = await supabase.auth.signInWithPassword({
         email,
         password,
       });
-      if (error) throw error;
       
-      toast({
-        title: "Success",
-        description: "Logged in successfully",
-      });
-      checkAuth();
+      if (error) {
+        // If user doesn't exist, create them
+        if (error.message.includes("Invalid login credentials")) {
+          const { error: signUpError } = await supabase.auth.signUp({
+            email,
+            password,
+            options: {
+              emailRedirectTo: `${window.location.origin}/admin`
+            }
+          });
+          
+          if (signUpError) {
+            toast({
+              title: "Error",
+              description: signUpError.message,
+              variant: "destructive",
+            });
+            return;
+          }
+          
+          toast({
+            title: "Success",
+            description: "Admin user created and logged in successfully",
+          });
+        } else {
+          throw error;
+        }
+      } else {
+        toast({
+          title: "Success",
+          description: "Logged in successfully",
+        });
+      }
+      
+      setIsAuthenticated(true);
     } catch (error: any) {
       toast({
         title: "Error",
@@ -60,7 +107,7 @@ const Admin = () => {
 
   const handleLogout = async () => {
     await supabase.auth.signOut();
-    setUser(null);
+    setIsAuthenticated(false);
     navigate("/");
   };
 
@@ -68,7 +115,7 @@ const Admin = () => {
     return <div className="flex justify-center items-center min-h-screen">Loading...</div>;
   }
 
-  if (!user) {
+  if (!isAuthenticated) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <Card className="w-full max-w-md">
