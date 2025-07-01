@@ -208,7 +208,7 @@ const Admin = () => {
           </TabsList>
 
           <TabsContent value="posts">
-            <PostsList />
+            <EnhancedPostsList />
           </TabsContent>
 
           <TabsContent value="ai-generator">

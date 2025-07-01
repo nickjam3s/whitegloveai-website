@@ -97,6 +97,7 @@ export type Database = {
           open_count: number
           post_id: string | null
           recipient_count: number
+          scheduled_send_at: string | null
           sent_at: string
           status: string
           subject: string
@@ -108,6 +109,7 @@ export type Database = {
           open_count?: number
           post_id?: string | null
           recipient_count?: number
+          scheduled_send_at?: string | null
           sent_at?: string
           status?: string
           subject: string
@@ -119,6 +121,7 @@ export type Database = {
           open_count?: number
           post_id?: string | null
           recipient_count?: number
+          scheduled_send_at?: string | null
           sent_at?: string
           status?: string
           subject?: string
@@ -179,10 +182,12 @@ export type Database = {
           author_id: string
           content: string
           created_at: string
+          distribution_status: string | null
           excerpt: string | null
           featured_image: string | null
           id: string
           published_at: string | null
+          scheduled_at: string | null
           seo_description: string | null
           seo_title: string | null
           slug: string
@@ -195,10 +200,12 @@ export type Database = {
           author_id: string
           content: string
           created_at?: string
+          distribution_status?: string | null
           excerpt?: string | null
           featured_image?: string | null
           id?: string
           published_at?: string | null
+          scheduled_at?: string | null
           seo_description?: string | null
           seo_title?: string | null
           slug: string
@@ -211,10 +218,12 @@ export type Database = {
           author_id?: string
           content?: string
           created_at?: string
+          distribution_status?: string | null
           excerpt?: string | null
           featured_image?: string | null
           id?: string
           published_at?: string | null
+          scheduled_at?: string | null
           seo_description?: string | null
           seo_title?: string | null
           slug?: string
@@ -279,6 +288,27 @@ export type Database = {
           subscribed_at?: string
           unsubscribed_at?: string | null
           utm_source?: string | null
+        }
+        Relationships: []
+      }
+      tags: {
+        Row: {
+          created_at: string
+          id: string
+          name: string
+          usage_count: number
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          name: string
+          usage_count?: number
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          name?: string
+          usage_count?: number
         }
         Relationships: []
       }
