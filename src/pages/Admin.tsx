@@ -9,6 +9,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useToast } from "@/hooks/use-toast";
 import PostEditor from "@/components/admin/PostEditor";
 import PostsList from "@/components/admin/PostsList";
+import EnhancedPostsList from "@/components/admin/EnhancedPostsList";
 import SubscribersList from "@/components/admin/SubscribersList";
 import CampaignsList from "@/components/admin/CampaignsList";
 import AIBlogGenerator from "@/components/admin/AIBlogGenerator";

@@ -61,7 +61,7 @@ const PublishingWorkflow = ({
       if (!user) throw new Error("Not authenticated");
 
       // Prepare post data
-      const postData = {
+      const postData: any = {
         title,
         content,
         excerpt: excerpt || title.substring(0, 150) + '...',
@@ -118,7 +118,7 @@ const PublishingWorkflow = ({
 
       // Handle campaign creation if distributing
       if (distributeMode === 'publish-distribute') {
-        const campaignData = {
+        const campaignData: any = {
           post_id: savedPost.id,
           subject: campaignSubject || title,
           status: 'draft',
