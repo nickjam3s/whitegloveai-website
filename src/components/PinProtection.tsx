@@ -5,12 +5,14 @@ import { Input } from "@/components/ui/input";
 import { Mail } from "lucide-react";
 
 interface PinProtectionProps {
-  onSuccess: () => void;
-  title: string;
+  children?: React.ReactNode;
+  onSuccess?: () => void;
+  title?: string;
   description?: string;
 }
 
-const PinProtection = ({ onSuccess, title, description }: PinProtectionProps) => {
+const PinProtection = ({ children, onSuccess, title = "Protected Content", description }: PinProtectionProps) => {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [pin, setPin] = useState('');
   const [error, setError] = useState('');
   const correctPin = '10172023';
@@ -18,13 +20,22 @@ const PinProtection = ({ onSuccess, title, description }: PinProtectionProps) =>
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (pin === correctPin) {
-      onSuccess();
+      setIsAuthenticated(true);
+      if (onSuccess) {
+        onSuccess();
+      }
     } else {
       setError('Incorrect PIN. Please try again.');
       setPin('');
     }
   };
 
+  // If authenticated, show the protected content
+  if (isAuthenticated) {
+    return <>{children}</>;
+  }
+
+  // Show PIN protection form
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#1A0D33] to-black font-sora flex items-center justify-center px-6">
       <motion.div
