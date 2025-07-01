@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -13,15 +14,12 @@ interface Subscriber {
   status: string;
   subscribed_at: string;
   utm_source: string;
-  subscription_source: string;
-  unsubscribe_reason: string;
 }
 
 const SubscribersList = () => {
   const [subscribers, setSubscribers] = useState<Subscriber[]>([]);
   const [loading, setLoading] = useState(true);
   const [newEmail, setNewEmail] = useState("");
-  const [filter, setFilter] = useState("all");
   const { toast } = useToast();
 
   useEffect(() => {
@@ -53,9 +51,13 @@ const SubscribersList = () => {
     if (!newEmail) return;
 
     try {
-      const { data, error } = await supabase.functions.invoke('send-confirmation', {
-        body: { email: newEmail, source: "admin" }
-      });
+      const { error } = await supabase
+        .from("subscribers")
+        .insert([{ 
+          email: newEmail,
+          status: "active",
+          confirmed_at: new Date().toISOString()
+        }]);
 
       if (error) throw error;
       
@@ -102,11 +104,6 @@ const SubscribersList = () => {
     }
   };
 
-  const filteredSubscribers = subscribers.filter(subscriber => {
-    if (filter === "all") return true;
-    return subscriber.status === filter;
-  });
-
   if (loading) {
     return <div>Loading subscribers...</div>;
   }
@@ -133,41 +130,18 @@ const SubscribersList = () => {
 
       <div className="space-y-4">
         <div className="flex justify-between items-center">
-          <h2 className="text-2xl font-bold">Subscribers ({filteredSubscribers.length})</h2>
-          <div className="flex gap-2">
-            <Button
-              variant={filter === "all" ? "default" : "outline"}
-              size="sm"
-              onClick={() => setFilter("all")}
-            >
-              All ({subscribers.length})
-            </Button>
-            <Button
-              variant={filter === "active" ? "default" : "outline"}
-              size="sm"
-              onClick={() => setFilter("active")}
-            >
-              Active ({subscribers.filter(s => s.status === "active").length})
-            </Button>
-            <Button
-              variant={filter === "unsubscribed" ? "default" : "outline"}
-              size="sm"
-              onClick={() => setFilter("unsubscribed")}
-            >
-              Unsubscribed ({subscribers.filter(s => s.status === "unsubscribed").length})
-            </Button>
-          </div>
+          <h2 className="text-2xl font-bold">Subscribers ({subscribers.length})</h2>
         </div>
 
-        {filteredSubscribers.length === 0 ? (
+        {subscribers.length === 0 ? (
           <Card>
             <CardContent className="pt-6">
-              <p className="text-center text-gray-500">No subscribers found.</p>
+              <p className="text-center text-gray-500">No subscribers yet.</p>
             </CardContent>
           </Card>
         ) : (
           <div className="grid gap-4">
-            {filteredSubscribers.map((subscriber) => (
+            {subscribers.map((subscriber) => (
               <Card key={subscriber.id}>
                 <CardContent className="pt-6">
                   <div className="flex justify-between items-center">
@@ -187,18 +161,7 @@ const SubscribersList = () => {
                             <span>Source: {subscriber.utm_source}</span>
                           </>
                         )}
-                        {subscriber.subscription_source && (
-                          <>
-                            <span>•</span>
-                            <span>Via: {subscriber.subscription_source}</span>
-                          </>
-                        )}
                       </div>
-                      {subscriber.unsubscribe_reason && (
-                        <p className="text-sm text-red-400 mt-1">
-                          Reason: {subscriber.unsubscribe_reason}
-                        </p>
-                      )}
                     </div>
                     <div className="flex gap-2">
                       {subscriber.status === "active" ? (

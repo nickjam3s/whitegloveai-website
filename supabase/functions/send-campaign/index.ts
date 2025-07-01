@@ -1,51 +1,35 @@
 
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
-import { Resend } from "npm:resend@3.0.0";
+import { Resend } from "npm:resend@2.0.0";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
 };
 
-const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
-const supabaseServiceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
-const resendApiKey = Deno.env.get("RESEND_API_KEY")!;
+const supabase = createClient(
+  Deno.env.get("SUPABASE_URL") ?? "",
+  Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? ""
+);
 
-const supabase = createClient(supabaseUrl, supabaseServiceKey);
-const resend = new Resend(resendApiKey);
+const resend = new Resend(Deno.env.get("RESEND_API_KEY"));
 
-// Simple template renderer (Handlebars-like)
-function renderTemplate(template: string, variables: Record<string, any>): string {
-  let rendered = template;
-  
-  // Replace simple variables like {{variable}}
-  for (const [key, value] of Object.entries(variables)) {
-    const regex = new RegExp(`{{\\s*${key}\\s*}}`, 'g');
-    rendered = rendered.replace(regex, value || '');
-  }
-  
-  // Handle simple conditionals like {{#if variable}} ... {{/if}}
-  rendered = rendered.replace(/{{#if\s+(\w+)}}([\s\S]*?){{\/if}}/g, (match, varName, content) => {
-    return variables[varName] ? content : '';
-  });
-  
-  return rendered;
+interface SendCampaignRequest {
+  campaignId: string;
 }
 
 const handler = async (req: Request): Promise<Response> => {
+  // Handle CORS preflight requests
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
   }
 
   try {
-    const { campaignId } = await req.json();
+    const { campaignId }: SendCampaignRequest = await req.json();
+    console.log("Sending campaign:", campaignId);
 
-    if (!campaignId) {
-      throw new Error("Campaign ID is required");
-    }
-
-    // Get campaign details with post
+    // Get campaign details
     const { data: campaign, error: campaignError } = await supabase
       .from("email_campaigns")
       .select(`
@@ -53,9 +37,7 @@ const handler = async (req: Request): Promise<Response> => {
         posts (
           title,
           content,
-          excerpt,
-          featured_image,
-          slug
+          excerpt
         )
       `)
       .eq("id", campaignId)
@@ -65,14 +47,12 @@ const handler = async (req: Request): Promise<Response> => {
       throw new Error("Campaign not found");
     }
 
-    if (campaign.status === "sent") {
-      throw new Error("Campaign has already been sent");
-    }
+    console.log("Campaign found:", campaign.subject);
 
     // Get active subscribers
     const { data: subscribers, error: subscribersError } = await supabase
       .from("subscribers")
-      .select("*")
+      .select("email")
       .eq("status", "active");
 
     if (subscribersError) {
@@ -83,97 +63,89 @@ const handler = async (req: Request): Promise<Response> => {
       throw new Error("No active subscribers found");
     }
 
-    // Get email template
-    const { data: template, error: templateError } = await supabase
-      .from("email_templates")
-      .select("*")
-      .eq("name", "whiteglove_newsletter")
-      .eq("is_active", true)
-      .single();
+    console.log(`Found ${subscribers.length} subscribers`);
 
-    if (templateError || !template) {
-      throw new Error("Email template not found");
-    }
-
+    // Create email content
     const post = campaign.posts;
-    const baseUrl = "https://whitegloveai.com";
-    
-    // Prepare template variables
-    const templateVars = {
-      subject: campaign.subject,
-      title: post?.title || "Newsletter",
-      content: post?.content || "",
-      excerpt: post?.excerpt || "",
-      featured_image: post?.featured_image || "",
-      post_url: post?.slug ? `${baseUrl}/blog/${post.slug}` : "",
-    };
+    const emailContent = `
+      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+        <h1 style="color: #333;">${post?.title || campaign.subject}</h1>
+        ${post?.excerpt ? `<p style="font-size: 16px; color: #666; font-style: italic;">${post.excerpt}</p>` : ''}
+        <div style="line-height: 1.6; color: #333;">
+          ${post?.content ? post.content.split('\n').map(p => `<p>${p}</p>`).join('') : 'Content not available'}
+        </div>
+        <hr style="margin: 30px 0; border: none; border-top: 1px solid #eee;">
+        <p style="font-size: 12px; color: #999;">
+          You received this email because you subscribed to our newsletter.
+        </p>
+      </div>
+    `;
 
+    // Send emails to all subscribers
     const emailPromises = subscribers.map(async (subscriber) => {
-      const subscriberVars = {
-        ...templateVars,
-        unsubscribe_url: `${baseUrl}/unsubscribe?token=${subscriber.unsubscribe_token}`,
-        preferences_url: `${baseUrl}/preferences?token=${subscriber.unsubscribe_token}`,
-      };
-
-      const renderedSubject = renderTemplate(template.subject_template, subscriberVars);
-      const renderedHtml = renderTemplate(template.html_template, subscriberVars);
-
       try {
         const result = await resend.emails.send({
-          from: "WhitegloveAI <newsletter@whitegloveai.com>",
+          from: "WhiteGlove AI <hello@whitegloveai.com>",
           to: [subscriber.email],
-          subject: renderedSubject,
-          html: renderedHtml,
+          subject: campaign.subject,
+          html: emailContent,
         });
-
-        // Update last email sent timestamp
-        await supabase
-          .from("subscribers")
-          .update({ last_email_sent_at: new Date().toISOString() })
-          .eq("id", subscriber.id);
-
-        return { success: true, email: subscriber.email, result };
+        console.log(`Email sent to ${subscriber.email}:`, result);
+        return { success: true, email: subscriber.email };
       } catch (error) {
-        console.error(`Failed to send email to ${subscriber.email}:`, error);
+        console.error(`Failed to send to ${subscriber.email}:`, error);
         return { success: false, email: subscriber.email, error: error.message };
       }
     });
 
     const results = await Promise.all(emailPromises);
-    const successful = results.filter(r => r.success);
-    const failed = results.filter(r => !r.success);
+    const successCount = results.filter(r => r.success).length;
+    const failureCount = results.filter(r => !r.success).length;
+
+    console.log(`Campaign results: ${successCount} sent, ${failureCount} failed`);
 
     // Update campaign status
     const { error: updateError } = await supabase
       .from("email_campaigns")
       .update({
-        status: failed.length > 0 ? "sent" : "sent", // Could be "partial" if some failed
+        status: "sent",
+        recipient_count: subscribers.length,
         sent_at: new Date().toISOString(),
-        recipient_count: successful.length,
       })
       .eq("id", campaignId);
 
     if (updateError) {
-      console.error("Error updating campaign:", updateError);
+      console.error("Failed to update campaign:", updateError);
     }
 
     return new Response(
       JSON.stringify({
         success: true,
-        message: `Campaign sent to ${successful.length} subscribers`,
-        sent: successful.length,
-        failed: failed.length,
-        results: results,
+        message: `Campaign sent successfully to ${successCount} subscribers`,
+        sent: successCount,
+        failed: failureCount,
       }),
-      { headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      {
+        status: 200,
+        headers: {
+          "Content-Type": "application/json",
+          ...corsHeaders,
+        },
+      }
     );
   } catch (error: any) {
-    console.error("Error in send-campaign:", error);
+    console.error("Error in send-campaign function:", error);
     return new Response(
-      JSON.stringify({ success: false, error: error.message }),
+      JSON.stringify({ 
+        success: false, 
+        error: error.message 
+      }),
       {
         status: 500,
-        headers: { ...corsHeaders, "Content-Type": "application/json" },
+        headers: { 
+          "Content-Type": "application/json", 
+          ...corsHeaders 
+        },
       }
     );
   }

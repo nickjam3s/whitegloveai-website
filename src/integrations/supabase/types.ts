@@ -97,7 +97,6 @@ export type Database = {
           open_count: number
           post_id: string | null
           recipient_count: number
-          scheduled_send_at: string | null
           sent_at: string
           status: string
           subject: string
@@ -109,7 +108,6 @@ export type Database = {
           open_count?: number
           post_id?: string | null
           recipient_count?: number
-          scheduled_send_at?: string | null
           sent_at?: string
           status?: string
           subject: string
@@ -121,7 +119,6 @@ export type Database = {
           open_count?: number
           post_id?: string | null
           recipient_count?: number
-          scheduled_send_at?: string | null
           sent_at?: string
           status?: string
           subject?: string
@@ -135,39 +132,6 @@ export type Database = {
             referencedColumns: ["id"]
           },
         ]
-      }
-      email_templates: {
-        Row: {
-          created_at: string
-          html_template: string
-          id: string
-          is_active: boolean | null
-          name: string
-          subject_template: string
-          updated_at: string
-          variables: Json | null
-        }
-        Insert: {
-          created_at?: string
-          html_template: string
-          id?: string
-          is_active?: boolean | null
-          name: string
-          subject_template: string
-          updated_at?: string
-          variables?: Json | null
-        }
-        Update: {
-          created_at?: string
-          html_template?: string
-          id?: string
-          is_active?: boolean | null
-          name?: string
-          subject_template?: string
-          updated_at?: string
-          variables?: Json | null
-        }
-        Relationships: []
       }
       model_results: {
         Row: {
@@ -215,12 +179,10 @@ export type Database = {
           author_id: string
           content: string
           created_at: string
-          distribution_status: string | null
           excerpt: string | null
           featured_image: string | null
           id: string
           published_at: string | null
-          scheduled_at: string | null
           seo_description: string | null
           seo_title: string | null
           slug: string
@@ -233,12 +195,10 @@ export type Database = {
           author_id: string
           content: string
           created_at?: string
-          distribution_status?: string | null
           excerpt?: string | null
           featured_image?: string | null
           id?: string
           published_at?: string | null
-          scheduled_at?: string | null
           seo_description?: string | null
           seo_title?: string | null
           slug: string
@@ -251,12 +211,10 @@ export type Database = {
           author_id?: string
           content?: string
           created_at?: string
-          distribution_status?: string | null
           excerpt?: string | null
           featured_image?: string | null
           id?: string
           published_at?: string | null
-          scheduled_at?: string | null
           seo_description?: string | null
           seo_title?: string | null
           slug?: string
@@ -293,73 +251,34 @@ export type Database = {
       }
       subscribers: {
         Row: {
-          confirmation_token: string | null
           confirmed_at: string | null
-          double_opt_in: boolean | null
           email: string
           id: string
-          last_email_sent_at: string | null
           preferences: Json | null
           status: string
           subscribed_at: string
-          subscription_source: string | null
-          unsubscribe_reason: string | null
-          unsubscribe_token: string | null
           unsubscribed_at: string | null
           utm_source: string | null
         }
         Insert: {
-          confirmation_token?: string | null
           confirmed_at?: string | null
-          double_opt_in?: boolean | null
           email: string
           id?: string
-          last_email_sent_at?: string | null
           preferences?: Json | null
           status?: string
           subscribed_at?: string
-          subscription_source?: string | null
-          unsubscribe_reason?: string | null
-          unsubscribe_token?: string | null
           unsubscribed_at?: string | null
           utm_source?: string | null
         }
         Update: {
-          confirmation_token?: string | null
           confirmed_at?: string | null
-          double_opt_in?: boolean | null
           email?: string
           id?: string
-          last_email_sent_at?: string | null
           preferences?: Json | null
           status?: string
           subscribed_at?: string
-          subscription_source?: string | null
-          unsubscribe_reason?: string | null
-          unsubscribe_token?: string | null
           unsubscribed_at?: string | null
           utm_source?: string | null
-        }
-        Relationships: []
-      }
-      tags: {
-        Row: {
-          created_at: string
-          id: string
-          name: string
-          usage_count: number
-        }
-        Insert: {
-          created_at?: string
-          id?: string
-          name: string
-          usage_count?: number
-        }
-        Update: {
-          created_at?: string
-          id?: string
-          name?: string
-          usage_count?: number
         }
         Relationships: []
       }
@@ -408,59 +327,11 @@ export type Database = {
         }
         Relationships: []
       }
-      unsubscribe_requests: {
-        Row: {
-          created_at: string
-          feedback: string | null
-          id: string
-          ip_address: string | null
-          processed_at: string | null
-          reason: string | null
-          subscriber_id: string | null
-          token: string
-          user_agent: string | null
-        }
-        Insert: {
-          created_at?: string
-          feedback?: string | null
-          id?: string
-          ip_address?: string | null
-          processed_at?: string | null
-          reason?: string | null
-          subscriber_id?: string | null
-          token: string
-          user_agent?: string | null
-        }
-        Update: {
-          created_at?: string
-          feedback?: string | null
-          id?: string
-          ip_address?: string | null
-          processed_at?: string | null
-          reason?: string | null
-          subscriber_id?: string | null
-          token?: string
-          user_agent?: string | null
-        }
-        Relationships: [
-          {
-            foreignKeyName: "unsubscribe_requests_subscriber_id_fkey"
-            columns: ["subscriber_id"]
-            isOneToOne: false
-            referencedRelation: "subscribers"
-            referencedColumns: ["id"]
-          },
-        ]
-      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      generate_confirmation_token: {
-        Args: Record<PropertyKey, never>
-        Returns: string
-      }
       generate_slug: {
         Args: { title: string }
         Returns: string
