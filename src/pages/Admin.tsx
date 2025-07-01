@@ -11,15 +11,27 @@ import PostEditor from "@/components/admin/PostEditor";
 import PostsList from "@/components/admin/PostsList";
 import SubscribersList from "@/components/admin/SubscribersList";
 import CampaignsList from "@/components/admin/CampaignsList";
+import AIBlogGenerator from "@/components/admin/AIBlogGenerator";
 
 const ADMIN_EMAIL = "nick@whitegloveai.com";
 const ADMIN_PASSWORD = 'J$TswNju}0^`)q"!v}p!';
+
+interface GeneratedContent {
+  title: string;
+  content: string;
+  excerpt: string;
+  tags: string[];
+  seo_title: string;
+  seo_description: string;
+}
 
 const Admin = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [loading, setLoading] = useState(true);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [generatedContent, setGeneratedContent] = useState<GeneratedContent | undefined>();
+  const [activeTab, setActiveTab] = useState("posts");
   const navigate = useNavigate();
   const { toast } = useToast();
 
@@ -124,6 +136,15 @@ const Admin = () => {
     navigate("/");
   };
 
+  const handleContentGenerated = (content: GeneratedContent) => {
+    setGeneratedContent(content);
+    setActiveTab("editor");
+  };
+
+  const handleContentUsed = () => {
+    setGeneratedContent(undefined);
+  };
+
   if (loading) {
     return <div className="flex justify-center items-center min-h-screen bg-black text-white">Loading...</div>;
   }
@@ -177,9 +198,10 @@ const Admin = () => {
       </header>
 
       <main className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-        <Tabs defaultValue="posts" className="space-y-6">
+        <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-6">
           <TabsList className="bg-gray-900 border-gray-700">
             <TabsTrigger value="posts" className="data-[state=active]:bg-primary data-[state=active]:text-white">Posts</TabsTrigger>
+            <TabsTrigger value="ai-generator" className="data-[state=active]:bg-primary data-[state=active]:text-white">AI Generator</TabsTrigger>
             <TabsTrigger value="editor" className="data-[state=active]:bg-primary data-[state=active]:text-white">New Post</TabsTrigger>
             <TabsTrigger value="subscribers" className="data-[state=active]:bg-primary data-[state=active]:text-white">Subscribers</TabsTrigger>
             <TabsTrigger value="campaigns" className="data-[state=active]:bg-primary data-[state=active]:text-white">Campaigns</TabsTrigger>
@@ -189,8 +211,15 @@ const Admin = () => {
             <PostsList />
           </TabsContent>
 
+          <TabsContent value="ai-generator">
+            <AIBlogGenerator onContentGenerated={handleContentGenerated} />
+          </TabsContent>
+
           <TabsContent value="editor">
-            <PostEditor />
+            <PostEditor 
+              generatedContent={generatedContent}
+              onContentUsed={handleContentUsed}
+            />
           </TabsContent>
 
           <TabsContent value="subscribers">

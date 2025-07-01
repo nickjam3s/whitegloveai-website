@@ -50,6 +50,45 @@ export type Database = {
           },
         ]
       }
+      documents: {
+        Row: {
+          created_at: string
+          extracted_text: string | null
+          file_size: number
+          filename: string
+          id: string
+          mime_type: string
+          original_name: string
+          storage_path: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          extracted_text?: string | null
+          file_size: number
+          filename: string
+          id?: string
+          mime_type: string
+          original_name: string
+          storage_path: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          extracted_text?: string | null
+          file_size?: number
+          filename?: string
+          id?: string
+          mime_type?: string
+          original_name?: string
+          storage_path?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       email_campaigns: {
         Row: {
           click_count: number
