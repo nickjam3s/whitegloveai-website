@@ -34,7 +34,7 @@ export default function PortalAuth() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background to-secondary/20 flex items-center justify-center p-4">
+    <div className="min-h-screen flex items-center justify-center p-4" style={{ backgroundColor: 'hsl(var(--portal-auth-bg))' }}>
       <Card className="w-full max-w-md animate-scale-in">
         <CardHeader className="text-center space-y-4">
           <div className="mx-auto w-16 h-16 bg-primary rounded-xl flex items-center justify-center">

@@ -5,6 +5,8 @@ import PortalDashboard from '@/components/portal/PortalDashboard';
 import AdminPanel from '@/components/portal/AdminPanel';
 import { Card, CardContent } from '@/components/ui/card';
 import { Loader2 } from 'lucide-react';
+import '@/styles/portal-base.css';
+import '@/styles/portal-animations.css';
 
 export default function Portal() {
   const { user, loading, isAuthenticated, isAdmin } = usePortalAuth();

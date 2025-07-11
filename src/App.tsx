@@ -3,7 +3,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
@@ -46,17 +46,15 @@ import Enable from "./pages/vcaio/Enable";
 
 const queryClient = new QueryClient();
 
-const App = () => {
+const AppContent = () => {
+  const location = useLocation();
+  const isPortalRoute = location.pathname.startsWith('/portal');
+
   return (
-    <QueryClientProvider client={queryClient}>
-      <BrowserRouter>
-        <TooltipProvider>
-          <Toaster />
-          <Sonner />
-          <div className="flex flex-col min-h-screen">
-            <Navigation />
-            <ScrollToTop />
-            <main className="flex-grow">
+    <div className="flex flex-col min-h-screen">
+      {!isPortalRoute && <Navigation />}
+      <ScrollToTop />
+      <main className="flex-grow">
               <Routes>
                 {/* Main Routes */}
                 <Route path="/" element={<Index />} />
@@ -115,8 +113,19 @@ const App = () => {
                 <Route path="/about" element={<Navigate to="/aboutus" replace />} />
               </Routes>
             </main>
-            <Footer />
+            {!isPortalRoute && <Footer />}
           </div>
+  );
+};
+
+const App = () => {
+  return (
+    <QueryClientProvider client={queryClient}>
+      <BrowserRouter>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <AppContent />
         </TooltipProvider>
       </BrowserRouter>
     </QueryClientProvider>
