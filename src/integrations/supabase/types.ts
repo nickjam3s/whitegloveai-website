@@ -665,6 +665,10 @@ export type Database = {
         Args: { title: string }
         Returns: string
       }
+      set_config: {
+        Args: { parameter: string; value: string }
+        Returns: undefined
+      }
     }
     Enums: {
       portal_user_role: "admin" | "client"

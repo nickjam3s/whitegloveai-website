@@ -158,7 +158,7 @@ export default function AdminPanel() {
 
     try {
       setIsSubmitting(true);
-      const { data, error } = await supabase.functions.invoke('portal-retell-api/config', {
+      const { data, error } = await supabase.functions.invoke('portal-retell-api', {
         method: 'POST',
         headers: { 'x-user-email': user!.email },
         body: { apiKey: retellApiKey.trim() }

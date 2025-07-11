@@ -107,31 +107,57 @@ async function fetchVoiceCallData(agentIds: string[], apiKey: string): Promise<V
 
 async function getUserAuthorizedAgents(userEmail: string): Promise<string[]> {
   try {
-    // Set the portal session context
-    await supabase.rpc('set_config', {
+    console.log('Setting portal context for user:', userEmail);
+    
+    // Set the portal session context using the new RPC function
+    const { error: rpcError } = await supabase.rpc('set_config', {
       parameter: 'portal.current_user_email',
       value: userEmail
     });
+    
+    if (rpcError) {
+      console.error('Error setting portal context:', rpcError);
+      // Continue anyway, try direct query approach
+    }
 
-    const { data: assignments, error } = await supabase
-      .from('retell_agent_assignments')
+    // First, get the user's groups
+    console.log('Fetching user groups for:', userEmail);
+    const { data: userGroups, error: groupsError } = await supabase
+      .from('client_group_memberships')
       .select(`
-        retell_agent_id,
-        agent_name,
-        client_groups!inner(
-          client_group_memberships!inner(
-            portal_users!inner(email)
-          )
-        )
+        group_id,
+        portal_users!inner(email)
       `)
-      .eq('client_groups.client_group_memberships.portal_users.email', userEmail);
+      .eq('portal_users.email', userEmail);
 
-    if (error) {
-      console.error('Error fetching authorized agents:', error);
+    if (groupsError) {
+      console.error('Error fetching user groups:', groupsError);
       return [];
     }
 
-    return assignments?.map(a => a.retell_agent_id) || [];
+    if (!userGroups || userGroups.length === 0) {
+      console.log('No groups found for user:', userEmail);
+      return [];
+    }
+
+    const groupIds = userGroups.map(ug => ug.group_id);
+    console.log('User belongs to groups:', groupIds);
+
+    // Then get the agents assigned to those groups
+    const { data: assignments, error: assignmentsError } = await supabase
+      .from('retell_agent_assignments')
+      .select('retell_agent_id, agent_name')
+      .in('group_id', groupIds);
+
+    if (assignmentsError) {
+      console.error('Error fetching agent assignments:', assignmentsError);
+      return [];
+    }
+
+    const agentIds = assignments?.map(a => a.retell_agent_id) || [];
+    console.log('Found authorized agents:', agentIds);
+    
+    return agentIds;
   } catch (error) {
     console.error('Error in getUserAuthorizedAgents:', error);
     return [];
@@ -161,8 +187,25 @@ serve(async (req) => {
 
   try {
     const url = new URL(req.url);
-    const path = url.pathname.split('/').pop();
     const userEmail = req.headers.get('x-user-email');
+    
+    // Parse the request to determine what action to take
+    let path = 'voice-calls'; // default
+    
+    // Check if it's a GET request with query parameters
+    if (req.method === 'GET') {
+      const callId = url.searchParams.get('call_id');
+      if (callId) {
+        path = 'download-recording';
+      }
+    }
+    
+    // For POST requests, always assume it's config since that's the only POST endpoint
+    if (req.method === 'POST') {
+      path = 'config';
+    }
+    
+    console.log('Processing request - Method:', req.method, 'Path:', path, 'User:', userEmail);
 
     if (!userEmail) {
       return new Response(
@@ -227,7 +270,8 @@ serve(async (req) => {
         );
       }
 
-      const { apiKey } = await req.json();
+      const requestBody = await req.json();
+      const { apiKey } = requestBody;
       
       if (!apiKey) {
         return new Response(

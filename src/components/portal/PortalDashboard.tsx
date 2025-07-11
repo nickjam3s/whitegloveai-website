@@ -53,7 +53,7 @@ export default function PortalDashboard() {
       setLoading(true);
       setError(null);
 
-      const { data, error: apiError } = await supabase.functions.invoke('portal-retell-api/voice-calls', {
+      const { data, error: apiError } = await supabase.functions.invoke('portal-retell-api', {
         headers: {
           'x-user-email': user.email
         }
@@ -76,15 +76,21 @@ export default function PortalDashboard() {
 
   const handleDownloadRecording = async (callId: string) => {
     try {
-      const { data, error } = await supabase.functions.invoke('portal-retell-api/download-recording', {
+      // Use direct URL approach with query parameters
+      const response = await fetch(`https://lzxlamelyfrfrhrgfigb.supabase.co/functions/v1/portal-retell-api?call_id=${callId}`, {
         method: 'GET',
         headers: {
-          'x-user-email': user!.email
-        },
-        body: new URLSearchParams({ call_id: callId })
+          'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx6eGxhbWVseWZyZnJocmdmaWdiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDk2ODE3MjAsImV4cCI6MjA2NTI1NzcyMH0.MoKzqzJXjHuN5b8ZXD705xYg-YRuw28G-X22FxUbn-0`,
+          'x-user-email': user!.email,
+          'Content-Type': 'application/json'
+        }
       });
 
-      if (error) throw error;
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.json();
 
       if (data.download_url) {
         const link = document.createElement('a');
