@@ -17,6 +17,7 @@ import Privacy from "./pages/Privacy";
 import TermsOfService from "./pages/TermsOfService";
 import Contact from "./pages/Contact";
 import TRAIGA from "./pages/TRAIGA";
+import Portal from "./pages/Portal";
 
 // Blog & CMS Pages
 import Blog from "./pages/Blog";
@@ -69,6 +70,7 @@ const App = () => {
                 <Route path="/terms" element={<TermsOfService />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/traiga" element={<TRAIGA />} />
+                <Route path="/portal" element={<Portal />} />
                 
                 {/* Blog & CMS Routes */}
                 <Route path="/blog" element={<Blog />} />
