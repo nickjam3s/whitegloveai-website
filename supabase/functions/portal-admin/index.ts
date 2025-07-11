@@ -125,8 +125,8 @@ serve(async (req) => {
           client_group_memberships(
             portal_users(id, email)
           ),
-          retail_agent_assignments(
-            retail_agent_id,
+          retell_agent_assignments(
+            retell_agent_id,
             agent_name
           )
         `)
@@ -203,12 +203,12 @@ serve(async (req) => {
       if (agent_ids.length > 0) {
         const assignments = agent_ids.map((agentId: string) => ({
           group_id: group.id,
-          retail_agent_id: agentId,
+          retell_agent_id: agentId,
           agent_name: `Agent ${agentId}` // In production, fetch actual agent name
         }));
 
         await supabase
-          .from('retail_agent_assignments')
+          .from('retell_agent_assignments')
           .insert(assignments);
       }
 
@@ -274,10 +274,10 @@ serve(async (req) => {
       }
 
       const { error } = await supabase
-        .from('retail_agent_assignments')
+        .from('retell_agent_assignments')
         .insert({
           group_id,
-          retail_agent_id: agent_id,
+          retell_agent_id: agent_id,
           agent_name: agent_name || `Agent ${agent_id}`
         });
 

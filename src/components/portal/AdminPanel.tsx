@@ -38,8 +38,8 @@ interface ClientGroup {
   client_group_memberships: Array<{
     portal_users: { id: string; email: string };
   }>;
-  retail_agent_assignments: Array<{
-    retail_agent_id: string;
+  retell_agent_assignments: Array<{
+    retell_agent_id: string;
     agent_name?: string;
   }>;
 }
@@ -63,7 +63,7 @@ export default function AdminPanel() {
   const [newGroupDescription, setNewGroupDescription] = useState('');
   const [newGroupUsers, setNewGroupUsers] = useState('');
   const [newGroupAgents, setNewGroupAgents] = useState('');
-  const [retailApiKey, setRetailApiKey] = useState('');
+  const [retellApiKey, setRetellApiKey] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const fetchData = async () => {
@@ -153,23 +153,23 @@ export default function AdminPanel() {
     }
   };
 
-  const configureRetailApi = async () => {
-    if (!retailApiKey.trim()) return;
+  const configureRetellApi = async () => {
+    if (!retellApiKey.trim()) return;
 
     try {
       setIsSubmitting(true);
-      const { data, error } = await supabase.functions.invoke('portal-retail-api/config', {
+      const { data, error } = await supabase.functions.invoke('portal-retell-api/config', {
         method: 'POST',
         headers: { 'x-user-email': user!.email },
-        body: { retail_api_key: retailApiKey.trim() }
+        body: { apiKey: retellApiKey.trim() }
       });
 
       if (error) throw error;
 
-      setRetailApiKey('');
-      alert('Retail API key configured successfully!');
+      setRetellApiKey('');
+      alert('Retell AI API key configured successfully!');
     } catch (err: any) {
-      setError(err.message || 'Failed to configure API key');
+      setError(err.message || 'Failed to configure Retell API key');
     } finally {
       setIsSubmitting(false);
     }
@@ -295,7 +295,7 @@ export default function AdminPanel() {
               <div className="flex items-center justify-between">
                 <div>
                   <CardTitle>Client Groups</CardTitle>
-                  <CardDescription>Organize users and assign retail agents</CardDescription>
+                  <CardDescription>Organize users and assign Retell agents</CardDescription>
                 </div>
                 <Dialog>
                   <DialogTrigger asChild>
@@ -308,7 +308,7 @@ export default function AdminPanel() {
                     <DialogHeader>
                       <DialogTitle>Create Client Group</DialogTitle>
                       <DialogDescription>
-                        Create a new client group and assign users and retail agents.
+                        Create a new client group and assign users and Retell agents.
                       </DialogDescription>
                     </DialogHeader>
                     <div className="space-y-4">
@@ -340,7 +340,7 @@ export default function AdminPanel() {
                         />
                       </div>
                       <div>
-                        <Label htmlFor="group-agents">Retail Agent IDs (comma-separated)</Label>
+                        <Label htmlFor="group-agents">Retell Agent IDs (comma-separated)</Label>
                         <Textarea
                           id="group-agents"
                           placeholder="agent_001, agent_002"
@@ -395,11 +395,11 @@ export default function AdminPanel() {
                       </div>
                       
                       <div>
-                        <h4 className="text-sm font-medium mb-2">Agents ({group.retail_agent_assignments.length})</h4>
+                        <h4 className="text-sm font-medium mb-2">Agents ({group.retell_agent_assignments.length})</h4>
                         <div className="space-y-1">
-                          {group.retail_agent_assignments.map((assignment, index) => (
+                          {group.retell_agent_assignments.map((assignment, index) => (
                             <Badge key={index} variant="secondary" className="text-xs">
-                              {assignment.agent_name || assignment.retail_agent_id}
+                              {assignment.agent_name || assignment.retell_agent_id}
                             </Badge>
                           ))}
                         </div>
@@ -415,25 +415,25 @@ export default function AdminPanel() {
         <TabsContent value="settings" className="space-y-4">
           <Card>
             <CardHeader>
-              <CardTitle>Retail Platform Integration</CardTitle>
+              <CardTitle>Retell AI Integration</CardTitle>
               <CardDescription>
-                Configure the Retail API key for accessing Voice AI data
+                Configure your Retell API key for accessing voice call data and recordings
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               <div>
-                <Label htmlFor="retail-api-key">Retail API Key</Label>
+                <Label htmlFor="retell-api-key">Retell API Key</Label>
                 <div className="flex gap-2 mt-2">
                   <Input
-                    id="retail-api-key"
+                    id="retell-api-key"
                     type="password"
-                    placeholder="Enter your Retail API key"
-                    value={retailApiKey}
-                    onChange={(e) => setRetailApiKey(e.target.value)}
+                    placeholder="Enter your Retell API key"
+                    value={retellApiKey}
+                    onChange={(e) => setRetellApiKey(e.target.value)}
                   />
                   <Button
-                    onClick={configureRetailApi}
-                    disabled={isSubmitting || !retailApiKey.trim()}
+                    onClick={configureRetellApi}
+                    disabled={isSubmitting || !retellApiKey.trim()}
                   >
                     {isSubmitting ? (
                       <Loader2 className="w-4 h-4 mr-2 animate-spin" />
@@ -444,7 +444,7 @@ export default function AdminPanel() {
                   </Button>
                 </div>
                 <p className="text-sm text-muted-foreground mt-2">
-                  This key will be encrypted and used to authenticate with the Retail platform.
+                  This key will be encrypted and used to authenticate with Retell AI.
                 </p>
               </div>
             </CardContent>

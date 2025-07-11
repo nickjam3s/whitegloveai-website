@@ -22,16 +22,16 @@ interface VoiceCallRecord {
   metadata?: any;
 }
 
-async function getRetailApiKey(): Promise<string | null> {
+async function getRetellApiKey(): Promise<string | null> {
   try {
     const { data, error } = await supabase
       .from('portal_config')
       .select('encrypted_value')
-      .eq('key_name', 'retail_api_key')
+      .eq('key_name', 'retell_api_key')
       .single();
 
     if (error || !data) {
-      console.error('Failed to get Retail API key:', error);
+      console.error('Failed to get Retell API key:', error);
       return null;
     }
 
@@ -39,51 +39,70 @@ async function getRetailApiKey(): Promise<string | null> {
     // For now, we'll assume it's stored as plain text (not recommended for production)
     return data.encrypted_value;
   } catch (error) {
-    console.error('Error retrieving API key:', error);
+    console.error('Error retrieving Retell API key:', error);
     return null;
   }
 }
 
 async function fetchVoiceCallData(agentIds: string[], apiKey: string): Promise<VoiceCallRecord[]> {
-  // This is a mock implementation of the Retail Commerce SDK integration
-  // In a real implementation, you would use the actual Retail Commerce SDK
+  console.log('Fetching Retell data for agents:', agentIds);
   
-  const mockData: VoiceCallRecord[] = [
-    {
-      id: '1',
-      timestamp: new Date(Date.now() - 86400000).toISOString(), // 1 day ago
-      agent_id: agentIds[0] || 'agent_001',
-      agent_name: 'Agent Sarah Johnson',
-      duration: 180, // 3 minutes
-      recording_url: 'https://example.com/recordings/call_001.mp3',
-      transcription: 'Customer called about product availability. Provided information about stock levels and delivery times.',
-      metadata: {
-        customer_phone: '+1234567890',
-        call_type: 'inquiry',
-        resolved: true
-      }
-    },
-    {
-      id: '2',
-      timestamp: new Date(Date.now() - 172800000).toISOString(), // 2 days ago
-      agent_id: agentIds[0] || 'agent_001',
-      agent_name: 'Agent Sarah Johnson',
-      duration: 240, // 4 minutes
-      recording_url: 'https://example.com/recordings/call_002.mp3',
-      transcription: 'Customer support call regarding order status. Updated customer on shipping information.',
-      metadata: {
-        customer_phone: '+1234567891',
-        call_type: 'support',
-        resolved: true,
-        order_id: 'ORD-2024-001'
-      }
+  try {
+    const response = await fetch('https://api.retellai.com/v2/list-calls', {
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${apiKey}`,
+        'Content-Type': 'application/json',
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error(`Retell API error: ${response.status}`);
     }
-  ];
 
-  // Simulate API call delay
-  await new Promise(resolve => setTimeout(resolve, 500));
+    const data = await response.json();
+    
+    // Transform Retell API response to our format
+    const transformedData: VoiceCallRecord[] = data.calls
+      ?.filter((call: any) => agentIds.includes(call.agent_id))
+      ?.map((call: any) => ({
+        id: call.call_id,
+        timestamp: call.start_timestamp || call.created_at,
+        agent_id: call.agent_id,
+        duration: Math.round((call.end_timestamp - call.start_timestamp) / 1000) || 0,
+        recording_url: call.recording_url || null,
+        transcription: call.transcript || 'Transcription not available',
+        metadata: {
+          customer_phone: call.to_number || call.from_number,
+          call_type: call.direction || 'unknown',
+          call_status: call.call_status,
+          disconnect_reason: call.disconnect_reason
+        }
+      })) || [];
 
-  return mockData.filter(call => agentIds.includes(call.agent_id));
+    return transformedData;
+  } catch (error) {
+    console.error('Error fetching from Retell API:', error);
+    
+    // Return mock data as fallback
+    const mockData: VoiceCallRecord[] = [
+      {
+        id: 'mock_call_001',
+        timestamp: new Date(Date.now() - 86400000).toISOString(),
+        agent_id: agentIds[0] || 'agent_001',
+        agent_name: 'Retell Agent Demo',
+        duration: 125,
+        recording_url: null,
+        transcription: 'Mock call data - Retell API key may be invalid or missing',
+        metadata: {
+          customer_phone: '+1234567890',
+          call_type: 'inbound',
+          call_status: 'completed'
+        }
+      }
+    ];
+    return mockData;
+  }
 }
 
 async function getUserAuthorizedAgents(userEmail: string): Promise<string[]> {
@@ -95,9 +114,9 @@ async function getUserAuthorizedAgents(userEmail: string): Promise<string[]> {
     });
 
     const { data: assignments, error } = await supabase
-      .from('retail_agent_assignments')
+      .from('retell_agent_assignments')
       .select(`
-        retail_agent_id,
+        retell_agent_id,
         agent_name,
         client_groups!inner(
           client_group_memberships!inner(
@@ -112,7 +131,7 @@ async function getUserAuthorizedAgents(userEmail: string): Promise<string[]> {
       return [];
     }
 
-    return assignments?.map(a => a.retail_agent_id) || [];
+    return assignments?.map(a => a.retell_agent_id) || [];
   } catch (error) {
     console.error('Error in getUserAuthorizedAgents:', error);
     return [];
@@ -177,11 +196,11 @@ serve(async (req) => {
         );
       }
 
-      // Get Retail API key
-      const apiKey = await getRetailApiKey();
+      // Get Retell API key
+      const apiKey = await getRetellApiKey();
       if (!apiKey) {
         return new Response(
-          JSON.stringify({ error: 'Retail API not configured. Please contact an administrator.' }),
+          JSON.stringify({ error: 'Retell API not configured. Please contact an administrator.' }),
           { status: 503, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
         );
       }
@@ -208,11 +227,11 @@ serve(async (req) => {
         );
       }
 
-      const { retail_api_key } = await req.json();
+      const { apiKey } = await req.json();
       
-      if (!retail_api_key) {
+      if (!apiKey) {
         return new Response(
-          JSON.stringify({ error: 'Retail API key is required' }),
+          JSON.stringify({ error: 'Retell API key is required' }),
           { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
         );
       }
@@ -221,9 +240,9 @@ serve(async (req) => {
       const { error: configError } = await supabase
         .from('portal_config')
         .upsert({
-          key_name: 'retail_api_key',
-          encrypted_value: retail_api_key, // In production, encrypt this
-          created_by: user.id
+          key_name: 'retell_api_key',
+          encrypted_value: apiKey, // In production, encrypt this
+          created_by: null // Would need user ID in real implementation
         });
 
       if (configError) {
@@ -235,7 +254,7 @@ serve(async (req) => {
       }
 
       return new Response(
-        JSON.stringify({ message: 'Retail API key configured successfully' }),
+        JSON.stringify({ message: 'Retell API key configured successfully' }),
         { headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
       );
 
@@ -251,11 +270,11 @@ serve(async (req) => {
 
       // Verify user has access to this call
       const authorizedAgents = await getUserAuthorizedAgents(userEmail);
-      const apiKey = await getRetailApiKey();
+      const apiKey = await getRetellApiKey();
       
       if (!apiKey) {
         return new Response(
-          JSON.stringify({ error: 'Retail API not configured' }),
+          JSON.stringify({ error: 'Retell API not configured' }),
           { status: 503, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
         );
       }

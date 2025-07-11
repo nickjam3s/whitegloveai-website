@@ -53,7 +53,7 @@ export default function PortalDashboard() {
       setLoading(true);
       setError(null);
 
-      const { data, error: apiError } = await supabase.functions.invoke('portal-retail-api/voice-calls', {
+      const { data, error: apiError } = await supabase.functions.invoke('portal-retell-api/voice-calls', {
         headers: {
           'x-user-email': user.email
         }
@@ -76,7 +76,7 @@ export default function PortalDashboard() {
 
   const handleDownloadRecording = async (callId: string) => {
     try {
-      const { data, error } = await supabase.functions.invoke('portal-retail-api/download-recording', {
+      const { data, error } = await supabase.functions.invoke('portal-retell-api/download-recording', {
         method: 'GET',
         headers: {
           'x-user-email': user!.email
@@ -148,7 +148,7 @@ export default function PortalDashboard() {
                 <Phone className="w-6 h-6 text-primary-foreground" />
               </div>
               <div>
-                <h1 className="text-xl font-bold">WhitegloveAI Portal</h1>
+                <h1 className="text-xl font-bold">Retell AI Portal</h1>
                 <p className="text-sm text-muted-foreground">Voice AI Analytics Dashboard</p>
               </div>
             </div>

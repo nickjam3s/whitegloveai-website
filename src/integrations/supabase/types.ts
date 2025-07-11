@@ -459,27 +459,27 @@ export type Database = {
         }
         Relationships: []
       }
-      retail_agent_assignments: {
+      retell_agent_assignments: {
         Row: {
           agent_name: string | null
           created_at: string | null
           group_id: string | null
           id: string
-          retail_agent_id: string
+          retell_agent_id: string
         }
         Insert: {
           agent_name?: string | null
           created_at?: string | null
           group_id?: string | null
           id?: string
-          retail_agent_id: string
+          retell_agent_id: string
         }
         Update: {
           agent_name?: string | null
           created_at?: string | null
           group_id?: string | null
           id?: string
-          retail_agent_id?: string
+          retell_agent_id?: string
         }
         Relationships: [
           {
