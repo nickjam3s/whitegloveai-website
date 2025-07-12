@@ -1,6 +1,5 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
-import Retell from 'npm:retell-sdk';
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
@@ -32,7 +31,7 @@ async function getRetellApiKey(): Promise<string | null> {
       .from('portal_config')
       .select('encrypted_value')
       .eq('key_name', 'retell_api_key')
-      .single();
+      .maybeSingle();
 
     if (error) {
       console.error('Error fetching Retell API key:', error);
@@ -46,28 +45,59 @@ async function getRetellApiKey(): Promise<string | null> {
   }
 }
 
-// Create Retell client instance
-function createRetellClient(apiKey: string) {
-  return new Retell({
-    apiKey: apiKey,
-  });
+// Test Retell API key by making a simple call
+async function testRetellApiKey(apiKey: string): Promise<boolean> {
+  try {
+    console.log('Testing Retell API key...');
+    
+    const response = await fetch('https://api.retellai.com/v2/list-calls', {
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${apiKey}`,
+        'Content-Type': 'application/json',
+      },
+    });
+
+    if (response.ok) {
+      console.log('API key test successful');
+      return true;
+    } else {
+      console.error('API key test failed with status:', response.status);
+      return false;
+    }
+  } catch (error) {
+    console.error('API key test failed with error:', error);
+    return false;
+  }
 }
 
-// Fetch voice call data from Retell API using the SDK
+// Fetch voice call data from Retell API using direct HTTP calls
 async function fetchVoiceCallData(agentIds: string[], apiKey: string): Promise<VoiceCallRecord[]> {
   try {
     console.log('Fetching voice call data for agents:', agentIds);
     
-    const retellClient = createRetellClient(apiKey);
-    
-    // Get all calls from Retell API
-    const callResponses = await retellClient.call.list();
-    console.log('Retrieved calls from Retell API:', callResponses.length);
+    // Call Retell API directly
+    const response = await fetch('https://api.retellai.com/v2/list-calls', {
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${apiKey}`,
+        'Content-Type': 'application/json',
+      },
+    });
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      console.error('Retell API error:', response.status, errorText);
+      throw new Error(`Retell API returned ${response.status}: ${errorText}`);
+    }
+
+    const callsData = await response.json();
+    console.log('Retrieved calls from Retell API:', callsData?.length || 0);
     
     // Filter by authorized agent IDs and transform to our format
-    const voiceCallRecords: VoiceCallRecord[] = callResponses
-      .filter(call => agentIds.includes(call.agent_id))
-      .map(call => ({
+    const voiceCallRecords: VoiceCallRecord[] = (callsData || [])
+      .filter((call: any) => agentIds.includes(call.agent_id))
+      .map((call: any) => ({
         id: call.call_id,
         agent_id: call.agent_id,
         call_status: call.call_status,
@@ -77,7 +107,7 @@ async function fetchVoiceCallData(agentIds: string[], apiKey: string): Promise<V
         from_number: call.from_number || '',
         to_number: call.to_number || '',
         transcript: call.transcript || '',
-        recording_url: call.recording_url || ''
+        recording_url: call.recording_url || `https://api.retellai.com/v2/get-call/${call.call_id}/recording`
       }));
     
     console.log('Filtered call data:', voiceCallRecords.length, 'calls found');
@@ -108,9 +138,9 @@ async function fetchVoiceCallData(agentIds: string[], apiKey: string): Promise<V
 
 async function getUserAuthorizedAgents(userEmail: string): Promise<string[]> {
   try {
-    console.log('Setting portal context for user:', userEmail);
+    console.log('Getting authorized agents for user:', userEmail);
     
-    // Set the portal session context using the new RPC function
+    // Set the portal session context
     const { error: rpcError } = await supabase.rpc('set_config', {
       parameter: 'portal.current_user_email',
       value: userEmail
@@ -118,11 +148,9 @@ async function getUserAuthorizedAgents(userEmail: string): Promise<string[]> {
     
     if (rpcError) {
       console.error('Error setting portal context:', rpcError);
-      // Continue anyway, try direct query approach
     }
 
-    // First, get the user's groups
-    console.log('Fetching user groups for:', userEmail);
+    // Get the user's groups
     const { data: userGroups, error: groupsError } = await supabase
       .from('client_group_memberships')
       .select(`
@@ -144,7 +172,7 @@ async function getUserAuthorizedAgents(userEmail: string): Promise<string[]> {
     const groupIds = userGroups.map(ug => ug.group_id);
     console.log('User belongs to groups:', groupIds);
 
-    // Then get the agents assigned to those groups
+    // Get the agents assigned to those groups
     const { data: assignments, error: assignmentsError } = await supabase
       .from('retell_agent_assignments')
       .select('retell_agent_id, agent_name')
@@ -171,7 +199,7 @@ async function isUserAdmin(userEmail: string): Promise<boolean> {
       .from('portal_users')
       .select('role')
       .eq('email', userEmail)
-      .single();
+      .maybeSingle();
 
     return !error && user?.role === 'admin';
   } catch (error) {
@@ -195,7 +223,29 @@ serve(async (req) => {
     const userEmail = req.headers.get('x-user-email');
     console.log('User email from header:', userEmail);
     
-    // Parse request body for supabase.functions.invoke() calls
+    if (!userEmail) {
+      return new Response(
+        JSON.stringify({ error: 'User email header is required' }),
+        { status: 401, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      );
+    }
+
+    // Verify user exists and is active
+    const { data: user, error: userError } = await supabase
+      .from('portal_users')
+      .select('email, role, is_active')
+      .eq('email', userEmail)
+      .maybeSingle();
+
+    if (userError || !user || !user.is_active) {
+      console.error('User verification failed:', userError);
+      return new Response(
+        JSON.stringify({ error: 'Unauthorized' }),
+        { status: 401, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      );
+    }
+
+    // Parse request body
     let requestBody = null;
     try {
       const text = await req.text();
@@ -209,76 +259,10 @@ serve(async (req) => {
       console.log('No JSON body or parsing failed:', parseError);
     }
     
-    // Determine operation based on request content
-    let operation = 'voice-calls'; // default
-    
+    // Handle API key configuration
     if (requestBody?.apiKey) {
-      operation = 'config';
       console.log('API key configuration request detected');
-    } else if (req.method === 'GET') {
-      const url = new URL(req.url);
-      const callId = url.searchParams.get('call_id');
-      if (callId) {
-        operation = 'download-recording';
-      }
-    }
-    
-    console.log('Determined operation:', operation);
-
-    if (!userEmail) {
-      return new Response(
-        JSON.stringify({ error: 'User email header is required' }),
-        { status: 401, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
-      );
-    }
-
-    // Verify user exists and is active
-    const { data: user, error: userError } = await supabase
-      .from('portal_users')
-      .select('email, role, is_active')
-      .eq('email', userEmail)
-      .single();
-
-    if (userError || !user || !user.is_active) {
-      return new Response(
-        JSON.stringify({ error: 'Unauthorized' }),
-        { status: 401, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
-      );
-    }
-
-    if (operation === 'voice-calls') {
-      // Get user's authorized agents
-      const authorizedAgents = await getUserAuthorizedAgents(userEmail);
       
-      if (authorizedAgents.length === 0) {
-        return new Response(
-          JSON.stringify({ calls: [], message: 'No authorized agents found' }),
-          { headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
-        );
-      }
-
-      // Get Retell API key
-      const apiKey = await getRetellApiKey();
-      if (!apiKey) {
-        return new Response(
-          JSON.stringify({ error: 'Retell API not configured. Please contact an administrator.' }),
-          { status: 503, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
-        );
-      }
-
-      // Fetch voice call data
-      const calls = await fetchVoiceCallData(authorizedAgents, apiKey);
-
-      return new Response(
-        JSON.stringify({ 
-          calls,
-          authorized_agents: authorizedAgents,
-          total_calls: calls.length
-        }),
-        { headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
-      );
-
-    } else if (operation === 'config') {
       // Only admins can update configuration
       const isAdmin = await isUserAdmin(userEmail);
       if (!isAdmin) {
@@ -289,7 +273,7 @@ serve(async (req) => {
         );
       }
 
-      const { apiKey } = requestBody || {};
+      const { apiKey } = requestBody;
       console.log('API key received for configuration:', apiKey ? 'Yes' : 'No');
       
       if (!apiKey || !apiKey.trim()) {
@@ -299,14 +283,9 @@ serve(async (req) => {
         );
       }
       
-      // Test the API key first by making a simple call to Retell
-      try {
-        console.log('Testing Retell API key...');
-        const testClient = createRetellClient(apiKey.trim());
-        await testClient.call.list();
-        console.log('API key test successful');
-      } catch (testError) {
-        console.error('API key test failed:', testError);
+      // Test the API key first
+      const isValidKey = await testRetellApiKey(apiKey.trim());
+      if (!isValidKey) {
         return new Response(
           JSON.stringify({ error: 'Invalid API key: Unable to authenticate with Retell AI' }),
           { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
@@ -318,8 +297,8 @@ serve(async (req) => {
         .from('portal_config')
         .upsert({
           key_name: 'retell_api_key',
-          encrypted_value: apiKey.trim(), // In production, this should be encrypted
-          created_by: null, // We don't have user UUID here, just email
+          encrypted_value: apiKey.trim(),
+          created_by: null,
         });
 
       if (configError) {
@@ -335,53 +314,41 @@ serve(async (req) => {
         JSON.stringify({ message: 'API key configured successfully' }),
         { headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
       );
+    }
 
-    } else if (operation === 'download-recording') {
-      const url = new URL(req.url);
-      const callId = url.searchParams.get('call_id');
-      
-      if (!callId) {
-        return new Response(
-          JSON.stringify({ error: 'Call ID is required' }),
-          { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
-        );
-      }
-
-      // Verify user has access to this call
-      const authorizedAgents = await getUserAuthorizedAgents(userEmail);
-      const apiKey = await getRetellApiKey();
-      
-      if (!apiKey) {
-        return new Response(
-          JSON.stringify({ error: 'Retell API not configured' }),
-          { status: 503, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
-        );
-      }
-
-      const calls = await fetchVoiceCallData(authorizedAgents, apiKey);
-      const call = calls.find(c => c.id === callId);
-
-      if (!call) {
-        return new Response(
-          JSON.stringify({ error: 'Call not found or access denied' }),
-          { status: 404, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
-        );
-      }
-
+    // Handle voice calls data request (default)
+    console.log('Voice calls data request');
+    
+    // Get user's authorized agents
+    const authorizedAgents = await getUserAuthorizedAgents(userEmail);
+    
+    if (authorizedAgents.length === 0) {
       return new Response(
-        JSON.stringify({ 
-          download_url: call.recording_url,
-          filename: `call_${callId}_${new Date(call.start_timestamp).toISOString().split('T')[0]}.mp3`
-        }),
+        JSON.stringify({ calls: [], message: 'No authorized agents found' }),
         { headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
       );
+    }
 
-    } else {
+    // Get Retell API key
+    const apiKey = await getRetellApiKey();
+    if (!apiKey) {
       return new Response(
-        JSON.stringify({ error: 'Not found' }),
-        { status: 404, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+        JSON.stringify({ error: 'Retell API not configured. Please contact an administrator.' }),
+        { status: 503, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
       );
     }
+
+    // Fetch voice call data
+    const calls = await fetchVoiceCallData(authorizedAgents, apiKey);
+
+    return new Response(
+      JSON.stringify({ 
+        calls,
+        authorized_agents: authorizedAgents,
+        total_calls: calls.length
+      }),
+      { headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+    );
 
   } catch (error) {
     console.error('Portal Retell API error:', error);
