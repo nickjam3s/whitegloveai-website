@@ -158,18 +158,35 @@ export default function AdminPanel() {
 
     try {
       setIsSubmitting(true);
+      setError(null);
+      
+      console.log('Invoking portal-retell-api function with:', {
+        headers: { 'x-user-email': user!.email },
+        body: { apiKey: retellApiKey.trim() }
+      });
+      
       const { data, error } = await supabase.functions.invoke('portal-retell-api', {
-        method: 'POST',
         headers: { 'x-user-email': user!.email },
         body: { apiKey: retellApiKey.trim() }
       });
 
-      if (error) throw error;
+      console.log('Function response:', { data, error });
+
+      if (error) {
+        console.error('Supabase function error:', error);
+        throw new Error(error.message || 'Failed to invoke function');
+      }
+
+      if (data?.error) {
+        console.error('API error response:', data.error);
+        throw new Error(data.error);
+      }
 
       setRetellApiKey('');
       alert('Retell AI API key configured successfully!');
     } catch (err: any) {
-      setError(err.message || 'Failed to configure Retell API key');
+      console.error('Configure Retell API error:', err);
+      setError(`Failed to configure Retell API key: ${err.message}`);
     } finally {
       setIsSubmitting(false);
     }

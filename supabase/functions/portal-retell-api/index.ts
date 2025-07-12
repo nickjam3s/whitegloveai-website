@@ -180,8 +180,13 @@ async function isUserAdmin(userEmail: string): Promise<boolean> {
 }
 
 serve(async (req) => {
+  console.log('=== Portal Retell API Function Called ===');
+  console.log('Method:', req.method);
+  console.log('URL:', req.url);
+  
   // Handle CORS preflight requests
   if (req.method === 'OPTIONS') {
+    console.log('Handling CORS preflight request');
     return new Response(null, { headers: corsHeaders });
   }
 
@@ -189,23 +194,36 @@ serve(async (req) => {
     const url = new URL(req.url);
     const userEmail = req.headers.get('x-user-email');
     
-    // Parse the request to determine what action to take
-    let path = 'voice-calls'; // default
+    console.log('User email from header:', userEmail);
+    console.log('Request headers:', Object.fromEntries(req.headers.entries()));
     
-    // Check if it's a GET request with query parameters
-    if (req.method === 'GET') {
+    // For supabase.functions.invoke(), the request body contains the data
+    let requestBody = null;
+    try {
+      const text = await req.text();
+      console.log('Raw request body:', text);
+      
+      if (text) {
+        requestBody = JSON.parse(text);
+        console.log('Parsed request body:', requestBody);
+      }
+    } catch (parseError) {
+      console.log('No JSON body or parsing failed:', parseError);
+    }
+    
+    // Determine the operation based on method and body content
+    let operation = 'voice-calls'; // default
+    
+    if (req.method === 'POST' && requestBody?.apiKey) {
+      operation = 'config';
+    } else if (req.method === 'GET') {
       const callId = url.searchParams.get('call_id');
       if (callId) {
-        path = 'download-recording';
+        operation = 'download-recording';
       }
     }
     
-    // For POST requests, always assume it's config since that's the only POST endpoint
-    if (req.method === 'POST') {
-      path = 'config';
-    }
-    
-    console.log('Processing request - Method:', req.method, 'Path:', path, 'User:', userEmail);
+    console.log('Determined operation:', operation);
 
     if (!userEmail) {
       return new Response(
@@ -228,7 +246,7 @@ serve(async (req) => {
       );
     }
 
-    if (path === 'voice-calls' && req.method === 'GET') {
+    if (operation === 'voice-calls') {
       // Get user's authorized agents
       const authorizedAgents = await getUserAuthorizedAgents(userEmail);
       
@@ -260,7 +278,7 @@ serve(async (req) => {
         { headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
       );
 
-    } else if (path === 'config' && req.method === 'POST') {
+    } else if (operation === 'config') {
       // Only admins can update configuration
       const isAdmin = await isUserAdmin(userEmail);
       if (!isAdmin) {
@@ -270,8 +288,7 @@ serve(async (req) => {
         );
       }
 
-      const requestBody = await req.json();
-      const { apiKey } = requestBody;
+      const { apiKey } = requestBody || {};
       
       if (!apiKey) {
         return new Response(
@@ -302,7 +319,7 @@ serve(async (req) => {
         { headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
       );
 
-    } else if (path === 'download-recording' && req.method === 'GET') {
+    } else if (operation === 'download-recording') {
       const callId = url.searchParams.get('call_id');
       
       if (!callId) {
