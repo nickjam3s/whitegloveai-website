@@ -74,7 +74,14 @@ export function usePortalAuth() {
   }, [setUser]);
 
   const logout = useCallback(() => {
+    // Clear user from state and localStorage
     setUser(null);
+    
+    // Clear any cached data or session storage
+    localStorage.removeItem('portal_user');
+    
+    // Force a page reload to ensure clean state
+    window.location.href = '/portal';
   }, [setUser]);
 
   const clearError = useCallback(() => {
