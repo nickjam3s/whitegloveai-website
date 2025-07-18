@@ -41,6 +41,11 @@ const services = [
     link: "/maisp/humanoidai",
   },
   {
+    title: "TranslateAI",
+    description: "AI-powered live translation services",
+    link: "/maisp/translateai",
+  },
+  {
     title: "TextAI for Good",
     description: "Nonprofit solutions using text-based AI technology",
     link: "/maisp/textaiforgood",

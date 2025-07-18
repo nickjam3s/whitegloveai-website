@@ -29,6 +29,7 @@ export const navigationLinks = [
       { to: "/maisp/vendorai", text: "VendorAI" },
       { to: "/maisp/mediaai", text: "MediaAI" },
       { to: "/maisp/humaniodai", text: "HumanoidAI" },
+      { to: "/maisp/translateai", text: "TranslateAI" },
     ],
   },
   {
