@@ -5,13 +5,13 @@ import { Card, CardContent } from "@/components/ui/card";
 
 const logos = [
   { src: '/lovable-uploads/546436a1-1e57-4c15-bcb5-67b2a4387326.png', alt: 'Frisco Logo', height: 96 }, // 20% bigger (80 * 1.2)
-  { src: '/lovable-uploads/7a4a8a1b-9c9a-4bb0-96f4-4e10213073d5.png', alt: 'McKinney Texas Unique By Nature Logo', height: 115 }, // 20% bigger (96 * 1.2)
+  { src: '/lovable-uploads/7a4a8a1b-9c9a-4bb0-96f4-4e10213073d5.png', alt: 'McKinney Texas Unique By Nature Logo', height: 138 }, // 20% bigger (115 * 1.2)
   { src: '/lovable-uploads/1ca9f7e9-12e2-46cd-9d26-bf3264c8282c.png', alt: 'Allen Star Logo', height: 96 }, // 20% bigger (80 * 1.2)
   { src: '/lovable-uploads/f0ca996d-42e2-4524-b115-7ff8ed634282.png', alt: 'Principal Logo', height: 72 }, // 20% bigger (60 * 1.2)
-  { src: '/lovable-uploads/cbc64b44-084f-482b-8637-adfe22d6c0ec.png', alt: 'University Logo', height: 72 }, // 20% bigger (60 * 1.2)
+  { src: '/lovable-uploads/cbc64b44-084f-482b-8637-adfe22d6c0ec.png', alt: 'University Logo', height: 86 }, // 20% bigger (72 * 1.2)
   { src: '/lovable-uploads/31ce2c79-4446-474c-944b-387098eef691.png', alt: 'Kofile Logo', height: 72 }, // 20% bigger (60 * 1.2)
   { src: '/lovable-uploads/b6a654ad-cab3-433b-b6d1-d7783e010859.png', alt: 'MEDC Logo', height: 72 }, // 20% bigger (60 * 1.2)
-  { src: '/lovable-uploads/17e63cce-7a22-4959-b5a9-2ba2208cb774.png', alt: 'Black Dome Logo', height: 115 }, // 20% bigger (96 * 1.2)
+  { src: '/lovable-uploads/17e63cce-7a22-4959-b5a9-2ba2208cb774.png', alt: 'Black Dome Logo', height: 138 }, // 20% bigger (115 * 1.2)
   { src: '/lovable-uploads/347f5cb7-7b00-4459-8370-240641f6d41a.png', alt: 'City of Anna Logo', height: 96 }, // 20% bigger (80 * 1.2)
   { src: '/lovable-uploads/70c9104c-d289-4a52-b28e-49337cc8409a.png', alt: 'Tackle Tomorrow Logo', height: 96 }, // 20% bigger (80 * 1.2)
   { src: '/lovable-uploads/59a4884a-03e1-43ef-a6d1-e79c5ca8e3ea.png', alt: 'New Logo', height: 86 }, // 20% bigger (72 * 1.2)
@@ -19,7 +19,7 @@ const logos = [
 
 // Static grid logos with the new logo added at the beginning
 const staticGridLogos = [
-  { src: '/lovable-uploads/c0e45a43-6f9f-4579-af85-ed5c9bfa2e58.png', alt: 'New Client Logo', height: 72 }, // 20% bigger (60 * 1.2)
+  { src: '/lovable-uploads/c0e45a43-6f9f-4579-af85-ed5c9bfa2e58.png', alt: 'New Client Logo', height: 86 }, // 20% bigger (72 * 1.2)
   ...logos
 ];
 
