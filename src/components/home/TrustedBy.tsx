@@ -85,12 +85,14 @@ const TrustedBy = () => {
             {staticGridLogos.map((logo, index) => (
               <div
                 key={index}
-                className="flex items-center justify-center h-[80px] group"
+                className="flex items-center justify-center min-h-[120px] group"
+                style={{ height: `${Math.max(120, logo.height + 20)}px` }}
               >
                 <img
                   src={logo.src}
                   alt={logo.alt}
-                  className="object-contain w-auto h-full max-h-[60px] grayscale opacity-70 group-hover:opacity-90 group-hover:grayscale-0 transition-all duration-300"
+                  className="object-contain w-auto grayscale opacity-70 group-hover:opacity-90 group-hover:grayscale-0 transition-all duration-300"
+                  style={{ height: `${logo.height}px` }}
                 />
               </div>
             ))}
