@@ -35,6 +35,7 @@ import HumanoidAI from "./pages/maisp/HumanoidAI";
 import VendorAI from "./pages/maisp/VendorAI";
 import MediaAI from "./pages/maisp/MediaAI";
 import MediaAIEquipmentProtected from "./pages/maisp/MediaAIEquipmentProtected";
+import TranslateAI from "./pages/maisp/TranslateAI";
 
 // vCAIO Routes
 import VCAIO from "./pages/vcaio/Index";
@@ -86,6 +87,7 @@ const AppContent = () => {
                 <Route path="/maisp/vendorai" element={<VendorAI />} />
                 <Route path="/maisp/mediaai" element={<MediaAI />} />
                 <Route path="/maisp/mediaai/equipment" element={<MediaAIEquipmentProtected />} />
+                <Route path="/maisp/translateai" element={<TranslateAI />} />
                 
                 {/* vCAIO Routes */}
                 <Route path="/vcaio" element={<VCAIO />} />
