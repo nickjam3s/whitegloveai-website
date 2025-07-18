@@ -82,19 +82,31 @@ const TrustedBy = () => {
           <h2 className="text-center text-white text-3xl font-semibold mb-8">Trusted By</h2>
           
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 max-w-6xl mx-auto">
-            {staticGridLogos.map((logo, index) => (
-              <div
-                key={index}
-                className="flex items-center justify-center h-[100px] group"
-              >
-                <img
-                  src={logo.src}
-                  alt={logo.alt}
-                  className="object-contain w-auto grayscale opacity-70 group-hover:opacity-90 group-hover:grayscale-0 transition-all duration-300"
-                  style={{ height: `${logo.height}px` }}
-                />
-              </div>
-            ))}
+            {staticGridLogos.map((logo, index) => {
+              // Mobile-specific alignment adjustments for specific logos
+              let mobileTransform = '';
+              if (logo.alt === 'Allen Star Logo') {
+                mobileTransform = 'md:transform-none transform translate-y-2'; // Lower on mobile
+              } else if (logo.alt === 'University Logo') {
+                mobileTransform = 'md:transform-none transform -translate-y-1'; // Raise on mobile
+              } else if (logo.alt === 'City of Anna Logo') {
+                mobileTransform = 'md:transform-none transform translate-y-1'; // Lower on mobile
+              }
+              
+              return (
+                <div
+                  key={index}
+                  className={`flex items-center justify-center h-[100px] group ${mobileTransform}`}
+                >
+                  <img
+                    src={logo.src}
+                    alt={logo.alt}
+                    className="object-contain w-auto grayscale opacity-70 group-hover:opacity-90 group-hover:grayscale-0 transition-all duration-300"
+                    style={{ height: `${logo.height}px` }}
+                  />
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
