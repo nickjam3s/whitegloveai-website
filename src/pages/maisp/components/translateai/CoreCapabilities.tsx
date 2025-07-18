@@ -41,7 +41,7 @@ const CoreCapabilities = () => {
     },
     {
       title: "Intelligent Speaker & Language Detection",
-      description: "No setup required. Translate AI detects speaker changes and language shifts automatically for multilingual events.",
+      description: "No setup required. TranslateAI detects speaker changes and language shifts automatically for multilingual events.",
       icon: Users,
       color: "from-primary/20 to-primary/10",
       borderColor: "border-primary/30"

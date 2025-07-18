@@ -37,7 +37,7 @@ const ManagedService = () => {
             Fully Managed by WhitegloveAI
           </h2>
           <p className="text-xl text-muted-foreground max-w-4xl mx-auto mb-8">
-            Translate AI is not a self-serve tool. It's a fully managed service delivered by WhitegloveAI's 
+            TranslateAI is not a self-serve tool. It's a fully managed service delivered by WhitegloveAI's 
             expert operations team. We handle:
           </p>
         </div>

@@ -5,7 +5,7 @@ const EngagementModel = () => {
   const engagements = [
     {
       deliverable: "Live Demo",
-      outcome: "Showcase Translate AI in your existing platform (Zoom, Teams, or browser)",
+      outcome: "Showcase TranslateAI in your existing platform (Zoom, Teams, or browser)",
       icon: Play,
       color: "from-green-500/20 to-green-500/10",
       borderColor: "border-green-500/30"
@@ -70,7 +70,7 @@ const EngagementModel = () => {
         >
           <h3 className="text-2xl font-bold mb-4 text-primary">Ready to Translate?</h3>
           <p className="text-lg text-muted-foreground mb-6 max-w-3xl mx-auto">
-            Whether you're reaching five regions or fifty, Translate AI helps you do it responsibly, 
+            Whether you're reaching five regions or fifty, TranslateAI helps you do it responsibly, 
             efficiently, and without any extra effort on your team.
           </p>
           <p className="text-muted-foreground">

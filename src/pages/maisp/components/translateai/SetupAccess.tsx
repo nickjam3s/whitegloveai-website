@@ -80,7 +80,7 @@ const SetupAccess = () => {
             Language & Event Coverage
           </h3>
           <p className="text-muted-foreground text-center mb-8">
-            Translate AI supports a wide range of use cases, including:
+            TranslateAI supports a wide range of use cases, including:
           </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             {useCases.map((useCase, index) => (

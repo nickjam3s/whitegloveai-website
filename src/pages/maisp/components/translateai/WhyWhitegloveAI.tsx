@@ -55,7 +55,7 @@ const WhyWhitegloveAI = () => {
             Why WhitegloveAI?
           </h2>
           <p className="text-xl text-muted-foreground max-w-4xl mx-auto">
-            Translate AI is delivered using our secure, responsible, and standards-aligned AI Adoption & 
+            TranslateAI is delivered using our secure, responsible, and standards-aligned AI Adoption & 
             Management Framework (AI-AMF). That means:
           </p>
         </div>
