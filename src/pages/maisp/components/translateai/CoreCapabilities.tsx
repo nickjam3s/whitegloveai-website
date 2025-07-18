@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Volume2, Captions, FileText, Users, BookOpen } from "lucide-react";
+import { Volume2, Captions, FileText, Users, BookOpen, BarChart3 } from "lucide-react";
 
 const CoreCapabilities = () => {
   const containerAnimation = {
@@ -50,6 +50,13 @@ const CoreCapabilities = () => {
       title: "Managed Glossaries & Quality Controls",
       description: "Custom term lists and brand-safe glossaries are managed by our team to ensure every translation reflects your voice and values.",
       icon: BookOpen,
+      color: "from-primary/20 to-primary/10",
+      borderColor: "border-primary/30"
+    },
+    {
+      title: "Real-Time Quality Monitoring",
+      description: "Continuous accuracy tracking and performance analytics ensure consistent, high-quality translations throughout every session.",
+      icon: BarChart3,
       color: "from-primary/20 to-primary/10",
       borderColor: "border-primary/30"
     }

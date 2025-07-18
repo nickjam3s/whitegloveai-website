@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Zap, Shield, Truck, CheckCircle, TrendingUp } from "lucide-react";
+import { Zap, Shield, Truck, CheckCircle, TrendingUp, Clock } from "lucide-react";
 
 const WhyWhitegloveAI = () => {
   const features = [
@@ -37,6 +37,13 @@ const WhyWhitegloveAI = () => {
       icon: TrendingUp,
       color: "from-red-500/20 to-red-500/10",
       borderColor: "border-red-500/30"
+    },
+    {
+      title: "24/7 Support",
+      description: "Round-the-clock technical support and monitoring for mission-critical events",
+      icon: Clock,
+      color: "from-teal-500/20 to-teal-500/10",
+      borderColor: "border-teal-500/30"
     }
   ];
 
