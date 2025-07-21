@@ -31,7 +31,7 @@ const reviews = [
     author: "Phil Armstrong",
     title: "Director of Global Community",
     company: "Dallas Baptist University",
-    photo: "/lovable-uploads/8a8b2457-8799-47b9-bc0c-d27866b2529b.png",
+    photo: "/lovable-uploads/1c858f73-9c43-41d9-92ea-f3233a1efc2f.png",
   },
   {
     text: `"Working with WhitegloveAI was a truly refreshing experience. From the start, their team demonstrated a high level of knowledge and innovation—bringing creative solutions to the table. They didn't just meet the requirements —they elevated them.
@@ -42,7 +42,7 @@ Overall, Whiteglove delivered exceptional value and proved to be a forward-think
     author: "Omar Rodriguez",
     title: "Chief Information Officer",
     company: "City of McKinney",
-    photo: "/lovable-uploads/c5fe862f-8e7b-4651-ace6-8d30cbff5fbb.png",
+    photo: "/lovable-uploads/02a9184c-e861-4abd-8a19-024fe98adb3c.png",
   },
   {
     text: `"Whiteglove.ai has been a great partner in helping us modernize city services through voice AI. They supported our Traffic department in understanding service requests and building automated workflows that now provide valuable data analytics. Their agile project management approach gave us visibility into the product early on and allowed for continuous input, ensuring the final solution met our needs.
@@ -51,7 +51,7 @@ What really stood out was how reusable the model is—we're now able to apply it
     author: "Melissa Kraft",
     title: "Chief Information Officer",
     company: "City of Frisco",
-    photo: "/lovable-uploads/94b4c7de-9b4e-425a-bd6b-e1b29d7f5b21.png",
+    photo: "/lovable-uploads/d2501a15-0ffe-4eb6-9740-6626443d0c30.png",
   },
   {
     text: `"WhitegloveAI is a MUST HAVE! Between their experts on staff, great customer support, and a forward-thinking approach, WhitegloveAI is THE BEST AI adoption partner to have on your side. They will build ground up or help you to scale in an already made platform.
@@ -62,7 +62,7 @@ This year, they helped us to successful pilot/onboard TeamGPT, which is a must h
     author: "Theodore Mackey III",
     title: "CTE Director",
     company: "Anna ISD",
-    photo: "/lovable-uploads/3c78ebda-a6e6-4baf-93c6-f9e7e9b7fc7b.png",
+    photo: "/lovable-uploads/7e89aadd-c98c-472f-ba16-a81b59318135.png",
   }
 ];
 
