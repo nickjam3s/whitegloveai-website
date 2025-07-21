@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Star, ChevronDown } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 
 const logos = [
   { src: '/lovable-uploads/546436a1-1e57-4c15-bcb5-67b2a4387326.png', alt: 'Frisco Logo', height: 64 },
@@ -30,6 +31,7 @@ const reviews = [
     author: "Phil Armstrong",
     title: "Director of Global Community",
     company: "Dallas Baptist University",
+    photo: "/lovable-uploads/8a8b2457-8799-47b9-bc0c-d27866b2529b.png",
   },
   {
     text: `"Working with WhitegloveAI was a truly refreshing experience. From the start, their team demonstrated a high level of knowledge and innovation—bringing creative solutions to the table. They didn't just meet the requirements —they elevated them.
@@ -40,6 +42,7 @@ Overall, Whiteglove delivered exceptional value and proved to be a forward-think
     author: "Omar Rodriguez",
     title: "Chief Information Officer",
     company: "City of McKinney",
+    photo: "/lovable-uploads/c5fe862f-8e7b-4651-ace6-8d30cbff5fbb.png",
   },
   {
     text: `"Whiteglove.ai has been a great partner in helping us modernize city services through voice AI. They supported our Traffic department in understanding service requests and building automated workflows that now provide valuable data analytics. Their agile project management approach gave us visibility into the product early on and allowed for continuous input, ensuring the final solution met our needs.
@@ -48,6 +51,7 @@ What really stood out was how reusable the model is—we're now able to apply it
     author: "Melissa Kraft",
     title: "Chief Information Officer",
     company: "City of Frisco",
+    photo: "/lovable-uploads/94b4c7de-9b4e-425a-bd6b-e1b29d7f5b21.png",
   },
   {
     text: `"WhitegloveAI is a MUST HAVE! Between their experts on staff, great customer support, and a forward-thinking approach, WhitegloveAI is THE BEST AI adoption partner to have on your side. They will build ground up or help you to scale in an already made platform.
@@ -58,6 +62,7 @@ This year, they helped us to successful pilot/onboard TeamGPT, which is a must h
     author: "Theodore Mackey III",
     title: "CTE Director",
     company: "Anna ISD",
+    photo: "/lovable-uploads/3c78ebda-a6e6-4baf-93c6-f9e7e9b7fc7b.png",
   }
 ];
 
@@ -130,14 +135,31 @@ const TrustedBy = () => {
                 key={idx}
                 className="bg-[#111] border border-[#333] shadow-lg h-full flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-[#7021EE] hover:shadow-[#7021EE]/20 card-glow group animate-fade-in"
               >
-                <CardContent className="py-8 px-8 flex flex-col items-center">
+                <CardContent className="py-8 px-8 flex flex-col h-full">
                   <StarRow />
-                  <div className="w-full flex-1 flex flex-col">
-                    <p className="text-gray-200 font-light italic text-sm whitespace-pre-line mb-6">{review.text}</p>
-                    <div className="mt-auto text-center not-italic">
-                      <span className="block text-white font-semibold not-italic">{review.author}</span>
-                      <span className="block text-gray-400 not-italic text-sm">{review.title}</span>
-                      <span className="block text-gray-400 not-italic text-sm">{review.company}</span>
+                  <div className="flex-1 flex flex-col">
+                    <p className="text-gray-200 font-light italic text-sm whitespace-pre-line mb-6 flex-1">{review.text}</p>
+                    
+                    {/* Author Information Subsection */}
+                    <div className="mt-auto pt-6 border-t border-[#333]">
+                      <div className="flex items-center gap-4">
+                        <Avatar className="w-16 h-16 flex-shrink-0">
+                          <AvatarImage 
+                            src={review.photo} 
+                            alt={review.author}
+                            className="object-cover"
+                          />
+                          <AvatarFallback className="bg-[#7021EE]/10 text-[#7021EE] text-lg font-semibold">
+                            {review.author.split(' ').map(n => n[0]).join('')}
+                          </AvatarFallback>
+                        </Avatar>
+                        
+                        <div className="flex flex-col text-left">
+                          <span className="text-white font-semibold text-base mb-1">{review.author}</span>
+                          <span className="text-gray-400 text-sm mb-1">{review.title}</span>
+                          <span className="text-gray-400 text-sm">{review.company}</span>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </CardContent>
