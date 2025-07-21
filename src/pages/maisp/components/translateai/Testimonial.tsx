@@ -51,7 +51,7 @@ const Testimonial = () => {
                 <img 
                   src="https://84d297c6-114c-4cb6-a6bc-83e359f1d6cb.lovableproject.com/lovable-uploads/cbc64b44-084f-482b-8637-adfe22d6c0ec.png"
                   alt="Dallas Baptist University Logo"
-                  className="h-12 w-auto opacity-60 grayscale hover:opacity-80 hover:grayscale-0 transition-all duration-300"
+                  className="h-24 w-auto opacity-60 grayscale hover:opacity-80 hover:grayscale-0 transition-all duration-300"
                 />
               </div>
               
