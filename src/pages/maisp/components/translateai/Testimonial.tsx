@@ -45,7 +45,16 @@ const Testimonial = () => {
             </blockquote>
             
             {/* Author Information */}
-            <div className="flex items-center justify-center gap-6 pt-8 border-t border-[#333]">
+            <div className="flex items-center justify-center gap-6 pt-8 border-t border-[#333] relative">
+              {/* Company Logo - Bottom Left */}
+              <div className="absolute left-0 bottom-0">
+                <img 
+                  src="https://84d297c6-114c-4cb6-a6bc-83e359f1d6cb.lovableproject.com/lovable-uploads/cbc64b44-084f-482b-8637-adfe22d6c0ec.png"
+                  alt="Dallas Baptist University Logo"
+                  className="h-12 w-auto opacity-60 grayscale hover:opacity-80 hover:grayscale-0 transition-all duration-300"
+                />
+              </div>
+              
               <Avatar className="w-20 h-20 flex-shrink-0">
                 <AvatarImage 
                   src={review.photo} 
