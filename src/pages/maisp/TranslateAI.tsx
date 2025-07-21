@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { useLayoutEffect, useEffect } from "react";
 import HeroSection from "./components/translateai/HeroSection";
+import Testimonial from "./components/translateai/Testimonial";
 import CoreCapabilities from "./components/translateai/CoreCapabilities";
 import ManagedService from "./components/translateai/ManagedService";
 import SetupAccess from "./components/translateai/SetupAccess";
@@ -70,6 +71,7 @@ const TranslateAI = () => {
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
       <HeroSection />
+      <Testimonial />
       <CoreCapabilities />
       <ManagedService />
       <SetupAccess />
