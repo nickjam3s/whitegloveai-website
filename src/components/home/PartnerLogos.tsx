@@ -30,7 +30,7 @@ const PartnerLogos = () => {
                 alt={logo.alt}
                 className={`object-contain w-auto h-full brightness-0 invert opacity-70 group-hover:opacity-90 transition-all duration-300 ${
                   logo.src.includes('2606d3ab-743b-44e5-90b5-595af417c9f5') ? 'max-h-[78px]' : 
-                  logo.src.includes('5760583f-4354-416c-9d6d-2ba8e68af77f') || 
+                  logo.src.includes('5760583f-4354-416c-9d6d-2ba8e68af77f') ? 'max-h-[38px]' :
                   logo.src.includes('95c2f2b9-cb3b-4b1a-baf7-39f668fb617f') || 
                   logo.src.includes('107c20a0-2323-4264-bf0c-098df9d2c347') ? 'max-h-[48px]' : 'max-h-[60px]'
                 }`}
