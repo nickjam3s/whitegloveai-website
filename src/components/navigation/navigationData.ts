@@ -14,6 +14,10 @@ export const navigationLinks = [
     text: "Managed AI Services",
     to: "/maisp",
     children: [
+      { to: "/maisp/automateai", text: "AutomateAI" },
+      { to: "/maisp/avatarai", text: "AvatarAI" },
+      { to: "/maisp/humaniodai", text: "HumanoidAI" },
+      { to: "/maisp/mediaai", text: "MediaAI" },
       { to: "/maisp", text: "Overview" },
       { 
         text: "TextAI", 
@@ -23,13 +27,9 @@ export const navigationLinks = [
           { to: "/maisp/textai/textaiforgood", text: "TextAI for Good Program" }
         ]
       },
-      { to: "/maisp/voiceai", text: "VoiceAI" },
-      { to: "/maisp/avatarai", text: "AvatarAI" },
-      { to: "/maisp/automateai", text: "AutomateAI" },
-      { to: "/maisp/vendorai", text: "VendorAI" },
-      { to: "/maisp/mediaai", text: "MediaAI" },
-      { to: "/maisp/humaniodai", text: "HumanoidAI" },
       { to: "/maisp/translateai", text: "TranslateAI" },
+      { to: "/maisp/vendorai", text: "VendorAI" },
+      { to: "/maisp/voiceai", text: "VoiceAI" },
     ],
   },
   {
