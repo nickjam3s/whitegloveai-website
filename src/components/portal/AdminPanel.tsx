@@ -25,10 +25,12 @@ import {
   Group,
   Loader2,
   Trash2,
-  Edit
+  Edit,
+  Bot
 } from 'lucide-react';
 import { usePortalAuth } from '@/hooks/usePortalAuth';
 import { supabase } from '@/integrations/supabase/client';
+import AgentBuilder from './AgentBuilder';
 
 interface ClientGroup {
   id: string;
@@ -215,7 +217,7 @@ export default function AdminPanel() {
       )}
 
       <Tabs defaultValue="users" className="w-full">
-        <TabsList className="grid w-full grid-cols-3">
+        <TabsList className="grid w-full grid-cols-4">
           <TabsTrigger value="users" className="flex items-center gap-2">
             <Users className="w-4 h-4" />
             Users
@@ -223,6 +225,10 @@ export default function AdminPanel() {
           <TabsTrigger value="groups" className="flex items-center gap-2">
             <Group className="w-4 h-4" />
             Client Groups
+          </TabsTrigger>
+          <TabsTrigger value="agent-builder" className="flex items-center gap-2">
+            <Bot className="w-4 h-4" />
+            Agent Builder
           </TabsTrigger>
           <TabsTrigger value="settings" className="flex items-center gap-2">
             <Settings className="w-4 h-4" />
@@ -427,6 +433,10 @@ export default function AdminPanel() {
               </div>
             </CardContent>
           </Card>
+        </TabsContent>
+
+        <TabsContent value="agent-builder" className="space-y-4">
+          <AgentBuilder />
         </TabsContent>
 
         <TabsContent value="settings" className="space-y-4">

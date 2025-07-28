@@ -40,24 +40,36 @@ serve(async (req) => {
     const body = await req.json();
     console.log('Request body:', body);
 
+    // Verify user is admin for all operations
+    const { data: user, error: userError } = await supabase
+      .from('portal_users')
+      .select('role')
+      .eq('email', userEmail)
+      .single();
+
+    if (userError || !user || user.role !== 'admin') {
+      console.error('Unauthorized user:', userError);
+      return new Response(
+        JSON.stringify({ error: 'Only admins can access this API' }),
+        { status: 403, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      );
+    }
+
+    // Get stored API key
+    const { data: configData, error: configError } = await supabase
+      .from('portal_config')
+      .select('encrypted_value')
+      .eq('key_name', 'retell_api_key')
+      .single();
+
+    let retellApiKey = '';
+    if (configData) {
+      retellApiKey = configData.encrypted_value;
+    }
+
     // Check if this is an API key configuration request
     if (body.apiKey) {
       console.log('Processing API key configuration...');
-      
-      // Verify user is admin
-      const { data: user, error: userError } = await supabase
-        .from('portal_users')
-        .select('role')
-        .eq('email', userEmail)
-        .single();
-
-      if (userError || !user || user.role !== 'admin') {
-        console.error('Unauthorized user:', userError);
-        return new Response(
-          JSON.stringify({ error: 'Only admins can configure API keys' }),
-          { status: 403, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
-        );
-      }
 
       // Test the API key
       console.log('Testing API key with Retell AI...');
@@ -78,15 +90,15 @@ serve(async (req) => {
       }
 
       // Store the API key
-      const { error: configError } = await supabase
+      const { error: storeError } = await supabase
         .from('portal_config')
         .upsert({
           key_name: 'retell_api_key',
           encrypted_value: body.apiKey,
         });
 
-      if (configError) {
-        console.error('Error storing API key:', configError);
+      if (storeError) {
+        console.error('Error storing API key:', storeError);
         return new Response(
           JSON.stringify({ error: 'Failed to store API key' }),
           { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
@@ -98,6 +110,94 @@ serve(async (req) => {
         JSON.stringify({ message: 'API key configured successfully' }),
         { headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
       );
+    }
+
+    // Handle conversation flow operations
+    if (body.operation === 'create_flow' && body.flowData) {
+      console.log('Creating conversation flow...');
+
+      if (!retellApiKey) {
+        return new Response(
+          JSON.stringify({ error: 'Retell API key not configured' }),
+          { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+        );
+      }
+
+      try {
+        const response = await fetch('https://api.retellai.com/v2/create-conversation-flow', {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${retellApiKey}`,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(body.flowData),
+        });
+
+        const responseData = await response.json();
+
+        if (!response.ok) {
+          console.error('Flow creation failed:', responseData);
+          return new Response(
+            JSON.stringify({ error: 'Failed to create conversation flow', details: responseData }),
+            { status: response.status, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+          );
+        }
+
+        console.log('Flow created successfully:', responseData);
+        return new Response(
+          JSON.stringify({ flow: responseData }),
+          { headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+        );
+      } catch (error) {
+        console.error('Error creating flow:', error);
+        return new Response(
+          JSON.stringify({ error: 'Failed to create conversation flow', details: error.message }),
+          { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+        );
+      }
+    }
+
+    // Handle listing conversation flows
+    if (body.operation === 'list_flows') {
+      console.log('Listing conversation flows...');
+
+      if (!retellApiKey) {
+        return new Response(
+          JSON.stringify({ error: 'Retell API key not configured' }),
+          { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+        );
+      }
+
+      try {
+        const response = await fetch('https://api.retellai.com/v2/list-conversation-flows', {
+          method: 'GET',
+          headers: {
+            'Authorization': `Bearer ${retellApiKey}`,
+            'Content-Type': 'application/json',
+          },
+        });
+
+        const responseData = await response.json();
+
+        if (!response.ok) {
+          console.error('Failed to list flows:', responseData);
+          return new Response(
+            JSON.stringify({ error: 'Failed to list conversation flows', details: responseData }),
+            { status: response.status, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+          );
+        }
+
+        return new Response(
+          JSON.stringify({ flows: responseData }),
+          { headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+        );
+      } catch (error) {
+        console.error('Error listing flows:', error);
+        return new Response(
+          JSON.stringify({ error: 'Failed to list conversation flows', details: error.message }),
+          { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+        );
+      }
     }
 
     // Default response for non-API key requests
