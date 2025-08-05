@@ -14,11 +14,11 @@ export const navigationLinks = [
     text: "Managed AI Services",
     to: "/maisp",
     children: [
+      { to: "/maisp", text: "Overview" },
       { to: "/maisp/automateai", text: "AutomateAI" },
       { to: "/maisp/avatarai", text: "AvatarAI" },
       { to: "/maisp/humaniodai", text: "HumanoidAI" },
       { to: "/maisp/mediaai", text: "MediaAI" },
-      { to: "/maisp", text: "Overview" },
       { 
         text: "TextAI", 
         to: "/maisp/textai",
