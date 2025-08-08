@@ -90,7 +90,7 @@ const Index = () => {
       {/* TXShare Announcement Bar */}
       <section
         aria-label="TXShare Announcement"
-        className="w-full bg-[hsl(var(--brand-gold))] text-white transition-colors hover:bg-[hsl(var(--brand-gold-dark))]"
+        className="w-full bg-gradient-to-r from-primary/15 via-accent/15 to-primary/15 text-white border-t border-b border-primary/30 transition-colors hover:from-primary/20 hover:via-accent/20 hover:to-primary/20"
       >
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex flex-col items-center gap-3 py-2.5 md:flex-row md:items-center md:justify-between">
@@ -101,7 +101,7 @@ const Index = () => {
               <Button
                 asChild
                 size="sm"
-                className="bg-[hsl(var(--brand-purple-strong))] hover:bg-[hsl(var(--brand-purple-strong-dark))] text-white"
+                className="hover-scale"
               >
                 <a
                   href="https://txshare.org/available-contracts/artificial-intelligence-ai-consultancy-services-9a4fd3af3342a4e1a6df4de8cbb21bc5/whitegloveai-llc"
@@ -116,66 +116,6 @@ const Index = () => {
         </div>
       </section>
       
-      <div className="w-full bg-gradient-to-r from-primary/15 via-accent/20 to-primary/15 border-t border-b border-primary/30 py-6 relative z-10 overflow-hidden">
-        {/* Background pattern */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.1%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
-        </div>
-        
-        <div className="max-w-7xl mx-auto px-4 relative">
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
-            {/* Left side - Main content */}
-            <div className="flex-1 text-center lg:text-left">
-              <div className="flex items-center justify-center lg:justify-start gap-3 mb-3">
-                <div className="flex items-center gap-2">
-                  <Scale className="h-6 w-6 text-primary" />
-                  <AlertTriangle className="h-5 w-5 text-accent animate-pulse" />
-                </div>
-                <span className="text-primary font-semibold text-lg">TEXAS AI LAW ALERT</span>
-              </div>
-              
-              <h3 className="text-xl md:text-2xl font-bold text-white mb-2 leading-tight">
-                Are You Ready for the Texas Responsible AI Governance Act (TRAIGA)?
-              </h3>
-              
-              <div className="flex items-center justify-center lg:justify-start gap-2 mb-3">
-                <Calendar className="h-4 w-4 text-accent" />
-                <p className="text-gray-300 text-sm md:text-base">
-                  The most sweeping state AI law in the U.S. goes into effect January 1, 2026.
-                </p>
-              </div>
-              
-              {/* Countdown Timer in CTA Bar */}
-              <div className="flex items-center justify-center lg:justify-start gap-2 mb-3">
-                <Timer className="h-5 w-5 text-primary" />
-                <p className="text-accent font-medium text-sm md:text-base">
-                  Enforcement begins in: 
-                  <span className="ml-2 text-white font-bold">
-                    {timeLeft.days}d : {timeLeft.hours}h : {timeLeft.minutes}m
-                  </span>
-                </p>
-              </div>
-              
-              <p className="text-accent font-medium text-sm md:text-base">
-                Know your risk—start preparing today.
-              </p>
-            </div>
-
-            {/* Right side - CTA Button */}
-            <div className="flex-shrink-0">
-              <Link to="/traiga">
-                <Button 
-                  size="lg" 
-                  className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white font-semibold px-8 py-4 text-base rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl border border-primary/20"
-                >
-                  Visit the TRAIGA Center
-                  <ArrowRight className="ml-3 h-5 w-5" />
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </div>
 
       <TrustedBy />
       <ServicesSection />
@@ -194,6 +134,26 @@ const Index = () => {
             transition={{ duration: 0.8 }}
             className="text-center"
           >
+            <div role="status" className="mx-auto mb-6 max-w-3xl">
+              <div className="flex flex-col items-center gap-3 rounded-lg border border-primary/30 bg-primary/10 px-4 py-3 md:flex-row md:justify-center">
+                <div className="flex items-center gap-2 text-primary">
+                  <Scale className="h-5 w-5" />
+                  <AlertTriangle className="h-4 w-4 text-accent" />
+                  <span className="font-semibold uppercase tracking-wide text-sm">Texas AI Law Alert</span>
+                </div>
+                <div className="hidden md:block h-4 w-px bg-primary/30" />
+                <div className="flex items-center gap-2 text-gray-300">
+                  <Calendar className="h-4 w-4 text-accent" />
+                  <span>Goes into effect January 1, 2026.</span>
+                </div>
+                <div className="flex items-center gap-2 text-accent">
+                  <Timer className="h-4 w-4" />
+                  <span>
+                    Enforcement begins in: <span className="ml-1 font-semibold text-white">{timeLeft.days}d : {timeLeft.hours}h : {timeLeft.minutes}m</span>
+                  </span>
+                </div>
+              </div>
+            </div>
             <h2 className="text-4xl md:text-5xl font-bold mb-6 gradient-text">
               TRAIGA Triage Center
             </h2>
