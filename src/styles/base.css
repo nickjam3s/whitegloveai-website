@@ -25,6 +25,12 @@
     --input: 0 0% 20%;
     --ring: 270 86% 50%;
     --radius: 0.75rem;
+
+    /* Brand tokens */
+    --brand-gold: 39 78% 54%; /* #e5a730 */
+    --brand-gold-dark: 39 78% 49%;
+    --brand-purple-strong: 259 57% 45%; /* #5b32b4 */
+    --brand-purple-strong-dark: 259 57% 40%;
   }
 }
 

@@ -87,6 +87,35 @@ const Index = () => {
       <HeroSection />
       
       {/* Enhanced TRAIGA Announcement Bar */}
+      {/* TXShare Announcement Bar */}
+      <section
+        aria-label="TXShare Announcement"
+        className="w-full bg-[hsl(var(--brand-gold))] text-white transition-colors hover:bg-[hsl(var(--brand-gold-dark))]"
+      >
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="flex flex-col items-center gap-3 py-2.5 md:flex-row md:items-center md:justify-between">
+            <p className="text-center font-medium text-sm md:text-base md:flex-1">
+              Now Available on TXShare – WhitegloveAI is an approved vendor through the North Central Texas Council of Governments. Contract #2025-023 – AI Consulting Services.
+            </p>
+            <div className="flex-shrink-0 md:ml-6">
+              <Button
+                asChild
+                size="sm"
+                className="bg-[hsl(var(--brand-purple-strong))] hover:bg-[hsl(var(--brand-purple-strong-dark))] text-white"
+              >
+                <a
+                  href="https://txshare.org/available-contracts/artificial-intelligence-ai-consultancy-services-9a4fd3af3342a4e1a6df4de8cbb21bc5/whitegloveai-llc"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  View Our TXShare Listing
+                </a>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+      
       <div className="w-full bg-gradient-to-r from-primary/15 via-accent/20 to-primary/15 border-t border-b border-primary/30 py-6 relative z-10 overflow-hidden">
         {/* Background pattern */}
         <div className="absolute inset-0 opacity-10">
