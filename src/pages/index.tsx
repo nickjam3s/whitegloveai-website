@@ -9,7 +9,7 @@ import PartnerLogos from '@/components/home/PartnerLogos';
 import ContactSection from './Contact';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, AlertTriangle, Calendar, Scale, Timer } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Index = () => {
@@ -134,35 +134,22 @@ const Index = () => {
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <div role="status" className="mx-auto mb-6 max-w-3xl">
-              <div className="flex flex-col items-center gap-3 rounded-lg border border-primary/30 bg-primary/10 px-4 py-3 md:flex-row md:justify-center">
-                <div className="flex items-center gap-2 text-primary">
-                  <Scale className="h-5 w-5" />
-                  <AlertTriangle className="h-4 w-4 text-accent" />
-                  <span className="font-semibold uppercase tracking-wide text-sm">Texas AI Law Alert</span>
-                </div>
-                <div className="hidden md:block h-4 w-px bg-primary/30" />
-                <div className="flex items-center gap-2 text-gray-300">
-                  <Calendar className="h-4 w-4 text-accent" />
-                  <span>Goes into effect January 1, 2026.</span>
-                </div>
-                <div className="flex items-center gap-2 text-accent">
-                  <Timer className="h-4 w-4" />
-                  <span>
-                    Enforcement begins in: <span className="ml-1 font-semibold text-white">{timeLeft.days}d : {timeLeft.hours}h : {timeLeft.minutes}m</span>
-                  </span>
-                </div>
-              </div>
-            </div>
             <h2 className="text-4xl md:text-5xl font-bold mb-6 gradient-text">
               TRAIGA Triage Center
             </h2>
             <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
               Is your business ready for Texas's sweeping new AI law?
             </p>
-            <p className="text-lg text-gray-400 mb-10 max-w-4xl mx-auto">
+            <p className="text-lg text-gray-400 mb-6 max-w-4xl mx-auto">
               With TRAIGA taking effect in 2026, businesses that develop or use AI in Texas must now meet strict legal requirements. WhitegloveAI's TRAIGA Triage Center helps you understand your exposure, prepare, and stay ahead. Don't wait for enforcement—start your compliance journey today.
             </p>
+            <div className="mx-auto mb-10 max-w-4xl">
+              <div className="rounded-lg border border-primary/30 bg-primary/10 px-4 py-2">
+                <p className="text-center text-sm md:text-base text-gray-200 whitespace-nowrap overflow-x-auto">
+                  Goes into effect January 1, 2026. <span className="text-accent">Enforcement begins in:</span> <span className="ml-1 font-semibold text-white">{timeLeft.days}d : {timeLeft.hours}h : {timeLeft.minutes}m</span>
+                </p>
+              </div>
+            </div>
             <Link to="/traiga">
               <Button size="lg" className="bg-primary hover:bg-primary/90 text-white px-8 py-4 text-lg rounded-lg transition-all duration-300 transform hover:scale-105">
                 Visit the TRAIGA Center
