@@ -8,6 +8,7 @@ import SupportSection from './components/SupportSection'
 import '@/styles/animations.css'
 import PageWrapper from '@/components/layout/PageWrapper'
 import ContactSection from './components/ContactSection'
+import SEO from '@/components/SEO'
 
 const MAISP = () => {
 useEffect(() => {
@@ -46,10 +47,15 @@ transition: { duration: 0.6 }
 
 return (
 <div className="min-h-screen bg-black text-white font-sans font-sora overflow-x-hidden">
+<SEO
+  title="Managed AI Services for Enterprise | WhitegloveAI"
+  description="Delegate AI operations to WhitegloveAI’s Managed AI Services—secure, scalable, and enterprise-ready."
+  canonicalPath="/maisp"
+  schemas={[
+    { "@context": "https://schema.org", "@type": "ProfessionalService", "name": "Managed AI Services", "serviceType": "Managed AI Services", "url": "https://www.whitegloveai.com/maisp", "provider": { "@type": "Organization", "name": "WhitegloveAI" }, "areaServed": "US", "description": "Enterprise managed AI services including automation, LLMOps, and AI governance." }
+  ]}
+/>
 <section className="relative h-[100vh] flex items-center overflow-hidden">
-<div className="absolute inset-0 bg-gradient-to-b from-[#7021EE]/20 to-black/90">
-<div className="absolute inset-0 backdrop-blur-sm" />
-</div>
 
 <div className="absolute inset-0 overflow-hidden">
 {[...Array(20)].map((_, i) => (

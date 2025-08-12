@@ -6,6 +6,8 @@ import BenefitsSection from "./components/chiefaiofficer/BenefitsSection";
 import FutureSection from "./components/chiefaiofficer/FutureSection";
 import WhyVCAIO from "./components/chiefaiofficer/WhyVCAIO";
 import '@/styles/animations.css'; // Import animations CSS
+import SEO from '@/components/SEO';
+
 
 const ChiefAIOfficer = () => {
   const pageRef = useRef<HTMLDivElement>(null);
@@ -97,6 +99,14 @@ const ChiefAIOfficer = () => {
 
   return (
     <div ref={pageRef} className="min-h-screen bg-background overflow-x-hidden">
+      <SEO
+        title="Virtual Chief AI Officer (vCAIO) Consulting | WhitegloveAI"
+        description="Drive AI strategy and governance with WhitegloveAI’s Virtual Chief AI Officer (vCAIO) service."
+        canonicalPath="/vcaio/chiefaiofficer"
+        schemas={[
+          { "@context": "https://schema.org", "@type": "ProfessionalService", "name": "Virtual Chief AI Officer (vCAIO)", "serviceType": "AI Consulting", "url": "https://www.whitegloveai.com/vcaio/chiefaiofficer", "provider": { "@type": "Organization", "name": "WhitegloveAI" }, "areaServed": "US", "description": "Strategic AI leadership, transformation, and change management for enterprises." }
+        ]}
+      />
       <HeroSection />
       <WhyVCAIO />
       <UnlockingSection />

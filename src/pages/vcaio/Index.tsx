@@ -9,6 +9,8 @@ import CoreBeliefs from "./components/chiefaiofficer/CoreBeliefs";
 import WhyVCAIO from "./components/chiefaiofficer/WhyVCAIO";
 import ScrollAnimation from '@/components/animations/ScrollAnimation';
 import '@/styles/animations.css'; // Import animations CSS
+import SEO from '@/components/SEO';
+
 
 const VCAIO = () => {
   // Use useLayoutEffect to prevent flash of content before scroll position is set
@@ -74,6 +76,14 @@ const VCAIO = () => {
 
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
+      <SEO
+        title="Virtual Chief AI Officer (vCAIO) | WhitegloveAI"
+        description="Strategic AI leadership, governance, and enablement through WhitegloveAI’s vCAIO program."
+        canonicalPath="/vcaio"
+        schemas={[
+          { "@context": "https://schema.org", "@type": "ProfessionalService", "name": "Virtual Chief AI Officer (vCAIO)", "serviceType": "AI Consulting", "url": "https://www.whitegloveai.com/vcaio", "provider": { "@type": "Organization", "name": "WhitegloveAI" }, "areaServed": "US", "description": "vCAIO services providing AI strategy, governance, adoption, and enablement." }
+        ]}
+      />
       <HeroSection />
       <WhyVCAIO />
       <UnlockingSection />
