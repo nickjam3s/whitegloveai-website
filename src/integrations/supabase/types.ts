@@ -665,6 +665,10 @@ export type Database = {
         Args: { title: string }
         Returns: string
       }
+      is_admin: {
+        Args: Record<PropertyKey, never>
+        Returns: boolean
+      }
       set_config: {
         Args: { parameter: string; value: string }
         Returns: undefined
