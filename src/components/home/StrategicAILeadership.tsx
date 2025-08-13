@@ -1,11 +1,11 @@
 
 import React from 'react';
-import { ArrowRight, BrainCircuit, BarChart4, Lightbulb } from "lucide-react";
+import { ArrowRight, Map, BarChart4, Lightbulb } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from '@/components/ui/button';
 
 const vcaioFeatures = [{
-  icon: BrainCircuit,
+  icon: Map,
   title: "Customized AI Roadmaps",
   description: "Tailored strategies that seamlessly integrate AI into your existing systems to drive growth and efficiency."
 }, {
