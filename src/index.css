@@ -17,21 +17,21 @@
 }
 
 /* Fix potential scrollbar issues */
+/* Update scrollbar for theme support */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #111;
+  @apply bg-muted;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #333;
-  border-radius: 4px;
+  @apply bg-muted-foreground rounded;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #444;
+  @apply bg-foreground/60;
 }
 
 /* Fix potential text overflow issues */

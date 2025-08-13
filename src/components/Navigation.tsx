@@ -6,6 +6,7 @@ import Logo from "./navigation/Logo";
 import DesktopMenuItem from "./navigation/DesktopMenuItem";
 import MobileMenu from "./navigation/MobileMenu";
 import { navigationLinks } from "./navigation/navigationData";
+import { ThemeToggle } from "./ThemeToggle";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -49,14 +50,17 @@ const Navigation = () => {
             ))}
           </div>
 
-          {/* Mobile Navigation Button - Added proper spacing */}
-          <div className="md:hidden flex-shrink-0 ml-4">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-300 hover:text-white transition-colors p-2"
-            >
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
+          {/* Theme Toggle & Mobile Navigation Button */}
+          <div className="flex items-center space-x-2">
+            <ThemeToggle />
+            <div className="md:hidden flex-shrink-0">
+              <button
+                onClick={() => setIsOpen(!isOpen)}
+                className="text-gray-300 hover:text-white transition-colors p-2"
+              >
+                {isOpen ? <X size={24} /> : <Menu size={24} />}
+              </button>
+            </div>
           </div>
         </div>
 

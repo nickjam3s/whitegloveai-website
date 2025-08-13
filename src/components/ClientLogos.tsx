@@ -4,9 +4,9 @@ import { InfiniteSlider } from "@/components/ui/infinite-slider";
 
 const ClientLogos = () => {
   return (
-    <section className="py-12 bg-black">
+    <section className="py-12" style={{ backgroundColor: 'hsl(259, 100%, 23%)' }}>
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-lg font-semibold text-primary mb-4 text-center">TRUSTED BY INDUSTRY LEADERS</h2>
+        <h2 className="text-lg font-semibold text-white mb-4 text-center">TRUSTED BY INDUSTRY LEADERS</h2>
         <div className="h-[150px] overflow-hidden">
           <InfiniteSlider 
             gap={48} 
