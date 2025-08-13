@@ -6,11 +6,6 @@ import { ArrowRight } from 'lucide-react';
 
 const services = [
   {
-    title: "VendorAI",
-    description: "Strategic selection, implementation, and management of AI vendors",
-    link: "/maisp/vendorai",
-  },
-  {
     title: "TextAI",
     description: "Intelligent text-based AI solutions for customer service",
     link: "/maisp/textai",
@@ -19,11 +14,6 @@ const services = [
     title: "VoiceAI",
     description: "Voice-powered AI assistants and automation solutions",
     link: "/maisp/voiceai",
-  },
-  {
-    title: "MediaAI",
-    description: "AI-driven media content creation and management",
-    link: "/maisp/mediaai",
   },
   {
     title: "AutomateAI",
