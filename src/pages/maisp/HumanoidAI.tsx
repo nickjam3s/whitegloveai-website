@@ -67,7 +67,7 @@ const HumanoidAI = () => {
     },
     {
       title: "Improve Coverage",
-      description: "for repetitive/hazardous work"
+      description: "for repetitive or hazardous tasks"
     },
     {
       title: "Maintain Compliance",
@@ -101,104 +101,104 @@ const HumanoidAI = () => {
   const whyWhiteglove = [
     {
       title: "MAISP Advantage",
-      description: "integration → governance → operations"
+      description: "Integration → governance → operations"
     },
     {
       title: "Vendor-Agnostic Procurement Expertise",
-      description: "We manage vendor evaluation, RFP/RFQ support, and selection"
+      description: "unbiased vendor selection"
     },
     {
       title: "Proven Impact Culture",
-      description: "outcomes first"
+      description: "outcomes first, tech second"
     },
     {
       title: "vCAIO & Governance Support",
-      description: "Fractional executive leadership for policy and change management"
+      description: "executive-level policy and oversight"
     }
   ];
 
   const servicePath = [
     {
-      title: "Needs Assessment",
-      description: "Identify where humanoid automation delivers ROI. We evaluate your workflows, site readiness, compliance needs, and safety considerations."
+      title: "Automation Readiness Review",
+      description: "Structured on-site and virtual evaluation of workflows, traffic patterns, safety requirements, and compliance environment—pinpointing high-ROI automation opportunities and identifying high-risk deployments early."
     },
     {
       title: "Procurement Assistance",
-      description: "We manage vendor evaluation, RFP/RFQ support, and selection—leveraging our MAISP vendor network and compliance frameworks."
+      description: "End-to-end vendor process management—shortlisting, RFP/RFQ development, technical vetting, and SLA negotiation—mapped to compliance frameworks."
     },
     {
       title: "Setup & Maintenance",
-      description: "We install, configure, and integrate your robots, train staff, and provide ongoing monitoring, updates, and field support."
+      description: "Installation, configuration, integration with existing systems, staff training, firmware updates, safety recalibration, and preventative maintenance."
     }
   ];
 
   const safetyItems = [
     {
       title: "Physical & Operational Safety Protocols",
-      description: "Site readiness, fall-back behaviors, e-stop, human override."
+      description: "Site hazard review, safe-path mapping, e-stop checks • Daily operational safety checklist"
     },
     {
       title: "Responsible AI Guardrails",
-      description: "Guardrails, red teaming, incident playbooks."
+      description: "Pre-approved scripts and escalation paths • Continuous monitoring for unsafe behavior"
     },
     {
       title: "Zero-Trust, Secure Integrations",
-      description: "Zero-trust integrations, least-privilege access, encrypted data flows."
+      description: "Least-privilege access • End-to-end encryption"
     },
     {
       title: "Standards-Aligned Compliance Evidence",
-      description: "NIST AI RMF, ISO/IEC 42001, TRAIGA—evidence captured in a governance pack."
+      description: "NIST AI RMF, ISO/IEC 42001, TRAIGA governance pack"
     }
   ];
 
   const metrics = [
     {
       title: "Service Coverage Hours",
-      description: "Extended operational hours without additional staffing"
+      description: "added without extra staffing"
     },
     {
       title: "Queue Time Reduction",
-      description: "Measurable improvements in wait times and backlogs"
+      description: "minutes saved per visitor"
     },
     {
       title: "Task Completion Rate",
-      description: "Automation success rate and reliability metrics"
+      description: "% patrols/inspections completed"
     },
     {
       title: "Safety Incident/Near-Miss Rate",
-      description: "Safety performance and risk reduction tracking"
+      description: "per 1,000 operating hours"
     }
   ];
 
   const caseSnapshots = [
     {
       title: "Municipal HR",
-      description: "Deflected routine inquiries to free staff for complex cases.",
-      result: "68% deflection"
+      description: "Problem: HR overwhelmed by repetitive walk-up inquiries. Intervention: Humanoid concierge to handle routine requests, directing complex cases to staff.",
+      result: "68% inquiry deflection, freeing HR for priority work"
     },
     {
       title: "Citizen Services Integration", 
-      description: "rapid deployment with measurable results",
-      result: "Improved response times"
+      description: "Problem: Limited after-hours capacity. Intervention: Humanoids integrated with VoiceAI to handle requests and route escalations.",
+      result: "Faster response, improved resident satisfaction"
     }
   ];
 
   const faqs = [
     {
       question: "Which robots do you support?",
-      answer: "We integrate with multiple vendors; selection depends on environment, safety, and tasks."
+      answer: "Vendor-agnostic approach—we integrate with multiple vendors and selection depends on environment, safety requirements, and specific tasks. Our evaluation process considers factors like mobility, payload capacity, battery life, and compliance with safety standards."
     },
     {
       question: "How do you address labor concerns?",
-      answer: "We define role boundaries, escalation, and re-skilling paths with HR/Legal."
+      answer: "We partner with HR and Legal teams to define clear role boundaries, establish escalation procedures, and create re-skilling pathways. Our approach focuses on augmenting human capabilities rather than replacement, with transparent communication about automation goals."
     },
     {
       question: "How is data privacy handled?",
-      answer: "Data-minimization by default, encrypted in transit/at rest, retention controls, and auditability."
+      answer: "Data-minimization by default with encrypted transmission and storage, configurable retention controls, and full auditability. We implement privacy-by-design principles with comprehensive data governance aligned to applicable regulations."
     },
     {
-      question: "Fastest path to value?",
-      answer: "Launchpad → limited-scope pilot in a controlled area → MAISP operations."
+      question: "What's the fastest path to value?",
+      answer: "Automation Readiness Review → limited-scope pilot in a controlled area → full MAISP deployment. This staged approach allows for risk mitigation, stakeholder buy-in, and measurable proof of concept before scaling."
     }
   ];
 
@@ -264,7 +264,7 @@ const HumanoidAI = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Deploy humanoid robots for concierge, inspection, and operational tasks—WhitegloveAI handles assessment, procurement, and 24/7 upkeep under our MAISP program.
+            Deploy humanoid robots for concierge, inspection, and operational tasks—WhitegloveAI handles readiness, procurement, and 24/7 upkeep under our MAISP program.
           </motion.p>
           
           <motion.div 
@@ -282,6 +282,29 @@ const HumanoidAI = () => {
               Learn How We Deliver
             </Button>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Why Now Section */}
+      <section className="py-20 bg-background">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 heading-highlight-scroll">
+                Humanoid Robotics at the Tipping Point
+              </h2>
+              <p className="text-lg text-gray-300 leading-relaxed">
+                Costs are falling, capabilities are rising, and early adopters are securing efficiency gains and service coverage advantages their competitors can't match. With WhitegloveAI, you get there first—safely, compliantly, and with measurable ROI.
+              </p>
+            </div>
+            <div className="flex justify-center">
+              <img 
+                src="/lovable-uploads/af75627a-048f-43fc-be81-d3bd38807d05.png" 
+                alt="Advanced humanoid robot in operational environment"
+                className="max-w-full h-auto rounded-lg shadow-lg"
+              />
+            </div>
+          </div>
         </div>
       </section>
 
@@ -326,6 +349,13 @@ const HumanoidAI = () => {
                 </CardContent>
               </Card>
             ))}
+          </div>
+          <div className="flex justify-center mt-12">
+            <img 
+              src="/lovable-uploads/8714b9b9-3f59-493d-9004-982728a8194d.png" 
+              alt="Robot performing inspection and patrol tasks in various environments"
+              className="max-w-2xl w-full h-auto rounded-lg shadow-lg"
+            />
           </div>
         </div>
       </section>
@@ -373,6 +403,13 @@ const HumanoidAI = () => {
                 </CardContent>
               </Card>
             ))}
+          </div>
+          <div className="flex justify-center mt-12">
+            <img 
+              src="/lovable-uploads/b447f719-166f-4d1a-8912-8602ac137fee.png" 
+              alt="Advanced robotics deployment and maintenance operations"
+              className="max-w-2xl w-full h-auto rounded-lg shadow-lg"
+            />
           </div>
         </div>
       </section>
@@ -422,6 +459,13 @@ const HumanoidAI = () => {
               </Card>
             ))}
           </div>
+          <div className="flex justify-center mt-12">
+            <img 
+              src="/lovable-uploads/80f1598f-057a-4d16-8dc2-d9b1a9c8781e.png" 
+              alt="Metrics and performance tracking for humanoid robot operations"
+              className="max-w-2xl w-full h-auto rounded-lg shadow-lg"
+            />
+          </div>
         </div>
       </section>
 
@@ -457,10 +501,13 @@ const HumanoidAI = () => {
             Pricing & Engagement
           </h2>
           <p className="text-lg text-gray-300 mb-6">
-            Start with Launchpad to de-risk and define a no-regrets pilot.
+            Start with Automation Readiness Review to de-risk your investment.
+          </p>
+          <p className="text-lg text-gray-300 mb-6">
+            Add Procurement Assistance to secure right-fit vendors.
           </p>
           <p className="text-lg text-gray-300 mb-8">
-            MAISP subscription for operations, updates, and value realization at scale.
+            Operate confidently with MAISP Subscription for ongoing support.
           </p>
           <Button size="lg" className="text-lg px-8 py-4">
             <FileText className="mr-2 h-5 w-5" />
