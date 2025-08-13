@@ -38,16 +38,16 @@ const reviews = [
 
 What stood out most was their level of engagement. Every step of the way, Nick and team were communicative, responsive, and genuinely invested in the success of the project. They took the time to understand our goals and worked collaboratively to deliver results that aligned with our vision.
 
-Overall, Whiteglove delivered exceptional value and proved to be a forward-thinking, engaged partner. I would highly recommend them to anyone looking for a team that combines creativity, strategy, and dedication."`,
+Overall, WhitegloveAI delivered exceptional value and proved to be a forward-thinking, engaged partner. I would highly recommend them to anyone looking for a team that combines creativity, strategy, and dedication."`,
     author: "Omar Rodriguez",
     title: "Chief Information Officer",
     company: "City of McKinney",
     photo: "/lovable-uploads/02a9184c-e861-4abd-8a19-024fe98adb3c.png",
   },
   {
-    text: `"Whiteglove.ai has been a great partner in helping us modernize city services through voice AI. They supported our Traffic department in understanding service requests and building automated workflows that now provide valuable data analytics. Their agile project management approach gave us visibility into the product early on and allowed for continuous input, ensuring the final solution met our needs.
+    text: `"WhitegloveAI has been a great partner in helping us modernize city services through voice AI. They supported our Traffic department in understanding service requests and building automated workflows that now provide valuable data analytics. Their agile project management approach gave us visibility into the product early on and allowed for continuous input, ensuring the final solution met our needs.
 
-What really stood out was how reusable the model is—we're now able to apply it to other departments that handle citizen inquiries. The Whiteglove.ai team was easy to work with, highly responsive, and their Texas-based location made collaboration even smoother. Based on this successful engagement, we've already brought them in on a new project with another department. They've truly proven themselves as a trusted and innovative partner."`,
+What really stood out was how reusable the model is—we're now able to apply it to other departments that handle citizen inquiries. The WhitegloveAI team was easy to work with, highly responsive, and their Texas-based location made collaboration even smoother. Based on this successful engagement, we've already brought them in on a new project with another department. They've truly proven themselves as a trusted and innovative partner."`,
     author: "Melissa Kraft",
     title: "Chief Information Officer",
     company: "City of Frisco",

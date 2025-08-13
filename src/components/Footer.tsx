@@ -102,7 +102,7 @@ const Footer = () => {
               <Link to="/terms" className="text-gray-400 hover:text-[#7021EE] transition-colors">Terms of Service</Link>
             </div>
             <div className="text-gray-400 text-center md:text-right">
-              <div>© Copyright WhitegloveAI LLC 2025</div>
+               <div>© Copyright WhitegloveAI LLC 2025</div>
               <div className="text-[#7021EE] text-sm">Managed AI Service Provider™</div>
             </div>
           </div>

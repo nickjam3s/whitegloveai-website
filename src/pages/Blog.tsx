@@ -95,7 +95,7 @@ const Blog = () => {
     <div className="min-h-screen bg-black text-white">
       <div className="max-w-4xl mx-auto px-4 py-8">
         <header className="text-center mb-12">
-          <h1 className="text-4xl font-bold mb-4">WhiteGlove AI Blog</h1>
+          <h1 className="text-4xl font-bold mb-4">WhitegloveAI Blog</h1>
           <p className="text-xl text-gray-300 mb-8">
             Insights, updates, and thoughts on AI innovation
           </p>

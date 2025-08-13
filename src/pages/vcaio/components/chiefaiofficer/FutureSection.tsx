@@ -22,7 +22,7 @@ const FutureSection = () => {
           
           <div className="bg-card/60 backdrop-blur-sm p-8 rounded-xl border border-gray-800 hover:border-secondary/50 transition-all hover:shadow-lg hover:shadow-purple-900/20">
             <p className="text-gray-400">
-              Partner with WhiteGloveAI to unlock the power of AI and secure your organization's future.
+              Partner with WhitegloveAI to unlock the power of AI and secure your organization's future.
             </p>
           </div>
           
