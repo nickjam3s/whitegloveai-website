@@ -59,23 +59,19 @@ const HumanoidAI = () => {
   const outcomes = [
     {
       title: "Extend Service Hours",
-      description: "Deploy humanoid robots to provide 24/7 coverage without adding headcount to your operations team."
+      description: "without extra staffing"
     },
     {
       title: "Reduce Wait Times",
-      description: "Clear backlogs and reduce queue times with automated assistance for routine tasks and inquiries."
+      description: "in high-traffic areas"
     },
     {
-      title: "Increase Coverage",
-      description: "Handle repetitive, hazardous, or hard-to-staff work with consistent robotic assistance."
+      title: "Improve Coverage",
+      description: "for repetitive/hazardous work"
     },
     {
-      title: "Prove Compliance",
-      description: "Aligned to NIST AI RMF, ISO/IEC 42001, and TRAIGA from day one with complete audit trails."
-    },
-    {
-      title: "Measure ROI",
-      description: "Track before/after metrics including SLA performance, queue times, and safety incidents."
+      title: "Maintain Compliance",
+      description: "with NIST AI RMF, ISO 42001, TRAIGA"
     }
   ];
 
@@ -83,102 +79,95 @@ const HumanoidAI = () => {
     {
       icon: <Building2 className="h-8 w-8" />,
       title: "Public Sector",
-      description: "City hall concierge, library assistant, facility patrol, after-hours service"
+      description: "concierge, facilities, service points"
     },
     {
       icon: <GraduationCap className="h-8 w-8" />,
-      title: "Campuses & Healthcare",
-      description: "Wayfinding, visitor triage, supply runs, safety rounds"
+      title: "Healthcare & Campuses",
+      description: "wayfinding, triage, supply runs"
     },
     {
       icon: <Store className="h-8 w-8" />,
-      title: "Facilities & Logistics",
-      description: "Routine inspections, inventory checks, secure escort"
+      title: "Logistics & Facilities",
+      description: "inspection, inventory, safety patrol"
     },
     {
-      icon: <Store className="h-8 w-8" />,
+      icon: <Users className="h-8 w-8" />,
       title: "Retail & Venues",
-      description: "Guest services, line triage, back-of-house tasks"
+      description: "guest services, queue triage, back-of-house"
     }
   ];
 
   const whyWhiteglove = [
     {
       title: "MAISP Advantage",
-      description: "One partner for integration → governance → operations—not just a pilot."
+      description: "integration → governance → operations"
     },
     {
-      title: "AI-AMF Inside",
-      description: "Standards-aligned framework for oversight, controls, and measurable value."
-    },
-    {
-      title: "Public Procurement Ready",
-      description: "Engage through TXShare to move quickly and compliantly."
+      title: "Vendor-Agnostic Procurement Expertise",
+      description: "We manage vendor evaluation, RFP/RFQ support, and selection"
     },
     {
       title: "Proven Impact Culture",
-      description: "We lead with outcomes—not demos. (Example: municipal HR pilot achieved 68% inquiry deflection.)"
+      description: "outcomes first"
     },
     {
-      title: "vCAIO Available",
-      description: "Fractional executive leadership for policy, change management, and vendor accountability."
+      title: "vCAIO & Governance Support",
+      description: "Fractional executive leadership for policy and change management"
     }
   ];
 
-  const howItWorks = [
+  const servicePath = [
     {
-      title: "Launchpad Workshop",
-      duration: "2–3 weeks",
-      description: "Scope use cases, risks, and KPIs; select an initial workflow and environment; define human-in-the-loop and escalation."
+      title: "Needs Assessment",
+      description: "Identify where humanoid automation delivers ROI. We evaluate your workflows, site readiness, compliance needs, and safety considerations."
     },
     {
-      title: "Pilot",
-      duration: "6–8 weeks", 
-      description: "Safe facility trial; safety protocols; privacy/PIA; red-team scenarios; executive scorecard."
+      title: "Procurement Assistance",
+      description: "We manage vendor evaluation, RFP/RFQ support, and selection—leveraging our MAISP vendor network and compliance frameworks."
     },
     {
-      title: "Integrate",
-      duration: "Ongoing",
-      description: "Connect identity, facilities, ticketing/ITSM (e.g., ServiceNow), and communications (Teams/telephony)."
-    },
-    {
-      title: "Govern",
-      duration: "Ongoing",
-      description: "Apply AI-AMF controls; logging, audit, model guardrails; policy and training."
-    },
-    {
-      title: "Operate (MAISP)",
-      duration: "24/7",
-      description: "24/7 monitoring, updates, model tuning, fleet health, and quarterly value reviews."
+      title: "Setup & Maintenance",
+      description: "We install, configure, and integrate your robots, train staff, and provide ongoing monitoring, updates, and field support."
     }
   ];
 
   const safetyItems = [
     {
-      title: "Physical & Operational Safety",
+      title: "Physical & Operational Safety Protocols",
       description: "Site readiness, fall-back behaviors, e-stop, human override."
     },
     {
-      title: "Responsible AI",
+      title: "Responsible AI Guardrails",
       description: "Guardrails, red teaming, incident playbooks."
     },
     {
-      title: "Security-by-Design",
+      title: "Zero-Trust, Secure Integrations",
       description: "Zero-trust integrations, least-privilege access, encrypted data flows."
     },
     {
-      title: "Compliance Mapping",
+      title: "Standards-Aligned Compliance Evidence",
       description: "NIST AI RMF, ISO/IEC 42001, TRAIGA—evidence captured in a governance pack."
     }
   ];
 
   const metrics = [
-    "Service coverage hours",
-    "Queue times", 
-    "Task completion rate",
-    "Safety incidents and near-misses",
-    "Cost per interaction / per inspection",
-    "Satisfaction (resident/visitor/staff) and accessibility compliance"
+    {
+      title: "Service Coverage Hours",
+      description: "Extended operational hours without additional staffing"
+    },
+    {
+      title: "Queue Time Reduction",
+      description: "Measurable improvements in wait times and backlogs"
+    },
+    {
+      title: "Task Completion Rate",
+      description: "Automation success rate and reliability metrics"
+    },
+    {
+      title: "Safety Incident/Near-Miss Rate",
+      description: "Safety performance and risk reduction tracking"
+    }
   ];
 
   const caseSnapshots = [
@@ -189,7 +178,7 @@ const HumanoidAI = () => {
     },
     {
       title: "Citizen Services Integration", 
-      description: "Voice/311 orchestration with analytics and automated service routing.",
+      description: "rapid deployment with measurable results",
       result: "Improved response times"
     }
   ];
@@ -245,8 +234,8 @@ const HumanoidAI = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO 
-        title="HumanoidAI™ by WhitegloveAI | Managed Humanoid Robots with Governance & Day‑2 Ops"
-        description="Deploy humanoid robots safely with WhitegloveAI's MAISP program. We handle integration, governance, and 24/7 operations—aligned to NIST AI RMF, ISO/IEC 42001, and TRAIGA. Start with the AI Launchpad Workshop."
+        title="HumanoidAI™ by WhitegloveAI | Needs Assessment, Procurement & Managed Robot Ops"
+        description="Deploy humanoid robots safely with WhitegloveAI. We handle readiness, procurement, setup, and maintenance—aligned to NIST AI RMF, ISO 42001, and TRAIGA."
         canonicalPath="/maisp/humanoid-ai"
         schemas={jsonLdSchema}
       />
@@ -275,7 +264,7 @@ const HumanoidAI = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            From lobby concierge to inspections and patrols—deploy humanoid robots with security, compliance, and day‑2 operations handled by WhitegloveAI's MAISP program.
+            Deploy humanoid robots for concierge, inspection, and operational tasks—WhitegloveAI handles assessment, procurement, and 24/7 upkeep under our MAISP program.
           </motion.p>
           
           <motion.div 
@@ -290,7 +279,7 @@ const HumanoidAI = () => {
             </Button>
             <Button variant="outline" size="lg" className="text-lg px-8 py-4">
               <ArrowRight className="mr-2 h-5 w-5" />
-              See Our Launchpad Path to Pilot
+              Learn How We Deliver
             </Button>
           </motion.div>
         </div>
@@ -302,7 +291,7 @@ const HumanoidAI = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 heading-highlight-scroll">
             Measurable Outcomes
           </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {outcomes.map((outcome, index) => (
               <Card key={index} className="border-gray-800 bg-background/50">
                 <CardHeader>
@@ -347,7 +336,7 @@ const HumanoidAI = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 heading-highlight-scroll">
             Why WhitegloveAI
           </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {whyWhiteglove.map((item, index) => (
               <Card key={index} className="border-gray-800 bg-background/50">
                 <CardHeader>
@@ -362,28 +351,27 @@ const HumanoidAI = () => {
         </div>
       </section>
 
-      {/* How It Works Section */}
+      {/* Our Service Path Section */}
       <section className="py-20 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 heading-highlight-scroll">
-            How It Works
+            Our Service Path
           </h2>
-          <div className="space-y-8">
-            {howItWorks.map((step, index) => (
-              <div key={index} className="flex items-start gap-6">
-                <div className="flex-shrink-0 w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold text-lg">
-                  {index + 1}
-                </div>
-                <div className="flex-1">
-                  <div className="flex items-center gap-4 mb-2">
-                    <h3 className="text-xl font-semibold text-white">{step.title}</h3>
-                    <span className="text-sm text-gray-400 bg-gray-800 px-3 py-1 rounded-full">
-                      {step.duration}
-                    </span>
+          <div className="grid md:grid-cols-3 gap-8">
+            {servicePath.map((step, index) => (
+              <Card key={index} className="border-gray-800 bg-card/50 text-center">
+                <CardHeader>
+                  <div className="flex justify-center mb-4">
+                    <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold text-lg">
+                      {index + 1}
+                    </div>
                   </div>
+                  <CardTitle className="text-xl text-white">{step.title}</CardTitle>
+                </CardHeader>
+                <CardContent>
                   <p className="text-gray-400">{step.description}</p>
-                </div>
-              </div>
+                </CardContent>
+              </Card>
             ))}
           </div>
         </div>
@@ -395,7 +383,7 @@ const HumanoidAI = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 heading-highlight-scroll">
             Safety, Security & Compliance
           </h2>
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {safetyItems.map((item, index) => (
               <Card key={index} className="border-gray-800 bg-background/50">
                 <CardHeader>
@@ -419,12 +407,19 @@ const HumanoidAI = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 heading-highlight-scroll">
             Metrics We Track
           </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {metrics.map((metric, index) => (
-              <div key={index} className="flex items-center gap-3 p-4 bg-card/50 rounded-lg border border-gray-800">
-                <BarChart3 className="h-5 w-5 text-primary" />
-                <span className="text-gray-300">{metric}</span>
-              </div>
+              <Card key={index} className="border-gray-800 bg-card/50">
+                <CardHeader>
+                  <CardTitle className="text-lg text-white flex items-center gap-3">
+                    <BarChart3 className="h-5 w-5 text-primary" />
+                    {metric.title}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-400">{metric.description}</p>
+                </CardContent>
+              </Card>
             ))}
           </div>
         </div>
@@ -520,7 +515,7 @@ const HumanoidAI = () => {
             </Button>
             <Button variant="outline" size="lg" className="text-lg px-8 py-4">
               <Users className="mr-2 h-5 w-5" />
-              Schedule Launchpad
+              Request Procurement Support
             </Button>
           </div>
         </div>
