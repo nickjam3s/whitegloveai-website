@@ -30,8 +30,8 @@ const Navigation = () => {
     >
       <div className={`max-w-7xl mx-auto rounded-full backdrop-blur-md ${
         scrolled 
-          ? "bg-purple-900/30 shadow-lg border border-purple-900/40" 
-          : "bg-purple-900/30 border border-purple-900/30"
+          ? "bg-primary/30 shadow-lg border border-primary/40" 
+          : "bg-primary/30 border border-primary/30"
       }`}>
         <div className="flex items-center justify-between h-16 px-4 relative z-10">
           <Link to="/" className="flex-shrink-0">
@@ -56,7 +56,7 @@ const Navigation = () => {
             <div className="md:hidden flex-shrink-0">
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="text-gray-300 hover:text-white transition-colors p-2"
+                className="text-muted-foreground hover:text-foreground transition-colors p-2"
               >
                 {isOpen ? <X size={24} /> : <Menu size={24} />}
               </button>
