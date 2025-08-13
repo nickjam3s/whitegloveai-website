@@ -32,8 +32,18 @@ export const navigationLinks = [
   },
   {
     text: "Consulting",
-    to: "/traiga",
+    to: "/vcaio",
     children: [
+      { 
+        text: "vCAIO",
+        to: "/vcaio/chiefaiofficer",
+        children: [
+          { to: "/vcaio/chiefaiofficer", text: "Overview" },
+          { to: "/vcaio/launch", text: "Launchpad" },
+          { to: "/vcaio/adopt", text: "Adopt" },
+          { to: "/vcaio/enable", text: "Enable" }
+        ]
+      },
       { to: "/traiga", text: "TRAIGA Triage Center" },
     ],
   },
@@ -49,6 +59,11 @@ export const navigationLinks = [
       {
         text: "Lucidis",
         to: "https://lucidis.ai",
+        external: true
+      },
+      {
+        text: "vCAIO",
+        to: "https://vcaio.whitegloveai.com/",
         external: true
       }
     ]
