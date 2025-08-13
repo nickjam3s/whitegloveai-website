@@ -81,10 +81,7 @@ const Footer = () => {
             <div>
               <h4 className="text-white font-semibold mb-4">Consulting</h4>
               <ul className="space-y-2">
-                <li><Link to="/vcaio" className="text-gray-400 hover:text-[#7021EE] transition-colors">Overview</Link></li>
-                <li><Link to="/vcaio/launch" className="text-gray-400 hover:text-[#7021EE] transition-colors">Launchpad</Link></li>
-                <li><Link to="/vcaio/adopt" className="text-gray-400 hover:text-[#7021EE] transition-colors">Adopt</Link></li>
-                <li><Link to="/vcaio/enable" className="text-gray-400 hover:text-[#7021EE] transition-colors">Enable</Link></li>
+                <li><Link to="/traiga" className="text-gray-400 hover:text-[#7021EE] transition-colors">TRAIGA Triage Center</Link></li>
               </ul>
             </div>
           </div>
