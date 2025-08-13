@@ -5,6 +5,7 @@ import UnlockingSection from "./components/chiefaiofficer/UnlockingSection";
 import BenefitsSection from "./components/chiefaiofficer/BenefitsSection";
 import FutureSection from "./components/chiefaiofficer/FutureSection";
 import WhyVCAIO from "./components/chiefaiofficer/WhyVCAIO";
+import ServicesOverviewSection from "./components/chiefaiofficer/ServicesOverviewSection";
 import '@/styles/animations.css'; // Import animations CSS
 import SEO from '@/components/SEO';
 
@@ -109,6 +110,7 @@ const ChiefAIOfficer = () => {
       />
       <HeroSection />
       <WhyVCAIO />
+      <ServicesOverviewSection />
       <UnlockingSection />
       <BenefitsSection />
       <FutureSection />
