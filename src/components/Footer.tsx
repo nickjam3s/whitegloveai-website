@@ -69,10 +69,8 @@ const Footer = () => {
                 <li><Link to="/maisp/automateai" className="text-gray-400 hover:text-[#7021EE] transition-colors">AutomateAI</Link></li>
                 <li><Link to="/maisp/avatarai" className="text-gray-400 hover:text-[#7021EE] transition-colors">AvatarAI</Link></li>
                 <li><Link to="/maisp/humaniodai" className="text-gray-400 hover:text-[#7021EE] transition-colors">HumanoidAI</Link></li>
-                <li><Link to="/maisp/mediaai" className="text-gray-400 hover:text-[#7021EE] transition-colors">MediaAI</Link></li>
                 <li><Link to="/maisp/textai" className="text-gray-400 hover:text-[#7021EE] transition-colors">TextAI</Link></li>
                 <li><Link to="/maisp/translateai" className="text-gray-400 hover:text-[#7021EE] transition-colors">TranslateAI</Link></li>
-                <li><Link to="/maisp/vendorai" className="text-gray-400 hover:text-[#7021EE] transition-colors">VendorAI</Link></li>
                 <li><Link to="/maisp/voiceai" className="text-gray-400 hover:text-[#7021EE] transition-colors">VoiceAI</Link></li>
                </ul>
             </div>

@@ -18,7 +18,6 @@ export const navigationLinks = [
       { to: "/maisp/automateai", text: "AutomateAI" },
       { to: "/maisp/avatarai", text: "AvatarAI" },
       { to: "/maisp/humaniodai", text: "HumanoidAI" },
-      { to: "/maisp/mediaai", text: "MediaAI" },
       { 
         text: "TextAI", 
         to: "/maisp/textai",
@@ -28,7 +27,6 @@ export const navigationLinks = [
         ]
       },
       { to: "/maisp/translateai", text: "TranslateAI" },
-      { to: "/maisp/vendorai", text: "VendorAI" },
       { to: "/maisp/voiceai", text: "VoiceAI" },
     ],
   },
