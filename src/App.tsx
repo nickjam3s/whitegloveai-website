@@ -83,7 +83,8 @@ const AppContent = () => {
                 <Route path="/maisp/voiceai" element={<VoiceAI />} />
                 <Route path="/maisp/avatarai" element={<AvatarAI />} />
                 <Route path="/maisp/automateai" element={<AutomateAI />} />
-                <Route path="/maisp/humaniodai" element={<HumanoidAI />} />
+                <Route path="/maisp/humanoid-ai" element={<HumanoidAI />} />
+                <Route path="/maisp/humaniodai" element={<Navigate to="/maisp/humanoid-ai" replace />} />
                 <Route path="/maisp/vendorai" element={<VendorAI />} />
                 <Route path="/maisp/mediaai" element={<MediaAI />} />
                 <Route path="/maisp/mediaai/equipment" element={<MediaAIEquipmentProtected />} />
