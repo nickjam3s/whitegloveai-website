@@ -84,7 +84,7 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-black text-white">
       <SEO
         title="Managed AI Services & AI Consulting | WhitegloveAI"
         description="WhitegloveAI delivers managed AI services, AI consulting, and vCAIO leadership to deploy secure, enterprise-grade AI."
@@ -100,7 +100,7 @@ const Index = () => {
       {/* TXShare Announcement Bar */}
       <section
         aria-label="TXShare Announcement"
-        className="w-full bg-gradient-to-r from-primary/15 via-accent/15 to-primary/15 text-primary-foreground border-t border-b border-primary/30 transition-colors hover:from-primary/20 hover:via-accent/20 hover:to-primary/20"
+        className="w-full bg-gradient-to-r from-primary/15 via-accent/15 to-primary/15 text-white border-t border-b border-primary/30 transition-colors hover:from-primary/20 hover:via-accent/20 hover:to-primary/20"
       >
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex flex-col items-center gap-3 py-2.5 md:flex-row md:items-center md:justify-between">
@@ -147,21 +147,21 @@ const Index = () => {
             <h2 className="text-4xl md:text-5xl font-bold mb-6 gradient-text">
               TRAIGA Triage Center
             </h2>
-            <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto">
+            <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
               Is your business ready for Texas's sweeping new AI law?
             </p>
-            <p className="text-lg text-muted-foreground mb-6 max-w-4xl mx-auto">
+            <p className="text-lg text-gray-400 mb-6 max-w-4xl mx-auto">
               With TRAIGA taking effect in 2026, businesses that develop or use AI in Texas must now meet strict legal requirements. WhitegloveAI's TRAIGA Triage Center helps you understand your exposure, prepare, and stay ahead. Don't wait for enforcement—start your compliance journey today.
             </p>
             <div className="mx-auto mb-10 max-w-4xl">
               <div className="rounded-lg border border-primary/30 bg-primary/10 px-4 py-2">
-                <p className="text-center text-sm md:text-base text-muted-foreground whitespace-nowrap overflow-x-auto">
-                  Goes into effect January 1, 2026. <span className="text-accent">Enforcement begins in:</span> <span className="ml-1 font-semibold text-foreground">{timeLeft.days}d : {timeLeft.hours}h : {timeLeft.minutes}m</span>
+                <p className="text-center text-sm md:text-base text-gray-200 whitespace-nowrap overflow-x-auto">
+                  Goes into effect January 1, 2026. <span className="text-accent">Enforcement begins in:</span> <span className="ml-1 font-semibold text-white">{timeLeft.days}d : {timeLeft.hours}h : {timeLeft.minutes}m</span>
                 </p>
               </div>
             </div>
             <Link to="/traiga">
-              <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 text-lg rounded-lg transition-all duration-300 transform hover:scale-105">
+              <Button size="lg" className="bg-primary hover:bg-primary/90 text-white px-8 py-4 text-lg rounded-lg transition-all duration-300 transform hover:scale-105">
                 Visit the TRAIGA Center
                 <ArrowRight className="ml-3 h-6 w-6" />
               </Button>

@@ -6,7 +6,6 @@ import Logo from "./navigation/Logo";
 import DesktopMenuItem from "./navigation/DesktopMenuItem";
 import MobileMenu from "./navigation/MobileMenu";
 import { navigationLinks } from "./navigation/navigationData";
-import { ThemeToggle } from "./ThemeToggle";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -30,8 +29,8 @@ const Navigation = () => {
     >
       <div className={`max-w-7xl mx-auto rounded-full backdrop-blur-md ${
         scrolled 
-          ? "bg-primary/30 shadow-lg border border-primary/40" 
-          : "bg-primary/30 border border-primary/30"
+          ? "bg-purple-900/30 shadow-lg border border-purple-900/40" 
+          : "bg-purple-900/30 border border-purple-900/30"
       }`}>
         <div className="flex items-center justify-between h-16 px-4 relative z-10">
           <Link to="/" className="flex-shrink-0">
@@ -50,17 +49,14 @@ const Navigation = () => {
             ))}
           </div>
 
-          {/* Theme Toggle & Mobile Navigation Button */}
-          <div className="flex items-center space-x-2">
-            <ThemeToggle />
-            <div className="md:hidden flex-shrink-0">
-              <button
-                onClick={() => setIsOpen(!isOpen)}
-                className="text-muted-foreground hover:text-foreground transition-colors p-2"
-              >
-                {isOpen ? <X size={24} /> : <Menu size={24} />}
-              </button>
-            </div>
+          {/* Mobile Navigation Button - Added proper spacing */}
+          <div className="md:hidden flex-shrink-0 ml-4">
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="text-gray-300 hover:text-white transition-colors p-2"
+            >
+              {isOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
           </div>
         </div>
 

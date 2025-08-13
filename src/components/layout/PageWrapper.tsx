@@ -13,7 +13,7 @@ const PageWrapper = ({
   fullWidth = false 
 }: PageWrapperProps) => {
   return (
-    <div className={`min-h-screen bg-background ${className}`}>
+    <div className={`min-h-screen bg-black ${className}`}>
       <div className={`${fullWidth ? 'w-full' : 'responsive-container'} section-spacing`}>
         {children}
       </div>
