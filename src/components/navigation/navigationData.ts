@@ -60,11 +60,6 @@ export const navigationLinks = [
         text: "Lucidis",
         to: "https://lucidis.ai",
         external: true
-      },
-      {
-        text: "vCAIO",
-        to: "https://vcaio.whitegloveai.com/",
-        external: true
       }
     ]
   },
