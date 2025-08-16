@@ -17,7 +17,7 @@ import Privacy from "./pages/Privacy";
 import TermsOfService from "./pages/TermsOfService";
 import Contact from "./pages/Contact";
 import TRAIGA from "./pages/TRAIGA";
-import Portal from "./pages/Portal";
+
 
 // Blog & CMS Pages
 import Blog from "./pages/Blog";
@@ -49,11 +49,11 @@ const queryClient = new QueryClient();
 
 const AppContent = () => {
   const location = useLocation();
-  const isPortalRoute = location.pathname.startsWith('/portal');
+  
 
   return (
     <div className="flex flex-col min-h-screen">
-      {!isPortalRoute && <Navigation />}
+      <Navigation />
       <ScrollToTop />
       <main className="flex-grow">
               <Routes>
@@ -69,7 +69,7 @@ const AppContent = () => {
                 <Route path="/terms" element={<TermsOfService />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/traiga" element={<TRAIGA />} />
-                <Route path="/portal" element={<Portal />} />
+                
                 
                 {/* Blog & CMS Routes */}
                 <Route path="/blog" element={<Blog />} />
@@ -116,7 +116,7 @@ const AppContent = () => {
                 <Route path="/about" element={<Navigate to="/aboutus" replace />} />
               </Routes>
             </main>
-            {!isPortalRoute && <Footer />}
+            <Footer />
           </div>
   );
 };
