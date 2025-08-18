@@ -2,7 +2,20 @@ import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
+import { useEffect } from "react";
+
 const FutureSection = () => {
+  useEffect(() => {
+    // Load HubSpot script only once
+    const existingScript = document.getElementById('hubspot-script');
+    if (!existingScript) {
+      const script = document.createElement('script');
+      script.id = 'hubspot-script';
+      script.src = "https://js-na2.hsforms.net/forms/embed/242996761.js";
+      script.defer = true;
+      document.body.appendChild(script);
+    }
+  }, []);
   return (
     <section className="py-24 bg-gradient-to-b from-background to-card/70">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
