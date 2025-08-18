@@ -28,11 +28,11 @@ const Footer = () => {
                 <ArrowRight className="w-3 h-3 opacity-0 -ml-2 group-hover:opacity-100 group-hover:ml-0 transition-all" />
               </a>
               <a 
-                href="tel:+14692099907" 
+                href="tel:+14694219918" 
                 className="text-gray-400 flex items-center gap-2 hover:text-[#7021EE] transition-colors group whitespace-nowrap"
               >
                 <Phone className="w-4 h-4 text-[#7021EE]" />
-                +1-469-209-9907
+                +1 (469) 421-9918
                 <ArrowRight className="w-3 h-3 opacity-0 -ml-2 group-hover:opacity-100 group-hover:ml-0 transition-all" />
               </a>
               <a 
