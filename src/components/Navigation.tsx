@@ -49,6 +49,16 @@ const Navigation = () => {
             ))}
           </div>
 
+          {/* Customer Login Button - Desktop */}
+          <div className="hidden md:flex items-center ml-8">
+            <Link
+              to="/portal"
+              className="text-gray-300 hover:text-white transition-colors px-4 py-2 rounded-lg border border-gray-600/50 hover:border-gray-500/50"
+            >
+              Customer Login
+            </Link>
+          </div>
+
           {/* Mobile Navigation Button - Added proper spacing */}
           <div className="md:hidden flex-shrink-0 ml-4">
             <button
