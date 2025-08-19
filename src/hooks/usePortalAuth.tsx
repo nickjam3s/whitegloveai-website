@@ -18,6 +18,8 @@ interface PortalAuthContextType {
   loading: boolean;
   signIn: (email: string, password: string) => Promise<{ error: any }>;
   signUp: (email: string, password: string) => Promise<{ error: any }>;
+  signInWithMagicLink: (email: string) => Promise<{ error: any }>;
+  resendConfirmation: (email: string) => Promise<{ error: any }>;
   signOut: () => Promise<{ error: any }>;
   isAdmin: boolean;
 }
@@ -105,7 +107,36 @@ export const PortalAuthProvider: React.FC<{ children: React.ReactNode }> = ({ ch
       email,
       password,
       options: {
-        emailRedirectTo: redirectUrl
+        emailRedirectTo: redirectUrl,
+        data: {
+          portal_user: true
+        }
+      }
+    });
+    return { error };
+  };
+
+  const signInWithMagicLink = async (email: string) => {
+    const redirectUrl = `${window.location.origin}/portal`;
+    
+    const { error } = await supabase.auth.signInWithOtp({
+      email,
+      options: {
+        emailRedirectTo: redirectUrl,
+        data: {
+          portal_user: true
+        }
+      }
+    });
+    return { error };
+  };
+
+  const resendConfirmation = async (email: string) => {
+    const { error } = await supabase.auth.resend({
+      type: 'signup',
+      email,
+      options: {
+        emailRedirectTo: `${window.location.origin}/portal`
       }
     });
     return { error };
@@ -130,6 +161,8 @@ export const PortalAuthProvider: React.FC<{ children: React.ReactNode }> = ({ ch
     loading,
     signIn,
     signUp,
+    signInWithMagicLink,
+    resendConfirmation,
     signOut,
     isAdmin,
   };

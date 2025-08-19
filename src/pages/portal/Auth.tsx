@@ -11,9 +11,11 @@ import { ArrowLeft, Loader2 } from 'lucide-react';
 import { toast } from 'sonner';
 
 const PortalAuth = () => {
-  const { user, signIn, signUp, loading } = usePortalAuth();
+  const { user, signIn, signUp, signInWithMagicLink, resendConfirmation, loading } = usePortalAuth();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState('');
+  const [magicLinkSent, setMagicLinkSent] = useState(false);
+  const [lastEmail, setLastEmail] = useState('');
 
   // Redirect if already authenticated
   if (user && !loading) {
@@ -83,6 +85,45 @@ const PortalAuth = () => {
     setIsSubmitting(false);
   };
 
+  const handleMagicLink = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setError('');
+    setMagicLinkSent(false);
+
+    const formData = new FormData(e.currentTarget);
+    const email = formData.get('email') as string;
+    setLastEmail(email);
+
+    const { error } = await signInWithMagicLink(email);
+
+    if (error) {
+      setError(error.message);
+    } else {
+      setMagicLinkSent(true);
+      toast.success('Magic link sent! Check your email to sign in.');
+    }
+
+    setIsSubmitting(false);
+  };
+
+  const handleResendConfirmation = async () => {
+    if (!lastEmail) return;
+    
+    setIsSubmitting(true);
+    setError('');
+
+    const { error } = await resendConfirmation(lastEmail);
+
+    if (error) {
+      setError(error.message);
+    } else {
+      toast.success('Confirmation email resent! Check your inbox.');
+    }
+
+    setIsSubmitting(false);
+  };
+
   if (loading) {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
@@ -117,9 +158,10 @@ const PortalAuth = () => {
           </CardHeader>
           <CardContent>
             <Tabs defaultValue="signin" className="w-full">
-              <TabsList className="grid w-full grid-cols-2">
+              <TabsList className="grid w-full grid-cols-3">
                 <TabsTrigger value="signin">Sign In</TabsTrigger>
                 <TabsTrigger value="signup">Sign Up</TabsTrigger>
+                <TabsTrigger value="magiclink">Magic Link</TabsTrigger>
               </TabsList>
               
               <TabsContent value="signin">
@@ -149,7 +191,21 @@ const PortalAuth = () => {
                   
                   {error && (
                     <Alert variant="destructive">
-                      <AlertDescription>{error}</AlertDescription>
+                      <AlertDescription>
+                        {error}
+                        {error.includes('Email not confirmed') && lastEmail && (
+                          <div className="mt-2">
+                            <Button
+                              variant="outline"
+                              size="sm"
+                              onClick={handleResendConfirmation}
+                              disabled={isSubmitting}
+                            >
+                              Resend confirmation email
+                            </Button>
+                          </div>
+                        )}
+                      </AlertDescription>
                     </Alert>
                   )}
                   
@@ -218,6 +274,67 @@ const PortalAuth = () => {
                       'Create Account'
                     )}
                   </Button>
+                </form>
+              </TabsContent>
+
+              <TabsContent value="magiclink">
+                <form onSubmit={handleMagicLink} className="space-y-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="magiclink-email">Email</Label>
+                    <Input
+                      id="magiclink-email"
+                      name="email"
+                      type="email"
+                      required
+                      placeholder="your@email.com"
+                      disabled={isSubmitting || magicLinkSent}
+                    />
+                  </div>
+
+                  {magicLinkSent && (
+                    <Alert>
+                      <AlertDescription>
+                        Magic link sent to your email! Check your inbox and click the link to sign in.
+                        <div className="mt-2">
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            onClick={() => {
+                              setMagicLinkSent(false);
+                              setError('');
+                            }}
+                          >
+                            Send another magic link
+                          </Button>
+                        </div>
+                      </AlertDescription>
+                    </Alert>
+                  )}
+                  
+                  {error && !magicLinkSent && (
+                    <Alert variant="destructive">
+                      <AlertDescription>{error}</AlertDescription>
+                    </Alert>
+                  )}
+                  
+                  <Button type="submit" className="w-full" disabled={isSubmitting || magicLinkSent}>
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                        Sending Magic Link...
+                      </>
+                    ) : magicLinkSent ? (
+                      'Magic Link Sent!'
+                    ) : (
+                      'Send Magic Link'
+                    )}
+                  </Button>
+                  
+                  {!magicLinkSent && (
+                    <p className="text-sm text-muted-foreground text-center">
+                      We'll send you a secure link to sign in without a password
+                    </p>
+                  )}
                 </form>
               </TabsContent>
             </Tabs>
