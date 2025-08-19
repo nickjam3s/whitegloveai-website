@@ -22,11 +22,20 @@ const Navigation = () => {
   }, []);
 
   return (
-    <nav
-      className={`fixed w-full z-50 transition-all duration-300 px-4 sm:px-6 lg:px-8 py-2 ${
-        scrolled ? "top-4" : "top-6"
-      }`}
-    >
+    <>
+      {/* Customer Login Button - Fixed Top Right */}
+      <Link
+        to="/portal"
+        className="fixed top-4 right-4 z-[60] bg-white/10 backdrop-blur-md text-white hover:bg-white/20 transition-all duration-300 px-4 py-2 rounded-full border border-white/20 hover:border-white/30 text-sm font-medium"
+      >
+        Customer Login
+      </Link>
+
+      <nav
+        className={`fixed w-full z-50 transition-all duration-300 px-4 sm:px-6 lg:px-8 py-2 ${
+          scrolled ? "top-4" : "top-6"
+        }`}
+      >
       <div className={`max-w-7xl mx-auto rounded-full backdrop-blur-md ${
         scrolled 
           ? "bg-purple-900/30 shadow-lg border border-purple-900/40" 
@@ -49,16 +58,6 @@ const Navigation = () => {
             ))}
           </div>
 
-          {/* Customer Login Button - Desktop */}
-          <div className="hidden md:flex items-center ml-8">
-            <Link
-              to="/portal"
-              className="text-gray-300 hover:text-white transition-colors px-4 py-2 rounded-lg border border-gray-600/50 hover:border-gray-500/50"
-            >
-              Customer Login
-            </Link>
-          </div>
-
           {/* Mobile Navigation Button - Added proper spacing */}
           <div className="md:hidden flex-shrink-0 ml-4">
             <button
@@ -77,6 +76,7 @@ const Navigation = () => {
         />
       </div>
     </nav>
+    </>
   );
 };
 
