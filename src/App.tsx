@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-route
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
+import { PortalAuthProvider } from "./hooks/usePortalAuth";
 
 // Main Pages
 import Index from "./pages/index";
@@ -45,15 +46,22 @@ import LaunchAI from "./pages/vcaio/LaunchAI";
 import Adopt from "./pages/vcaio/Adopt";
 import Enable from "./pages/vcaio/Enable";
 
+// Portal Routes
+import PortalIndex from "./pages/portal/Index";
+import PortalAuth from "./pages/portal/Auth";
+import Organizations from "./pages/portal/Organizations";
+import OrganizationForm from "./pages/portal/OrganizationForm";
+import Users from "./pages/portal/Users";
+
 const queryClient = new QueryClient();
 
 const AppContent = () => {
   const location = useLocation();
-  
+  const isPortalRoute = location.pathname.startsWith('/portal');
 
   return (
     <div className="flex flex-col min-h-screen">
-      <Navigation />
+      {!isPortalRoute && <Navigation />}
       <ScrollToTop />
       <main className="flex-grow">
               <Routes>
@@ -98,6 +106,14 @@ const AppContent = () => {
                 <Route path="/vcaio/adopt" element={<Adopt />} />
                 <Route path="/vcaio/enable" element={<Enable />} />
                 
+                {/* Portal Routes */}
+                <Route path="/portal" element={<PortalIndex />} />
+                <Route path="/portal/auth" element={<PortalAuth />} />
+                <Route path="/portal/organizations" element={<Organizations />} />
+                <Route path="/portal/organizations/new" element={<OrganizationForm />} />
+                <Route path="/portal/organizations/:id/edit" element={<OrganizationForm />} />
+                <Route path="/portal/users" element={<Users />} />
+                
                 {/* External Redirects */}
                 <Route
                   path="/aiamf"
@@ -116,7 +132,7 @@ const AppContent = () => {
                 <Route path="/about" element={<Navigate to="/aboutus" replace />} />
               </Routes>
             </main>
-            <Footer />
+            {!isPortalRoute && <Footer />}
           </div>
   );
 };
@@ -126,9 +142,11 @@ const App = () => {
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
         <TooltipProvider>
-          <Toaster />
-          <Sonner />
-          <AppContent />
+          <PortalAuthProvider>
+            <Toaster />
+            <Sonner />
+            <AppContent />
+          </PortalAuthProvider>
         </TooltipProvider>
       </BrowserRouter>
     </QueryClientProvider>
