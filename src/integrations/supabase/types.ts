@@ -14,6 +14,39 @@ export type Database = {
   }
   public: {
     Tables: {
+      auth_audit_logs: {
+        Row: {
+          created_at: string
+          error_message: string | null
+          event_type: string
+          id: string
+          ip_address: string | null
+          success: boolean
+          user_agent: string | null
+          user_email: string
+        }
+        Insert: {
+          created_at?: string
+          error_message?: string | null
+          event_type: string
+          id?: string
+          ip_address?: string | null
+          success?: boolean
+          user_agent?: string | null
+          user_email: string
+        }
+        Update: {
+          created_at?: string
+          error_message?: string | null
+          event_type?: string
+          id?: string
+          ip_address?: string | null
+          success?: boolean
+          user_agent?: string | null
+          user_email?: string
+        }
+        Relationships: []
+      }
       bias_scores: {
         Row: {
           created_at: string
@@ -212,6 +245,33 @@ export type Database = {
           },
         ]
       }
+      email_rate_limits: {
+        Row: {
+          created_at: string
+          email: string
+          email_type: string
+          id: string
+          send_count: number
+          window_start: string
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          email_type: string
+          id?: string
+          send_count?: number
+          window_start?: string
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          email_type?: string
+          id?: string
+          send_count?: number
+          window_start?: string
+        }
+        Relationships: []
+      }
       email_templates: {
         Row: {
           created_at: string
@@ -350,8 +410,11 @@ export type Database = {
       }
       portal_users: {
         Row: {
+          confirmation_token: string | null
           created_at: string | null
           email: string
+          email_confirmed: boolean | null
+          email_confirmed_at: string | null
           id: string
           is_active: boolean | null
           last_login: string | null
@@ -359,8 +422,11 @@ export type Database = {
           updated_at: string | null
         }
         Insert: {
+          confirmation_token?: string | null
           created_at?: string | null
           email: string
+          email_confirmed?: boolean | null
+          email_confirmed_at?: string | null
           id?: string
           is_active?: boolean | null
           last_login?: string | null
@@ -368,8 +434,11 @@ export type Database = {
           updated_at?: string | null
         }
         Update: {
+          confirmation_token?: string | null
           created_at?: string | null
           email?: string
+          email_confirmed?: boolean | null
+          email_confirmed_at?: string | null
           id?: string
           is_active?: boolean | null
           last_login?: string | null
