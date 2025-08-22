@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { ArrowRight, BrainCircuit, Shield } from "lucide-react";
+import { ArrowRight, BrainCircuit, Shield, Plug } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from '@/components/ui/button';
 
@@ -9,7 +9,7 @@ const managedAIFeatures = [{
   title: "24/7 AI Agents",
   description: "From text-based chatbots to voice-responsive agents and human-like avatars, our AI tools are designed to serve your customers at any time."
 }, {
-  icon: Shield,
+  icon: Plug,
   title: "Seamless Integration & Customization",
   description: "We tailor AI solutions to your unique workflows, ensuring minimal disruption and maximum ROI."
 }, {
