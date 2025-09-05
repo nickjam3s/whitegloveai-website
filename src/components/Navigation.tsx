@@ -42,9 +42,9 @@ const Navigation = () => {
           : "bg-purple-900/30 border border-purple-900/30"
       }`}>
         <div className="flex items-center justify-between h-16 px-4 relative z-10">
-          <Link to="/" className="flex-shrink-0">
+          <div className="flex-shrink-0">
             <Logo />
-          </Link>
+          </div>
 
           {/* Desktop Navigation - Moved 20% to the left */}
           <div className="hidden md:flex items-center space-x-8 transform -translate-x-[20%]">
