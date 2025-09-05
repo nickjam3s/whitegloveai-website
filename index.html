@@ -18,7 +18,7 @@
     <meta name="theme-color" content="#ffffff">
 
     <!-- Security Headers -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https: https://www.googletagmanager.com https://cdn.gpteng.co https://unpkg.com; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; connect-src 'self' https: wss:;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https: https://www.googletagmanager.com https://cdn.gpteng.co https://unpkg.com https://cdn.elevenlabs.io; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; connect-src 'self' https: wss: https://api.elevenlabs.io wss://api.elevenlabs.io; worker-src 'self' https://unpkg.com https://cdn.elevenlabs.io blob:;">
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://whitegloveai.com">
@@ -115,6 +115,51 @@
     <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
     
     <!-- ElevenLabs ConvAI Widget -->
+    <script>
+        // Browser compatibility and error handling for ElevenLabs ConvAI
+        (function() {
+            // Check AudioWorklet support
+            const hasAudioWorklet = 'AudioWorklet' in window && 'audioWorklet' in AudioContext.prototype;
+            const hasWebAudio = 'AudioContext' in window || 'webkitAudioContext' in window;
+            
+            console.log('ElevenLabs ConvAI Browser Support Check:', {
+                audioWorkletSupported: hasAudioWorklet,
+                webAudioSupported: hasWebAudio,
+                isSecureContext: window.isSecureContext,
+                userAgent: navigator.userAgent
+            });
+            
+            if (!hasAudioWorklet) {
+                console.warn('AudioWorklet not supported. ElevenLabs ConvAI may not function properly.');
+                if (!hasWebAudio) {
+                    console.error('Web Audio API not supported. ElevenLabs ConvAI will not work.');
+                }
+            }
+            
+            // Add error handling for the widget
+            window.addEventListener('error', function(event) {
+                if (event.filename && event.filename.includes('elevenlabs') || 
+                    event.message && event.message.includes('raw-audio-processor')) {
+                    console.error('ElevenLabs ConvAI Error:', {
+                        message: event.message,
+                        filename: event.filename,
+                        lineno: event.lineno,
+                        colno: event.colno
+                    });
+                    
+                    // Provide user-friendly feedback
+                    if (event.message.includes('raw-audio-processor')) {
+                        console.warn('AudioWorklet module failed to load. This may be due to browser compatibility or HTTPS requirements.');
+                    }
+                }
+            });
+            
+            // Check for HTTPS requirement
+            if (location.protocol !== 'https:' && location.hostname !== 'localhost') {
+                console.warn('ElevenLabs ConvAI requires HTTPS in production environments.');
+            }
+        })();
+    </script>
     <elevenlabs-convai agent-id="jTvgAy2qrSmT5UzQ57N9"></elevenlabs-convai>
     <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
         
