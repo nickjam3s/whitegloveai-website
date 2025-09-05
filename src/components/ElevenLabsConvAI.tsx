@@ -63,6 +63,17 @@ const ElevenLabsConvAI: React.FC<ElevenLabsConvAIProps> = ({
           script.onload = () => {
             console.log('ElevenLabs widget script loaded successfully');
             setIsLoaded(true);
+            
+            // Create the widget element after script loads
+            setTimeout(() => {
+              if (widgetContainerRef.current && !widgetContainerRef.current.querySelector('elevenlabs-convai')) {
+                console.log('Creating ElevenLabs widget element');
+                const widget = document.createElement('elevenlabs-convai');
+                widget.setAttribute('agent-id', agentId);
+                widgetContainerRef.current.appendChild(widget);
+                console.log('Widget element created and added to DOM');
+              }
+            }, 100);
           };
           
           script.onerror = (error) => {
@@ -76,14 +87,19 @@ const ElevenLabsConvAI: React.FC<ElevenLabsConvAIProps> = ({
 
           document.head.appendChild(script);
         } else {
+          console.log('ElevenLabs script already exists, setting loaded state');
           setIsLoaded(true);
-        }
-
-        // Create the widget element
-        if (widgetContainerRef.current && !widgetContainerRef.current.querySelector('elevenlabs-convai')) {
-          const widget = document.createElement('elevenlabs-convai');
-          widget.setAttribute('agent-id', agentId);
-          widgetContainerRef.current.appendChild(widget);
+          
+          // Create the widget element if script already exists
+          setTimeout(() => {
+            if (widgetContainerRef.current && !widgetContainerRef.current.querySelector('elevenlabs-convai')) {
+              console.log('Creating ElevenLabs widget element (script already loaded)');
+              const widget = document.createElement('elevenlabs-convai');
+              widget.setAttribute('agent-id', agentId);
+              widgetContainerRef.current.appendChild(widget);
+              console.log('Widget element created and added to DOM (script already loaded)');
+            }
+          }, 100);
         }
 
       } catch (error) {
