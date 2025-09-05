@@ -7,7 +7,6 @@ import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-route
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
-import ElevenLabsConvAI from "./components/ElevenLabsConvAI";
 import { PortalAuthProvider } from "./hooks/usePortalAuth";
 
 // Main Pages
@@ -147,7 +146,6 @@ const App = () => {
             <Toaster />
             <Sonner />
             <AppContent />
-            <ElevenLabsConvAI />
           </PortalAuthProvider>
         </TooltipProvider>
       </BrowserRouter>
