@@ -1,8 +1,5 @@
 
-@import './styles/base.css';
-@import './styles/animations.css';
-@import './styles/logo.css';
-@import './styles/executive-profile.css';
+/* All styles consolidated in this file */
 
 /* Ensure consistent styling across browsers */
 * {
