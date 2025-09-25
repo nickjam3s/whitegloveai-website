@@ -23,13 +23,6 @@ const Navigation = () => {
 
   return (
     <>
-      {/* Customer Login Button - Fixed Top Right */}
-      <Link
-        to="/portal"
-        className="fixed top-4 right-4 z-[60] bg-white/10 backdrop-blur-md text-white hover:bg-white/20 transition-all duration-300 px-4 py-2 rounded-full border border-white/20 hover:border-white/30 text-sm font-medium"
-      >
-        Customer Login
-      </Link>
 
       <nav
         className={`fixed w-full z-50 transition-all duration-300 px-4 sm:px-6 lg:px-8 py-2 ${
