@@ -93,7 +93,7 @@ const TrustedBy = () => {
 
   return (
     <>
-      <section className="py-12 bg-black">
+      <section className="py-12 bg-[hsl(270,50%,15%)]">
         <div className="container mx-auto px-4">
           <h2 className="text-center text-white text-3xl font-semibold mb-8">Trusted By</h2>
           
