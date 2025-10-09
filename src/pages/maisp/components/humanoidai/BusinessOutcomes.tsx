@@ -22,7 +22,7 @@ const BusinessOutcomes = () => {
           Measurable Business Outcomes
         </h2>
         <p className="text-lg text-gray-400 text-center mb-12">
-          Our robotic automation solutions deliver tangible improvements across key performance indicators:
+          Our embodied AI automation solutions deliver tangible improvements across key performance indicators:
         </p>
         <div className="grid md:grid-cols-3 gap-8">
           {outcomes.map((outcome, index) => (

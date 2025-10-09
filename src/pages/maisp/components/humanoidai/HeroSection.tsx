@@ -77,7 +77,7 @@ const HeroSection = () => {
             {...titleAnimation}
             className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 md:mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-[#7021EE] font-sora"
           >
-            Managed Service Offering for Humanoid Robots
+            Managed Service Offering for Embodied AI Robots
           </motion.h1>
           
           <motion.p 
@@ -86,7 +86,7 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-lg md:text-xl lg:text-2xl text-gray-200 mb-8 md:mb-12 max-w-3xl mx-auto px-3 sm:px-0 text-shadow-sm font-sora"
           >
-            Seamless integration, operation, and maintenance of humanoid robots for your enterprise needs.
+            Seamless integration, operation, and maintenance of embodied AI robots for your enterprise needs.
           </motion.p>
           
             </div>

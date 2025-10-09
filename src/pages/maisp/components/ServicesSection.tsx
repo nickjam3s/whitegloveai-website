@@ -26,8 +26,8 @@ const services = [
     link: "/maisp/avatarai",
   },
   {
-    title: "HumanoidAI",
-    description: "Integration and management of humanoid robotic systems",
+    title: "EmbodiedAI",
+    description: "Integration and management of embodied AI robotic systems",
     link: "/maisp/humanoidai",
   },
   {

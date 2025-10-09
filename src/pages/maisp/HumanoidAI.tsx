@@ -173,12 +173,12 @@ const HumanoidAI = () => {
   const caseSnapshots = [
     {
       title: "Municipal HR",
-      description: "Problem: HR overwhelmed by repetitive walk-up inquiries. Intervention: Humanoid concierge to handle routine requests, directing complex cases to staff.",
+      description: "Problem: HR overwhelmed by repetitive walk-up inquiries. Intervention: Embodied AI concierge to handle routine requests, directing complex cases to staff.",
       result: "68% inquiry deflection, freeing HR for priority work"
     },
     {
       title: "Citizen Services Integration", 
-      description: "Problem: Limited after-hours capacity. Intervention: Humanoids integrated with VoiceAI to handle requests and route escalations.",
+      description: "Problem: Limited after-hours capacity. Intervention: Embodied AI robots integrated with VoiceAI to handle requests and route escalations.",
       result: "Faster response, improved resident satisfaction"
     }
   ];
@@ -205,13 +205,13 @@ const HumanoidAI = () => {
   const jsonLdSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "HumanoidAI",
+    "name": "EmbodiedAI",
     "provider": {
       "@type": "Organization",
       "name": "WhitegloveAI"
     },
     "areaServed": "US",
-    "serviceType": "Managed Humanoid Robot Operations",
+    "serviceType": "Managed Embodied AI Robot Operations",
     "audience": {
       "@type": "Audience",
       "audienceType": "BusinessExecutive"
@@ -234,8 +234,8 @@ const HumanoidAI = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO 
-        title="HumanoidAI™ by WhitegloveAI | Needs Assessment, Procurement & Managed Robot Ops"
-        description="Deploy humanoid robots safely with WhitegloveAI. We handle readiness, procurement, setup, and maintenance—aligned to NIST AI RMF, ISO 42001, and TRAIGA."
+        title="EmbodiedAI™ by WhitegloveAI | Needs Assessment, Procurement & Managed Robot Ops"
+        description="Deploy embodied AI robots safely with WhitegloveAI. We handle readiness, procurement, setup, and maintenance—aligned to NIST AI RMF, ISO 42001, and TRAIGA."
         canonicalPath="/maisp/humanoid-ai"
         schemas={jsonLdSchema}
       />
@@ -255,7 +255,7 @@ const HumanoidAI = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            HumanoidAI™ — Managed Humanoid Robots, Safely Deployed
+            EmbodiedAI™ — Managed Embodied AI Robots, Safely Deployed
           </motion.h1>
           
           <motion.p 
@@ -264,7 +264,7 @@ const HumanoidAI = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Deploy humanoid robots for concierge, inspection, and operational tasks—WhitegloveAI handles readiness, procurement, and 24/7 upkeep under our MAISP program.
+            Deploy embodied AI robots for concierge, inspection, and operational tasks—WhitegloveAI handles readiness, procurement, and 24/7 upkeep under our MAISP program.
           </motion.p>
           
           <motion.div 
@@ -291,7 +291,7 @@ const HumanoidAI = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold mb-6 heading-highlight-scroll">
-                Humanoid Robotics at the Tipping Point
+                Embodied AI Robotics at the Tipping Point
               </h2>
               <p className="text-lg text-gray-300 leading-relaxed">
                 Costs are falling, capabilities are rising, and early adopters are securing efficiency gains and service coverage advantages their competitors can't match. With WhitegloveAI, you get there first—safely, compliantly, and with measurable ROI.
@@ -300,7 +300,7 @@ const HumanoidAI = () => {
             <div className="flex justify-center">
               <img 
                 src="/lovable-uploads/af75627a-048f-43fc-be81-d3bd38807d05.png" 
-                alt="Advanced humanoid robot in operational environment"
+                alt="Advanced embodied AI robot in operational environment"
                 className="max-w-full h-auto rounded-lg shadow-lg"
               />
             </div>
@@ -333,7 +333,7 @@ const HumanoidAI = () => {
       <section className="py-20 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 heading-highlight-scroll">
-            Where Humanoids Fit
+            Where Embodied AI Fits
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {useCases.map((useCase, index) => (
@@ -549,7 +549,7 @@ const HumanoidAI = () => {
       <section className="py-20 bg-background">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-8 heading-highlight-scroll">
-            Bring Humanoids Online—Safely and Responsibly
+            Bring Embodied AI Online—Safely and Responsibly
           </h2>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
             <Button size="lg" className="text-lg px-8 py-4">

@@ -10,7 +10,7 @@ const steps = [
   },
   {
     title: "Optimization",
-    description: "Continuous improvement using advanced AI and machine learning algorithms to enhance robot performance over time. We monitor key metrics, analyze operational data, and fine-tune systems to maximize efficiency, while regularly updating software and adding new capabilities as your needs evolve."
+    description: "Continuous improvement using advanced AI and machine learning algorithms to enhance embodied AI robot performance over time. We monitor key metrics, analyze operational data, and fine-tune systems to maximize efficiency, while regularly updating software and adding new capabilities as your needs evolve."
   }
 ];
 
