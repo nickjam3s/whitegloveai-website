@@ -28,7 +28,7 @@ const services = [
   {
     title: "EmbodiedAI",
     description: "Integration and management of embodied AI robotic systems",
-    link: "/maisp/humanoidai",
+    link: "/maisp/embodied-ai",
   },
   {
     title: "TranslateAI",
