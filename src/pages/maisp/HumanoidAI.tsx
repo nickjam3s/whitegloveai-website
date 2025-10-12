@@ -171,18 +171,6 @@ const HumanoidAI = () => {
     }
   ];
 
-  const caseSnapshots = [
-    {
-      title: "Municipal HR",
-      description: "Problem: HR overwhelmed by repetitive walk-up inquiries. Intervention: Embodied AI concierge to handle routine requests, directing complex cases to staff.",
-      result: "68% inquiry deflection, freeing HR for priority work"
-    },
-    {
-      title: "Citizen Services Integration", 
-      description: "Problem: Limited after-hours capacity. Intervention: Embodied AI robots integrated with VoiceAI to handle requests and route escalations.",
-      result: "Faster response, improved resident satisfaction"
-    }
-  ];
 
   const faqs = [
     {
@@ -466,31 +454,6 @@ const HumanoidAI = () => {
               alt="Metrics and performance tracking for humanoid robot operations"
               className="max-w-2xl w-full h-auto rounded-lg shadow-lg"
             />
-          </div>
-        </div>
-      </section>
-
-      {/* Case Snapshots Section */}
-      <section className="py-20 bg-card/50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 heading-highlight-scroll">
-            Case Snapshots
-          </h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            {caseSnapshots.map((snapshot, index) => (
-              <Card key={index} className="border-gray-800 bg-background/50">
-                <CardHeader>
-                  <CardTitle className="text-xl text-white">{snapshot.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-400 mb-4">{snapshot.description}</p>
-                  <div className="flex items-center gap-2">
-                    <span className="text-sm font-semibold text-primary">Result:</span>
-                    <span className="text-sm text-white">{snapshot.result}</span>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
           </div>
         </div>
       </section>
