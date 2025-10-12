@@ -27,6 +27,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import SEO from "@/components/SEO";
+import ContactSection from "./components/humanoidai/ContactSection";
 
 const HumanoidAI = () => {
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
@@ -567,6 +568,9 @@ const HumanoidAI = () => {
           </div>
         </div>
       </section>
+
+      {/* Contact Form Section */}
+      <ContactSection />
 
       {/* Related Links Section */}
       <section className="py-12 bg-card/30 border-t border-gray-800">
