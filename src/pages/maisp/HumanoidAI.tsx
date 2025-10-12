@@ -462,27 +462,6 @@ const HumanoidAI = () => {
         </div>
       </section>
 
-      {/* Pricing & Engagement Section */}
-      <section className="py-20 bg-background">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-8 heading-highlight-scroll">
-            Pricing & Engagement
-          </h2>
-          <p className="text-lg text-gray-300 mb-6">
-            Start with Automation Readiness Review to de-risk your investment.
-          </p>
-          <p className="text-lg text-gray-300 mb-6">
-            Add Procurement Assistance to secure right-fit vendors.
-          </p>
-          <p className="text-lg text-gray-300 mb-8">
-            Operate confidently with MAISP Subscription for ongoing support.
-          </p>
-          <Button size="lg" className="text-lg px-8 py-4">
-            <FileText className="mr-2 h-5 w-5" />
-            Request Pricing & Sample SOW
-          </Button>
-        </div>
-      </section>
 
       {/* FAQ Section */}
       <section className="py-20 bg-card/50">
@@ -513,32 +492,6 @@ const HumanoidAI = () => {
         </div>
       </section>
 
-      {/* Final CTA Section */}
-      <section className="py-20 bg-background">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-8 heading-highlight-scroll">
-            Bring Embodied AI Online—Safely and Responsibly
-          </h2>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-            <Button 
-              size="lg" 
-              className="text-lg px-8 py-4"
-              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-            >
-              <Calendar className="mr-2 h-5 w-5" />
-              Book a Discovery Call
-            </Button>
-            <Button variant="outline" size="lg" className="text-lg px-8 py-4">
-              <Download className="mr-2 h-5 w-5" />
-              Download the MAISP Brief
-            </Button>
-            <Button variant="outline" size="lg" className="text-lg px-8 py-4">
-              <Users className="mr-2 h-5 w-5" />
-              Request Procurement Support
-            </Button>
-          </div>
-        </div>
-      </section>
 
       {/* Contact Form Section */}
       <ContactSection />
