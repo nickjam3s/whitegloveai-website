@@ -262,7 +262,11 @@ const HumanoidAI = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <Button size="lg" className="text-lg px-8 py-4">
+            <Button 
+              size="lg" 
+              className="text-lg px-8 py-4"
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            >
               <Calendar className="mr-2 h-5 w-5" />
               Book a Discovery Call
             </Button>
@@ -516,7 +520,11 @@ const HumanoidAI = () => {
             Bring Embodied AI Online—Safely and Responsibly
           </h2>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-            <Button size="lg" className="text-lg px-8 py-4">
+            <Button 
+              size="lg" 
+              className="text-lg px-8 py-4"
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            >
               <Calendar className="mr-2 h-5 w-5" />
               Book a Discovery Call
             </Button>
