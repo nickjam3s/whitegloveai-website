@@ -257,7 +257,7 @@ const HumanoidAI = () => {
           </motion.p>
           
           <motion.div 
-            className="flex flex-col sm:flex-row gap-4 justify-center"
+            className="flex justify-center"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -269,10 +269,6 @@ const HumanoidAI = () => {
             >
               <Calendar className="mr-2 h-5 w-5" />
               Book a Discovery Call
-            </Button>
-            <Button variant="outline" size="lg" className="text-lg px-8 py-4">
-              <ArrowRight className="mr-2 h-5 w-5" />
-              Learn How We Deliver
             </Button>
           </motion.div>
         </div>
