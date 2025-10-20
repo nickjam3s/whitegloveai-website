@@ -20,7 +20,9 @@ export default {
     },
     extend: {
       fontFamily: {
-        sora: ['Sora', 'sans-serif'],
+        lusitana: ['Lusitana', 'serif'],
+        manrope: ['Manrope', 'sans-serif'],
+        sans: ['Manrope', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",

@@ -39,13 +39,17 @@
     @apply border-border antialiased;
   }
   body {
-    @apply font-sora;
+    @apply font-manrope;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 
-  /* Ensure all text elements use Sora */
-  h1, h2, h3, h4, h5, h6, p, span, div, button, input, textarea, select {
-    @apply font-sora;
+  /* Headings use Lusitana, body text uses Manrope */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-lusitana;
+  }
+
+  p, span, div, button, input, textarea, select {
+    @apply font-manrope;
   }
 }
 
@@ -82,8 +86,6 @@ html {
   padding: 0;
 }
 
-/* Add Sora font import */
-@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600;700;800&display=swap');
 
 /* ... keep existing code (add additional animations for better UI interactions through scroll animation helper classes) the same ... */
 
