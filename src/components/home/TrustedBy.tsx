@@ -19,9 +19,9 @@ const logos = [
   { src: '/lovable-uploads/59a4884a-03e1-43ef-a6d1-e79c5ca8e3ea.png', alt: 'New Logo', height: 64 },
 ];
 
-// Static grid logos with Black Dome added at the beginning
+// Static grid logos with North Texas Tollway added at the beginning
 const staticGridLogos = [
-  { src: '/lovable-uploads/17e63cce-7a22-4959-b5a9-2ba2208cb774.png', alt: 'Black Dome Logo', height: 77 },
+  { src: '/lovable-uploads/north-texas-tollway.png', alt: 'North Texas Tollway Authority Logo', height: 77 },
   ...logos
 ];
 
