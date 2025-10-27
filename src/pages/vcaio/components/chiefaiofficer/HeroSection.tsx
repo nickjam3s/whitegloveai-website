@@ -7,46 +7,15 @@ const HeroSection = () => {
   const isMobile = useIsMobile();
   
   return (
-    <section className="relative h-[100vh] flex items-center overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-[#7021EE]/20 to-black/90">
-        <div className="absolute inset-0 backdrop-blur-sm" />
+    <section className="relative h-[100vh] flex items-center overflow-hidden bg-gradient-to-br from-secondary/5 via-background to-primary/5">
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute inset-0" style={{
+          backgroundImage: 'radial-gradient(circle at 2px 2px, hsl(var(--secondary)) 1px, transparent 0)',
+          backgroundSize: '40px 40px'
+        }}></div>
       </div>
-      
-      <div className="absolute inset-0 overflow-hidden">
-        {[...Array(20)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute rounded-full bg-[#7021EE]/20"
-            initial={{
-              x: Math.random() * window.innerWidth,
-              y: Math.random() * window.innerHeight,
-              scale: Math.random() * 0.5 + 0.5,
-            }}
-            animate={{
-              x: [
-                Math.random() * window.innerWidth,
-                Math.random() * window.innerWidth,
-                Math.random() * window.innerWidth,
-              ],
-              y: [
-                Math.random() * window.innerHeight,
-                Math.random() * window.innerHeight,
-                Math.random() * window.innerHeight,
-              ],
-              opacity: [0.15, 0.25, 0.15], // Reduced opacity slightly
-            }}
-            transition={{
-              duration: Math.random() * 15 + 10, // Reduced duration to speed up animation
-              repeat: Infinity,
-              ease: "linear",
-            }}
-            style={{
-              width: isMobile ? `${Math.random() * 100 + 30}px` : `${Math.random() * 200 + 50}px`,
-              height: isMobile ? `${Math.random() * 100 + 30}px` : `${Math.random() * 200 + 50}px`,
-            }}
-          />
-        ))}
-      </div>
+      <div className="absolute top-1/4 left-10 w-72 h-72 bg-secondary/10 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-primary/10 rounded-full blur-3xl"></div>
 
       <div className="container mx-auto px-4 flex flex-col items-center justify-center relative z-10">
         <div className="max-w-5xl mx-auto text-center mb-8 md:mb-16">
