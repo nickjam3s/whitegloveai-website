@@ -61,10 +61,10 @@ const UnifiedServicesSection = () => {
             <div className="bg-secondary/10 p-3 rounded-lg w-14 h-14 flex items-center justify-center mx-auto mb-4 group-hover:bg-secondary/20 transition-colors">
               <service.icon className="h-8 w-8 text-secondary" />
             </div>
-            <h3 className="font-medium mb-2 text-white">{service.title}</h3>
-            <p className="text-gray-400 text-sm" dangerouslySetInnerHTML={{ __html: service.description }}></p>
+            <h3 className="text-xl font-medium mb-3 text-white">{service.title}</h3>
+            <p className="text-gray-400 text-base" dangerouslySetInnerHTML={{ __html: service.description }}></p>
             <div className="flex items-center justify-center mt-4 text-secondary group-hover:translate-x-1 transition-transform">
-              <span className="text-sm">Learn More</span>
+              <span className="text-base">Learn More</span>
               <ArrowRight className="ml-2 h-4 w-4" />
             </div>
           </Link>
