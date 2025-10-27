@@ -25,20 +25,28 @@ import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import Admin from "./pages/Admin";
 
-// MAISP (Managed AI Services) Routes
-import MAISP from "./pages/maisp/Index";
-import TextAI from "./pages/maisp/TextAI";
-import TextAIForGood from "./pages/maisp/TextAIForGood";
-import VoiceAI from "./pages/maisp/VoiceAI";
-import AvatarAI from "./pages/maisp/AvatarAI";
-import AutomateAI from "./pages/maisp/AutomateAI";
-import HumanoidAI from "./pages/maisp/HumanoidAI";
+// Service Routes
+import Services from "./pages/Services";
+import Consulting from "./pages/Consulting";
+import Training from "./pages/Training";
+import GovAI from "./pages/GovAI";
+import TranslateAI from "./pages/TranslateAI";
+import EmbodiedAI from "./pages/EmbodiedAI";
+
+// CommunicationsAI Routes
+import CommunicationsAI from "./pages/communicationsai/Index";
+import TextAI from "./pages/communicationsai/TextAI";
+import TextAIForGood from "./pages/communicationsai/TextAIForGood";
+import VoiceAI from "./pages/communicationsai/VoiceAI";
+import AvatarAI from "./pages/communicationsai/AvatarAI";
+import AutomateAI from "./pages/communicationsai/AutomateAI";
+
+// Legacy MAISP Routes (for reference)
 import VendorAI from "./pages/maisp/VendorAI";
 import MediaAI from "./pages/maisp/MediaAI";
 import MediaAIEquipmentProtected from "./pages/maisp/MediaAIEquipmentProtected";
-import TranslateAI from "./pages/maisp/TranslateAI";
 
-// vCAIO Routes
+// Legacy vCAIO Routes (for reference)
 import VCAIO from "./pages/vcaio/Index";
 import ChiefAIOfficer from "./pages/vcaio/ChiefAIOfficer";
 import Launch from "./pages/vcaio/Launch";
@@ -78,34 +86,47 @@ const AppContent = () => {
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/traiga" element={<TRAIGA />} />
                 
+                {/* Service Routes */}
+                <Route path="/services" element={<Services />} />
+                <Route path="/consulting" element={<Consulting />} />
+                <Route path="/communicationsai" element={<CommunicationsAI />} />
+                <Route path="/communicationsai/automateai" element={<AutomateAI />} />
+                <Route path="/communicationsai/avatarai" element={<AvatarAI />} />
+                <Route path="/communicationsai/textai" element={<TextAI />} />
+                <Route path="/communicationsai/textai/textaiforgood" element={<TextAIForGood />} />
+                <Route path="/communicationsai/voiceai" element={<VoiceAI />} />
+                <Route path="/translateai" element={<TranslateAI />} />
+                <Route path="/training" element={<Training />} />
+                <Route path="/embodiedai" element={<EmbodiedAI />} />
+                <Route path="/govai" element={<GovAI />} />
                 
-                {/* Blog & CMS Routes */}
-                <Route path="/blog" element={<Blog />} />
-                <Route path="/blog/:slug" element={<BlogPost />} />
-                <Route path="/admin" element={<Admin />} />
-                
-                {/* MAISP Routes */}
-                <Route path="/maisp" element={<MAISP />} />
-                <Route path="/maisp/textai" element={<TextAI />} />
-                <Route path="/maisp/textai/textaiforgood" element={<TextAIForGood />} />
-                <Route path="/maisp/voiceai" element={<VoiceAI />} />
-                <Route path="/maisp/avatarai" element={<AvatarAI />} />
-                <Route path="/maisp/automateai" element={<AutomateAI />} />
-                <Route path="/maisp/embodied-ai" element={<HumanoidAI />} />
-                <Route path="/maisp/humaniodai" element={<Navigate to="/maisp/embodied-ai" replace />} />
-                <Route path="/maisp/humanoid-ai" element={<Navigate to="/maisp/embodied-ai" replace />} />
+                {/* Redirects from old routes */}
+                <Route path="/maisp" element={<Navigate to="/services" replace />} />
+                <Route path="/maisp/textai" element={<Navigate to="/communicationsai/textai" replace />} />
+                <Route path="/maisp/textai/textaiforgood" element={<Navigate to="/communicationsai/textai/textaiforgood" replace />} />
+                <Route path="/maisp/voiceai" element={<Navigate to="/communicationsai/voiceai" replace />} />
+                <Route path="/maisp/avatarai" element={<Navigate to="/communicationsai/avatarai" replace />} />
+                <Route path="/maisp/automateai" element={<Navigate to="/communicationsai/automateai" replace />} />
+                <Route path="/maisp/embodied-ai" element={<Navigate to="/embodiedai" replace />} />
+                <Route path="/maisp/humaniodai" element={<Navigate to="/embodiedai" replace />} />
+                <Route path="/maisp/humanoid-ai" element={<Navigate to="/embodiedai" replace />} />
+                <Route path="/maisp/translateai" element={<Navigate to="/translateai" replace />} />
                 <Route path="/maisp/vendorai" element={<VendorAI />} />
                 <Route path="/maisp/mediaai" element={<MediaAI />} />
                 <Route path="/maisp/mediaai/equipment" element={<MediaAIEquipmentProtected />} />
-                <Route path="/maisp/translateai" element={<TranslateAI />} />
                 
-                {/* vCAIO Routes */}
-                <Route path="/vcaio" element={<VCAIO />} />
+                {/* vCAIO Routes - redirect to consulting */}
+                <Route path="/vcaio" element={<Navigate to="/consulting" replace />} />
                 <Route path="/vcaio/chiefaiofficer" element={<ChiefAIOfficer />} />
                 <Route path="/vcaio/launch" element={<Launch />} />
                 <Route path="/vcaio/launchai" element={<LaunchAI />} />
                 <Route path="/vcaio/adopt" element={<Adopt />} />
                 <Route path="/vcaio/enable" element={<Enable />} />
+                
+                {/* Blog & CMS Routes */}
+                <Route path="/blog" element={<Blog />} />
+                <Route path="/blog/:slug" element={<BlogPost />} />
+                <Route path="/admin" element={<Admin />} />
                 
                 {/* Portal Routes */}
                 <Route path="/portal" element={<PortalIndex />} />

@@ -1,15 +1,15 @@
 
 import { useEffect, useLayoutEffect } from "react";
-import HeroSection from "./components/textai/HeroSection";
-import IntelligentInformationSection from "./components/textai/IntelligentInformationSection";
-import OperationalEfficiencySection from "./components/textai/OperationalEfficiencySection";
-import ExpectedROISection from "./components/textai/ExpectedROISection";
-import McKinneyEDCSection from "./components/textai/McKinneyEDCSection";
-import SecurityComplianceSection from "./components/textai/SecurityComplianceSection";
-import ImplementationProcessSection from "./components/textai/ImplementationProcessSection";
-import AdditionalServicesSection from "./components/textai/AdditionalServicesSection";
-import ContactSection from "./components/textai/ContactSection";
-import DemoExampleSection from "./components/textai/DemoExampleSection";
+import HeroSection from "../maisp/components/textai/HeroSection";
+import IntelligentInformationSection from "../maisp/components/textai/IntelligentInformationSection";
+import OperationalEfficiencySection from "../maisp/components/textai/OperationalEfficiencySection";
+import ExpectedROISection from "../maisp/components/textai/ExpectedROISection";
+import McKinneyEDCSection from "../maisp/components/textai/McKinneyEDCSection";
+import SecurityComplianceSection from "../maisp/components/textai/SecurityComplianceSection";
+import ImplementationProcessSection from "../maisp/components/textai/ImplementationProcessSection";
+import AdditionalServicesSection from "../maisp/components/textai/AdditionalServicesSection";
+import ContactSection from "../maisp/components/textai/ContactSection";
+import DemoExampleSection from "../maisp/components/textai/DemoExampleSection";
 import { ArrowRight, CheckCircle2, BarChart4, Shield } from "lucide-react";
 import ScrollAnimation from '@/components/animations/ScrollAnimation';
 import '@/styles/animations.css'; // Import animations CSS
