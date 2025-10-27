@@ -119,14 +119,15 @@ const AboutUs = () => {
       </section>
 
       <PageWrapper>
-        <motion.section
-          id="mission"
-          initial="initial"
-          whileInView="animate"
-          viewport={{ once: true }}
-          variants={fadeInUp}
-          className="scroll-mt-20 bg-gradient-to-br from-[#7021EE]/10 to-transparent border border-[#7021EE]/20 p-4 sm:p-8 rounded-xl mx-4 sm:mx-8 lg:mx-16"
-        >
+        <div className="container mx-auto px-4">
+          <motion.section
+            id="mission"
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+            className="scroll-mt-20 bg-gradient-to-br from-[#7021EE]/10 to-transparent border border-[#7021EE]/20 p-4 sm:p-8 rounded-xl"
+          >
           <motion.h2 
             variants={titleAnimation} 
             className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-8 text-[#7021EE]"
@@ -141,15 +142,15 @@ const AboutUs = () => {
             We believe in reshaping organizational efficiency through AI, unlocking new potentials in business processes, 
             customer experiences, and digital transformation strategies.
           </motion.p>
-        </motion.section>
+          </motion.section>
 
-        <motion.section
-          initial="initial"
-          whileInView="animate"
-          viewport={{ once: true }}
-          variants={fadeInUp}
-          className="bg-gradient-to-br from-[#7021EE]/10 to-transparent border border-[#7021EE]/20 p-4 sm:p-8 rounded-xl mt-16 mx-4 sm:mx-8 lg:mx-16"
-        >
+          <motion.section
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+            className="bg-gradient-to-br from-[#7021EE]/10 to-transparent border border-[#7021EE]/20 p-4 sm:p-8 rounded-xl mt-16"
+          >
           <motion.h2 
             variants={titleAnimation}
             className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-8 text-[#7021EE]"
@@ -164,15 +165,15 @@ const AboutUs = () => {
             through emerging technologies. We aim to establish AI as a transformative force that helps businesses 
             solve complex problems, streamline operations, and enhance decision-making capabilities.
           </motion.p>
-        </motion.section>
-        
-        <motion.section
-          initial="initial"
-          whileInView="animate"
-          viewport={{ once: true }}
-          variants={fadeInUp}
-          className="bg-gradient-to-br from-[#7021EE]/10 to-transparent border border-[#7021EE]/20 p-4 sm:p-8 rounded-xl mt-16 mx-4 sm:mx-8 lg:mx-16"
-        >
+          </motion.section>
+          
+          <motion.section
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+            className="bg-gradient-to-br from-[#7021EE]/10 to-transparent border border-[#7021EE]/20 p-4 sm:p-8 rounded-xl mt-16"
+          >
           <motion.h2 
             variants={titleAnimation}
             className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-8 text-[#7021EE]"
@@ -188,38 +189,38 @@ const AboutUs = () => {
             not just a tool but a transformative ally that amplifies human potential, drives innovation, and reshapes 
             the very fabric of business.
           </motion.p>
-        </motion.section>
-        
-        <div className="mt-16">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+          </motion.section>
+          
+          <div className="mt-16">
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              <CoreBeliefs />
+            </motion.div>
+          </div>
+          
+          <motion.section
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.7 }}
+            className="bg-gradient-to-br from-[#7021EE]/10 to-transparent border border-[#7021EE]/20 p-4 sm:p-8 rounded-xl mt-16"
           >
-            <CoreBeliefs />
-          </motion.div>
-        </div>
-        
-        <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-          className="bg-gradient-to-br from-[#7021EE]/10 to-transparent border border-[#7021EE]/20 p-4 sm:p-8 rounded-xl mt-16 mx-4 sm:mx-8 lg:mx-16"
-        >
           <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
             At WhitegloveAI, we are not just practitioners but advocates of an AI-enabled future where businesses thrive through the ethical, secure, and intelligent application of technology. We are dedicated to leading this charge, providing our clients and stakeholders with the tools and guidance to realize the full potential of artificial intelligence. Our philosophy isn't just about what AI can do for us today, but how it will shape our tomorrow.
           </p>
-        </motion.section>
-        
-        <motion.section
-          variants={containerAnimation}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mt-16"
-        >
+          </motion.section>
+          
+          <motion.section
+            variants={containerAnimation}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mt-16"
+          >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 md:mb-8 text-[#7021EE] col-span-full">Our Core Values</h2>
           {coreValues.map((value, index) => (
             <motion.div
@@ -234,11 +235,12 @@ const AboutUs = () => {
               </p>
             </motion.div>
           ))}
-        </motion.section>
-        
-        <ExecutiveTeam />
-        
-        <GetInTouch />
+          </motion.section>
+          
+          <ExecutiveTeam />
+          
+          <GetInTouch />
+        </div>
       </PageWrapper>
     </div>
   );
