@@ -206,7 +206,7 @@ const AboutUs = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="bg-gradient-to-br from-[#7021EE]/10 to-transparent border border-[#7021EE]/20 p-4 sm:p-8 rounded-xl mt-16"
+          className="bg-gradient-to-br from-[#7021EE]/10 to-transparent border border-[#7021EE]/20 p-4 sm:p-8 rounded-xl mt-16 mx-2 sm:mx-0"
         >
           <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
             At WhitegloveAI, we are not just practitioners but advocates of an AI-enabled future where businesses thrive through the ethical, secure, and intelligent application of technology. We are dedicated to leading this charge, providing our clients and stakeholders with the tools and guidance to realize the full potential of artificial intelligence. Our philosophy isn't just about what AI can do for us today, but how it will shape our tomorrow.
@@ -225,7 +225,7 @@ const AboutUs = () => {
             <motion.div
               key={index}
               variants={itemAnimation}
-              className="group p-4 sm:p-6 rounded-xl bg-gradient-to-br from-[#7021EE]/10 to-transparent border border-[#7021EE]/20 hover:border-[#7021EE]/40 transition-all duration-300 hover-lift"
+              className="group p-4 sm:p-6 rounded-xl bg-gradient-to-br from-[#7021EE]/10 to-transparent border border-[#7021EE]/20 hover:border-[#7021EE]/40 transition-all duration-300 hover-lift mx-2 sm:mx-0"
             >
               <value.icon className="h-7 w-7 md:h-8 md:w-8 text-[#7021EE] mb-3 md:mb-4" />
               <h3 className="text-lg md:text-xl font-semibold mb-2 md:mb-3 text-white">{value.title}</h3>
