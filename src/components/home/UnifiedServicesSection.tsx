@@ -13,7 +13,7 @@ const services = [
   {
     icon: MessageSquare,
     title: "CommunicationsAI",
-    description: "Unify and automate customer and citizen conversations across chat, voice, and text with our Lucidis platform.",
+    description: "Unify and automate customer and citizen conversations across chat, voice, and text with our <a href='https://www.lucidis.ai' target='_blank' rel='noopener noreferrer' className='hover:text-secondary transition-colors'>Lucidis</a> platform.",
     link: "/communicationsai"
   },
   {
@@ -62,7 +62,7 @@ const UnifiedServicesSection = () => {
               <service.icon className="h-8 w-8 text-secondary" />
             </div>
             <h3 className="font-medium mb-2 text-white">{service.title}</h3>
-            <p className="text-gray-400 text-sm">{service.description}</p>
+            <p className="text-gray-400 text-sm" dangerouslySetInnerHTML={{ __html: service.description }}></p>
             <div className="flex items-center justify-center mt-4 text-secondary group-hover:translate-x-1 transition-transform">
               <span className="text-sm">Learn More</span>
               <ArrowRight className="ml-2 h-4 w-4" />

@@ -279,7 +279,7 @@ const GovAI = () => {
                     <span className="text-secondary font-semibold">Contract #2025-018</span>
                     <CheckCircle2 className="h-5 w-5 text-secondary" />
                   </div>
-                  <p className="text-white font-medium">Lucidis AI Platform</p>
+                  <p className="text-white font-medium"><a href="https://www.lucidis.ai" target="_blank" rel="noopener noreferrer" className="hover:text-secondary transition-colors">Lucidis</a> AI Platform</p>
                   <p className="text-sm text-gray-400 mt-2">Unified communications AI for citizen engagement</p>
                 </div>
               </div>

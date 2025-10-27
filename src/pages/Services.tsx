@@ -27,7 +27,7 @@ const Services = () => {
     {
       icon: MessageSquare,
       title: "CommunicationsAI",
-      description: "Unified AI communication management powered by Lucidis",
+      description: "Unified AI communication management powered by <a href='https://www.lucidis.ai' target='_blank' rel='noopener noreferrer' className='hover:text-secondary transition-colors'>Lucidis</a>",
       link: "/communicationsai",
       gradient: "from-purple-500 to-pink-600"
     },
@@ -144,8 +144,7 @@ const Services = () => {
                         {service.title}
                       </h3>
                       
-                      <p className="text-gray-400 mb-6 flex-grow">
-                        {service.description}
+                      <p className="text-gray-400 mb-6 flex-grow" dangerouslySetInnerHTML={{ __html: service.description }}>
                       </p>
                       
                       <div className="flex items-center text-secondary group-hover:text-secondary/80 transition-colors">

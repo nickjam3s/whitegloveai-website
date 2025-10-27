@@ -23,7 +23,7 @@ const SolutionsSection = () => {
           Our Solution
         </h2>
         <p className="text-gray-400 text-center max-w-3xl mx-auto mb-16">
-          Built on the secure and scalable Lucidis platform, AutomateAI delivers intelligent automation that transforms your operations.
+          Built on the secure and scalable <a href="https://www.lucidis.ai" target="_blank" rel="noopener noreferrer" className="hover:text-secondary transition-colors">Lucidis</a> platform, AutomateAI delivers intelligent automation that transforms your operations.
         </p>
         <div className="grid md:grid-cols-3 gap-8">
           {solutions.map((solution, index) => (

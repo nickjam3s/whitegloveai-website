@@ -7,7 +7,7 @@ const ProblemSolutionSection = () => {
           The Problem & Our Solution
         </h2>
         <p className="text-gray-400 text-center max-w-3xl mx-auto mb-16">
-          Built on the secure and scalable Lucidis platform, TextAI delivers intelligent, conversational support across all text-based channels.
+          Built on the secure and scalable <a href="https://www.lucidis.ai" target="_blank" rel="noopener noreferrer" className="hover:text-secondary transition-colors">Lucidis</a> platform, TextAI delivers intelligent, conversational support across all text-based channels.
         </p>
         
         <div className="grid md:grid-cols-2 gap-8">

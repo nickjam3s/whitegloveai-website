@@ -119,7 +119,7 @@ const VoiceAI = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-lg md:text-xl lg:text-2xl text-gray-200 mb-8 md:mb-12 max-w-3xl mx-auto px-3 sm:px-0 text-shadow-sm"
             >
-              VoiceAI transforms your phone lines into powerful, conversational AI channels. Powered by the Lucidis platform, it answers every call immediately with natural language understanding.
+              VoiceAI transforms your phone lines into powerful, conversational AI channels. Powered by the <a href="https://www.lucidis.ai" target="_blank" rel="noopener noreferrer" className="hover:text-secondary transition-colors">Lucidis</a> platform, it answers every call immediately with natural language understanding.
             </motion.p>
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
@@ -148,7 +148,7 @@ const VoiceAI = () => {
             The Problem & Our Solution
           </motion.h2>
           <p className="text-gray-400 text-center max-w-3xl mx-auto mb-16">
-            Built on the secure and scalable Lucidis platform, VoiceAI delivers natural voice conversations that feel human and work 24/7.
+            Built on the secure and scalable <a href="https://www.lucidis.ai" target="_blank" rel="noopener noreferrer" className="hover:text-secondary transition-colors">Lucidis</a> platform, VoiceAI delivers natural voice conversations that feel human and work 24/7.
           </p>
           <div className="grid md:grid-cols-2 gap-12">
             <motion.div 

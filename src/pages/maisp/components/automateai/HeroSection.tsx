@@ -72,7 +72,7 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-lg md:text-xl lg:text-2xl text-gray-200 mb-8 md:mb-12 max-w-3xl mx-auto px-3 sm:px-0 text-shadow-sm"
           >
-            AutomateAI transforms interactions into outcomes. Built on the Lucidis platform, it creates intelligent workflows that automate tasks and integrate with your systems.
+            AutomateAI transforms interactions into outcomes. Built on the <a href="https://www.lucidis.ai" target="_blank" rel="noopener noreferrer" className="hover:text-secondary transition-colors">Lucidis</a> platform, it creates intelligent workflows that automate tasks and integrate with your systems.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}

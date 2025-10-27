@@ -8,7 +8,7 @@ const TransformSection = ({ experiences }) => {
           Transform Your Customer Experience
         </h2>
         <p className="text-gray-400 text-center max-w-3xl mx-auto mb-16">
-          Built on the secure and scalable Lucidis platform, AvatarAI delivers lifelike digital engagement that transforms every interaction.
+          Built on the secure and scalable <a href="https://www.lucidis.ai" target="_blank" rel="noopener noreferrer" className="hover:text-secondary transition-colors">Lucidis</a> platform, AvatarAI delivers lifelike digital engagement that transforms every interaction.
         </p>
         <div className="grid md:grid-cols-2 gap-12">
           {experiences.map((experience, index) => (

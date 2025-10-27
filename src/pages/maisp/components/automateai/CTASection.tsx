@@ -9,7 +9,7 @@ const CTASection = () => {
           Experience the Future of Business Operations
         </h2>
         <p className="text-gray-400 max-w-2xl mx-auto mb-8">
-          Experience the future of business operations with AutomateAI. Visit Lucidis.ai to learn more about how our AI-powered solutions can transform your organization.
+          Experience the future of business operations with AutomateAI. Visit <a href="https://www.lucidis.ai" target="_blank" rel="noopener noreferrer" className="hover:text-secondary transition-colors">Lucidis.ai</a> to learn more about how our AI-powered solutions can transform your organization.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           

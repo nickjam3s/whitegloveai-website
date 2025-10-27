@@ -31,7 +31,7 @@ const ExecutiveTeam = () => {
     },
     {
       name: "Binni Skariah",
-      title: "Product Owner of Lucidis.AI",
+      title: "Product Owner of <a href='https://www.lucidis.ai' target='_blank' rel='noopener noreferrer' className='hover:text-secondary transition-colors'>Lucidis</a>.AI",
       image: "/employee/Binni.jpeg",
       linkedinUrl: "https://www.linkedin.com/in/bskariah/"
     },
@@ -66,7 +66,7 @@ const ExecutiveTeam = () => {
         />
       </div>
       <h3 className="text-lg font-bold text-white mb-2">{name}</h3>
-      <p className="text-sm text-gray-400 mb-4">{title}</p>
+      <p className="text-sm text-gray-400 mb-4" dangerouslySetInnerHTML={{ __html: title }}></p>
       <a 
         href={linkedinUrl} 
         target="_blank" 

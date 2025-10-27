@@ -124,7 +124,7 @@ const CommunicationsAI = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-lg md:text-xl lg:text-2xl text-gray-200 mb-8 md:mb-12 max-w-4xl mx-auto px-3 sm:px-0 text-shadow-sm"
             >
-              Welcome to CommunicationsAI, the central nervous system for your organization's outreach. Powered by our proprietary Lucidis platform, we transform scattered citizen and customer interactions into a single, intelligent stream of communication.
+              Welcome to CommunicationsAI, the central nervous system for your organization's outreach. Powered by our proprietary <a href="https://www.lucidis.ai" target="_blank" rel="noopener noreferrer" className="hover:text-secondary transition-colors">Lucidis</a> platform, we transform scattered citizen and customer interactions into a single, intelligent stream of communication.
             </motion.p>
 
             <motion.div 
@@ -197,13 +197,13 @@ const CommunicationsAI = () => {
               </p>
             </div>
             <h2 className="text-3xl md:text-4xl font-semibold mb-6 heading-highlight-scroll">
-              The Lucidis Platform: Your AI-Powered Communications Engine
+              The <a href="https://www.lucidis.ai" target="_blank" rel="noopener noreferrer" className="hover:text-secondary transition-colors">Lucidis</a> Platform: Your AI-Powered Communications Engine
             </h2>
             <p className="text-xl text-gray-300 max-w-4xl mx-auto mb-4">
-              CommunicationsAI isn't a collection of separate tools; it's a unified service built on Lucidis, our SOC 2 Type II certified AI platform designed for the security and scale that government agencies and businesses demand.
+              CommunicationsAI isn't a collection of separate tools; it's a unified service built on <a href="https://www.lucidis.ai" target="_blank" rel="noopener noreferrer" className="hover:text-secondary transition-colors">Lucidis</a>, our SOC 2 Type II certified AI platform designed for the security and scale that government agencies and businesses demand.
             </p>
             <p className="text-lg text-gray-400 max-w-3xl mx-auto">
-              Lucidis provides a single, persistent memory for every interaction, ensuring context is never lost.
+              <a href="https://www.lucidis.ai" target="_blank" rel="noopener noreferrer" className="hover:text-secondary transition-colors">Lucidis</a> provides a single, persistent memory for every interaction, ensuring context is never lost.
             </p>
           </motion.div>
           

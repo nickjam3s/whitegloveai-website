@@ -80,7 +80,7 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-lg md:text-xl lg:text-2xl text-gray-200 mb-8 md:mb-12 max-w-3xl mx-auto px-3 sm:px-0 text-shadow-sm"
           >
-            TextAI is your always-on, first line of support. Built on the Lucidis platform, it delivers fast, accurate conversations across website chat, SMS, and email.
+            TextAI is your always-on, first line of support. Built on the <a href="https://www.lucidis.ai" target="_blank" rel="noopener noreferrer" className="hover:text-secondary transition-colors">Lucidis</a> platform, it delivers fast, accurate conversations across website chat, SMS, and email.
           </motion.p>
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
