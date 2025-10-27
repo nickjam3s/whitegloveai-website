@@ -110,7 +110,7 @@ const HeroSection = () => {
             {...fadeInUp}
             className="text-xl sm:text-2xl text-gray-200 max-w-3xl mx-auto mb-10 text-shadow-sm"
           >
-            At WhitegloveAI, we guide you through the transformative journey of AI adoption—ensuring every step is secure, compliant, and aligned with your business goals.
+            We build, implement, and manage secure, scalable AI solutions for government agencies and growing businesses. Move from AI ambition to tangible results.
           </motion.p>
           <motion.div 
             {...fadeInUp}

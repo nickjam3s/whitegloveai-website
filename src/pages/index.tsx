@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import HeroSection from '@/components/home/HeroSection';
 import TrustedBy from '@/components/home/TrustedBy';
 import ServicesSection from '@/components/home/ServicesSection';
+import GovAIHighlight from '@/components/home/GovAIHighlight';
 import AIIncubationLabSection from '@/components/AIIncubationLabSection';
 import AIAMFFrameworkSection from '@/components/home/AIAMFFrameworkSection';
 import WhitegloveAIDifference from '@/components/home/WhitegloveAIDifference';
@@ -129,6 +130,7 @@ const Index = () => {
 
       <TrustedBy />
       <ServicesSection />
+      <GovAIHighlight />
 
       {/* TRAIGA Triage Center Section */}
       <section className="py-20 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 relative overflow-hidden">

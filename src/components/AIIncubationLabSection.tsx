@@ -15,7 +15,7 @@ const AIIncubationLabSection = () => {
             We can help you prototype your next app idea to life, as fast as 4 Weeks!
           </p>
           <p className="text-gray-400 max-w-3xl mx-auto mb-10">
-            Launch AI-powered products faster with enterprise-grade security, customer validation, and scalable architecture.
+            Launch AI-powered products faster with government-grade security, customer validation, and scalable architecture.
           </p>
         </div>
 
