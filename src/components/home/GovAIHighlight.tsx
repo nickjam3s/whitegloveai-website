@@ -6,11 +6,15 @@ import { Button } from '@/components/ui/button';
 
 const GovAIHighlight = () => {
   return (
-    <section className="py-20 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 relative overflow-hidden">
-      <div className="absolute inset-0">
-        <div className="absolute top-0 left-0 w-1/3 h-full bg-primary/5"></div>
-        <div className="absolute top-0 right-0 w-1/3 h-full bg-accent/5"></div>
+    <section className="py-20 bg-gradient-to-br from-secondary/5 via-background to-primary/5 relative overflow-hidden">
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute inset-0" style={{
+          backgroundImage: 'radial-gradient(circle at 2px 2px, hsl(var(--secondary)) 1px, transparent 0)',
+          backgroundSize: '40px 40px'
+        }}></div>
       </div>
+      <div className="absolute top-1/4 left-10 w-72 h-72 bg-secondary/10 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-primary/10 rounded-full blur-3xl"></div>
       
       <div className="max-w-5xl mx-auto px-4 relative z-10">
         <motion.div

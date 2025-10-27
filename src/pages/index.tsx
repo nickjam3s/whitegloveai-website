@@ -133,10 +133,10 @@ const Index = () => {
       <GovAIHighlight />
 
       {/* TRAIGA Triage Center Section */}
-      <section className="py-20 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 relative overflow-hidden">
+      <section className="py-20 bg-gradient-to-t from-primary/10 via-background to-accent/5 relative overflow-hidden">
         <div className="absolute inset-0">
-          <div className="absolute top-0 left-0 w-1/3 h-full bg-primary/5"></div>
-          <div className="absolute top-0 right-0 w-1/3 h-full bg-accent/5"></div>
+          <div className="absolute top-0 left-1/4 w-1/2 h-full bg-gradient-to-b from-accent/10 to-transparent blur-2xl"></div>
+          <div className="absolute bottom-0 right-1/4 w-1/2 h-1/2 bg-gradient-to-t from-primary/10 to-transparent blur-2xl"></div>
         </div>
         
         <div className="max-w-6xl mx-auto px-4 relative z-10">
