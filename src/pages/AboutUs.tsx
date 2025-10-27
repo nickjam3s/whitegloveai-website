@@ -125,7 +125,7 @@ const AboutUs = () => {
           whileInView="animate"
           viewport={{ once: true }}
           variants={fadeInUp}
-          className="scroll-mt-20 px-2 sm:px-0"
+          className="scroll-mt-20 bg-gradient-to-br from-[#7021EE]/10 to-transparent border border-[#7021EE]/20 p-4 sm:p-8 rounded-xl mx-2 sm:mx-0"
         >
           <motion.h2 
             variants={titleAnimation} 
@@ -148,7 +148,7 @@ const AboutUs = () => {
           whileInView="animate"
           viewport={{ once: true }}
           variants={fadeInUp}
-          className="px-2 sm:px-0 mt-16"
+          className="bg-gradient-to-br from-[#7021EE]/10 to-transparent border border-[#7021EE]/20 p-4 sm:p-8 rounded-xl mt-16 mx-2 sm:mx-0"
         >
           <motion.h2 
             variants={titleAnimation}
@@ -171,7 +171,7 @@ const AboutUs = () => {
           whileInView="animate"
           viewport={{ once: true }}
           variants={fadeInUp}
-          className="px-2 sm:px-0 mt-16"
+          className="bg-gradient-to-br from-[#7021EE]/10 to-transparent border border-[#7021EE]/20 p-4 sm:p-8 rounded-xl mt-16 mx-2 sm:mx-0"
         >
           <motion.h2 
             variants={titleAnimation}
