@@ -125,7 +125,7 @@ const AboutUs = () => {
           whileInView="animate"
           viewport={{ once: true }}
           variants={fadeInUp}
-          className="scroll-mt-20 bg-gradient-to-br from-[#7021EE]/10 to-transparent border border-[#7021EE]/20 p-4 sm:p-8 rounded-xl mx-2 sm:mx-0"
+          className="scroll-mt-20 bg-gradient-to-br from-[#7021EE]/10 to-transparent border border-[#7021EE]/20 p-4 sm:p-8 rounded-xl mx-4 sm:mx-8 lg:mx-16"
         >
           <motion.h2 
             variants={titleAnimation} 
@@ -148,7 +148,7 @@ const AboutUs = () => {
           whileInView="animate"
           viewport={{ once: true }}
           variants={fadeInUp}
-          className="bg-gradient-to-br from-[#7021EE]/10 to-transparent border border-[#7021EE]/20 p-4 sm:p-8 rounded-xl mt-16 mx-2 sm:mx-0"
+          className="bg-gradient-to-br from-[#7021EE]/10 to-transparent border border-[#7021EE]/20 p-4 sm:p-8 rounded-xl mt-16 mx-4 sm:mx-8 lg:mx-16"
         >
           <motion.h2 
             variants={titleAnimation}
@@ -171,7 +171,7 @@ const AboutUs = () => {
           whileInView="animate"
           viewport={{ once: true }}
           variants={fadeInUp}
-          className="bg-gradient-to-br from-[#7021EE]/10 to-transparent border border-[#7021EE]/20 p-4 sm:p-8 rounded-xl mt-16 mx-2 sm:mx-0"
+          className="bg-gradient-to-br from-[#7021EE]/10 to-transparent border border-[#7021EE]/20 p-4 sm:p-8 rounded-xl mt-16 mx-4 sm:mx-8 lg:mx-16"
         >
           <motion.h2 
             variants={titleAnimation}
@@ -206,7 +206,7 @@ const AboutUs = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="bg-gradient-to-br from-[#7021EE]/10 to-transparent border border-[#7021EE]/20 p-4 sm:p-8 rounded-xl mt-16 mx-2 sm:mx-0"
+          className="bg-gradient-to-br from-[#7021EE]/10 to-transparent border border-[#7021EE]/20 p-4 sm:p-8 rounded-xl mt-16 mx-4 sm:mx-8 lg:mx-16"
         >
           <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
             At WhitegloveAI, we are not just practitioners but advocates of an AI-enabled future where businesses thrive through the ethical, secure, and intelligent application of technology. We are dedicated to leading this charge, providing our clients and stakeholders with the tools and guidance to realize the full potential of artificial intelligence. Our philosophy isn't just about what AI can do for us today, but how it will shape our tomorrow.
