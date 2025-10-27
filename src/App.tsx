@@ -32,6 +32,7 @@ import Training from "./pages/Training";
 import GovAI from "./pages/GovAI";
 import TranslateAI from "./pages/TranslateAI";
 import EmbodiedAI from "./pages/EmbodiedAI";
+import AILab from "./pages/AILab";
 
 // CommunicationsAI Routes
 import CommunicationsAI from "./pages/communicationsai/Index";
@@ -96,6 +97,7 @@ const AppContent = () => {
                 <Route path="/communicationsai/textai/textaiforgood" element={<TextAIForGood />} />
                 <Route path="/communicationsai/voiceai" element={<VoiceAI />} />
                 <Route path="/translateai" element={<TranslateAI />} />
+                <Route path="/ailab" element={<AILab />} />
                 <Route path="/training" element={<Training />} />
                 <Route path="/embodiedai" element={<EmbodiedAI />} />
                 <Route path="/govai" element={<GovAI />} />

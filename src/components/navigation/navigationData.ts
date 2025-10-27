@@ -40,14 +40,15 @@ export const navigationLinks = [
           { to: "/communicationsai/voiceai", text: "VoiceAI" }
         ]
       },
-      { to: "/translateai", text: "TranslateAI" },
-      {
-        text: "Training",
-        to: "/training",
-        children: [
-          { to: "/training", text: "Overview" }
-        ]
-      },
+    { to: "/translateai", text: "TranslateAI" },
+    { to: "/ailab", text: "The AI Lab" },
+    {
+      text: "Training",
+      to: "/training",
+      children: [
+        { to: "/training", text: "Overview" }
+      ]
+    },
       { to: "/embodiedai", text: "EmbodiedAI" }
     ]
   },

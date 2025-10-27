@@ -81,8 +81,9 @@ const Footer = () => {
               <ul className="space-y-2">
                 <li><Link to="/consulting" className="text-gray-400 hover:text-[#7021EE] transition-colors">Consulting</Link></li>
                 <li><Link to="/translateai" className="text-gray-400 hover:text-[#7021EE] transition-colors">TranslateAI</Link></li>
-                <li><Link to="/embodiedai" className="text-gray-400 hover:text-[#7021EE] transition-colors">EmbodiedAI</Link></li>
+                <li><Link to="/ailab" className="text-gray-400 hover:text-[#7021EE] transition-colors">The AI Lab</Link></li>
                 <li><Link to="/training" className="text-gray-400 hover:text-[#7021EE] transition-colors">Training</Link></li>
+                <li><Link to="/embodiedai" className="text-gray-400 hover:text-[#7021EE] transition-colors">EmbodiedAI</Link></li>
                 <li><Link to="/govai" className="text-gray-400 hover:text-[#7021EE] transition-colors">GovAI</Link></li>
                 <li><Link to="/traiga" className="text-gray-400 hover:text-[#7021EE] transition-colors">TRAIGA</Link></li>
                 <li><a href="https://news.whitegloveai.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#7021EE] transition-colors">News</a></li>
