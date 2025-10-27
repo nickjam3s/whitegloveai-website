@@ -1,15 +1,14 @@
+
 import { useEffect, useLayoutEffect } from "react";
-import HeroSection from "./components/automateai/HeroSection";
-import ChallengesSection from "./components/automateai/ChallengesSection";
-import SolutionsSection from "./components/automateai/SolutionsSection";
-import FeaturesSection from "./components/automateai/FeaturesSection";
-import BenefitsSection from "./components/automateai/BenefitsSection";
-import CTASection from "./components/automateai/CTASection";
-import ContactSection from "./components/automateai/ContactSection";
+import HeroSection from "../maisp/components/textaiforgood/HeroSection";
+import BenefitsSection from "../maisp/components/textaiforgood/BenefitsSection";
+import EfficiencyImpactSection from "../maisp/components/textaiforgood/EfficiencyImpactSection";
+import PartnersSection from "../maisp/components/textaiforgood/PartnersSection";
+import ContactSection from "../maisp/components/textaiforgood/ContactSection";
 import ScrollAnimation from '@/components/animations/ScrollAnimation';
 import '@/styles/animations.css'; // Import animations CSS
 
-const AutomateAI = () => {
+const TextAIForGood = () => {
   // Use useLayoutEffect to prevent flash of content before scroll position is set
   useLayoutEffect(() => {
     // Immediately scroll to top when component mounts
@@ -50,6 +49,13 @@ const AutomateAI = () => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
+          
+          // Add animations to child elements when section is in view
+          const animatableElements = entry.target.querySelectorAll('.animate-on-scroll');
+          animatableElements.forEach((el, index) => {
+            (el as HTMLElement).style.transitionDelay = `${index * 0.1}s`;
+            el.classList.add('visible');
+          });
         }
       });
     }, {
@@ -63,6 +69,12 @@ const AutomateAI = () => {
       observer.observe(heading);
     });
     
+    // Also observe sections with the animate-section class
+    const sections = document.querySelectorAll('.animate-section');
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+
     return () => {
       document.removeEventListener('click', handleAnchorClick);
       // Reset scroll behavior when component unmounts
@@ -70,19 +82,17 @@ const AutomateAI = () => {
       observer.disconnect();
     };
   }, []);
-  
+
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
       <HeroSection />
-      <ChallengesSection />
-      <SolutionsSection />
-      <FeaturesSection />
       <BenefitsSection />
-      <CTASection />
+      <EfficiencyImpactSection />
+      <PartnersSection />
       <ContactSection />
-      <ScrollAnimation targetId="challenges-section" />
+      <ScrollAnimation targetId="benefits-section" />
     </div>
   );
 };
 
-export default AutomateAI;
+export default TextAIForGood;

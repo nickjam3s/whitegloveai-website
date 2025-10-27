@@ -47,45 +47,9 @@ const HeroSection = () => {
   };
   
   return (
-    <section id="hero" className="relative h-[100vh] flex items-center overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-[#7021EE]/20 to-black/90">
+    <section id="hero" className="relative h-[100vh] flex items-center overflow-hidden bg-background">
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent">
         <div className="absolute inset-0 backdrop-blur-sm" />
-      </div>
-      
-      <div className="absolute inset-0 overflow-hidden">
-        {[...Array(20)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute rounded-full bg-[#7021EE]/20"
-            initial={{
-              x: Math.random() * window.innerWidth,
-              y: Math.random() * window.innerHeight,
-              scale: Math.random() * 0.5 + 0.5,
-            }}
-            animate={{
-              x: [
-                Math.random() * window.innerWidth,
-                Math.random() * window.innerWidth,
-                Math.random() * window.innerWidth,
-              ],
-              y: [
-                Math.random() * window.innerHeight,
-                Math.random() * window.innerHeight,
-                Math.random() * window.innerHeight,
-              ],
-              opacity: [0.2, 0.5, 0.2],
-            }}
-            transition={{
-              duration: Math.random() * 20 + 20,
-              repeat: Infinity,
-              ease: "linear",
-            }}
-            style={{
-              width: isMobile ? `${Math.random() * 100 + 30}px` : `${Math.random() * 200 + 50}px`,
-              height: isMobile ? `${Math.random() * 100 + 30}px` : `${Math.random() * 200 + 50}px`,
-            }}
-          />
-        ))}
       </div>
       
       <div className="max-w-7xl mx-auto relative px-4 sm:px-6 lg:px-8">
@@ -102,13 +66,13 @@ const HeroSection = () => {
           </motion.div>
           <motion.h1 
             {...titleAnimation}
-            className="text-5xl sm:text-6xl lg:text-7xl font-semibold tracking-tight mb-8 bg-clip-text text-transparent bg-gradient-to-r from-white to-[#7021EE]"
+            className="text-5xl sm:text-6xl lg:text-7xl font-semibold tracking-tight mb-8 text-foreground"
           >
             Your Trusted AI Adoption Partner
           </motion.h1>
           <motion.p 
             {...fadeInUp}
-            className="text-xl sm:text-2xl text-gray-200 max-w-3xl mx-auto mb-10 text-shadow-sm"
+            className="text-xl sm:text-2xl text-muted-foreground max-w-3xl mx-auto mb-10"
           >
             At WhitegloveAI, we guide you through the transformative journey of AI adoption—ensuring every step is secure, compliant, and aligned with your business goals.
           </motion.p>
@@ -117,11 +81,11 @@ const HeroSection = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-5"
           >
-            <Link to="/contact" className="inline-flex items-center px-7 py-4 text-lg font-medium text-white bg-secondary rounded-lg hover:bg-secondary/90 transition-colors">
+            <Link to="/contact" className="inline-flex items-center px-7 py-4 text-lg font-medium text-primary-foreground bg-primary rounded-lg hover:bg-primary/90 transition-colors">
               Get Started
               <ArrowRight className="ml-3 h-6 w-6" />
             </Link>
-            <a href="https://jzaxt350p9j.typeform.com/to/JlpkD8L8#name=xxxxx&email=xxxxx" target="_blank" rel="noopener noreferrer" className="inline-flex items-center px-7 py-4 text-lg font-medium text-white bg-secondary/20 hover:bg-secondary/30 rounded-lg transition-colors border border-secondary/50">
+            <a href="https://jzaxt350p9j.typeform.com/to/JlpkD8L8#name=xxxxx&email=xxxxx" target="_blank" rel="noopener noreferrer" className="inline-flex items-center px-7 py-4 text-lg font-medium text-foreground bg-secondary hover:bg-secondary/80 rounded-lg transition-colors border border-border">
               Take the AI Readiness Assessment
               <ArrowRight className="ml-3 h-6 w-6" />
             </a>

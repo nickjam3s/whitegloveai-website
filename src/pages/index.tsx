@@ -84,7 +84,7 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-background text-foreground">
       <SEO
         title="Managed AI Services & AI Consulting | WhitegloveAI"
         description="WhitegloveAI delivers managed AI services, AI consulting, and vCAIO leadership to deploy secure, enterprise-grade AI."
