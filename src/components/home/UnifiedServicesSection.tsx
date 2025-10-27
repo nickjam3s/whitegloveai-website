@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, MessageSquare, Building2, GraduationCap, Lightbulb, Sparkles } from "lucide-react";
+import { ArrowRight, MessageSquare, Building2, GraduationCap, Lightbulb, Languages, Bot } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from '@/components/ui/button';
 
@@ -29,10 +29,16 @@ const services = [
     link: "/training"
   },
   {
-    icon: Sparkles,
-    title: "Specialized AI",
-    description: "Explore advanced capabilities with our TranslateAI and EmbodiedAI services.",
-    link: "/services"
+    icon: Languages,
+    title: "TranslateAI",
+    description: "Break language barriers with advanced AI-powered translation and localization services.",
+    link: "/translateai"
+  },
+  {
+    icon: Bot,
+    title: "EmbodiedAI",
+    description: "Deploy intelligent humanoid robots for warehousing, fulfillment, and operational excellence.",
+    link: "/embodiedai"
   }
 ];
 
