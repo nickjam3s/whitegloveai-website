@@ -20,15 +20,15 @@ import ScrollAnimation from '@/components/animations/ScrollAnimation';
 import '@/styles/animations.css';
 
 // Import all sections
-import HeroSection from "../maisp/components/avatarai/HeroSection";
-import EvolutionSection from "../maisp/components/avatarai/EvolutionSection";
-import TransformSection from "../maisp/components/avatarai/TransformSection";
-import IndustriesSection from "../maisp/components/avatarai/IndustriesSection";
-import CaseStudySection from "../maisp/components/avatarai/CaseStudySection";
-import HowItWorksSection from "../maisp/components/avatarai/HowItWorksSection";
-import BenefitsSection from "../maisp/components/avatarai/BenefitsSection";
-import WhyChooseSection from "../maisp/components/avatarai/WhyChooseSection";
-import ContactSection from "../maisp/components/avatarai/ContactSection";
+import HeroSection from "./components/avatarai/HeroSection";
+import EvolutionSection from "./components/avatarai/EvolutionSection";
+import TransformSection from "./components/avatarai/TransformSection";
+import IndustriesSection from "./components/avatarai/IndustriesSection";
+import CaseStudySection from "./components/avatarai/CaseStudySection";
+import HowItWorksSection from "./components/avatarai/HowItWorksSection";
+import BenefitsSection from "./components/avatarai/BenefitsSection";
+import WhyChooseSection from "./components/avatarai/WhyChooseSection";
+import ContactSection from "./components/avatarai/ContactSection";
 
 // TypeScript interfaces
 interface AvatarAIProps {}

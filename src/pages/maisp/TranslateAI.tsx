@@ -1,17 +1,17 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useLayoutEffect, useEffect } from "react";
-import HeroSection from "./maisp/components/translateai/HeroSection";
-import Testimonial from "./maisp/components/translateai/Testimonial";
-import CoreCapabilities from "./maisp/components/translateai/CoreCapabilities";
-import ManagedService from "./maisp/components/translateai/ManagedService";
-import SetupAccess from "./maisp/components/translateai/SetupAccess";
-import LanguageSupport from "./maisp/components/translateai/LanguageSupport";
-import SecurityCompliance from "./maisp/components/translateai/SecurityCompliance";
-import PricingROI from "./maisp/components/translateai/PricingROI";
-import WhyWhitegloveAI from "./maisp/components/translateai/WhyWhitegloveAI";
-import EngagementModel from "./maisp/components/translateai/EngagementModel";
-import ContactSection from "./maisp/components/translateai/ContactSection";
+import HeroSection from "./components/translateai/HeroSection";
+import Testimonial from "./components/translateai/Testimonial";
+import CoreCapabilities from "./components/translateai/CoreCapabilities";
+import ManagedService from "./components/translateai/ManagedService";
+import SetupAccess from "./components/translateai/SetupAccess";
+import LanguageSupport from "./components/translateai/LanguageSupport";
+import SecurityCompliance from "./components/translateai/SecurityCompliance";
+import PricingROI from "./components/translateai/PricingROI";
+import WhyWhitegloveAI from "./components/translateai/WhyWhitegloveAI";
+import EngagementModel from "./components/translateai/EngagementModel";
+import ContactSection from "./components/translateai/ContactSection";
 import ScrollAnimation from '@/components/animations/ScrollAnimation';
 import '@/styles/animations.css';
 

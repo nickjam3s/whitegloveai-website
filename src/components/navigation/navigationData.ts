@@ -1,3 +1,5 @@
+
+
 export const navigationLinks = [
   {
     text: "About",
@@ -9,56 +11,56 @@ export const navigationLinks = [
     ]
   },
   {
-    text: "Services",
-    to: "/services",
+    text: "Managed AI Services",
+    to: "/maisp",
     children: [
-      {
-        text: "Consulting",
-        to: "/consulting",
+      { to: "/maisp", text: "Overview" },
+      { to: "/maisp/automateai", text: "AutomateAI" },
+      { to: "/maisp/avatarai", text: "AvatarAI" },
+      { to: "/maisp/embodied-ai", text: "EmbodiedAI" },
+      { 
+        text: "TextAI", 
+        to: "/maisp/textai",
         children: [
-          { to: "/consulting", text: "Overview" },
-          { to: "/traiga", text: "TRAIGA Triage Center" }
+          { to: "/maisp/textai", text: "TextAI" },
+          { to: "/maisp/textai/textaiforgood", text: "TextAI for Good Program" }
         ]
       },
-      {
-        text: "CommunicationsAI",
-        to: "/communicationsai",
-        children: [
-          { to: "/communicationsai", text: "Overview" },
-          { to: "/communicationsai/automateai", text: "AutomateAI" },
-          { to: "/communicationsai/avatarai", text: "AvatarAI" },
-          {
-            text: "TextAI",
-            to: "/communicationsai/textai",
-            children: [
-              { to: "/communicationsai/textai", text: "TextAI" },
-              { to: "/communicationsai/textai/textaiforgood", text: "TextAI for Good Program" }
-            ]
-          },
-          { to: "/communicationsai/voiceai", text: "VoiceAI" }
-        ]
-      },
-      { to: "/translateai", text: "TranslateAI" },
-      {
-        text: "Training",
-        to: "/training",
-        children: [
-          { to: "/training", text: "Overview" }
-        ]
-      },
-      { to: "/embodiedai", text: "EmbodiedAI" }
-    ]
+      { to: "/maisp/translateai", text: "TranslateAI" },
+      { to: "/maisp/voiceai", text: "VoiceAI" },
+    ],
   },
   {
-    text: "GovAI",
-    to: "/govai"
+    text: "Consulting",
+    to: "/vcaio",
+    children: [
+      { 
+        text: "vCAIO",
+        to: "/vcaio/chiefaiofficer",
+        children: [
+          { to: "/vcaio/chiefaiofficer", text: "Overview" },
+          { to: "/vcaio/launch", text: "Launchpad" },
+          { to: "/vcaio/adopt", text: "Adopt" },
+          { to: "/vcaio/enable", text: "Enable" }
+        ]
+      },
+      { to: "/traiga", text: "TRAIGA Triage Center" },
+    ],
   },
   {
     text: "Products",
     to: "/products",
     children: [
-      { text: "AI-AMF", to: "http://www.aiamf.ai", external: true },
-      { text: "Lucidis", to: "https://lucidis.ai", external: true }
+      {
+        text: "AI-AMF",
+        to: "http://www.aiamf.ai",
+        external: true
+      },
+      {
+        text: "Lucidis",
+        to: "https://lucidis.ai",
+        external: true
+      }
     ]
   },
   {
