@@ -42,16 +42,10 @@ const ExecutiveTeam = () => {
       linkedinUrl: "https://www.linkedin.com/in/daniel-valencia/"
     },
     {
-      name: "Samantha Habib",
+      name: "Davis Bhagat",
       title: "AI Solutions Consultant",
-      image: "/lovable-uploads/53280f09-a22a-4332-8223-bd75d002241c.png",
-      linkedinUrl: "https://www.linkedin.com/in/samantha-habib/"
-    },
-    {
-      name: "Rhea Kaithal",
-      title: "AI Labs Consultant",
-      image: "/lovable-uploads/6a399a58-ddf1-4257-aa1f-e193b98ac34d.png",
-      linkedinUrl: "https://www.linkedin.com/in/rheakaithal/"
+      image: "/lovable-uploads/davis-bhagat.jpeg",
+      linkedinUrl: "https://www.linkedin.com/in/davis-b-b882b9159"
     },
   ];
 
