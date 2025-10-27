@@ -20,6 +20,7 @@ export default {
     },
     extend: {
       fontFamily: {
+        lusitana: ['Lusitana', 'serif'],
         manrope: ['Manrope', 'sans-serif'],
         sans: ['Manrope', 'sans-serif'],
       },
