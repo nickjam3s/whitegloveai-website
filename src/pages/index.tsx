@@ -130,6 +130,7 @@ const Index = () => {
       <TrustedBy />
       <ServicesSection />
       <GovAIHighlight />
+      <AIAMFFrameworkSection />
 
       {/* TRAIGA Triage Center Section */}
       <section className="py-20 bg-gradient-to-t from-primary/10 via-background to-accent/5 relative overflow-hidden">
@@ -170,8 +171,6 @@ const Index = () => {
           </motion.div>
         </div>
       </section>
-
-      <AIAMFFrameworkSection />
       <PartnerLogos />
       <WhitegloveAIDifference />
       <ContactSection />
