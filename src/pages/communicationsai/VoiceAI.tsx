@@ -43,11 +43,6 @@ const VoiceAI = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24">
-        <a href="/communicationsai" className="inline-flex items-center text-secondary hover:text-secondary/80 transition-colors">
-          <span className="mr-2">←</span> Back to CommunicationsAI
-        </a>
-      </div>
       {/* Hero Section */}
       <section className="relative pt-20 pb-28 px-4 sm:px-6 lg:px-8 overflow-hidden bg-gradient-to-br from-secondary/5 via-background to-primary/5">
         <div className="absolute inset-0 opacity-20">
