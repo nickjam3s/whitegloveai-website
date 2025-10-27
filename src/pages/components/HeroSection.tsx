@@ -15,7 +15,7 @@ const HeroSection = () => {
             At WhitegloveAI, we guide you through the transformative journey of AI adoption—ensuring every step is secure, compliant, and aligned with your business goals.
           </p>
                       <a 
-              href="https://jzaxt350p9j.typeform.com/to/JlpkD8L8#name=xxxxx&email=xxxxx" 
+              href="https://forms.whitegloveai.com/H0EnGl" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="inline-flex items-center px-6 py-3 text-base font-medium text-white bg-secondary/20 hover:bg-secondary/30 rounded-lg transition-colors border border-secondary/50"

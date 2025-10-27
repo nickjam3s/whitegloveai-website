@@ -121,7 +121,7 @@ const HeroSection = () => {
               Get Started
               <ArrowRight className="ml-3 h-6 w-6" />
             </Link>
-            <a href="https://jzaxt350p9j.typeform.com/to/JlpkD8L8#name=xxxxx&email=xxxxx" target="_blank" rel="noopener noreferrer" className="inline-flex items-center px-7 py-4 text-lg font-medium text-white bg-secondary/20 hover:bg-secondary/30 rounded-lg transition-colors border border-secondary/50">
+            <a href="https://forms.whitegloveai.com/H0EnGl" target="_blank" rel="noopener noreferrer" className="inline-flex items-center px-7 py-4 text-lg font-medium text-white bg-secondary/20 hover:bg-secondary/30 rounded-lg transition-colors border border-secondary/50">
               Take the AI Readiness Assessment
               <ArrowRight className="ml-3 h-6 w-6" />
             </a>
