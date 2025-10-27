@@ -23,7 +23,7 @@ const UnifiedServicesSection = () => {
             Strategic AI Consulting
           </h3>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Navigate the complexities of AI adoption with expert guidance. From AI readiness assessments to governance frameworks, we ensure your AI initiatives succeed.
+            Access fractional Chief AI Officer expertise and strategic AI leadership without the full-time cost. We help you accelerate your AI transformation with expert guidance tailored to your organization.
           </p>
         </div>
 
@@ -32,9 +32,9 @@ const UnifiedServicesSection = () => {
             <div className="bg-secondary/10 p-3 rounded-lg w-14 h-14 flex items-center justify-center mx-auto mb-4">
               <Target className="h-8 w-8 text-[#9b87f5]" />
             </div>
-            <h4 className="text-xl font-medium mb-3 text-center text-[#9b87f5]">AI Readiness & Strategy</h4>
+            <h4 className="text-xl font-medium mb-3 text-center text-[#9b87f5]">Strategic AI Leadership</h4>
             <p className="text-gray-400 text-center">
-              We assess your current state and develop a comprehensive roadmap
+              C-level AI expertise and strategic guidance at a fraction of the full-time cost
             </p>
           </div>
 
@@ -42,9 +42,9 @@ const UnifiedServicesSection = () => {
             <div className="bg-secondary/10 p-3 rounded-lg w-14 h-14 flex items-center justify-center mx-auto mb-4">
               <Map className="h-8 w-8 text-[#9b87f5]" />
             </div>
-            <h4 className="text-xl font-medium mb-3 text-center text-[#9b87f5]">Use Case Prioritization</h4>
+            <h4 className="text-xl font-medium mb-3 text-center text-[#9b87f5]">Bridge the AI Knowledge Gap</h4>
             <p className="text-gray-400 text-center">
-              Identify high-ROI opportunities aligned with your goals
+              Translate complex AI concepts into clear business strategies your organization can understand
             </p>
           </div>
 
@@ -52,9 +52,9 @@ const UnifiedServicesSection = () => {
             <div className="bg-secondary/10 p-3 rounded-lg w-14 h-14 flex items-center justify-center mx-auto mb-4">
               <Shield className="h-8 w-8 text-[#9b87f5]" />
             </div>
-            <h4 className="text-xl font-medium mb-3 text-center text-[#9b87f5]">Governance & Compliance</h4>
+            <h4 className="text-xl font-medium mb-3 text-center text-[#9b87f5]">Ethical & Responsible AI</h4>
             <p className="text-gray-400 text-center">
-              Establish robust frameworks including TRAIGA compliance
+              Navigate AI ethics, compliance, and governance including TRAIGA requirements
             </p>
           </div>
         </div>
