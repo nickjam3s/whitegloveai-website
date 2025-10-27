@@ -9,8 +9,7 @@ const ServicesSection = () => {
         <UnifiedServicesSection />
       </div>
       
-      {/* Add ScrollAnimation to point to the AI Incubation Lab Section */}
-      <ScrollAnimation targetId="ai-incubation-lab" showArrow={true} />
+      <ScrollAnimation targetId="aiamf-framework" showArrow={true} />
     </section>
   );
 };

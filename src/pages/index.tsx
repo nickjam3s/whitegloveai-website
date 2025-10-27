@@ -3,7 +3,6 @@ import HeroSection from '@/components/home/HeroSection';
 import TrustedBy from '@/components/home/TrustedBy';
 import ServicesSection from '@/components/home/ServicesSection';
 import GovAIHighlight from '@/components/home/GovAIHighlight';
-import AIIncubationLabSection from '@/components/AIIncubationLabSection';
 import AIAMFFrameworkSection from '@/components/home/AIAMFFrameworkSection';
 import WhitegloveAIDifference from '@/components/home/WhitegloveAIDifference';
 import PartnerLogos from '@/components/home/PartnerLogos';
@@ -172,7 +171,6 @@ const Index = () => {
         </div>
       </section>
 
-      <AIIncubationLabSection />
       <AIAMFFrameworkSection />
       <PartnerLogos />
       <WhitegloveAIDifference />
