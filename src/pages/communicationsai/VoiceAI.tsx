@@ -6,6 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { motion } from "framer-motion";
 import { useIsMobile } from "@/hooks/use-mobile";
 import AICallEstimator from "@/components/calculators/AICallEstimator";
+import LucidisBanner from '@/components/LucidisBanner';
 
 const VoiceAI = () => {
   const isMobile = useIsMobile();
@@ -135,6 +136,8 @@ const VoiceAI = () => {
           </div>
         </div>
       </section>
+
+      <LucidisBanner />
 
       {/* Problem & Solution Section */}
       <section className="py-20 bg-card">

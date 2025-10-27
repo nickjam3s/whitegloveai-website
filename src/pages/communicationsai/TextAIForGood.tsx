@@ -7,6 +7,7 @@ import PartnersSection from "../maisp/components/textaiforgood/PartnersSection";
 import ContactSection from "../maisp/components/textaiforgood/ContactSection";
 import ScrollAnimation from '@/components/animations/ScrollAnimation';
 import '@/styles/animations.css'; // Import animations CSS
+import LucidisBanner from '@/components/LucidisBanner';
 
 const TextAIForGood = () => {
   // Use useLayoutEffect to prevent flash of content before scroll position is set
@@ -86,6 +87,7 @@ const TextAIForGood = () => {
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
       <HeroSection />
+      <LucidisBanner />
       <BenefitsSection />
       <EfficiencyImpactSection />
       <PartnersSection />

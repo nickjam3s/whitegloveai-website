@@ -21,6 +21,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import '@/styles/animations.css';
 import SEO from '@/components/SEO';
+import LucidisBanner from '@/components/LucidisBanner';
 
 const CommunicationsAI = () => {
   useEffect(() => {
@@ -140,6 +141,8 @@ const CommunicationsAI = () => {
           </div>
         </div>
       </section>
+
+      <LucidisBanner />
 
       {/* Problem Section */}
       <section id="problem-section" className="py-20 bg-card scroll-mt-20">

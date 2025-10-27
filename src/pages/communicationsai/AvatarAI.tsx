@@ -18,6 +18,7 @@ import {
 import { motion } from "framer-motion";
 import ScrollAnimation from '@/components/animations/ScrollAnimation';
 import '@/styles/animations.css';
+import LucidisBanner from '@/components/LucidisBanner';
 
 // Import all sections
 import HeroSection from "../maisp/components/avatarai/HeroSection";
@@ -106,6 +107,7 @@ const AvatarAI: React.FC<AvatarAIProps> = () => {
         </a>
       </div>
       <HeroSection />
+      <LucidisBanner />
       <EvolutionSection features={evolutionFeatures} />
       <TransformSection experiences={transformExperience} />
       <IndustriesSection industries={industries} />
