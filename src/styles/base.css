@@ -43,13 +43,8 @@
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 
-  /* Headings use Lusitana */
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-lusitana;
-  }
-
-  /* Body text uses Manrope */
-  p, span, div, button, input, textarea, select {
+  /* All text uses Manrope */
+  h1, h2, h3, h4, h5, h6, p, span, div, button, input, textarea, select {
     @apply font-manrope;
   }
 }

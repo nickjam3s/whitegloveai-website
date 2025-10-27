@@ -23,7 +23,7 @@ export default {
         lusitana: ['Lusitana', 'serif'],
         manrope: ['Manrope', 'sans-serif'],
         sans: ['Manrope', 'sans-serif'],
-        heading: ['Lusitana', 'serif'],
+        heading: ['Manrope', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
