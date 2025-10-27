@@ -73,6 +73,11 @@ const AutomateAI = () => {
   
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24">
+        <a href="/communicationsai" className="inline-flex items-center text-secondary hover:text-secondary/80 transition-colors">
+          <span className="mr-2">←</span> Back to CommunicationsAI
+        </a>
+      </div>
       <HeroSection />
       <ChallengesSection />
       <SolutionsSection />

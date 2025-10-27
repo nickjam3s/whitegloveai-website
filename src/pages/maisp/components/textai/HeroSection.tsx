@@ -72,7 +72,7 @@ const HeroSection = () => {
             transition={{ duration: 0.8 }}
             className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 md:mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-[#7021EE]"
           >
-            TextAI Managed Service
+            Instant, Intelligent Answers on Every Text-Based Channel
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -80,10 +80,7 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-lg md:text-xl lg:text-2xl text-gray-200 mb-8 md:mb-12 max-w-3xl mx-auto px-3 sm:px-0 text-shadow-sm"
           >
-            WhitegloveAI's TextAI service, an externally-facing text-based AI chatbot 
-            designed to enhance customer service operations through intelligent automation.
-            It includes a detailed service package, key features and benefits, implementation 
-            process, expected ROI, and additional services available.
+            TextAI is your always-on, first line of support. Built on the Lucidis platform, it delivers fast, accurate conversations across website chat, SMS, and email.
           </motion.p>
           <motion.div 
             initial={{ opacity: 0, y: 20 }}

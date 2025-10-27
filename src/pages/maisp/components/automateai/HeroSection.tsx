@@ -64,7 +64,7 @@ const HeroSection = () => {
             transition={{ duration: 0.8 }}
             className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 md:mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-[#7021EE]"
           >
-            Managed AutomateAI Service by Lucidis
+            From Conversation to Action: The Power of True Automation
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -72,7 +72,7 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-lg md:text-xl lg:text-2xl text-gray-200 mb-8 md:mb-12 max-w-3xl mx-auto px-3 sm:px-0 text-shadow-sm"
           >
-            A managed service designed to revolutionize your business operations through intelligent automation. Built on the robust Lucidis.ai platform, AutomateAI employs agentic workflows to streamline and optimize your processes.
+            AutomateAI transforms interactions into outcomes. Built on the Lucidis platform, it creates intelligent workflows that automate tasks and integrate with your systems.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}

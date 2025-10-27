@@ -42,8 +42,13 @@ const VoiceAI = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24">
+        <a href="/communicationsai" className="inline-flex items-center text-secondary hover:text-secondary/80 transition-colors">
+          <span className="mr-2">←</span> Back to CommunicationsAI
+        </a>
+      </div>
       {/* Hero Section */}
-      <section className="relative pt-40 pb-28 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <section className="relative pt-20 pb-28 px-4 sm:px-6 lg:px-8 overflow-hidden">
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-b from-[#7021EE]/20 to-black/90">
             <div className="absolute inset-0 backdrop-blur-sm" />
@@ -106,7 +111,7 @@ const VoiceAI = () => {
               transition={{ duration: 0.8 }}
               className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 md:mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-[#7021EE]"
             >
-              Managed VoiceAI Service
+              The End of Hold Music. The Beginning of Instant Service.
             </motion.h1>
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
@@ -114,7 +119,7 @@ const VoiceAI = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-lg md:text-xl lg:text-2xl text-gray-200 mb-8 md:mb-12 max-w-3xl mx-auto px-3 sm:px-0 text-shadow-sm"
             >
-              Transform customer interactions with secure, intelligent automation using our cutting-edge Voice AI Agent solution.
+              VoiceAI transforms your phone lines into powerful, conversational AI channels. Powered by the Lucidis platform, it answers every call immediately with natural language understanding.
             </motion.p>
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
@@ -138,10 +143,13 @@ const VoiceAI = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-3xl sm:text-4xl md:text-5xl font-bold mb-16 text-center bg-clip-text text-transparent bg-gradient-to-r from-white to-[#7021EE]"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-center bg-clip-text text-transparent bg-gradient-to-r from-white to-[#7021EE]"
           >
             The Problem & Our Solution
           </motion.h2>
+          <p className="text-gray-400 text-center max-w-3xl mx-auto mb-16">
+            Built on the secure and scalable Lucidis platform, VoiceAI delivers natural voice conversations that feel human and work 24/7.
+          </p>
           <div className="grid md:grid-cols-2 gap-12">
             <motion.div 
               initial={{ opacity: 0, y: 20 }}

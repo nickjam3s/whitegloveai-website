@@ -3,9 +3,12 @@ const ProblemSolutionSection = () => {
   return (
     <section className="py-20 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-semibold mb-16 text-center heading-highlight-scroll">
+        <h2 className="text-3xl font-semibold mb-4 text-center heading-highlight-scroll">
           The Problem & Our Solution
         </h2>
+        <p className="text-gray-400 text-center max-w-3xl mx-auto mb-16">
+          Built on the secure and scalable Lucidis platform, TextAI delivers intelligent, conversational support across all text-based channels.
+        </p>
         
         <div className="grid md:grid-cols-2 gap-8">
           <div className="bg-card p-6 rounded-lg border border-gray-800">

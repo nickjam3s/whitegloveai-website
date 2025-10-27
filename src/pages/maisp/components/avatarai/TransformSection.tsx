@@ -4,9 +4,12 @@ const TransformSection = ({ experiences }) => {
   return (
     <section className="py-20 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-semibold mb-16 text-center heading-highlight-scroll">
+        <h2 className="text-3xl font-semibold mb-4 text-center heading-highlight-scroll">
           Transform Your Customer Experience
         </h2>
+        <p className="text-gray-400 text-center max-w-3xl mx-auto mb-16">
+          Built on the secure and scalable Lucidis platform, AvatarAI delivers lifelike digital engagement that transforms every interaction.
+        </p>
         <div className="grid md:grid-cols-2 gap-12">
           {experiences.map((experience, index) => (
             <div key={index} className="space-y-6">

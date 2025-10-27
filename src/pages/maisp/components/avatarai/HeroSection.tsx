@@ -63,7 +63,7 @@ const HeroSection = () => {
             transition={{ duration: 0.8 }}
             className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 md:mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-[#7021EE]"
           >
-            Managed AvatarAI Service
+            The Human Face of Digital Interaction
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -71,7 +71,7 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-lg md:text-xl lg:text-2xl text-gray-200 mb-8 md:mb-12 max-w-3xl mx-auto px-3 sm:px-0 text-shadow-sm"
           >
-            WhitegloveAI's AvatarAI Streaming Avatar Service brings lifelike digital assistants to your business, creating genuine face-to-face connections that transform customer experiences across all channels.
+            AvatarAI brings your brand to life with realistic, conversational digital humans. Powered by the Lucidis platform, it provides face-to-face engagement at scale.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
