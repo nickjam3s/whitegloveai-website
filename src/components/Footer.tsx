@@ -7,7 +7,7 @@ const Footer = () => {
   return (
     <footer className="bg-black border-t border-[#7021EE]/20">
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 items-start">
           {/* Contact Us section */}
           <div className="lg:col-span-1">
             <h4 className="text-white font-semibold mb-4">Contact Us</h4>
@@ -48,50 +48,53 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Company section */}
-          <div className="lg:col-span-1 lg:flex lg:justify-center">
-            <div>
-              <h4 className="text-white font-semibold mb-4">Company</h4>
-              <ul className="space-y-2">
-                <li><Link to="/aboutus" className="text-gray-400 hover:text-[#7021EE] transition-colors">About Us</Link></li>
-                <li><Link to="/aboutus/strategic-advisors" className="text-gray-400 hover:text-[#7021EE] transition-colors">Strategic Advisors</Link></li>
-                <li><Link to="/about/apprentice" className="text-gray-400 hover:text-[#7021EE] transition-colors">Apprenticeship</Link></li>
-              </ul>
-            </div>
+          {/* About section */}
+          <div className="lg:col-span-1">
+            <h4 className="text-white font-semibold mb-4">About</h4>
+            <ul className="space-y-2">
+              <li><Link to="/aboutus" className="text-gray-400 hover:text-[#7021EE] transition-colors">About Us</Link></li>
+              <li><Link to="/aboutus/strategic-advisors" className="text-gray-400 hover:text-[#7021EE] transition-colors">Strategic Advisors</Link></li>
+              <li><Link to="/about/apprentice" className="text-gray-400 hover:text-[#7021EE] transition-colors">Apprenticeship Program</Link></li>
+            </ul>
+          </div>
+
+          {/* Consulting section */}
+          <div className="lg:col-span-1">
+            <h4 className="text-white font-semibold mb-4">Consulting</h4>
+            <ul className="space-y-2">
+              <li><Link to="/consulting" className="text-gray-400 hover:text-[#7021EE] transition-colors">Overview</Link></li>
+              <li><Link to="/vcaio/launch" className="text-gray-400 hover:text-[#7021EE] transition-colors">Launch</Link></li>
+              <li><Link to="/vcaio/adopt" className="text-gray-400 hover:text-[#7021EE] transition-colors">Adopt</Link></li>
+              <li><Link to="/vcaio/enable" className="text-gray-400 hover:text-[#7021EE] transition-colors">Enable</Link></li>
+              <li><Link to="/traiga" className="text-gray-400 hover:text-[#7021EE] transition-colors">TRAIGA Triage Center</Link></li>
+            </ul>
           </div>
 
           {/* CommunicationsAI section */}
-          <div className="lg:col-span-1 lg:flex lg:justify-center">
-            <div>
-              <h4 className="text-white font-semibold mb-4">CommunicationsAI</h4>
-               <ul className="space-y-2">
-                <li><Link to="/communicationsai" className="text-gray-400 hover:text-[#7021EE] transition-colors">Overview</Link></li>
-                <li><Link to="/communicationsai/automateai" className="text-gray-400 hover:text-[#7021EE] transition-colors">AutomateAI</Link></li>
-                <li><Link to="/communicationsai/avatarai" className="text-gray-400 hover:text-[#7021EE] transition-colors">AvatarAI</Link></li>
-                <li><Link to="/communicationsai/textai" className="text-gray-400 hover:text-[#7021EE] transition-colors">TextAI</Link></li>
-                <li><Link to="/communicationsai/voiceai" className="text-gray-400 hover:text-[#7021EE] transition-colors">VoiceAI</Link></li>
-               </ul>
-            </div>
+          <div className="lg:col-span-1">
+            <h4 className="text-white font-semibold mb-4">CommunicationsAI</h4>
+            <ul className="space-y-2">
+              <li><Link to="/communicationsai" className="text-gray-400 hover:text-[#7021EE] transition-colors">Overview</Link></li>
+              <li><Link to="/communicationsai/automateai" className="text-gray-400 hover:text-[#7021EE] transition-colors">AutomateAI</Link></li>
+              <li><Link to="/communicationsai/avatarai" className="text-gray-400 hover:text-[#7021EE] transition-colors">AvatarAI</Link></li>
+              <li><Link to="/communicationsai/textai" className="text-gray-400 hover:text-[#7021EE] transition-colors">TextAI</Link></li>
+              <li><Link to="/communicationsai/voiceai" className="text-gray-400 hover:text-[#7021EE] transition-colors">VoiceAI</Link></li>
+            </ul>
           </div>
 
-          {/* Services & Resources section */}
-          <div className="lg:col-span-1 lg:flex lg:justify-center">
-            <div>
-              <h4 className="text-white font-semibold mb-4">Services & Resources</h4>
-              <ul className="space-y-2">
-                <li><Link to="/consulting" className="text-gray-400 hover:text-[#7021EE] transition-colors">AI Consulting</Link></li>
-                <li><Link to="/vcaio/launch" className="text-gray-400 hover:text-[#7021EE] transition-colors pl-4">Launch</Link></li>
-                <li><Link to="/vcaio/adopt" className="text-gray-400 hover:text-[#7021EE] transition-colors pl-4">Adopt</Link></li>
-                <li><Link to="/vcaio/enable" className="text-gray-400 hover:text-[#7021EE] transition-colors pl-4">Enable</Link></li>
-                <li><Link to="/translateai" className="text-gray-400 hover:text-[#7021EE] transition-colors">TranslateAI</Link></li>
-                <li><Link to="/ailab" className="text-gray-400 hover:text-[#7021EE] transition-colors">The AI Lab</Link></li>
-                <li><Link to="/training" className="text-gray-400 hover:text-[#7021EE] transition-colors">Training</Link></li>
-                <li><Link to="/embodiedai" className="text-gray-400 hover:text-[#7021EE] transition-colors">EmbodiedAI</Link></li>
-                <li><Link to="/govai" className="text-gray-400 hover:text-[#7021EE] transition-colors">GovAI</Link></li>
-                <li><Link to="/traiga" className="text-gray-400 hover:text-[#7021EE] transition-colors">TRAIGA</Link></li>
-                <li><a href="https://news.whitegloveai.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#7021EE] transition-colors">News</a></li>
-              </ul>
-            </div>
+          {/* Services & More section */}
+          <div className="lg:col-span-1">
+            <h4 className="text-white font-semibold mb-4">More Services</h4>
+            <ul className="space-y-2">
+              <li><Link to="/translateai" className="text-gray-400 hover:text-[#7021EE] transition-colors">TranslateAI</Link></li>
+              <li><Link to="/ailab" className="text-gray-400 hover:text-[#7021EE] transition-colors">The AI Lab</Link></li>
+              <li><Link to="/training" className="text-gray-400 hover:text-[#7021EE] transition-colors">Training</Link></li>
+              <li><Link to="/embodiedai" className="text-gray-400 hover:text-[#7021EE] transition-colors">EmbodiedAI</Link></li>
+              <li><Link to="/govai" className="text-gray-400 hover:text-[#7021EE] transition-colors">GovAI</Link></li>
+              <li><a href="http://www.aiamf.ai" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#7021EE] transition-colors">AI-AMF</a></li>
+              <li><a href="https://lucidis.ai" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#7021EE] transition-colors">Lucidis</a></li>
+              <li><a href="https://news.whitegloveai.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#7021EE] transition-colors">News</a></li>
+            </ul>
           </div>
         </div>
 
