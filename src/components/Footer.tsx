@@ -79,7 +79,10 @@ const Footer = () => {
             <div>
               <h4 className="text-white font-semibold mb-4">Services & Resources</h4>
               <ul className="space-y-2">
-                <li><Link to="/consulting" className="text-gray-400 hover:text-[#7021EE] transition-colors">Consulting</Link></li>
+                <li><Link to="/consulting" className="text-gray-400 hover:text-[#7021EE] transition-colors">AI Consulting</Link></li>
+                <li><Link to="/vcaio/launch" className="text-gray-400 hover:text-[#7021EE] transition-colors pl-4">Launch</Link></li>
+                <li><Link to="/vcaio/adopt" className="text-gray-400 hover:text-[#7021EE] transition-colors pl-4">Adopt</Link></li>
+                <li><Link to="/vcaio/enable" className="text-gray-400 hover:text-[#7021EE] transition-colors pl-4">Enable</Link></li>
                 <li><Link to="/translateai" className="text-gray-400 hover:text-[#7021EE] transition-colors">TranslateAI</Link></li>
                 <li><Link to="/ailab" className="text-gray-400 hover:text-[#7021EE] transition-colors">The AI Lab</Link></li>
                 <li><Link to="/training" className="text-gray-400 hover:text-[#7021EE] transition-colors">Training</Link></li>

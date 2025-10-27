@@ -51,7 +51,6 @@ import MediaAIEquipmentProtected from "./pages/maisp/MediaAIEquipmentProtected";
 import VCAIO from "./pages/vcaio/Index";
 import ChiefAIOfficer from "./pages/vcaio/ChiefAIOfficer";
 import Launch from "./pages/vcaio/Launch";
-import LaunchAI from "./pages/vcaio/LaunchAI";
 import Adopt from "./pages/vcaio/Adopt";
 import Enable from "./pages/vcaio/Enable";
 
@@ -119,9 +118,8 @@ const AppContent = () => {
                 
                 {/* vCAIO Routes - redirect to consulting */}
                 <Route path="/vcaio" element={<Navigate to="/consulting" replace />} />
-                <Route path="/vcaio/chiefaiofficer" element={<ChiefAIOfficer />} />
+                <Route path="/vcaio/chiefaiofficer" element={<Navigate to="/consulting" replace />} />
                 <Route path="/vcaio/launch" element={<Launch />} />
-                <Route path="/vcaio/launchai" element={<LaunchAI />} />
                 <Route path="/vcaio/adopt" element={<Adopt />} />
                 <Route path="/vcaio/enable" element={<Enable />} />
                 
