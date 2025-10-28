@@ -12,7 +12,7 @@ const NewHeroSection = () => {
   };
 
   return (
-    <section className="relative min-h-screen bg-background pt-40 pb-28 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <section className="relative bg-background pt-40 pb-28 px-4 sm:px-6 lg:px-8 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-[#7021EE]/20 to-black/90">
         <div className="absolute inset-0 backdrop-blur-sm" />
       </div>
