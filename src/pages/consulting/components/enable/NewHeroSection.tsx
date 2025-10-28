@@ -56,22 +56,9 @@ const NewHeroSection = () => {
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center">
-          <div className="flex justify-center mb-6">
-            <img 
-              src="/lovable-uploads/351136e7-c241-4c56-a606-3ff7a65a05ac.png" 
-              alt="WGAI Logo" 
-              width="100" 
-              height="100" 
-              className="logo-animation mx-auto"
-              style={{ 
-                filter: "hue-rotate(260deg) brightness(150%) drop-shadow(0 0 10px rgba(112, 33, 238, 0.6))",
-                display: "block"
-              }}
-            />
-          </div>
           <motion.h1 
             {...titleAnimation}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 md:mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-[#7021EE]"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-6 md:mb-8 bg-clip-text text-transparent bg-gradient-to-r from-white to-[#7021EE] leading-tight py-2"
           >
             Enable Learning Workshops
           </motion.h1>
@@ -79,7 +66,7 @@ const NewHeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-lg md:text-xl lg:text-2xl text-gray-200 mb-8 md:mb-12 max-w-3xl mx-auto px-3 sm:px-0 text-shadow-sm"
+            className="text-lg md:text-xl lg:text-2xl text-gray-200 mb-8 md:mb-12 max-w-3xl mx-auto px-3 sm:px-0"
           >
             Empower your organization or department to harness generative AI with confidence through our Whiteglove training and engagement program.
           </motion.p>
