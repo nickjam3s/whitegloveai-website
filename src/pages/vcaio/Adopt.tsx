@@ -18,10 +18,15 @@ const Adopt = () => {
   }, []);
 
   useEffect(() => {
-    const script = document.createElement('script');
-    script.src = "//embed.typeform.com/next/embed.js";
-    script.async = true;
-    document.body.appendChild(script);
+    // Load HubSpot script only once
+    const existingScript = document.getElementById('hubspot-script');
+    if (!existingScript) {
+      const script = document.createElement('script');
+      script.id = 'hubspot-script';
+      script.src = "https://js-na2.hsforms.net/forms/embed/242996761.js";
+      script.defer = true;
+      document.body.appendChild(script);
+    }
 
     // Explicitly disable smooth scrolling
     document.documentElement.style.scrollBehavior = 'auto';
@@ -70,7 +75,6 @@ const Adopt = () => {
     });
     
     return () => {
-      document.body.removeChild(script);
       document.removeEventListener('click', handleAnchorClick);
       // Reset scroll behavior when component unmounts
       document.documentElement.style.scrollBehavior = '';
@@ -97,7 +101,11 @@ const Adopt = () => {
           <p className="text-gray-400 text-center mb-8 max-w-2xl mx-auto">
             Ready to start your AI adoption journey? Get in touch with our team of experts.
           </p>
-          <div data-tf-live="01JMANX32Q8N97C9RXW4GRN312"></div>
+          <div className="bg-card/50 p-6 rounded-lg shadow-lg max-w-4xl mx-auto">
+            <div className="min-h-[400px]">
+              <div className="hs-form-frame" data-region="na2" data-form-id="c5c1e3a2-eebe-4d65-8368-03c02ebac2b0" data-portal-id="242996761"></div>
+            </div>
+          </div>
         </div>
       </section>
     </div>

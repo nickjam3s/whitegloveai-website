@@ -54,13 +54,9 @@ const FutureSection = () => {
             </p>
           </div>
           
-          <iframe
-            src="https://jzaxt350p9j.typeform.com/to/jiKH5Ab2?typeform-medium=embed-oembed&disable-auto-focus=true"
-            allow="camera; microphone; autoplay; encrypted-media;"
-            className="w-full aspect-[3/2] border-0 rounded-lg"
-            title="vCAIO Contact Form"
-            loading="lazy"
-          />
+          <div className="min-h-[400px]">
+            <div className="hs-form-frame" data-region="na2" data-form-id="c5c1e3a2-eebe-4d65-8368-03c02ebac2b0" data-portal-id="242996761"></div>
+          </div>
         </div>
       </div>
     </section>
