@@ -119,13 +119,6 @@ const AppContent = () => {
                 <Route path="/consulting/adopt" element={<Adopt />} />
                 <Route path="/consulting/enable" element={<Enable />} />
                 
-                {/* Legacy vCAIO Routes - redirect to consulting */}
-                <Route path="/vcaio" element={<Navigate to="/consulting" replace />} />
-                <Route path="/vcaio/chiefaiofficer" element={<Navigate to="/consulting" replace />} />
-                <Route path="/vcaio/launch" element={<Navigate to="/consulting/launch" replace />} />
-                <Route path="/vcaio/adopt" element={<Navigate to="/consulting/adopt" replace />} />
-                <Route path="/vcaio/enable" element={<Navigate to="/consulting/enable" replace />} />
-                
                 {/* Blog & CMS Routes */}
                 <Route path="/blog" element={<Blog />} />
                 <Route path="/blog/:slug" element={<BlogPost />} />
