@@ -19,9 +19,9 @@ export const navigationLinks = [
         to: "/consulting",
         children: [
           { to: "/consulting", text: "Overview" },
-          { to: "/vcaio/launch", text: "Launch" },
-          { to: "/vcaio/adopt", text: "Adopt" },
-          { to: "/vcaio/enable", text: "Enable" },
+          { to: "/consulting/launch", text: "Launch" },
+          { to: "/consulting/adopt", text: "Adopt" },
+          { to: "/consulting/enable", text: "Enable" },
           { to: "/traiga", text: "TRAIGA Triage Center" }
         ]
       },
