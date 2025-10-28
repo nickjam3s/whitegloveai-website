@@ -3,7 +3,7 @@ import React from 'react';
 
 const ResultsSection = () => {
   return (
-    <section id="results-section" className="py-20 bg-black text-white" style={{ border: '2px solid red' }}>
+    <section id="results-section" className="py-20 bg-black text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Key Results</h2>
@@ -32,7 +32,7 @@ const ResultsSection = () => {
           ].map((item, index) => (
             <div 
               key={index} 
-              className="bg-card p-6 rounded-lg border border-gray-800 hover:border-purple-500 transition-all duration-300 animate-on-scroll"
+              className="bg-gray-900 p-6 rounded-lg border border-gray-800 hover:border-purple-500 transition-all duration-300 animate-on-scroll"
               style={{ transitionDelay: `${index * 0.1}s` }}
             >
               <div className="text-4xl font-bold text-secondary mb-4">{item.stat}</div>

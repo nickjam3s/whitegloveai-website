@@ -36,7 +36,7 @@ const NextStepsSection = () => {
           {steps.map((step, index) => (
             <div 
               key={index}
-              className="relative bg-card p-6 rounded-lg border border-gray-800 hover:border-purple-500 transition-all duration-300 animate-on-scroll"
+              className="relative bg-gray-900 p-6 rounded-lg border border-gray-800 hover:border-purple-500 transition-all duration-300 animate-on-scroll"
               style={{ transitionDelay: `${index * 0.1}s` }}
             >
               <div className="absolute -top-4 -left-4 w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold text-xl">
@@ -50,7 +50,7 @@ const NextStepsSection = () => {
           ))}
         </div>
 
-        <div className="bg-card rounded-lg p-10 border border-gray-800">
+        <div className="bg-gray-900 rounded-lg p-10 border border-gray-800">
           <div className="text-center max-w-4xl mx-auto">
             <h3 className="text-2xl font-bold mb-8">
               Why Choose WhitegloveAI's AI Enablement Service?

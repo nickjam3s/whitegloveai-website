@@ -31,7 +31,7 @@ const SecuritySection = () => {
           {securityFeatures.map((feature, index) => (
             <div 
               key={index} 
-              className="bg-card p-6 rounded-lg border border-gray-800 hover:border-purple-500 transition-all duration-300 animate-on-scroll"
+              className="bg-gray-900 p-6 rounded-lg border border-gray-800 hover:border-purple-500 transition-all duration-300 animate-on-scroll"
               style={{ transitionDelay: `${index * 0.1}s` }}
             >
               <Shield className="h-10 w-10 text-secondary mb-4" />
