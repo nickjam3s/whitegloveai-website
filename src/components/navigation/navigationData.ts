@@ -45,13 +45,7 @@ export const navigationLinks = [
       },
     { to: "/translateai", text: "TranslateAI" },
     { to: "/ailab", text: "The AI Lab" },
-    {
-      text: "AI Training",
-      to: "/training",
-      children: [
-        { to: "/training", text: "Overview" }
-      ]
-    },
+    { to: "/training", text: "AI Training" },
       { to: "/embodiedai", text: "EmbodiedAI" }
     ]
   },
