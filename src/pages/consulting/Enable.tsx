@@ -64,9 +64,9 @@ const Enable = () => {
       rootMargin: '0px 0px -100px 0px'
     });
 
-    const headings = document.querySelectorAll('.heading-highlight-scroll');
-    headings.forEach(heading => {
-      observer.observe(heading);
+    const observedElements = document.querySelectorAll('.heading-highlight-scroll, .animate-on-scroll');
+    observedElements.forEach((el) => {
+      observer.observe(el);
     });
 
     return () => {
