@@ -1,6 +1,5 @@
 import { CheckCircle, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
 
 const steps = [
   {
@@ -22,6 +21,13 @@ const steps = [
 ];
 
 const NextStepsSection = () => {
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   return (
     <section className="py-20 bg-black text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -32,18 +38,17 @@ const NextStepsSection = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16 animate-section">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {steps.map((step, index) => (
             <div 
               key={index}
-              className="relative bg-gray-900 p-6 rounded-lg border border-gray-800 hover:border-purple-500 transition-all duration-300 animate-on-scroll"
-              style={{ transitionDelay: `${index * 0.1}s` }}
+              className="relative bg-gray-900 p-6 rounded-lg border border-gray-800 hover:border-purple-500 transition-all duration-300"
             >
               <div className="absolute -top-4 -left-4 w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold text-xl">
                 {index + 1}
               </div>
               <div className="mt-4">
-                <h3 className="text-xl font-semibold mb-3">{step.title}</h3>
+                <h3 className="text-xl font-semibold mb-3 text-white">{step.title}</h3>
                 <p className="text-gray-400">{step.description}</p>
               </div>
             </div>
@@ -52,7 +57,7 @@ const NextStepsSection = () => {
 
         <div className="bg-gray-900 rounded-lg p-10 border border-gray-800">
           <div className="text-center max-w-4xl mx-auto">
-            <h3 className="text-2xl font-bold mb-8">
+            <h3 className="text-2xl font-bold mb-8 text-white">
               Why Choose WhitegloveAI's AI Enablement Service?
             </h3>
             <div className="grid md:grid-cols-2 gap-6 text-left mb-10">
@@ -70,11 +75,13 @@ const NextStepsSection = () => {
                 </div>
               ))}
             </div>
-            <Button asChild size="lg" className="group">
-              <Link to="#contact" className="inline-flex items-center">
-                Contact Us Today
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </Link>
+            <Button 
+              onClick={scrollToContact}
+              size="lg" 
+              className="group bg-purple-600 hover:bg-purple-700 text-white"
+            >
+              Contact Us Today
+              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Button>
           </div>
         </div>
