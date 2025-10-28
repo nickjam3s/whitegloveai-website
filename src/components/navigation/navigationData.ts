@@ -46,7 +46,7 @@ export const navigationLinks = [
     { to: "/translateai", text: "TranslateAI" },
     { to: "/ailab", text: "The AI Lab" },
     {
-      text: "Training",
+      text: "AI Training",
       to: "/training",
       children: [
         { to: "/training", text: "Overview" }
