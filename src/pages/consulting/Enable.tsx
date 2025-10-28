@@ -11,6 +11,7 @@ import ContactSection from './components/enable/ContactSection';
 import FooterSection from './components/enable/FooterSection';
 import ScrollAnimation from '@/components/animations/ScrollAnimation';
 import SecuritySection from './components/enable/SecuritySection';
+import NextStepsSection from './components/enable/NextStepsSection';
 
 // Define the fadeInUp animation variant
 const fadeInUp = {
@@ -95,6 +96,7 @@ const Enable = () => {
         </motion.section>
 
         <SecuritySection />
+        <NextStepsSection />
         <ContactSection />
         <FooterSection />
         <ScrollAnimation targetId="introduction-section" />

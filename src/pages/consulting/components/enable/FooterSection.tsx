@@ -20,12 +20,12 @@ const FooterSection = () => {
                 </ul>
               </div>
               <div>
-                <h5 className="text-[#7021EE] font-medium mb-3">vCAIO</h5>
+                <h5 className="text-[#7021EE] font-medium mb-3">Consulting</h5>
                 <ul className="space-y-2">
-                  <li><Link to="/vcaio" className="text-gray-400 hover:text-white transition-colors">Overview</Link></li>
-                  <li><Link to="/vcaio/launch" className="text-gray-400 hover:text-white transition-colors">Launch</Link></li>
-                  <li><Link to="/vcaio/adopt" className="text-gray-400 hover:text-white transition-colors">Adopt</Link></li>
-                  <li><Link to="/vcaio/enable" className="text-gray-400 hover:text-white transition-colors">Enable</Link></li>
+                  <li><Link to="/consulting" className="text-gray-400 hover:text-white transition-colors">Overview</Link></li>
+                  <li><Link to="/consulting/launch" className="text-gray-400 hover:text-white transition-colors">Launch</Link></li>
+                  <li><Link to="/consulting/adopt" className="text-gray-400 hover:text-white transition-colors">Adopt</Link></li>
+                  <li><Link to="/consulting/enable" className="text-gray-400 hover:text-white transition-colors">Enable</Link></li>
                 </ul>
               </div>
               <div>

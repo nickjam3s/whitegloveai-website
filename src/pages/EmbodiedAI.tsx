@@ -498,7 +498,7 @@ const HumanoidAI = () => {
           <p className="text-center text-gray-400 mb-4">Related Services:</p>
           <div className="flex flex-wrap justify-center gap-4 text-sm">
             <Link to="/maisp" className="text-primary hover:text-primary/80">MAISP</Link>
-            <Link to="/vcaio" className="text-primary hover:text-primary/80">vCAIO</Link>
+            <Link to="/consulting" className="text-primary hover:text-primary/80">Consulting</Link>
             <Link to="/traiga" className="text-primary hover:text-primary/80">TRAIGA</Link>
             <Link to="/maisp/voiceai" className="text-primary hover:text-primary/80">VoiceAI</Link>
             <Link to="/maisp/avatarai" className="text-primary hover:text-primary/80">AvatarAI</Link>

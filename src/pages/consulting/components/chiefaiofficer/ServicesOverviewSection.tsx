@@ -16,7 +16,7 @@ const ServicesOverviewSection = () => {
         "Tailored AI solutions roadmap"
       ],
       ctaText: "Learn More",
-      ctaLink: "/vcaio/launch"
+      ctaLink: "/consulting/launch"
     },
     {
       icon: <Shield className="h-8 w-8 text-secondary mb-4" />,
@@ -29,7 +29,7 @@ const ServicesOverviewSection = () => {
         "Measurable outcome tracking"
       ],
       ctaText: "Explore Adoption",
-      ctaLink: "/vcaio/adopt"
+      ctaLink: "/consulting/adopt"
     },
     {
       icon: <Zap className="h-8 w-8 text-secondary mb-4" />,
@@ -42,7 +42,7 @@ const ServicesOverviewSection = () => {
         "Effective AI tool utilization"
       ],
       ctaText: "Get Enabled",
-      ctaLink: "/vcaio/enable"
+      ctaLink: "/consulting/enable"
     }
   ];
 

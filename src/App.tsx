@@ -47,12 +47,10 @@ import VendorAI from "./pages/maisp/VendorAI";
 import MediaAI from "./pages/maisp/MediaAI";
 import MediaAIEquipmentProtected from "./pages/maisp/MediaAIEquipmentProtected";
 
-// Legacy vCAIO Routes (for reference)
-import VCAIO from "./pages/vcaio/Index";
-import ChiefAIOfficer from "./pages/vcaio/ChiefAIOfficer";
-import Launch from "./pages/vcaio/Launch";
-import Adopt from "./pages/vcaio/Adopt";
-import Enable from "./pages/vcaio/Enable";
+// Consulting Sub-Pages
+import Launch from "./pages/consulting/Launch";
+import Adopt from "./pages/consulting/Adopt";
+import Enable from "./pages/consulting/Enable";
 
 // Portal Routes
 import PortalIndex from "./pages/portal/Index";
@@ -116,12 +114,17 @@ const AppContent = () => {
                 <Route path="/maisp/mediaai" element={<MediaAI />} />
                 <Route path="/maisp/mediaai/equipment" element={<MediaAIEquipmentProtected />} />
                 
-                {/* vCAIO Routes - redirect to consulting */}
+                {/* Consulting Sub-Routes */}
+                <Route path="/consulting/launch" element={<Launch />} />
+                <Route path="/consulting/adopt" element={<Adopt />} />
+                <Route path="/consulting/enable" element={<Enable />} />
+                
+                {/* Legacy vCAIO Routes - redirect to consulting */}
                 <Route path="/vcaio" element={<Navigate to="/consulting" replace />} />
                 <Route path="/vcaio/chiefaiofficer" element={<Navigate to="/consulting" replace />} />
-                <Route path="/vcaio/launch" element={<Launch />} />
-                <Route path="/vcaio/adopt" element={<Adopt />} />
-                <Route path="/vcaio/enable" element={<Enable />} />
+                <Route path="/vcaio/launch" element={<Navigate to="/consulting/launch" replace />} />
+                <Route path="/vcaio/adopt" element={<Navigate to="/consulting/adopt" replace />} />
+                <Route path="/vcaio/enable" element={<Navigate to="/consulting/enable" replace />} />
                 
                 {/* Blog & CMS Routes */}
                 <Route path="/blog" element={<Blog />} />

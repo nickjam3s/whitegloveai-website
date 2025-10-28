@@ -1,10 +1,10 @@
 import { useEffect, useRef } from "react";
-import HeroSection from "./vcaio/components/chiefaiofficer/HeroSection";
-import UnlockingSection from "./vcaio/components/chiefaiofficer/UnlockingSection";
-import BenefitsSection from "./vcaio/components/chiefaiofficer/BenefitsSection";
-import FutureSection from "./vcaio/components/chiefaiofficer/FutureSection";
-import WhyVCAIO from "./vcaio/components/chiefaiofficer/WhyVCAIO";
-import ServicesOverviewSection from "./vcaio/components/chiefaiofficer/ServicesOverviewSection";
+import HeroSection from "./consulting/components/chiefaiofficer/HeroSection";
+import UnlockingSection from "./consulting/components/chiefaiofficer/UnlockingSection";
+import BenefitsSection from "./consulting/components/chiefaiofficer/BenefitsSection";
+import FutureSection from "./consulting/components/chiefaiofficer/FutureSection";
+import WhyVCAIO from "./consulting/components/chiefaiofficer/WhyVCAIO";
+import ServicesOverviewSection from "./consulting/components/chiefaiofficer/ServicesOverviewSection";
 import '@/styles/animations.css';
 import SEO from '@/components/SEO';
 
