@@ -21,6 +21,7 @@ import { Button } from "@/components/ui/button";
 import ScrollAnimation from '@/components/animations/ScrollAnimation';
 import '@/styles/animations.css';
 import HB3512Banner from "@/components/HB3512Banner";
+import LucidisBanner from "@/components/LucidisBanner";
 
 const GovAI = () => {
   useLayoutEffect(() => {
@@ -52,7 +53,6 @@ const GovAI = () => {
 
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
-      <HB3512Banner />
       {/* Hero Section */}
       <section className="relative py-20 md:py-32 bg-gradient-to-b from-[#7021EE]/20 to-black/90 overflow-hidden">
         <div className="absolute inset-0">
@@ -140,6 +140,9 @@ const GovAI = () => {
           </div>
         </div>
       </section>
+
+      <HB3512Banner />
+      <LucidisBanner />
 
       {/* Services for Government Section */}
       <section className="py-20 bg-background scroll-mt-20">

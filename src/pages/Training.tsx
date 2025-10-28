@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { GraduationCap, ArrowRight, BookOpen, Users, Award } from "lucide-react";
 import HB3512Banner from "@/components/HB3512Banner";
+import LucidisBanner from "@/components/LucidisBanner";
 
 const Training = () => {
   useLayoutEffect(() => {
@@ -11,7 +12,6 @@ const Training = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <HB3512Banner />
       {/* Hero Section */}
       <section className="relative pt-40 pb-28 px-4 sm:px-6 lg:px-8 overflow-hidden">
         <div className="absolute inset-0 overflow-hidden">
@@ -84,6 +84,9 @@ const Training = () => {
           </div>
         </div>
       </section>
+
+      <HB3512Banner />
+      <LucidisBanner />
 
       {/* Introduction Section */}
       <section className="py-20 bg-card">
