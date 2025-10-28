@@ -22,7 +22,7 @@ const challenges = [
 
 const ChallengesTableSection = () => {
   return (
-    <section className="py-16 bg-black text-white">
+    <section className="py-16 bg-gray-950 text-white">
       <div className="max-w-7xl mx-auto px-6 md:px-8">
         <h2 className="text-3xl md:text-4xl font-bold mb-6">The Challenge for Teams</h2>
         <p className="text-lg mb-8">Here are the key challenges we address:</p>
