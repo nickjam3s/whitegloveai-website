@@ -3,7 +3,7 @@ import React from 'react';
 
 const IntroductionSection = () => {
   return (
-    <section className="py-16 bg-black text-white">
+    <section className="py-16 bg-gray-900 text-white">
       <div className="max-w-7xl mx-auto px-6 md:px-8">
         <h2 className="text-3xl md:text-4xl font-bold mb-10">Introduction</h2>
         
