@@ -20,10 +20,11 @@ const Index = () => {
     // Scroll to top when component mounts
     window.scrollTo(0, 0);
     
-    // Load the chat script
+    // Load the Conduit.ai chat widget
     const script = document.createElement('script');
-    script.src = "https://chat.whitegloveai.com/api/script/chat.js?iframe&id=11eee546-15ce-7f30-aa68-03cf75d045b5";
-    script.defer = true;
+    script.src = "https://base.conduit.ai/widget/widget.min.js";
+    script.async = true;
+    script.setAttribute('data-widget-id', 'a577c803-4c1a-4b17-4b7d-2dc85a55b344');
     document.body.appendChild(script);
 
     // Load the Typeform script
