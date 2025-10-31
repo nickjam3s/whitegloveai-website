@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { motion } from "framer-motion";
 import ScrollAnimation from '@/components/animations/ScrollAnimation';
+import SEO from '@/components/SEO';
 
 const NotFound = () => {
   const location = useLocation();
@@ -16,7 +17,12 @@ const NotFound = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-black text-white">
-      <motion.div 
+      <SEO
+        title="404 - Page Not Found | WhitegloveAI"
+        description="The page you're looking for doesn't exist. Return to WhitegloveAI homepage."
+        noindex={true}
+      />
+      <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}

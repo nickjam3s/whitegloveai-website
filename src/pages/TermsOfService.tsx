@@ -10,12 +10,18 @@ import {
   FileText, 
   ShieldCheck 
 } from "lucide-react";
+import SEO from '@/components/SEO';
 
 const TermsOfService = () => {
   const termsRef = useRef<HTMLDivElement>(null);
 
   return (
     <div className="bg-black min-h-screen" ref={termsRef}>
+      <SEO
+        title="Terms of Service | WhitegloveAI"
+        description="Review WhitegloveAI's terms of service. Understand your rights and responsibilities when using our AI services and platform."
+        canonicalPath="/terms"
+      />
       {/* Hero Section with Image Background */}
       <section className="relative py-20 px-4 sm:px-6 lg:px-8 min-h-[60vh] flex items-center">
         <div className="absolute inset-0 bg-black/90">

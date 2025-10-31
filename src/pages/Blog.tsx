@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 import { formatDistanceToNow } from "date-fns";
+import SEO from "@/components/SEO";
 
 interface Post {
   id: string;
@@ -93,6 +94,11 @@ const Blog = () => {
 
   return (
     <div className="min-h-screen bg-black text-white">
+      <SEO
+        title="AI Insights & Updates | WhitegloveAI Blog"
+        description="Explore AI trends, best practices, and innovation insights from WhitegloveAI. Stay ahead with expert perspectives on AI transformation."
+        canonicalPath="/blog"
+      />
       <div className="max-w-4xl mx-auto px-4 py-8">
         <header className="text-center mb-12">
           <h1 className="text-4xl font-bold mb-4">WhitegloveAI Blog</h1>

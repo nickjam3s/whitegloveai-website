@@ -11,6 +11,7 @@ import VisionSection from "./apprenticeship/components/VisionSection";
 import ApplicationProcess from "./apprenticeship/components/ApplicationProcess";
 import FAQSection from "./apprenticeship/components/FAQSection";
 import ContactSection from "./apprenticeship/components/ContactSection";
+import SEO from '@/components/SEO';
 import '@/styles/animations.css';
 
 const Apprenticeship = () => {
@@ -52,6 +53,11 @@ const Apprenticeship = () => {
 
   return (
     <div className="min-h-screen bg-black text-white font-sans font-sora overflow-x-hidden">
+      <SEO
+        title="AI Apprenticeship Program | Launch Your AI Career"
+        description="Join WhitegloveAI's apprenticeship program. Gain hands-on AI experience, mentorship, and career opportunities in enterprise AI."
+        canonicalPath="/apprenticeship"
+      />
       <section className="relative h-[100vh] flex items-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-[#7021EE]/20 to-black/90">
           <div className="absolute inset-0 backdrop-blur-sm" />

@@ -22,6 +22,7 @@ import ScrollAnimation from '@/components/animations/ScrollAnimation';
 import '@/styles/animations.css';
 import HB3512Banner from "@/components/HB3512Banner";
 import LucidisBanner from "@/components/LucidisBanner";
+import SEO from '@/components/SEO';
 
 const GovAI = () => {
   useLayoutEffect(() => {
@@ -53,6 +54,11 @@ const GovAI = () => {
 
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
+      <SEO
+        title="Government AI Solutions | GovAI by WhitegloveAI"
+        description="Secure, compliant AI for public sector. TXShare-approved vendor delivering AI solutions for cities, counties, and state agencies."
+        canonicalPath="/govai"
+      />
       {/* Hero Section */}
       <section className="relative py-20 md:py-32 bg-gradient-to-b from-[#7021EE]/20 to-black/90 overflow-hidden">
         <div className="absolute inset-0">

@@ -13,6 +13,7 @@ import WhyWhitegloveAI from "./maisp/components/translateai/WhyWhitegloveAI";
 import EngagementModel from "./maisp/components/translateai/EngagementModel";
 import ContactSection from "./maisp/components/translateai/ContactSection";
 import ScrollAnimation from '@/components/animations/ScrollAnimation';
+import SEO from '@/components/SEO';
 import '@/styles/animations.css';
 
 const TranslateAI = () => {
@@ -70,6 +71,11 @@ const TranslateAI = () => {
 
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
+      <SEO
+        title="AI Translation Services | TranslateAI by WhitegloveAI"
+        description="Live AI-powered translation for multilingual meetings, events, and communications. Break language barriers with secure, managed TranslateAI."
+        canonicalPath="/translateai"
+      />
       <HeroSection />
       <Testimonial />
       <CoreCapabilities />

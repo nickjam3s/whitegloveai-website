@@ -3,12 +3,18 @@ import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Shield, Lock, SmilePlus, BarChart3, Target, Activity } from "lucide-react";
+import SEO from '@/components/SEO';
 
 const Privacy = () => {
   const policyRef = useRef<HTMLDivElement>(null);
 
   return (
     <div className="bg-black min-h-screen" ref={policyRef}>
+      <SEO
+        title="Privacy Policy | WhitegloveAI"
+        description="Learn how WhitegloveAI protects your data. Review our privacy practices, data handling, and security commitments."
+        canonicalPath="/privacy"
+      />
       {/* Privacy Policy Hero Section - Based on provided image */}
       <section className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-[#7021EE]/10 to-black/95">

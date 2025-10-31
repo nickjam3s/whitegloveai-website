@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import ScrollAnimation from '@/components/animations/ScrollAnimation';
 import PageWrapper from '@/components/layout/PageWrapper';
 import { useEffect, useLayoutEffect } from 'react';
+import SEO from '@/components/SEO';
 
 // Define the solutions data
 const solutions = [
@@ -113,6 +114,11 @@ const Solutions = () => {
 
   return (
     <div className="min-h-screen bg-black text-white overflow-x-hidden">
+      <SEO
+        title="AI Solutions for Every Industry | WhitegloveAI"
+        description="Discover tailored AI solutions for healthcare, finance, government, retail, and more. Transform your operations with WhitegloveAI."
+        canonicalPath="/solutions"
+      />
       <section className="relative h-[90vh] flex items-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-[#7021EE]/20 to-black/90">
           <div className="absolute inset-0 backdrop-blur-sm" />

@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { GraduationCap, ArrowRight, BookOpen, Users, Award, Shield, CheckCircle, Clock, Globe } from "lucide-react";
 import HB3512Banner from "@/components/HB3512Banner";
 import aicertsPartnerBadge from "@/assets/aicerts-partner-badge.png";
+import SEO from '@/components/SEO';
 
 const Training = () => {
   useLayoutEffect(() => {
@@ -74,6 +75,11 @@ const Training = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="AI Training & Certification | AI+ by WhitegloveAI"
+        description="Industry-leading AI training programs. From foundational to advanced AI certifications. Empower your team with AI+ training courses."
+        canonicalPath="/training"
+      />
       {/* Hero Section */}
       <section className="relative pt-40 pb-28 px-4 sm:px-6 lg:px-8 overflow-hidden">
         <div className="absolute inset-0 overflow-hidden">

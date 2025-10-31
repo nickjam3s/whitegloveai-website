@@ -10,6 +10,7 @@ import {
   Bot 
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import SEO from '@/components/SEO';
 
 const Services = () => {
   useLayoutEffect(() => {
@@ -56,6 +57,11 @@ const Services = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="AI Services & Solutions | WhitegloveAI"
+        description="Comprehensive AI solutions from strategic consulting to managed platforms. WhitegloveAI delivers end-to-end AI services for enterprises."
+        canonicalPath="/services"
+      />
       {/* Hero Section */}
       <section className="relative pt-40 pb-28 px-4 sm:px-6 lg:px-8 overflow-hidden">
         <div className="absolute inset-0 overflow-hidden">

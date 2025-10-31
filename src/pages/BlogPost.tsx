@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 import { formatDistanceToNow } from "date-fns";
+import SEO from "@/components/SEO";
 
 interface Post {
   id: string;
@@ -41,15 +42,6 @@ const BlogPost = () => {
 
       if (error) throw error;
       setPost(data);
-
-      // Update page title and meta description
-      if (data) {
-        document.title = data.seo_title || data.title;
-        const metaDescription = document.querySelector('meta[name="description"]');
-        if (metaDescription) {
-          metaDescription.setAttribute('content', data.seo_description || data.excerpt || '');
-        }
-      }
     } catch (error) {
       console.error("Error fetching post:", error);
     } finally {
@@ -83,6 +75,12 @@ const BlogPost = () => {
 
   return (
     <div className="min-h-screen bg-black text-white">
+      <SEO
+        title={post?.seo_title || post?.title || "Blog Post"}
+        description={post?.seo_description || post?.excerpt || "Read the latest from WhitegloveAI"}
+        canonicalPath={`/blog/${slug}`}
+        image={post?.featured_image || undefined}
+      />
       <div className="max-w-4xl mx-auto px-4 py-8">
         <Link to="/blog" className="inline-flex items-center text-gray-400 hover:text-white mb-8">
           <ArrowLeft className="h-4 w-4 mr-2" />

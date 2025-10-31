@@ -6,6 +6,7 @@ import { Card } from '@/components/ui/card';
 import { useIsMobile } from "@/hooks/use-mobile";
 import ScrollAnimation from '@/components/animations/ScrollAnimation';
 import HeroSection from './advisors/heroSection';
+import SEO from '@/components/SEO';
 
 interface AdvisorProps {
   name: string;
@@ -46,6 +47,11 @@ const StrategicAdvisors = () => {
   return (
     <PageWrapper>
       <div className="min-h-screen bg-black text-white font-sans font-sora overflow-x-hidden">
+        <SEO
+          title="Strategic Advisors | WhitegloveAI Leadership"
+          description="Meet the strategic advisors guiding WhitegloveAI's vision. Industry leaders bringing decades of expertise across AI and business."
+          canonicalPath="/strategic-advisors"
+        />
         {/* Make hero section go edge-to-edge */}
         <section className="relative w-full h-[100vh] flex items-center overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-b from-[#7021EE]/20 to-black/90">

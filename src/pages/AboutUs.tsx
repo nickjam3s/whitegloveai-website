@@ -7,6 +7,7 @@ import GetInTouch from '@/components/about/GetInTouch';
 import CoreBeliefs from '@/pages/consulting/components/chiefaiofficer/CoreBeliefs';
 import { useIsMobile } from '@/hooks/use-mobile';
 import PageWrapper from '@/components/layout/PageWrapper';
+import SEO from '@/components/SEO';
 
 const AboutUs = () => {
   const isMobile = useIsMobile();
@@ -46,6 +47,11 @@ const AboutUs = () => {
 
   return (
     <div className="min-h-screen bg-black text-white font-sans font-sora">
+      <SEO
+        title="About WhitegloveAI | AI Excellence & Innovation"
+        description="WhitegloveAI empowers organizations with secure, responsible AI solutions. Meet our team and discover our mission to transform businesses."
+        canonicalPath="/about"
+      />
       <section className="relative h-[100vh] flex items-center overflow-hidden bg-gradient-to-br from-secondary/5 via-background to-primary/5">
         <div className="absolute inset-0 opacity-20">
           <div className="absolute inset-0" style={{
