@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "https://www.whitegloveai.com/:path*",
+      "destination": "https://whitegloveai.com/:path*",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
