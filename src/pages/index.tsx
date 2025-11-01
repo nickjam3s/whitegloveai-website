@@ -91,8 +91,8 @@ const Index = () => {
         description="WhitegloveAI delivers managed AI services, AI consulting, and vCAIO leadership to deploy secure, enterprise-grade AI."
         canonicalPath="/"
         schemas={[
-          { "@context": "https://schema.org", "@type": "Organization", "name": "WhitegloveAI", "url": "https://www.whitegloveai.com", "logo": "https://www.whitegloveai.com/og-image.png", "sameAs": ["https://www.linkedin.com/company/whitegloveai"] },
-          { "@context": "https://schema.org", "@type": "WebSite", "name": "WhitegloveAI", "url": "https://www.whitegloveai.com", "potentialAction": { "@type": "SearchAction", "target": "https://www.whitegloveai.com/blog?s={search_term_string}", "query-input": "required name=search_term_string" } }
+          { "@context": "https://schema.org", "@type": "Organization", "name": "WhitegloveAI", "url": "https://whitegloveai.com", "logo": "https://whitegloveai.com/og-image.png", "sameAs": ["https://www.linkedin.com/company/whitegloveai"] },
+          { "@context": "https://schema.org", "@type": "WebSite", "name": "WhitegloveAI", "url": "https://whitegloveai.com", "potentialAction": { "@type": "SearchAction", "target": "https://whitegloveai.com/blog?s={search_term_string}", "query-input": "required name=search_term_string" } }
         ]}
       />
       <HeroSection />
