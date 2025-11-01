@@ -63,7 +63,7 @@ const CommunicationsAI = () => {
       <SEO
         title="CommunicationsAI - Unified AI Communications Platform | WhitegloveAI"
         description="Unify every conversation and automate every interaction with CommunicationsAI, powered by Lucidis. Transform scattered communications into intelligent, automated streams."
-        canonicalPath="/communicationsai"
+        canonicalPath="/communications-ai"
       />
       
       {/* Hero Section */}

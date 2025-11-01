@@ -27,20 +27,20 @@ export const navigationLinks = [
       },
       {
         text: "CommunicationsAI",
-        to: "/communicationsai",
+        to: "/communications-ai",
         children: [
-          { to: "/communicationsai", text: "Overview" },
-          { to: "/communicationsai/automateai", text: "AutomateAI" },
-          { to: "/communicationsai/avatarai", text: "AvatarAI" },
+          { to: "/communications-ai", text: "Overview" },
+          { to: "/communications-ai/automate-ai", text: "AutomateAI" },
+          { to: "/communications-ai/avatar-ai", text: "AvatarAI" },
           {
             text: "TextAI",
-            to: "/communicationsai/textai",
+            to: "/communications-ai/text-ai",
             children: [
-              { to: "/communicationsai/textai", text: "TextAI" },
-              { to: "/communicationsai/textai/textaiforgood", text: "TextAI for Good Program" }
+              { to: "/communications-ai/text-ai", text: "TextAI" },
+              { to: "/communications-ai/text-ai/textai-for-good", text: "TextAI for Good Program" }
             ]
           },
-          { to: "/communicationsai/voiceai", text: "VoiceAI" }
+          { to: "/communications-ai/voice-ai", text: "VoiceAI" }
         ]
       },
     { to: "/translateai", text: "TranslateAI" },

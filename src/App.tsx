@@ -92,12 +92,12 @@ const AppContent = () => {
                 {/* Service Routes */}
                 <Route path="/services" element={<Services />} />
                 <Route path="/consulting" element={<Consulting />} />
-                <Route path="/communicationsai" element={<CommunicationsAI />} />
-                <Route path="/communicationsai/automateai" element={<AutomateAI />} />
-                <Route path="/communicationsai/avatarai" element={<AvatarAI />} />
-                <Route path="/communicationsai/textai" element={<TextAI />} />
-                <Route path="/communicationsai/textai/textaiforgood" element={<TextAIForGood />} />
-                <Route path="/communicationsai/voiceai" element={<VoiceAI />} />
+                <Route path="/communications-ai" element={<CommunicationsAI />} />
+                <Route path="/communications-ai/automate-ai" element={<AutomateAI />} />
+                <Route path="/communications-ai/avatar-ai" element={<AvatarAI />} />
+                <Route path="/communications-ai/text-ai" element={<TextAI />} />
+                <Route path="/communications-ai/text-ai/textai-for-good" element={<TextAIForGood />} />
+                <Route path="/communications-ai/voice-ai" element={<VoiceAI />} />
                 <Route path="/translateai" element={<TranslateAI />} />
                 <Route path="/ailab" element={<AILab />} />
                 <Route path="/training" element={<Training />} />
@@ -106,11 +106,17 @@ const AppContent = () => {
                 
                 {/* Redirects from old routes */}
                 <Route path="/maisp" element={<Navigate to="/services" replace />} />
-                <Route path="/maisp/textai" element={<Navigate to="/communicationsai/textai" replace />} />
-                <Route path="/maisp/textai/textaiforgood" element={<Navigate to="/communicationsai/textai/textaiforgood" replace />} />
-                <Route path="/maisp/voiceai" element={<Navigate to="/communicationsai/voiceai" replace />} />
-                <Route path="/maisp/avatarai" element={<Navigate to="/communicationsai/avatarai" replace />} />
-                <Route path="/maisp/automateai" element={<Navigate to="/communicationsai/automateai" replace />} />
+                <Route path="/communicationsai" element={<Navigate to="/communications-ai" replace />} />
+                <Route path="/communicationsai/automateai" element={<Navigate to="/communications-ai/automate-ai" replace />} />
+                <Route path="/communicationsai/avatarai" element={<Navigate to="/communications-ai/avatar-ai" replace />} />
+                <Route path="/communicationsai/textai" element={<Navigate to="/communications-ai/text-ai" replace />} />
+                <Route path="/communicationsai/textai/textaiforgood" element={<Navigate to="/communications-ai/text-ai/textai-for-good" replace />} />
+                <Route path="/communicationsai/voiceai" element={<Navigate to="/communications-ai/voice-ai" replace />} />
+                <Route path="/maisp/textai" element={<Navigate to="/communications-ai/text-ai" replace />} />
+                <Route path="/maisp/textai/textaiforgood" element={<Navigate to="/communications-ai/text-ai/textai-for-good" replace />} />
+                <Route path="/maisp/voiceai" element={<Navigate to="/communications-ai/voice-ai" replace />} />
+                <Route path="/maisp/avatarai" element={<Navigate to="/communications-ai/avatar-ai" replace />} />
+                <Route path="/maisp/automateai" element={<Navigate to="/communications-ai/automate-ai" replace />} />
                 <Route path="/maisp/embodied-ai" element={<Navigate to="/embodiedai" replace />} />
                 <Route path="/maisp/humaniodai" element={<Navigate to="/embodiedai" replace />} />
                 <Route path="/maisp/humanoid-ai" element={<Navigate to="/embodiedai" replace />} />

@@ -90,7 +90,7 @@ const TextAIForGood = () => {
       <SEO
         title="TextAI for Good - AI for Nonprofits | WhitegloveAI"
         description="Empower nonprofit organizations with AI text solutions. Free and discounted AI services for social good, community organizations, and charitable causes."
-        canonicalPath="/communicationsai/textai/textaiforgood"
+        canonicalPath="/communications-ai/text-ai/textai-for-good"
       />
       <HeroSection />
       <LucidisBanner />

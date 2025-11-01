@@ -78,7 +78,7 @@ const AutomateAI = () => {
       <SEO
         title="AutomateAI - AI Workflow Automation | WhitegloveAI"
         description="Automate business processes with AI-powered workflow solutions. Intelligent process automation, task automation, and workflow optimization services."
-        canonicalPath="/communicationsai/automateai"
+        canonicalPath="/communications-ai/automate-ai"
       />
       <HeroSection />
       <LucidisBanner />

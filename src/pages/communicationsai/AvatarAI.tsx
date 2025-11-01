@@ -105,7 +105,7 @@ const AvatarAI: React.FC<AvatarAIProps> = () => {
       <SEO
         title="AvatarAI - AI Avatar Solutions | WhitegloveAI"
         description="Create intelligent AI avatars for customer engagement. Virtual assistants, digital humans, and AI-powered avatar technology from WhitegloveAI."
-        canonicalPath="/communicationsai/avatarai"
+        canonicalPath="/communications-ai/avatar-ai"
       />
       <HeroSection />
       <LucidisBanner />

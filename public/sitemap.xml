@@ -55,32 +55,32 @@
   
   <!-- CommunicationsAI Services -->
   <url>
-    <loc>https://whitegloveai.com/communicationsai</loc>
+    <loc>https://whitegloveai.com/communications-ai</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://whitegloveai.com/communicationsai/automateai</loc>
+    <loc>https://whitegloveai.com/communications-ai/automate-ai</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://whitegloveai.com/communicationsai/avatarai</loc>
+    <loc>https://whitegloveai.com/communications-ai/avatar-ai</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://whitegloveai.com/communicationsai/textai</loc>
+    <loc>https://whitegloveai.com/communications-ai/text-ai</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://whitegloveai.com/communicationsai/textai/textaiforgood</loc>
+    <loc>https://whitegloveai.com/communications-ai/text-ai/textai-for-good</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://whitegloveai.com/communicationsai/voiceai</loc>
+    <loc>https://whitegloveai.com/communications-ai/voice-ai</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
