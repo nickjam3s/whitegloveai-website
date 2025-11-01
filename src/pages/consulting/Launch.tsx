@@ -8,6 +8,7 @@ import ResultsSection from "./components/launch/ResultsSection";
 import NextStepsSection from "./components/launch/NextStepsSection";
 import ContactSection from "./components/launch/ContactSection"
 import ScrollAnimation from '@/components/animations/ScrollAnimation';
+import SEO from '@/components/SEO';
 import '@/styles/animations.css'; // Import animations CSS
 
 const Launch = () => {
@@ -77,6 +78,11 @@ const Launch = () => {
 
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
+      <SEO
+        title="Launch - AI Strategy Consulting | WhitegloveAI"
+        description="Launch your AI initiative with expert guidance from WhitegloveAI. Strategic planning, implementation roadmap, and AI adoption consulting services."
+        canonicalPath="/consulting/launch"
+      />
       <HeroSection />
       <ImportanceSection />
       <ProcessSection />

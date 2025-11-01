@@ -12,6 +12,7 @@ import ContactSection from "../maisp/components/textai/ContactSection";
 import DemoExampleSection from "../maisp/components/textai/DemoExampleSection";
 import { ArrowRight, CheckCircle2, BarChart4, Shield } from "lucide-react";
 import ScrollAnimation from '@/components/animations/ScrollAnimation';
+import SEO from '@/components/SEO';
 import '@/styles/animations.css'; // Import animations CSS
 import LucidisBanner from '@/components/LucidisBanner';
 
@@ -79,6 +80,11 @@ const TextAI = () => {
 
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
+      <SEO
+        title="TextAI - AI Text Analysis & Generation | WhitegloveAI"
+        description="Transform text communications with AI-powered analysis and generation. Natural language processing, chatbots, and text automation solutions."
+        canonicalPath="/communicationsai/textai"
+      />
       <HeroSection />
       <LucidisBanner />
       
