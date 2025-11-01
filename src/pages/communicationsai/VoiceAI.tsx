@@ -6,6 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { motion } from "framer-motion";
 import { useIsMobile } from "@/hooks/use-mobile";
 import AICallEstimator from "@/components/calculators/AICallEstimator";
+import SEO from '@/components/SEO';
 import LucidisBanner from '@/components/LucidisBanner';
 
 const VoiceAI = () => {
@@ -43,6 +44,11 @@ const VoiceAI = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="VoiceAI - AI Voice Solutions | WhitegloveAI"
+        description="Transform phone communications with AI voice agents. Natural voice conversations, automated call handling, and intelligent IVR replacement powered by Lucidis platform."
+        canonicalPath="/communicationsai/voiceai"
+      />
       {/* Hero Section */}
       <section className="relative pt-20 pb-28 px-4 sm:px-6 lg:px-8 overflow-hidden bg-gradient-to-br from-secondary/5 via-background to-primary/5">
         <div className="absolute inset-0 opacity-20">

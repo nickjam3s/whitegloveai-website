@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 import ScrollAnimation from '@/components/animations/ScrollAnimation';
+import SEO from '@/components/SEO';
 import '@/styles/animations.css';
 import LucidisBanner from '@/components/LucidisBanner';
 
@@ -101,6 +102,11 @@ const AvatarAI: React.FC<AvatarAIProps> = () => {
 
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
+      <SEO
+        title="AvatarAI - AI Avatar Solutions | WhitegloveAI"
+        description="Create intelligent AI avatars for customer engagement. Virtual assistants, digital humans, and AI-powered avatar technology from WhitegloveAI."
+        canonicalPath="/communicationsai/avatarai"
+      />
       <HeroSection />
       <LucidisBanner />
       <EvolutionSection features={evolutionFeatures} />

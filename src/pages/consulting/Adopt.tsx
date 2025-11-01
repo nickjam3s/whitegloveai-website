@@ -8,6 +8,7 @@ import ExpertTeam from "./components/adopt/ExpertTeam";
 import SecurityCompliance from "./components/adopt/SecurityCompliance";
 import Support from "./components/adopt/Support";
 import ScrollAnimation from '@/components/animations/ScrollAnimation';
+import SEO from '@/components/SEO';
 import '@/styles/animations.css'; // Import animations CSS
 
 const Adopt = () => {
@@ -84,6 +85,11 @@ const Adopt = () => {
 
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
+      <SEO
+        title="Adopt - AI Adoption Services | WhitegloveAI"
+        description="Accelerate AI adoption across your organization with WhitegloveAI. Change management, training, and implementation support for successful AI integration."
+        canonicalPath="/consulting/adopt"
+      />
       <HeroSection />
       <ServiceDescription />
       <BusinessOutcomes />
