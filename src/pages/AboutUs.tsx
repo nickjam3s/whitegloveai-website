@@ -50,7 +50,7 @@ const AboutUs = () => {
       <SEO
         title="About WhitegloveAI | AI Excellence & Innovation"
         description="WhitegloveAI empowers organizations with secure, responsible AI solutions. Meet our team and discover our mission to transform businesses."
-        canonicalPath="/about"
+        canonicalPath="/aboutus"
       />
       <section className="relative h-[100vh] flex items-center overflow-hidden bg-gradient-to-br from-secondary/5 via-background to-primary/5">
         <div className="absolute inset-0 opacity-20">

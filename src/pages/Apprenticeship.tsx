@@ -56,7 +56,7 @@ const Apprenticeship = () => {
       <SEO
         title="AI Apprenticeship Program | Launch Your AI Career"
         description="Join WhitegloveAI's apprenticeship program. Gain hands-on AI experience, mentorship, and career opportunities in enterprise AI."
-        canonicalPath="/apprenticeship"
+        canonicalPath="/about/apprentice"
       />
       <section className="relative h-[100vh] flex items-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-[#7021EE]/20 to-black/90">
