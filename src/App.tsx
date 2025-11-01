@@ -73,10 +73,15 @@ const AppContent = () => {
               <Routes>
                 {/* Main Routes */}
                 <Route path="/" element={<Index />} />
-                <Route path="/aboutus" element={<AboutUs />} />
-                <Route path="/aboutus/strategic-advisors" element={<StrategicAdvisors />} />
-                <Route path="/aboutus/apprenticeship" element={<Apprenticeship />} />
-                <Route path="/about/apprentice" element={<Apprenticeship />} />
+                <Route path="/about-us" element={<AboutUs />} />
+                <Route path="/about-us/strategic-advisors" element={<StrategicAdvisors />} />
+                <Route path="/about-us/apprenticeship" element={<Apprenticeship />} />
+                
+                {/* Redirects from old about URLs */}
+                <Route path="/aboutus" element={<Navigate to="/about-us" replace />} />
+                <Route path="/aboutus/strategic-advisors" element={<Navigate to="/about-us/strategic-advisors" replace />} />
+                <Route path="/aboutus/apprenticeship" element={<Navigate to="/about-us/apprenticeship" replace />} />
+                <Route path="/about/apprentice" element={<Navigate to="/about-us/apprenticeship" replace />} />
                 <Route path="/privacy" element={<Privacy />} />
                 <Route path="/privacy-policy" element={<Privacy />} />
                 <Route path="/terms-of-service" element={<TermsOfService />} />
@@ -146,8 +151,8 @@ const AppContent = () => {
                   element={<Navigate to="https://lucidis.ai" replace />}
                 />
                 
-                {/* Redirect /about to /aboutus since we're removing the About page */}
-                <Route path="/about" element={<Navigate to="/aboutus" replace />} />
+                {/* Redirect /about to /about-us */}
+                <Route path="/about" element={<Navigate to="/about-us" replace />} />
               </Routes>
             </main>
             {!isPortalRoute && <Footer />}

@@ -3,11 +3,11 @@
 export const navigationLinks = [
   {
     text: "About",
-    to: "/aboutus",
+    to: "/about-us",
     children: [
-      { to: "/aboutus", text: "About Us" },
-      { to: "/aboutus/strategic-advisors", text: "Strategic Advisors" },
-      { to: "/about/apprentice", text: "Apprenticeship Program" }
+      { to: "/about-us", text: "About Us" },
+      { to: "/about-us/strategic-advisors", text: "Strategic Advisors" },
+      { to: "/about-us/apprenticeship", text: "Apprenticeship Program" }
     ]
   },
   {
