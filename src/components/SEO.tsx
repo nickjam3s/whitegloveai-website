@@ -9,7 +9,7 @@ interface SEOProps {
   schemas?: object | object[]; // JSON-LD objects
 }
 
-const SITE_URL = 'https://www.whitegloveai.com';
+const SITE_URL = 'https://whitegloveai.com';
 
 function setOrCreateMeta(name: string, content: string) {
   if (!content) return;
