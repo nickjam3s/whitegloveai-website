@@ -174,7 +174,7 @@ const Index = () => {
       </section>
       <PartnerLogos />
       <WhitegloveAIDifference />
-      <ContactSection />
+      <ContactSection showSEO={false} />
     </div>
   );
 };

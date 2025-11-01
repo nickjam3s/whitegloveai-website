@@ -1,7 +1,11 @@
 import { useEffect } from "react";
 import SEO from '@/components/SEO';
 
-const Contact = () => {
+interface ContactProps {
+  showSEO?: boolean;
+}
+
+const Contact = ({ showSEO = true }: ContactProps) => {
   useEffect(() => {
     // Load HubSpot script only once
     const existingScript = document.getElementById('hubspot-script');
@@ -16,11 +20,13 @@ const Contact = () => {
 
   return (
     <>
-      <SEO
-        title="Contact Us | WhitegloveAI"
-        description="Get in touch with WhitegloveAI. Contact our team for AI consulting, managed AI services, training, and enterprise AI solutions."
-        canonicalPath="/contact"
-      />
+      {showSEO && (
+        <SEO
+          title="Contact Us | WhitegloveAI"
+          description="Get in touch with WhitegloveAI. Contact our team for AI consulting, managed AI services, training, and enterprise AI solutions."
+          canonicalPath="/contact"
+        />
+      )}
       <section id="contact" className="py-20 bg-background min-h-screen">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-3xl font-semibold mb-16 text-center heading-highlight-scroll">
