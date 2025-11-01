@@ -8,7 +8,6 @@ import SecuritySection from './components/enable/SecuritySection';
 import NextStepsSection from './components/enable/NextStepsSection';
 import ContactSection from './components/enable/ContactSection';
 import FooterSection from './components/enable/FooterSection';
-import SEO from '@/components/SEO';
 
 const Enable = () => {
   useLayoutEffect(() => {
@@ -17,11 +16,6 @@ const Enable = () => {
 
   return (
     <div className="min-h-screen bg-black">
-      <SEO
-        title="Enable - AI Enablement Solutions | WhitegloveAI"
-        description="Enable your workforce with AI tools and capabilities. Employee training, AI tool deployment, and enablement strategies from WhitegloveAI."
-        canonicalPath="/consulting/enable"
-      />
       <NewHeroSection />
       <IntroductionSection />
       <ChallengesTableSection />

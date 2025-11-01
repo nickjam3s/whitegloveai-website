@@ -7,7 +7,6 @@ import BenefitsSection from "../maisp/components/automateai/BenefitsSection";
 import CTASection from "../maisp/components/automateai/CTASection";
 import ContactSection from "../maisp/components/automateai/ContactSection";
 import ScrollAnimation from '@/components/animations/ScrollAnimation';
-import SEO from '@/components/SEO';
 import '@/styles/animations.css'; // Import animations CSS
 import LucidisBanner from '@/components/LucidisBanner';
 
@@ -75,11 +74,6 @@ const AutomateAI = () => {
   
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
-      <SEO
-        title="AutomateAI - AI Workflow Automation | WhitegloveAI"
-        description="Automate business processes with AI-powered workflow solutions. Intelligent process automation, task automation, and workflow optimization services."
-        canonicalPath="/communicationsai/automateai"
-      />
       <HeroSection />
       <LucidisBanner />
       <ChallengesSection />

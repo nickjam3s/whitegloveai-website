@@ -1,7 +1,7 @@
-import { useEffect } from "react";
-import SEO from '@/components/SEO';
 
-const Contact = () => {
+import { useEffect } from "react";
+
+const ContactSection = () => {
   useEffect(() => {
     // Load HubSpot script only once
     const existingScript = document.getElementById('hubspot-script');
@@ -15,27 +15,20 @@ const Contact = () => {
   }, []);
 
   return (
-    <>
-      <SEO
-        title="Contact Us | WhitegloveAI"
-        description="Get in touch with WhitegloveAI. Contact our team for AI consulting, managed AI services, training, and enterprise AI solutions."
-        canonicalPath="/contact"
-      />
-      <section id="contact" className="py-20 bg-background min-h-screen">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl font-semibold mb-16 text-center heading-highlight-scroll">
-            Contact Us
-          </h1>
-          
-          <div className="bg-card/50 p-6 rounded-lg shadow-lg max-w-4xl mx-auto">
-            <div className="min-h-[400px]">
-              <div className="hs-form-frame" data-region="na2" data-form-id="c5c1e3a2-eebe-4d65-8368-03c02ebac2b0" data-portal-id="242996761"></div>
-            </div>
+    <section id="contact" className="py-20 bg-background">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 className="text-3xl font-semibold mb-16 text-center heading-highlight-scroll">
+          Contact Us
+        </h2>
+        
+        <div className="bg-card/50 p-6 rounded-lg shadow-lg max-w-4xl mx-auto">
+          <div className="min-h-[400px]">
+            <div className="hs-form-frame" data-region="na2" data-form-id="c5c1e3a2-eebe-4d65-8368-03c02ebac2b0" data-portal-id="242996761"></div>
           </div>
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 };
 
-export default Contact;
+export default ContactSection;

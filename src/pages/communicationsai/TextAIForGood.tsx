@@ -6,7 +6,6 @@ import EfficiencyImpactSection from "../maisp/components/textaiforgood/Efficienc
 import PartnersSection from "../maisp/components/textaiforgood/PartnersSection";
 import ContactSection from "../maisp/components/textaiforgood/ContactSection";
 import ScrollAnimation from '@/components/animations/ScrollAnimation';
-import SEO from '@/components/SEO';
 import '@/styles/animations.css'; // Import animations CSS
 import LucidisBanner from '@/components/LucidisBanner';
 
@@ -87,11 +86,6 @@ const TextAIForGood = () => {
 
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
-      <SEO
-        title="TextAI for Good - AI for Nonprofits | WhitegloveAI"
-        description="Empower nonprofit organizations with AI text solutions. Free and discounted AI services for social good, community organizations, and charitable causes."
-        canonicalPath="/communicationsai/textai/textaiforgood"
-      />
       <HeroSection />
       <LucidisBanner />
       <BenefitsSection />
