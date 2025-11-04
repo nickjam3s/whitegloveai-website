@@ -86,11 +86,11 @@ const HeroSection = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-5"
           >
-            <Link to="/contact" className="inline-flex items-center px-7 py-4 text-lg font-medium text-white bg-secondary rounded-lg hover:bg-secondary/90 transition-colors">
+            <Link to="/contact" className="inline-flex items-center px-7 py-4 text-lg font-medium text-white bg-white/10 backdrop-blur-xl rounded-xl hover:bg-white/20 transition-all duration-300 border border-white/20 shadow-[0_8px_32px_0_rgba(112,33,238,0.2)] hover:shadow-[0_8px_32px_0_rgba(112,33,238,0.4)] hover:border-white/30">
               Get Started
               <ArrowRight className="ml-3 h-6 w-6" />
             </Link>
-            <a href="https://forms.whitegloveai.com/H0EnGl" target="_blank" rel="noopener noreferrer" className="inline-flex items-center px-7 py-4 text-lg font-medium text-white bg-secondary/20 hover:bg-secondary/30 rounded-lg transition-colors border border-secondary/50">
+            <a href="https://forms.whitegloveai.com/H0EnGl" target="_blank" rel="noopener noreferrer" className="inline-flex items-center px-7 py-4 text-lg font-medium text-white bg-white/5 backdrop-blur-xl rounded-xl hover:bg-white/10 transition-all duration-300 border border-white/10 shadow-[0_8px_32px_0_rgba(255,255,255,0.05)] hover:shadow-[0_8px_32px_0_rgba(255,255,255,0.1)] hover:border-white/20">
               Take the AI Readiness Assessment
               <ArrowRight className="ml-3 h-6 w-6" />
             </a>
