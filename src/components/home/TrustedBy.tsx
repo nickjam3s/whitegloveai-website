@@ -133,12 +133,13 @@ const TrustedBy = () => {
             {visibleReviews.map((review, idx) => (
               <Card
                 key={idx}
-                className="bg-[#111] border border-[#333] shadow-lg h-full flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-[#7021EE] hover:shadow-[#7021EE]/20 card-glow group animate-fade-in"
+                className="group bg-white/10 backdrop-blur-2xl border border-white/30 shadow-[0_8px_32px_0_rgba(112,33,238,0.2),0_0_0_1px_rgba(255,255,255,0.1)_inset] h-full flex flex-col transition-all duration-500 hover:scale-105 hover:shadow-[0_12px_48px_0_rgba(112,33,238,0.4),0_0_0_1px_rgba(255,255,255,0.2)_inset] hover:border-white/50 hover:bg-white/15 relative overflow-hidden animate-fade-in"
               >
-                <CardContent className="py-8 px-8 flex flex-col h-full">
+                <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <CardContent className="py-8 px-8 flex flex-col h-full relative">
                   <StarRow />
                   <div className="flex-1 flex flex-col">
-                    <p className="text-gray-200 font-light italic text-sm whitespace-pre-line mb-6 flex-1">{review.text}</p>
+                    <p className="text-gray-200 font-light italic text-sm whitespace-pre-line mb-6 flex-1 relative">{review.text}</p>
                     
                     {/* Author Information Subsection */}
                     <div className="mt-auto pt-6 border-t border-[#333]">

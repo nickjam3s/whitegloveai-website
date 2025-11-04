@@ -46,10 +46,11 @@ const AIAMFFrameworkSection = () => {
 
         <div className="grid md:grid-cols-4 gap-8 animate-fade-up">
           {frameworkSteps.map((step, index) => (
-            <div key={index} className="bg-card p-6 rounded-lg border border-gray-800 hover:border-secondary/50 transition-colors flex flex-col items-center text-center">
-              <step.icon className="h-10 w-10 text-secondary mb-4 mx-auto" />
-              <h3 className="text-xl font-semibold mb-3">{step.title}</h3>
-              <p className="text-gray-400">{step.description}</p>
+            <div key={index} className="group bg-white/10 backdrop-blur-2xl p-6 rounded-2xl border border-white/30 hover:border-white/50 hover:bg-white/15 transition-all duration-500 hover:scale-105 flex flex-col items-center text-center shadow-[0_8px_32px_0_rgba(155,135,245,0.2),0_0_0_1px_rgba(255,255,255,0.1)_inset] hover:shadow-[0_12px_48px_0_rgba(155,135,245,0.4),0_0_0_1px_rgba(255,255,255,0.2)_inset] relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <step.icon className="h-10 w-10 text-secondary mb-4 mx-auto relative" />
+              <h3 className="text-xl font-semibold mb-3 relative">{step.title}</h3>
+              <p className="text-gray-300 relative">{step.description}</p>
             </div>
           ))}
         </div>
