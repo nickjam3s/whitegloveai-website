@@ -54,8 +54,19 @@ const HeroSection = () => {
           backgroundSize: '40px 40px'
         }}></div>
       </div>
-      <div className="absolute top-1/4 left-10 w-72 h-72 bg-secondary/10 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-primary/10 rounded-full blur-3xl"></div>
+      
+      {/* Enhanced gradient orbs for liquid glass effect */}
+      <div className="absolute top-1/4 left-10 w-72 h-72 bg-secondary/30 rounded-full blur-3xl animate-pulse-slow"></div>
+      <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-primary/30 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '1s' }}></div>
+      
+      {/* Colorful gradient orbs behind button area */}
+      <div className="absolute bottom-1/3 left-1/4 w-[500px] h-[500px] bg-gradient-to-br from-purple-500/40 via-blue-500/40 to-pink-500/40 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '0.5s' }}></div>
+      <div className="absolute bottom-1/3 right-1/4 w-[400px] h-[400px] bg-gradient-to-tl from-cyan-500/35 via-indigo-500/35 to-purple-500/35 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '1.5s' }}></div>
+      
+      {/* Animated gradient mesh */}
+      <div className="absolute inset-0 opacity-30">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-gradient-to-r from-purple-500/20 via-pink-500/20 to-blue-500/20 rounded-full blur-3xl animate-pulse-slow"></div>
+      </div>
       
       <div className="max-w-7xl mx-auto relative px-4 sm:px-6 lg:px-8">
         <div className="text-center">
@@ -86,13 +97,15 @@ const HeroSection = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-5"
           >
-            <Link to="/contact" className="inline-flex items-center px-7 py-4 text-lg font-medium text-white bg-white/10 backdrop-blur-xl rounded-xl hover:bg-white/20 transition-all duration-300 border border-white/20 shadow-[0_8px_32px_0_rgba(112,33,238,0.2)] hover:shadow-[0_8px_32px_0_rgba(112,33,238,0.4)] hover:border-white/30">
-              Get Started
-              <ArrowRight className="ml-3 h-6 w-6" />
+            <Link to="/contact" className="group inline-flex items-center px-7 py-4 text-lg font-medium text-white bg-white/10 backdrop-blur-2xl rounded-2xl hover:bg-white/20 transition-all duration-500 border border-white/30 shadow-[0_8px_32px_0_rgba(112,33,238,0.3),0_0_0_1px_rgba(255,255,255,0.1)_inset] hover:shadow-[0_12px_48px_0_rgba(112,33,238,0.5),0_0_0_1px_rgba(255,255,255,0.2)_inset] hover:border-white/50 hover:scale-105 relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <span className="relative">Get Started</span>
+              <ArrowRight className="ml-3 h-6 w-6 relative group-hover:translate-x-1 transition-transform" />
             </Link>
-            <a href="https://forms.whitegloveai.com/H0EnGl" target="_blank" rel="noopener noreferrer" className="inline-flex items-center px-7 py-4 text-lg font-medium text-white bg-white/5 backdrop-blur-xl rounded-xl hover:bg-white/10 transition-all duration-300 border border-white/10 shadow-[0_8px_32px_0_rgba(255,255,255,0.05)] hover:shadow-[0_8px_32px_0_rgba(255,255,255,0.1)] hover:border-white/20">
-              Take the AI Readiness Assessment
-              <ArrowRight className="ml-3 h-6 w-6" />
+            <a href="https://forms.whitegloveai.com/H0EnGl" target="_blank" rel="noopener noreferrer" className="group inline-flex items-center px-7 py-4 text-lg font-medium text-white bg-white/5 backdrop-blur-2xl rounded-2xl hover:bg-white/15 transition-all duration-500 border border-white/20 shadow-[0_8px_32px_0_rgba(255,255,255,0.1),0_0_0_1px_rgba(255,255,255,0.05)_inset] hover:shadow-[0_12px_48px_0_rgba(255,255,255,0.2),0_0_0_1px_rgba(255,255,255,0.15)_inset] hover:border-white/40 hover:scale-105 relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <span className="relative">Take the AI Readiness Assessment</span>
+              <ArrowRight className="ml-3 h-6 w-6 relative group-hover:translate-x-1 transition-transform" />
             </a>
           </motion.div>
           
