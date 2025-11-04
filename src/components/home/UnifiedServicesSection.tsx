@@ -28,35 +28,32 @@ const UnifiedServicesSection = () => {
         </div>
 
         <div className="grid md:grid-cols-3 gap-8 mb-10">
-          <div className="group bg-white/10 backdrop-blur-2xl p-6 rounded-2xl border border-white/30 hover:border-white/50 hover:bg-white/15 transition-all duration-500 hover:scale-105 shadow-[0_8px_32px_0_rgba(155,135,245,0.2),0_0_0_1px_rgba(255,255,255,0.1)_inset] hover:shadow-[0_12px_48px_0_rgba(155,135,245,0.4),0_0_0_1px_rgba(255,255,255,0.2)_inset] relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-            <div className="bg-secondary/20 backdrop-blur-xl p-3 rounded-xl w-14 h-14 flex items-center justify-center mx-auto mb-4 relative">
+          <div className="bg-background/50 p-6 rounded-lg border border-secondary/30 hover:border-secondary/70 transition-colors">
+            <div className="bg-secondary/10 p-3 rounded-lg w-14 h-14 flex items-center justify-center mx-auto mb-4">
               <Target className="h-8 w-8 text-[#9b87f5]" />
             </div>
-            <h4 className="text-xl font-medium mb-3 text-center text-[#9b87f5] relative">Strategic AI Leadership</h4>
-            <p className="text-gray-300 text-center relative">
+            <h4 className="text-xl font-medium mb-3 text-center text-[#9b87f5]">Strategic AI Leadership</h4>
+            <p className="text-gray-400 text-center">
               C-level AI expertise and strategic guidance at a fraction of the full-time cost
             </p>
           </div>
 
-          <div className="group bg-white/10 backdrop-blur-2xl p-6 rounded-2xl border border-white/30 hover:border-white/50 hover:bg-white/15 transition-all duration-500 hover:scale-105 shadow-[0_8px_32px_0_rgba(155,135,245,0.2),0_0_0_1px_rgba(255,255,255,0.1)_inset] hover:shadow-[0_12px_48px_0_rgba(155,135,245,0.4),0_0_0_1px_rgba(255,255,255,0.2)_inset] relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-            <div className="bg-secondary/20 backdrop-blur-xl p-3 rounded-xl w-14 h-14 flex items-center justify-center mx-auto mb-4 relative">
+          <div className="bg-background/50 p-6 rounded-lg border border-secondary/30 hover:border-secondary/70 transition-colors">
+            <div className="bg-secondary/10 p-3 rounded-lg w-14 h-14 flex items-center justify-center mx-auto mb-4">
               <Map className="h-8 w-8 text-[#9b87f5]" />
             </div>
-            <h4 className="text-xl font-medium mb-3 text-center text-[#9b87f5] relative">Bridge the AI Knowledge Gap</h4>
-            <p className="text-gray-300 text-center relative">
+            <h4 className="text-xl font-medium mb-3 text-center text-[#9b87f5]">Bridge the AI Knowledge Gap</h4>
+            <p className="text-gray-400 text-center">
               Translate complex AI concepts into clear business strategies your organization can understand
             </p>
           </div>
 
-          <div className="group bg-white/10 backdrop-blur-2xl p-6 rounded-2xl border border-white/30 hover:border-white/50 hover:bg-white/15 transition-all duration-500 hover:scale-105 shadow-[0_8px_32px_0_rgba(155,135,245,0.2),0_0_0_1px_rgba(255,255,255,0.1)_inset] hover:shadow-[0_12px_48px_0_rgba(155,135,245,0.4),0_0_0_1px_rgba(255,255,255,0.2)_inset] relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-            <div className="bg-secondary/20 backdrop-blur-xl p-3 rounded-xl w-14 h-14 flex items-center justify-center mx-auto mb-4 relative">
+          <div className="bg-background/50 p-6 rounded-lg border border-secondary/30 hover:border-secondary/70 transition-colors">
+            <div className="bg-secondary/10 p-3 rounded-lg w-14 h-14 flex items-center justify-center mx-auto mb-4">
               <Shield className="h-8 w-8 text-[#9b87f5]" />
             </div>
-            <h4 className="text-xl font-medium mb-3 text-center text-[#9b87f5] relative">Ethical & Responsible AI</h4>
-            <p className="text-gray-300 text-center relative">
+            <h4 className="text-xl font-medium mb-3 text-center text-[#9b87f5]">Ethical & Responsible AI</h4>
+            <p className="text-gray-400 text-center">
               Navigate AI ethics, compliance, and governance including TRAIGA requirements
             </p>
           </div>
@@ -83,46 +80,42 @@ const UnifiedServicesSection = () => {
         </div>
 
         <div className="grid md:grid-cols-4 gap-6 mb-10">
-          <div className="group bg-white/10 backdrop-blur-2xl p-6 rounded-2xl border border-white/30 hover:border-white/50 hover:bg-white/15 transition-all duration-500 hover:scale-105 shadow-[0_8px_32px_0_rgba(155,135,245,0.2),0_0_0_1px_rgba(255,255,255,0.1)_inset] hover:shadow-[0_12px_48px_0_rgba(155,135,245,0.4),0_0_0_1px_rgba(255,255,255,0.2)_inset] relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-            <div className="bg-secondary/20 backdrop-blur-xl p-3 rounded-xl w-14 h-14 flex items-center justify-center mx-auto mb-4 relative">
+          <div className="bg-background/50 p-6 rounded-lg border border-secondary/30 hover:border-secondary/70 transition-colors">
+            <div className="bg-secondary/10 p-3 rounded-lg w-14 h-14 flex items-center justify-center mx-auto mb-4">
               <MessageSquare className="h-8 w-8 text-[#9b87f5]" />
             </div>
-            <h4 className="text-xl font-medium mb-3 text-center text-[#9b87f5] relative">TextAI</h4>
-            <p className="text-gray-300 text-center relative">
+            <h4 className="text-xl font-medium mb-3 text-center text-[#9b87f5]">TextAI</h4>
+            <p className="text-gray-400 text-center">
               Intelligent chat, SMS, and email automation
             </p>
           </div>
 
-          <div className="group bg-white/10 backdrop-blur-2xl p-6 rounded-2xl border border-white/30 hover:border-white/50 hover:bg-white/15 transition-all duration-500 hover:scale-105 shadow-[0_8px_32px_0_rgba(155,135,245,0.2),0_0_0_1px_rgba(255,255,255,0.1)_inset] hover:shadow-[0_12px_48px_0_rgba(155,135,245,0.4),0_0_0_1px_rgba(255,255,255,0.2)_inset] relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-            <div className="bg-secondary/20 backdrop-blur-xl p-3 rounded-xl w-14 h-14 flex items-center justify-center mx-auto mb-4 relative">
+          <div className="bg-background/50 p-6 rounded-lg border border-secondary/30 hover:border-secondary/70 transition-colors">
+            <div className="bg-secondary/10 p-3 rounded-lg w-14 h-14 flex items-center justify-center mx-auto mb-4">
               <Phone className="h-8 w-8 text-[#9b87f5]" />
             </div>
-            <h4 className="text-xl font-medium mb-3 text-center text-[#9b87f5] relative">VoiceAI</h4>
-            <p className="text-gray-300 text-center relative">
+            <h4 className="text-xl font-medium mb-3 text-center text-[#9b87f5]">VoiceAI</h4>
+            <p className="text-gray-400 text-center">
               Natural conversational phone systems, 24/7
             </p>
           </div>
 
-          <div className="group bg-white/10 backdrop-blur-2xl p-6 rounded-2xl border border-white/30 hover:border-white/50 hover:bg-white/15 transition-all duration-500 hover:scale-105 shadow-[0_8px_32px_0_rgba(155,135,245,0.2),0_0_0_1px_rgba(255,255,255,0.1)_inset] hover:shadow-[0_12px_48px_0_rgba(155,135,245,0.4),0_0_0_1px_rgba(255,255,255,0.2)_inset] relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-            <div className="bg-secondary/20 backdrop-blur-xl p-3 rounded-xl w-14 h-14 flex items-center justify-center mx-auto mb-4 relative">
+          <div className="bg-background/50 p-6 rounded-lg border border-secondary/30 hover:border-secondary/70 transition-colors">
+            <div className="bg-secondary/10 p-3 rounded-lg w-14 h-14 flex items-center justify-center mx-auto mb-4">
               <User className="h-8 w-8 text-[#9b87f5]" />
             </div>
-            <h4 className="text-xl font-medium mb-3 text-center text-[#9b87f5] relative">AvatarAI</h4>
-            <p className="text-gray-300 text-center relative">
+            <h4 className="text-xl font-medium mb-3 text-center text-[#9b87f5]">AvatarAI</h4>
+            <p className="text-gray-400 text-center">
               Lifelike digital humans for face-to-face engagement
             </p>
           </div>
 
-          <div className="group bg-white/10 backdrop-blur-2xl p-6 rounded-2xl border border-white/30 hover:border-white/50 hover:bg-white/15 transition-all duration-500 hover:scale-105 shadow-[0_8px_32px_0_rgba(155,135,245,0.2),0_0_0_1px_rgba(255,255,255,0.1)_inset] hover:shadow-[0_12px_48px_0_rgba(155,135,245,0.4),0_0_0_1px_rgba(255,255,255,0.2)_inset] relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-            <div className="bg-secondary/20 backdrop-blur-xl p-3 rounded-xl w-14 h-14 flex items-center justify-center mx-auto mb-4 relative">
+          <div className="bg-background/50 p-6 rounded-lg border border-secondary/30 hover:border-secondary/70 transition-colors">
+            <div className="bg-secondary/10 p-3 rounded-lg w-14 h-14 flex items-center justify-center mx-auto mb-4">
               <BotIcon className="h-8 w-8 text-[#9b87f5]" />
             </div>
-            <h4 className="text-xl font-medium mb-3 text-center text-[#9b87f5] relative">AutomateAI</h4>
-            <p className="text-gray-300 text-center relative">
+            <h4 className="text-xl font-medium mb-3 text-center text-[#9b87f5]">AutomateAI</h4>
+            <p className="text-gray-400 text-center">
               Intelligent workflows that integrate with your systems
             </p>
           </div>
@@ -149,35 +142,32 @@ const UnifiedServicesSection = () => {
         </div>
 
         <div className="grid md:grid-cols-3 gap-8 mb-10">
-          <div className="group bg-white/10 backdrop-blur-2xl p-6 rounded-2xl border border-white/30 hover:border-white/50 hover:bg-white/15 transition-all duration-500 hover:scale-105 shadow-[0_8px_32px_0_rgba(155,135,245,0.2),0_0_0_1px_rgba(255,255,255,0.1)_inset] hover:shadow-[0_12px_48px_0_rgba(155,135,245,0.4),0_0_0_1px_rgba(255,255,255,0.2)_inset] relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-            <div className="bg-secondary/20 backdrop-blur-xl p-3 rounded-xl w-14 h-14 flex items-center justify-center mx-auto mb-4 relative">
+          <div className="bg-background/50 p-6 rounded-lg border border-secondary/30 hover:border-secondary/70 transition-colors">
+            <div className="bg-secondary/10 p-3 rounded-lg w-14 h-14 flex items-center justify-center mx-auto mb-4">
               <Building2 className="h-8 w-8 text-[#9b87f5]" />
             </div>
-            <h4 className="text-xl font-medium mb-3 text-center text-[#9b87f5] relative">Streamlined Procurement</h4>
-            <p className="text-gray-300 text-center relative">
+            <h4 className="text-xl font-medium mb-3 text-center text-[#9b87f5]">Streamlined Procurement</h4>
+            <p className="text-gray-400 text-center">
               Available through TXShare contracts #2025-023 and #2025-018
             </p>
           </div>
 
-          <div className="group bg-white/10 backdrop-blur-2xl p-6 rounded-2xl border border-white/30 hover:border-white/50 hover:bg-white/15 transition-all duration-500 hover:scale-105 shadow-[0_8px_32px_0_rgba(155,135,245,0.2),0_0_0_1px_rgba(255,255,255,0.1)_inset] hover:shadow-[0_12px_48px_0_rgba(155,135,245,0.4),0_0_0_1px_rgba(255,255,255,0.2)_inset] relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-            <div className="bg-secondary/20 backdrop-blur-xl p-3 rounded-xl w-14 h-14 flex items-center justify-center mx-auto mb-4 relative">
+          <div className="bg-background/50 p-6 rounded-lg border border-secondary/30 hover:border-secondary/70 transition-colors">
+            <div className="bg-secondary/10 p-3 rounded-lg w-14 h-14 flex items-center justify-center mx-auto mb-4">
               <TrendingUp className="h-8 w-8 text-[#9b87f5]" />
             </div>
-            <h4 className="text-xl font-medium mb-3 text-center text-[#9b87f5] relative">Proven Results</h4>
-            <p className="text-gray-300 text-center relative">
+            <h4 className="text-xl font-medium mb-3 text-center text-[#9b87f5]">Proven Results</h4>
+            <p className="text-gray-400 text-center">
               Saving 15-20 staff hours/week for cities like Frisco
             </p>
           </div>
 
-          <div className="group bg-white/10 backdrop-blur-2xl p-6 rounded-2xl border border-white/30 hover:border-white/50 hover:bg-white/15 transition-all duration-500 hover:scale-105 shadow-[0_8px_32px_0_rgba(155,135,245,0.2),0_0_0_1px_rgba(255,255,255,0.1)_inset] hover:shadow-[0_12px_48px_0_rgba(155,135,245,0.4),0_0_0_1px_rgba(255,255,255,0.2)_inset] relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-            <div className="bg-secondary/20 backdrop-blur-xl p-3 rounded-xl w-14 h-14 flex items-center justify-center mx-auto mb-4 relative">
+          <div className="bg-background/50 p-6 rounded-lg border border-secondary/30 hover:border-secondary/70 transition-colors">
+            <div className="bg-secondary/10 p-3 rounded-lg w-14 h-14 flex items-center justify-center mx-auto mb-4">
               <FileCheck className="h-8 w-8 text-[#9b87f5]" />
             </div>
-            <h4 className="text-xl font-medium mb-3 text-center text-[#9b87f5] relative">Government-Grade Security</h4>
-            <p className="text-gray-300 text-center relative">
+            <h4 className="text-xl font-medium mb-3 text-center text-[#9b87f5]">Government-Grade Security</h4>
+            <p className="text-gray-400 text-center">
               SOC 2 Type II compliance built in from day one
             </p>
           </div>
@@ -204,35 +194,32 @@ const UnifiedServicesSection = () => {
         </div>
 
         <div className="grid md:grid-cols-3 gap-8 mb-10">
-          <div className="group bg-white/10 backdrop-blur-2xl p-6 rounded-2xl border border-white/30 hover:border-white/50 hover:bg-white/15 transition-all duration-500 hover:scale-105 shadow-[0_8px_32px_0_rgba(155,135,245,0.2),0_0_0_1px_rgba(255,255,255,0.1)_inset] hover:shadow-[0_12px_48px_0_rgba(155,135,245,0.4),0_0_0_1px_rgba(255,255,255,0.2)_inset] relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-            <div className="bg-secondary/20 backdrop-blur-xl p-3 rounded-xl w-14 h-14 flex items-center justify-center mx-auto mb-4 relative">
+          <div className="bg-background/50 p-6 rounded-lg border border-secondary/30 hover:border-secondary/70 transition-colors">
+            <div className="bg-secondary/10 p-3 rounded-lg w-14 h-14 flex items-center justify-center mx-auto mb-4">
               <Lightbulb className="h-8 w-8 text-[#9b87f5]" />
             </div>
-            <h4 className="text-xl font-medium mb-3 text-center text-[#9b87f5] relative">Rapid Prototyping</h4>
-            <p className="text-gray-300 text-center relative">
+            <h4 className="text-xl font-medium mb-3 text-center text-[#9b87f5]">Rapid Prototyping</h4>
+            <p className="text-gray-400 text-center">
               Secure MVPs in weeks, not months
             </p>
           </div>
 
-          <div className="group bg-white/10 backdrop-blur-2xl p-6 rounded-2xl border border-white/30 hover:border-white/50 hover:bg-white/15 transition-all duration-500 hover:scale-105 shadow-[0_8px_32px_0_rgba(155,135,245,0.2),0_0_0_1px_rgba(255,255,255,0.1)_inset] hover:shadow-[0_12px_48px_0_rgba(155,135,245,0.4),0_0_0_1px_rgba(255,255,255,0.2)_inset] relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-            <div className="bg-secondary/20 backdrop-blur-xl p-3 rounded-xl w-14 h-14 flex items-center justify-center mx-auto mb-4 relative">
+          <div className="bg-background/50 p-6 rounded-lg border border-secondary/30 hover:border-secondary/70 transition-colors">
+            <div className="bg-secondary/10 p-3 rounded-lg w-14 h-14 flex items-center justify-center mx-auto mb-4">
               <Rocket className="h-8 w-8 text-[#9b87f5]" />
             </div>
-            <h4 className="text-xl font-medium mb-3 text-center text-[#9b87f5] relative">Full-Lifecycle Development</h4>
-            <p className="text-gray-300 text-center relative">
+            <h4 className="text-xl font-medium mb-3 text-center text-[#9b87f5]">Full-Lifecycle Development</h4>
+            <p className="text-gray-400 text-center">
               Turnkey AI solutions from ideation to launch
             </p>
           </div>
 
-          <div className="group bg-white/10 backdrop-blur-2xl p-6 rounded-2xl border border-white/30 hover:border-white/50 hover:bg-white/15 transition-all duration-500 hover:scale-105 shadow-[0_8px_32px_0_rgba(155,135,245,0.2),0_0_0_1px_rgba(255,255,255,0.1)_inset] hover:shadow-[0_12px_48px_0_rgba(155,135,245,0.4),0_0_0_1px_rgba(255,255,255,0.2)_inset] relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-            <div className="bg-secondary/20 backdrop-blur-xl p-3 rounded-xl w-14 h-14 flex items-center justify-center mx-auto mb-4 relative">
+          <div className="bg-background/50 p-6 rounded-lg border border-secondary/30 hover:border-secondary/70 transition-colors">
+            <div className="bg-secondary/10 p-3 rounded-lg w-14 h-14 flex items-center justify-center mx-auto mb-4">
               <Wrench className="h-8 w-8 text-[#9b87f5]" />
             </div>
-            <h4 className="text-xl font-medium mb-3 text-center text-[#9b87f5] relative">Technical Consultation</h4>
-            <p className="text-gray-300 text-center relative">
+            <h4 className="text-xl font-medium mb-3 text-center text-[#9b87f5]">Technical Consultation</h4>
+            <p className="text-gray-400 text-center">
               Expert guidance for complex AI challenges
             </p>
           </div>
@@ -259,35 +246,32 @@ const UnifiedServicesSection = () => {
         </div>
 
         <div className="grid md:grid-cols-3 gap-8 mb-10">
-          <div className="group bg-white/10 backdrop-blur-2xl p-6 rounded-2xl border border-white/30 hover:border-white/50 hover:bg-white/15 transition-all duration-500 hover:scale-105 shadow-[0_8px_32px_0_rgba(155,135,245,0.2),0_0_0_1px_rgba(255,255,255,0.1)_inset] hover:shadow-[0_12px_48px_0_rgba(155,135,245,0.4),0_0_0_1px_rgba(255,255,255,0.2)_inset] relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-            <div className="bg-secondary/20 backdrop-blur-xl p-3 rounded-xl w-14 h-14 flex items-center justify-center mx-auto mb-4 relative">
+          <div className="bg-background/50 p-6 rounded-lg border border-secondary/30 hover:border-secondary/70 transition-colors">
+            <div className="bg-secondary/10 p-3 rounded-lg w-14 h-14 flex items-center justify-center mx-auto mb-4">
               <Languages className="h-8 w-8 text-[#9b87f5]" />
             </div>
-            <h4 className="text-xl font-medium mb-3 text-center text-[#9b87f5] relative">Live Event Translation</h4>
-            <p className="text-gray-300 text-center relative">
+            <h4 className="text-xl font-medium mb-3 text-center text-[#9b87f5]">Live Event Translation</h4>
+            <p className="text-gray-400 text-center">
               Real-time translation for conferences and events
             </p>
           </div>
 
-          <div className="group bg-white/10 backdrop-blur-2xl p-6 rounded-2xl border border-white/30 hover:border-white/50 hover:bg-white/15 transition-all duration-500 hover:scale-105 shadow-[0_8px_32px_0_rgba(155,135,245,0.2),0_0_0_1px_rgba(255,255,255,0.1)_inset] hover:shadow-[0_12px_48px_0_rgba(155,135,245,0.4),0_0_0_1px_rgba(255,255,255,0.2)_inset] relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-            <div className="bg-secondary/20 backdrop-blur-xl p-3 rounded-xl w-14 h-14 flex items-center justify-center mx-auto mb-4 relative">
+          <div className="bg-background/50 p-6 rounded-lg border border-secondary/30 hover:border-secondary/70 transition-colors">
+            <div className="bg-secondary/10 p-3 rounded-lg w-14 h-14 flex items-center justify-center mx-auto mb-4">
               <Globe className="h-8 w-8 text-[#9b87f5]" />
             </div>
-            <h4 className="text-xl font-medium mb-3 text-center text-[#9b87f5] relative">Multilingual Support</h4>
-            <p className="text-gray-300 text-center relative">
+            <h4 className="text-xl font-medium mb-3 text-center text-[#9b87f5]">Multilingual Support</h4>
+            <p className="text-gray-400 text-center">
               Support for 100+ languages
             </p>
           </div>
 
-          <div className="group bg-white/10 backdrop-blur-2xl p-6 rounded-2xl border border-white/30 hover:border-white/50 hover:bg-white/15 transition-all duration-500 hover:scale-105 shadow-[0_8px_32px_0_rgba(155,135,245,0.2),0_0_0_1px_rgba(255,255,255,0.1)_inset] hover:shadow-[0_12px_48px_0_rgba(155,135,245,0.4),0_0_0_1px_rgba(255,255,255,0.2)_inset] relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-            <div className="bg-secondary/20 backdrop-blur-xl p-3 rounded-xl w-14 h-14 flex items-center justify-center mx-auto mb-4 relative">
+          <div className="bg-background/50 p-6 rounded-lg border border-secondary/30 hover:border-secondary/70 transition-colors">
+            <div className="bg-secondary/10 p-3 rounded-lg w-14 h-14 flex items-center justify-center mx-auto mb-4">
               <Users className="h-8 w-8 text-[#9b87f5]" />
             </div>
-            <h4 className="text-xl font-medium mb-3 text-center text-[#9b87f5] relative">Proven Track Record</h4>
-            <p className="text-gray-300 text-center relative">
+            <h4 className="text-xl font-medium mb-3 text-center text-[#9b87f5]">Proven Track Record</h4>
+            <p className="text-gray-400 text-center">
               94% satisfaction rate at Dallas Baptist University
             </p>
           </div>
@@ -314,35 +298,32 @@ const UnifiedServicesSection = () => {
         </div>
 
         <div className="grid md:grid-cols-3 gap-8 mb-10">
-          <div className="group bg-white/10 backdrop-blur-2xl p-6 rounded-2xl border border-white/30 hover:border-white/50 hover:bg-white/15 transition-all duration-500 hover:scale-105 shadow-[0_8px_32px_0_rgba(155,135,245,0.2),0_0_0_1px_rgba(255,255,255,0.1)_inset] hover:shadow-[0_12px_48px_0_rgba(155,135,245,0.4),0_0_0_1px_rgba(255,255,255,0.2)_inset] relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-            <div className="bg-secondary/20 backdrop-blur-xl p-3 rounded-xl w-14 h-14 flex items-center justify-center mx-auto mb-4 relative">
+          <div className="bg-background/50 p-6 rounded-lg border border-secondary/30 hover:border-secondary/70 transition-colors">
+            <div className="bg-secondary/10 p-3 rounded-lg w-14 h-14 flex items-center justify-center mx-auto mb-4">
               <GraduationCap className="h-8 w-8 text-[#9b87f5]" />
             </div>
-            <h4 className="text-xl font-medium mb-3 text-center text-[#9b87f5] relative">Executive AI Literacy</h4>
-            <p className="text-gray-300 text-center relative">
+            <h4 className="text-xl font-medium mb-3 text-center text-[#9b87f5]">Executive AI Literacy</h4>
+            <p className="text-gray-400 text-center">
               Strategic AI understanding for leadership
             </p>
           </div>
 
-          <div className="group bg-white/10 backdrop-blur-2xl p-6 rounded-2xl border border-white/30 hover:border-white/50 hover:bg-white/15 transition-all duration-500 hover:scale-105 shadow-[0_8px_32px_0_rgba(155,135,245,0.2),0_0_0_1px_rgba(255,255,255,0.1)_inset] hover:shadow-[0_12px_48px_0_rgba(155,135,245,0.4),0_0_0_1px_rgba(255,255,255,0.2)_inset] relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-            <div className="bg-secondary/20 backdrop-blur-xl p-3 rounded-xl w-14 h-14 flex items-center justify-center mx-auto mb-4 relative">
+          <div className="bg-background/50 p-6 rounded-lg border border-secondary/30 hover:border-secondary/70 transition-colors">
+            <div className="bg-secondary/10 p-3 rounded-lg w-14 h-14 flex items-center justify-center mx-auto mb-4">
               <Users className="h-8 w-8 text-[#9b87f5]" />
             </div>
-            <h4 className="text-xl font-medium mb-3 text-center text-[#9b87f5] relative">Technical AI Implementation</h4>
-            <p className="text-gray-300 text-center relative">
+            <h4 className="text-xl font-medium mb-3 text-center text-[#9b87f5]">Technical AI Implementation</h4>
+            <p className="text-gray-400 text-center">
               Hands-on training for IT and development teams
             </p>
           </div>
 
-          <div className="group bg-white/10 backdrop-blur-2xl p-6 rounded-2xl border border-white/30 hover:border-white/50 hover:bg-white/15 transition-all duration-500 hover:scale-105 shadow-[0_8px_32px_0_rgba(155,135,245,0.2),0_0_0_1px_rgba(255,255,255,0.1)_inset] hover:shadow-[0_12px_48px_0_rgba(155,135,245,0.4),0_0_0_1px_rgba(255,255,255,0.2)_inset] relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-            <div className="bg-secondary/20 backdrop-blur-xl p-3 rounded-xl w-14 h-14 flex items-center justify-center mx-auto mb-4 relative">
+          <div className="bg-background/50 p-6 rounded-lg border border-secondary/30 hover:border-secondary/70 transition-colors">
+            <div className="bg-secondary/10 p-3 rounded-lg w-14 h-14 flex items-center justify-center mx-auto mb-4">
               <Award className="h-8 w-8 text-[#9b87f5]" />
             </div>
-            <h4 className="text-xl font-medium mb-3 text-center text-[#9b87f5] relative">Certification Programs</h4>
-            <p className="text-gray-300 text-center relative">
+            <h4 className="text-xl font-medium mb-3 text-center text-[#9b87f5]">Certification Programs</h4>
+            <p className="text-gray-400 text-center">
               Industry-recognized AI certifications
             </p>
           </div>
