@@ -9,6 +9,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { ArrowLeft, Loader2 } from 'lucide-react';
 import { toast } from 'sonner';
+import aicertsLogo from '@/assets/aicerts-logo-white.png';
 
 const PortalAuth = () => {
   const { user, signIn, signUp, signInWithMagicLink, resendConfirmation, loading } = usePortalAuth();
@@ -133,16 +134,16 @@ const PortalAuth = () => {
   }
 
   return (
-    <div className="min-h-screen bg-background flex flex-col">
+    <div className="min-h-screen bg-gradient-to-b from-purple-900 via-purple-950 to-black flex flex-col">
       {/* Header */}
-      <header className="border-b border-border p-4">
+      <header className="border-b border-white/10 p-4">
         <div className="flex items-center gap-4">
-          <Link to="/" className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
+          <Link to="/" className="flex items-center gap-2 text-white/70 hover:text-white transition-colors">
             <ArrowLeft className="h-4 w-4" />
             Back to Website
           </Link>
           <div className="flex-1 text-center">
-            <h1 className="text-xl font-bold text-foreground">WhitegloveAI Portal</h1>
+            <h1 className="text-xl font-bold text-white">WhitegloveAI Portal</h1>
           </div>
         </div>
       </header>
@@ -150,7 +151,12 @@ const PortalAuth = () => {
       {/* Main Content */}
       <div className="flex-1 flex items-center justify-center p-4">
         <Card className="w-full max-w-md">
-          <CardHeader className="text-center">
+          <CardHeader className="text-center space-y-4">
+            <img 
+              src={aicertsLogo} 
+              alt="AICerts" 
+              className="h-12 mx-auto"
+            />
             <CardTitle className="text-2xl">Welcome</CardTitle>
             <CardDescription>
               Sign in to access your WhitegloveAI portal
