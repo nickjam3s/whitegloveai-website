@@ -19,14 +19,14 @@ serve(async (req) => {
       throw new Error('LOVABLE_API_KEY is not configured');
     }
 
-    const courseCatalog = `COMPLETE COURSE CATALOG (63 Courses):
+    const courseCatalog = `COMPLETE COURSE CATALOG (62 Courses):
 
 FEATURED CERTIFICATIONS:
 1. AI+ Chief AI Officer - 1 Day, Intermediate, Business
 2. AI+ Foundation - 5 Days, Foundation, Essential  
 3. AI+ Government - 1 Day, Foundation, Specialization
 
-AVAILABLE COURSES (55):
+AVAILABLE COURSES (54):
 - AI+ Architect (5 Days, Advanced, Cloud)
 - AI+ Audio (1 Day, Intermediate, Design and Creative)
 - AI+ Business Intelligence (5 Days, Intermediate, Data & Robotics)
@@ -56,7 +56,6 @@ AVAILABLE COURSES (55):
 - AI+ Network (5 Days, Intermediate, Security)
 - AI+ Product Manager (1 Day, Intermediate, Business)
 - AI+ Project Manager (1 Day, Intermediate, Business)
-- AI+ Project Manager Level 1 (5 Days, Intermediate, Business)
 - AI+ Prompt Engineer Level 1 (1 Day, Foundation, Essential)
 - AI+ Prompt Engineer Level 2 (5 Days, Advanced, Development)
 - AI+ Quality Assurance (5 Days, Intermediate, Data & Robotics)
@@ -93,7 +92,7 @@ COMING SOON (8 Courses):
 
 PRACTICE AREAS: Business (20), Essential (5), Security (7), Data & Robotics (7), Development (4), Specialization (9), Design & Creative/Design and Creative (7), Cloud (2), Learning & Education (2), Blockchain & Bitcoin (6)
 
-DURATION: 1 Day (39 courses) or 5 Days (24 courses)
+DURATION: 1 Day (39 courses) or 5 Days (23 courses)
 LEVELS: Foundation (23), Intermediate (28), Advanced (12)`;
 
     // Build system prompt with course context

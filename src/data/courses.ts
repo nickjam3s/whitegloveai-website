@@ -397,18 +397,6 @@ export const courses: Course[] = [
     languages: "English, Spanish"
   },
   {
-    name: "AI+ Project Manager Level 1",
-    status: "Available",
-    featured: false,
-    duration: "5 Days",
-    practiceArea: "Business",
-    portfolioType: "Professional",
-    level: "Intermediate",
-    hasLabs: true,
-    examAvailable: false,
-    languages: ""
-  },
-  {
     name: "AI+ Prompt Engineer Level 1",
     status: "Available",
     featured: false,
