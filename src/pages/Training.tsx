@@ -92,10 +92,10 @@ const Training = () => {
             <div className="container px-4 mx-auto max-w-7xl">
               <div className="text-center max-w-4xl mx-auto">
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white">
-                  Transform Your Future with AI Certification
+                  Build Internal AI Expertise
                 </h1>
                 <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-                  Partner with AICerts to access industry-recognized AI training programs. Browse our complete catalog and get personalized course recommendations.
+                  Empower your workforce with industry-leading AI training and certifications through WhitegloveAI, an authorized training partner of AICerts.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Button 
