@@ -3,7 +3,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { MessageCircle, Send, Upload, X, Loader2 } from "lucide-react";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import { MessageCircle, Send, Upload, X, Loader2, RotateCcw, Download } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 
@@ -108,13 +109,65 @@ export const CourseChatbot = ({ embedded = false }: CourseChatbotProps) => {
     }
   };
 
+  const handleResetChat = () => {
+    setMessages([{
+      role: "assistant",
+      content: "Welcome! I can help you find the perfect AI certification. Ask me a question about courses, or upload your resume for instant personalized recommendations."
+    }]);
+    toast({
+      title: "Chat reset",
+      description: "Conversation has been cleared.",
+    });
+  };
+
+  const handleDownloadTranscript = () => {
+    const transcript = messages.map(msg => {
+      const role = msg.role === "user" ? "You" : "AI Advisor";
+      return `${role}:\n${msg.content}\n\n`;
+    }).join('---\n\n');
+
+    const blob = new Blob([transcript], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `course-chat-transcript-${new Date().toISOString().split('T')[0]}.txt`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+
+    toast({
+      title: "Transcript saved",
+      description: "Chat transcript has been downloaded.",
+    });
+  };
+
   if (embedded) {
     return (
-      <Card className="w-full h-[280px] shadow-xl flex flex-col overflow-hidden">
-        <CardHeader className="border-b shrink-0">
-          <CardTitle className="text-lg">Ask Our AI Course Advisor</CardTitle>
-        </CardHeader>
-        <CardContent className="flex-1 flex flex-col p-4 gap-4 min-h-0 overflow-hidden">
+      <TooltipProvider>
+        <Card className="w-full h-[280px] shadow-xl flex flex-col overflow-hidden">
+          <CardHeader className="border-b shrink-0 flex flex-row items-center justify-between space-y-0 py-3">
+            <CardTitle className="text-lg">Ask Our AI Course Advisor</CardTitle>
+            <div className="flex gap-1">
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Button variant="ghost" size="icon" onClick={handleResetChat} className="h-8 w-8">
+                    <RotateCcw className="h-4 w-4" />
+                  </Button>
+                </TooltipTrigger>
+                <TooltipContent>Reset chat</TooltipContent>
+              </Tooltip>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Button variant="ghost" size="icon" onClick={handleDownloadTranscript} className="h-8 w-8">
+                    <Download className="h-4 w-4" />
+                  </Button>
+                </TooltipTrigger>
+                <TooltipContent>Save transcript</TooltipContent>
+              </Tooltip>
+            </div>
+          </CardHeader>
+          <CardContent className="flex-1 flex flex-col p-4 gap-4 min-h-0 overflow-hidden">
           <ScrollArea className="flex-1 pr-4 overflow-y-auto" ref={scrollRef}>
             <div className="space-y-4">
               {messages.map((message, index) => (
@@ -171,6 +224,7 @@ export const CourseChatbot = ({ embedded = false }: CourseChatbotProps) => {
           </div>
         </CardContent>
       </Card>
+      </TooltipProvider>
     );
   }
 
@@ -187,13 +241,32 @@ export const CourseChatbot = ({ embedded = false }: CourseChatbotProps) => {
   }
 
   return (
-    <Card className="fixed bottom-6 right-6 w-96 h-[600px] shadow-2xl z-50 flex flex-col overflow-hidden">
-      <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-4 border-b shrink-0">
-        <CardTitle className="text-lg">Course Advisor</CardTitle>
-        <Button variant="ghost" size="icon" onClick={() => setIsOpen(false)}>
-          <X className="h-4 w-4" />
-        </Button>
-      </CardHeader>
+    <TooltipProvider>
+      <Card className="fixed bottom-6 right-6 w-96 h-[600px] shadow-2xl z-50 flex flex-col overflow-hidden">
+        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-4 border-b shrink-0">
+          <CardTitle className="text-lg">Course Advisor</CardTitle>
+          <div className="flex gap-1">
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Button variant="ghost" size="icon" onClick={handleResetChat} className="h-8 w-8">
+                  <RotateCcw className="h-4 w-4" />
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent>Reset chat</TooltipContent>
+            </Tooltip>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Button variant="ghost" size="icon" onClick={handleDownloadTranscript} className="h-8 w-8">
+                  <Download className="h-4 w-4" />
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent>Save transcript</TooltipContent>
+            </Tooltip>
+            <Button variant="ghost" size="icon" onClick={() => setIsOpen(false)} className="h-8 w-8">
+              <X className="h-4 w-4" />
+            </Button>
+          </div>
+        </CardHeader>
       <CardContent className="flex-1 flex flex-col p-4 gap-4 min-h-0 overflow-hidden">
         <ScrollArea className="flex-1 pr-4 overflow-y-auto" ref={scrollRef}>
           <div className="space-y-4">
@@ -251,5 +324,6 @@ export const CourseChatbot = ({ embedded = false }: CourseChatbotProps) => {
         </div>
       </CardContent>
     </Card>
+    </TooltipProvider>
   );
 };
