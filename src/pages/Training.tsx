@@ -97,13 +97,23 @@ const Training = () => {
                 <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
                   Partner with AICerts to access industry-recognized AI training programs. Browse our complete catalog and get personalized course recommendations.
                 </p>
-                <Button 
-                  size="lg" 
-                  className="text-lg px-8"
-                  onClick={() => document.getElementById('course-catalog')?.scrollIntoView({ behavior: 'smooth' })}
-                >
-                  See Catalogue
-                </Button>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Button 
+                    size="lg" 
+                    className="text-lg px-8"
+                    onClick={() => document.getElementById('course-catalog')?.scrollIntoView({ behavior: 'smooth' })}
+                  >
+                    See Catalogue
+                  </Button>
+                  <Button 
+                    size="lg" 
+                    variant="outline"
+                    className="text-lg px-8"
+                    onClick={() => window.location.href = '/portal/login'}
+                  >
+                    Portal Login
+                  </Button>
+                </div>
               </div>
             </div>
           </section>

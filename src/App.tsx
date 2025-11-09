@@ -8,6 +8,7 @@ import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 import { PortalAuthProvider } from "./hooks/usePortalAuth";
+import { CartProvider } from "./contexts/CartContext";
 
 // Main Pages
 import Index from "./pages/index";
@@ -58,6 +59,10 @@ import PortalAuth from "./pages/portal/Auth";
 import Organizations from "./pages/portal/Organizations";
 import OrganizationForm from "./pages/portal/OrganizationForm";
 import Users from "./pages/portal/Users";
+import PortalLogin from "./pages/portal/Login";
+import CourseOutline from "./pages/portal/CourseOutline";
+import Checkout from "./pages/portal/Checkout";
+import PurchaseSuccess from "./pages/portal/PurchaseSuccess";
 
 const queryClient = new QueryClient();
 
@@ -137,7 +142,11 @@ const AppContent = () => {
                 
                 {/* Portal Routes */}
                 <Route path="/portal" element={<PortalIndex />} />
+                <Route path="/portal/login" element={<PortalLogin />} />
                 <Route path="/portal/auth" element={<PortalAuth />} />
+                <Route path="/portal/course-outline/:slug" element={<CourseOutline />} />
+                <Route path="/portal/checkout" element={<Checkout />} />
+                <Route path="/portal/purchase-success" element={<PurchaseSuccess />} />
                 <Route path="/portal/organizations" element={<Organizations />} />
                 <Route path="/portal/organizations/new" element={<OrganizationForm />} />
                 <Route path="/portal/organizations/:id/edit" element={<OrganizationForm />} />
@@ -172,9 +181,11 @@ const App = () => {
       <BrowserRouter>
         <TooltipProvider>
           <PortalAuthProvider>
-            <Toaster />
-            <Sonner />
-            <AppContent />
+            <CartProvider>
+              <Toaster />
+              <Sonner />
+              <AppContent />
+            </CartProvider>
           </PortalAuthProvider>
         </TooltipProvider>
       </BrowserRouter>

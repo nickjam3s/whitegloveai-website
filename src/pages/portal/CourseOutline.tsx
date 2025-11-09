@@ -5,12 +5,15 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { courses } from "@/data/courses";
-import { Clock, Award, BookOpen, Globe, ArrowLeft } from "lucide-react";
+import { Clock, Award, BookOpen, Globe, ArrowLeft, ShoppingCart } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useCart } from "@/contexts/CartContext";
+import { toast } from "sonner";
 
 const CourseOutline = () => {
   const { slug } = useParams<{ slug: string }>();
   const { user, loading } = usePortalAuth();
+  const { addToCart } = useCart();
 
   // Redirect to login if not authenticated
   if (!loading && !user) {
@@ -33,6 +36,13 @@ const CourseOutline = () => {
       </div>
     );
   }
+
+  const handleAddToCart = () => {
+    addToCart(course, 1);
+    toast.success(`${course.name} added to cart`);
+  };
+
+  const coursePrice = course.duration === "1 Day" ? 195 : 495;
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-muted/20 py-12">
@@ -147,14 +157,28 @@ const CourseOutline = () => {
               </div>
             </div>
 
-            <div className="bg-primary/5 rounded-lg p-6">
-              <h3 className="text-lg font-semibold mb-3">Ready to Enroll?</h3>
-              <p className="text-muted-foreground mb-4">
-                Contact our team to learn more about scheduling, pricing, and group discounts for this certification program.
-              </p>
-              <Button asChild size="lg">
-                <Link to="/contact">Contact Us to Enroll</Link>
-              </Button>
+            <div className="bg-primary/5 rounded-lg p-6 space-y-4">
+              <div>
+                <h3 className="text-lg font-semibold mb-2">Self-Paced E-Learning</h3>
+                <p className="text-3xl font-bold text-primary mb-2">${coursePrice} per student</p>
+                <p className="text-sm text-muted-foreground mb-4">
+                  {course.duration === "1 Day" ? "~8 hours of content" : "~40 hours of content"}
+                </p>
+                <Button onClick={handleAddToCart} size="lg" className="w-full">
+                  <ShoppingCart className="h-4 w-4 mr-2" />
+                  Add to Cart
+                </Button>
+              </div>
+              
+              <div className="pt-4 border-t">
+                <h3 className="text-lg font-semibold mb-2">Instructor-Led Training</h3>
+                <p className="text-muted-foreground mb-3">
+                  For instructor-led sessions, bulk purchases, or group discounts, please contact our team.
+                </p>
+                <Button asChild variant="outline" className="w-full">
+                  <Link to="/contact">Contact for Instructor-Led Training</Link>
+                </Button>
+              </div>
             </div>
           </CardContent>
         </Card>

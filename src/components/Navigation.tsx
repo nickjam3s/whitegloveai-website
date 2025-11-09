@@ -6,6 +6,7 @@ import Logo from "./navigation/Logo";
 import DesktopMenuItem from "./navigation/DesktopMenuItem";
 import MobileMenu from "./navigation/MobileMenu";
 import { navigationLinks } from "./navigation/navigationData";
+import { CartButton } from "./CartButton";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -49,6 +50,11 @@ const Navigation = () => {
                 />
               </div>
             ))}
+          </div>
+
+          {/* Cart Button */}
+          <div className="hidden md:block">
+            <CartButton />
           </div>
 
           {/* Mobile Navigation Button - Added proper spacing */}
