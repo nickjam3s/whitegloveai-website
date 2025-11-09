@@ -7,7 +7,6 @@ import { CourseCard } from "@/components/training/CourseCard";
 import { CourseChatbot } from "@/components/training/CourseChatbot";
 import { Button } from "@/components/ui/button";
 import aicertsBadge from "@/assets/aicerts-partner-badge.png";
-import aicertsLogoWhite from "@/assets/aicerts-logo-white.png";
 import HeroBackground from "@/components/shared/HeroBackground";
 
 const Training = () => {
@@ -98,7 +97,7 @@ const Training = () => {
                 <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
                   Empower your workforce with industry-leading AI training and certifications through WhitegloveAI, an authorized training partner of AICerts.
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Button 
                     size="lg" 
                     className="text-lg px-8"
@@ -106,21 +105,14 @@ const Training = () => {
                   >
                     See Catalogue
                   </Button>
-                  <div className="flex flex-col items-center gap-2">
-                    <img 
-                      src={aicertsLogoWhite} 
-                      alt="AICerts Logo" 
-                      className="h-8 w-auto"
-                    />
-                    <Button 
-                      size="lg" 
-                      variant="outline"
-                      className="text-lg px-8"
-                      onClick={() => window.location.href = '/portal/login'}
-                    >
-                      Portal Login
-                    </Button>
-                  </div>
+                  <Button 
+                    size="lg" 
+                    variant="outline"
+                    className="text-lg px-8"
+                    onClick={() => window.location.href = '/portal/login'}
+                  >
+                    Portal Login
+                  </Button>
                 </div>
               </div>
             </div>
