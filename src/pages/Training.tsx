@@ -94,7 +94,7 @@ const Training = () => {
 
           <div className="container px-4 mx-auto max-w-7xl">
           <div className="text-center max-w-4xl mx-auto">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent animate-gradient">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white">
                 Transform Your Future with AI Certification
               </h1>
               <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
