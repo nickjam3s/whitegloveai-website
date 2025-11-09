@@ -1,6 +1,7 @@
 import { useState, useMemo, useLayoutEffect } from "react";
 import SEO from "@/components/SEO";
 import { courses } from "@/data/courses";
+import { Upload } from "lucide-react";
 import { CourseFilters } from "@/components/training/CourseFilters";
 import { CourseCard } from "@/components/training/CourseCard";
 import { CourseChatbot } from "@/components/training/CourseChatbot";
@@ -8,6 +9,17 @@ import { CourseChatbot } from "@/components/training/CourseChatbot";
 const Training = () => {
   useLayoutEffect(() => {
     window.scrollTo(0, 0);
+    
+    // Load the Conduit.ai chat widget
+    const script = document.createElement('script');
+    script.src = "https://base.conduit.ai/widget/widget.min.js";
+    script.async = true;
+    script.setAttribute('data-widget-id', 'a577c803-4c1a-4b17-4b7d-2dc85a55b344');
+    document.body.appendChild(script);
+    
+    return () => {
+      document.body.removeChild(script);
+    };
   }, []);
 
   const [searchQuery, setSearchQuery] = useState("");
@@ -68,7 +80,6 @@ const Training = () => {
       <SEO
         title="AI Training & Certification Programs | WhitegloveAI"
         description="Transform your organization with industry-recognized AI certifications from AICerts. Browse our complete catalog of AI courses with advanced filtering and get personalized recommendations."
-        keywords="AI training, AI certification, AICerts, professional development, AI education, AI courses"
       />
       
       <div className="min-h-screen bg-gradient-to-b from-background via-background to-muted/20">
@@ -89,6 +100,31 @@ const Training = () => {
                 Partner with AICerts to access industry-recognized AI training programs. Browse our complete catalog and get personalized course recommendations.
               </p>
             </div>
+          </div>
+        </section>
+
+        {/* AI Course Advisor Section */}
+        <section className="py-16 bg-gradient-to-b from-background to-muted/20">
+          <div className="container px-4 mx-auto max-w-5xl">
+            <div className="text-center mb-8">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                AI Course Advisor
+              </h2>
+              <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-4">
+                Get personalized course recommendations powered by AI. Our intelligent advisor analyzes your background, goals, and experience to suggest the perfect certification path.
+              </p>
+              <div className="bg-primary/10 border border-primary/20 rounded-lg p-6 max-w-2xl mx-auto">
+                <h3 className="font-semibold text-lg mb-3 flex items-center justify-center gap-2">
+                  <Upload className="h-5 w-5" />
+                  Pro Tip: Upload Your Resume
+                </h3>
+                <p className="text-sm text-muted-foreground">
+                  For the most accurate recommendations, upload your resume (PDF or DOCX). Our AI will analyze your experience, skills, and career trajectory to recommend 3-5 courses perfectly tailored to your professional development goals.
+                </p>
+              </div>
+            </div>
+            
+            <CourseChatbot embedded />
           </div>
         </section>
 
@@ -184,9 +220,6 @@ const Training = () => {
           </div>
         </section>
       </div>
-
-      {/* AI Course Chatbot */}
-      <CourseChatbot />
     </>
   );
 };

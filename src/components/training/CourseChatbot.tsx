@@ -12,7 +12,11 @@ interface Message {
   content: string;
 }
 
-export const CourseChatbot = () => {
+interface CourseChatbotProps {
+  embedded?: boolean;
+}
+
+export const CourseChatbot = ({ embedded = false }: CourseChatbotProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
     {
@@ -103,6 +107,72 @@ export const CourseChatbot = () => {
       setIsLoading(false);
     }
   };
+
+  if (embedded) {
+    return (
+      <Card className="w-full max-w-4xl mx-auto h-[600px] shadow-xl flex flex-col">
+        <CardHeader className="border-b">
+          <CardTitle className="text-lg">Ask Our AI Course Advisor</CardTitle>
+        </CardHeader>
+        <CardContent className="flex-1 flex flex-col p-4 gap-4">
+          <ScrollArea className="flex-1 pr-4" ref={scrollRef}>
+            <div className="space-y-4">
+              {messages.map((message, index) => (
+                <div
+                  key={index}
+                  className={`flex ${message.role === "user" ? "justify-end" : "justify-start"}`}
+                >
+                  <div
+                    className={`max-w-[80%] rounded-lg px-4 py-2 ${
+                      message.role === "user"
+                        ? "bg-primary text-primary-foreground"
+                        : "bg-muted"
+                    }`}
+                  >
+                    <p className="text-sm whitespace-pre-wrap">{message.content}</p>
+                  </div>
+                </div>
+              ))}
+              {isLoading && (
+                <div className="flex justify-start">
+                  <div className="bg-muted rounded-lg px-4 py-2">
+                    <Loader2 className="h-4 w-4 animate-spin" />
+                  </div>
+                </div>
+              )}
+            </div>
+          </ScrollArea>
+          <div className="flex gap-2">
+            <input
+              type="file"
+              ref={fileInputRef}
+              onChange={handleFileUpload}
+              accept=".pdf,.doc,.docx"
+              className="hidden"
+            />
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={() => fileInputRef.current?.click()}
+              disabled={isLoading}
+            >
+              <Upload className="h-4 w-4" />
+            </Button>
+            <Input
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              onKeyPress={(e) => e.key === "Enter" && handleSendMessage()}
+              placeholder="Ask about courses..."
+              disabled={isLoading}
+            />
+            <Button onClick={handleSendMessage} disabled={isLoading || !input.trim()} size="icon">
+              <Send className="h-4 w-4" />
+            </Button>
+          </div>
+        </CardContent>
+      </Card>
+    );
+  }
 
   if (!isOpen) {
     return (
