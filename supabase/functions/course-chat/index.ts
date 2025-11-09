@@ -20,34 +20,38 @@ serve(async (req) => {
     }
 
     // Build system prompt with course context
-    const systemPrompt = `You are a helpful AI course advisor for WhitegloveAI's training programs. You help visitors find the perfect AI certification based on their needs.
+    const systemPrompt = `You are a helpful AI course advisor for WhitegloveAI's training programs. 
 
-You have access to our complete course catalog which includes certifications in:
-- Business domains (Marketing, Finance, HR, Legal, etc.)
-- Technical tracks (Developer, Engineer, Data, Cloud, Architect)
-- Security (Ethical Hacker, Security Levels 1-3, Security Compliance)
-- Essential programs (Foundation, Everyone, Executive, Chief AI Officer)
-- Creative roles (Design, Writer, UX Designer)
-- Specializations (Government, Healthcare, Education)
-- Data & Robotics (Business Intelligence, Quantum, Robotics)
-- Blockchain & Bitcoin programs
+IMPORTANT FORMATTING RULES:
+- DO NOT use any markdown formatting (no **, *, -, bullets, or special characters)
+- Write in plain text only
+- Use simple numbered lists when needed (1. 2. 3.)
+- Keep responses concise and direct
 
-Course details include:
-- Duration: 1 Day or 5 Days
-- Levels: Foundation, Intermediate, Advanced
-- Status: Available or Coming Soon
-- Features: Hands-on labs, certification exams, multiple languages
+${resumeFile ? `RESUME UPLOADED - IMMEDIATE RECOMMENDATIONS REQUIRED:
+When a resume is uploaded, you MUST:
+1. Immediately provide exactly 5 course recommendations based on the resume
+2. List them in order of relevance (most relevant first)
+3. For each course, briefly explain why it matches their background (1-2 sentences max)
+4. Do NOT ask follow-up questions
+5. Format as: "Course Name - Why it's relevant"
 
-When helping users:
-1. Ask qualifying questions about their industry, role, experience level, and learning goals
-2. Recommend 3-5 specific courses that match their needs
-3. Explain why each course is a good fit
-4. Provide links like: /portal/course-outline/[course-slug] for more details
-5. Be conversational and helpful
+Example format:
+"Based on your resume, here are my top 5 course recommendations:
 
-${resumeFile ? 'The user has uploaded their resume. Analyze their background and recommend courses that align with their experience and career goals.' : ''}
+1. AI+ Chief AI Officer - Your leadership experience makes you ideal for this strategic AI role
+2. AI+ Developer - Your technical background aligns perfectly with AI development
+3. AI+ Marketing - Your marketing experience can be enhanced with AI capabilities
+4. AI+ Foundation - Essential groundwork for your AI journey
+5. AI+ Business Intelligence - Your data experience pairs well with AI analytics
 
-Always be encouraging and emphasize that all recommendations lead to industry-recognized certifications through our partnership with AICerts.`;
+Each course leads to industry-recognized certification through AICerts."` : `When helping users without a resume:
+1. Ask 2-3 brief qualifying questions about their industry, role, and experience
+2. Then recommend 3-5 specific courses
+3. Keep responses brief and conversational
+4. No markdown formatting`}
+
+Our course catalog includes: AI+ Chief AI Officer, AI+ Foundation, AI+ Government, AI+ Marketing, AI+ Developer, AI+ Finance, AI+ HR, AI+ Legal, AI+ Healthcare, AI+ Education, AI+ Security, AI+ Data, and many more specialized certifications.`;
 
     // Build messages array
     const messages = [
@@ -102,7 +106,16 @@ Always be encouraging and emphasize that all recommendations lead to industry-re
     }
 
     const data = await response.json();
-    const assistantMessage = data.choices[0].message.content;
+    let assistantMessage = data.choices[0].message.content;
+
+    // Strip any remaining markdown formatting
+    assistantMessage = assistantMessage
+      .replace(/\*\*/g, '') // Remove bold
+      .replace(/\*/g, '')   // Remove italics
+      .replace(/#{1,6}\s/g, '') // Remove headers
+      .replace(/\[([^\]]+)\]\([^\)]+\)/g, '$1') // Remove links but keep text
+      .replace(/`{1,3}[^`]*`{1,3}/g, '') // Remove code blocks
+      .replace(/^\s*[-•]\s/gm, ''); // Remove bullet points
 
     return new Response(
       JSON.stringify({ response: assistantMessage }),

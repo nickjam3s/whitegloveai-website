@@ -120,7 +120,7 @@ const Training = () => {
                 AI Course Advisor
               </h2>
               <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-                Get personalized course recommendations powered by AI. Our intelligent advisor analyzes your background, goals, and experience to suggest the perfect certification path.
+                Get personalized course recommendations powered by AI. Upload your resume for instant top 5 course recommendations, or ask questions about our certification programs.
               </p>
             </div>
             
@@ -133,7 +133,7 @@ const Training = () => {
                   Upload Your Resume
                 </h3>
                 <p className="text-sm text-muted-foreground flex-1">
-                  For the most accurate recommendations, upload your resume (PDF or DOCX). Our AI will analyze your experience, skills, and career trajectory to recommend 3-5 courses perfectly tailored to your professional development goals.
+                  Upload your resume (PDF or DOCX) to instantly receive your top 5 personalized course recommendations. Our AI analyzes your experience, skills, and career trajectory to match you with the perfect certifications for your professional development.
                 </p>
               </div>
             </div>

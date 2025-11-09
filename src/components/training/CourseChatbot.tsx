@@ -21,7 +21,7 @@ export const CourseChatbot = ({ embedded = false }: CourseChatbotProps) => {
   const [messages, setMessages] = useState<Message[]>([
     {
       role: "assistant",
-      content: "Welcome! I can help you find the perfect AI certification. Ask me a question, or let me guide you. Would you like some help?"
+      content: "Welcome! I can help you find the perfect AI certification. Ask me a question about courses, or upload your resume for instant personalized recommendations."
     }
   ]);
   const [input, setInput] = useState("");
@@ -110,12 +110,12 @@ export const CourseChatbot = ({ embedded = false }: CourseChatbotProps) => {
 
   if (embedded) {
     return (
-      <Card className="w-full h-[280px] shadow-xl flex flex-col">
-        <CardHeader className="border-b">
+      <Card className="w-full h-[280px] shadow-xl flex flex-col overflow-hidden">
+        <CardHeader className="border-b shrink-0">
           <CardTitle className="text-lg">Ask Our AI Course Advisor</CardTitle>
         </CardHeader>
-        <CardContent className="flex-1 flex flex-col p-4 gap-4">
-          <ScrollArea className="flex-1 pr-4" ref={scrollRef}>
+        <CardContent className="flex-1 flex flex-col p-4 gap-4 min-h-0 overflow-hidden">
+          <ScrollArea className="flex-1 pr-4 overflow-y-auto" ref={scrollRef}>
             <div className="space-y-4">
               {messages.map((message, index) => (
                 <div
@@ -142,7 +142,7 @@ export const CourseChatbot = ({ embedded = false }: CourseChatbotProps) => {
               )}
             </div>
           </ScrollArea>
-          <div className="flex gap-2">
+          <div className="flex gap-2 shrink-0">
             <input
               type="file"
               ref={fileInputRef}
@@ -187,15 +187,15 @@ export const CourseChatbot = ({ embedded = false }: CourseChatbotProps) => {
   }
 
   return (
-    <Card className="fixed bottom-6 right-6 w-96 h-[600px] shadow-2xl z-50 flex flex-col">
-      <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-4 border-b">
+    <Card className="fixed bottom-6 right-6 w-96 h-[600px] shadow-2xl z-50 flex flex-col overflow-hidden">
+      <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-4 border-b shrink-0">
         <CardTitle className="text-lg">Course Advisor</CardTitle>
         <Button variant="ghost" size="icon" onClick={() => setIsOpen(false)}>
           <X className="h-4 w-4" />
         </Button>
       </CardHeader>
-      <CardContent className="flex-1 flex flex-col p-4 gap-4">
-        <ScrollArea className="flex-1 pr-4" ref={scrollRef}>
+      <CardContent className="flex-1 flex flex-col p-4 gap-4 min-h-0 overflow-hidden">
+        <ScrollArea className="flex-1 pr-4 overflow-y-auto" ref={scrollRef}>
           <div className="space-y-4">
             {messages.map((message, index) => (
               <div
@@ -222,7 +222,7 @@ export const CourseChatbot = ({ embedded = false }: CourseChatbotProps) => {
             )}
           </div>
         </ScrollArea>
-        <div className="flex gap-2">
+        <div className="flex gap-2 shrink-0">
           <input
             type="file"
             ref={fileInputRef}
