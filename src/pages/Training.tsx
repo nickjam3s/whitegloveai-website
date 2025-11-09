@@ -7,6 +7,7 @@ import { CourseCard } from "@/components/training/CourseCard";
 import { CourseChatbot } from "@/components/training/CourseChatbot";
 import { Button } from "@/components/ui/button";
 import aicertsBadge from "@/assets/aicerts-partner-badge.png";
+import HeroBackground from "@/components/shared/HeroBackground";
 
 const Training = () => {
   useLayoutEffect(() => {
@@ -86,31 +87,27 @@ const Training = () => {
       
       <div className="min-h-screen bg-gradient-to-b from-background via-background to-muted/20">
         {/* Hero Section */}
-        <section className="relative overflow-hidden py-20 lg:py-32 pt-32 md:pt-20">
-          <div className="absolute inset-0 -z-10">
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5" />
-            <div className="absolute top-1/4 right-1/4 h-96 w-96 rounded-full bg-primary/10 blur-3xl animate-pulse" />
-            <div className="absolute bottom-1/4 left-1/4 h-96 w-96 rounded-full bg-secondary/10 blur-3xl animate-pulse delay-1000" />
-          </div>
-
-          <div className="container px-4 mx-auto max-w-7xl">
-          <div className="text-center max-w-4xl mx-auto">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white">
-                Transform Your Future with AI Certification
-              </h1>
-              <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-                Partner with AICerts to access industry-recognized AI training programs. Browse our complete catalog and get personalized course recommendations.
-              </p>
-              <Button 
-                size="lg" 
-                className="text-lg px-8"
-                onClick={() => document.getElementById('course-catalog')?.scrollIntoView({ behavior: 'smooth' })}
-              >
-                See Catalogue
-              </Button>
+        <HeroBackground>
+          <section className="relative overflow-hidden py-20 lg:py-32 pt-32 md:pt-20">
+            <div className="container px-4 mx-auto max-w-7xl">
+              <div className="text-center max-w-4xl mx-auto">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white">
+                  Transform Your Future with AI Certification
+                </h1>
+                <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
+                  Partner with AICerts to access industry-recognized AI training programs. Browse our complete catalog and get personalized course recommendations.
+                </p>
+                <Button 
+                  size="lg" 
+                  className="text-lg px-8"
+                  onClick={() => document.getElementById('course-catalog')?.scrollIntoView({ behavior: 'smooth' })}
+                >
+                  See Catalogue
+                </Button>
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        </HeroBackground>
 
         {/* AI Course Advisor Section */}
         <section className="py-8 bg-gradient-to-b from-background to-muted/20">

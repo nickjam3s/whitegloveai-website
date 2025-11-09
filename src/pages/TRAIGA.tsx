@@ -7,6 +7,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import { fetchYouTubePlaylist } from '@/services/youtubeService';
 import { fetchBeehiivPosts, NewsletterEntry } from '@/services/beehiivService';
 import SEO from '@/components/SEO';
+import HeroBackground from '@/components/shared/HeroBackground';
 
 const TRAIGA = () => {
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0 });
@@ -335,60 +336,25 @@ const TRAIGA = () => {
         image="https://www.whitegloveai.com/lovable-uploads/4b26cf48-8284-40f8-9bd7-9f85f49234a5.png"
       />
       {/* Hero Section - Added proper top padding for mobile navigation */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 md:pt-0">
-        {/* Gradient Background */}
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-b from-primary/20 to-background"></div>
-        </div>
-
-        {/* Animated Background Elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          {/* Optimized animated particles - reduced count and improved performance */}
-          <div style={{ contain: 'layout', willChange: 'transform' }}>
-            {[...Array(6)].map((_, i) => (
-              <motion.div
-                key={i}
-                className="absolute w-1 h-1 bg-primary rounded-full opacity-40"
-                initial={{ opacity: 0, scale: 0 }}
-                animate={{ 
-                  opacity: [0.2, 0.6, 0.2], 
-                  scale: [0.5, 1, 0.5],
-                  x: [0, Math.random() * 20 - 10, 0],
-                  y: [0, Math.random() * 20 - 10, 0]
-                }}
-                transition={{
-                  duration: 4 + Math.random(),
-                  repeat: Infinity,
-                  delay: Math.random() * 2,
-                  ease: "easeInOut"
-                }}
-                style={{
-                  left: `${20 + Math.random() * 60}%`,
-                  top: `${20 + Math.random() * 60}%`,
-                  transform: 'translate3d(0, 0, 0)'
-                }}
-              />
-            ))}
-          </div>
-        </div>
-
-        <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-6xl">
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-4xl md:text-6xl lg:text-8xl font-bold mb-6 gradient-text"
-          >
-            TRAIGA Triage Center: Your Hub for Texas AI Compliance
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-            className="text-xl md:text-2xl mb-8 text-muted-foreground"
-          >
-            Navigate the Texas Responsible AI Governance Act with expert guidance and compliance tools
-          </motion.p>
+      <HeroBackground>
+        <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 md:pt-0">
+          <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-6xl">
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="text-4xl md:text-6xl lg:text-8xl font-bold mb-6 gradient-text"
+            >
+              TRAIGA Triage Center: Your Hub for Texas AI Compliance
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+              className="text-xl md:text-2xl mb-8 text-muted-foreground"
+            >
+              Navigate the Texas Responsible AI Governance Act with expert guidance and compliance tools
+            </motion.p>
 
           {/* Countdown Timer - Optimized */}
           <motion.div
@@ -424,6 +390,7 @@ const TRAIGA = () => {
           </motion.div>
         </div>
       </section>
+      </HeroBackground>
 
       {/* What is TRAIGA Section */}
       <section className="py-20 bg-card/50">

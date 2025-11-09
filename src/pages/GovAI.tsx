@@ -23,6 +23,7 @@ import '@/styles/animations.css';
 import HB3512Banner from "@/components/HB3512Banner";
 import LucidisBanner from "@/components/LucidisBanner";
 import SEO from '@/components/SEO';
+import HeroBackground from "@/components/shared/HeroBackground";
 
 const GovAI = () => {
   useLayoutEffect(() => {
@@ -60,53 +61,20 @@ const GovAI = () => {
         canonicalPath="/govai"
       />
       {/* Hero Section */}
-      <section className="relative py-20 md:py-32 bg-gradient-to-b from-[#7021EE]/20 to-black/90 overflow-hidden">
-        <div className="absolute inset-0">
-          {[...Array(15)].map((_, i) => (
+      <HeroBackground>
+        <section className="relative py-20 md:py-32 overflow-hidden">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <motion.div
-              key={i}
-              className="absolute rounded-full bg-[#7021EE]/20"
-              initial={{
-                x: Math.random() * window.innerWidth,
-                y: Math.random() * window.innerHeight,
-                scale: Math.random() * 0.5 + 0.5,
-              }}
-              animate={{
-                x: [
-                  Math.random() * window.innerWidth,
-                  Math.random() * window.innerWidth,
-                ],
-                y: [
-                  Math.random() * window.innerHeight,
-                  Math.random() * window.innerHeight,
-                ],
-                opacity: [0.2, 0.5, 0.2],
-              }}
-              transition={{
-                duration: Math.random() * 20 + 20,
-                repeat: Infinity,
-                ease: "linear",
-              }}
-              style={{
-                width: `${Math.random() * 150 + 50}px`,
-                height: `${Math.random() * 150 + 50}px`,
-              }}
-            />
-          ))}
-        </div>
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center"
-          >
-            <div className="flex justify-center mb-8">
-              <div className="bg-secondary/10 p-4 rounded-full border-2 border-secondary/30">
-                <Building2 className="h-16 w-16 text-secondary" />
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="text-center"
+            >
+              <div className="flex justify-center mb-8">
+                <div className="bg-secondary/10 p-4 rounded-full border-2 border-secondary/30">
+                  <Building2 className="h-16 w-16 text-secondary" />
+                </div>
               </div>
-            </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-[#7021EE]">
               AI Solutions Built for Government, Proven in Government
             </h1>
@@ -124,6 +92,7 @@ const GovAI = () => {
           </motion.div>
         </div>
       </section>
+      </HeroBackground>
 
       {/* Problem Section */}
       <section className="py-20 bg-card scroll-mt-20">

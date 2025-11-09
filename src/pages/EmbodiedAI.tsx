@@ -28,6 +28,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Link } from "react-router-dom";
 import SEO from "@/components/SEO";
 import ContactSection from "./maisp/components/humanoidai/ContactSection";
+import HeroBackground from "@/components/shared/HeroBackground";
 
 const HumanoidAI = () => {
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
@@ -230,22 +231,17 @@ const HumanoidAI = () => {
       />
 
       {/* Hero Section */}
-      <section className="relative pt-40 pb-28 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-b from-[#7021EE]/20 to-black/90">
-            <div className="absolute inset-0 backdrop-blur-sm" />
-          </div>
-        </div>
-        
-        <div className="relative max-w-7xl mx-auto text-center">
-          <motion.h1 
-            className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent heading-highlight-scroll"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            EmbodiedAI™ — Managed Embodied AI Robots, Safely Deployed
-          </motion.h1>
+      <HeroBackground>
+        <section className="relative pt-40 pb-28 px-4 sm:px-6 lg:px-8 overflow-hidden">
+          <div className="relative max-w-7xl mx-auto text-center">
+            <motion.h1 
+              className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent heading-highlight-scroll"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              EmbodiedAI™ — Managed Embodied AI Robots, Safely Deployed
+            </motion.h1>
           
           <motion.p 
             className="text-xl md:text-2xl text-gray-300 mb-8 max-w-4xl mx-auto"
@@ -273,6 +269,7 @@ const HumanoidAI = () => {
           </motion.div>
         </div>
       </section>
+      </HeroBackground>
 
       {/* Why Now Section */}
       <section className="py-20 bg-background">
