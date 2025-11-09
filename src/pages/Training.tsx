@@ -109,7 +109,7 @@ const Training = () => {
                     size="lg" 
                     variant="outline"
                     className="text-lg px-8"
-                    onClick={() => window.location.href = '/portal/login'}
+                    onClick={() => window.location.href = '/portal/auth'}
                   >
                     Portal Login
                   </Button>

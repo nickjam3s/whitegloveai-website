@@ -59,7 +59,6 @@ import PortalAuth from "./pages/portal/Auth";
 import Organizations from "./pages/portal/Organizations";
 import OrganizationForm from "./pages/portal/OrganizationForm";
 import Users from "./pages/portal/Users";
-import PortalLogin from "./pages/portal/Login";
 import CourseOutline from "./pages/portal/CourseOutline";
 import Checkout from "./pages/portal/Checkout";
 import PurchaseSuccess from "./pages/portal/PurchaseSuccess";
@@ -142,7 +141,7 @@ const AppContent = () => {
                 
                 {/* Portal Routes */}
                 <Route path="/portal" element={<PortalIndex />} />
-                <Route path="/portal/login" element={<PortalLogin />} />
+                <Route path="/portal/login" element={<Navigate to="/portal/auth" replace />} />
                 <Route path="/portal/auth" element={<PortalAuth />} />
                 <Route path="/portal/course-outline/:slug" element={<CourseOutline />} />
                 <Route path="/portal/checkout" element={<Checkout />} />
