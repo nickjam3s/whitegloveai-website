@@ -142,9 +142,6 @@ const PortalAuth = () => {
             <ArrowLeft className="h-4 w-4" />
             Back to Website
           </Link>
-          <div className="flex-1 text-center">
-            <h1 className="text-xl font-bold text-white">WhitegloveAI Portal</h1>
-          </div>
         </div>
       </header>
 
