@@ -6,6 +6,7 @@ import { CourseFilters } from "@/components/training/CourseFilters";
 import { CourseCard } from "@/components/training/CourseCard";
 import { CourseChatbot } from "@/components/training/CourseChatbot";
 import { Button } from "@/components/ui/button";
+import aicertsBadge from "@/assets/aicerts-partner-badge.png";
 
 const Training = () => {
   useLayoutEffect(() => {
@@ -123,15 +124,15 @@ const Training = () => {
               </p>
             </div>
             
-            <div className="grid md:grid-cols-[1fr_300px] gap-6 items-start">
+            <div className="grid md:grid-cols-[1fr_300px] gap-6 items-stretch">
               <CourseChatbot embedded />
               
-              <div className="bg-primary/10 border border-primary/20 rounded-lg p-6">
+              <div className="bg-primary/10 border border-primary/20 rounded-lg p-6 flex flex-col h-[200px]">
                 <h3 className="font-semibold text-lg mb-3 flex items-center gap-2">
                   <Upload className="h-5 w-5" />
-                  Pro Tip: Upload Your Resume
+                  Upload Your Resume
                 </h3>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-sm text-muted-foreground flex-1">
                   For the most accurate recommendations, upload your resume (PDF or DOCX). Our AI will analyze your experience, skills, and career trajectory to recommend 3-5 courses perfectly tailored to your professional development goals.
                 </p>
               </div>
@@ -220,9 +221,11 @@ const Training = () => {
         <section className="py-16 bg-gradient-to-b from-background to-muted/20">
           <div className="container px-4 mx-auto max-w-7xl">
             <div className="bg-card border rounded-xl p-8 md:p-12 text-center">
-              <div className="inline-block mb-6 px-6 py-3 bg-primary/10 rounded-lg">
-                <span className="text-2xl font-bold text-primary">Authorized Partner</span>
-              </div>
+              <img 
+                src={aicertsBadge} 
+                alt="AICerts Authorized Training Partner" 
+                className="mx-auto mb-6 max-w-2xl w-full h-auto"
+              />
               <h2 className="text-3xl font-bold mb-4">AICerts Partner</h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
                 WhitegloveAI is proud to be an authorized partner of AICerts, delivering premium AI certification programs with the highest standards of quality and excellence.
