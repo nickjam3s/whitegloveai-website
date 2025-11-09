@@ -110,7 +110,7 @@ export const CourseChatbot = ({ embedded = false }: CourseChatbotProps) => {
 
   if (embedded) {
     return (
-      <Card className="w-full max-w-4xl mx-auto h-[600px] shadow-xl flex flex-col">
+      <Card className="w-full h-[200px] shadow-xl flex flex-col">
         <CardHeader className="border-b">
           <CardTitle className="text-lg">Ask Our AI Course Advisor</CardTitle>
         </CardHeader>

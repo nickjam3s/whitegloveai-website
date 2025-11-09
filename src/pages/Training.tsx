@@ -5,6 +5,7 @@ import { Upload } from "lucide-react";
 import { CourseFilters } from "@/components/training/CourseFilters";
 import { CourseCard } from "@/components/training/CourseCard";
 import { CourseChatbot } from "@/components/training/CourseChatbot";
+import { Button } from "@/components/ui/button";
 
 const Training = () => {
   useLayoutEffect(() => {
@@ -92,29 +93,41 @@ const Training = () => {
           </div>
 
           <div className="container px-4 mx-auto max-w-7xl">
-            <div className="text-center max-w-4xl mx-auto">
+          <div className="text-center max-w-4xl mx-auto">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent animate-gradient">
                 Transform Your Future with AI Certification
               </h1>
               <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
                 Partner with AICerts to access industry-recognized AI training programs. Browse our complete catalog and get personalized course recommendations.
               </p>
+              <Button 
+                size="lg" 
+                className="text-lg px-8"
+                onClick={() => document.getElementById('course-catalog')?.scrollIntoView({ behavior: 'smooth' })}
+              >
+                See Catalogue
+              </Button>
             </div>
           </div>
         </section>
 
         {/* AI Course Advisor Section */}
-        <section className="py-16 bg-gradient-to-b from-background to-muted/20">
-          <div className="container px-4 mx-auto max-w-5xl">
-            <div className="text-center mb-8">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+        <section className="py-8 bg-gradient-to-b from-background to-muted/20">
+          <div className="container px-4 mx-auto max-w-7xl">
+            <div className="text-center mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold mb-3">
                 AI Course Advisor
               </h2>
-              <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-4">
+              <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
                 Get personalized course recommendations powered by AI. Our intelligent advisor analyzes your background, goals, and experience to suggest the perfect certification path.
               </p>
-              <div className="bg-primary/10 border border-primary/20 rounded-lg p-6 max-w-2xl mx-auto">
-                <h3 className="font-semibold text-lg mb-3 flex items-center justify-center gap-2">
+            </div>
+            
+            <div className="grid md:grid-cols-[1fr_300px] gap-6 items-start">
+              <CourseChatbot embedded />
+              
+              <div className="bg-primary/10 border border-primary/20 rounded-lg p-6">
+                <h3 className="font-semibold text-lg mb-3 flex items-center gap-2">
                   <Upload className="h-5 w-5" />
                   Pro Tip: Upload Your Resume
                 </h3>
@@ -123,8 +136,6 @@ const Training = () => {
                 </p>
               </div>
             </div>
-            
-            <CourseChatbot embedded />
           </div>
         </section>
 
@@ -149,7 +160,7 @@ const Training = () => {
         </section>
 
         {/* Course Catalog */}
-        <section className="py-16">
+        <section id="course-catalog" className="py-16">
           <div className="container px-4 mx-auto max-w-7xl">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
