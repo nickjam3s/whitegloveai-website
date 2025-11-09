@@ -43,7 +43,7 @@ export const CourseCard = ({ course, isFeatured = false }: CourseCardProps) => {
         <div className="space-y-2 text-sm text-muted-foreground">
           {course.hasLabs && <div>✓ Includes Hands-on Labs</div>}
           {course.examAvailable && <div>✓ Certification Exam Available</div>}
-          <div>✓ Available in {course.languages.length} language{course.languages.length > 1 ? 's' : ''}</div>
+          <div>✓ Available in {course.languages.split(',').length} language{course.languages.split(',').length > 1 ? 's' : ''}</div>
         </div>
       </CardContent>
       <CardFooter>

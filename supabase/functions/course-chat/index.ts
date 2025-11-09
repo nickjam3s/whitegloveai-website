@@ -19,8 +19,89 @@ serve(async (req) => {
       throw new Error('LOVABLE_API_KEY is not configured');
     }
 
+    const courseCatalog = `COMPLETE COURSE CATALOG (63 Courses):
+
+FEATURED CERTIFICATIONS:
+1. AI+ Chief AI Officer - 1 Day, Intermediate, Business
+2. AI+ Foundation - 5 Days, Foundation, Essential  
+3. AI+ Government - 1 Day, Foundation, Specialization
+
+AVAILABLE COURSES (55):
+- AI+ Architect (5 Days, Advanced, Cloud)
+- AI+ Audio (1 Day, Intermediate, Design and Creative)
+- AI+ Business Intelligence (5 Days, Intermediate, Data & Robotics)
+- AI+ Cloud (5 Days, Intermediate, Cloud)
+- AI+ Customer Service (1 Day, Foundation, Business)
+- AI+ Data (5 Days, Foundation, Data & Robotics)
+- AI+ Data Agent (1 Day, Intermediate, Data & Robotics)
+- AI+ Design (1 Day, Foundation, Design & Creative)
+- AI+ Developer (5 Days, Advanced, Development)
+- AI+ Doctor (1 Day, Intermediate, Specialization)
+- AI+ Educator (1 Day, Foundation, Learning & Education)
+- AI+ Engineer (5 Days, Advanced, Development)
+- AI+ Ethical Hacker (5 Days, Intermediate, Security)
+- AI+ Ethics (1 Day, Foundation, Business)
+- AI+ Everyone (1 Day, Foundation, Essential)
+- AI+ Executive (1 Day, Foundation, Essential)
+- AI+ Finance (1 Day, Foundation, Business)
+- AI+ Game Design Agent (1 Day, Intermediate, Design and Creative)
+- AI+ Gaming (1 Day, Intermediate, Design and Creative)
+- AI+ Healthcare (1 Day, Foundation, Specialization)
+- AI+ Human Resource (1 Day, Foundation, Business)
+- AI+ Learning & Development (1 Day, Foundation, Learning & Education)
+- AI+ Legal (1 Day, Foundation, Business)
+- AI+ Legal Agent (1 Day, Intermediate, Business)
+- AI+ Marketing (1 Day, Foundation, Business)
+- AI+ Mining (1 Day, Intermediate, Specialization)
+- AI+ Network (5 Days, Intermediate, Security)
+- AI+ Product Manager (1 Day, Intermediate, Business)
+- AI+ Project Manager (1 Day, Intermediate, Business)
+- AI+ Project Manager Level 1 (5 Days, Intermediate, Business)
+- AI+ Prompt Engineer Level 1 (1 Day, Foundation, Essential)
+- AI+ Prompt Engineer Level 2 (5 Days, Advanced, Development)
+- AI+ Quality Assurance (5 Days, Intermediate, Data & Robotics)
+- AI+ Quantum (5 Days, Intermediate, Data & Robotics)
+- AI+ Real Estate (1 Day, Foundation, Business)
+- AI+ Researcher (1 Day, Foundation, Business)
+- AI+ Robotics (5 Days, Intermediate, Data & Robotics)
+- AI+ Sales (1 Day, Foundation, Business)
+- AI+ Security Compliance (5 Days, Intermediate, Security)
+- AI+ Security Level 1 (5 Days, Foundation, Security)
+- AI+ Security Level 2 (5 Days, Intermediate, Security)
+- AI+ Security Level 3 (5 Days, Advanced, Security)
+- AI+ Supply Chain (1 Day, Intermediate, Business)
+- AI+ Telecommunications (5 Days, Intermediate, Specialization)
+- AI+ UX Designer (1 Day, Intermediate, Design & Creative)
+- AI+ Vibe Coder (1 Day, Intermediate, Essential)
+- AI+ Writer (1 Day, Foundation, Business)
+- Bitcoin+ Developer (5 Days, Advanced, Blockchain & Bitcoin)
+- Bitcoin+ Everyone (1 Day, Foundation, Blockchain & Bitcoin)
+- Bitcoin+ Executive (1 Day, Foundation, Blockchain & Bitcoin)
+- Bitcoin+ Security (5 Days, Intermediate, Blockchain & Bitcoin)
+- Blockchain+ Developer (5 Days, Advanced, Blockchain & Bitcoin)
+- Blockchain+ Executive (1 Day, Foundation, Blockchain & Bitcoin)
+
+COMING SOON (8 Courses):
+- AI+ Agent Builder (1 Day, Intermediate, Essential)
+- AI+ Finance Agent (1 Day, Intermediate, Business)
+- AI+ Healthcare Administrator (1 Day, Intermediate, Specialization)
+- AI+ Medical Assistant (1 Day, Intermediate, Specialization)
+- AI+ Nurse (1 Day, Intermediate, Specialization)
+- AI+ Policy Maker (1 Day, Intermediate, Specialization)
+- AI+ Sustainability (1 Day, Intermediate, Specialization)
+- AI+ Video (1 Day, Intermediate, Design and Creative)
+
+PRACTICE AREAS: Business (20), Essential (5), Security (7), Data & Robotics (7), Development (4), Specialization (9), Design & Creative/Design and Creative (7), Cloud (2), Learning & Education (2), Blockchain & Bitcoin (6)
+
+DURATION: 1 Day (39 courses) or 5 Days (24 courses)
+LEVELS: Foundation (23), Intermediate (28), Advanced (12)`;
+
     // Build system prompt with course context
-    const systemPrompt = `You are a helpful AI course advisor for WhitegloveAI's training programs. 
+    const systemPrompt = `You are an AI Course Advisor for WhitegloveAI's training programs powered by AICerts certifications.
+
+Your role is to help users find the perfect AI certification course based on their needs, background, and career goals.
+
+${courseCatalog}
 
 IMPORTANT FORMATTING RULES:
 - DO NOT use any markdown formatting (no **, *, -, bullets, or special characters)
@@ -47,11 +128,9 @@ Example format:
 
 Each course leads to industry-recognized certification through AICerts."` : `When helping users without a resume:
 1. Ask 2-3 brief qualifying questions about their industry, role, and experience
-2. Then recommend 3-5 specific courses
+2. Then recommend 3-5 specific courses from the catalog above
 3. Keep responses brief and conversational
-4. No markdown formatting`}
-
-Our course catalog includes: AI+ Chief AI Officer, AI+ Foundation, AI+ Government, AI+ Marketing, AI+ Developer, AI+ Finance, AI+ HR, AI+ Legal, AI+ Healthcare, AI+ Education, AI+ Security, AI+ Data, and many more specialized certifications.`;
+4. No markdown formatting`}`;
 
     // Build messages array
     const messages = [
@@ -80,7 +159,6 @@ Our course catalog includes: AI+ Chief AI Officer, AI+ Foundation, AI+ Governmen
       body: JSON.stringify({
         model: "google/gemini-2.5-flash",
         messages: messages,
-        temperature: 0.7,
         max_completion_tokens: 1000
       }),
     });

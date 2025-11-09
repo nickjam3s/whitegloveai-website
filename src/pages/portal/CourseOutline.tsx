@@ -119,8 +119,8 @@ const CourseOutline = () => {
                 Available Languages
               </h3>
               <div className="flex flex-wrap gap-2">
-                {course.languages.map(lang => (
-                  <Badge key={lang} variant="outline">{lang}</Badge>
+                {course.languages.split(',').map(lang => (
+                  <Badge key={lang.trim()} variant="outline">{lang.trim()}</Badge>
                 ))}
               </div>
             </div>

@@ -1,21 +1,20 @@
 export interface Course {
   name: string;
-  status: 'Available' | 'Coming Soon';
+  status: "Available" | "Coming Soon";
   featured: boolean;
-  duration: '1 Day' | '5 Days';
+  duration: "1 Day" | "5 Days";
   practiceArea: string;
   portfolioType: string;
-  level: 'Foundation' | 'Intermediate' | 'Advanced';
+  level: "Foundation" | "Intermediate" | "Advanced";
   hasLabs: boolean;
   examAvailable: boolean;
-  languages: string[];
-  releaseDate?: string;
+  languages: string;
 }
 
 export const courses: Course[] = [
   {
     name: "AI+ Chief AI Officer",
-    status: "Coming Soon",
+    status: "Available",
     featured: true,
     duration: "1 Day",
     practiceArea: "Business",
@@ -23,12 +22,11 @@ export const courses: Course[] = [
     level: "Intermediate",
     hasLabs: true,
     examAvailable: true,
-    languages: ["English", "Spanish"],
-    releaseDate: "2025-01-01"
+    languages: "English, Spanish"
   },
   {
     name: "AI+ Foundation",
-    status: "Coming Soon",
+    status: "Available",
     featured: true,
     duration: "5 Days",
     practiceArea: "Essential",
@@ -36,8 +34,7 @@ export const courses: Course[] = [
     level: "Foundation",
     hasLabs: true,
     examAvailable: true,
-    languages: ["English", "Spanish", "French", "German", "Arabic", "Italian", "Chinese"],
-    releaseDate: "2025-03-25"
+    languages: "English, Spanish, French, German, Arabic, Italian, Chinese"
   },
   {
     name: "AI+ Government",
@@ -49,20 +46,7 @@ export const courses: Course[] = [
     level: "Foundation",
     hasLabs: false,
     examAvailable: true,
-    languages: ["English", "Spanish"],
-    releaseDate: "2024-05-01"
-  },
-  {
-    name: "AI+ Agent Builder",
-    status: "Coming Soon",
-    featured: false,
-    duration: "1 Day",
-    practiceArea: "Essential",
-    portfolioType: "Professional",
-    level: "Intermediate",
-    hasLabs: false,
-    examAvailable: true,
-    languages: ["English"]
+    languages: "English, Spanish"
   },
   {
     name: "AI+ Architect",
@@ -74,24 +58,23 @@ export const courses: Course[] = [
     level: "Advanced",
     hasLabs: true,
     examAvailable: true,
-    languages: ["English", "Spanish", "Chinese"],
-    releaseDate: "2024-06-01"
+    languages: "English, Spanish, Chinese"
   },
   {
     name: "AI+ Audio",
-    status: "Coming Soon",
+    status: "Available",
     featured: false,
     duration: "1 Day",
-    practiceArea: "Design & Creative",
+    practiceArea: "Design and Creative",
     portfolioType: "Professional",
     level: "Intermediate",
     hasLabs: false,
     examAvailable: true,
-    languages: ["English"]
+    languages: "English"
   },
   {
     name: "AI+ Business Intelligence",
-    status: "Coming Soon",
+    status: "Available",
     featured: false,
     duration: "5 Days",
     practiceArea: "Data & Robotics",
@@ -99,8 +82,7 @@ export const courses: Course[] = [
     level: "Intermediate",
     hasLabs: true,
     examAvailable: true,
-    languages: ["English"],
-    releaseDate: "2025-08-01"
+    languages: "English"
   },
   {
     name: "AI+ Cloud",
@@ -112,8 +94,7 @@ export const courses: Course[] = [
     level: "Intermediate",
     hasLabs: true,
     examAvailable: true,
-    languages: ["English", "Spanish", "Chinese"],
-    releaseDate: "2024-03-01"
+    languages: "English, Spanish, Chinese"
   },
   {
     name: "AI+ Customer Service",
@@ -125,8 +106,7 @@ export const courses: Course[] = [
     level: "Foundation",
     hasLabs: false,
     examAvailable: true,
-    languages: ["English", "Spanish", "Turkish", "Azerbaijani"],
-    releaseDate: "2024-03-01"
+    languages: "English, Spanish, Turkish, Azerbhaijani"
   },
   {
     name: "AI+ Data",
@@ -138,12 +118,11 @@ export const courses: Course[] = [
     level: "Foundation",
     hasLabs: true,
     examAvailable: true,
-    languages: ["English", "Spanish", "Chinese"],
-    releaseDate: "2024-04-01"
+    languages: "English, Spanish, Chinese"
   },
   {
     name: "AI+ Data Agent",
-    status: "Coming Soon",
+    status: "Available",
     featured: false,
     duration: "1 Day",
     practiceArea: "Data & Robotics",
@@ -151,7 +130,7 @@ export const courses: Course[] = [
     level: "Intermediate",
     hasLabs: false,
     examAvailable: true,
-    languages: ["English"]
+    languages: "English"
   },
   {
     name: "AI+ Design",
@@ -163,8 +142,7 @@ export const courses: Course[] = [
     level: "Foundation",
     hasLabs: false,
     examAvailable: true,
-    languages: ["English", "Spanish"],
-    releaseDate: "2024-04-01"
+    languages: "English, Spanish"
   },
   {
     name: "AI+ Developer",
@@ -176,12 +154,11 @@ export const courses: Course[] = [
     level: "Advanced",
     hasLabs: true,
     examAvailable: true,
-    languages: ["English", "Spanish", "Chinese"],
-    releaseDate: "2024-02-01"
+    languages: "English, Spanish, Chinese"
   },
   {
     name: "AI+ Doctor",
-    status: "Coming Soon",
+    status: "Available",
     featured: false,
     duration: "1 Day",
     practiceArea: "Specialization",
@@ -189,7 +166,7 @@ export const courses: Course[] = [
     level: "Intermediate",
     hasLabs: false,
     examAvailable: true,
-    languages: ["English"]
+    languages: "English"
   },
   {
     name: "AI+ Educator",
@@ -201,8 +178,7 @@ export const courses: Course[] = [
     level: "Foundation",
     hasLabs: true,
     examAvailable: true,
-    languages: ["English", "Spanish"],
-    releaseDate: "2024-02-01"
+    languages: "English, Spanish"
   },
   {
     name: "AI+ Engineer",
@@ -214,8 +190,7 @@ export const courses: Course[] = [
     level: "Advanced",
     hasLabs: true,
     examAvailable: true,
-    languages: ["English", "Spanish", "Chinese"],
-    releaseDate: "2024-03-01"
+    languages: "English, Spanish, Chinese"
   },
   {
     name: "AI+ Ethical Hacker",
@@ -227,8 +202,7 @@ export const courses: Course[] = [
     level: "Intermediate",
     hasLabs: true,
     examAvailable: true,
-    languages: ["English", "Spanish", "Arabic"],
-    releaseDate: "2024-03-01"
+    languages: "English, Spanish, Arabic"
   },
   {
     name: "AI+ Ethics",
@@ -240,8 +214,7 @@ export const courses: Course[] = [
     level: "Foundation",
     hasLabs: false,
     examAvailable: true,
-    languages: ["English", "Spanish"],
-    releaseDate: "2024-02-01"
+    languages: "English, Spanish"
   },
   {
     name: "AI+ Everyone",
@@ -253,8 +226,7 @@ export const courses: Course[] = [
     level: "Foundation",
     hasLabs: false,
     examAvailable: true,
-    languages: ["English", "Spanish", "German", "Arabic", "Italian", "Chinese"],
-    releaseDate: "2024-03-01"
+    languages: "English, Spanish, German, Arabic, Italian, Chinese"
   },
   {
     name: "AI+ Executive",
@@ -266,8 +238,7 @@ export const courses: Course[] = [
     level: "Foundation",
     hasLabs: true,
     examAvailable: true,
-    languages: ["English", "Spanish", "German", "Arabic", "Italian", "Chinese", "Turkish", "Azerbaijani"],
-    releaseDate: "2024-02-01"
+    languages: "English, Spanish, German, Arabic, Italian, Chinese, Turkish, Azerbhaijani"
   },
   {
     name: "AI+ Finance",
@@ -279,44 +250,31 @@ export const courses: Course[] = [
     level: "Foundation",
     hasLabs: true,
     examAvailable: true,
-    languages: ["English", "Spanish"],
-    releaseDate: "2024-04-01"
-  },
-  {
-    name: "AI+ Finance Agent",
-    status: "Coming Soon",
-    featured: false,
-    duration: "1 Day",
-    practiceArea: "Business",
-    portfolioType: "Professional",
-    level: "Intermediate",
-    hasLabs: false,
-    examAvailable: true,
-    languages: ["English"]
+    languages: "English, Spanish"
   },
   {
     name: "AI+ Game Design Agent",
-    status: "Coming Soon",
+    status: "Available",
     featured: false,
     duration: "1 Day",
-    practiceArea: "Design & Creative",
+    practiceArea: "Design and Creative",
     portfolioType: "Professional",
     level: "Intermediate",
     hasLabs: false,
     examAvailable: true,
-    languages: ["English"]
+    languages: "English"
   },
   {
     name: "AI+ Gaming",
-    status: "Coming Soon",
+    status: "Available",
     featured: false,
     duration: "1 Day",
-    practiceArea: "Design & Creative",
+    practiceArea: "Design and Creative",
     portfolioType: "Pro + Technical",
     level: "Intermediate",
     hasLabs: false,
     examAvailable: true,
-    languages: ["English"]
+    languages: "English"
   },
   {
     name: "AI+ Healthcare",
@@ -328,20 +286,7 @@ export const courses: Course[] = [
     level: "Foundation",
     hasLabs: false,
     examAvailable: true,
-    languages: ["English", "Spanish"],
-    releaseDate: "2024-05-01"
-  },
-  {
-    name: "AI+ Healthcare Administrator",
-    status: "Coming Soon",
-    featured: false,
-    duration: "1 Day",
-    practiceArea: "Specialization",
-    portfolioType: "Professional",
-    level: "Intermediate",
-    hasLabs: false,
-    examAvailable: true,
-    languages: ["English"]
+    languages: "English, Spanish"
   },
   {
     name: "AI+ Human Resource",
@@ -353,8 +298,7 @@ export const courses: Course[] = [
     level: "Foundation",
     hasLabs: true,
     examAvailable: true,
-    languages: ["English", "Spanish", "Chinese", "Turkish", "Azerbaijani"],
-    releaseDate: "2024-04-01"
+    languages: "English, Spanish, Chinese, Turkish, Azerbhaijani"
   },
   {
     name: "AI+ Learning & Development",
@@ -366,8 +310,7 @@ export const courses: Course[] = [
     level: "Foundation",
     hasLabs: false,
     examAvailable: true,
-    languages: ["English", "Spanish"],
-    releaseDate: "2024-04-01"
+    languages: "English, Spanish"
   },
   {
     name: "AI+ Legal",
@@ -379,12 +322,11 @@ export const courses: Course[] = [
     level: "Foundation",
     hasLabs: true,
     examAvailable: true,
-    languages: ["English", "Spanish", "German"],
-    releaseDate: "2024-04-01"
+    languages: "English, Spanish, German"
   },
   {
     name: "AI+ Legal Agent",
-    status: "Coming Soon",
+    status: "Available",
     featured: false,
     duration: "1 Day",
     practiceArea: "Business",
@@ -392,7 +334,7 @@ export const courses: Course[] = [
     level: "Intermediate",
     hasLabs: false,
     examAvailable: true,
-    languages: ["English"]
+    languages: "English"
   },
   {
     name: "AI+ Marketing",
@@ -404,24 +346,11 @@ export const courses: Course[] = [
     level: "Foundation",
     hasLabs: false,
     examAvailable: true,
-    languages: ["English", "Spanish", "Chinese"],
-    releaseDate: "2024-03-01"
-  },
-  {
-    name: "AI+ Medical Assistant",
-    status: "Coming Soon",
-    featured: false,
-    duration: "1 Day",
-    practiceArea: "Specialization",
-    portfolioType: "Professional",
-    level: "Intermediate",
-    hasLabs: false,
-    examAvailable: true,
-    languages: ["English"]
+    languages: "English, Spanish, Chinese"
   },
   {
     name: "AI+ Mining",
-    status: "Coming Soon",
+    status: "Available",
     featured: false,
     duration: "1 Day",
     practiceArea: "Specialization",
@@ -429,7 +358,7 @@ export const courses: Course[] = [
     level: "Intermediate",
     hasLabs: false,
     examAvailable: true,
-    languages: ["English"]
+    languages: "English"
   },
   {
     name: "AI+ Network",
@@ -441,33 +370,7 @@ export const courses: Course[] = [
     level: "Intermediate",
     hasLabs: true,
     examAvailable: true,
-    languages: ["English", "Spanish", "Arabic", "Chinese"],
-    releaseDate: "2024-12-01"
-  },
-  {
-    name: "AI+ Nurse",
-    status: "Coming Soon",
-    featured: false,
-    duration: "1 Day",
-    practiceArea: "Specialization",
-    portfolioType: "Professional",
-    level: "Intermediate",
-    hasLabs: false,
-    examAvailable: true,
-    languages: ["English"]
-  },
-  {
-    name: "AI+ Policy Maker",
-    status: "Coming Soon",
-    featured: false,
-    duration: "1 Day",
-    practiceArea: "Specialization",
-    portfolioType: "Professional",
-    level: "Intermediate",
-    hasLabs: true,
-    examAvailable: true,
-    languages: ["English"],
-    releaseDate: "2025-08-01"
+    languages: "English, Spanish, Arabic, Chinese"
   },
   {
     name: "AI+ Product Manager",
@@ -479,8 +382,7 @@ export const courses: Course[] = [
     level: "Intermediate",
     hasLabs: false,
     examAvailable: true,
-    languages: ["English", "Spanish"],
-    releaseDate: "2024-04-01"
+    languages: "English, Spanish"
   },
   {
     name: "AI+ Project Manager",
@@ -492,8 +394,19 @@ export const courses: Course[] = [
     level: "Intermediate",
     hasLabs: false,
     examAvailable: true,
-    languages: ["English", "Spanish"],
-    releaseDate: "2024-03-01"
+    languages: "English, Spanish"
+  },
+  {
+    name: "AI+ Project Manager Level 1",
+    status: "Available",
+    featured: false,
+    duration: "5 Days",
+    practiceArea: "Business",
+    portfolioType: "Professional",
+    level: "Intermediate",
+    hasLabs: true,
+    examAvailable: false,
+    languages: ""
   },
   {
     name: "AI+ Prompt Engineer Level 1",
@@ -505,8 +418,7 @@ export const courses: Course[] = [
     level: "Foundation",
     hasLabs: false,
     examAvailable: true,
-    languages: ["English", "Spanish", "German", "Arabic", "Chinese"],
-    releaseDate: "2024-02-01"
+    languages: "English, Spanish, German, Arabic, Chinese"
   },
   {
     name: "AI+ Prompt Engineer Level 2",
@@ -518,12 +430,11 @@ export const courses: Course[] = [
     level: "Advanced",
     hasLabs: true,
     examAvailable: true,
-    languages: ["English", "Spanish", "Arabic", "Chinese"],
-    releaseDate: "2024-11-12"
+    languages: "English, Spanish, Arabic, Chinese"
   },
   {
     name: "AI+ Quality Assurance",
-    status: "Coming Soon",
+    status: "Available",
     featured: false,
     duration: "5 Days",
     practiceArea: "Data & Robotics",
@@ -531,8 +442,7 @@ export const courses: Course[] = [
     level: "Intermediate",
     hasLabs: true,
     examAvailable: true,
-    languages: ["English"],
-    releaseDate: "2025-08-01"
+    languages: "English"
   },
   {
     name: "AI+ Quantum",
@@ -544,12 +454,11 @@ export const courses: Course[] = [
     level: "Intermediate",
     hasLabs: true,
     examAvailable: true,
-    languages: ["English", "Spanish"],
-    releaseDate: "2024-06-01"
+    languages: "English, Spanish"
   },
   {
     name: "AI+ Real Estate",
-    status: "Coming Soon",
+    status: "Available",
     featured: false,
     duration: "1 Day",
     practiceArea: "Business",
@@ -557,7 +466,7 @@ export const courses: Course[] = [
     level: "Foundation",
     hasLabs: false,
     examAvailable: true,
-    languages: ["English"]
+    languages: "English"
   },
   {
     name: "AI+ Researcher",
@@ -569,8 +478,7 @@ export const courses: Course[] = [
     level: "Foundation",
     hasLabs: false,
     examAvailable: true,
-    languages: ["English", "Spanish"],
-    releaseDate: "2024-05-01"
+    languages: "English, Spanish"
   },
   {
     name: "AI+ Robotics",
@@ -582,8 +490,7 @@ export const courses: Course[] = [
     level: "Intermediate",
     hasLabs: true,
     examAvailable: true,
-    languages: ["English", "Spanish"],
-    releaseDate: "2024-05-01"
+    languages: "English, Spanish"
   },
   {
     name: "AI+ Sales",
@@ -595,8 +502,7 @@ export const courses: Course[] = [
     level: "Foundation",
     hasLabs: true,
     examAvailable: true,
-    languages: ["English", "Spanish", "Chinese", "Turkish", "Azerbaijani"],
-    releaseDate: "2024-03-01"
+    languages: "English, Spanish, Chinese, Turkish, Azerbhaijani"
   },
   {
     name: "AI+ Security Compliance",
@@ -608,8 +514,7 @@ export const courses: Course[] = [
     level: "Intermediate",
     hasLabs: true,
     examAvailable: true,
-    languages: ["English", "Spanish", "Arabic"],
-    releaseDate: "2024-11-12"
+    languages: "English, Spanish, Arabic"
   },
   {
     name: "AI+ Security Level 1",
@@ -621,8 +526,7 @@ export const courses: Course[] = [
     level: "Foundation",
     hasLabs: true,
     examAvailable: true,
-    languages: ["English", "Spanish", "Arabic", "Turkish", "Azerbaijani"],
-    releaseDate: "2024-11-12"
+    languages: "English, Spanish, Arabic, Turkish, Azerbhaijani"
   },
   {
     name: "AI+ Security Level 2",
@@ -634,8 +538,7 @@ export const courses: Course[] = [
     level: "Intermediate",
     hasLabs: true,
     examAvailable: true,
-    languages: ["English", "Spanish", "Arabic"],
-    releaseDate: "2024-04-01"
+    languages: "English, Spanish, Arabic"
   },
   {
     name: "AI+ Security Level 3",
@@ -647,8 +550,7 @@ export const courses: Course[] = [
     level: "Advanced",
     hasLabs: true,
     examAvailable: true,
-    languages: ["English", "Spanish", "Arabic"],
-    releaseDate: "2024-12-01"
+    languages: "English, Spanish, Arabic"
   },
   {
     name: "AI+ Supply Chain",
@@ -660,24 +562,11 @@ export const courses: Course[] = [
     level: "Intermediate",
     hasLabs: false,
     examAvailable: true,
-    languages: ["English", "Spanish"],
-    releaseDate: "2024-11-12"
-  },
-  {
-    name: "AI+ Sustainability",
-    status: "Coming Soon",
-    featured: false,
-    duration: "1 Day",
-    practiceArea: "Specialization",
-    portfolioType: "Professional",
-    level: "Intermediate",
-    hasLabs: false,
-    examAvailable: true,
-    languages: ["English"]
+    languages: "English, Spanish"
   },
   {
     name: "AI+ Telecommunications",
-    status: "Coming Soon",
+    status: "Available",
     featured: false,
     duration: "5 Days",
     practiceArea: "Specialization",
@@ -685,7 +574,7 @@ export const courses: Course[] = [
     level: "Intermediate",
     hasLabs: false,
     examAvailable: true,
-    languages: ["English", "Arabic"]
+    languages: "English, Arabic"
   },
   {
     name: "AI+ UX Designer",
@@ -697,12 +586,11 @@ export const courses: Course[] = [
     level: "Intermediate",
     hasLabs: false,
     examAvailable: true,
-    languages: ["English", "Spanish"],
-    releaseDate: "2024-04-01"
+    languages: "English, Spanish"
   },
   {
     name: "AI+ Vibe Coder",
-    status: "Coming Soon",
+    status: "Available",
     featured: false,
     duration: "1 Day",
     practiceArea: "Essential",
@@ -710,19 +598,7 @@ export const courses: Course[] = [
     level: "Intermediate",
     hasLabs: false,
     examAvailable: true,
-    languages: ["English"]
-  },
-  {
-    name: "AI+ Video",
-    status: "Coming Soon",
-    featured: false,
-    duration: "1 Day",
-    practiceArea: "Design & Creative",
-    portfolioType: "Professional",
-    level: "Intermediate",
-    hasLabs: false,
-    examAvailable: true,
-    languages: ["English"]
+    languages: "English"
   },
   {
     name: "AI+ Writer",
@@ -734,8 +610,7 @@ export const courses: Course[] = [
     level: "Foundation",
     hasLabs: false,
     examAvailable: true,
-    languages: ["English", "Spanish"],
-    releaseDate: "2024-04-01"
+    languages: "English, Spanish"
   },
   {
     name: "Bitcoin+ Developer",
@@ -747,8 +622,7 @@ export const courses: Course[] = [
     level: "Advanced",
     hasLabs: true,
     examAvailable: true,
-    languages: ["English", "Spanish"],
-    releaseDate: "2024-02-01"
+    languages: "English, Spanish"
   },
   {
     name: "Bitcoin+ Everyone",
@@ -760,8 +634,7 @@ export const courses: Course[] = [
     level: "Foundation",
     hasLabs: false,
     examAvailable: true,
-    languages: ["English", "Spanish"],
-    releaseDate: "2024-03-01"
+    languages: "English, Spanish"
   },
   {
     name: "Bitcoin+ Executive",
@@ -773,8 +646,7 @@ export const courses: Course[] = [
     level: "Foundation",
     hasLabs: false,
     examAvailable: true,
-    languages: ["English", "Spanish"],
-    releaseDate: "2024-02-01"
+    languages: "English, Spanish"
   },
   {
     name: "Bitcoin+ Security",
@@ -786,8 +658,7 @@ export const courses: Course[] = [
     level: "Intermediate",
     hasLabs: true,
     examAvailable: true,
-    languages: ["English", "Spanish"],
-    releaseDate: "2024-12-01"
+    languages: "English, Spanish"
   },
   {
     name: "Blockchain+ Developer",
@@ -799,8 +670,7 @@ export const courses: Course[] = [
     level: "Advanced",
     hasLabs: true,
     examAvailable: true,
-    languages: ["English", "Spanish"],
-    releaseDate: "2024-02-01"
+    languages: "English, Spanish"
   },
   {
     name: "Blockchain+ Executive",
@@ -812,7 +682,102 @@ export const courses: Course[] = [
     level: "Foundation",
     hasLabs: false,
     examAvailable: true,
-    languages: ["English", "Spanish"],
-    releaseDate: "2024-02-01"
+    languages: "English, Spanish"
+  },
+  {
+    name: "AI+ Agent Builder",
+    status: "Coming Soon",
+    featured: false,
+    duration: "1 Day",
+    practiceArea: "Essential",
+    portfolioType: "Professional",
+    level: "Intermediate",
+    hasLabs: false,
+    examAvailable: true,
+    languages: "English"
+  },
+  {
+    name: "AI+ Finance Agent",
+    status: "Coming Soon",
+    featured: false,
+    duration: "1 Day",
+    practiceArea: "Business",
+    portfolioType: "Professional",
+    level: "Intermediate",
+    hasLabs: false,
+    examAvailable: true,
+    languages: "English"
+  },
+  {
+    name: "AI+ Healthcare Administrator",
+    status: "Coming Soon",
+    featured: false,
+    duration: "1 Day",
+    practiceArea: "Specialization",
+    portfolioType: "Professional",
+    level: "Intermediate",
+    hasLabs: false,
+    examAvailable: true,
+    languages: "English"
+  },
+  {
+    name: "AI+ Medical Assistant",
+    status: "Coming Soon",
+    featured: false,
+    duration: "1 Day",
+    practiceArea: "Specialization",
+    portfolioType: "Professional",
+    level: "Intermediate",
+    hasLabs: false,
+    examAvailable: true,
+    languages: "English"
+  },
+  {
+    name: "AI+ Nurse",
+    status: "Coming Soon",
+    featured: false,
+    duration: "1 Day",
+    practiceArea: "Specialization",
+    portfolioType: "Professional",
+    level: "Intermediate",
+    hasLabs: false,
+    examAvailable: true,
+    languages: "English"
+  },
+  {
+    name: "AI+ Policy Maker",
+    status: "Coming Soon",
+    featured: false,
+    duration: "1 Day",
+    practiceArea: "Specialization",
+    portfolioType: "Professional",
+    level: "Intermediate",
+    hasLabs: true,
+    examAvailable: true,
+    languages: "English"
+  },
+  {
+    name: "AI+ Sustainability",
+    status: "Coming Soon",
+    featured: false,
+    duration: "1 Day",
+    practiceArea: "Specialization",
+    portfolioType: "Professional",
+    level: "Intermediate",
+    hasLabs: false,
+    examAvailable: true,
+    languages: "English"
+  },
+  {
+    name: "AI+ Video",
+    status: "Coming Soon",
+    featured: false,
+    duration: "1 Day",
+    practiceArea: "Design and Creative",
+    portfolioType: "Professional",
+    level: "Intermediate",
+    hasLabs: false,
+    examAvailable: true,
+    languages: "English"
   }
 ];
