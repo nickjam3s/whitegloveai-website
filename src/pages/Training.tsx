@@ -127,7 +127,7 @@ const Training = () => {
             <div className="grid md:grid-cols-[1fr_300px] gap-6 items-stretch">
               <CourseChatbot embedded />
               
-              <div className="bg-primary/10 border border-primary/20 rounded-lg p-6 flex flex-col h-[200px]">
+              <div className="bg-primary/10 border border-primary/20 rounded-lg p-6 flex flex-col h-[280px]">
                 <h3 className="font-semibold text-lg mb-3 flex items-center gap-2">
                   <Upload className="h-5 w-5" />
                   Upload Your Resume
