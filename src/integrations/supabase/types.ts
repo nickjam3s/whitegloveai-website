@@ -159,6 +159,39 @@ export type Database = {
           },
         ]
       }
+      course_outlines: {
+        Row: {
+          course_name: string
+          course_slug: string
+          id: string
+          pdf_filename: string | null
+          pdf_url: string | null
+          updated_at: string | null
+          uploaded_at: string | null
+          uploaded_by: string | null
+        }
+        Insert: {
+          course_name: string
+          course_slug: string
+          id?: string
+          pdf_filename?: string | null
+          pdf_url?: string | null
+          updated_at?: string | null
+          uploaded_at?: string | null
+          uploaded_by?: string | null
+        }
+        Update: {
+          course_name?: string
+          course_slug?: string
+          id?: string
+          pdf_filename?: string | null
+          pdf_url?: string | null
+          updated_at?: string | null
+          uploaded_at?: string | null
+          uploaded_by?: string | null
+        }
+        Relationships: []
+      }
       documents: {
         Row: {
           created_at: string
@@ -528,6 +561,51 @@ export type Database = {
         }
         Relationships: []
       }
+      purchases: {
+        Row: {
+          amount_paid: number
+          course_name: string
+          course_slug: string
+          currency: string
+          id: string
+          purchased_at: string | null
+          quantity: number
+          status: string
+          stripe_checkout_session_id: string | null
+          stripe_payment_intent_id: string | null
+          user_email: string
+          user_id: string | null
+        }
+        Insert: {
+          amount_paid: number
+          course_name: string
+          course_slug: string
+          currency?: string
+          id?: string
+          purchased_at?: string | null
+          quantity?: number
+          status?: string
+          stripe_checkout_session_id?: string | null
+          stripe_payment_intent_id?: string | null
+          user_email: string
+          user_id?: string | null
+        }
+        Update: {
+          amount_paid?: number
+          course_name?: string
+          course_slug?: string
+          currency?: string
+          id?: string
+          purchased_at?: string | null
+          quantity?: number
+          status?: string
+          stripe_checkout_session_id?: string | null
+          stripe_payment_intent_id?: string | null
+          user_email?: string
+          user_id?: string | null
+        }
+        Relationships: []
+      }
       retell_agent_assignments: {
         Row: {
           agent_name: string | null
@@ -721,23 +799,58 @@ export type Database = {
           },
         ]
       }
+      user_licenses: {
+        Row: {
+          course_name: string
+          course_slug: string
+          expires_at: string | null
+          granted_at: string | null
+          id: string
+          purchase_id: string | null
+          quantity: number
+          user_email: string
+          user_id: string | null
+        }
+        Insert: {
+          course_name: string
+          course_slug: string
+          expires_at?: string | null
+          granted_at?: string | null
+          id?: string
+          purchase_id?: string | null
+          quantity?: number
+          user_email: string
+          user_id?: string | null
+        }
+        Update: {
+          course_name?: string
+          course_slug?: string
+          expires_at?: string | null
+          granted_at?: string | null
+          id?: string
+          purchase_id?: string | null
+          quantity?: number
+          user_email?: string
+          user_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "user_licenses_purchase_id_fkey"
+            columns: ["purchase_id"]
+            isOneToOne: false
+            referencedRelation: "purchases"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      generate_confirmation_token: {
-        Args: Record<PropertyKey, never>
-        Returns: string
-      }
-      generate_slug: {
-        Args: { title: string }
-        Returns: string
-      }
-      is_admin: {
-        Args: Record<PropertyKey, never>
-        Returns: boolean
-      }
+      generate_confirmation_token: { Args: never; Returns: string }
+      generate_slug: { Args: { title: string }; Returns: string }
+      is_admin: { Args: never; Returns: boolean }
       set_config: {
         Args: { parameter: string; value: string }
         Returns: undefined
