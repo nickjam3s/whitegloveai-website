@@ -2,7 +2,7 @@ import { useLayoutEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import SEO from "@/components/SEO";
 import { courses } from "@/data/courses";
-import { Upload, Clock, Award, BookOpen, Users, TrendingUp, Building2, Briefcase, Sparkles, Code, Lightbulb, CheckCircle2, Shield } from "lucide-react";
+import { Upload, Clock, Award, BookOpen, Users, TrendingUp, Building2, Briefcase, Sparkles, Code, Lightbulb, CheckCircle2, Shield, Landmark } from "lucide-react";
 import { CourseCard } from "@/components/training/CourseCard";
 import { CourseChatbot } from "@/components/training/CourseChatbot";
 import { Button } from "@/components/ui/button";
@@ -93,6 +93,12 @@ const Training = () => {
       title: "Specialized Practice Area Modules",
       description: "Domain expertise with AI integration. Sector-specific training for government, education, nonprofit, and specialized industries.",
       color: "text-red-500"
+    },
+    {
+      icon: Landmark,
+      title: "GovAI Training & Compliance",
+      description: "Public sector AI education and regulatory compliance. Navigate TRAIGA requirements, HB3512 mandates, AI procurement standards, and citizen-facing AI applications.",
+      color: "text-orange-500"
     }
   ];
 
