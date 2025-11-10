@@ -5,6 +5,7 @@ import { usePortalAuth } from "@/hooks/usePortalAuth";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { Loader2, Trash2, ShoppingCart, AlertCircle } from "lucide-react";
@@ -15,11 +16,8 @@ const Checkout = () => {
   const { user } = usePortalAuth();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
+  const [guestEmail, setGuestEmail] = useState("");
 
-  if (!user) {
-    navigate("/portal/login");
-    return null;
-  }
 
   const handleCheckout = async () => {
     if (items.length === 0) {
@@ -27,10 +25,19 @@ const Checkout = () => {
       return;
     }
 
+    // Validate email for guest users
+    if (!user && (!guestEmail || !guestEmail.includes("@"))) {
+      toast.error("Please enter a valid email address");
+      return;
+    }
+
     setLoading(true);
     try {
       const { data, error } = await supabase.functions.invoke('create-checkout', {
-        body: { items }
+        body: { 
+          items,
+          guestEmail: !user ? guestEmail : undefined
+        }
       });
 
       if (error) throw error;
@@ -67,6 +74,32 @@ const Checkout = () => {
           </Card>
         ) : (
           <div className="space-y-6">
+            {/* Email Collection for Guest Users */}
+            {!user && (
+              <Card>
+                <CardHeader>
+                  <CardTitle>Contact Information</CardTitle>
+                  <CardDescription>Enter your email to complete the purchase</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-2">
+                    <Label htmlFor="email">Email Address</Label>
+                    <Input
+                      id="email"
+                      type="email"
+                      placeholder="your.email@example.com"
+                      value={guestEmail}
+                      onChange={(e) => setGuestEmail(e.target.value)}
+                      required
+                    />
+                    <p className="text-sm text-muted-foreground">
+                      We'll send your order confirmation and course access details to this email
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
+            )}
+
             <Card>
               <CardHeader>
                 <CardTitle>Your Cart</CardTitle>

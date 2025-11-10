@@ -568,6 +568,7 @@ export type Database = {
           course_slug: string
           currency: string
           id: string
+          order_number: string | null
           purchased_at: string | null
           quantity: number
           status: string
@@ -582,6 +583,7 @@ export type Database = {
           course_slug: string
           currency?: string
           id?: string
+          order_number?: string | null
           purchased_at?: string | null
           quantity?: number
           status?: string
@@ -596,6 +598,7 @@ export type Database = {
           course_slug?: string
           currency?: string
           id?: string
+          order_number?: string | null
           purchased_at?: string | null
           quantity?: number
           status?: string
@@ -849,6 +852,7 @@ export type Database = {
     }
     Functions: {
       generate_confirmation_token: { Args: never; Returns: string }
+      generate_order_number: { Args: never; Returns: string }
       generate_slug: { Args: { title: string }; Returns: string }
       is_admin: { Args: never; Returns: boolean }
       is_portal_admin: { Args: never; Returns: boolean }

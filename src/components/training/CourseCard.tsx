@@ -2,11 +2,11 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Course } from "@/data/courses";
-import { Clock, Award, BookOpen, ShoppingCart } from "lucide-react";
-import { useNavigate } from "react-router-dom";
-import { usePortalAuth } from "@/hooks/usePortalAuth";
+import { Clock, Award, BookOpen, ShoppingCart, Download } from "lucide-react";
 import { useCart } from "@/contexts/CartContext";
 import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
+import { useState, useEffect } from "react";
 
 interface CourseCardProps {
   course: Course;
@@ -15,15 +15,51 @@ interface CourseCardProps {
 
 export const CourseCard = ({ course, isFeatured = false }: CourseCardProps) => {
   const courseSlug = course.name.toLowerCase().replace(/\+/g, '-plus-').replace(/\s+/g, '-');
-  const navigate = useNavigate();
-  const { user } = usePortalAuth();
   const { addToCart } = useCart();
+  const [hasOutline, setHasOutline] = useState<boolean | null>(null);
+  const [downloading, setDownloading] = useState(false);
 
-  const handleLearnMore = () => {
-    if (user) {
-      navigate(`/portal/course-outline/${courseSlug}`);
-    } else {
-      navigate('/portal/login');
+  useEffect(() => {
+    // Check if course outline exists
+    const checkOutline = async () => {
+      const { data, error } = await supabase
+        .from("course_outlines")
+        .select("id")
+        .eq("course_slug", courseSlug)
+        .single();
+      
+      setHasOutline(!!data && !error);
+    };
+    
+    checkOutline();
+  }, [courseSlug]);
+
+  const handleDownloadOutline = async () => {
+    if (!hasOutline) return;
+    
+    setDownloading(true);
+    try {
+      const { data, error } = await supabase.functions.invoke('download-course-outline', {
+        body: { courseSlug }
+      });
+
+      if (error) throw error;
+
+      if (data?.url) {
+        // Trigger download
+        const link = document.createElement('a');
+        link.href = data.url;
+        link.download = data.filename || `${course.name}-outline.pdf`;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        
+        toast.success("Course outline downloaded!");
+      }
+    } catch (error: any) {
+      toast.error(error.message || "Failed to download course outline");
+    } finally {
+      setDownloading(false);
     }
   };
 
@@ -72,9 +108,27 @@ export const CourseCard = ({ course, isFeatured = false }: CourseCardProps) => {
         </div>
       </CardContent>
       <CardFooter className="flex gap-2">
-        <Button onClick={handleLearnMore} variant="outline" className="flex-1">
-          Learn More
-        </Button>
+        {hasOutline === null ? (
+          <Button variant="outline" className="flex-1" disabled>
+            <Download className="h-4 w-4 mr-2" />
+            Loading...
+          </Button>
+        ) : hasOutline ? (
+          <Button 
+            onClick={handleDownloadOutline} 
+            variant="outline" 
+            className="flex-1"
+            disabled={downloading}
+          >
+            <Download className="h-4 w-4 mr-2" />
+            {downloading ? "Downloading..." : "Download Outline"}
+          </Button>
+        ) : (
+          <Button variant="outline" className="flex-1" disabled>
+            <Download className="h-4 w-4 mr-2" />
+            Coming Soon
+          </Button>
+        )}
         <Button onClick={handleAddToCart} className="flex-1">
           <ShoppingCart className="h-4 w-4 mr-2" />
           Add to Cart
