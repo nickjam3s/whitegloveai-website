@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import aicertsBadge from "@/assets/aicerts-partner-badge.png";
 import HeroBackground from "@/components/shared/HeroBackground";
+import HB3512Banner from "@/components/HB3512Banner";
 
 const Training = () => {
   const navigate = useNavigate();
@@ -142,6 +143,9 @@ const Training = () => {
             </div>
           </section>
         </HeroBackground>
+
+        {/* HB3512 Banner */}
+        <HB3512Banner />
 
         {/* Training Program Benefits */}
         <section className="py-16 bg-gradient-to-b from-background to-muted/20">
