@@ -30,9 +30,15 @@ export const CourseCard = ({ course, isFeatured = false }: CourseCardProps) => {
         .from("course_outlines")
         .select("id")
         .eq("course_slug", courseSlug)
-        .single();
+        .maybeSingle();
       
-      setHasOutline(!!data && !error);
+      if (error) {
+        console.error("Error checking course outline:", error);
+        setHasOutline(false);
+        return;
+      }
+      
+      setHasOutline(!!data);
     };
     
     checkOutline();
