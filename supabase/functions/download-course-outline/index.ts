@@ -14,6 +14,8 @@ serve(async (req) => {
   try {
     const { courseSlug } = await req.json();
     
+    console.log(`[Download] Received request for courseSlug: ${courseSlug}`);
+    
     if (!courseSlug) {
       return new Response(
         JSON.stringify({ error: "Course slug is required" }),
@@ -33,12 +35,17 @@ serve(async (req) => {
       .eq("course_slug", courseSlug)
       .single();
 
+    console.log(`[Download] Query result - outline:`, outline, `error:`, outlineError);
+
     if (outlineError || !outline || !outline.pdf_url) {
+      console.error(`[Download] Course outline not found for slug: ${courseSlug}`);
       return new Response(
         JSON.stringify({ error: "Course outline not available" }),
         { status: 404, headers: { ...corsHeaders, "Content-Type": "application/json" } }
       );
     }
+
+    console.log(`[Download] Attempting to create signed URL for: ${outline.pdf_url}`);
 
     // Generate signed URL for the PDF (valid for 60 seconds)
     const { data: signedUrlData, error: signedUrlError } = await supabaseAdmin
@@ -47,12 +54,14 @@ serve(async (req) => {
       .createSignedUrl(outline.pdf_url, 60);
 
     if (signedUrlError || !signedUrlData) {
-      console.error("Error generating signed URL:", signedUrlError);
+      console.error(`[Download] Error generating signed URL for ${outline.pdf_url}:`, signedUrlError);
       return new Response(
-        JSON.stringify({ error: "Failed to generate download URL" }),
+        JSON.stringify({ error: "Failed to generate download URL", details: signedUrlError?.message }),
         { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
       );
     }
+
+    console.log(`[Download] Successfully generated signed URL for ${outline.course_name}`);
 
     return new Response(
       JSON.stringify({

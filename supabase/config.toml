@@ -20,3 +20,6 @@ verify_jwt = false
 
 [functions.cleanup-course-outlines]
 verify_jwt = false
+
+[functions.fix-course-slugs]
+verify_jwt = false
