@@ -62,7 +62,7 @@ export const courses: Course[] = [
   },
   {
     name: "AI+ Audio",
-    status: "Available",
+    status: "Coming Soon",
     featured: false,
     duration: "1 Day",
     practiceArea: "Design and Creative",
@@ -254,7 +254,7 @@ export const courses: Course[] = [
   },
   {
     name: "AI+ Game Design Agent",
-    status: "Available",
+    status: "Coming Soon",
     featured: false,
     duration: "1 Day",
     practiceArea: "Design and Creative",
@@ -266,7 +266,7 @@ export const courses: Course[] = [
   },
   {
     name: "AI+ Gaming",
-    status: "Available",
+    status: "Coming Soon",
     featured: false,
     duration: "1 Day",
     practiceArea: "Design and Creative",
@@ -350,7 +350,7 @@ export const courses: Course[] = [
   },
   {
     name: "AI+ Mining",
-    status: "Available",
+    status: "Coming Soon",
     featured: false,
     duration: "1 Day",
     practiceArea: "Specialization",
@@ -554,7 +554,7 @@ export const courses: Course[] = [
   },
   {
     name: "AI+ Telecommunications",
-    status: "Available",
+    status: "Coming Soon",
     featured: false,
     duration: "5 Days",
     practiceArea: "Specialization",
@@ -578,7 +578,7 @@ export const courses: Course[] = [
   },
   {
     name: "AI+ Vibe Coder",
-    status: "Available",
+    status: "Coming Soon",
     featured: false,
     duration: "1 Day",
     practiceArea: "Essential",
