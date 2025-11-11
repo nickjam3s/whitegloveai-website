@@ -52,19 +52,19 @@ const Navigation = () => {
             ))}
           </div>
 
-          {/* Cart Button */}
-          <div className="hidden md:block">
+          {/* Cart Button and Mobile Navigation */}
+          <div className="flex items-center gap-2">
             <CartButton />
-          </div>
-
-          {/* Mobile Navigation Button - Added proper spacing */}
-          <div className="md:hidden flex-shrink-0 ml-4">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-300 hover:text-white transition-colors p-2"
-            >
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
+            
+            {/* Mobile Navigation Button */}
+            <div className="md:hidden flex-shrink-0">
+              <button
+                onClick={() => setIsOpen(!isOpen)}
+                className="text-gray-300 hover:text-white transition-colors p-2"
+              >
+                {isOpen ? <X size={24} /> : <Menu size={24} />}
+              </button>
+            </div>
           </div>
         </div>
 
