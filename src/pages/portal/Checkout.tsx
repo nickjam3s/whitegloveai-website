@@ -107,7 +107,7 @@ const Checkout = () => {
               </CardHeader>
               <CardContent className="space-y-4">
                 {items.map((item) => (
-                  <div key={item.course.name} className="flex items-center justify-between border-b pb-4">
+                  <div key={item.course.name} className="flex flex-col sm:flex-row sm:items-center sm:justify-between border-b pb-4 gap-4">
                     <div className="flex-1">
                       <h3 className="font-semibold">{item.course.name}</h3>
                       <p className="text-sm text-muted-foreground">
@@ -118,7 +118,7 @@ const Checkout = () => {
                       </p>
                     </div>
                     
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-center justify-between sm:justify-end gap-3 sm:gap-4">
                       <div className="flex items-center gap-2">
                         <Button
                           variant="outline"
@@ -143,7 +143,7 @@ const Checkout = () => {
                         </Button>
                       </div>
                       
-                      <div className="w-24 text-right font-semibold">
+                      <div className="min-w-[80px] text-right font-semibold">
                         ${item.price * item.quantity}
                       </div>
                       
@@ -151,6 +151,7 @@ const Checkout = () => {
                         variant="ghost"
                         size="icon"
                         onClick={() => removeFromCart(item.course.name)}
+                        className="flex-shrink-0"
                       >
                         <Trash2 className="h-4 w-4" />
                       </Button>
