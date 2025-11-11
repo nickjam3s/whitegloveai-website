@@ -14,3 +14,9 @@ verify_jwt = false
 
 [functions.send-order-confirmation]
 verify_jwt = false
+
+[functions.populate-course-outlines]
+verify_jwt = false
+
+[functions.cleanup-course-outlines]
+verify_jwt = false

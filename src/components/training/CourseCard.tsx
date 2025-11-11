@@ -14,7 +14,11 @@ interface CourseCardProps {
 }
 
 export const CourseCard = ({ course, isFeatured = false }: CourseCardProps) => {
-  const courseSlug = course.name.toLowerCase().replace(/\+/g, '-plus-').replace(/\s+/g, '-');
+  const courseSlug = course.name
+    .toLowerCase()
+    .replace(/\+/g, '-plus-')
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-'); // Remove multiple consecutive dashes
   const { addToCart } = useCart();
   const [hasOutline, setHasOutline] = useState<boolean | null>(null);
   const [downloading, setDownloading] = useState(false);
