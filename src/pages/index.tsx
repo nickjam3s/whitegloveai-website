@@ -12,6 +12,7 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import SEO from '@/components/SEO';
+import { injectConduitStyles } from '@/utils/conduitStyleInjector';
 
 const Index = () => {
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0 });
@@ -25,6 +26,10 @@ const Index = () => {
     script.src = "https://base.conduit.ai/widget/widget.min.js";
     script.async = true;
     script.setAttribute('data-widget-id', 'a577c803-4c1a-4b17-4b7d-2dc85a55b344');
+    script.onload = () => {
+      // Inject custom styles after widget loads
+      injectConduitStyles();
+    };
     document.body.appendChild(script);
 
     // Load the Typeform script

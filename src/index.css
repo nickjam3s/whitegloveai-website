@@ -142,3 +142,14 @@ input, button, textarea, select {
   animation: scroll 60s linear infinite;
 }
 
+/* Conduit.ai widget font override */
+#conduit-widget-container,
+#conduit-widget-container * {
+  font-family: 'Manrope', sans-serif !important;
+}
+
+/* Target Conduit widget iframe content */
+iframe[src*="conduit"] {
+  font-family: 'Manrope', sans-serif !important;
+}
+

@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import aicertsBadge from "@/assets/aicerts-partner-badge.png";
 import HeroBackground from "@/components/shared/HeroBackground";
 import ContactSection from "./training/components/ContactSection";
+import { injectConduitStyles } from "@/utils/conduitStyleInjector";
 
 const TrainingCatalogue = () => {
   useLayoutEffect(() => {
@@ -19,6 +20,10 @@ const TrainingCatalogue = () => {
     script.src = "https://base.conduit.ai/widget/widget.min.js";
     script.async = true;
     script.setAttribute('data-widget-id', 'a577c803-4c1a-4b17-4b7d-2dc85a55b344');
+    script.onload = () => {
+      // Inject custom styles after widget loads
+      injectConduitStyles();
+    };
     document.body.appendChild(script);
     
     return () => {
