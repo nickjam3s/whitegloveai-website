@@ -182,18 +182,8 @@ const TrainingCatalogue = () => {
               </p>
             </div>
             
-            <div className="grid md:grid-cols-[1fr_300px] gap-6 items-stretch">
+            <div className="max-w-4xl mx-auto">
               <CourseChatbot embedded onApplyFilters={handleApplyRecommendedFilters} />
-              
-              <div className="bg-primary/10 border border-primary/20 rounded-lg p-6 flex flex-col h-[280px]">
-                <h3 className="font-semibold text-lg mb-3 flex items-center gap-2">
-                  <Upload className="h-5 w-5" />
-                  Upload Your Resume
-                </h3>
-                <p className="text-sm text-muted-foreground flex-1">
-                  Upload your resume (PDF or DOCX) to instantly receive your top 5 personalized course recommendations. Our AI analyzes your experience, skills, and career trajectory to match you with the perfect certifications for your professional development.
-                </p>
-              </div>
             </div>
           </div>
         </section>

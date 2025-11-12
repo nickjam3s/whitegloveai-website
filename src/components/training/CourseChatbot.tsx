@@ -54,6 +54,10 @@ export const CourseChatbot = ({ embedded = false, onApplyFilters }: CourseChatbo
     {
       role: "assistant",
       content: "Welcome! I can help you find the perfect AI certification. Ask me a question about courses, or upload your resume for instant personalized recommendations."
+    },
+    {
+      role: "assistant",
+      content: "💡 Pro tip: Upload your resume (PDF or DOCX) using the upload button below for instant personalized course recommendations tailored to your experience and career goals!"
     }
   ]);
   const [input, setInput] = useState("");
@@ -221,10 +225,16 @@ export const CourseChatbot = ({ embedded = false, onApplyFilters }: CourseChatbo
   };
 
   const handleResetChat = () => {
-    setMessages([{
-      role: "assistant",
-      content: "Welcome! I can help you find the perfect AI certification. Ask me a question about courses, or upload your resume for instant personalized recommendations."
-    }]);
+    setMessages([
+      {
+        role: "assistant",
+        content: "Welcome! I can help you find the perfect AI certification. Ask me a question about courses, or upload your resume for instant personalized recommendations."
+      },
+      {
+        role: "assistant",
+        content: "💡 Pro tip: Upload your resume (PDF or DOCX) using the upload button below for instant personalized course recommendations tailored to your experience and career goals!"
+      }
+    ]);
     toast({
       title: "Chat reset",
       description: "Conversation has been cleared.",
