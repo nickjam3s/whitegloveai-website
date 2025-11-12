@@ -114,7 +114,7 @@ const Training = () => {
       <div className="min-h-screen bg-gradient-to-b from-background via-background to-muted/20">
         {/* Hero Section */}
         <HeroBackground>
-          <section className="relative overflow-hidden py-20 lg:py-32 pt-40 md:pt-24">
+          <section className="relative overflow-hidden pb-20 lg:pb-32 pt-20 lg:pt-32">
             <div className="container px-4 mx-auto max-w-7xl">
               <div className="text-center max-w-4xl mx-auto">
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white">
