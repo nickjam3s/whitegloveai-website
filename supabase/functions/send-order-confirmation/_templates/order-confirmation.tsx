@@ -4,6 +4,7 @@ import {
   Head,
   Heading,
   Html,
+  Img,
   Link,
   Preview,
   Section,
@@ -38,6 +39,14 @@ export const OrderConfirmationEmail = ({
     <Preview>Your WhitegloveAI Training Order Confirmation - {orderNumber}</Preview>
     <Body style={main}>
       <Container style={container}>
+        <Section style={logoSection}>
+          <Img
+            src="https://lzxlamelyfrfrhrgfigb.supabase.co/storage/v1/object/public/assets/whiteglove-logo-email.png"
+            width="300"
+            alt="WhitegloveAI"
+            style={logo}
+          />
+        </Section>
         <Heading style={h1}>Order Confirmation</Heading>
         
         <Text style={text}>
@@ -209,4 +218,13 @@ const footer = {
 const link = {
   color: '#6366f1',
   textDecoration: 'underline',
+};
+
+const logoSection = {
+  padding: '20px 40px',
+  textAlign: 'center' as const,
+};
+
+const logo = {
+  margin: '0 auto',
 };
