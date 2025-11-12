@@ -107,6 +107,15 @@ const TrainingCatalogue = () => {
     }, 100);
   };
 
+  const handleResetFilters = () => {
+    setSearchQuery("");
+    setSelectedStatuses([]);
+    setSelectedDurations([]);
+    setSelectedPracticeAreas([]);
+    setSelectedLevels([]);
+    setRecommendedCourseNames([]);
+  };
+
   return (
     <>
       <SEO
@@ -225,6 +234,7 @@ const TrainingCatalogue = () => {
                     selectedLevels={selectedLevels}
                     onLevelChange={(level) => toggleFilter(level, selectedLevels, setSelectedLevels)}
                     practiceAreas={practiceAreas}
+                    onReset={handleResetFilters}
                   />
                 </div>
               </div>

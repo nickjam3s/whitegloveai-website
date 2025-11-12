@@ -1,7 +1,8 @@
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
-import { Search } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Search, RotateCcw } from "lucide-react";
 
 interface CourseFiltersProps {
   searchQuery: string;
@@ -15,6 +16,7 @@ interface CourseFiltersProps {
   selectedLevels: string[];
   onLevelChange: (level: string) => void;
   practiceAreas: string[];
+  onReset: () => void;
 }
 
 export const CourseFilters = ({
@@ -29,9 +31,30 @@ export const CourseFilters = ({
   selectedLevels,
   onLevelChange,
   practiceAreas,
+  onReset,
 }: CourseFiltersProps) => {
+  const hasActiveFilters = 
+    searchQuery.length > 0 ||
+    selectedStatuses.length > 0 ||
+    selectedDurations.length > 0 ||
+    selectedPracticeAreas.length > 0 ||
+    selectedLevels.length > 0;
+
   return (
     <div className="space-y-6">
+      {/* Reset Button */}
+      {hasActiveFilters && (
+        <Button
+          variant="outline"
+          size="sm"
+          onClick={onReset}
+          className="w-full"
+        >
+          <RotateCcw className="h-4 w-4 mr-2" />
+          Reset All Filters
+        </Button>
+      )}
+
       {/* Search */}
       <div>
         <Label className="text-base font-semibold mb-3 block">Search Courses</Label>
