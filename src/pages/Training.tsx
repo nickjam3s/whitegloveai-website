@@ -214,7 +214,7 @@ const Training = () => {
           <div className="container px-4 mx-auto max-w-7xl">
             <div className="flex flex-col items-center gap-3 py-2.5 md:flex-row md:items-center md:justify-between">
               <p className="text-center font-medium text-sm md:text-base md:flex-1">
-                Now Available on TXShare – WhitegloveAI is an approved vendor through the North Central Texas Council of Governments. Contract #2025-023 – AI Consulting Services.
+                All Courses TXShare-Approved – Streamlined procurement for Texas public agencies through Contract #2025-023. WhitegloveAI is an approved vendor through the North Central Texas Council of Governments.
               </p>
               <div className="flex-shrink-0 md:ml-6">
                 <Button
