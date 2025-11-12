@@ -39,9 +39,10 @@ export const OrderConfirmationEmail = ({
     <Preview>Your WhitegloveAI Training Order Confirmation - {orderNumber}</Preview>
     <Body style={main}>
       <Container style={container}>
+        <Section style={purpleBar} />
         <Section style={logoSection}>
           <Img
-            src="https://lzxlamelyfrfrhrgfigb.supabase.co/storage/v1/object/public/assets/whiteglove-logo-email.png"
+            src="https://84d297c6-114c-4cb6-a6bc-83e359f1d6cb.lovableproject.com/lovable-uploads/cbc85045-41f1-434b-a70d-69aca08e4e66.png"
             width="300"
             alt="WhitegloveAI"
             style={logo}
@@ -218,6 +219,12 @@ const footer = {
 const link = {
   color: '#6366f1',
   textDecoration: 'underline',
+};
+
+const purpleBar = {
+  backgroundColor: '#8B5CF6',
+  height: '8px',
+  width: '100%',
 };
 
 const logoSection = {
