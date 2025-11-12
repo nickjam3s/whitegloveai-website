@@ -138,6 +138,17 @@ const Training = () => {
                   <Button 
                     size="lg" 
                     className="text-lg px-8"
+                    onClick={() => {
+                      const advisorSection = document.getElementById('ai-course-advisor');
+                      advisorSection?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }}
+                  >
+                    Try AI Course Advisor
+                  </Button>
+                  <Button 
+                    size="lg" 
+                    variant="outline"
+                    className="text-lg px-8"
                     onClick={() => navigate('/training/catalogue')}
                   >
                     See Full Catalogue
@@ -196,7 +207,7 @@ const Training = () => {
         </section>
 
         {/* AI Course Advisor Section */}
-        <section className="py-8 bg-gradient-to-b from-background to-muted/20">
+        <section id="ai-course-advisor" className="py-8 bg-gradient-to-b from-background to-muted/20">
           <div className="container px-4 mx-auto max-w-7xl">
             <div className="text-center mb-6">
               <h2 className="text-3xl md:text-4xl font-bold mb-3">
