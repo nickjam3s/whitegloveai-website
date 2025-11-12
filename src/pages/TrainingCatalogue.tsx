@@ -8,6 +8,7 @@ import { CourseChatbot } from "@/components/training/CourseChatbot";
 import { Button } from "@/components/ui/button";
 import aicertsBadge from "@/assets/aicerts-partner-badge.png";
 import HeroBackground from "@/components/shared/HeroBackground";
+import ContactSection from "./training/components/ContactSection";
 
 const TrainingCatalogue = () => {
   useLayoutEffect(() => {
@@ -240,6 +241,9 @@ const TrainingCatalogue = () => {
             </div>
           </div>
         </section>
+
+        {/* Contact Section */}
+        <ContactSection />
       </div>
     </>
   );

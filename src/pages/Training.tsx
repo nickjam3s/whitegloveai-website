@@ -10,6 +10,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import aicertsBadge from "@/assets/aicerts-partner-badge.png";
 import HeroBackground from "@/components/shared/HeroBackground";
 import HB3512Banner from "@/components/HB3512Banner";
+import ContactSection from "./training/components/ContactSection";
 
 const Training = () => {
   const navigate = useNavigate();
@@ -394,6 +395,9 @@ const Training = () => {
             </div>
           </div>
         </section>
+
+        {/* Contact Section */}
+        <ContactSection />
       </div>
     </>
   );
