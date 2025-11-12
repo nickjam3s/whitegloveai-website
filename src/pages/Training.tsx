@@ -206,6 +206,35 @@ const Training = () => {
           </div>
         </section>
 
+        {/* TXShare Announcement Bar */}
+        <section
+          aria-label="TXShare Announcement"
+          className="w-full bg-gradient-to-r from-primary/15 via-accent/15 to-primary/15 text-white border-t border-b border-primary/30 transition-colors hover:from-primary/20 hover:via-accent/20 hover:to-primary/20"
+        >
+          <div className="container px-4 mx-auto max-w-7xl">
+            <div className="flex flex-col items-center gap-3 py-2.5 md:flex-row md:items-center md:justify-between">
+              <p className="text-center font-medium text-sm md:text-base md:flex-1">
+                Now Available on TXShare – WhitegloveAI is an approved vendor through the North Central Texas Council of Governments. Contract #2025-023 – AI Consulting Services.
+              </p>
+              <div className="flex-shrink-0 md:ml-6">
+                <Button
+                  variant="secondary"
+                  size="sm"
+                  className="bg-secondary hover:bg-secondary/90 text-white"
+                >
+                  <a
+                    href="https://txshare.org/available-contracts/artificial-intelligence-ai-consultancy-services-9a4fd3af3342a4e1a6df4de8cbb21bc5/whitegloveai-llc"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    View Our TXShare Listing
+                  </a>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* AI Course Advisor Section */}
         <section id="ai-course-advisor" className="py-8 bg-gradient-to-b from-background to-muted/20">
           <div className="container px-4 mx-auto max-w-7xl">
