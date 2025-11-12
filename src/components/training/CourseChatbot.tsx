@@ -3,8 +3,9 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
-import { MessageCircle, Send, Upload, X, Loader2, RotateCcw, Download, Filter } from "lucide-react";
+import { MessageCircle, Send, Upload, X, Loader2, RotateCcw, Download, Filter, Maximize2, Minimize2 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import { courses } from "@/data/courses";
@@ -22,6 +23,7 @@ interface CourseChatbotProps {
 
 export const CourseChatbot = ({ embedded = false, onApplyFilters }: CourseChatbotProps) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
     {
       role: "assistant",
@@ -33,6 +35,13 @@ export const CourseChatbot = ({ embedded = false, onApplyFilters }: CourseChatbo
   const scrollRef = useRef<HTMLDivElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const { toast } = useToast();
+
+  // Auto-scroll to bottom when messages change
+  useEffect(() => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
+    }
+  }, [messages, isLoading]);
 
   // Extract course names from AI response
   const extractCourseNames = (content: string): string[] => {
@@ -181,6 +190,14 @@ export const CourseChatbot = ({ embedded = false, onApplyFilters }: CourseChatbo
             <div className="flex gap-1">
               <Tooltip>
                 <TooltipTrigger asChild>
+                  <Button variant="ghost" size="icon" onClick={() => setIsExpanded(true)} className="h-8 w-8">
+                    <Maximize2 className="h-4 w-4" />
+                  </Button>
+                </TooltipTrigger>
+                <TooltipContent>Expand chat</TooltipContent>
+              </Tooltip>
+              <Tooltip>
+                <TooltipTrigger asChild>
                   <Button variant="ghost" size="icon" onClick={handleResetChat} className="h-8 w-8">
                     <RotateCcw className="h-4 w-4" />
                   </Button>
@@ -206,7 +223,7 @@ export const CourseChatbot = ({ embedded = false, onApplyFilters }: CourseChatbo
                   className={`flex ${message.role === "user" ? "justify-end" : "justify-start"}`}
                 >
                   <div
-                     className={`max-w-[80%] rounded-lg px-4 py-2 ${
+                    className={`max-w-[80%] rounded-lg px-4 py-2 ${
                       message.role === "user"
                         ? "bg-primary text-primary-foreground"
                         : "bg-muted"
@@ -220,10 +237,15 @@ export const CourseChatbot = ({ embedded = false, onApplyFilters }: CourseChatbo
                         className="mt-3 w-full"
                         onClick={() => {
                           onApplyFilters(message.recommendedCourses!);
+                          setIsExpanded(false); // Minimize modal if expanded
                           toast({
                             title: "Filters Applied",
                             description: `Now showing ${message.recommendedCourses!.length} recommended courses`,
                           });
+                          // Scroll to catalog after brief delay
+                          setTimeout(() => {
+                            document.getElementById('course-catalog')?.scrollIntoView({ behavior: 'smooth' });
+                          }, 300);
                         }}
                       >
                         <Filter className="h-4 w-4 mr-2" />
@@ -271,6 +293,123 @@ export const CourseChatbot = ({ embedded = false, onApplyFilters }: CourseChatbo
           </div>
         </CardContent>
       </Card>
+
+        {/* Expanded Modal View */}
+        <Dialog open={isExpanded} onOpenChange={setIsExpanded}>
+          <DialogContent className="max-w-4xl h-[80vh] flex flex-col p-0">
+            <DialogHeader className="border-b px-6 py-4 shrink-0">
+              <div className="flex items-center justify-between">
+                <DialogTitle className="text-xl">AI Course Advisor</DialogTitle>
+                <div className="flex gap-1">
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <Button variant="ghost" size="icon" onClick={handleResetChat} className="h-8 w-8">
+                        <RotateCcw className="h-4 w-4" />
+                      </Button>
+                    </TooltipTrigger>
+                    <TooltipContent>Reset chat</TooltipContent>
+                  </Tooltip>
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <Button variant="ghost" size="icon" onClick={handleDownloadTranscript} className="h-8 w-8">
+                        <Download className="h-4 w-4" />
+                      </Button>
+                    </TooltipTrigger>
+                    <TooltipContent>Save transcript</TooltipContent>
+                  </Tooltip>
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <Button variant="ghost" size="icon" onClick={() => setIsExpanded(false)} className="h-8 w-8">
+                        <Minimize2 className="h-4 w-4" />
+                      </Button>
+                    </TooltipTrigger>
+                    <TooltipContent>Minimize</TooltipContent>
+                  </Tooltip>
+                </div>
+              </div>
+            </DialogHeader>
+
+            <div className="flex-1 flex flex-col p-6 gap-4 min-h-0 overflow-hidden">
+              <ScrollArea className="flex-1 pr-4 overflow-y-auto" ref={scrollRef}>
+                <div className="space-y-4">
+                  {messages.map((message, index) => (
+                    <div
+                      key={index}
+                      className={`flex ${message.role === "user" ? "justify-end" : "justify-start"}`}
+                    >
+                      <div
+                        className={`max-w-[80%] rounded-lg px-4 py-3 ${
+                          message.role === "user"
+                            ? "bg-primary text-primary-foreground"
+                            : "bg-muted"
+                        }`}
+                      >
+                        <p className="text-base whitespace-pre-wrap">{message.content}</p>
+                        {message.role === "assistant" && message.recommendedCourses && message.recommendedCourses.length > 0 && onApplyFilters && (
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            className="mt-3 w-full"
+                            onClick={() => {
+                              onApplyFilters(message.recommendedCourses!);
+                              setIsExpanded(false);
+                              toast({
+                                title: "Filters Applied",
+                                description: `Now showing ${message.recommendedCourses!.length} recommended courses`,
+                              });
+                              setTimeout(() => {
+                                document.getElementById('course-catalog')?.scrollIntoView({ behavior: 'smooth' });
+                              }, 300);
+                            }}
+                          >
+                            <Filter className="h-4 w-4 mr-2" />
+                            Set my filters on the recommended courses
+                          </Button>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                  {isLoading && (
+                    <div className="flex justify-start">
+                      <div className="bg-muted rounded-lg px-4 py-3">
+                        <Loader2 className="h-5 w-5 animate-spin" />
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </ScrollArea>
+
+              <div className="flex gap-2 shrink-0">
+                <input
+                  type="file"
+                  ref={fileInputRef}
+                  onChange={handleFileUpload}
+                  accept=".pdf,.doc,.docx"
+                  className="hidden"
+                />
+                <Button
+                  variant="outline"
+                  size="icon"
+                  onClick={() => fileInputRef.current?.click()}
+                  disabled={isLoading}
+                >
+                  <Upload className="h-5 w-5" />
+                </Button>
+                <Input
+                  value={input}
+                  onChange={(e) => setInput(e.target.value)}
+                  onKeyPress={(e) => e.key === "Enter" && handleSendMessage()}
+                  placeholder="Ask about courses..."
+                  disabled={isLoading}
+                  className="text-base"
+                />
+                <Button onClick={handleSendMessage} disabled={isLoading || !input.trim()} size="icon">
+                  <Send className="h-5 w-5" />
+                </Button>
+              </div>
+            </div>
+          </DialogContent>
+        </Dialog>
       </TooltipProvider>
     );
   }
@@ -337,10 +476,14 @@ export const CourseChatbot = ({ embedded = false, onApplyFilters }: CourseChatbo
                       className="mt-3 w-full"
                       onClick={() => {
                         onApplyFilters(message.recommendedCourses!);
+                        setIsOpen(false);
                         toast({
                           title: "Filters Applied",
                           description: `Now showing ${message.recommendedCourses!.length} recommended courses`,
                         });
+                        setTimeout(() => {
+                          document.getElementById('course-catalog')?.scrollIntoView({ behavior: 'smooth' });
+                        }, 300);
                       }}
                     >
                       <Filter className="h-4 w-4 mr-2" />
