@@ -16,6 +16,12 @@ import { injectConduitStyles } from "@/utils/conduitStyleInjector";
 const Training = () => {
   const navigate = useNavigate();
 
+  const handleApplyRecommendedFilters = (courseNames: string[]) => {
+    navigate('/training/catalogue', { 
+      state: { recommendedCourses: courseNames } 
+    });
+  };
+
   useLayoutEffect(() => {
     window.scrollTo(0, 0);
     
@@ -202,7 +208,7 @@ const Training = () => {
             </div>
             
             <div className="grid md:grid-cols-[1fr_300px] gap-6 items-stretch">
-              <CourseChatbot embedded />
+              <CourseChatbot embedded onApplyFilters={handleApplyRecommendedFilters} />
               
               <div className="bg-primary/10 border border-primary/20 rounded-lg p-6 flex flex-col h-[280px]">
                 <h3 className="font-semibold text-lg mb-3 flex items-center gap-2">

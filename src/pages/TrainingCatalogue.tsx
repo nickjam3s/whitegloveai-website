@@ -1,4 +1,5 @@
-import { useState, useMemo, useLayoutEffect } from "react";
+import { useState, useMemo, useLayoutEffect, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import SEO from "@/components/SEO";
 import { courses } from "@/data/courses";
 import { Upload } from "lucide-react";
@@ -12,6 +13,8 @@ import ContactSection from "./training/components/ContactSection";
 import { injectConduitStyles } from "@/utils/conduitStyleInjector";
 
 const TrainingCatalogue = () => {
+  const location = useLocation();
+
   useLayoutEffect(() => {
     window.scrollTo(0, 0);
     
@@ -115,6 +118,16 @@ const TrainingCatalogue = () => {
     setSelectedLevels([]);
     setRecommendedCourseNames([]);
   };
+
+  // Handle recommended courses from navigation state
+  useEffect(() => {
+    const recommendedFromNav = location.state?.recommendedCourses;
+    if (recommendedFromNav && Array.isArray(recommendedFromNav)) {
+      handleApplyRecommendedFilters(recommendedFromNav);
+      // Clear the navigation state
+      window.history.replaceState({}, document.title);
+    }
+  }, [location.state]);
 
   return (
     <>
