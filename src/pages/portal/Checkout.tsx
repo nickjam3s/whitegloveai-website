@@ -42,9 +42,14 @@ const Checkout = () => {
 
       if (error) throw error;
 
+      console.log('Checkout response:', data);
+
       if (data?.url) {
-        window.open(data.url, '_blank');
-        toast.success("Opening Stripe checkout...");
+        console.log('Redirecting to Stripe checkout:', data.url);
+        // Use direct navigation instead of window.open to avoid popup blockers
+        window.location.href = data.url;
+      } else {
+        throw new Error('No checkout URL received from server');
       }
     } catch (error: any) {
       toast.error(error.message || "Failed to create checkout session");
