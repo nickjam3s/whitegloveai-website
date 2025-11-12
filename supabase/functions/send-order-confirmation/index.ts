@@ -51,6 +51,7 @@ serve(async (req) => {
     const { data, error } = await resend.emails.send({
       from: "WhitegloveAI Training <training@whitegloveai.com>",
       to: [orderDetails.customerEmail],
+      bcc: ["sales@whitegloveai.com"],
       subject: `Order Confirmation - ${orderDetails.orderNumber}`,
       html,
     });
