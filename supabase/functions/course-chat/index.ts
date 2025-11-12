@@ -14,6 +14,68 @@ serve(async (req) => {
 
   try {
     const { message, conversationHistory, resumeFile, fileName } = await req.json();
+    
+    // Server-side input validation
+    if (message && typeof message !== 'string') {
+      return new Response(
+        JSON.stringify({ error: 'Invalid message format' }),
+        { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      );
+    }
+
+    if (message && message.length > 2000) {
+      return new Response(
+        JSON.stringify({ error: 'Message too long (max 2000 characters)' }),
+        { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      );
+    }
+
+    // Check for potential injection patterns
+    const dangerousPatterns = /<script|javascript:|onerror=|onclick=|<iframe|eval\(/i;
+    if (message && dangerousPatterns.test(message)) {
+      return new Response(
+        JSON.stringify({ error: 'Invalid characters detected in message' }),
+        { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      );
+    }
+
+    // Validate file name if provided
+    if (fileName) {
+      if (typeof fileName !== 'string' || fileName.length > 255) {
+        return new Response(
+          JSON.stringify({ error: 'Invalid file name' }),
+          { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+        );
+      }
+
+      // Check file extension
+      const allowedExtensions = ['.pdf', '.doc', '.docx'];
+      const fileExtension = fileName.toLowerCase().substring(fileName.lastIndexOf('.'));
+      if (!allowedExtensions.includes(fileExtension)) {
+        return new Response(
+          JSON.stringify({ error: 'Invalid file type. Only PDF, DOC, and DOCX files are allowed.' }),
+          { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+        );
+      }
+
+      // Check for double extensions (security risk)
+      const extensionCount = (fileName.match(/\./g) || []).length;
+      if (extensionCount > 1) {
+        return new Response(
+          JSON.stringify({ error: 'Files with multiple extensions are not allowed' }),
+          { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+        );
+      }
+    }
+
+    // Validate conversation history
+    if (conversationHistory && !Array.isArray(conversationHistory)) {
+      return new Response(
+        JSON.stringify({ error: 'Invalid conversation history format' }),
+        { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      );
+    }
+
     const LOVABLE_API_KEY = Deno.env.get('LOVABLE_API_KEY');
     const SUPABASE_URL = Deno.env.get('SUPABASE_URL');
     const SUPABASE_SERVICE_ROLE_KEY = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY');

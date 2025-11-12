@@ -9,6 +9,32 @@ import { MessageCircle, Send, Upload, X, Loader2, RotateCcw, Download, Filter, M
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import { courses } from "@/data/courses";
+import { z } from "zod";
+
+// Security validation schemas
+const messageSchema = z.object({
+  content: z.string()
+    .trim()
+    .min(1, "Message cannot be empty")
+    .max(2000, "Message must be less than 2000 characters")
+    .refine(
+      (val) => !/<script|javascript:|onerror=|onclick=/i.test(val),
+      "Invalid characters detected in message"
+    )
+});
+
+const fileSchema = z.object({
+  name: z.string(),
+  size: z.number()
+    .max(20 * 1024 * 1024, "File size must be less than 20MB"),
+  type: z.enum([
+    "application/pdf",
+    "application/msword",
+    "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+  ], {
+    errorMap: () => ({ message: "Only PDF, DOC, and DOCX files are allowed" })
+  })
+});
 
 interface Message {
   role: "user" | "assistant";
@@ -69,33 +95,46 @@ export const CourseChatbot = ({ embedded = false, onApplyFilters }: CourseChatbo
   const handleSendMessage = async () => {
     if (!input.trim() || isLoading) return;
 
-    const userMessage = input.trim();
-    setInput("");
-    setMessages(prev => [...prev, { role: "user", content: userMessage }]);
-    setIsLoading(true);
-
+    // Validate message content
     try {
-      const { data, error } = await supabase.functions.invoke("course-chat", {
-        body: { message: userMessage, conversationHistory: messages }
-      });
+      const validatedMessage = messageSchema.parse({ content: input.trim() });
+      const userMessage = validatedMessage.content;
+      
+      setInput("");
+      setMessages(prev => [...prev, { role: "user", content: userMessage }]);
+      setIsLoading(true);
 
-      if (error) throw error;
+      try {
+        const { data, error } = await supabase.functions.invoke("course-chat", {
+          body: { message: userMessage, conversationHistory: messages }
+        });
 
-      const recommendedCourses = extractCourseNames(data.response);
-      setMessages(prev => [...prev, { 
-        role: "assistant", 
-        content: data.response,
-        recommendedCourses: recommendedCourses.length > 0 ? recommendedCourses : undefined
-      }]);
+        if (error) throw error;
+
+        const recommendedCourses = extractCourseNames(data.response);
+        setMessages(prev => [...prev, { 
+          role: "assistant", 
+          content: data.response,
+          recommendedCourses: recommendedCourses.length > 0 ? recommendedCourses : undefined
+        }]);
+      } catch (error) {
+        console.error("Chat error:", error);
+        toast({
+          title: "Error",
+          description: "Failed to get response. Please try again.",
+          variant: "destructive",
+        });
+      } finally {
+        setIsLoading(false);
+      }
     } catch (error) {
-      console.error("Chat error:", error);
-      toast({
-        title: "Error",
-        description: "Failed to get response. Please try again.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsLoading(false);
+      if (error instanceof z.ZodError) {
+        toast({
+          title: "Invalid Input",
+          description: error.errors[0].message,
+          variant: "destructive",
+        });
+      }
     }
   };
 
@@ -103,48 +142,81 @@ export const CourseChatbot = ({ embedded = false, onApplyFilters }: CourseChatbo
     const file = event.target.files?.[0];
     if (!file) return;
 
-    if (!file.name.match(/\.(pdf|docx?)$/i)) {
-      toast({
-        title: "Invalid file type",
-        description: "Please upload a PDF or DOCX file.",
-        variant: "destructive",
-      });
-      return;
+    // Reset file input
+    if (fileInputRef.current) {
+      fileInputRef.current.value = '';
     }
 
-    setIsLoading(true);
-    setMessages(prev => [...prev, { role: "user", content: `[Uploaded resume: ${file.name}]` }]);
-
+    // Validate file
     try {
-      const fileData = await file.arrayBuffer();
-      const base64 = btoa(String.fromCharCode(...new Uint8Array(fileData)));
-
-      const { data, error } = await supabase.functions.invoke("course-chat", {
-        body: { 
-          message: "Analyze my resume and recommend courses",
-          resumeFile: base64,
-          fileName: file.name,
-          conversationHistory: messages 
-        }
+      const validatedFile = fileSchema.parse({
+        name: file.name,
+        size: file.size,
+        type: file.type
       });
 
-      if (error) throw error;
+      // Additional extension check as security measure
+      const allowedExtensions = ['.pdf', '.doc', '.docx'];
+      const fileExtension = file.name.toLowerCase().substring(file.name.lastIndexOf('.'));
+      
+      if (!allowedExtensions.includes(fileExtension)) {
+        throw new Error("Invalid file extension. Only PDF, DOC, and DOCX files are allowed.");
+      }
 
-      const recommendedCourses = extractCourseNames(data.response);
-      setMessages(prev => [...prev, { 
-        role: "assistant", 
-        content: data.response,
-        recommendedCourses: recommendedCourses.length > 0 ? recommendedCourses : undefined
-      }]);
+      // Check for double extensions (security risk)
+      const extensionCount = (file.name.match(/\./g) || []).length;
+      if (extensionCount > 1) {
+        throw new Error("Files with multiple extensions are not allowed for security reasons.");
+      }
+
+      setIsLoading(true);
+      setMessages(prev => [...prev, { role: "user", content: `[Uploaded resume: ${file.name}]` }]);
+
+      try {
+        const fileData = await file.arrayBuffer();
+        const base64 = btoa(String.fromCharCode(...new Uint8Array(fileData)));
+
+        const { data, error } = await supabase.functions.invoke("course-chat", {
+          body: { 
+            message: "Analyze my resume and recommend courses",
+            resumeFile: base64,
+            fileName: file.name,
+            conversationHistory: messages 
+          }
+        });
+
+        if (error) throw error;
+
+        const recommendedCourses = extractCourseNames(data.response);
+        setMessages(prev => [...prev, { 
+          role: "assistant", 
+          content: data.response,
+          recommendedCourses: recommendedCourses.length > 0 ? recommendedCourses : undefined
+        }]);
+      } catch (error) {
+        console.error("Resume analysis error:", error);
+        toast({
+          title: "Error",
+          description: "Failed to analyze resume. Please try again.",
+          variant: "destructive",
+        });
+      } finally {
+        setIsLoading(false);
+      }
     } catch (error) {
-      console.error("Resume analysis error:", error);
-      toast({
-        title: "Error",
-        description: "Failed to analyze resume. Please try again.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsLoading(false);
+      if (error instanceof z.ZodError) {
+        toast({
+          title: "Invalid File",
+          description: error.errors[0].message,
+          variant: "destructive",
+        });
+      } else if (error instanceof Error) {
+        toast({
+          title: "Invalid File",
+          description: error.message,
+          variant: "destructive",
+        });
+      }
     }
   };
 
