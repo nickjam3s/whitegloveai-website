@@ -1,5 +1,6 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import "https://deno.land/x/xhr@0.1.0/mod.ts";
+import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.50.0';
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
@@ -14,9 +15,23 @@ serve(async (req) => {
   try {
     const { message, conversationHistory, resumeFile, fileName } = await req.json();
     const LOVABLE_API_KEY = Deno.env.get('LOVABLE_API_KEY');
+    const SUPABASE_URL = Deno.env.get('SUPABASE_URL');
+    const SUPABASE_SERVICE_ROLE_KEY = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY');
     
     if (!LOVABLE_API_KEY) {
       throw new Error('LOVABLE_API_KEY is not configured');
+    }
+
+    // Initialize Supabase client
+    const supabase = createClient(SUPABASE_URL!, SUPABASE_SERVICE_ROLE_KEY!);
+
+    // Fetch course outlines with metadata
+    const { data: courseOutlines, error: outlinesError } = await supabase
+      .from('course_outlines')
+      .select('course_name, course_slug, metadata');
+
+    if (outlinesError) {
+      console.error('Error fetching course outlines:', outlinesError);
     }
 
     const courseCatalog = `COMPLETE COURSE CATALOG (62 Courses):
@@ -95,12 +110,62 @@ PRACTICE AREAS: Business (20), Essential (5), Security (7), Data & Robotics (7),
 DURATION: 1 Day (39 courses) or 5 Days (23 courses)
 LEVELS: Foundation (23), Intermediate (28), Advanced (12)`;
 
+    // Build enhanced course details from metadata
+    let enhancedCourseDetails = '';
+    if (courseOutlines && courseOutlines.length > 0) {
+      const coursesWithMetadata = courseOutlines.filter(c => c.metadata && Object.keys(c.metadata).length > 0);
+      
+      if (coursesWithMetadata.length > 0) {
+        enhancedCourseDetails = `\n\nDETAILED COURSE INFORMATION (${coursesWithMetadata.length} courses with enhanced details):\n`;
+        
+        coursesWithMetadata.forEach(course => {
+          const meta = course.metadata as any;
+          enhancedCourseDetails += `\n${course.course_name}:\n`;
+          
+          if (meta.level) enhancedCourseDetails += `  Level: ${meta.level}\n`;
+          if (meta.duration) enhancedCourseDetails += `  Duration: ${meta.duration}\n`;
+          if (meta.target_audience) enhancedCourseDetails += `  Target Audience: ${meta.target_audience}\n`;
+          
+          if (meta.objectives && meta.objectives.length > 0) {
+            enhancedCourseDetails += `  Learning Objectives:\n`;
+            meta.objectives.slice(0, 5).forEach((obj: string, idx: number) => {
+              enhancedCourseDetails += `    ${idx + 1}. ${obj}\n`;
+            });
+          }
+          
+          if (meta.key_topics && meta.key_topics.length > 0) {
+            enhancedCourseDetails += `  Key Topics: ${meta.key_topics.join(', ')}\n`;
+          }
+          
+          if (meta.prerequisites && meta.prerequisites.length > 0) {
+            enhancedCourseDetails += `  Prerequisites: ${meta.prerequisites.join(', ')}\n`;
+          }
+          
+          if (meta.modules && meta.modules.length > 0) {
+            enhancedCourseDetails += `  Course Modules:\n`;
+            meta.modules.forEach((mod: any, idx: number) => {
+              enhancedCourseDetails += `    ${idx + 1}. ${mod.title}\n`;
+              if (mod.topics && mod.topics.length > 0) {
+                enhancedCourseDetails += `       Topics: ${mod.topics.slice(0, 4).join(', ')}\n`;
+              }
+            });
+          }
+          
+          if (meta.certification) {
+            enhancedCourseDetails += `  Certification: ${meta.certification}\n`;
+          }
+        });
+      }
+    }
+
+    const courseCatalogWithDetails = courseCatalog + enhancedCourseDetails;
+
     // Build system prompt with course context
     const systemPrompt = `You are an AI Course Advisor for WhitegloveAI's training programs powered by AICerts certifications.
 
 Your role is to help users find the perfect AI certification course based on their needs, background, and career goals.
 
-${courseCatalog}
+${courseCatalogWithDetails}
 
 IMPORTANT FORMATTING RULES:
 - DO NOT use any markdown formatting (no **, *, -, bullets, or special characters)

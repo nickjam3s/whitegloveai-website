@@ -164,6 +164,7 @@ export type Database = {
           course_name: string
           course_slug: string
           id: string
+          metadata: Json | null
           pdf_filename: string | null
           pdf_url: string | null
           updated_at: string | null
@@ -174,6 +175,7 @@ export type Database = {
           course_name: string
           course_slug: string
           id?: string
+          metadata?: Json | null
           pdf_filename?: string | null
           pdf_url?: string | null
           updated_at?: string | null
@@ -184,6 +186,7 @@ export type Database = {
           course_name?: string
           course_slug?: string
           id?: string
+          metadata?: Json | null
           pdf_filename?: string | null
           pdf_url?: string | null
           updated_at?: string | null

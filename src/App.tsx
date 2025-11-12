@@ -25,6 +25,7 @@ import TRAIGA from "./pages/TRAIGA";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import Admin from "./pages/Admin";
+import ExtractCourseMetadata from "./pages/admin/ExtractCourseMetadata";
 
 // Service Routes
 import Services from "./pages/Services";
@@ -140,6 +141,7 @@ const AppContent = () => {
                 <Route path="/blog" element={<Blog />} />
                 <Route path="/blog/:slug" element={<BlogPost />} />
                 <Route path="/admin" element={<Admin />} />
+                <Route path="/admin/extract-metadata" element={<ExtractCourseMetadata />} />
                 
                 {/* Portal Routes */}
                 <Route path="/portal" element={<PortalIndex />} />
