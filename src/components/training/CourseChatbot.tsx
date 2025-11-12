@@ -4,20 +4,23 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
-import { MessageCircle, Send, Upload, X, Loader2, RotateCcw, Download } from "lucide-react";
+import { MessageCircle, Send, Upload, X, Loader2, RotateCcw, Download, Filter } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
+import { courses } from "@/data/courses";
 
 interface Message {
   role: "user" | "assistant";
   content: string;
+  recommendedCourses?: string[];
 }
 
 interface CourseChatbotProps {
   embedded?: boolean;
+  onApplyFilters?: (courseNames: string[]) => void;
 }
 
-export const CourseChatbot = ({ embedded = false }: CourseChatbotProps) => {
+export const CourseChatbot = ({ embedded = false, onApplyFilters }: CourseChatbotProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
     {
@@ -30,6 +33,23 @@ export const CourseChatbot = ({ embedded = false }: CourseChatbotProps) => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const { toast } = useToast();
+
+  // Extract course names from AI response
+  const extractCourseNames = (content: string): string[] => {
+    const foundCourses: string[] = [];
+    
+    // Look for course names in the response
+    courses.forEach(course => {
+      // Check for exact match or close variations
+      const courseName = course.name.replace(/\+/g, '\\+'); // Escape + for regex
+      const regex = new RegExp(courseName, 'i');
+      if (regex.test(content)) {
+        foundCourses.push(course.name);
+      }
+    });
+    
+    return foundCourses;
+  };
 
   useEffect(() => {
     if (scrollRef.current) {
@@ -52,7 +72,12 @@ export const CourseChatbot = ({ embedded = false }: CourseChatbotProps) => {
 
       if (error) throw error;
 
-      setMessages(prev => [...prev, { role: "assistant", content: data.response }]);
+      const recommendedCourses = extractCourseNames(data.response);
+      setMessages(prev => [...prev, { 
+        role: "assistant", 
+        content: data.response,
+        recommendedCourses: recommendedCourses.length > 0 ? recommendedCourses : undefined
+      }]);
     } catch (error) {
       console.error("Chat error:", error);
       toast({
@@ -96,7 +121,12 @@ export const CourseChatbot = ({ embedded = false }: CourseChatbotProps) => {
 
       if (error) throw error;
 
-      setMessages(prev => [...prev, { role: "assistant", content: data.response }]);
+      const recommendedCourses = extractCourseNames(data.response);
+      setMessages(prev => [...prev, { 
+        role: "assistant", 
+        content: data.response,
+        recommendedCourses: recommendedCourses.length > 0 ? recommendedCourses : undefined
+      }]);
     } catch (error) {
       console.error("Resume analysis error:", error);
       toast({
@@ -176,13 +206,30 @@ export const CourseChatbot = ({ embedded = false }: CourseChatbotProps) => {
                   className={`flex ${message.role === "user" ? "justify-end" : "justify-start"}`}
                 >
                   <div
-                    className={`max-w-[80%] rounded-lg px-4 py-2 ${
+                     className={`max-w-[80%] rounded-lg px-4 py-2 ${
                       message.role === "user"
                         ? "bg-primary text-primary-foreground"
                         : "bg-muted"
                     }`}
                   >
                     <p className="text-sm whitespace-pre-wrap">{message.content}</p>
+                    {message.role === "assistant" && message.recommendedCourses && message.recommendedCourses.length > 0 && onApplyFilters && (
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="mt-3 w-full"
+                        onClick={() => {
+                          onApplyFilters(message.recommendedCourses!);
+                          toast({
+                            title: "Filters Applied",
+                            description: `Now showing ${message.recommendedCourses!.length} recommended courses`,
+                          });
+                        }}
+                      >
+                        <Filter className="h-4 w-4 mr-2" />
+                        Set my filters on the recommended courses
+                      </Button>
+                    )}
                   </div>
                 </div>
               ))}
@@ -276,13 +323,30 @@ export const CourseChatbot = ({ embedded = false }: CourseChatbotProps) => {
                 className={`flex ${message.role === "user" ? "justify-end" : "justify-start"}`}
               >
                 <div
-                  className={`max-w-[80%] rounded-lg px-4 py-2 ${
+                   className={`max-w-[80%] rounded-lg px-4 py-2 ${
                     message.role === "user"
                       ? "bg-primary text-primary-foreground"
                       : "bg-muted"
                   }`}
                 >
                   <p className="text-sm whitespace-pre-wrap">{message.content}</p>
+                  {message.role === "assistant" && message.recommendedCourses && message.recommendedCourses.length > 0 && onApplyFilters && (
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="mt-3 w-full"
+                      onClick={() => {
+                        onApplyFilters(message.recommendedCourses!);
+                        toast({
+                          title: "Filters Applied",
+                          description: `Now showing ${message.recommendedCourses!.length} recommended courses`,
+                        });
+                      }}
+                    >
+                      <Filter className="h-4 w-4 mr-2" />
+                      Set my filters on the recommended courses
+                    </Button>
+                  )}
                 </div>
               </div>
             ))}

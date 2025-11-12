@@ -36,6 +36,7 @@ const TrainingCatalogue = () => {
   const [selectedDurations, setSelectedDurations] = useState<string[]>([]);
   const [selectedPracticeAreas, setSelectedPracticeAreas] = useState<string[]>([]);
   const [selectedLevels, setSelectedLevels] = useState<string[]>([]);
+  const [recommendedCourseNames, setRecommendedCourseNames] = useState<string[]>([]);
 
   // Get unique practice areas
   const practiceAreas = useMemo(() => {
@@ -45,6 +46,11 @@ const TrainingCatalogue = () => {
   // Filter courses
   const filteredCourses = useMemo(() => {
     return courses.filter(course => {
+      // Recommended courses filter (takes priority if set)
+      if (recommendedCourseNames.length > 0 && !recommendedCourseNames.includes(course.name)) {
+        return false;
+      }
+      
       // Search filter
       if (searchQuery && !course.name.toLowerCase().includes(searchQuery.toLowerCase())) {
         return false;
@@ -72,7 +78,7 @@ const TrainingCatalogue = () => {
       
       return true;
     });
-  }, [searchQuery, selectedStatuses, selectedDurations, selectedPracticeAreas, selectedLevels]);
+  }, [searchQuery, selectedStatuses, selectedDurations, selectedPracticeAreas, selectedLevels, recommendedCourseNames]);
 
   const featuredCourses = courses.filter(c => c.featured);
 
@@ -82,6 +88,23 @@ const TrainingCatalogue = () => {
     } else {
       setter([...selected, value]);
     }
+  };
+
+  const handleApplyRecommendedFilters = (courseNames: string[]) => {
+    // Clear all other filters
+    setSelectedStatuses([]);
+    setSelectedDurations([]);
+    setSelectedPracticeAreas([]);
+    setSelectedLevels([]);
+    setSearchQuery("");
+    
+    // Set recommended courses filter
+    setRecommendedCourseNames(courseNames);
+    
+    // Scroll to catalog section
+    setTimeout(() => {
+      document.getElementById('course-catalog')?.scrollIntoView({ behavior: 'smooth' });
+    }, 100);
   };
 
   return (
@@ -138,7 +161,7 @@ const TrainingCatalogue = () => {
             </div>
             
             <div className="grid md:grid-cols-[1fr_300px] gap-6 items-stretch">
-              <CourseChatbot embedded />
+              <CourseChatbot embedded onApplyFilters={handleApplyRecommendedFilters} />
               
               <div className="bg-primary/10 border border-primary/20 rounded-lg p-6 flex flex-col h-[280px]">
                 <h3 className="font-semibold text-lg mb-3 flex items-center gap-2">
@@ -208,8 +231,24 @@ const TrainingCatalogue = () => {
 
               {/* Course Grid */}
               <div className="flex-1">
-                <div className="mb-4 text-sm text-muted-foreground">
-                  Showing {filteredCourses.length} of {courses.length} courses
+                <div className="mb-4 flex items-center justify-between">
+                  <div className="text-sm text-muted-foreground">
+                    Showing {filteredCourses.length} of {courses.length} courses
+                    {recommendedCourseNames.length > 0 && (
+                      <span className="ml-2 text-primary font-medium">
+                        (AI Recommended)
+                      </span>
+                    )}
+                  </div>
+                  {recommendedCourseNames.length > 0 && (
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      onClick={() => setRecommendedCourseNames([])}
+                    >
+                      Clear AI filters
+                    </Button>
+                  )}
                 </div>
                 
                 {filteredCourses.length === 0 ? (
