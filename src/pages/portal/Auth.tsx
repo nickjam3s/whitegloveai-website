@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Navigate, Link } from 'react-router-dom';
+import { Navigate, Link, useSearchParams } from 'react-router-dom';
 import { usePortalAuth } from '@/hooks/usePortalAuth';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -13,10 +13,14 @@ import aicertsLogo from '@/assets/aicerts-logo-white.png';
 
 const PortalAuth = () => {
   const { user, signIn, signUp, signInWithMagicLink, resendConfirmation, loading } = usePortalAuth();
+  const [searchParams] = useSearchParams();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState('');
   const [magicLinkSent, setMagicLinkSent] = useState(false);
   const [lastEmail, setLastEmail] = useState('');
+  
+  // Get the mode from URL params (signup, signin, or magiclink)
+  const mode = searchParams.get('mode') || 'signin';
 
   // Redirect if already authenticated
   if (user && !loading) {
@@ -160,7 +164,7 @@ const PortalAuth = () => {
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <Tabs defaultValue="signin" className="w-full">
+            <Tabs defaultValue={mode} className="w-full">
               <TabsList className="grid w-full grid-cols-3">
                 <TabsTrigger value="signin">Sign In</TabsTrigger>
                 <TabsTrigger value="signup">Sign Up</TabsTrigger>

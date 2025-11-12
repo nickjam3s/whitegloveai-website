@@ -40,15 +40,17 @@ export const OrderConfirmationEmail = ({
     <Body style={main}>
       <Container style={container}>
         <Section style={purpleBar} />
-        <Section style={logoSection}>
-          <Img
-            src="https://84d297c6-114c-4cb6-a6bc-83e359f1d6cb.lovableproject.com/lovable-uploads/cbc85045-41f1-434b-a70d-69aca08e4e66.png"
-            width="300"
-            alt="WhitegloveAI"
-            style={logo}
-          />
-        </Section>
-        <Heading style={h1}>Order Confirmation</Heading>
+        <Container style={content}>
+          <Section style={logoSection}>
+            <Img
+              src="https://84d297c6-114c-4cb6-a6bc-83e359f1d6cb.lovableproject.com/lovable-uploads/cbc85045-41f1-434b-a70d-69aca08e4e66.png"
+              width="200"
+              height="auto"
+              alt="WhitegloveAI"
+              style={logo}
+            />
+          </Section>
+          <Heading style={h1}>Order Confirmation</Heading>
         
         <Text style={text}>
           Thank you for your order! We're excited to help you on your AI training journey.
@@ -98,12 +100,13 @@ export const OrderConfirmationEmail = ({
           This is an automated order confirmation. Your AICerts portal access will be provided separately by our training team.
         </Text>
 
-        <Text style={footer}>
-          <Link href="https://whitegloveai.com" style={link}>
-            WhitegloveAI
-          </Link>
-          {' '}- Transforming Organizations Through AI Excellence
-        </Text>
+          <Text style={footer}>
+            <Link href="https://whitegloveai.com" style={link}>
+              WhitegloveAI
+            </Link>
+            {' '}- Transforming Organizations Through AI Excellence
+          </Text>
+        </Container>
       </Container>
     </Body>
   </Html>
@@ -119,16 +122,20 @@ const main = {
 const container = {
   backgroundColor: '#ffffff',
   margin: '0 auto',
-  padding: '20px 0 48px',
   marginBottom: '64px',
+  maxWidth: '600px',
+};
+
+const content = {
+  padding: '20px 40px 48px',
 };
 
 const h1 = {
   color: '#333',
   fontSize: '28px',
   fontWeight: 'bold',
-  margin: '40px 0',
-  padding: '0 40px',
+  margin: '40px 0 30px',
+  padding: '0',
 };
 
 const h2 = {
@@ -150,7 +157,7 @@ const orderBox = {
   border: '2px solid #6366f1',
   borderRadius: '8px',
   padding: '24px',
-  margin: '32px 40px',
+  margin: '32px 0',
 };
 
 const orderLabel = {
@@ -175,7 +182,7 @@ const orderDate = {
 };
 
 const section = {
-  padding: '0 40px',
+  padding: '0',
 };
 
 const courseItem = {
@@ -212,7 +219,7 @@ const footer = {
   color: '#8898aa',
   fontSize: '12px',
   lineHeight: '16px',
-  padding: '0 40px',
+  padding: '0',
   margin: '16px 0',
 };
 
@@ -228,7 +235,7 @@ const purpleBar = {
 };
 
 const logoSection = {
-  padding: '20px 40px',
+  padding: '30px 0 20px',
   textAlign: 'center' as const,
 };
 

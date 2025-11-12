@@ -106,7 +106,7 @@ const PurchaseSuccess = () => {
                   <Button 
                     variant="outline" 
                     size="sm"
-                    onClick={() => navigate("/portal/login")}
+                    onClick={() => navigate("/portal/login?mode=signup")}
                     className="border-blue-300 text-blue-900 hover:bg-blue-100"
                   >
                     Create Account
