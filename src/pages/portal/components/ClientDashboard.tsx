@@ -3,55 +3,74 @@ import { usePortalAuth } from '@/hooks/usePortalAuth';
 import PortalLayout from './PortalLayout';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Building2, Users, Calendar, MessageSquare } from 'lucide-react';
+import { ShoppingBag, FileText, Download, MessageSquare } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import { toast } from 'sonner';
 
-interface ClientGroup {
+interface Purchase {
   id: string;
-  name: string;
-  description: string;
-  created_at: string;
+  course_name: string;
+  course_slug: string;
+  order_number: string;
+  amount_paid: number;
+  currency: string;
+  purchased_at: string;
+  status: string;
+  quantity: number;
 }
 
 const ClientDashboard = () => {
   const { portalUser } = usePortalAuth();
-  const [organizations, setOrganizations] = useState<ClientGroup[]>([]);
+  const [purchases, setPurchases] = useState<Purchase[]>([]);
   const [loading, setLoading] = useState(true);
+  const [stats, setStats] = useState({
+    totalPurchases: 0,
+    totalSpent: 0,
+    activeLicenses: 0
+  });
 
   useEffect(() => {
-    const fetchOrganizations = async () => {
+    const fetchPurchases = async () => {
       try {
-        // Get organizations for the current user
-        const { data: memberships, error: membershipsError } = await supabase
-          .from('client_group_memberships')
-          .select(`
-            group_id,
-            client_groups (
-              id,
-              name,
-              description,
-              created_at
-            )
-          `)
-          .eq('user_id', portalUser?.id);
+        // Get purchases for the current user
+        const { data: purchaseData, error: purchaseError } = await supabase
+          .from('purchases')
+          .select('*')
+          .eq('user_email', portalUser?.email)
+          .order('purchased_at', { ascending: false });
 
-        if (membershipsError) throw membershipsError;
+        if (purchaseError) throw purchaseError;
 
-        const orgs = memberships?.map(m => m.client_groups).filter(Boolean) || [];
-        setOrganizations(orgs as ClientGroup[]);
+        setPurchases(purchaseData || []);
+
+        // Calculate stats
+        const totalPurchases = purchaseData?.length || 0;
+        const totalSpent = purchaseData?.reduce((sum, p) => sum + Number(p.amount_paid), 0) || 0;
+
+        // Get active licenses count
+        const { data: licensesData } = await supabase
+          .from('user_licenses')
+          .select('*', { count: 'exact', head: true })
+          .eq('user_email', portalUser?.email)
+          .or('expires_at.is.null,expires_at.gt.' + new Date().toISOString());
+
+        setStats({
+          totalPurchases,
+          totalSpent,
+          activeLicenses: licensesData?.length || 0
+        });
       } catch (error) {
-        console.error('Error fetching organizations:', error);
-        toast.error('Failed to load organizations');
+        console.error('Error fetching purchases:', error);
+        toast.error('Failed to load purchase history');
       } finally {
         setLoading(false);
       }
     };
 
-    if (portalUser?.id) {
-      fetchOrganizations();
+    if (portalUser?.email) {
+      fetchPurchases();
     }
-  }, [portalUser?.id]);
+  }, [portalUser?.email]);
 
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString('en-US', {
@@ -72,14 +91,67 @@ const ClientDashboard = () => {
           </p>
         </div>
 
-        {/* Organization Memberships */}
+        {/* Quick Stats */}
+        {loading ? (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[...Array(3)].map((_, i) => (
+              <Card key={i} className="animate-pulse">
+                <CardHeader>
+                  <div className="h-4 bg-muted rounded w-1/2"></div>
+                </CardHeader>
+                <CardContent>
+                  <div className="h-8 bg-muted rounded w-3/4"></div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-sm font-medium text-muted-foreground">
+                  Total Purchases
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-3xl font-bold text-foreground">{stats.totalPurchases}</p>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-sm font-medium text-muted-foreground">
+                  Total Spent
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-3xl font-bold text-foreground">
+                  ${stats.totalSpent.toFixed(2)}
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-sm font-medium text-muted-foreground">
+                  Active Licenses
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-3xl font-bold text-foreground">{stats.activeLicenses}</p>
+              </CardContent>
+            </Card>
+          </div>
+        )}
+
+        {/* Purchase History */}
         <div className="space-y-4">
           <div className="flex items-center justify-between">
-            <h2 className="text-xl font-semibold text-foreground">Your Organizations</h2>
+            <h2 className="text-xl font-semibold text-foreground">Recent Purchases</h2>
           </div>
 
           {loading ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="space-y-4">
               {[...Array(3)].map((_, i) => (
                 <Card key={i} className="animate-pulse">
                   <CardHeader>
@@ -87,44 +159,63 @@ const ClientDashboard = () => {
                     <div className="h-3 bg-muted rounded w-1/2"></div>
                   </CardHeader>
                   <CardContent>
-                    <div className="h-3 bg-muted rounded w-full mb-2"></div>
-                    <div className="h-3 bg-muted rounded w-2/3"></div>
+                    <div className="h-3 bg-muted rounded w-full"></div>
                   </CardContent>
                 </Card>
               ))}
             </div>
-          ) : organizations.length === 0 ? (
+          ) : purchases.length === 0 ? (
             <Card>
               <CardContent className="flex flex-col items-center justify-center py-12">
-                <Building2 className="h-12 w-12 text-muted-foreground mb-4" />
+                <ShoppingBag className="h-12 w-12 text-muted-foreground mb-4" />
                 <h3 className="text-lg font-medium text-foreground mb-2">
-                  No Organizations Yet
+                  No Purchases Yet
                 </h3>
-                <p className="text-muted-foreground text-center">
-                  You haven't been assigned to any organizations yet. Contact your administrator to get started.
+                <p className="text-muted-foreground text-center mb-4">
+                  You haven't purchased any courses yet. Browse our catalogue to get started.
                 </p>
+                <Button onClick={() => window.location.href = '/training/catalogue'}>
+                  Browse Courses
+                </Button>
               </CardContent>
             </Card>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {organizations.map((org) => (
-                <Card key={org.id} className="hover:shadow-md transition-shadow">
+            <div className="space-y-4">
+              {purchases.map((purchase) => (
+                <Card key={purchase.id} className="hover:shadow-md transition-shadow">
                   <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                      <Building2 className="h-5 w-5" />
-                      {org.name}
-                    </CardTitle>
-                    <CardDescription>
-                      Member since {formatDate(org.created_at)}
-                    </CardDescription>
+                    <div className="flex items-start justify-between">
+                      <div>
+                        <CardTitle className="flex items-center gap-2">
+                          <FileText className="h-5 w-5" />
+                          {purchase.course_name}
+                        </CardTitle>
+                        <CardDescription>
+                          Order #{purchase.order_number} • {formatDate(purchase.purchased_at)}
+                        </CardDescription>
+                      </div>
+                      <div className="text-right">
+                        <p className="text-lg font-bold text-foreground">
+                          ${Number(purchase.amount_paid).toFixed(2)}
+                        </p>
+                        <p className="text-xs text-muted-foreground capitalize">
+                          {purchase.status}
+                        </p>
+                      </div>
+                    </div>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-sm text-muted-foreground mb-4">
-                      {org.description || 'No description available'}
-                    </p>
-                    <Button variant="outline" size="sm" className="w-full">
-                      View Details
-                    </Button>
+                    <div className="flex items-center justify-between">
+                      <p className="text-sm text-muted-foreground">
+                        Quantity: {purchase.quantity} • Currency: {purchase.currency}
+                      </p>
+                      <div className="flex gap-2">
+                        <Button variant="outline" size="sm" disabled>
+                          <Download className="h-4 w-4 mr-2" />
+                          Download Outline
+                        </Button>
+                      </div>
+                    </div>
                   </CardContent>
                 </Card>
               ))}
@@ -132,59 +223,23 @@ const ClientDashboard = () => {
           )}
         </div>
 
-        {/* Quick Actions for Clients */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <Users className="h-5 w-5" />
-                Team Members
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-sm text-muted-foreground mb-4">
-                Connect with other members in your organizations
-              </p>
-              <Button variant="outline" size="sm" disabled>
-                Coming Soon
-              </Button>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <Calendar className="h-5 w-5" />
-                Schedule
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-sm text-muted-foreground mb-4">
-                View upcoming meetings and events
-              </p>
-              <Button variant="outline" size="sm" disabled>
-                Coming Soon
-              </Button>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <MessageSquare className="h-5 w-5" />
-                Support
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-sm text-muted-foreground mb-4">
-                Get help and support when you need it
-              </p>
-              <Button variant="outline" size="sm" disabled>
-                Coming Soon
-              </Button>
-            </CardContent>
-          </Card>
-        </div>
+        {/* Support Section */}
+        <Card>
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <MessageSquare className="h-5 w-5" />
+              Need Help?
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-sm text-muted-foreground mb-4">
+              Contact our support team for assistance with your courses or account.
+            </p>
+            <Button variant="outline" size="sm" onClick={() => window.location.href = '/training#contact'}>
+              Contact Support
+            </Button>
+          </CardContent>
+        </Card>
 
         {/* Account Status */}
         <Card>
