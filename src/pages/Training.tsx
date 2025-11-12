@@ -157,9 +157,9 @@ const Training = () => {
                     size="lg" 
                     variant="outline"
                     className="text-lg px-8"
-                    onClick={() => window.location.href = '/portal/auth'}
+                    onClick={() => window.open('https://lzxlamelyfrfrhrgfigb.supabase.co/storage/v1/object/sign/documents/WhitegloveAI-Training-and-Certifications.pdf?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleS05OWNlNzQ5MS1iMmI0LTRhMTQtOGRmOS04ZmQyMzBkMDk3ZWEiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJkb2N1bWVudHMvV2hpdGVnbG92ZUFJLVRyYWluaW5nLWFuZC1DZXJ0aWZpY2F0aW9ucy5wZGYiLCJpYXQiOjE3NjI5MTgwNzIsImV4cCI6MTc5NDQ1NDA3Mn0.1AqAiRjIjYUl0GBuV3vEUdpW0H6JT-iYMQeDeMPI8LU', '_blank')}
                   >
-                    Portal Login
+                    See Sales Doc
                   </Button>
                 </div>
               </div>
