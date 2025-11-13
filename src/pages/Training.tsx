@@ -124,8 +124,9 @@ const Training = () => {
   return (
     <>
       <SEO
-        title="AI Training & Certification Programs | WhitegloveAI"
-        description="Transform your organization with industry-recognized AI certifications from AICerts. Explore flexible learning programs with IACET-accredited CEUs, expert instruction, and hands-on practice."
+        title="AI Training & Certification - Texas HB3512 Compliant | WhitegloveAI"
+        description="IACET-accredited AI training programs for Texas government and businesses. Meet HB3512 requirements with TXShare-approved courses. Flexible online and live sessions with expert instructors."
+        canonicalPath="/training"
       />
       
       <div className="min-h-screen bg-gradient-to-b from-background via-background to-muted/20">
