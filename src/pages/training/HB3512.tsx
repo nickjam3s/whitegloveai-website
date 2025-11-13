@@ -110,52 +110,190 @@ const HB3512 = () => {
         {/* Overview Section */}
         <section className="py-16 bg-gradient-to-b from-background to-muted/20">
           <div className="container px-4 mx-auto max-w-7xl">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">Overview</h2>
-              <div className="prose prose-lg max-w-none text-muted-foreground">
-                <p className="mb-4">
-                  Texas passed <strong>House Bill 3512</strong>, and it goes into full force on <strong>September 1, 2025</strong>.
-                  If you are a Texas <strong>state agency</strong>, <strong>local government</strong>, <strong>school district</strong>, or <strong>public-sector grant applicant</strong>, this law affects you. No ambiguity. No exceptions.
-                </p>
-                <p className="mb-4">
-                  HB3512 requires employees who rely on a computer for at least 25% of their job to complete:
-                </p>
-                <ol className="list-decimal list-inside mb-4 space-y-2">
-                  <li><strong>A DIR-certified Cybersecurity Training Program</strong>, and</li>
-                  <li><strong>A DIR-certified Artificial Intelligence (AI) Training Program</strong></li>
-                </ol>
-                <p className="mb-4">— every year.</p>
-                <p>
-                  WhitegloveAI built its <strong>AI Training & Certification Program</strong> specifically for HB3512 compliance: modern, accessible, and aligned to the same rigorous governance principles we use to serve enterprise, public sector, and SLED organizations.
-                </p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">Overview</h2>
+            
+            {/* Key Info Card */}
+            <Card className="mb-8 border-2 border-primary/30 bg-gradient-to-br from-primary/5 to-background">
+              <CardContent className="pt-6">
+                <div className="text-center mb-6">
+                  <p className="text-xl md:text-2xl font-bold text-foreground mb-3">
+                    Texas passed <span className="text-primary">House Bill 3512</span>
+                  </p>
+                  <p className="text-lg text-muted-foreground">
+                    Full force on <span className="font-semibold text-foreground">September 1, 2025</span>
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Who It Affects */}
+            <div className="mb-8">
+              <h3 className="text-2xl font-bold mb-6 text-center">Who This Affects</h3>
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                {[
+                  { icon: Building2, title: "State Agencies", color: "text-blue-500" },
+                  { icon: Building2, title: "Local Government", color: "text-green-500" },
+                  { icon: School, title: "School Districts", color: "text-purple-500" },
+                  { icon: FileCheck, title: "Grant Applicants", color: "text-orange-500" }
+                ].map((entity, index) => (
+                  <Card key={index} className="text-center hover:shadow-lg transition-all">
+                    <CardContent className="pt-6">
+                      <entity.icon className={`h-12 w-12 mx-auto mb-3 ${entity.color}`} />
+                      <p className="font-semibold">{entity.title}</p>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+              <p className="text-center text-muted-foreground mt-4 text-sm">
+                No ambiguity. No exceptions.
+              </p>
+            </div>
+
+            {/* Requirements */}
+            <div className="max-w-4xl mx-auto mb-8">
+              <h3 className="text-2xl font-bold mb-6 text-center">Annual Training Requirements</h3>
+              <p className="text-center text-muted-foreground mb-6">
+                For employees who rely on a computer for at least 25% of their job:
+              </p>
+              
+              <div className="grid md:grid-cols-2 gap-6 mb-6">
+                <Card className="border-2 border-primary/30">
+                  <CardContent className="pt-6">
+                    <div className="flex items-start gap-4">
+                      <div className="bg-primary/10 p-3 rounded-lg">
+                        <Shield className="h-8 w-8 text-primary" />
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-lg mb-2">1. Cybersecurity Training</h4>
+                        <p className="text-muted-foreground">DIR-certified Cybersecurity Training Program</p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card className="border-2 border-primary/30">
+                  <CardContent className="pt-6">
+                    <div className="flex items-start gap-4">
+                      <div className="bg-primary/10 p-3 rounded-lg">
+                        <CheckCircle2 className="h-8 w-8 text-primary" />
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-lg mb-2">2. AI Training</h4>
+                        <p className="text-muted-foreground">DIR-certified Artificial Intelligence (AI) Training Program</p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+
+              <div className="text-center">
+                <p className="text-lg font-semibold text-primary mb-2">Both required — every year</p>
               </div>
             </div>
+
+            {/* WhitegloveAI Solution */}
+            <Card className="max-w-4xl mx-auto border-2 border-secondary/30 bg-gradient-to-br from-secondary/5 to-background">
+              <CardContent className="pt-6">
+                <div className="flex items-start gap-4">
+                  <CheckCircle2 className="h-10 w-10 text-secondary flex-shrink-0 mt-1" />
+                  <div>
+                    <p className="text-lg font-semibold mb-2">Your Compliance Partner</p>
+                    <p className="text-muted-foreground">
+                      WhitegloveAI built its <strong>AI Training & Certification Program</strong> specifically for HB3512 compliance: 
+                      modern, accessible, and aligned to the same rigorous governance principles we use to serve enterprise, 
+                      public sector, and SLED organizations.
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </section>
 
         {/* Why This Law Exists */}
         <section className="py-16 bg-muted/20">
           <div className="container px-4 mx-auto max-w-7xl">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">Why This Law Exists (Plain English)</h2>
-              <div className="prose prose-lg max-w-none text-muted-foreground">
-                <p className="mb-4">
-                  The State of Texas is moving fast to make sure that as AI becomes part of everyday government work, employees understand:
-                </p>
-                <ul className="list-disc list-inside mb-4 space-y-2">
-                  <li>How to use AI responsibly</li>
-                  <li>How to avoid security, privacy, and compliance risks</li>
-                  <li>What data can and cannot be entered into AI tools</li>
-                  <li>How to verify accuracy, avoid hallucinations, and maintain public trust</li>
-                </ul>
-                <p className="mb-4">
-                  The legislature paired AI training with cybersecurity training intentionally.
-                  AI is powerful, but mishandled it can create new attack surfaces, leak sensitive information, or produce bad decisions at scale.
-                </p>
-                <p>
-                  HB3512 is essentially saying: <em>"If your staff uses computers, they need to know how to use AI safely."</em>
-                </p>
-              </div>
+            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">Why This Law Exists (Plain English)</h2>
+            
+            <p className="text-center text-lg text-muted-foreground mb-8 max-w-3xl mx-auto">
+              The State of Texas is moving fast to make sure that as AI becomes part of everyday government work, 
+              employees understand:
+            </p>
+
+            {/* Key Understanding Points */}
+            <div className="grid md:grid-cols-2 gap-6 mb-8 max-w-5xl mx-auto">
+              {[
+                {
+                  icon: Users,
+                  title: "Responsible Use",
+                  description: "How to use AI responsibly in government operations",
+                  color: "text-blue-500"
+                },
+                {
+                  icon: Shield,
+                  title: "Risk Avoidance",
+                  description: "How to avoid security, privacy, and compliance risks",
+                  color: "text-red-500"
+                },
+                {
+                  icon: AlertCircle,
+                  title: "Data Protection",
+                  description: "What data can and cannot be entered into AI tools",
+                  color: "text-orange-500"
+                },
+                {
+                  icon: CheckCircle2,
+                  title: "Accuracy & Trust",
+                  description: "How to verify accuracy, avoid hallucinations, and maintain public trust",
+                  color: "text-green-500"
+                }
+              ].map((point, index) => (
+                <Card key={index} className="hover:shadow-lg transition-all">
+                  <CardContent className="pt-6">
+                    <div className="flex items-start gap-4">
+                      <div className="bg-muted/50 p-3 rounded-lg">
+                        <point.icon className={`h-8 w-8 ${point.color}`} />
+                      </div>
+                      <div>
+                        <h3 className="font-bold text-lg mb-2">{point.title}</h3>
+                        <p className="text-muted-foreground">{point.description}</p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+
+            {/* Key Insight Cards */}
+            <div className="max-w-4xl mx-auto space-y-6">
+              <Card className="border-2 border-primary/30 bg-primary/5">
+                <CardContent className="pt-6">
+                  <div className="flex items-start gap-4">
+                    <AlertCircle className="h-8 w-8 text-primary flex-shrink-0 mt-1" />
+                    <div>
+                      <h4 className="font-semibold text-lg mb-2">Intentional Pairing</h4>
+                      <p className="text-muted-foreground">
+                        The legislature paired AI training with cybersecurity training intentionally. 
+                        AI is powerful, but mishandled it can create new attack surfaces, leak sensitive information, 
+                        or produce bad decisions at scale.
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="border-2 border-secondary/30 bg-secondary/5">
+                <CardContent className="pt-6">
+                  <div className="text-center">
+                    <p className="text-xl md:text-2xl font-semibold text-foreground mb-2">
+                      The Bottom Line
+                    </p>
+                    <p className="text-lg text-muted-foreground italic">
+                      "If your staff uses computers, they need to know how to use AI safely."
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </section>
