@@ -347,7 +347,7 @@ export const CourseChatbot = ({ embedded = false, onApplyFilters }: CourseChatbo
   if (embedded) {
     return (
       <TooltipProvider>
-        <Card className="w-full h-[280px] shadow-xl flex flex-col overflow-hidden">
+        <Card className="w-full h-[280px] shadow-xl border-2 border-primary/50 shadow-primary/20 flex flex-col overflow-hidden">
           <CardHeader className="border-b shrink-0 flex flex-row items-center justify-between space-y-0 py-3">
             <CardTitle className="text-lg">Ask Our AI Course Advisor</CardTitle>
             <div className="flex gap-1">
@@ -479,7 +479,7 @@ export const CourseChatbot = ({ embedded = false, onApplyFilters }: CourseChatbo
 
         {/* Expanded Modal View */}
         <Dialog open={isExpanded} onOpenChange={setIsExpanded}>
-          <DialogContent className="max-w-4xl h-[80vh] flex flex-col p-0">
+          <DialogContent className="max-w-4xl h-[80vh] flex flex-col p-0 border-2 border-primary/50 shadow-primary/20">
             <DialogHeader className="border-b px-6 py-4 shrink-0">
               <div className="flex items-center justify-between">
                 <DialogTitle className="text-xl">AI Course Advisor</DialogTitle>
@@ -631,7 +631,7 @@ export const CourseChatbot = ({ embedded = false, onApplyFilters }: CourseChatbo
 
   return (
     <TooltipProvider>
-      <Card className="fixed bottom-6 right-6 w-96 h-[600px] shadow-2xl z-50 flex flex-col overflow-hidden">
+      <Card className="fixed bottom-6 right-6 w-96 h-[600px] shadow-2xl border-2 border-primary/50 shadow-primary/20 z-50 flex flex-col overflow-hidden">
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-4 border-b shrink-0">
           <CardTitle className="text-lg">Course Advisor</CardTitle>
           <div className="flex gap-1">
