@@ -47,7 +47,7 @@ const HB3512 = () => {
       <div className="min-h-screen bg-background">
         {/* Hero Section */}
         <HeroBackground>
-          <section className="relative py-20 md:py-32 overflow-hidden">
+          <section className="relative overflow-hidden pt-32 pb-32 md:pt-40 md:pb-40 lg:pt-44 lg:pb-44">
             <div className="container px-4 mx-auto max-w-7xl relative z-10">
               <div className="text-center max-w-4xl mx-auto">
                 <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white">
