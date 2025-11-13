@@ -131,7 +131,7 @@ export const CourseCard = ({ course, isFeatured = false }: CourseCardProps) => {
             disabled={downloading}
           >
             <Download className="h-4 w-4 mr-2" />
-            {downloading ? "Downloading..." : "Download Outline"}
+            {downloading ? "Downloading..." : "Course Outline"}
           </Button>
         ) : (
           <Button variant="outline" className="flex-1" disabled>

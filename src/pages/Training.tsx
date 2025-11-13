@@ -49,7 +49,7 @@ const Training = () => {
       icon: Landmark,
       title: "Mandated by TX Law",
       description: (<>
-        <Link to="/training/hb3512" className="text-primary hover:underline">TX HB3512</Link> requires all state employees to complete AI literacy training by September 2025
+        <Link to="/training/hb3512" className="text-primary hover:underline">TX HB3512</Link> requires government employees who use computers for 25%+ of their job to complete annual AI training by September 2025
       </>)
     },
     {

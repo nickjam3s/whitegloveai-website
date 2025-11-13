@@ -9,6 +9,7 @@ import { CourseChatbot } from "@/components/training/CourseChatbot";
 import { Button } from "@/components/ui/button";
 import aicertsBadge from "@/assets/aicerts-partner-badge.png";
 import HeroBackground from "@/components/shared/HeroBackground";
+import HB3512Banner from "@/components/HB3512Banner";
 import ContactSection from "./training/components/ContactSection";
 import { injectConduitStyles } from "@/utils/conduitStyleInjector";
 
@@ -169,6 +170,9 @@ const TrainingCatalogue = () => {
             </div>
           </section>
         </HeroBackground>
+
+        {/* HB3512 Banner */}
+        <HB3512Banner />
 
         {/* AI Course Advisor Section */}
         <section className="py-8 bg-gradient-to-b from-background to-muted/20">
