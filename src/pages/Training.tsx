@@ -45,6 +45,11 @@ const Training = () => {
 
   const benefits = [
     {
+      icon: Landmark,
+      title: "Mandated by TX Law",
+      description: "TX HB3512 requires all state employees to complete AI literacy training by September 2025"
+    },
+    {
       icon: Clock,
       title: "Flexible Learning Formats",
       description: "Self-paced online courses and live virtual sessions that fit your schedule"
@@ -68,11 +73,6 @@ const Training = () => {
       icon: TrendingUp,
       title: "Certification Path",
       description: "Clear progression from foundational to advanced levels"
-    },
-    {
-      icon: Building2,
-      title: "Team Discounts",
-      description: "Special pricing for organizational training programs"
     }
   ];
 
