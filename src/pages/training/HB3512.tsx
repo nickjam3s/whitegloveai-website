@@ -9,6 +9,7 @@ import HeroBackground from "@/components/shared/HeroBackground";
 import { CourseChatbot } from "@/components/training/CourseChatbot";
 import ContactSection from "./components/ContactSection";
 import { injectConduitStyles } from "@/utils/conduitStyleInjector";
+import DirDisclaimer from "@/components/DirDisclaimer";
 
 const HB3512 = () => {
   const navigate = useNavigate();
@@ -77,6 +78,8 @@ const HB3512 = () => {
             </div>
           </section>
         </HeroBackground>
+        {/* Top-of-page DIR disclaimer */}
+        <DirDisclaimer />
 
         {/* TXShare Banner */}
         <section
@@ -165,7 +168,7 @@ const HB3512 = () => {
                       </div>
                       <div>
                         <h4 className="font-bold text-lg mb-2">1. Cybersecurity Training</h4>
-                        <p className="text-muted-foreground">DIR-certified Cybersecurity Training Program</p>
+                        <p className="text-muted-foreground">Law requirement: cybersecurity training program certified by DIR</p>
                       </div>
                     </div>
                   </CardContent>
@@ -179,7 +182,7 @@ const HB3512 = () => {
                       </div>
                       <div>
                         <h4 className="font-bold text-lg mb-2">2. AI Training</h4>
-                        <p className="text-muted-foreground">DIR-certified Artificial Intelligence (AI) Training Program</p>
+                        <p className="text-muted-foreground">Law requirement: AI training program certified by DIR</p>
                       </div>
                     </div>
                   </CardContent>
@@ -365,11 +368,11 @@ const HB3512 = () => {
                         <ul className="space-y-2 text-muted-foreground">
                           <li className="flex items-start gap-2">
                             <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                            <span>DIR-certified Cybersecurity training</span>
+                            <span>Cybersecurity training using a program certified by DIR</span>
                           </li>
                           <li className="flex items-start gap-2">
                             <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                            <span>DIR-certified AI training</span>
+                            <span>AI training using a program certified by DIR</span>
                           </li>
                           <li className="flex items-start gap-2">
                             <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
