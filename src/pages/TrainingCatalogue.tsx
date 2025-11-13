@@ -134,8 +134,9 @@ const TrainingCatalogue = () => {
   return (
     <>
       <SEO
-        title="AI Training & Certification Programs | WhitegloveAI"
-        description="Transform your organization with industry-recognized AI certifications from AICerts. Browse our complete catalog of AI courses with advanced filtering and get personalized recommendations."
+        title="AI Course Catalog - Browse 50+ Training Programs | WhitegloveAI"
+        description="Explore 50+ AI certification courses from foundational to advanced. Filter by practice area, level, and duration. HB3512-aligned training for Texas agencies. Get AI-powered course recommendations."
+        canonicalPath="/training/catalogue"
       />
       
       <div className="min-h-screen bg-gradient-to-b from-background via-background to-muted/20">
