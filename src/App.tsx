@@ -32,6 +32,7 @@ import Services from "./pages/Services";
 import Consulting from "./pages/Consulting";
 import Training from "./pages/Training";
 import TrainingCatalogue from "./pages/TrainingCatalogue";
+import HB3512 from "./pages/training/HB3512";
 import GovAI from "./pages/GovAI";
 import TranslateAI from "./pages/TranslateAI";
 import EmbodiedAI from "./pages/EmbodiedAI";
@@ -108,6 +109,7 @@ const AppContent = () => {
                 <Route path="/ailab" element={<AILab />} />
                 <Route path="/training" element={<Training />} />
                 <Route path="/training/catalogue" element={<TrainingCatalogue />} />
+                <Route path="/training/hb3512" element={<HB3512 />} />
                 <Route path="/embodiedai" element={<EmbodiedAI />} />
                 <Route path="/govai" element={<GovAI />} />
                 

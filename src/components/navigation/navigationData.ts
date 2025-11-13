@@ -50,7 +50,8 @@ export const navigationLinks = [
       to: "/training",
       children: [
         { to: "/training", text: "Overview" },
-        { to: "/training/catalogue", text: "Course Catalogue" }
+        { to: "/training/catalogue", text: "Course Catalogue" },
+        { to: "/training/hb3512", text: "Texas HB3512 Compliance" }
       ]
     },
       { to: "/embodiedai", text: "EmbodiedAI" }

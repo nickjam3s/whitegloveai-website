@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import SEO from "@/components/SEO";
 import { courses } from "@/data/courses";
 import { Upload, Clock, Award, BookOpen, Users, TrendingUp, Building2, Briefcase, Sparkles, Code, Lightbulb, CheckCircle2, Shield, Landmark } from "lucide-react";
+import { Link } from "react-router-dom";
 import { CourseCard } from "@/components/training/CourseCard";
 import { CourseChatbot } from "@/components/training/CourseChatbot";
 import { Button } from "@/components/ui/button";
@@ -47,7 +48,9 @@ const Training = () => {
     {
       icon: Landmark,
       title: "Mandated by TX Law",
-      description: "TX HB3512 requires all state employees to complete AI literacy training by September 2025"
+      description: (<>
+        <Link to="/training/hb3512" className="text-primary hover:underline">TX HB3512</Link> requires all state employees to complete AI literacy training by September 2025
+      </>)
     },
     {
       icon: Clock,
@@ -110,7 +113,9 @@ const Training = () => {
     {
       icon: Landmark,
       title: "GovAI Training & Compliance",
-      description: "Public sector AI education and regulatory compliance. Navigate TRAIGA requirements, HB3512 mandates, AI procurement standards, and citizen-facing AI applications.",
+      description: (<>
+        Public sector AI education and regulatory compliance. Navigate TRAIGA requirements, <Link to="/training/hb3512" className="text-primary hover:underline">HB3512 mandates</Link>, AI procurement standards, and citizen-facing AI applications.
+      </>),
       color: "text-orange-500"
     }
   ];
