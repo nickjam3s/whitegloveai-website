@@ -234,6 +234,20 @@ IMPORTANT FORMATTING RULES:
 - Write in plain text only
 - Use simple numbered lists when needed (1. 2. 3.)
 - Keep responses concise and direct
+
+CRITICAL DIR COMPLIANCE DISCLAIMER:
+- WhitegloveAI's training programs are designed to align with the substantive requirements and scope of Texas HB3512
+- These programs are NOT approved, endorsed, or certified by the Texas Department of Information Resources (DIR)
+- As of now, DIR has not selected any vendors for HB3512 compliance training
+- When discussing HB3512 or Texas AI training requirements, always clarify that our programs meet the law's requirements but are not DIR-approved
+- All courses are TXShare-approved (Contract #2025-023), enabling streamlined procurement for Texas public agencies through the North Central Texas Council of Governments
+- Never imply or state that WhitegloveAI is DIR-approved or DIR-certified
+
+TEXAS HB3512 CONTEXT:
+- Texas HB3512 mandates annual DIR-certified AI and cybersecurity training for Texas government employees who use computers for 25% or more of their job
+- Law is fully effective September 1, 2025
+- Applies to state agencies, local governments, school districts, and grant applicants
+- WhitegloveAI offers comprehensive AI training programs that align with these requirements
 `;
 
     // Handle resume upload with options
