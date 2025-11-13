@@ -13,7 +13,7 @@ serve(async (req) => {
   }
 
   try {
-    const { message, conversationHistory, resumeFile, fileName } = await req.json();
+    const { message, conversationHistory, resumeFile, fileName, showOptions, skipInterview, interviewMode, interviewCount, resumeUploaded } = await req.json();
     
     // Server-side input validation
     if (message && typeof message !== 'string') {
@@ -222,8 +222,8 @@ LEVELS: Foundation (23), Intermediate (28), Advanced (12)`;
 
     const courseCatalogWithDetails = courseCatalog + enhancedCourseDetails;
 
-    // Build system prompt with course context
-    const systemPrompt = `You are an AI Course Advisor for WhitegloveAI's training programs powered by AICerts certifications.
+    // Build system prompt based on context
+    let systemPrompt = `You are an AI Course Advisor for WhitegloveAI's training programs powered by AICerts certifications.
 
 Your role is to help users find the perfect AI certification course based on their needs, background, and career goals.
 
@@ -234,14 +234,47 @@ IMPORTANT FORMATTING RULES:
 - Write in plain text only
 - Use simple numbered lists when needed (1. 2. 3.)
 - Keep responses concise and direct
+`;
 
-${resumeFile ? `RESUME UPLOADED - IMMEDIATE RECOMMENDATIONS REQUIRED:
-When a resume is uploaded, you MUST:
-1. Immediately provide exactly 5 course recommendations based on the resume
-2. List them in order of relevance (most relevant first)
-3. For each course, briefly explain why it matches their background (1-2 sentences max)
-4. Do NOT ask follow-up questions
-5. Format as: "Course Name - Why it's relevant"
+    // Handle resume upload with options
+    if (showOptions && resumeFile) {
+      systemPrompt += `\n\nRESUME RECEIVED - PRESENT OPTIONS:
+The user just uploaded their resume. Acknowledge receipt warmly and explain that you can help in two ways:
+1. A brief personalized interview (5 questions) to understand their goals and how AI is transforming their industry
+2. Immediate recommendations based on their resume
+
+Keep this message brief (2-3 sentences) and welcoming. Do NOT provide recommendations yet.`;
+    }
+    // Handle interview mode
+    else if (interviewMode && !skipInterview && resumeUploaded) {
+      const questionNumber = interviewCount + 1;
+      systemPrompt += `\n\nINTERVIEW MODE (Question ${questionNumber} of 5):
+You are conducting a personalized interview. Based on the resume and previous answers:
+1. Ask ONE thoughtful question that:
+   - Educates them about how AI is transforming their specific industry/role
+   - Helps understand their career goals and aspirations
+   - Is conversational and engaging (not interrogative)
+   - Builds on their previous answers
+
+2. Question topics by number:
+   - Q1: Their current role and how AI is already impacting their industry
+   - Q2: Specific challenges they face that AI could help solve
+   - Q3: Their career aspirations over the next 2-3 years
+   - Q4: Their comfort level with technology and learning new tools
+   - Q5: What excites them most about AI opportunities
+
+Keep each question brief (2-3 sentences max) with a gentle educational insight about AI's impact.
+
+${questionNumber === 5 ? 'After their response to this final question, provide 5 personalized course recommendations with explanations.' : ''}`;
+    }
+    // Handle skip to recommendations
+    else if (skipInterview && resumeUploaded) {
+      systemPrompt += `\n\nDIRECT RECOMMENDATIONS MODE:
+Based on the uploaded resume, provide exactly 5 course recommendations:
+1. List them in order of relevance (most relevant first)
+2. For each course, briefly explain why it matches their background (1-2 sentences max)
+3. Format as: "Course Name - Why it's relevant"
+4. End with encouragement about their AI learning journey
 
 Example format:
 "Based on your resume, here are my top 5 course recommendations:
@@ -252,11 +285,16 @@ Example format:
 4. AI+ Foundation - Essential groundwork for your AI journey
 5. AI+ Business Intelligence - Your data experience pairs well with AI analytics
 
-Each course leads to industry-recognized certification through AICerts."` : `When helping users without a resume:
+Each course leads to industry-recognized certification through AICerts."`;
+    }
+    // Regular conversation mode
+    else {
+      systemPrompt += `\n\nWhen helping users without a resume:
 1. Ask 2-3 brief qualifying questions about their industry, role, and experience
 2. Then recommend 3-5 specific courses from the catalog above
 3. Keep responses brief and conversational
-4. No markdown formatting`}`;
+4. No markdown formatting`;
+    }
 
     // Build messages array
     const messages = [
