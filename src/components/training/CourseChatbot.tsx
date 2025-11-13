@@ -40,6 +40,8 @@ interface Message {
   role: "user" | "assistant";
   content: string;
   recommendedCourses?: string[];
+  showInterviewOptions?: boolean;
+  isInterviewQuestion?: boolean;
 }
 
 interface CourseChatbotProps {
@@ -62,6 +64,9 @@ export const CourseChatbot = ({ embedded = false, onApplyFilters }: CourseChatbo
   ]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [interviewMode, setInterviewMode] = useState(false);
+  const [interviewCount, setInterviewCount] = useState(0);
+  const [resumeUploaded, setResumeUploaded] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const { toast } = useToast();
@@ -99,6 +104,11 @@ export const CourseChatbot = ({ embedded = false, onApplyFilters }: CourseChatbo
   const handleSendMessage = async () => {
     if (!input.trim() || isLoading) return;
 
+    // Auto-expand on first message
+    if (!embedded && !isExpanded && messages.length === 2) {
+      setIsExpanded(true);
+    }
+
     // Validate message content
     try {
       const validatedMessage = messageSchema.parse({ content: input.trim() });
@@ -108,19 +118,38 @@ export const CourseChatbot = ({ embedded = false, onApplyFilters }: CourseChatbo
       setMessages(prev => [...prev, { role: "user", content: userMessage }]);
       setIsLoading(true);
 
+      // Track interview progress
+      if (interviewMode) {
+        setInterviewCount(prev => prev + 1);
+      }
+
       try {
         const { data, error } = await supabase.functions.invoke("course-chat", {
-          body: { message: userMessage, conversationHistory: messages }
+          body: { 
+            message: userMessage, 
+            conversationHistory: messages,
+            interviewMode,
+            interviewCount,
+            resumeUploaded
+          }
         });
 
         if (error) throw error;
 
         const recommendedCourses = extractCourseNames(data.response);
+        const isLastInterviewQuestion = interviewMode && interviewCount >= 4;
+        
         setMessages(prev => [...prev, { 
           role: "assistant", 
           content: data.response,
-          recommendedCourses: recommendedCourses.length > 0 ? recommendedCourses : undefined
+          recommendedCourses: recommendedCourses.length > 0 ? recommendedCourses : undefined,
+          isInterviewQuestion: interviewMode && interviewCount < 4
         }]);
+
+        // End interview after 5 questions
+        if (isLastInterviewQuestion) {
+          setInterviewMode(false);
+        }
       } catch (error) {
         console.error("Chat error:", error);
         toast({
@@ -145,6 +174,11 @@ export const CourseChatbot = ({ embedded = false, onApplyFilters }: CourseChatbo
   const handleFileUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (!file) return;
+
+    // Auto-expand on file upload
+    if (!embedded && !isExpanded) {
+      setIsExpanded(true);
+    }
 
     // Reset file input
     if (fileInputRef.current) {
@@ -174,6 +208,7 @@ export const CourseChatbot = ({ embedded = false, onApplyFilters }: CourseChatbo
       }
 
       setIsLoading(true);
+      setResumeUploaded(true);
       setMessages(prev => [...prev, { role: "user", content: `[Uploaded resume: ${file.name}]` }]);
 
       try {
@@ -182,20 +217,20 @@ export const CourseChatbot = ({ embedded = false, onApplyFilters }: CourseChatbo
 
         const { data, error } = await supabase.functions.invoke("course-chat", {
           body: { 
-            message: "Analyze my resume and recommend courses",
+            message: "Resume uploaded - awaiting user choice",
             resumeFile: base64,
             fileName: file.name,
-            conversationHistory: messages 
+            conversationHistory: messages,
+            showOptions: true
           }
         });
 
         if (error) throw error;
 
-        const recommendedCourses = extractCourseNames(data.response);
         setMessages(prev => [...prev, { 
           role: "assistant", 
           content: data.response,
-          recommendedCourses: recommendedCourses.length > 0 ? recommendedCourses : undefined
+          showInterviewOptions: true
         }]);
       } catch (error) {
         console.error("Resume analysis error:", error);
@@ -224,6 +259,49 @@ export const CourseChatbot = ({ embedded = false, onApplyFilters }: CourseChatbo
     }
   };
 
+  const handleInterviewChoice = async (skipInterview: boolean) => {
+    setIsLoading(true);
+    
+    try {
+      const choice = skipInterview ? "Skip to recommendations based on resume" : "Continue interview for personalized recommendations";
+      setMessages(prev => [...prev, { role: "user", content: choice }]);
+
+      if (!skipInterview) {
+        setInterviewMode(true);
+        setInterviewCount(0);
+      }
+
+      const { data, error } = await supabase.functions.invoke("course-chat", {
+        body: { 
+          message: choice,
+          conversationHistory: messages,
+          skipInterview,
+          interviewMode: !skipInterview,
+          resumeUploaded: true
+        }
+      });
+
+      if (error) throw error;
+
+      const recommendedCourses = extractCourseNames(data.response);
+      setMessages(prev => [...prev, { 
+        role: "assistant", 
+        content: data.response,
+        recommendedCourses: skipInterview && recommendedCourses.length > 0 ? recommendedCourses : undefined,
+        isInterviewQuestion: !skipInterview
+      }]);
+    } catch (error) {
+      console.error("Interview choice error:", error);
+      toast({
+        title: "Error",
+        description: "Failed to process your choice. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   const handleResetChat = () => {
     setMessages([
       {
@@ -235,6 +313,9 @@ export const CourseChatbot = ({ embedded = false, onApplyFilters }: CourseChatbo
         content: "💡 Pro tip: Upload your resume (PDF or DOCX) using the upload button below for instant personalized course recommendations tailored to your experience and career goals!"
       }
     ]);
+    setInterviewMode(false);
+    setInterviewCount(0);
+    setResumeUploaded(false);
     toast({
       title: "Chat reset",
       description: "Conversation has been cleared.",
@@ -312,6 +393,26 @@ export const CourseChatbot = ({ embedded = false, onApplyFilters }: CourseChatbo
                     }`}
                   >
                     <p className="text-sm whitespace-pre-wrap">{message.content}</p>
+                    {message.showInterviewOptions && (
+                      <div className="flex flex-col gap-2 mt-3">
+                        <Button 
+                          size="sm" 
+                          variant="default" 
+                          onClick={() => handleInterviewChoice(false)}
+                          disabled={isLoading}
+                        >
+                          Continue interview for personalized recommendations
+                        </Button>
+                        <Button 
+                          size="sm" 
+                          variant="outline" 
+                          onClick={() => handleInterviewChoice(true)}
+                          disabled={isLoading}
+                        >
+                          Skip to recommendations based on resume
+                        </Button>
+                      </div>
+                    )}
                     {message.role === "assistant" && message.recommendedCourses && message.recommendedCourses.length > 0 && onApplyFilters && (
                       <Button
                         variant="outline"
@@ -427,6 +528,26 @@ export const CourseChatbot = ({ embedded = false, onApplyFilters }: CourseChatbo
                         }`}
                       >
                         <p className="text-base whitespace-pre-wrap">{message.content}</p>
+                        {message.showInterviewOptions && (
+                          <div className="flex flex-col gap-2 mt-3">
+                            <Button 
+                              size="sm" 
+                              variant="default" 
+                              onClick={() => handleInterviewChoice(false)}
+                              disabled={isLoading}
+                            >
+                              Continue interview for personalized recommendations
+                            </Button>
+                            <Button 
+                              size="sm" 
+                              variant="outline" 
+                              onClick={() => handleInterviewChoice(true)}
+                              disabled={isLoading}
+                            >
+                              Skip to recommendations based on resume
+                            </Button>
+                          </div>
+                        )}
                         {message.role === "assistant" && message.recommendedCourses && message.recommendedCourses.length > 0 && onApplyFilters && (
                           <Button
                             variant="outline"
