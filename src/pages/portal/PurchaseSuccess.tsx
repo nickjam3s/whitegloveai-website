@@ -14,6 +14,7 @@ const PurchaseSuccess = () => {
   const { user } = usePortalAuth();
   const sessionId = searchParams.get("session_id");
   const [orderDetails, setOrderDetails] = useState<any>(null);
+  const [discountInfo, setDiscountInfo] = useState<any>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -34,6 +35,16 @@ const PurchaseSuccess = () => {
 
           if (data && data.length > 0) {
             setOrderDetails(data[0]);
+          }
+
+          // Fetch discount information from Stripe
+          const { data: sessionData, error: sessionError } = await supabase.functions.invoke('get-checkout-session', {
+            body: { session_id: sessionId }
+          });
+
+          if (sessionData?.discount) {
+            setDiscountInfo(sessionData.discount);
+            console.log("Discount info loaded:", sessionData.discount);
           }
         } catch (error) {
           console.error("Error fetching order details:", error);
@@ -80,6 +91,19 @@ const PurchaseSuccess = () => {
                   <span className="text-muted-foreground">Quantity:</span>
                   <span className="font-medium">{orderDetails.quantity}</span>
                 </div>
+                {discountInfo && (
+                  <div className="flex justify-between items-center border-t pt-3 mt-3">
+                    <span className="text-muted-foreground">Promo Code Applied:</span>
+                    <div className="text-right">
+                      <code className="bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-400 px-2 py-1 rounded font-semibold">
+                        {discountInfo.code}
+                      </code>
+                      <p className="text-sm text-green-600 dark:text-green-400 mt-1 font-semibold">
+                        Saved: ${(discountInfo.amount_saved / 100).toFixed(2)}
+                      </p>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           ) : null}

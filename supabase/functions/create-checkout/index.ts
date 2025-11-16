@@ -70,6 +70,7 @@ serve(async (req) => {
       customer_email: customerId ? undefined : userEmail,
       line_items: lineItems,
       mode: "payment",
+      allow_promotion_codes: true,
       success_url: `${req.headers.get("origin")}/portal/purchase-success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${req.headers.get("origin")}/portal/checkout`,
       metadata: {
