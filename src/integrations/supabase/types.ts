@@ -570,7 +570,10 @@ export type Database = {
           course_name: string
           course_slug: string
           currency: string
+          first_name: string | null
           id: string
+          language: string | null
+          last_name: string | null
           order_number: string | null
           purchased_at: string | null
           quantity: number
@@ -585,7 +588,10 @@ export type Database = {
           course_name: string
           course_slug: string
           currency?: string
+          first_name?: string | null
           id?: string
+          language?: string | null
+          last_name?: string | null
           order_number?: string | null
           purchased_at?: string | null
           quantity?: number
@@ -600,7 +606,10 @@ export type Database = {
           course_name?: string
           course_slug?: string
           currency?: string
+          first_name?: string | null
           id?: string
+          language?: string | null
+          last_name?: string | null
           order_number?: string | null
           purchased_at?: string | null
           quantity?: number

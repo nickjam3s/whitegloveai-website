@@ -47,12 +47,17 @@ serve(async (req) => {
       const orderNumber = orderNumberData;
       console.log("Generated order number:", orderNumber);
 
-      // Get customer email
+      // Get customer email and metadata
       const customerEmail = session.customer_email || session.customer_details?.email;
+      const firstName = session.metadata?.first_name || "";
+      const lastName = session.metadata?.last_name || "";
+      const language = session.metadata?.language || "";
       
       if (!customerEmail) {
         throw new Error("No customer email found in session");
       }
+
+      console.log("Customer details:", { customerEmail, firstName, lastName, language });
 
       // Create purchase records and prepare email data
       const courses = [];
@@ -66,12 +71,15 @@ serve(async (req) => {
         
         totalAmount += priceAmount * quantity;
 
-        // Create purchase record
+        // Create purchase record with customer data
         const { error: purchaseError } = await supabaseAdmin
           .from("purchases")
           .insert({
             order_number: orderNumber,
             user_email: customerEmail,
+            first_name: firstName,
+            last_name: lastName,
+            language: language,
             course_name: courseName,
             course_slug: product?.metadata?.slug || courseName.toLowerCase().replace(/\s+/g, '-'),
             quantity: quantity,
@@ -129,12 +137,46 @@ serve(async (req) => {
         );
 
         if (!emailResponse.ok) {
-          console.error("Failed to send email:", await emailResponse.text());
+          console.error("Failed to send customer email:", await emailResponse.text());
         } else {
           console.log("Order confirmation email sent successfully");
         }
       } catch (emailError) {
         console.error("Error sending confirmation email:", emailError);
+        // Don't throw - email failure shouldn't block webhook processing
+      }
+
+      // Send sales notification email
+      try {
+        const salesEmailResponse = await fetch(
+          `${Deno.env.get("SUPABASE_URL")}/functions/v1/send-sales-notification`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "Authorization": `Bearer ${Deno.env.get("SUPABASE_ANON_KEY")}`,
+            },
+            body: JSON.stringify({
+              orderNumber,
+              customerEmail,
+              firstName,
+              lastName,
+              language,
+              courses,
+              totalAmount,
+              currency: session.currency?.toUpperCase() || "USD",
+              orderDate: new Date().toISOString(),
+            }),
+          }
+        );
+
+        if (!salesEmailResponse.ok) {
+          console.error("Failed to send sales notification:", await salesEmailResponse.text());
+        } else {
+          console.log("Sales notification email sent successfully");
+        }
+      } catch (salesEmailError) {
+        console.error("Error sending sales notification:", salesEmailError);
         // Don't throw - email failure shouldn't block webhook processing
       }
 
