@@ -54,40 +54,48 @@ serve(async (req) => {
     const orderNumber = orderNumberData;
     console.log("Generated order number:", orderNumber);
 
-    // Get customer email
-    const customerEmail = session.customer_email || session.customer_details?.email;
-    
-    if (!customerEmail) {
-      throw new Error("No customer email found in session");
-    }
-
-    // Create purchase records and prepare email data
-    const courses = [];
-    let totalAmount = 0;
-
-    for (const item of lineItems.data) {
-      const product = item.price?.product as Stripe.Product;
-      const courseName = product?.name || "Unknown Course";
-      const quantity = item.quantity || 1;
-      const priceAmount = item.price?.unit_amount || 0;
+      // Get customer email and metadata
+      const customerEmail = session.customer_email || session.customer_details?.email;
+      const firstName = session.metadata?.first_name || "";
+      const lastName = session.metadata?.last_name || "";
+      const language = session.metadata?.language || "";
       
-      totalAmount += priceAmount * quantity;
+      if (!customerEmail) {
+        throw new Error("No customer email found in session");
+      }
 
-      // Create purchase record
-      const { error: purchaseError } = await supabaseAdmin
-        .from("purchases")
-        .insert({
-          order_number: orderNumber,
-          user_email: customerEmail,
-          course_name: courseName,
-          course_slug: product?.metadata?.slug || courseName.toLowerCase().replace(/\s+/g, '-'),
-          quantity: quantity,
-          amount_paid: priceAmount * quantity,
-          currency: item.price?.currency?.toUpperCase() || "USD",
-          stripe_payment_intent_id: session.payment_intent as string,
-          stripe_checkout_session_id: session.id,
-          status: "completed",
-        });
+      console.log("Customer details:", { customerEmail, firstName, lastName, language });
+
+      // Create purchase records and prepare email data
+      const courses = [];
+      let totalAmount = 0;
+
+      for (const item of lineItems.data) {
+        const product = item.price?.product as Stripe.Product;
+        const courseName = product?.name || "Unknown Course";
+        const quantity = item.quantity || 1;
+        const priceAmount = item.price?.unit_amount || 0;
+        
+        totalAmount += priceAmount * quantity;
+
+        // Create purchase record with customer data
+        const { error: purchaseError } = await supabaseAdmin
+          .from("purchases")
+          .insert({
+            order_number: orderNumber,
+            user_email: customerEmail,
+            first_name: firstName,
+            last_name: lastName,
+            language: language,
+            course_name: courseName,
+            course_slug: product?.metadata?.slug || courseName.toLowerCase().replace(/\s+/g, '-'),
+            quantity: quantity,
+            amount_paid: priceAmount * quantity,
+            currency: item.price?.currency?.toUpperCase() || "USD",
+            stripe_payment_intent_id: session.payment_intent as string,
+            stripe_checkout_session_id: session.id,
+            status: "completed",
+          });
 
       if (purchaseError) {
         console.error("Error creating purchase record:", purchaseError);
@@ -136,12 +144,45 @@ serve(async (req) => {
       );
 
       if (!emailResponse.ok) {
-        console.error("Failed to send email:", await emailResponse.text());
+        console.error("Failed to send customer email:", await emailResponse.text());
       } else {
         console.log("Order confirmation email sent successfully");
       }
     } catch (emailError) {
       console.error("Error sending confirmation email:", emailError);
+    }
+
+    // Send sales notification email
+    try {
+      const salesEmailResponse = await fetch(
+        `${Deno.env.get("SUPABASE_URL")}/functions/v1/send-sales-notification`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${Deno.env.get("SUPABASE_ANON_KEY")}`,
+          },
+          body: JSON.stringify({
+            orderNumber,
+            customerEmail,
+            firstName,
+            lastName,
+            language,
+            courses,
+            totalAmount,
+            currency: session.currency?.toUpperCase() || "USD",
+            orderDate: new Date().toISOString(),
+          }),
+        }
+      );
+
+      if (!salesEmailResponse.ok) {
+        console.error("Failed to send sales notification:", await salesEmailResponse.text());
+      } else {
+        console.log("Sales notification email sent successfully");
+      }
+    } catch (salesEmailError) {
+      console.error("Error sending sales notification:", salesEmailError);
     }
 
     console.log("Order recovery completed successfully");

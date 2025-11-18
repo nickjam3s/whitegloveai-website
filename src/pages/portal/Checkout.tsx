@@ -17,6 +17,29 @@ const Checkout = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [guestEmail, setGuestEmail] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [language, setLanguage] = useState("");
+
+  // Get common languages across all courses in cart
+  const getCommonLanguages = () => {
+    if (items.length === 0) return [];
+    
+    // Start with languages from first course - ensure it's an array
+    const firstCourseLangs = items[0].course.languages;
+    let commonLangs = Array.isArray(firstCourseLangs) ? firstCourseLangs : [];
+    
+    // Intersect with languages from each subsequent course
+    for (let i = 1; i < items.length; i++) {
+      const courseLangs = items[i].course.languages;
+      const courseLangsArray = Array.isArray(courseLangs) ? courseLangs : [];
+      commonLangs = commonLangs.filter(lang => courseLangsArray.includes(lang));
+    }
+    
+    return commonLangs;
+  };
+
+  const commonLanguages = getCommonLanguages();
 
 
   const handleCheckout = async () => {
@@ -31,12 +54,31 @@ const Checkout = () => {
       return;
     }
 
+    // Validate customer data
+    if (!firstName.trim()) {
+      toast.error("Please enter your first name");
+      return;
+    }
+
+    if (!lastName.trim()) {
+      toast.error("Please enter your last name");
+      return;
+    }
+
+    if (!language) {
+      toast.error("Please select a language");
+      return;
+    }
+
     setLoading(true);
     try {
       const { data, error } = await supabase.functions.invoke('create-checkout', {
         body: { 
           items,
-          guestEmail: !user ? guestEmail : undefined
+          guestEmail: !user ? guestEmail : undefined,
+          firstName: firstName.trim(),
+          lastName: lastName.trim(),
+          language
         }
       });
 
@@ -79,31 +121,79 @@ const Checkout = () => {
           </Card>
         ) : (
           <div className="space-y-6">
-            {/* Email Collection for Guest Users */}
-            {!user && (
-              <Card>
-                <CardHeader>
-                  <CardTitle>Contact Information</CardTitle>
-                  <CardDescription>Enter your email to complete the purchase</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-2">
-                    <Label htmlFor="email">Email Address</Label>
-                    <Input
-                      id="email"
-                      type="email"
-                      placeholder="your.email@example.com"
-                      value={guestEmail}
-                      onChange={(e) => setGuestEmail(e.target.value)}
-                      required
-                    />
-                    <p className="text-sm text-muted-foreground">
-                      We'll send your order confirmation and course access details to this email
-                    </p>
+            {/* Customer Information Collection */}
+            <Card>
+              <CardHeader>
+                <CardTitle>Customer Information</CardTitle>
+                <CardDescription>Enter your details to complete the purchase</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-4">
+                  {!user && (
+                    <div className="space-y-2">
+                      <Label htmlFor="email">Email Address *</Label>
+                      <Input
+                        id="email"
+                        type="email"
+                        placeholder="your.email@example.com"
+                        value={guestEmail}
+                        onChange={(e) => setGuestEmail(e.target.value)}
+                        required
+                      />
+                    </div>
+                  )}
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="firstName">First Name *</Label>
+                      <Input
+                        id="firstName"
+                        type="text"
+                        placeholder="John"
+                        value={firstName}
+                        onChange={(e) => setFirstName(e.target.value)}
+                        required
+                      />
+                    </div>
+                    
+                    <div className="space-y-2">
+                      <Label htmlFor="lastName">Last Name *</Label>
+                      <Input
+                        id="lastName"
+                        type="text"
+                        placeholder="Doe"
+                        value={lastName}
+                        onChange={(e) => setLastName(e.target.value)}
+                        required
+                      />
+                    </div>
                   </div>
-                </CardContent>
-              </Card>
-            )}
+
+                  <div className="space-y-2">
+                    <Label htmlFor="language">Preferred Language *</Label>
+                    <select
+                      id="language"
+                      value={language}
+                      onChange={(e) => setLanguage(e.target.value)}
+                      className="w-full px-3 py-2 border border-border rounded-md bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                      required
+                    >
+                      <option value="">Select a language</option>
+                      {commonLanguages.map((lang: string) => (
+                        <option key={lang} value={lang}>
+                          {lang}
+                        </option>
+                      ))}
+                    </select>
+                    {commonLanguages.length > 0 && (
+                      <p className="text-sm text-muted-foreground">
+                        Only showing languages available for all courses in your cart
+                      </p>
+                    )}
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
 
             <Card>
               <CardHeader>

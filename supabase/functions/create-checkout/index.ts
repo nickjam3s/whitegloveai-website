@@ -19,7 +19,7 @@ serve(async (req) => {
 
   try {
     // Parse request body
-    const { items, guestEmail } = await req.json();
+    const { items, guestEmail, firstName, lastName, language } = await req.json();
     
     if (!items || items.length === 0) {
       throw new Error("No items in cart");
@@ -76,6 +76,9 @@ serve(async (req) => {
       metadata: {
         user_id: userId || "",
         user_email: userEmail,
+        first_name: firstName || "",
+        last_name: lastName || "",
+        language: language || "",
       },
     });
 
