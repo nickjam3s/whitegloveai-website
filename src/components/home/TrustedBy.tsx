@@ -1,6 +1,6 @@
 
-import React, { useState } from "react";
-import { Star, ChevronDown } from "lucide-react";
+import React from "react";
+import { Star } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
@@ -45,15 +45,6 @@ Overall, WhitegloveAI delivered exceptional value and proved to be a forward-thi
     photo: "/lovable-uploads/02a9184c-e861-4abd-8a19-024fe98adb3c.png",
   },
   {
-    text: `"WhitegloveAI has been a great partner in helping us modernize city services through voice AI. They supported our Traffic department in understanding service requests and building automated workflows that now provide valuable data analytics. Their agile project management approach gave us visibility into the product early on and allowed for continuous input, ensuring the final solution met our needs.
-
-What really stood out was how reusable the model is—we're now able to apply it to other departments that handle citizen inquiries. The WhitegloveAI team was easy to work with, highly responsive, and their Texas-based location made collaboration even smoother. Based on this successful engagement, we've already brought them in on a new project with another department. They've truly proven themselves as a trusted and innovative partner."`,
-    author: "Melissa K.",
-    title: "Chief Information Officer",
-    company: "Major Texas City",
-    photo: "/lovable-uploads/d2501a15-0ffe-4eb6-9740-6626443d0c30.png",
-  },
-  {
     text: `"WhitegloveAI is a MUST HAVE! Between their experts on staff, great customer support, and a forward-thinking approach, WhitegloveAI is THE BEST AI adoption partner to have on your side. They will build ground up or help you to scale in an already made platform.
 
 We rely on them them to be our Expert AI Brokers/Integrators.
@@ -63,7 +54,17 @@ This year, they helped us to successful pilot/onboard TeamGPT, which is a must h
     title: "CTE Director",
     company: "Anna ISD",
     photo: "/lovable-uploads/7e89aadd-c98c-472f-ba16-a81b59318135.png",
-  }
+  },
+  // Hidden - Melissa K. review (preserved for future use)
+  // {
+  //   text: `"WhitegloveAI has been a great partner in helping us modernize city services through voice AI. They supported our Traffic department in understanding service requests and building automated workflows that now provide valuable data analytics. Their agile project management approach gave us visibility into the product early on and allowed for continuous input, ensuring the final solution met our needs.
+
+  // What really stood out was how reusable the model is—we're now able to apply it to other departments that handle citizen inquiries. The WhitegloveAI team was easy to work with, highly responsive, and their Texas-based location made collaboration even smoother. Based on this successful engagement, we've already brought them in on a new project with another department. They've truly proven themselves as a trusted and innovative partner."`,
+  //   author: "Melissa K.",
+  //   title: "Chief Information Officer",
+  //   company: "Major Texas City",
+  //   photo: "/lovable-uploads/d2501a15-0ffe-4eb6-9740-6626443d0c30.png",
+  // }
 ];
 
 const StarRow = () => {
@@ -87,9 +88,6 @@ const StarRow = () => {
 };
 
 const TrustedBy = () => {
-  const [isExpanded, setIsExpanded] = useState(false);
-  
-  const visibleReviews = isExpanded ? reviews : reviews.slice(0, 3);
 
   return (
     <>
@@ -130,7 +128,7 @@ const TrustedBy = () => {
       <section className="py-12 bg-black">
         <div className="container mx-auto max-w-7xl px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {visibleReviews.map((review, idx) => (
+            {reviews.map((review, idx) => (
               <Card
                 key={idx}
                 className="bg-[#111] border border-[#333] shadow-lg h-full flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-[#7021EE] hover:shadow-[#7021EE]/20 card-glow group animate-fade-in"
@@ -166,22 +164,6 @@ const TrustedBy = () => {
               </Card>
             ))}
           </div>
-          
-          {reviews.length > 3 && (
-            <div className="flex justify-center mt-8">
-              <Button
-                onClick={() => setIsExpanded(!isExpanded)}
-                variant="ghost"
-                className="text-white hover:text-[#7021EE] hover:bg-[#7021EE]/10 transition-all duration-300 flex items-center gap-2"
-                aria-label={isExpanded ? "Show fewer reviews" : "Show more reviews"}
-              >
-                <span>{isExpanded ? "Show Less" : "Show More"}</span>
-                <ChevronDown 
-                  className={`w-4 h-4 transition-transform duration-300 ${isExpanded ? 'rotate-180' : 'rotate-0'}`}
-                />
-              </Button>
-            </div>
-          )}
         </div>
       </section>
     </>
