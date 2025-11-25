@@ -187,7 +187,7 @@ const GovAI = () => {
               <div className="mb-6">
                 <div className="bg-secondary/10 rounded-lg p-6 mb-4">
                   <p className="text-4xl font-bold text-secondary mb-2">15-20 Hours</p>
-                  <p className="text-gray-300">Saved per week in staff time</p>
+                  <p className="text-gray-300">Anticipated weekly time savings</p>
                 </div>
               </div>
               
