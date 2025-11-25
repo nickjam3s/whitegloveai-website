@@ -336,7 +336,7 @@ const CommunicationsAI = () => {
             <blockquote className="border-l-4 border-secondary pl-6 italic text-gray-300 mb-4">
               "WhitegloveAI's VoiceAI solution has transformed how we handle traffic inquiries. The time savings allow our team to focus on more complex citizen needs."
             </blockquote>
-            <p className="text-sm text-gray-400">— Melissa Kraft, CIO, Major Texas City</p>
+            <p className="text-sm text-gray-400">— Melissa K., CIO, Major Texas City</p>
           </motion.div>
         </div>
       </section>
