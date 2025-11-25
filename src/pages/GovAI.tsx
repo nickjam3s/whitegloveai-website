@@ -194,7 +194,7 @@ const GovAI = () => {
               <blockquote className="border-l-4 border-secondary pl-4 italic text-gray-300 mb-4">
                 "WhitegloveAI's VoiceAI solution has transformed how we handle traffic inquiries. The time savings allow our team to focus on more complex citizen needs."
               </blockquote>
-              <p className="text-sm text-gray-400">— Melissa K., CIO, Major Texas City</p>
+              <p className="text-sm text-gray-400">— IT Leader, CIO, Major Texas City</p>
             </div>
 
             {/* City of McKinney Case Study */}
