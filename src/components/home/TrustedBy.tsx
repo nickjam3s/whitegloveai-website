@@ -50,7 +50,7 @@ Overall, WhitegloveAI delivered exceptional value and proved to be a forward-thi
 What really stood out was how reusable the model is—we're now able to apply it to other departments that handle citizen inquiries. The WhitegloveAI team was easy to work with, highly responsive, and their Texas-based location made collaboration even smoother. Based on this successful engagement, we've already brought them in on a new project with another department. They've truly proven themselves as a trusted and innovative partner."`,
     author: "Melissa Kraft",
     title: "Chief Information Officer",
-    company: "City of Frisco",
+    company: "Major Texas City",
     photo: "/lovable-uploads/d2501a15-0ffe-4eb6-9740-6626443d0c30.png",
   },
   {
