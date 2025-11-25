@@ -317,7 +317,7 @@ const CommunicationsAI = () => {
                 <Phone className="h-10 w-10 text-secondary" />
               </div>
               <div>
-                <h3 className="text-2xl font-semibold text-white">City of Frisco</h3>
+                <h3 className="text-2xl font-semibold text-white">Major Texas City</h3>
                 <p className="text-secondary">VoiceAI for Traffic Management</p>
               </div>
             </div>
@@ -336,7 +336,7 @@ const CommunicationsAI = () => {
             <blockquote className="border-l-4 border-secondary pl-6 italic text-gray-300 mb-4">
               "WhitegloveAI's VoiceAI solution has transformed how we handle traffic inquiries. The time savings allow our team to focus on more complex citizen needs."
             </blockquote>
-            <p className="text-sm text-gray-400">— Melissa Kraft, CIO, City of Frisco</p>
+            <p className="text-sm text-gray-400">— Melissa Kraft, CIO, Major Texas City</p>
           </motion.div>
         </div>
       </section>

@@ -172,14 +172,14 @@ const GovAI = () => {
           </h2>
           
           <div className="grid md:grid-cols-2 gap-8">
-            {/* City of Frisco Case Study */}
+            {/* Major Texas City Case Study */}
             <div className="bg-gradient-to-br from-secondary/10 to-background/50 p-8 rounded-lg border border-secondary/30">
               <div className="flex items-center mb-6">
                 <div className="bg-secondary/20 p-3 rounded-lg mr-4">
                   <Phone className="h-8 w-8 text-secondary" />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-semibold text-white">City of Frisco</h3>
+                  <h3 className="text-2xl font-semibold text-white">Major Texas City</h3>
                   <p className="text-secondary">VoiceAI for Traffic Management</p>
                 </div>
               </div>
@@ -194,7 +194,7 @@ const GovAI = () => {
               <blockquote className="border-l-4 border-secondary pl-4 italic text-gray-300 mb-4">
                 "WhitegloveAI's VoiceAI solution has transformed how we handle traffic inquiries. The time savings allow our team to focus on more complex citizen needs."
               </blockquote>
-              <p className="text-sm text-gray-400">— Melissa Kraft, CIO, City of Frisco</p>
+              <p className="text-sm text-gray-400">— Melissa Kraft, CIO, Major Texas City</p>
             </div>
 
             {/* City of McKinney Case Study */}
