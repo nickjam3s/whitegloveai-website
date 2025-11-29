@@ -12,35 +12,23 @@ import { Loader2, Trash2, ShoppingCart, AlertCircle } from "lucide-react";
 import ContactSection from "@/pages/maisp/components/vendorai/ContactSection";
 
 const Checkout = () => {
-  const { items, removeFromCart, updateQuantity, getTotalPrice, clearCart } = useCart();
+  const { items, removeFromCart, updateQuantity, updateLanguage, updateAllLanguages, getTotalPrice, getCommonLanguages, parseLanguages } = useCart();
   const { user } = usePortalAuth();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [guestEmail, setGuestEmail] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [language, setLanguage] = useState("");
-
-  // Get common languages across all courses in cart
-  const getCommonLanguages = () => {
-    if (items.length === 0) return [];
-    
-    // Start with languages from first course - ensure it's an array
-    const firstCourseLangs = items[0].course.languages;
-    let commonLangs = Array.isArray(firstCourseLangs) ? firstCourseLangs : [];
-    
-    // Intersect with languages from each subsequent course
-    for (let i = 1; i < items.length; i++) {
-      const courseLangs = items[i].course.languages;
-      const courseLangsArray = Array.isArray(courseLangs) ? courseLangs : [];
-      commonLangs = commonLangs.filter(lang => courseLangsArray.includes(lang));
-    }
-    
-    return commonLangs;
-  };
+  const [applyToAllLanguage, setApplyToAllLanguage] = useState("");
 
   const commonLanguages = getCommonLanguages();
 
+  const handleApplyToAllLanguage = (language: string) => {
+    setApplyToAllLanguage(language);
+    if (language) {
+      updateAllLanguages(language);
+    }
+  };
 
   const handleCheckout = async () => {
     if (items.length === 0) {
@@ -65,8 +53,10 @@ const Checkout = () => {
       return;
     }
 
-    if (!language) {
-      toast.error("Please select a language");
+    // Validate that all items have a language selected
+    const itemsWithoutLanguage = items.filter(item => !item.language);
+    if (itemsWithoutLanguage.length > 0) {
+      toast.error("Please select a language for all certifications");
       return;
     }
 
@@ -74,11 +64,15 @@ const Checkout = () => {
     try {
       const { data, error } = await supabase.functions.invoke('create-checkout', {
         body: { 
-          items,
+          items: items.map(item => ({
+            priceId: item.priceId,
+            quantity: item.quantity,
+            courseName: item.course.name,
+            language: item.language,
+          })),
           guestEmail: !user ? guestEmail : undefined,
           firstName: firstName.trim(),
           lastName: lastName.trim(),
-          language
         }
       });
 
@@ -88,7 +82,6 @@ const Checkout = () => {
 
       if (data?.url) {
         console.log('Redirecting to Stripe checkout:', data.url);
-        // Use direct navigation instead of window.open to avoid popup blockers
         window.location.href = data.url;
       } else {
         throw new Error('No checkout URL received from server');
@@ -169,28 +162,28 @@ const Checkout = () => {
                     </div>
                   </div>
 
-                  <div className="space-y-2">
-                    <Label htmlFor="language">Preferred Language *</Label>
-                    <select
-                      id="language"
-                      value={language}
-                      onChange={(e) => setLanguage(e.target.value)}
-                      className="w-full px-3 py-2 border border-border rounded-md bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
-                      required
-                    >
-                      <option value="">Select a language</option>
-                      {commonLanguages.map((lang: string) => (
-                        <option key={lang} value={lang}>
-                          {lang}
-                        </option>
-                      ))}
-                    </select>
-                    {commonLanguages.length > 0 && (
+                  {/* Apply Language to All - only show when multiple items and common languages exist */}
+                  {items.length > 1 && commonLanguages.length > 0 && (
+                    <div className="space-y-2 pt-2 border-t">
+                      <Label htmlFor="applyToAll">Apply Language to All Certifications</Label>
+                      <select
+                        id="applyToAll"
+                        value={applyToAllLanguage}
+                        onChange={(e) => handleApplyToAllLanguage(e.target.value)}
+                        className="w-full px-3 py-2 border border-border rounded-md bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                      >
+                        <option value="">Select to apply to all...</option>
+                        {commonLanguages.map((lang: string) => (
+                          <option key={lang} value={lang}>
+                            {lang}
+                          </option>
+                        ))}
+                      </select>
                       <p className="text-sm text-muted-foreground">
                         Only showing languages available for all courses in your cart
                       </p>
-                    )}
-                  </div>
+                    </div>
+                  )}
                 </div>
               </CardContent>
             </Card>
@@ -198,61 +191,89 @@ const Checkout = () => {
             <Card>
               <CardHeader>
                 <CardTitle>Your Cart</CardTitle>
-                <CardDescription>Review your selected courses</CardDescription>
+                <CardDescription>Review your selected courses and choose a language for each certification</CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
-                {items.map((item) => (
-                  <div key={item.course.name} className="flex flex-col sm:flex-row sm:items-center sm:justify-between border-b pb-4 gap-4">
-                    <div className="flex-1">
-                      <h3 className="font-semibold">{item.course.name}</h3>
-                      <p className="text-sm text-muted-foreground">
-                        {item.course.duration} • {item.course.level}
-                      </p>
-                      <p className="text-sm font-semibold mt-1">
-                        ${item.price} per student
-                      </p>
-                    </div>
-                    
-                    <div className="flex items-center justify-between sm:justify-end gap-3 sm:gap-4">
-                      <div className="flex items-center gap-2">
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          onClick={() => updateQuantity(item.course.name, item.quantity - 1)}
-                        >
-                          -
-                        </Button>
-                        <Input
-                          type="number"
-                          min="1"
-                          value={item.quantity}
-                          onChange={(e) => updateQuantity(item.course.name, parseInt(e.target.value) || 1)}
-                          className="w-16 text-center"
-                        />
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          onClick={() => updateQuantity(item.course.name, item.quantity + 1)}
-                        >
-                          +
-                        </Button>
+                {items.map((item) => {
+                  const availableLanguages = parseLanguages(item.course.languages);
+                  
+                  return (
+                    <div key={item.course.name} className="border-b pb-4 last:border-b-0">
+                      <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
+                        <div className="flex-1">
+                          <h3 className="font-semibold">{item.course.name}</h3>
+                          <p className="text-sm text-muted-foreground">
+                            {item.course.duration} • {item.course.level}
+                          </p>
+                          <p className="text-sm font-semibold mt-1">
+                            ${item.price} per student
+                          </p>
+                          
+                          {/* Per-certification language selector */}
+                          <div className="mt-3">
+                            <Label htmlFor={`language-${item.course.name}`} className="text-sm">
+                              Certification Language *
+                            </Label>
+                            <select
+                              id={`language-${item.course.name}`}
+                              value={item.language}
+                              onChange={(e) => updateLanguage(item.course.name, e.target.value)}
+                              className="mt-1 w-full sm:w-auto min-w-[180px] px-3 py-2 border border-border rounded-md bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+                            >
+                              {availableLanguages.map((lang: string) => (
+                                <option key={lang} value={lang}>
+                                  {lang}
+                                </option>
+                              ))}
+                            </select>
+                            <p className="text-xs text-muted-foreground mt-1">
+                              {availableLanguages.length} language{availableLanguages.length !== 1 ? 's' : ''} available
+                            </p>
+                          </div>
+                        </div>
+                        
+                        <div className="flex items-center justify-between sm:justify-end gap-3 sm:gap-4">
+                          <div className="flex items-center gap-2">
+                            <Button
+                              variant="outline"
+                              size="sm"
+                              onClick={() => updateQuantity(item.course.name, item.quantity - 1)}
+                            >
+                              -
+                            </Button>
+                            <Input
+                              type="number"
+                              min="1"
+                              value={item.quantity}
+                              onChange={(e) => updateQuantity(item.course.name, parseInt(e.target.value) || 1)}
+                              className="w-16 text-center"
+                            />
+                            <Button
+                              variant="outline"
+                              size="sm"
+                              onClick={() => updateQuantity(item.course.name, item.quantity + 1)}
+                            >
+                              +
+                            </Button>
+                          </div>
+                          
+                          <div className="min-w-[80px] text-right font-semibold">
+                            ${item.price * item.quantity}
+                          </div>
+                          
+                          <Button
+                            variant="ghost"
+                            size="icon"
+                            onClick={() => removeFromCart(item.course.name)}
+                            className="flex-shrink-0"
+                          >
+                            <Trash2 className="h-4 w-4" />
+                          </Button>
+                        </div>
                       </div>
-                      
-                      <div className="min-w-[80px] text-right font-semibold">
-                        ${item.price * item.quantity}
-                      </div>
-                      
-                      <Button
-                        variant="ghost"
-                        size="icon"
-                        onClick={() => removeFromCart(item.course.name)}
-                        className="flex-shrink-0"
-                      >
-                        <Trash2 className="h-4 w-4" />
-                      </Button>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
                 
                 <div className="pt-4 border-t">
                   <div className="flex justify-between items-center text-xl font-bold">

@@ -51,13 +51,29 @@ serve(async (req) => {
       const customerEmail = session.customer_email || session.customer_details?.email;
       const firstName = session.metadata?.first_name || "";
       const lastName = session.metadata?.last_name || "";
-      const language = session.metadata?.language || "";
+      
+      // Parse per-item language data from metadata
+      let itemsData: Array<{ courseName: string; language: string; quantity: number }> = [];
+      try {
+        if (session.metadata?.items_data) {
+          itemsData = JSON.parse(session.metadata.items_data);
+          console.log("Parsed items data:", itemsData);
+        }
+      } catch (parseError) {
+        console.error("Error parsing items_data:", parseError);
+      }
+
+      // Create a map of course name to language for easy lookup
+      const languageMap = new Map<string, string>();
+      for (const item of itemsData) {
+        languageMap.set(item.courseName, item.language);
+      }
       
       if (!customerEmail) {
         throw new Error("No customer email found in session");
       }
 
-      console.log("Customer details:", { customerEmail, firstName, lastName, language });
+      console.log("Customer details:", { customerEmail, firstName, lastName });
 
       // Create purchase records and prepare email data
       const courses = [];
@@ -69,9 +85,14 @@ serve(async (req) => {
         const quantity = item.quantity || 1;
         const priceAmount = item.price?.unit_amount || 0;
         
+        // Get language for this specific course from the metadata map
+        const language = languageMap.get(courseName) || "";
+        
         totalAmount += priceAmount * quantity;
 
-        // Create purchase record with customer data
+        console.log(`Processing course: ${courseName}, language: ${language}, quantity: ${quantity}`);
+
+        // Create purchase record with per-item language
         const { error: purchaseError } = await supabaseAdmin
           .from("purchases")
           .insert({
@@ -113,6 +134,7 @@ serve(async (req) => {
           name: courseName,
           quantity: quantity,
           price: priceAmount,
+          language: language,
         });
       }
 
@@ -146,7 +168,7 @@ serve(async (req) => {
         // Don't throw - email failure shouldn't block webhook processing
       }
 
-      // Send sales notification email
+      // Send sales notification email with per-course languages
       try {
         const salesEmailResponse = await fetch(
           `${Deno.env.get("SUPABASE_URL")}/functions/v1/send-sales-notification`,
@@ -161,8 +183,7 @@ serve(async (req) => {
               customerEmail,
               firstName,
               lastName,
-              language,
-              courses,
+              courses, // Now includes language per course
               totalAmount,
               currency: session.currency?.toUpperCase() || "USD",
               orderDate: new Date().toISOString(),
