@@ -11,11 +11,11 @@ interface SalesNotificationData {
   customerEmail: string;
   firstName: string;
   lastName: string;
-  language: string;
   courses: Array<{
     name: string;
     quantity: number;
     price: number;
+    language?: string;
   }>;
   totalAmount: number;
   currency: string;
@@ -44,11 +44,14 @@ const handler = async (req: Request): Promise<Response> => {
       minute: '2-digit'
     });
 
-    // Build courses list HTML
+    // Build courses list HTML with per-course language
     const coursesHtml = data.courses.map(course => `
       <tr>
         <td style="padding: 12px; border-bottom: 1px solid #e5e7eb;">
           ${course.name}
+        </td>
+        <td style="padding: 12px; border-bottom: 1px solid #e5e7eb; text-align: center;">
+          ${course.language || 'English'}
         </td>
         <td style="padding: 12px; border-bottom: 1px solid #e5e7eb; text-align: center;">
           ${course.quantity}
@@ -114,10 +117,6 @@ const handler = async (req: Request): Promise<Response> => {
             <td style="padding: 8px 0; color: #6b7280; font-size: 14px;">Email:</td>
             <td style="padding: 8px 0; color: #1f2937; text-align: right;">${data.customerEmail}</td>
           </tr>
-          <tr>
-            <td style="padding: 8px 0; color: #6b7280; font-size: 14px;">Preferred Language:</td>
-            <td style="padding: 8px 0; color: #1f2937; text-align: right;">${data.language}</td>
-          </tr>
         </table>
 
         <h3 style="color: #1f2937; font-size: 18px; margin: 0 0 15px 0;">
@@ -128,7 +127,8 @@ const handler = async (req: Request): Promise<Response> => {
           <thead>
             <tr style="background-color: #f9fafb;">
               <th style="padding: 12px; text-align: left; color: #6b7280; font-weight: 600; font-size: 14px;">Course Name</th>
-              <th style="padding: 12px; text-align: center; color: #6b7280; font-weight: 600; font-size: 14px;">Quantity</th>
+              <th style="padding: 12px; text-align: center; color: #6b7280; font-weight: 600; font-size: 14px;">Language</th>
+              <th style="padding: 12px; text-align: center; color: #6b7280; font-weight: 600; font-size: 14px;">Qty</th>
             </tr>
           </thead>
           <tbody>
@@ -138,7 +138,7 @@ const handler = async (req: Request): Promise<Response> => {
 
         <div style="margin-top: 30px; padding: 20px; background-color: #fef3c7; border-left: 4px solid #f59e0b; border-radius: 4px;">
           <p style="margin: 0; color: #92400e; font-size: 14px; line-height: 1.5;">
-            <strong>Action Required:</strong> Please manually register this customer in the AICerts portal with the information provided above. Ensure they receive their course access credentials via email.
+            <strong>Action Required:</strong> Please manually register this customer in the AICerts portal with the information provided above. Ensure each course is registered in the correct language as specified.
           </p>
         </div>
       </td>

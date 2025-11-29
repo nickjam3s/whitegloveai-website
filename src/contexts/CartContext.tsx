@@ -6,6 +6,7 @@ interface CartItem {
   quantity: number;
   priceId: string;
   price: number;
+  language: string;
 }
 
 interface CartContextType {
@@ -13,17 +14,35 @@ interface CartContextType {
   addToCart: (course: Course, quantity: number) => void;
   removeFromCart: (courseName: string) => void;
   updateQuantity: (courseName: string, quantity: number) => void;
+  updateLanguage: (courseName: string, language: string) => void;
+  updateAllLanguages: (language: string) => void;
   clearCart: () => void;
   getTotalItems: () => number;
   getTotalPrice: () => number;
+  getCommonLanguages: () => string[];
+  parseLanguages: (languageString: string) => string[];
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
+// Helper to parse comma-separated language string into array
+const parseLanguages = (languageString: string): string[] => {
+  if (!languageString) return ['English'];
+  return languageString.split(',').map(lang => lang.trim()).filter(Boolean);
+};
+
 export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [items, setItems] = useState<CartItem[]>(() => {
     const saved = localStorage.getItem('cart');
-    return saved ? JSON.parse(saved) : [];
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      // Ensure all items have a language field (migration for existing carts)
+      return parsed.map((item: any) => ({
+        ...item,
+        language: item.language || 'English'
+      }));
+    }
+    return [];
   });
 
   useEffect(() => {
@@ -51,7 +70,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
             : item
         );
       }
-      return [...prev, { course, quantity, priceId, price }];
+      return [...prev, { course, quantity, priceId, price, language: 'English' }];
     });
   };
 
@@ -71,6 +90,20 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
     );
   };
 
+  const updateLanguage = (courseName: string, language: string) => {
+    setItems(prev =>
+      prev.map(item =>
+        item.course.name === courseName ? { ...item, language } : item
+      )
+    );
+  };
+
+  const updateAllLanguages = (language: string) => {
+    setItems(prev =>
+      prev.map(item => ({ ...item, language }))
+    );
+  };
+
   const clearCart = () => {
     setItems([]);
   };
@@ -83,6 +116,22 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
     return items.reduce((total, item) => total + (item.price * item.quantity), 0);
   };
 
+  // Get languages common to all courses in cart
+  const getCommonLanguages = (): string[] => {
+    if (items.length === 0) return [];
+    
+    // Start with languages from first course
+    let commonLangs = parseLanguages(items[0].course.languages);
+    
+    // Intersect with languages from each subsequent course
+    for (let i = 1; i < items.length; i++) {
+      const courseLangs = parseLanguages(items[i].course.languages);
+      commonLangs = commonLangs.filter(lang => courseLangs.includes(lang));
+    }
+    
+    return commonLangs;
+  };
+
   return (
     <CartContext.Provider
       value={{
@@ -90,9 +139,13 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
         addToCart,
         removeFromCart,
         updateQuantity,
+        updateLanguage,
+        updateAllLanguages,
         clearCart,
         getTotalItems,
         getTotalPrice,
+        getCommonLanguages,
+        parseLanguages,
       }}
     >
       {children}

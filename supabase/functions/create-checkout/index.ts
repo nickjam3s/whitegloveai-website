@@ -18,8 +18,8 @@ serve(async (req) => {
   );
 
   try {
-    // Parse request body
-    const { items, guestEmail, firstName, lastName, language } = await req.json();
+    // Parse request body - items now include per-item language
+    const { items, guestEmail, firstName, lastName } = await req.json();
     
     if (!items || items.length === 0) {
       throw new Error("No items in cart");
@@ -64,7 +64,15 @@ serve(async (req) => {
       quantity: item.quantity,
     }));
 
-    // Create checkout session
+    // Build per-item metadata for languages
+    // Store as JSON string since Stripe metadata values must be strings
+    const itemsMetadata = items.map((item: any, index: number) => ({
+      courseName: item.courseName,
+      language: item.language,
+      quantity: item.quantity,
+    }));
+
+    // Create checkout session with per-item language data in metadata
     const session = await stripe.checkout.sessions.create({
       customer: customerId,
       customer_email: customerId ? undefined : userEmail,
@@ -78,7 +86,8 @@ serve(async (req) => {
         user_email: userEmail,
         first_name: firstName || "",
         last_name: lastName || "",
-        language: language || "",
+        // Store items with their languages as JSON
+        items_data: JSON.stringify(itemsMetadata),
       },
     });
 
