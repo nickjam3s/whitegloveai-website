@@ -61,7 +61,7 @@ const Training = () => {
     {
       icon: Award,
       title: "Industry Recognition",
-      description: "IACET-accredited CEUs accepted by major professional organizations"
+      description: "IACET accreditation coming Jan 2026 – CEUs accepted by major professional organizations"
     },
     {
       icon: BookOpen,
@@ -125,7 +125,7 @@ const Training = () => {
     <>
       <SEO
         title="AI Training & Certification - Texas HB3512 Compliant | WhitegloveAI"
-        description="IACET-accredited AI training programs for Texas government and businesses. Meet HB3512 requirements with TXShare-approved courses. Flexible online and live sessions with expert instructors."
+        description="AI training programs for Texas government and businesses. Meet HB3512 requirements with TXShare-approved courses. IACET accreditation coming Jan 2026. Flexible online and live sessions with expert instructors."
         canonicalPath="/training"
       />
       
@@ -348,40 +348,43 @@ const Training = () => {
             </div>
 
             <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-              {/* IACET Accreditation */}
-              <Card className="border-primary/30">
+              {/* IACET Accreditation - Coming Soon */}
+              <Card className="border-primary/20 bg-muted/30">
                 <CardContent className="pt-8">
                   <div className="flex items-center gap-3 mb-6">
-                    <CheckCircle2 className="h-8 w-8 text-green-500" />
-                    <h3 className="font-semibold text-2xl">IACET Accredited</h3>
+                    <Award className="h-8 w-8 text-primary" />
+                    <div>
+                      <h3 className="font-semibold text-2xl">IACET Accreditation</h3>
+                      <span className="text-sm text-primary font-medium">Coming January 2026</span>
+                    </div>
                   </div>
                   
                   <div className="space-y-4 text-muted-foreground">
                     <p className="font-medium text-foreground">
-                      All WhitegloveAI courses and certifications are accredited by IACET (International Accreditors for Continuing Education and Training).
+                      WhitegloveAI is pursuing IACET (International Accreditors for Continuing Education and Training) accreditation for all courses and certifications.
                     </p>
                     
                     <div className="space-y-2">
                       <p className="flex items-start gap-2">
-                        <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 shrink-0" />
-                        <span>IACET CEUs are recognized by professional associations, regulatory boards, and corporations worldwide</span>
+                        <Award className="h-5 w-5 text-primary mt-0.5 shrink-0" />
+                        <span>IACET CEUs will be recognized by professional associations, regulatory boards, and corporations worldwide</span>
                       </p>
                       <p className="flex items-start gap-2">
-                        <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 shrink-0" />
+                        <Award className="h-5 w-5 text-primary mt-0.5 shrink-0" />
                         <span>Based on the ANSI/IACET Standard for Continuing Education and Training</span>
                       </p>
                       <p className="flex items-start gap-2">
-                        <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 shrink-0" />
+                        <Award className="h-5 w-5 text-primary mt-0.5 shrink-0" />
                         <span>1 CEU equals 10 contact hours of quality instruction</span>
                       </p>
                       <p className="flex items-start gap-2">
-                        <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 shrink-0" />
+                        <Award className="h-5 w-5 text-primary mt-0.5 shrink-0" />
                         <span>Transferable credits accepted for professional development requirements</span>
                       </p>
                     </div>
 
                     <p className="text-sm pt-2">
-                      IACET accreditation ensures our training programs meet rigorous standards for design, delivery, measurement, and outcomes—giving you confidence in the quality and recognition of your certification.
+                      IACET accreditation will ensure our training programs meet rigorous standards for design, delivery, measurement, and outcomes—giving you confidence in the quality and recognition of your certification.
                     </p>
                   </div>
                 </CardContent>
