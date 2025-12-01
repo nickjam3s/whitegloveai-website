@@ -395,12 +395,15 @@ const Training = () => {
                 <CardContent className="pt-8">
                   <div className="flex items-center gap-3 mb-6">
                     <Award className="h-8 w-8 text-primary" />
-                    <h3 className="font-semibold text-2xl">Coming January 2026</h3>
+                    <div>
+                      <h3 className="font-semibold text-2xl">ANAB/ANSI Accreditation</h3>
+                      <span className="text-sm text-primary font-medium">Coming January 2026</span>
+                    </div>
                   </div>
                   
                   <div className="space-y-4 text-muted-foreground">
                     <p className="font-medium text-foreground">
-                      ANAB/ANSI Accreditation for Personnel Certification
+                      Personnel Certification under ISO/IEC 17024 standards
                     </p>
                     
                     <div className="space-y-2">
