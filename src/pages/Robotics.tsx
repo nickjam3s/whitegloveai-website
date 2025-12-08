@@ -195,13 +195,13 @@ const HumanoidAI = () => {
   const jsonLdSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "EmbodiedAI",
+    "name": "Robotics",
     "provider": {
       "@type": "Organization",
       "name": "WhitegloveAI"
     },
     "areaServed": "US",
-    "serviceType": "Managed Embodied AI Robot Operations",
+    "serviceType": "Managed Robotics Operations",
     "audience": {
       "@type": "Audience",
       "audienceType": "BusinessExecutive"
@@ -224,9 +224,9 @@ const HumanoidAI = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO 
-        title="EmbodiedAI™ by WhitegloveAI | Needs Assessment, Procurement & Managed Robot Ops"
-        description="Deploy embodied AI robots safely with WhitegloveAI. We handle readiness, procurement, setup, and maintenance—aligned to NIST AI RMF, ISO 42001, and TRAIGA."
-        canonicalPath="/embodiedai"
+        title="Robotics by WhitegloveAI | Needs Assessment, Procurement & Managed Robot Ops"
+        description="Deploy AI robots safely with WhitegloveAI. We handle readiness, procurement, setup, and maintenance—aligned to NIST AI RMF, ISO 42001, and TRAIGA."
+        canonicalPath="/robotics"
         schemas={jsonLdSchema}
       />
 
@@ -240,7 +240,7 @@ const HumanoidAI = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              EmbodiedAI™ — Managed Embodied AI Robots, Safely Deployed
+              Robotics — Managed AI Robots, Safely Deployed
             </motion.h1>
           
           <motion.p 
@@ -249,7 +249,7 @@ const HumanoidAI = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Deploy embodied AI robots for concierge, inspection, and operational tasks—WhitegloveAI handles readiness, procurement, and 24/7 upkeep under our MAISP program.
+            Deploy AI robots for concierge, inspection, and operational tasks—WhitegloveAI handles readiness, procurement, and 24/7 upkeep under our MAISP program.
           </motion.p>
           
           <motion.div 
@@ -277,7 +277,7 @@ const HumanoidAI = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold mb-6 heading-highlight-scroll">
-                Embodied AI Robotics at the Tipping Point
+                AI Robotics at the Tipping Point
               </h2>
               <p className="text-lg text-gray-300 leading-relaxed">
                 Costs are falling, capabilities are rising, and early adopters are securing efficiency gains and service coverage advantages their competitors can't match. With WhitegloveAI, you get there first—safely, compliantly, and with measurable ROI.
@@ -286,7 +286,7 @@ const HumanoidAI = () => {
             <div className="flex justify-center">
               <img 
                 src="/lovable-uploads/af75627a-048f-43fc-be81-d3bd38807d05.png" 
-                alt="Advanced embodied AI robot in operational environment"
+                alt="Advanced AI robot in operational environment"
                 className="max-w-full h-auto rounded-lg shadow-lg"
               />
             </div>
@@ -319,7 +319,7 @@ const HumanoidAI = () => {
       <section className="py-20 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 heading-highlight-scroll">
-            Where Embodied AI Fits
+            Where AI Robotics Fits
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {useCases.map((useCase, index) => (
