@@ -30,16 +30,10 @@ const ExecutiveTeam = () => {
       linkedinUrl: "https://www.linkedin.com/in/tobalo/"
     },
     {
-      name: "Binni Skariah",
-      title: "Product Owner",
-      image: "/employee/Binni.jpeg",
-      linkedinUrl: "https://www.linkedin.com/in/bskariah/"
-    },
-    {
-      name: "Daniel Valencia",
-      title: "Head of Security",
+      name: "Vanessa Sifuentez",
+      title: "Government Advisor",
       image: "/lovable-uploads/15e1ef3c-8f52-4735-b48e-159dea83470c.png",
-      linkedinUrl: "https://www.linkedin.com/in/daniel-valencia/"
+      linkedinUrl: "https://www.linkedin.com/in/vanessa-sifuentez/"
     },
     {
       name: "Davis Bhagat",
@@ -82,7 +76,7 @@ const ExecutiveTeam = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {executives.map((executive, index) => (
             <div 
               key={index} 
