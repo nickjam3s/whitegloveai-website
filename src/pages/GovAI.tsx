@@ -21,7 +21,7 @@ import { Button } from "@/components/ui/button";
 import ScrollAnimation from '@/components/animations/ScrollAnimation';
 import '@/styles/animations.css';
 import HB3512Banner from "@/components/HB3512Banner";
-import LucidisBanner from "@/components/LucidisBanner";
+
 import SEO from '@/components/SEO';
 import HeroBackground from "@/components/shared/HeroBackground";
 
@@ -117,7 +117,7 @@ const GovAI = () => {
       </section>
 
       <HB3512Banner />
-      <LucidisBanner />
+      
 
       {/* Services for Government Section */}
       <section className="py-20 bg-background scroll-mt-20">
@@ -259,7 +259,7 @@ const GovAI = () => {
                     <span className="text-secondary font-semibold">Contract #2025-018</span>
                     <CheckCircle2 className="h-5 w-5 text-secondary" />
                   </div>
-                  <p className="text-white font-medium"><a href="https://www.lucidis.ai" target="_blank" rel="noopener noreferrer" className="hover:text-secondary transition-colors">Lucidis</a> AI Platform</p>
+                  <p className="text-white font-medium">CommunicationsAI Platform</p>
                   <p className="text-sm text-gray-400 mt-2">Unified communications AI for citizen engagement</p>
                 </div>
               </div>

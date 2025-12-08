@@ -8,7 +8,7 @@ import ContactSection from "../maisp/components/textaiforgood/ContactSection";
 import ScrollAnimation from '@/components/animations/ScrollAnimation';
 import SEO from '@/components/SEO';
 import '@/styles/animations.css'; // Import animations CSS
-import LucidisBanner from '@/components/LucidisBanner';
+
 
 const TextAIForGood = () => {
   // Use useLayoutEffect to prevent flash of content before scroll position is set
@@ -93,7 +93,7 @@ const TextAIForGood = () => {
         canonicalPath="/communications-ai/text-ai/textai-for-good"
       />
       <HeroSection />
-      <LucidisBanner />
+      
       <BenefitsSection />
       <EfficiencyImpactSection />
       <PartnersSection />

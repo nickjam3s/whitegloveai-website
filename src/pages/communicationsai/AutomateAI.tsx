@@ -9,7 +9,7 @@ import ContactSection from "../maisp/components/automateai/ContactSection";
 import ScrollAnimation from '@/components/animations/ScrollAnimation';
 import SEO from '@/components/SEO';
 import '@/styles/animations.css'; // Import animations CSS
-import LucidisBanner from '@/components/LucidisBanner';
+
 
 const AutomateAI = () => {
   // Use useLayoutEffect to prevent flash of content before scroll position is set
@@ -81,7 +81,7 @@ const AutomateAI = () => {
         canonicalPath="/communications-ai/automate-ai"
       />
       <HeroSection />
-      <LucidisBanner />
+      
       <ChallengesSection />
       <SolutionsSection />
       <FeaturesSection />

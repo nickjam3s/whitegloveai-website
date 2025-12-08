@@ -14,7 +14,7 @@ import { ArrowRight, CheckCircle2, BarChart4, Shield } from "lucide-react";
 import ScrollAnimation from '@/components/animations/ScrollAnimation';
 import SEO from '@/components/SEO';
 import '@/styles/animations.css'; // Import animations CSS
-import LucidisBanner from '@/components/LucidisBanner';
+
 
 const TextAI = () => {
   // Use useLayoutEffect to prevent flash of content before scroll position is set
@@ -86,7 +86,7 @@ const TextAI = () => {
         canonicalPath="/communications-ai/text-ai"
       />
       <HeroSection />
-      <LucidisBanner />
+      
       
       {/* Key Features Section */}
       <section className="py-20 bg-card scroll-mt-20">
