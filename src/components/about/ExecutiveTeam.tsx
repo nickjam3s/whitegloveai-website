@@ -32,7 +32,7 @@ const ExecutiveTeam = () => {
     {
       name: "Vanessa Sifuentez",
       title: "Government Advisor",
-      image: "/lovable-uploads/15e1ef3c-8f52-4735-b48e-159dea83470c.png",
+      image: "/employee/Vanessa.jpeg",
       linkedinUrl: "https://www.linkedin.com/in/vanessa-sifuentez/"
     },
     {
