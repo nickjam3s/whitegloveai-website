@@ -29,7 +29,7 @@ const Services = () => {
     {
       icon: MessageSquare,
       title: "CommunicationsAI",
-      description: "Unified AI communication management powered by <a href='https://www.lucidis.ai' target='_blank' rel='noopener noreferrer' className='hover:text-secondary transition-colors'>Lucidis</a>",
+      description: "Unified AI communication management",
       link: "/communicationsai",
       gradient: "from-purple-500 to-pink-600"
     },

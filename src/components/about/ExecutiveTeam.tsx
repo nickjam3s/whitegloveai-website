@@ -31,7 +31,7 @@ const ExecutiveTeam = () => {
     },
     {
       name: "Binni Skariah",
-      title: "Product Owner of <a href='https://www.lucidis.ai' target='_blank' rel='noopener noreferrer' className='hover:text-secondary transition-colors'>Lucidis</a>.AI",
+      title: "Product Owner",
       image: "/employee/Binni.jpeg",
       linkedinUrl: "https://www.linkedin.com/in/bskariah/"
     },

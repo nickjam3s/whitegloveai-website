@@ -21,7 +21,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import '@/styles/animations.css';
 import SEO from '@/components/SEO';
-import LucidisBanner from '@/components/LucidisBanner';
+
 
 const CommunicationsAI = () => {
   useEffect(() => {
@@ -62,7 +62,7 @@ const CommunicationsAI = () => {
     <div className="min-h-screen bg-black text-white font-sans overflow-x-hidden">
       <SEO
         title="CommunicationsAI - Unified AI Communications Platform | WhitegloveAI"
-        description="Unify every conversation and automate every interaction with CommunicationsAI, powered by Lucidis. Transform scattered communications into intelligent, automated streams."
+        description="Unify every conversation and automate every interaction with CommunicationsAI. Transform scattered communications into intelligent, automated streams."
         canonicalPath="/communications-ai"
       />
       
@@ -96,9 +96,9 @@ const CommunicationsAI = () => {
               initial={{ opacity: 0, y: 20 }} 
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-lg md:text-xl lg:text-2xl text-gray-200 mb-8 md:mb-12 max-w-4xl mx-auto px-3 sm:px-0 text-shadow-sm"
-            >
-              Welcome to CommunicationsAI, the central nervous system for your organization's outreach. Powered by our proprietary <a href="https://www.lucidis.ai" target="_blank" rel="noopener noreferrer" className="hover:text-secondary transition-colors">Lucidis</a> platform, we transform scattered citizen and customer interactions into a single, intelligent stream of communication.
+            className="text-lg md:text-xl lg:text-2xl text-gray-200 mb-8 md:mb-12 max-w-4xl mx-auto px-3 sm:px-0 text-shadow-sm"
+          >
+              Welcome to CommunicationsAI, the central nervous system for your organization's outreach. We transform scattered citizen and customer interactions into a single, intelligent stream of communication.
             </motion.p>
 
             <motion.div 
@@ -115,7 +115,7 @@ const CommunicationsAI = () => {
         </div>
       </section>
 
-      <LucidisBanner />
+      
 
       {/* Problem Section */}
       <section id="problem-section" className="py-20 bg-card scroll-mt-20">
@@ -156,7 +156,7 @@ const CommunicationsAI = () => {
         </div>
       </section>
 
-      {/* Solution Section - Powered by Lucidis */}
+      {/* Solution Section */}
       <section className="py-20 bg-background scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -173,13 +173,13 @@ const CommunicationsAI = () => {
               </p>
             </div>
             <h2 className="text-3xl md:text-4xl font-semibold mb-6 heading-highlight-scroll">
-              The <a href="https://www.lucidis.ai" target="_blank" rel="noopener noreferrer" className="hover:text-secondary transition-colors">Lucidis</a> Platform: Your AI-Powered Communications Engine
+              Your AI-Powered Communications Engine
             </h2>
             <p className="text-xl text-gray-300 max-w-4xl mx-auto mb-4">
-              CommunicationsAI isn't a collection of separate tools; it's a unified service built on <a href="https://www.lucidis.ai" target="_blank" rel="noopener noreferrer" className="hover:text-secondary transition-colors">Lucidis</a>, our SOC 2 Type II certified AI platform designed for the security and scale that government agencies and businesses demand.
+              CommunicationsAI isn't a collection of separate tools; it's a unified service built on our SOC 2 Type II certified AI platform designed for the security and scale that government agencies and businesses demand.
             </p>
             <p className="text-lg text-gray-400 max-w-3xl mx-auto">
-              <a href="https://www.lucidis.ai" target="_blank" rel="noopener noreferrer" className="hover:text-secondary transition-colors">Lucidis</a> provides a single, persistent memory for every interaction, ensuring context is never lost.
+              Our platform provides a single, persistent memory for every interaction, ensuring context is never lost.
             </p>
           </motion.div>
           

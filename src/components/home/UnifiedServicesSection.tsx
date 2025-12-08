@@ -71,11 +71,11 @@ const UnifiedServicesSection = () => {
       {/* Section 2: CommunicationsAI */}
       <div className="bg-background/50 rounded-xl p-12 border border-secondary/30 animate-fade-up">
         <div className="text-center mb-12">
-          <h3 className="text-3xl font-semibold mb-4 text-[#9b87f5]">
-            CommunicationsAI: Powered by Lucidis
+        <h3 className="text-3xl font-semibold mb-4 text-[#9b87f5]">
+            CommunicationsAI
           </h3>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Unify every conversation across chat, voice, and text. Our proprietary Lucidis platform transforms scattered interactions into intelligent, automated workflows.
+            Unify every conversation across chat, voice, and text. Our proprietary platform transforms scattered interactions into intelligent, automated workflows.
           </p>
         </div>
 
