@@ -30,8 +30,6 @@ export const navigationLinks = [
         to: "/communications-ai",
         children: [
           { to: "/communications-ai", text: "Overview" },
-          { to: "/communications-ai/automate-ai", text: "AutomateAI" },
-          { to: "/communications-ai/avatar-ai", text: "AvatarAI" },
           {
             text: "TextAI",
             to: "/communications-ai/text-ai",
@@ -40,7 +38,9 @@ export const navigationLinks = [
               { to: "/communications-ai/text-ai/textai-for-good", text: "TextAI for Good Program" }
             ]
           },
-          { to: "/communications-ai/voice-ai", text: "VoiceAI" }
+          { to: "/communications-ai/voice-ai", text: "VoiceAI" },
+          { to: "/communications-ai/avatar-ai", text: "AvatarAI" },
+          { to: "/communications-ai/automate-ai", text: "AutomateAI" }
         ]
       },
     { to: "/translateai", text: "TranslateAI" },
