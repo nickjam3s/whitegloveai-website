@@ -35,7 +35,7 @@ import TrainingCatalogue from "./pages/TrainingCatalogue";
 import HB3512 from "./pages/training/HB3512";
 import GovAI from "./pages/GovAI";
 import TranslateAI from "./pages/TranslateAI";
-import EmbodiedAI from "./pages/EmbodiedAI";
+import Robotics from "./pages/Robotics";
 import AILab from "./pages/AILab";
 
 // CommunicationsAI Routes
@@ -110,7 +110,7 @@ const AppContent = () => {
                 <Route path="/training" element={<Training />} />
                 <Route path="/training/catalogue" element={<TrainingCatalogue />} />
                 <Route path="/training/hb3512" element={<HB3512 />} />
-                <Route path="/embodiedai" element={<EmbodiedAI />} />
+                <Route path="/robotics" element={<Robotics />} />
                 <Route path="/govai" element={<GovAI />} />
                 
                 {/* Redirects from old routes */}
@@ -126,9 +126,10 @@ const AppContent = () => {
                 <Route path="/maisp/voiceai" element={<Navigate to="/communications-ai/voice-ai" replace />} />
                 <Route path="/maisp/avatarai" element={<Navigate to="/communications-ai/avatar-ai" replace />} />
                 <Route path="/maisp/automateai" element={<Navigate to="/communications-ai/automate-ai" replace />} />
-                <Route path="/maisp/embodied-ai" element={<Navigate to="/embodiedai" replace />} />
-                <Route path="/maisp/humaniodai" element={<Navigate to="/embodiedai" replace />} />
-                <Route path="/maisp/humanoid-ai" element={<Navigate to="/embodiedai" replace />} />
+                <Route path="/maisp/embodied-ai" element={<Navigate to="/robotics" replace />} />
+                <Route path="/maisp/humaniodai" element={<Navigate to="/robotics" replace />} />
+                <Route path="/maisp/humanoid-ai" element={<Navigate to="/robotics" replace />} />
+                <Route path="/embodiedai" element={<Navigate to="/robotics" replace />} />
                 <Route path="/maisp/translateai" element={<Navigate to="/translateai" replace />} />
                 <Route path="/maisp/vendorai" element={<VendorAI />} />
                 <Route path="/maisp/mediaai" element={<MediaAI />} />

@@ -54,7 +54,7 @@ export const navigationLinks = [
         { to: "/training/hb3512", text: "Texas HB3512 Compliance" }
       ]
     },
-      { to: "/embodiedai", text: "EmbodiedAI" }
+      { to: "/robotics", text: "Robotics" }
     ]
   },
   {

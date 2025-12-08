@@ -49,9 +49,9 @@ const Services = () => {
     },
     {
       icon: Bot,
-      title: "EmbodiedAI",
-      description: "Integration and management of embodied AI robotic systems",
-      link: "/embodiedai",
+      title: "Robotics",
+      description: "Integration and management of AI-powered robotic systems",
+      link: "/robotics",
       gradient: "from-cyan-500 to-blue-600"
     }
   ];
