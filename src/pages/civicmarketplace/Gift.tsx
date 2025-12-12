@@ -33,6 +33,9 @@ const ENTITY_TYPES = [
   { value: 'civic_orchestrator', label: 'Civic Orchestrator - Main city assistant/router' },
   { value: 'corporate', label: 'Corporate - Business departments' },
   { value: 'organizational', label: 'Organizational - Non-profit organizations' },
+  { value: 'school', label: 'School - Educational institution services' },
+  { value: 'county_government', label: 'County Government - County records, courts, and permits' },
+  { value: 'state_government', label: 'State Government - Licenses, benefits, and regulations' },
 ];
 
 const US_STATES = [
