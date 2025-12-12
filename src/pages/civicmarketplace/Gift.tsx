@@ -58,6 +58,26 @@ const FIELD_TOOLTIPS: Record<string, string> = {
 const CALENDAR_LINK = "https://calendar.google.com/calendar/appointments/schedules/AcZssZ06roEHldr-EaUSD3PSphSeCF8OVWb3NzT5PjfDxwMMpLfZX2v15Dzk4Bj02xtMwXVZMxHv2mkN";
 const VOICE_AI_LINK = "/communications-ai/voice-ai";
 
+// FieldWithTooltip defined outside component to prevent focus loss on re-render
+const FieldWithTooltip = ({ id, label, children }: { id: string; label: string; children: React.ReactNode }) => (
+  <div className="space-y-2">
+    <div className="flex items-center gap-2">
+      <Label htmlFor={id} className="text-white">{label}</Label>
+      <TooltipProvider>
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <HelpCircle className="h-4 w-4 text-gray-400 cursor-help" />
+          </TooltipTrigger>
+          <TooltipContent className="max-w-xs bg-gray-800 text-white border-gray-700">
+            <p>{FIELD_TOOLTIPS[id]}</p>
+          </TooltipContent>
+        </Tooltip>
+      </TooltipProvider>
+    </div>
+    {children}
+  </div>
+);
+
 // HubSpot form embed component
 const HubSpotForm = () => {
   useEffect(() => {
@@ -307,24 +327,7 @@ const GiftContent = () => {
     toast.success('CSV exported successfully');
   };
 
-  const FieldWithTooltip = ({ id, label, children }: { id: string; label: string; children: React.ReactNode }) => (
-    <div className="space-y-2">
-      <div className="flex items-center gap-2">
-        <Label htmlFor={id} className="text-white">{label}</Label>
-        <TooltipProvider>
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <HelpCircle className="h-4 w-4 text-gray-400 cursor-help" />
-            </TooltipTrigger>
-            <TooltipContent className="max-w-xs bg-gray-800 text-white border-gray-700">
-              <p>{FIELD_TOOLTIPS[id]}</p>
-            </TooltipContent>
-          </Tooltip>
-        </TooltipProvider>
-      </div>
-      {children}
-    </div>
-  );
+  // FieldWithTooltip moved outside component to prevent focus loss
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#1A0D33] to-black font-sora pt-24">
