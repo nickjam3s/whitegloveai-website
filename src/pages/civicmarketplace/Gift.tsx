@@ -19,8 +19,8 @@ interface FormData {
   entity_type: string;
   primary_name: string;
   state: string;
-  phone_area_code: string;
   website: string;
+  acceptedTerms: boolean;
 }
 
 const ENTITY_TYPES = [
@@ -95,8 +95,18 @@ const FIELD_TOOLTIPS: Record<string, string> = {
   entity_type: 'Select the type of organization you\'re provisioning an AI agent for. This determines the agent\'s behavior and responses.',
   primary_name: 'The name of your organization or entity (e.g., "City of Austin", "Travis County", "Acme Corporation")',
   state: 'Select the state where your entity operates',
-  phone_area_code: '3-digit area code for the provisioned phone number (e.g., 512 for Austin, TX)',
   website: 'URL to scrape for building the agent\'s knowledge base. The agent will use content from this site to answer questions.',
+};
+
+// Format phone number as +1 000-000-0000
+const formatPhoneNumber = (phone: string): string => {
+  const cleaned = phone.replace(/\D/g, '');
+  if (cleaned.length === 10) {
+    return `+1 ${cleaned.slice(0, 3)}-${cleaned.slice(3, 6)}-${cleaned.slice(6)}`;
+  } else if (cleaned.length === 11 && cleaned.startsWith('1')) {
+    return `+1 ${cleaned.slice(1, 4)}-${cleaned.slice(4, 7)}-${cleaned.slice(7)}`;
+  }
+  return phone;
 };
 
 const CALENDAR_LINK = "https://calendar.google.com/calendar/appointments/schedules/AcZssZ06roEHldr-EaUSD3PSphSeCF8OVWb3NzT5PjfDxwMMpLfZX2v15Dzk4Bj02xtMwXVZMxHv2mkN";
@@ -179,8 +189,8 @@ const GiftContent = () => {
     entity_type: 'municipal',
     primary_name: '',
     state: 'Texas',
-    phone_area_code: '',
     website: '',
+    acceptedTerms: false,
   });
   const [additionalEmails, setAdditionalEmails] = useState('');
   const [sendingEmail, setSendingEmail] = useState(false);
@@ -245,9 +255,8 @@ const GiftContent = () => {
   const validateForm = (): string | null => {
     if (!formData.primary_name.trim()) return 'Entity name is required';
     if (formData.primary_name.length > 100) return 'Entity name must be 100 characters or less';
-    if (!formData.phone_area_code.trim()) return 'Phone area code is required';
-    if (!/^\d{3}$/.test(formData.phone_area_code)) return 'Phone area code must be exactly 3 digits';
     if (formData.website && !/^https?:\/\/.+/.test(formData.website)) return 'Website must be a valid URL starting with http:// or https://';
+    if (!formData.acceptedTerms) return 'You must accept the Terms and Conditions and Privacy Policy';
     return null;
   };
 
@@ -586,36 +595,23 @@ const GiftContent = () => {
                       />
                     </FieldWithTooltip>
 
-                    <div className="grid md:grid-cols-2 gap-4">
-                      <FieldWithTooltip id="state" label="State *">
-                        <Select
-                          value={formData.state}
-                          onValueChange={(value) => setFormData({ ...formData, state: value })}
-                        >
-                          <SelectTrigger className="bg-gray-700/50 border-gray-600 text-white">
-                            <SelectValue />
-                          </SelectTrigger>
-                          <SelectContent className="bg-gray-800 border-gray-700 max-h-60">
-                            {US_STATES.map((state) => (
-                              <SelectItem key={state.value} value={state.value} className="text-white hover:bg-gray-700">
-                                {state.label}
-                              </SelectItem>
-                            ))}
-                          </SelectContent>
-                        </Select>
-                      </FieldWithTooltip>
-
-                      <FieldWithTooltip id="phone_area_code" label="Phone Area Code *">
-                        <Input
-                          id="phone_area_code"
-                          placeholder="e.g., 512"
-                          value={formData.phone_area_code}
-                          onChange={(e) => setFormData({ ...formData, phone_area_code: e.target.value.replace(/\D/g, '').slice(0, 3) })}
-                          className="bg-gray-700/50 border-gray-600 text-white placeholder:text-gray-400"
-                          maxLength={3}
-                        />
-                      </FieldWithTooltip>
-                    </div>
+                    <FieldWithTooltip id="state" label="State *">
+                      <Select
+                        value={formData.state}
+                        onValueChange={(value) => setFormData({ ...formData, state: value })}
+                      >
+                        <SelectTrigger className="bg-gray-700/50 border-gray-600 text-white">
+                          <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent className="bg-gray-800 border-gray-700 max-h-60">
+                          {US_STATES.map((state) => (
+                            <SelectItem key={state.value} value={state.value} className="text-white hover:bg-gray-700">
+                              {state.label}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </FieldWithTooltip>
 
                     <FieldWithTooltip id="website" label="Website URL">
                       <Input
@@ -626,6 +622,28 @@ const GiftContent = () => {
                         className="bg-gray-700/50 border-gray-600 text-white placeholder:text-gray-400"
                       />
                     </FieldWithTooltip>
+
+                    {/* Terms and Conditions Checkbox */}
+                    <div className="flex items-start gap-3 p-4 bg-gray-700/30 rounded-lg border border-gray-600">
+                      <input
+                        type="checkbox"
+                        id="acceptedTerms"
+                        checked={formData.acceptedTerms}
+                        onChange={(e) => setFormData({ ...formData, acceptedTerms: e.target.checked })}
+                        className="mt-1 h-4 w-4 rounded border-gray-500 bg-gray-700 text-purple-600 focus:ring-purple-500"
+                      />
+                      <label htmlFor="acceptedTerms" className="text-sm text-gray-300">
+                        I agree to the{' '}
+                        <a href="/terms" target="_blank" rel="noopener noreferrer" className="text-purple-400 hover:text-purple-300 underline">
+                          Terms and Conditions
+                        </a>{' '}
+                        and{' '}
+                        <a href="/privacy" target="_blank" rel="noopener noreferrer" className="text-purple-400 hover:text-purple-300 underline">
+                          Privacy Policy
+                        </a>
+                        . <span className="text-red-400">*</span>
+                      </label>
+                    </div>
                   </div>
 
                   {isLoading && (
@@ -685,7 +703,7 @@ const GiftContent = () => {
                     <p className="text-purple-300 text-sm text-center mb-2">Your Agent Phone Number</p>
                     <div className="flex items-center justify-center gap-3">
                       <p className="text-4xl font-bold text-white tracking-wider">
-                        {result.phone_number}
+                        {formatPhoneNumber(result.phone_number)}
                       </p>
                       <Button
                         variant="ghost"
@@ -696,25 +714,29 @@ const GiftContent = () => {
                         {copied ? <Check className="h-5 w-5" /> : <Copy className="h-5 w-5" />}
                       </Button>
                     </div>
-                    <p className="text-gray-400 text-sm text-center mt-2">Agent ID: {result.agent_id}</p>
                   </div>
 
-                  {/* Send to Additional Emails */}
-                  <div className="bg-gray-700/30 rounded-xl p-6 space-y-4">
-                    <h3 className="text-white font-bold flex items-center gap-2">
-                      <Mail className="h-5 w-5 text-purple-400" />
-                      Share This Information with Your Team
-                    </h3>
-                    <p className="text-gray-400 text-sm">
-                      Enter additional email addresses to send the phone number details (comma-separated)
-                    </p>
-                    <div className="flex gap-3">
+                  {/* Send to Additional Emails - Required & Prominent */}
+                  <div className="bg-gradient-to-br from-purple-900/50 to-purple-800/30 rounded-xl p-6 space-y-4 border-2 border-purple-500/50">
+                    <div className="flex items-center gap-3">
+                      <div className="w-12 h-12 bg-purple-500/30 rounded-full flex items-center justify-center">
+                        <Mail className="h-6 w-6 text-purple-300" />
+                      </div>
+                      <div>
+                        <h3 className="text-white font-bold text-lg">Share with Your Team</h3>
+                        <p className="text-purple-300 text-sm">Send the phone number details to colleagues</p>
+                      </div>
+                    </div>
+                    <div className="space-y-3">
+                      <Label htmlFor="additional_emails" className="text-white">
+                        Team Email Addresses <span className="text-gray-400">(comma-separated)</span>
+                      </Label>
                       <Input
                         id="additional_emails"
                         placeholder="colleague@example.gov, team@example.gov"
                         value={additionalEmails}
                         onChange={(e) => setAdditionalEmails(e.target.value)}
-                        className="bg-gray-700/50 border-gray-600 text-white placeholder:text-gray-400 flex-1"
+                        className="bg-gray-700/50 border-gray-600 text-white placeholder:text-gray-400"
                       />
                       <Button
                         onClick={async () => {
@@ -742,14 +764,14 @@ const GiftContent = () => {
                           }
                         }}
                         disabled={sendingEmail}
-                        className="bg-purple-600 hover:bg-purple-700"
+                        className="w-full bg-purple-600 hover:bg-purple-700 py-3 text-lg font-semibold"
                       >
                         {sendingEmail ? (
-                          <Loader2 className="h-4 w-4 animate-spin" />
+                          <Loader2 className="h-5 w-5 animate-spin mr-2" />
                         ) : (
-                          <Mail className="h-4 w-4" />
+                          <Mail className="h-5 w-5 mr-2" />
                         )}
-                        <span className="ml-2">Send</span>
+                        Send Phone Number to Team
                       </Button>
                     </div>
                   </div>

@@ -11,7 +11,6 @@ interface AgentCreateRequest {
   primary_name: string;
   secondary_name: string;
   region: string;
-  phone_area_code: string;
   specialization: string;
   website?: string;
   provision_kb: boolean;
@@ -60,12 +59,12 @@ serve(async (req) => {
 
     // Prepare request body for external API
     // secondary_name is required by API but we're using entity name as both primary and secondary
+    // phone_area_code is not sent - API will auto-select
     const apiRequestBody: AgentCreateRequest = {
       entity_type: formData.entity_type || 'municipal',
       primary_name: formData.primary_name,
       secondary_name: formData.primary_name, // Use primary_name as secondary since field was removed
       region: formData.state || 'Texas', // Map state to region
-      phone_area_code: formData.phone_area_code,
       specialization: 'General Services', // Default value since field was removed
       website: formData.website || undefined,
       provision_kb: false, // Removed from UI, default to false
@@ -109,7 +108,7 @@ serve(async (req) => {
         primary_name: apiRequestBody.primary_name,
         secondary_name: apiRequestBody.secondary_name,
         region: apiRequestBody.region,
-        phone_area_code: apiRequestBody.phone_area_code,
+        phone_area_code: 'auto', // API auto-selects
         specialization: apiRequestBody.specialization,
         website: apiRequestBody.website,
         provision_kb: apiRequestBody.provision_kb,
