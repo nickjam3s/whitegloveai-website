@@ -277,7 +277,7 @@ const GiftContent = () => {
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#1A0D33] to-black font-sora">
+    <div className="min-h-screen bg-gradient-to-b from-[#1A0D33] to-black font-sora pt-24">
       <div className="container mx-auto px-4 py-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -292,7 +292,7 @@ const GiftContent = () => {
               className="h-12 mx-auto mb-6"
             />
             <h1 className="text-3xl font-bold text-white mb-2">
-              Civic AI Gift Program
+              Civic Marketplace AI Gift Program
             </h1>
             <p className="text-gray-400">
               Provision your complimentary AI agent for civic services
