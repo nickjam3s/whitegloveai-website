@@ -11,6 +11,7 @@ interface AgentCreateRequest {
   primary_name: string;
   secondary_name: string;
   region: string;
+  phone_area_code: string;
   specialization: string;
   website?: string;
   provision_kb: boolean;
@@ -59,12 +60,13 @@ serve(async (req) => {
 
     // Prepare request body for external API
     // secondary_name is required by API but we're using entity name as both primary and secondary
-    // phone_area_code is not sent - API will auto-select
+    // phone_area_code defaults to 214 (Texas) since the API requires it
     const apiRequestBody: AgentCreateRequest = {
       entity_type: formData.entity_type || 'municipal',
       primary_name: formData.primary_name,
       secondary_name: formData.primary_name, // Use primary_name as secondary since field was removed
       region: formData.state || 'Texas', // Map state to region
+      phone_area_code: '214', // Default Texas area code - API will auto-select from available inventory
       specialization: 'General Services', // Default value since field was removed
       website: formData.website || undefined,
       provision_kb: false, // Removed from UI, default to false
