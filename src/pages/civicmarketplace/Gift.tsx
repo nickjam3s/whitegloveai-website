@@ -20,7 +20,6 @@ interface FormData {
   primary_name: string;
   state: string;
   phone_area_code: string;
-  specialization: string;
   website: string;
 }
 
@@ -94,7 +93,6 @@ const FIELD_TOOLTIPS: Record<string, string> = {
   primary_name: 'The name of your organization or entity (e.g., "City of Austin", "Travis County", "Acme Corporation")',
   state: 'Select the state where your entity operates',
   phone_area_code: '3-digit area code for the provisioned phone number (e.g., 512 for Austin, TX)',
-  specialization: 'Specific service focus of this agent (e.g., "Water Services", "Building Permits")',
   website: 'URL to scrape for building the agent\'s knowledge base. The agent will use content from this site to answer questions.',
 };
 
@@ -179,7 +177,6 @@ const GiftContent = () => {
     primary_name: '',
     state: 'Texas',
     phone_area_code: '',
-    specialization: 'General Services',
     website: '',
   });
   const [additionalEmails, setAdditionalEmails] = useState('');
@@ -410,7 +407,7 @@ const GiftContent = () => {
                     </div>
                     
                     <p className="text-gray-300 mb-6">
-                      <span className="text-purple-400 font-semibold">CivicMarketplace</span>, in partnership with{' '}
+                      <span className="text-purple-400 font-semibold">Civic Marketplace</span>, in partnership with{' '}
                       <span className="text-purple-400 font-semibold">WhitegloveAI</span>—a verified{' '}
                       <span className="text-green-400 font-medium">TXShare-approved vendor (Contract #2025-023)</span>—is 
                       providing select government entities with a complimentary <span className="text-yellow-400 font-medium">30-day</span> AI Voice Agent demo.
@@ -617,17 +614,6 @@ const GiftContent = () => {
                       </FieldWithTooltip>
                     </div>
 
-                    <FieldWithTooltip id="specialization" label="Specialization">
-                      <Input
-                        id="specialization"
-                        placeholder="e.g., General Services"
-                        value={formData.specialization}
-                        onChange={(e) => setFormData({ ...formData, specialization: e.target.value })}
-                        className="bg-gray-700/50 border-gray-600 text-white placeholder:text-gray-400"
-                        maxLength={200}
-                      />
-                    </FieldWithTooltip>
-
                     <FieldWithTooltip id="website" label="Website URL">
                       <Input
                         id="website"
@@ -684,7 +670,7 @@ const GiftContent = () => {
                   {/* Partnership Badge */}
                   <div className="bg-purple-900/30 rounded-xl p-4 border border-purple-500/20 text-center">
                     <p className="text-purple-300 text-sm mb-1">This 30-day demo was brought to you by</p>
-                    <p className="text-white font-bold text-lg">CivicMarketplace × WhitegloveAI</p>
+                    <p className="text-white font-bold text-lg">Civic Marketplace × WhitegloveAI</p>
                     <p className="text-green-400 text-sm mt-1 flex items-center justify-center gap-1">
                       <Check className="h-4 w-4" />
                       TXShare Approved Vendor • Contract #2025-023

@@ -66,7 +66,7 @@ serve(async (req) => {
       secondary_name: formData.primary_name, // Use primary_name as secondary since field was removed
       region: formData.state || 'Texas', // Map state to region
       phone_area_code: formData.phone_area_code,
-      specialization: formData.specialization || 'General Services',
+      specialization: 'General Services', // Default value since field was removed
       website: formData.website || undefined,
       provision_kb: false, // Removed from UI, default to false
       enhanced_crawl: false,

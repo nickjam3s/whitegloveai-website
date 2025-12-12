@@ -37,9 +37,10 @@ const handler = async (req: Request): Promise<Response> => {
 
     const calendarLink = "https://calendar.google.com/calendar/appointments/schedules/AcZssZ06roEHldr-EaUSD3PSphSeCF8OVWb3NzT5PjfDxwMMpLfZX2v15Dzk4Bj02xtMwXVZMxHv2mkN";
     const voiceAiLink = "https://whitegloveai.com/communications-ai/voice-ai";
+    const logoUrl = "https://84d297c6-114c-4cb6-a6bc-83e359f1d6cb.lovableproject.com/images/civic-marketplace-logo.png";
 
     const emailResponse = await resend.emails.send({
-      from: "CivicMarketplace <noreply@whitegloveai.com>",
+      from: "Civic Marketplace <noreply@whitegloveai.com>",
       to: emailList,
       subject: "🎁 Your AI Voice Agent is Ready — Here's Your Number",
       html: `
@@ -54,6 +55,13 @@ const handler = async (req: Request): Promise<Response> => {
             <tr>
               <td align="center" style="padding: 40px 20px;">
                 <table role="presentation" width="600" cellspacing="0" cellpadding="0" style="max-width: 600px;">
+                  
+                  <!-- Logo Header -->
+                  <tr>
+                    <td style="text-align: center; padding: 20px 0 30px 0;">
+                      <img src="${logoUrl}" alt="Civic Marketplace" style="height: 100px; width: auto;" />
+                    </td>
+                  </tr>
                   
                   <!-- Header -->
                   <tr>
@@ -91,7 +99,7 @@ const handler = async (req: Request): Promise<Response> => {
                         <tr>
                       <td style="text-align: center; padding: 20px; background-color: #261c38; border-radius: 12px;">
                             <p style="margin: 0 0 5px 0; color: #d8b4fe; font-size: 14px;">This 30-day demo was brought to you by</p>
-                            <p style="margin: 0 0 10px 0; color: #ffffff; font-size: 18px; font-weight: 600;">CivicMarketplace × WhitegloveAI</p>
+                            <p style="margin: 0 0 10px 0; color: #ffffff; font-size: 18px; font-weight: 600;">Civic Marketplace × WhitegloveAI</p>
                             <p style="margin: 0; color: #10b981; font-size: 13px; font-weight: 500;">✓ TXShare Approved Vendor • Contract #2025-023</p>
                           </td>
                         </tr>
