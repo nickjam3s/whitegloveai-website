@@ -374,13 +374,13 @@ const GiftContent = () => {
                       <span className="text-purple-400 font-semibold">CivicMarketplace</span>, in partnership with{' '}
                       <span className="text-purple-400 font-semibold">WhitegloveAI</span>—a verified{' '}
                       <span className="text-green-400 font-medium">TXShare-approved vendor (Contract #2025-023)</span>—is 
-                      providing select government entities with a complimentary AI Voice Agent.
+                      providing select government entities with a complimentary <span className="text-yellow-400 font-medium">30-day</span> AI Voice Agent demo.
                     </p>
 
                     <div className="space-y-3">
                       <h3 className="text-white font-semibold flex items-center gap-2">
                         <Sparkles className="h-4 w-4 text-purple-400" />
-                        What You'll Receive:
+                        What You'll Receive (30-Day Demo):
                       </h3>
                       <ul className="space-y-2">
                         {[
@@ -399,7 +399,7 @@ const GiftContent = () => {
 
                     <p className="text-gray-400 text-sm mt-6 italic">
                       This is the same enterprise-grade VoiceAI technology trusted by major Texas cities and government agencies, 
-                      now available as a holiday gift to qualifying public sector organizations.
+                      now available as a 30-day demo to qualifying public sector organizations.
                     </p>
                   </div>
 
@@ -705,11 +705,12 @@ const GiftContent = () => {
                     </div>
                     <h2 className="text-2xl font-bold text-white mb-2">Your AI Voice Agent is Live!</h2>
                     <p className="text-gray-400">Agent "{result.name}" is ready to serve your constituents</p>
+                    <p className="text-yellow-400 text-sm mt-2 font-medium">Your 30-day demo starts now</p>
                   </div>
 
                   {/* Partnership Badge */}
                   <div className="bg-purple-900/30 rounded-xl p-4 border border-purple-500/20 text-center">
-                    <p className="text-purple-300 text-sm mb-1">This gift was brought to you by</p>
+                    <p className="text-purple-300 text-sm mb-1">This 30-day demo was brought to you by</p>
                     <p className="text-white font-bold text-lg">CivicMarketplace × WhitegloveAI</p>
                     <p className="text-green-400 text-sm mt-1 flex items-center justify-center gap-1">
                       <Check className="h-4 w-4" />
@@ -779,7 +780,7 @@ const GiftContent = () => {
                   <div className="bg-gradient-to-br from-purple-900/40 to-blue-900/20 rounded-xl p-6 border border-purple-500/20">
                     <div className="flex items-center gap-3 mb-4">
                       <Sparkles className="h-6 w-6 text-purple-400" />
-                      <h3 className="text-white font-bold text-lg">Want More? Expand Your AI Capabilities</h3>
+                      <h3 className="text-white font-bold text-lg">Want More After Your 30-Day Demo?</h3>
                     </div>
 
                     <p className="text-gray-300 mb-4">
