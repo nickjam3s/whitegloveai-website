@@ -18,15 +18,10 @@ type Step = 'email' | 'otp' | 'form' | 'result';
 interface FormData {
   entity_type: string;
   primary_name: string;
-  secondary_name: string;
-  region: string;
+  state: string;
   phone_area_code: string;
   specialization: string;
   website: string;
-  provision_kb: boolean;
-  enhanced_crawl: boolean;
-  crawl_max_pages: number;
-  crawl_max_depth: number;
 }
 
 const ENTITY_TYPES = [
@@ -41,18 +36,66 @@ const ENTITY_TYPES = [
   { value: 'organizational', label: 'Organizational - Non-profit organizations' },
 ];
 
+const US_STATES = [
+  { value: 'Alabama', label: 'Alabama' },
+  { value: 'Alaska', label: 'Alaska' },
+  { value: 'Arizona', label: 'Arizona' },
+  { value: 'Arkansas', label: 'Arkansas' },
+  { value: 'California', label: 'California' },
+  { value: 'Colorado', label: 'Colorado' },
+  { value: 'Connecticut', label: 'Connecticut' },
+  { value: 'Delaware', label: 'Delaware' },
+  { value: 'Florida', label: 'Florida' },
+  { value: 'Georgia', label: 'Georgia' },
+  { value: 'Hawaii', label: 'Hawaii' },
+  { value: 'Idaho', label: 'Idaho' },
+  { value: 'Illinois', label: 'Illinois' },
+  { value: 'Indiana', label: 'Indiana' },
+  { value: 'Iowa', label: 'Iowa' },
+  { value: 'Kansas', label: 'Kansas' },
+  { value: 'Kentucky', label: 'Kentucky' },
+  { value: 'Louisiana', label: 'Louisiana' },
+  { value: 'Maine', label: 'Maine' },
+  { value: 'Maryland', label: 'Maryland' },
+  { value: 'Massachusetts', label: 'Massachusetts' },
+  { value: 'Michigan', label: 'Michigan' },
+  { value: 'Minnesota', label: 'Minnesota' },
+  { value: 'Mississippi', label: 'Mississippi' },
+  { value: 'Missouri', label: 'Missouri' },
+  { value: 'Montana', label: 'Montana' },
+  { value: 'Nebraska', label: 'Nebraska' },
+  { value: 'Nevada', label: 'Nevada' },
+  { value: 'New Hampshire', label: 'New Hampshire' },
+  { value: 'New Jersey', label: 'New Jersey' },
+  { value: 'New Mexico', label: 'New Mexico' },
+  { value: 'New York', label: 'New York' },
+  { value: 'North Carolina', label: 'North Carolina' },
+  { value: 'North Dakota', label: 'North Dakota' },
+  { value: 'Ohio', label: 'Ohio' },
+  { value: 'Oklahoma', label: 'Oklahoma' },
+  { value: 'Oregon', label: 'Oregon' },
+  { value: 'Pennsylvania', label: 'Pennsylvania' },
+  { value: 'Rhode Island', label: 'Rhode Island' },
+  { value: 'South Carolina', label: 'South Carolina' },
+  { value: 'South Dakota', label: 'South Dakota' },
+  { value: 'Tennessee', label: 'Tennessee' },
+  { value: 'Texas', label: 'Texas' },
+  { value: 'Utah', label: 'Utah' },
+  { value: 'Vermont', label: 'Vermont' },
+  { value: 'Virginia', label: 'Virginia' },
+  { value: 'Washington', label: 'Washington' },
+  { value: 'West Virginia', label: 'West Virginia' },
+  { value: 'Wisconsin', label: 'Wisconsin' },
+  { value: 'Wyoming', label: 'Wyoming' },
+];
+
 const FIELD_TOOLTIPS: Record<string, string> = {
   entity_type: 'Select the type of organization you\'re provisioning an AI agent for. This determines the agent\'s behavior and responses.',
-  primary_name: 'The main name of your entity (e.g., "Austin" for Austin, Texas or "Acme" for Acme Corporation)',
-  secondary_name: 'Secondary identifier (e.g., "Travis" for Travis County or "Sales" for Sales Department)',
-  region: 'State or geographic region where your entity operates',
+  primary_name: 'The name of your organization or entity (e.g., "City of Austin", "Travis County", "Acme Corporation")',
+  state: 'Select the state where your entity operates',
   phone_area_code: '3-digit area code for the provisioned phone number (e.g., 512 for Austin, TX)',
   specialization: 'Specific service focus of this agent (e.g., "Water Services", "Building Permits")',
   website: 'URL to scrape for building the agent\'s knowledge base. The agent will use content from this site to answer questions.',
-  provision_kb: 'Enable to create a knowledge base from the provided website URL',
-  enhanced_crawl: 'Use advanced crawling technology for better content extraction',
-  crawl_max_pages: 'Maximum number of pages to crawl from the website (1-50)',
-  crawl_max_depth: 'How deep to follow links from the main page (1-5 levels)',
 };
 
 const CALENDAR_LINK = "https://calendar.google.com/calendar/appointments/schedules/AcZssZ06roEHldr-EaUSD3PSphSeCF8OVWb3NzT5PjfDxwMMpLfZX2v15Dzk4Bj02xtMwXVZMxHv2mkN";
@@ -134,16 +177,13 @@ const GiftContent = () => {
   const [formData, setFormData] = useState<FormData>({
     entity_type: 'municipal',
     primary_name: '',
-    secondary_name: '',
-    region: 'Texas',
+    state: 'Texas',
     phone_area_code: '',
     specialization: 'General Services',
     website: '',
-    provision_kb: false,
-    enhanced_crawl: false,
-    crawl_max_pages: 10,
-    crawl_max_depth: 2,
   });
+  const [additionalEmails, setAdditionalEmails] = useState('');
+  const [sendingEmail, setSendingEmail] = useState(false);
 
   const copyPhoneNumber = () => {
     if (result?.phone_number) {
@@ -203,15 +243,11 @@ const GiftContent = () => {
   };
 
   const validateForm = (): string | null => {
-    if (!formData.primary_name.trim()) return 'Primary name is required';
-    if (formData.primary_name.length > 100) return 'Primary name must be 100 characters or less';
-    if (!formData.secondary_name.trim()) return 'Secondary name is required';
-    if (formData.secondary_name.length > 100) return 'Secondary name must be 100 characters or less';
+    if (!formData.primary_name.trim()) return 'Entity name is required';
+    if (formData.primary_name.length > 100) return 'Entity name must be 100 characters or less';
     if (!formData.phone_area_code.trim()) return 'Phone area code is required';
     if (!/^\d{3}$/.test(formData.phone_area_code)) return 'Phone area code must be exactly 3 digits';
     if (formData.website && !/^https?:\/\/.+/.test(formData.website)) return 'Website must be a valid URL starting with http:// or https://';
-    if (formData.crawl_max_pages < 1 || formData.crawl_max_pages > 50) return 'Max pages must be between 1 and 50';
-    if (formData.crawl_max_depth < 1 || formData.crawl_max_depth > 5) return 'Max depth must be between 1 and 5';
     return null;
   };
 
@@ -539,40 +575,34 @@ const GiftContent = () => {
                       </Select>
                     </FieldWithTooltip>
 
-                    <div className="grid md:grid-cols-2 gap-4">
-                      <FieldWithTooltip id="primary_name" label="Primary Name *">
-                        <Input
-                          id="primary_name"
-                          placeholder="e.g., Austin"
-                          value={formData.primary_name}
-                          onChange={(e) => setFormData({ ...formData, primary_name: e.target.value })}
-                          className="bg-gray-700/50 border-gray-600 text-white placeholder:text-gray-400"
-                          maxLength={100}
-                        />
-                      </FieldWithTooltip>
-
-                      <FieldWithTooltip id="secondary_name" label="Secondary Name *">
-                        <Input
-                          id="secondary_name"
-                          placeholder="e.g., Travis"
-                          value={formData.secondary_name}
-                          onChange={(e) => setFormData({ ...formData, secondary_name: e.target.value })}
-                          className="bg-gray-700/50 border-gray-600 text-white placeholder:text-gray-400"
-                          maxLength={100}
-                        />
-                      </FieldWithTooltip>
-                    </div>
+                    <FieldWithTooltip id="primary_name" label="Entity Name *">
+                      <Input
+                        id="primary_name"
+                        placeholder="e.g., City of Austin, Travis County"
+                        value={formData.primary_name}
+                        onChange={(e) => setFormData({ ...formData, primary_name: e.target.value })}
+                        className="bg-gray-700/50 border-gray-600 text-white placeholder:text-gray-400"
+                        maxLength={100}
+                      />
+                    </FieldWithTooltip>
 
                     <div className="grid md:grid-cols-2 gap-4">
-                      <FieldWithTooltip id="region" label="Region">
-                        <Input
-                          id="region"
-                          placeholder="e.g., Texas"
-                          value={formData.region}
-                          onChange={(e) => setFormData({ ...formData, region: e.target.value })}
-                          className="bg-gray-700/50 border-gray-600 text-white placeholder:text-gray-400"
-                          maxLength={100}
-                        />
+                      <FieldWithTooltip id="state" label="State *">
+                        <Select
+                          value={formData.state}
+                          onValueChange={(value) => setFormData({ ...formData, state: value })}
+                        >
+                          <SelectTrigger className="bg-gray-700/50 border-gray-600 text-white">
+                            <SelectValue />
+                          </SelectTrigger>
+                          <SelectContent className="bg-gray-800 border-gray-700 max-h-60">
+                            {US_STATES.map((state) => (
+                              <SelectItem key={state.value} value={state.value} className="text-white hover:bg-gray-700">
+                                {state.label}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
                       </FieldWithTooltip>
 
                       <FieldWithTooltip id="phone_area_code" label="Phone Area Code *">
@@ -607,66 +637,6 @@ const GiftContent = () => {
                         className="bg-gray-700/50 border-gray-600 text-white placeholder:text-gray-400"
                       />
                     </FieldWithTooltip>
-
-                    <div className="space-y-4 p-4 bg-gray-700/30 rounded-lg">
-                      <h3 className="text-white font-medium">Knowledge Base Options</h3>
-
-                      <FieldWithTooltip id="provision_kb" label="Create Knowledge Base">
-                        <div className="flex items-center gap-2">
-                          <Switch
-                            id="provision_kb"
-                            checked={formData.provision_kb}
-                            onCheckedChange={(checked) => setFormData({ ...formData, provision_kb: checked })}
-                          />
-                          <span className="text-gray-400 text-sm">
-                            {formData.provision_kb ? 'Enabled' : 'Disabled'}
-                          </span>
-                        </div>
-                      </FieldWithTooltip>
-
-                      {formData.provision_kb && (
-                        <>
-                          <FieldWithTooltip id="enhanced_crawl" label="Enhanced Crawling">
-                            <div className="flex items-center gap-2">
-                              <Switch
-                                id="enhanced_crawl"
-                                checked={formData.enhanced_crawl}
-                                onCheckedChange={(checked) => setFormData({ ...formData, enhanced_crawl: checked })}
-                              />
-                              <span className="text-gray-400 text-sm">
-                                {formData.enhanced_crawl ? 'Enabled' : 'Disabled'}
-                              </span>
-                            </div>
-                          </FieldWithTooltip>
-
-                          <div className="grid md:grid-cols-2 gap-4">
-                            <FieldWithTooltip id="crawl_max_pages" label="Max Pages (1-50)">
-                              <Input
-                                id="crawl_max_pages"
-                                type="number"
-                                min={1}
-                                max={50}
-                                value={formData.crawl_max_pages}
-                                onChange={(e) => setFormData({ ...formData, crawl_max_pages: parseInt(e.target.value) || 10 })}
-                                className="bg-gray-700/50 border-gray-600 text-white"
-                              />
-                            </FieldWithTooltip>
-
-                            <FieldWithTooltip id="crawl_max_depth" label="Max Depth (1-5)">
-                              <Input
-                                id="crawl_max_depth"
-                                type="number"
-                                min={1}
-                                max={5}
-                                value={formData.crawl_max_depth}
-                                onChange={(e) => setFormData({ ...formData, crawl_max_depth: parseInt(e.target.value) || 2 })}
-                                className="bg-gray-700/50 border-gray-600 text-white"
-                              />
-                            </FieldWithTooltip>
-                          </div>
-                        </>
-                      )}
-                    </div>
                   </div>
 
                   {isLoading && (
@@ -738,6 +708,61 @@ const GiftContent = () => {
                       </Button>
                     </div>
                     <p className="text-gray-400 text-sm text-center mt-2">Agent ID: {result.agent_id}</p>
+                  </div>
+
+                  {/* Send to Additional Emails */}
+                  <div className="bg-gray-700/30 rounded-xl p-6 space-y-4">
+                    <h3 className="text-white font-bold flex items-center gap-2">
+                      <Mail className="h-5 w-5 text-purple-400" />
+                      Share This Information with Your Team
+                    </h3>
+                    <p className="text-gray-400 text-sm">
+                      Enter additional email addresses to send the phone number details (comma-separated)
+                    </p>
+                    <div className="flex gap-3">
+                      <Input
+                        id="additional_emails"
+                        placeholder="colleague@example.gov, team@example.gov"
+                        value={additionalEmails}
+                        onChange={(e) => setAdditionalEmails(e.target.value)}
+                        className="bg-gray-700/50 border-gray-600 text-white placeholder:text-gray-400 flex-1"
+                      />
+                      <Button
+                        onClick={async () => {
+                          if (!additionalEmails.trim()) {
+                            toast.error('Please enter at least one email address');
+                            return;
+                          }
+                          setSendingEmail(true);
+                          try {
+                            const { error } = await supabase.functions.invoke('civic-gift-send-phone-number', {
+                              body: {
+                                email: additionalEmails.trim(),
+                                phoneNumber: result.phone_number,
+                                agentId: result.agent_id,
+                                agentName: result.name,
+                              }
+                            });
+                            if (error) throw error;
+                            toast.success('Email sent successfully!');
+                            setAdditionalEmails('');
+                          } catch (error: any) {
+                            toast.error(error.message || 'Failed to send email');
+                          } finally {
+                            setSendingEmail(false);
+                          }
+                        }}
+                        disabled={sendingEmail}
+                        className="bg-purple-600 hover:bg-purple-700"
+                      >
+                        {sendingEmail ? (
+                          <Loader2 className="h-4 w-4 animate-spin" />
+                        ) : (
+                          <Mail className="h-4 w-4" />
+                        )}
+                        <span className="ml-2">Send</span>
+                      </Button>
+                    </div>
                   </div>
 
                   {/* Usage Tips */}

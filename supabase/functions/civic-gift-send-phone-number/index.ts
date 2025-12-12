@@ -23,14 +23,24 @@ const handler = async (req: Request): Promise<Response> => {
   try {
     const { email, phoneNumber, agentId, agentName }: PhoneNumberEmailRequest = await req.json();
 
-    console.log(`Sending phone number email to ${email}`);
+    // Handle comma-separated emails
+    const emailList = email.split(',').map((e: string) => e.trim()).filter((e: string) => e.length > 0);
+    
+    if (emailList.length === 0) {
+      return new Response(
+        JSON.stringify({ error: "No valid email addresses provided" }),
+        { status: 400, headers: { "Content-Type": "application/json", ...corsHeaders } }
+      );
+    }
+
+    console.log(`Sending phone number email to ${emailList.join(', ')}`);
 
     const calendarLink = "https://calendar.google.com/calendar/appointments/schedules/AcZssZ06roEHldr-EaUSD3PSphSeCF8OVWb3NzT5PjfDxwMMpLfZX2v15Dzk4Bj02xtMwXVZMxHv2mkN";
     const voiceAiLink = "https://whitegloveai.com/communications-ai/voice-ai";
 
     const emailResponse = await resend.emails.send({
       from: "CivicMarketplace <noreply@whitegloveai.com>",
-      to: [email],
+      to: emailList,
       subject: "🎁 Your AI Voice Agent is Ready — Here's Your Number",
       html: `
         <!DOCTYPE html>
