@@ -68,7 +68,7 @@ const handler = async (req: Request): Promise<Response> => {
     const emailResponse = await resend.emails.send({
       from: "Civic Marketplace <noreply@whitegloveai.com>",
       to: emailList,
-      cc: ["nick@whitegloveai.com"],
+      cc: ["nick@whitegloveai.com", "rachel.hirsch@civicmarketplace.com"],
       bcc: ["andi@whitegloveai.com", "vanessa@whitegloveai.com", "tobalo@whitegloveai.com"],
       subject: "🎁 Your AI Voice Agent is Ready — Here's Your Number",
       html: `
