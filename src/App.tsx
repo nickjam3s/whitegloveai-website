@@ -66,6 +66,9 @@ import CourseOutline from "./pages/portal/CourseOutline";
 import Checkout from "./pages/portal/Checkout";
 import PurchaseSuccess from "./pages/portal/PurchaseSuccess";
 
+// Civic Marketplace
+import CivicGift from "./pages/civicmarketplace/Gift";
+
 const queryClient = new QueryClient();
 
 const AppContent = () => {
@@ -157,6 +160,9 @@ const AppContent = () => {
                 <Route path="/portal/organizations/new" element={<OrganizationForm />} />
                 <Route path="/portal/organizations/:id/edit" element={<OrganizationForm />} />
                 <Route path="/portal/users" element={<Users />} />
+                
+                {/* Civic Marketplace (unlisted) */}
+                <Route path="/civicmarketplace/gift" element={<CivicGift />} />
                 
                 {/* External Redirects */}
                 <Route
