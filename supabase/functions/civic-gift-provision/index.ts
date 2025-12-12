@@ -66,7 +66,7 @@ serve(async (req) => {
       primary_name: formData.primary_name,
       secondary_name: formData.primary_name, // Use primary_name as secondary since field was removed
       region: formData.state || 'Texas', // Map state to region
-      phone_area_code: '214', // Default Texas area code - API will auto-select from available inventory
+      phone_area_code: '512', // Austin area code - API will select from available inventory
       specialization: 'General Services', // Default value since field was removed
       website: formData.website || undefined,
       provision_kb: false, // Removed from UI, default to false
