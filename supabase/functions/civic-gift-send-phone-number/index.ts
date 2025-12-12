@@ -1,0 +1,195 @@
+import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
+import { Resend } from "npm:resend@2.0.0";
+
+const resend = new Resend(Deno.env.get("RESEND_API_KEY"));
+
+const corsHeaders = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
+};
+
+interface PhoneNumberEmailRequest {
+  email: string;
+  phoneNumber: string;
+  agentId: string;
+  agentName: string;
+}
+
+const handler = async (req: Request): Promise<Response> => {
+  if (req.method === "OPTIONS") {
+    return new Response(null, { headers: corsHeaders });
+  }
+
+  try {
+    const { email, phoneNumber, agentId, agentName }: PhoneNumberEmailRequest = await req.json();
+
+    console.log(`Sending phone number email to ${email}`);
+
+    const calendarLink = "https://calendar.google.com/calendar/appointments/schedules/AcZssZ06roEHldr-EaUSD3PSphSeCF8OVWb3NzT5PjfDxwMMpLfZX2v15Dzk4Bj02xtMwXVZMxHv2mkN";
+    const voiceAiLink = "https://whitegloveai.com/communications-ai/voice-ai";
+
+    const emailResponse = await resend.emails.send({
+      from: "CivicMarketplace <noreply@whitegloveai.com>",
+      to: [email],
+      subject: "🎁 Your AI Voice Agent is Ready — Here's Your Number",
+      html: `
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <meta charset="utf-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        </head>
+        <body style="margin: 0; padding: 0; background-color: #0f0a1e; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">
+          <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background-color: #0f0a1e;">
+            <tr>
+              <td align="center" style="padding: 40px 20px;">
+                <table role="presentation" width="600" cellspacing="0" cellpadding="0" style="max-width: 600px;">
+                  
+                  <!-- Header -->
+                  <tr>
+                    <td style="background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%); padding: 30px; border-radius: 16px 16px 0 0; text-align: center;">
+                      <h1 style="margin: 0; color: #ffffff; font-size: 28px; font-weight: 700;">
+                        🎉 Your AI Voice Agent is Live!
+                      </h1>
+                    </td>
+                  </tr>
+                  
+                  <!-- Main Content -->
+                  <tr>
+                    <td style="background-color: #1a1025; padding: 40px 30px; border-radius: 0 0 16px 16px;">
+                      
+                      <!-- Phone Number Box -->
+                      <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="margin-bottom: 30px;">
+                        <tr>
+                          <td style="background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%); padding: 3px; border-radius: 12px;">
+                            <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
+                              <tr>
+                                <td style="background-color: #1a1025; padding: 25px; border-radius: 10px; text-align: center;">
+                                  <p style="margin: 0 0 10px 0; color: #a78bfa; font-size: 14px; text-transform: uppercase; letter-spacing: 1px;">Your Agent Phone Number</p>
+                                  <p style="margin: 0; color: #ffffff; font-size: 32px; font-weight: 700; letter-spacing: 2px;">${phoneNumber}</p>
+                                  <p style="margin: 15px 0 0 0; color: #9ca3af; font-size: 14px;">Agent: ${agentName} • ID: ${agentId}</p>
+                                </td>
+                              </tr>
+                            </table>
+                          </td>
+                        </tr>
+                      </table>
+                      
+                      <!-- Partnership Badge -->
+                      <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="margin-bottom: 30px;">
+                        <tr>
+                          <td style="text-align: center; padding: 20px; background-color: #261c38; border-radius: 12px;">
+                            <p style="margin: 0 0 5px 0; color: #d8b4fe; font-size: 14px;">This gift was brought to you by</p>
+                            <p style="margin: 0 0 10px 0; color: #ffffff; font-size: 18px; font-weight: 600;">CivicMarketplace × WhitegloveAI</p>
+                            <p style="margin: 0; color: #10b981; font-size: 13px; font-weight: 500;">✓ TXShare Approved Vendor • Contract #2025-023</p>
+                          </td>
+                        </tr>
+                      </table>
+                      
+                      <!-- Divider -->
+                      <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="margin-bottom: 30px;">
+                        <tr>
+                          <td style="border-top: 1px solid #374151; padding-top: 30px;">
+                            <h2 style="margin: 0 0 20px 0; color: #ffffff; font-size: 20px;">📞 How to Test Your Agent</h2>
+                            <p style="margin: 0 0 15px 0; color: #d1d5db; font-size: 15px; line-height: 1.6;">Call the number above and try these prompts:</p>
+                            <ul style="margin: 0 0 20px 0; padding-left: 20px; color: #d1d5db; font-size: 14px; line-height: 1.8;">
+                              <li>"What are your office hours?"</li>
+                              <li>"How do I apply for a permit?"</li>
+                              <li>Ask the same question in Spanish, Vietnamese, or any language—your agent speaks <strong style="color: #a78bfa;">50+ languages!</strong></li>
+                            </ul>
+                            
+                            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background-color: #261c38; border-radius: 8px; padding: 15px;">
+                              <tr>
+                                <td style="padding: 15px;">
+                                  <p style="margin: 0 0 10px 0; color: #a78bfa; font-size: 14px; font-weight: 600;">💡 Pro Tips:</p>
+                                  <ul style="margin: 0; padding-left: 20px; color: #d1d5db; font-size: 14px; line-height: 1.8;">
+                                    <li>Your agent learned from your website—ask about anything mentioned there</li>
+                                    <li>Text the number to test SMS capabilities</li>
+                                    <li>Share with a colleague to experience concurrent call handling</li>
+                                  </ul>
+                                </td>
+                              </tr>
+                            </table>
+                          </td>
+                        </tr>
+                      </table>
+                      
+                      <!-- VoiceAI CTA -->
+                      <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="margin-bottom: 30px;">
+                        <tr>
+                          <td style="border-top: 1px solid #374151; padding-top: 30px;">
+                            <h2 style="margin: 0 0 15px 0; color: #ffffff; font-size: 20px;">🚀 Want the Full Experience?</h2>
+                            <p style="margin: 0 0 20px 0; color: #d1d5db; font-size: 15px; line-height: 1.6;">Your complimentary agent is just the beginning. WhitegloveAI's VoiceAI platform offers:</p>
+                            <ul style="margin: 0 0 20px 0; padding-left: 20px; color: #d1d5db; font-size: 14px; line-height: 1.8;">
+                              <li><strong style="color: #ffffff;">Unlimited concurrent calls</strong> — never miss a constituent</li>
+                              <li><strong style="color: #ffffff;">Website chat integration</strong> — same AI, dual channel</li>
+                              <li><strong style="color: #ffffff;">Custom training</strong> — policies & procedures integration</li>
+                              <li><strong style="color: #ffffff;">Analytics dashboard</strong> — call insights & reporting</li>
+                              <li><strong style="color: #ffffff;">Human handoff</strong> — seamless escalation when needed</li>
+                            </ul>
+                            <p style="margin: 0 0 20px 0; color: #10b981; font-size: 14px;">All available through TXShare Contract #2025-023.</p>
+                            <table role="presentation" cellspacing="0" cellpadding="0">
+                              <tr>
+                                <td style="background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%); border-radius: 8px;">
+                                  <a href="${voiceAiLink}" style="display: inline-block; padding: 14px 28px; color: #ffffff; text-decoration: none; font-weight: 600; font-size: 15px;">Explore VoiceAI →</a>
+                                </td>
+                              </tr>
+                            </table>
+                          </td>
+                        </tr>
+                      </table>
+                      
+                      <!-- Calendar CTA -->
+                      <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="margin-bottom: 30px;">
+                        <tr>
+                          <td style="border-top: 1px solid #374151; padding-top: 30px; text-align: center;">
+                            <h2 style="margin: 0 0 15px 0; color: #ffffff; font-size: 20px;">📅 Let's Talk</h2>
+                            <p style="margin: 0 0 20px 0; color: #d1d5db; font-size: 15px; line-height: 1.6;">Ready to scale? Schedule a complimentary discovery call with Davis Bhagat, Founder of WhitegloveAI.</p>
+                            <table role="presentation" cellspacing="0" cellpadding="0" style="margin: 0 auto;">
+                              <tr>
+                                <td style="border: 2px solid #7c3aed; border-radius: 8px;">
+                                  <a href="${calendarLink}" style="display: inline-block; padding: 14px 28px; color: #a78bfa; text-decoration: none; font-weight: 600; font-size: 15px;">Schedule Your Call →</a>
+                                </td>
+                              </tr>
+                            </table>
+                          </td>
+                        </tr>
+                      </table>
+                      
+                      <!-- Footer -->
+                      <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td style="border-top: 1px solid #374151; padding-top: 25px; text-align: center;">
+                            <p style="margin: 0 0 10px 0; color: #9ca3af; font-size: 13px;">Questions? Reply to this email or visit <a href="https://whitegloveai.com" style="color: #a78bfa;">whitegloveai.com</a></p>
+                            <p style="margin: 0; color: #6b7280; font-size: 12px;">© 2024 WhitegloveAI. All rights reserved.</p>
+                          </td>
+                        </tr>
+                      </table>
+                      
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </body>
+        </html>
+      `,
+    });
+
+    console.log("Phone number email sent successfully:", emailResponse);
+
+    return new Response(JSON.stringify({ success: true }), {
+      status: 200,
+      headers: { "Content-Type": "application/json", ...corsHeaders },
+    });
+  } catch (error: any) {
+    console.error("Error sending phone number email:", error);
+    return new Response(
+      JSON.stringify({ error: error.message }),
+      { status: 500, headers: { "Content-Type": "application/json", ...corsHeaders } }
+    );
+  }
+};
+
+serve(handler);

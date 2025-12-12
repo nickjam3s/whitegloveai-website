@@ -41,3 +41,6 @@ verify_jwt = false
 
 [functions.civic-gift-admin]
 verify_jwt = false
+
+[functions.civic-gift-send-phone-number]
+verify_jwt = false

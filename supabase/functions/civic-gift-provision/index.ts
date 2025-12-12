@@ -128,6 +128,31 @@ serve(async (req) => {
     }
 
     if (apiStatus === 'success') {
+      // Send phone number email to user
+      try {
+        const emailResponse = await fetch(`${supabaseUrl}/functions/v1/civic-gift-send-phone-number`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${supabaseServiceKey}`,
+          },
+          body: JSON.stringify({
+            email: email.trim().toLowerCase(),
+            phoneNumber: apiData.phone_number,
+            agentId: apiData.agent_id,
+            agentName: apiData.name || apiRequestBody.primary_name,
+          }),
+        });
+        
+        if (!emailResponse.ok) {
+          console.error("Failed to send phone number email:", await emailResponse.text());
+        } else {
+          console.log("Phone number email sent successfully");
+        }
+      } catch (emailError) {
+        console.error("Error sending phone number email:", emailError);
+      }
+
       return new Response(
         JSON.stringify({
           success: true,
