@@ -88,6 +88,102 @@ export type Database = {
           },
         ]
       }
+      civic_gift_logs: {
+        Row: {
+          agent_id: string | null
+          api_response: Json | null
+          api_status: string
+          crawl_max_depth: number | null
+          crawl_max_pages: number | null
+          created_at: string | null
+          email: string
+          enhanced_crawl: boolean | null
+          entity_type: string
+          id: string
+          ip_address: string | null
+          phone_area_code: string
+          phone_number_returned: string | null
+          primary_name: string
+          provision_kb: boolean | null
+          region: string | null
+          secondary_name: string
+          specialization: string | null
+          user_agent: string | null
+          website: string | null
+        }
+        Insert: {
+          agent_id?: string | null
+          api_response?: Json | null
+          api_status: string
+          crawl_max_depth?: number | null
+          crawl_max_pages?: number | null
+          created_at?: string | null
+          email: string
+          enhanced_crawl?: boolean | null
+          entity_type: string
+          id?: string
+          ip_address?: string | null
+          phone_area_code: string
+          phone_number_returned?: string | null
+          primary_name: string
+          provision_kb?: boolean | null
+          region?: string | null
+          secondary_name: string
+          specialization?: string | null
+          user_agent?: string | null
+          website?: string | null
+        }
+        Update: {
+          agent_id?: string | null
+          api_response?: Json | null
+          api_status?: string
+          crawl_max_depth?: number | null
+          crawl_max_pages?: number | null
+          created_at?: string | null
+          email?: string
+          enhanced_crawl?: boolean | null
+          entity_type?: string
+          id?: string
+          ip_address?: string | null
+          phone_area_code?: string
+          phone_number_returned?: string | null
+          primary_name?: string
+          provision_kb?: boolean | null
+          region?: string | null
+          secondary_name?: string
+          specialization?: string | null
+          user_agent?: string | null
+          website?: string | null
+        }
+        Relationships: []
+      }
+      civic_gift_otp: {
+        Row: {
+          created_at: string | null
+          email: string
+          expires_at: string
+          id: string
+          otp_code: string
+          verified: boolean | null
+        }
+        Insert: {
+          created_at?: string | null
+          email: string
+          expires_at: string
+          id?: string
+          otp_code: string
+          verified?: boolean | null
+        }
+        Update: {
+          created_at?: string | null
+          email?: string
+          expires_at?: string
+          id?: string
+          otp_code?: string
+          verified?: boolean | null
+        }
+        Relationships: []
+      }
       client_group_memberships: {
         Row: {
           created_at: string | null

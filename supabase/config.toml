@@ -29,3 +29,15 @@ verify_jwt = false
 
 [functions.extract-course-metadata]
 verify_jwt = false
+
+[functions.civic-gift-send-otp]
+verify_jwt = false
+
+[functions.civic-gift-verify-otp]
+verify_jwt = false
+
+[functions.civic-gift-provision]
+verify_jwt = false
+
+[functions.civic-gift-admin]
+verify_jwt = false
