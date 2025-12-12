@@ -99,7 +99,7 @@ serve(async (req) => {
       apiData = { error: apiError instanceof Error ? apiError.message : "API call failed" };
     }
 
-    // Log to database
+    // Log to database with contact info
     const { error: logError } = await supabase
       .from('civic_gift_logs')
       .insert({
@@ -121,6 +121,9 @@ serve(async (req) => {
         api_response: apiData,
         ip_address: ipAddress || null,
         user_agent: userAgent || null,
+        first_name: formData.first_name || null,
+        last_name: formData.last_name || null,
+        title: formData.title || null,
       });
 
     if (logError) {
@@ -128,7 +131,7 @@ serve(async (req) => {
     }
 
     if (apiStatus === 'success') {
-      // Send phone number email to user
+      // Send phone number email to user with their name for personalization
       try {
         const emailResponse = await fetch(`${supabaseUrl}/functions/v1/civic-gift-send-phone-number`, {
           method: "POST",
@@ -141,6 +144,9 @@ serve(async (req) => {
             phoneNumber: apiData.phone_number,
             agentId: apiData.agent_id,
             agentName: apiData.name || apiRequestBody.primary_name,
+            firstName: formData.first_name || null,
+            lastName: formData.last_name || null,
+            title: formData.title || null,
           }),
         });
         

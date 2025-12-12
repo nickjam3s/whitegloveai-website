@@ -99,8 +99,10 @@ export type Database = {
           email: string
           enhanced_crawl: boolean | null
           entity_type: string
+          first_name: string | null
           id: string
           ip_address: string | null
+          last_name: string | null
           phone_area_code: string
           phone_number_returned: string | null
           primary_name: string
@@ -108,6 +110,7 @@ export type Database = {
           region: string | null
           secondary_name: string
           specialization: string | null
+          title: string | null
           user_agent: string | null
           website: string | null
         }
@@ -121,8 +124,10 @@ export type Database = {
           email: string
           enhanced_crawl?: boolean | null
           entity_type: string
+          first_name?: string | null
           id?: string
           ip_address?: string | null
+          last_name?: string | null
           phone_area_code: string
           phone_number_returned?: string | null
           primary_name: string
@@ -130,6 +135,7 @@ export type Database = {
           region?: string | null
           secondary_name: string
           specialization?: string | null
+          title?: string | null
           user_agent?: string | null
           website?: string | null
         }
@@ -143,8 +149,10 @@ export type Database = {
           email?: string
           enhanced_crawl?: boolean | null
           entity_type?: string
+          first_name?: string | null
           id?: string
           ip_address?: string | null
+          last_name?: string | null
           phone_area_code?: string
           phone_number_returned?: string | null
           primary_name?: string
@@ -152,6 +160,7 @@ export type Database = {
           region?: string | null
           secondary_name?: string
           specialization?: string | null
+          title?: string | null
           user_agent?: string | null
           website?: string | null
         }
