@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import PinProtection from '@/components/PinProtection';
 import { supabase } from '@/integrations/supabase/client';
@@ -11,7 +11,7 @@ import { Progress } from '@/components/ui/progress';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { toast } from 'sonner';
-import { Mail, Check, Phone, HelpCircle, Download, LogIn, Loader2 } from 'lucide-react';
+import { Mail, Check, Phone, HelpCircle, Download, LogIn, Loader2, Gift as GiftIcon, Globe, Calendar, Copy, ExternalLink, Sparkles, MessageSquare, Users, Clock } from 'lucide-react';
 
 type Step = 'email' | 'otp' | 'form' | 'result';
 
@@ -55,6 +55,48 @@ const FIELD_TOOLTIPS: Record<string, string> = {
   crawl_max_depth: 'How deep to follow links from the main page (1-5 levels)',
 };
 
+const CALENDAR_LINK = "https://calendar.google.com/calendar/appointments/schedules/AcZssZ06roEHldr-EaUSD3PSphSeCF8OVWb3NzT5PjfDxwMMpLfZX2v15Dzk4Bj02xtMwXVZMxHv2mkN";
+const VOICE_AI_LINK = "/communications-ai/voice-ai";
+
+// HubSpot form embed component
+const HubSpotForm = () => {
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://js.hsforms.net/forms/embed/v2.js';
+    script.charset = 'utf-8';
+    script.type = 'text/javascript';
+    script.async = true;
+    script.onload = () => {
+      if ((window as any).hbspt) {
+        (window as any).hbspt.forms.create({
+          region: 'na2',
+          portalId: '242996761',
+          formId: 'c5c1e3a2-eebe-4d65-8368-03c02ebac2b0',
+          target: '#hubspot-form-civic',
+          onFormReady: (form: HTMLFormElement) => {
+            // Pre-check "Managed AI Services" checkbox if available
+            const checkboxes = form.querySelectorAll('input[type="checkbox"]');
+            checkboxes.forEach((checkbox: any) => {
+              if (checkbox.value?.toLowerCase().includes('managed') || 
+                  checkbox.name?.toLowerCase().includes('managed')) {
+                checkbox.checked = true;
+                checkbox.dispatchEvent(new Event('change', { bubbles: true }));
+              }
+            });
+          }
+        });
+      }
+    };
+    document.body.appendChild(script);
+    
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
+  return <div id="hubspot-form-civic" className="hubspot-form-container" />;
+};
+
 const GiftContent = () => {
   const [step, setStep] = useState<Step>('email');
   const [email, setEmail] = useState('');
@@ -67,6 +109,7 @@ const GiftContent = () => {
   const [adminPassword, setAdminPassword] = useState('');
   const [isAdminAuthenticated, setIsAdminAuthenticated] = useState(false);
   const [logs, setLogs] = useState<any[]>([]);
+  const [copied, setCopied] = useState(false);
 
   const [formData, setFormData] = useState<FormData>({
     entity_type: 'municipal',
@@ -81,6 +124,15 @@ const GiftContent = () => {
     crawl_max_pages: 10,
     crawl_max_depth: 2,
   });
+
+  const copyPhoneNumber = () => {
+    if (result?.phone_number) {
+      navigator.clipboard.writeText(result.phone_number);
+      setCopied(true);
+      toast.success('Phone number copied!');
+      setTimeout(() => setCopied(false), 2000);
+    }
+  };
 
   const handleSendOtp = async () => {
     if (!email.trim()) {
@@ -153,7 +205,6 @@ const GiftContent = () => {
     setIsLoading(true);
     setProgress(0);
 
-    // Simulate progress
     const progressInterval = setInterval(() => {
       setProgress(prev => Math.min(prev + Math.random() * 15, 90));
     }, 500);
@@ -163,7 +214,7 @@ const GiftContent = () => {
         body: {
           email: email.trim(),
           formData,
-          ipAddress: null, // Could be obtained from a header if needed
+          ipAddress: null,
           userAgent: navigator.userAgent,
         }
       });
@@ -203,7 +254,6 @@ const GiftContent = () => {
       setIsAdminAuthenticated(true);
       toast.success('Admin login successful');
 
-      // Fetch logs
       const logsResponse = await supabase.functions.invoke('civic-gift-admin', {
         body: { action: 'getLogs', email: adminEmail, password: adminPassword }
       });
@@ -282,7 +332,7 @@ const GiftContent = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="max-w-2xl mx-auto"
+          className="max-w-3xl mx-auto"
         >
           {/* Header */}
           <div className="text-center mb-8">
@@ -302,48 +352,93 @@ const GiftContent = () => {
           {/* Main Card */}
           <div className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-8 border border-gray-700">
             <AnimatePresence mode="wait">
-              {/* Step 1: Email */}
+              {/* Step 1: Email with Intro */}
               {step === 'email' && (
                 <motion.div
                   key="email"
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -20 }}
-                  className="space-y-6"
+                  className="space-y-8"
                 >
-                  <div className="text-center mb-6">
-                    <Mail className="h-12 w-12 text-purple-400 mx-auto mb-4" />
-                    <h2 className="text-xl font-semibold text-white">Verify Your Email</h2>
-                    <p className="text-gray-400 text-sm mt-2">
-                      Please use a business email address to continue
+                  {/* Intro Section */}
+                  <div className="bg-gradient-to-br from-purple-900/30 to-purple-800/10 rounded-xl p-6 border border-purple-500/20">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-12 h-12 bg-purple-500/20 rounded-full flex items-center justify-center">
+                        <GiftIcon className="h-6 w-6 text-purple-400" />
+                      </div>
+                      <h2 className="text-xl font-bold text-white">Your Exclusive AI Voice Agent Gift</h2>
+                    </div>
+                    
+                    <p className="text-gray-300 mb-6">
+                      <span className="text-purple-400 font-semibold">CivicMarketplace</span>, in partnership with{' '}
+                      <span className="text-purple-400 font-semibold">WhitegloveAI</span>—a verified{' '}
+                      <span className="text-green-400 font-medium">TXShare-approved vendor (Contract #2025-023)</span>—is 
+                      providing select government entities with a complimentary AI Voice Agent.
+                    </p>
+
+                    <div className="space-y-3">
+                      <h3 className="text-white font-semibold flex items-center gap-2">
+                        <Sparkles className="h-4 w-4 text-purple-400" />
+                        What You'll Receive:
+                      </h3>
+                      <ul className="space-y-2">
+                        {[
+                          'A dedicated AI-powered phone number that answers calls 24/7',
+                          'Natural language understanding that speaks your constituents\' language—literally (supports 50+ languages)',
+                          'Instant responses trained on YOUR website\'s information',
+                          'Zero wait times, zero hold music, zero frustrated callers'
+                        ].map((item, i) => (
+                          <li key={i} className="flex items-start gap-2 text-gray-300">
+                            <Check className="h-5 w-5 text-green-400 flex-shrink-0 mt-0.5" />
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <p className="text-gray-400 text-sm mt-6 italic">
+                      This is the same enterprise-grade VoiceAI technology trusted by major Texas cities and government agencies, 
+                      now available as a holiday gift to qualifying public sector organizations.
                     </p>
                   </div>
 
-                  <div className="space-y-4">
-                    <div className="space-y-2">
-                      <Label htmlFor="email" className="text-white">Business Email</Label>
-                      <Input
-                        id="email"
-                        type="email"
-                        placeholder="you@company.gov"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        className="bg-gray-700/50 border-gray-600 text-white placeholder:text-gray-400"
-                      />
+                  {/* Email Form */}
+                  <div className="space-y-6">
+                    <div className="text-center">
+                      <Mail className="h-10 w-10 text-purple-400 mx-auto mb-3" />
+                      <h2 className="text-lg font-semibold text-white">Verify Your Government Email</h2>
+                      <p className="text-gray-400 text-sm mt-1">
+                        Please use a business email address to continue
+                      </p>
                     </div>
 
-                    <Button
-                      onClick={handleSendOtp}
-                      disabled={isLoading}
-                      className="w-full bg-purple-600 hover:bg-purple-700"
-                    >
-                      {isLoading ? (
-                        <Loader2 className="h-4 w-4 animate-spin mr-2" />
-                      ) : (
-                        <Mail className="h-4 w-4 mr-2" />
-                      )}
-                      Send Verification Code
-                    </Button>
+                    <div className="space-y-4">
+                      <div className="space-y-2">
+                        <Label htmlFor="email" className="text-white">Business Email</Label>
+                        <Input
+                          id="email"
+                          type="email"
+                          placeholder="you@cityname.gov"
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value)}
+                          className="bg-gray-700/50 border-gray-600 text-white placeholder:text-gray-400"
+                        />
+                      </div>
+
+                      <Button
+                        onClick={handleSendOtp}
+                        disabled={isLoading}
+                        className="w-full bg-purple-600 hover:bg-purple-700"
+                      >
+                        {isLoading ? (
+                          <Loader2 className="h-4 w-4 animate-spin mr-2" />
+                        ) : (
+                          <Mail className="h-4 w-4 mr-2" />
+                        )}
+                        Send Verification Code
+                      </Button>
+                    </div>
                   </div>
                 </motion.div>
               )}
@@ -364,7 +459,7 @@ const GiftContent = () => {
                       We sent a 6-digit code to <span className="text-purple-400">{email}</span>
                     </p>
                     <p className="text-yellow-400 text-xs mt-2">
-                      💡 Don't see it? Check your spam folder!
+                      Don't see it? Check your spam folder!
                     </p>
                   </div>
 
@@ -595,52 +690,170 @@ const GiftContent = () => {
                 </motion.div>
               )}
 
-              {/* Step 4: Result */}
+              {/* Step 4: Result - Enhanced */}
               {step === 'result' && result && (
                 <motion.div
                   key="result"
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  className="text-center space-y-6"
+                  className="space-y-8"
                 >
-                  <div className="w-20 h-20 bg-green-500/20 rounded-full flex items-center justify-center mx-auto">
-                    <Check className="h-10 w-10 text-green-400" />
+                  {/* Success Header */}
+                  <div className="text-center">
+                    <div className="w-20 h-20 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <Check className="h-10 w-10 text-green-400" />
+                    </div>
+                    <h2 className="text-2xl font-bold text-white mb-2">Your AI Voice Agent is Live!</h2>
+                    <p className="text-gray-400">Agent "{result.name}" is ready to serve your constituents</p>
                   </div>
 
-                  <div>
-                    <h2 className="text-2xl font-bold text-white mb-2">Agent Provisioned!</h2>
-                    <p className="text-gray-400">
-                      Your AI agent "{result.name}" is ready
+                  {/* Partnership Badge */}
+                  <div className="bg-purple-900/30 rounded-xl p-4 border border-purple-500/20 text-center">
+                    <p className="text-purple-300 text-sm mb-1">This gift was brought to you by</p>
+                    <p className="text-white font-bold text-lg">CivicMarketplace × WhitegloveAI</p>
+                    <p className="text-green-400 text-sm mt-1 flex items-center justify-center gap-1">
+                      <Check className="h-4 w-4" />
+                      TXShare Approved Vendor • Contract #2025-023
                     </p>
                   </div>
 
-                  <div className="bg-gray-700/50 rounded-lg p-6 space-y-4">
-                    <div>
-                      <p className="text-gray-400 text-sm">Your Agent Phone Number</p>
-                      <p className="text-3xl font-bold text-purple-400 tracking-wide">
+                  {/* Phone Number Box */}
+                  <div className="bg-gradient-to-br from-purple-600/20 to-purple-800/10 rounded-xl p-6 border border-purple-500/30">
+                    <p className="text-purple-300 text-sm text-center mb-2">Your Agent Phone Number</p>
+                    <div className="flex items-center justify-center gap-3">
+                      <p className="text-4xl font-bold text-white tracking-wider">
                         {result.phone_number}
                       </p>
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        onClick={copyPhoneNumber}
+                        className="text-purple-400 hover:text-purple-300"
+                      >
+                        {copied ? <Check className="h-5 w-5" /> : <Copy className="h-5 w-5" />}
+                      </Button>
                     </div>
-                    <div>
-                      <p className="text-gray-400 text-sm">Agent ID</p>
-                      <p className="text-white font-mono text-sm">
-                        {result.agent_id}
-                      </p>
+                    <p className="text-gray-400 text-sm text-center mt-2">Agent ID: {result.agent_id}</p>
+                  </div>
+
+                  {/* Usage Tips */}
+                  <div className="bg-gray-700/30 rounded-xl p-6 space-y-4">
+                    <h3 className="text-white font-bold flex items-center gap-2">
+                      <Phone className="h-5 w-5 text-purple-400" />
+                      Try Your Agent Now — Here's What to Ask
+                    </h3>
+
+                    <div className="space-y-4">
+                      <div>
+                        <p className="text-purple-300 text-sm font-medium mb-2">General Questions:</p>
+                        <ul className="text-gray-300 text-sm space-y-1">
+                          <li>• "What are your hours of operation?"</li>
+                          <li>• "How do I pay my water bill?"</li>
+                          <li>• "Where can I find building permit applications?"</li>
+                        </ul>
+                      </div>
+
+                      <div>
+                        <p className="text-purple-300 text-sm font-medium mb-2 flex items-center gap-1">
+                          <Globe className="h-4 w-4" />
+                          Test Multilingual Support:
+                        </p>
+                        <ul className="text-gray-300 text-sm space-y-1">
+                          <li>• Try asking a question in Spanish, Vietnamese, or any of 50+ languages</li>
+                          <li>• The agent adapts to your constituent's preferred language automatically</li>
+                        </ul>
+                      </div>
+
+                      <div>
+                        <p className="text-purple-300 text-sm font-medium mb-2">Push the Limits:</p>
+                        <ul className="text-gray-300 text-sm space-y-1">
+                          <li>• Ask about services mentioned on your website</li>
+                          <li>• Request directions to your offices</li>
+                          <li>• Inquire about upcoming community events</li>
+                        </ul>
+                      </div>
                     </div>
                   </div>
 
-                  <p className="text-gray-400 text-sm">
-                    Call or text this number to interact with your AI agent
-                  </p>
+                  {/* VoiceAI Upsell */}
+                  <div className="bg-gradient-to-br from-purple-900/40 to-blue-900/20 rounded-xl p-6 border border-purple-500/20">
+                    <div className="flex items-center gap-3 mb-4">
+                      <Sparkles className="h-6 w-6 text-purple-400" />
+                      <h3 className="text-white font-bold text-lg">Want More? Expand Your AI Capabilities</h3>
+                    </div>
 
-                  <Button
-                    variant="outline"
-                    onClick={() => setShowAdminLogin(true)}
-                    className="border-gray-600 text-gray-300 hover:bg-gray-700"
-                  >
-                    <LogIn className="h-4 w-4 mr-2" />
-                    Admin Login
-                  </Button>
+                    <p className="text-gray-300 mb-4">
+                      This is just a taste of what's possible. WhitegloveAI's full VoiceAI suite includes:
+                    </p>
+
+                    <div className="grid md:grid-cols-2 gap-3 mb-6">
+                      {[
+                        { icon: Users, text: 'Unlimited concurrent calls—never miss a constituent' },
+                        { icon: MessageSquare, text: 'Website chat integration—same AI, web interface' },
+                        { icon: Sparkles, text: 'Custom training on your policies & procedures' },
+                        { icon: Clock, text: 'Analytics dashboard for call insights' },
+                      ].map((item, i) => (
+                        <div key={i} className="flex items-start gap-2 text-gray-300 text-sm">
+                          <item.icon className="h-4 w-4 text-purple-400 flex-shrink-0 mt-0.5" />
+                          <span>{item.text}</span>
+                        </div>
+                      ))}
+                    </div>
+
+                    <p className="text-green-400 text-sm mb-4">
+                      All services available through TXShare Contract #2025-023 for streamlined procurement.
+                    </p>
+
+                    <a
+                      href={VOICE_AI_LINK}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-lg font-medium transition-colors"
+                    >
+                      Learn More About VoiceAI
+                      <ExternalLink className="h-4 w-4" />
+                    </a>
+                  </div>
+
+                  {/* Schedule Call CTA */}
+                  <div className="text-center space-y-4 py-4">
+                    <div className="flex items-center justify-center gap-2 text-white font-bold text-lg">
+                      <Calendar className="h-5 w-5 text-purple-400" />
+                      Schedule a Discovery Call
+                    </div>
+                    <p className="text-gray-400 max-w-md mx-auto">
+                      Ready to explore how AI can transform your constituent services? Schedule a complimentary consultation with Davis Bhagat, Founder of WhitegloveAI.
+                    </p>
+                    <a
+                      href={CALENDAR_LINK}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 border-2 border-purple-500 text-purple-400 hover:bg-purple-500/10 px-6 py-3 rounded-lg font-medium transition-colors"
+                    >
+                      <Calendar className="h-5 w-5" />
+                      Book Your Call
+                    </a>
+                  </div>
+
+                  {/* HubSpot Form */}
+                  <div className="bg-gray-700/30 rounded-xl p-6">
+                    <h3 className="text-white font-bold text-center mb-4">
+                      Or submit your interest for a personalized follow-up:
+                    </h3>
+                    <HubSpotForm />
+                  </div>
+
+                  {/* Admin Login */}
+                  <div className="text-center pt-4">
+                    <Button
+                      variant="ghost"
+                      onClick={() => setShowAdminLogin(true)}
+                      className="text-gray-500 hover:text-gray-300 text-sm"
+                    >
+                      <LogIn className="h-4 w-4 mr-2" />
+                      Admin Login
+                    </Button>
+                  </div>
                 </motion.div>
               )}
             </AnimatePresence>
@@ -752,7 +965,7 @@ const Gift = () => {
     return (
       <PinProtection
         onSuccess={() => setIsAuthenticated(true)}
-        title="Civic AI Gift Program"
+        title="Civic Marketplace AI Gift Program"
         description="This page is protected. Please enter the PIN to continue."
       />
     );
