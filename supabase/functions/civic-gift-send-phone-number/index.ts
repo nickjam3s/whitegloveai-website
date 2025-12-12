@@ -51,6 +51,7 @@ const handler = async (req: Request): Promise<Response> => {
                       <h1 style="margin: 0; color: #ffffff; font-size: 28px; font-weight: 700;">
                         🎉 Your AI Voice Agent is Live!
                       </h1>
+                      <p style="margin: 10px 0 0 0; color: #fef08a; font-size: 16px; font-weight: 600;">Your 30-Day Demo Starts Now</p>
                     </td>
                   </tr>
                   
@@ -78,8 +79,8 @@ const handler = async (req: Request): Promise<Response> => {
                       <!-- Partnership Badge -->
                       <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="margin-bottom: 30px;">
                         <tr>
-                          <td style="text-align: center; padding: 20px; background-color: #261c38; border-radius: 12px;">
-                            <p style="margin: 0 0 5px 0; color: #d8b4fe; font-size: 14px;">This gift was brought to you by</p>
+                      <td style="text-align: center; padding: 20px; background-color: #261c38; border-radius: 12px;">
+                            <p style="margin: 0 0 5px 0; color: #d8b4fe; font-size: 14px;">This 30-day demo was brought to you by</p>
                             <p style="margin: 0 0 10px 0; color: #ffffff; font-size: 18px; font-weight: 600;">CivicMarketplace × WhitegloveAI</p>
                             <p style="margin: 0; color: #10b981; font-size: 13px; font-weight: 500;">✓ TXShare Approved Vendor • Contract #2025-023</p>
                           </td>
@@ -118,8 +119,8 @@ const handler = async (req: Request): Promise<Response> => {
                       <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="margin-bottom: 30px;">
                         <tr>
                           <td style="border-top: 1px solid #374151; padding-top: 30px;">
-                            <h2 style="margin: 0 0 15px 0; color: #ffffff; font-size: 20px;">🚀 Want the Full Experience?</h2>
-                            <p style="margin: 0 0 20px 0; color: #d1d5db; font-size: 15px; line-height: 1.6;">Your complimentary agent is just the beginning. WhitegloveAI's VoiceAI platform offers:</p>
+                            <h2 style="margin: 0 0 15px 0; color: #ffffff; font-size: 20px;">🚀 Want More After Your 30-Day Demo?</h2>
+                            <p style="margin: 0 0 20px 0; color: #d1d5db; font-size: 15px; line-height: 1.6;">Your 30-day demo is just the beginning. WhitegloveAI's VoiceAI platform offers:</p>
                             <ul style="margin: 0 0 20px 0; padding-left: 20px; color: #d1d5db; font-size: 14px; line-height: 1.8;">
                               <li><strong style="color: #ffffff;">Unlimited concurrent calls</strong> — never miss a constituent</li>
                               <li><strong style="color: #ffffff;">Website chat integration</strong> — same AI, dual channel</li>
