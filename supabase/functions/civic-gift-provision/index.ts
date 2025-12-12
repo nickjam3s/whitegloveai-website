@@ -59,18 +59,19 @@ serve(async (req) => {
     }
 
     // Prepare request body for external API
+    // secondary_name is required by API but we're using entity name as both primary and secondary
     const apiRequestBody: AgentCreateRequest = {
       entity_type: formData.entity_type || 'municipal',
       primary_name: formData.primary_name,
-      secondary_name: formData.secondary_name,
-      region: formData.region || 'Texas',
+      secondary_name: formData.primary_name, // Use primary_name as secondary since field was removed
+      region: formData.state || 'Texas', // Map state to region
       phone_area_code: formData.phone_area_code,
       specialization: formData.specialization || 'General Services',
       website: formData.website || undefined,
-      provision_kb: formData.provision_kb || false,
-      enhanced_crawl: formData.enhanced_crawl || false,
-      crawl_max_pages: formData.crawl_max_pages || 10,
-      crawl_max_depth: formData.crawl_max_depth || 2,
+      provision_kb: false, // Removed from UI, default to false
+      enhanced_crawl: false,
+      crawl_max_pages: 10,
+      crawl_max_depth: 2,
     };
 
     console.log("Calling external API with:", JSON.stringify(apiRequestBody));
