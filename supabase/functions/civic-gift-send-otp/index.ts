@@ -65,25 +65,6 @@ serve(async (req) => {
     const supabase = createClient(supabaseUrl, supabaseServiceKey);
     const resend = new Resend(resendApiKey);
 
-    // Rate limiting: Check recent OTPs (max 3 per hour)
-    const oneHourAgo = new Date(Date.now() - 60 * 60 * 1000).toISOString();
-    const { data: recentOtps, error: countError } = await supabase
-      .from('civic_gift_otp')
-      .select('id')
-      .eq('email', normalizedEmail)
-      .gte('created_at', oneHourAgo);
-
-    if (countError) {
-      console.error("Error checking rate limit:", countError);
-    }
-
-    if (recentOtps && recentOtps.length >= 3) {
-      return new Response(
-        JSON.stringify({ error: "Too many verification attempts. Please try again in an hour." }),
-        { status: 429, headers: { ...corsHeaders, "Content-Type": "application/json" } }
-      );
-    }
-
     // Generate OTP
     const otpCode = generateOTP();
     const expiresAt = new Date(Date.now() + 10 * 60 * 1000).toISOString(); // 10 minutes
