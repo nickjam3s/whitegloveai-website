@@ -21,6 +21,9 @@ interface FormData {
   state: string;
   website: string;
   acceptedTerms: boolean;
+  first_name: string;
+  last_name: string;
+  title: string;
 }
 
 const ENTITY_TYPES = [
@@ -191,6 +194,9 @@ const GiftContent = () => {
     state: 'Texas',
     website: '',
     acceptedTerms: false,
+    first_name: '',
+    last_name: '',
+    title: '',
   });
   const [additionalEmails, setAdditionalEmails] = useState('');
   const [sendingEmail, setSendingEmail] = useState(false);
@@ -253,6 +259,8 @@ const GiftContent = () => {
   };
 
   const validateForm = (): string | null => {
+    if (!formData.first_name.trim()) return 'First name is required';
+    if (!formData.last_name.trim()) return 'Last name is required';
     if (!formData.primary_name.trim()) return 'Entity name is required';
     if (formData.primary_name.length > 100) return 'Entity name must be 100 characters or less';
     if (formData.website && !/^https?:\/\/.+/.test(formData.website)) return 'Website must be a valid URL starting with http:// or https://';
@@ -340,20 +348,19 @@ const GiftContent = () => {
     }
 
     const headers = [
-      'Date', 'Email', 'Entity Type', 'Primary Name', 'Secondary Name', 
-      'Region', 'Area Code', 'Specialization', 'Website', 'Phone Number', 
-      'Agent ID', 'Status'
+      'Date', 'First Name', 'Last Name', 'Title', 'Email', 'Entity Type', 'Primary Name', 
+      'Region', 'Website', 'Phone Number', 'Agent ID', 'Status'
     ];
 
     const rows = logs.map(log => [
       new Date(log.created_at).toLocaleString(),
+      log.first_name || '',
+      log.last_name || '',
+      log.title || '',
       log.email,
       log.entity_type,
       log.primary_name,
-      log.secondary_name,
       log.region,
-      log.phone_area_code,
-      log.specialization,
       log.website || '',
       log.phone_number_returned || '',
       log.agent_id || '',
@@ -566,6 +573,44 @@ const GiftContent = () => {
                   </div>
 
                   <div className="grid gap-6">
+                    {/* Contact Information */}
+                    <div className="grid md:grid-cols-2 gap-4">
+                      <div className="space-y-2">
+                        <Label htmlFor="first_name" className="text-white">First Name *</Label>
+                        <Input
+                          id="first_name"
+                          placeholder="John"
+                          value={formData.first_name}
+                          onChange={(e) => setFormData({ ...formData, first_name: e.target.value })}
+                          className="bg-gray-700/50 border-gray-600 text-white placeholder:text-gray-400"
+                          maxLength={50}
+                        />
+                      </div>
+                      <div className="space-y-2">
+                        <Label htmlFor="last_name" className="text-white">Last Name *</Label>
+                        <Input
+                          id="last_name"
+                          placeholder="Smith"
+                          value={formData.last_name}
+                          onChange={(e) => setFormData({ ...formData, last_name: e.target.value })}
+                          className="bg-gray-700/50 border-gray-600 text-white placeholder:text-gray-400"
+                          maxLength={50}
+                        />
+                      </div>
+                    </div>
+
+                    <div className="space-y-2">
+                      <Label htmlFor="title" className="text-white">Title <span className="text-gray-400">(optional)</span></Label>
+                      <Input
+                        id="title"
+                        placeholder="e.g., City Manager, IT Director"
+                        value={formData.title}
+                        onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+                        className="bg-gray-700/50 border-gray-600 text-white placeholder:text-gray-400"
+                        maxLength={100}
+                      />
+                    </div>
+
                     <FieldWithTooltip id="entity_type" label="Entity Type *">
                       <Select
                         value={formData.entity_type}
@@ -958,9 +1003,10 @@ const GiftContent = () => {
                   <thead className="bg-gray-700">
                     <tr>
                       <th className="px-3 py-2 text-left">Date</th>
+                      <th className="px-3 py-2 text-left">Name</th>
+                      <th className="px-3 py-2 text-left">Title</th>
                       <th className="px-3 py-2 text-left">Email</th>
                       <th className="px-3 py-2 text-left">Entity</th>
-                      <th className="px-3 py-2 text-left">Primary</th>
                       <th className="px-3 py-2 text-left">Phone</th>
                       <th className="px-3 py-2 text-left">Status</th>
                     </tr>
@@ -969,8 +1015,9 @@ const GiftContent = () => {
                     {logs.map((log) => (
                       <tr key={log.id} className="border-t border-gray-700 hover:bg-gray-700/50">
                         <td className="px-3 py-2 text-gray-300">{new Date(log.created_at).toLocaleDateString()}</td>
+                        <td className="px-3 py-2 text-gray-300">{log.first_name && log.last_name ? `${log.first_name} ${log.last_name}` : '-'}</td>
+                        <td className="px-3 py-2 text-gray-300">{log.title || '-'}</td>
                         <td className="px-3 py-2 text-gray-300">{log.email}</td>
-                        <td className="px-3 py-2 text-gray-300">{log.entity_type}</td>
                         <td className="px-3 py-2 text-gray-300">{log.primary_name}</td>
                         <td className="px-3 py-2 text-purple-400">{log.phone_number_returned || '-'}</td>
                         <td className="px-3 py-2">
@@ -982,7 +1029,7 @@ const GiftContent = () => {
                     ))}
                     {logs.length === 0 && (
                       <tr>
-                        <td colSpan={6} className="px-3 py-8 text-center text-gray-400">
+                        <td colSpan={7} className="px-3 py-8 text-center text-gray-400">
                           No records found
                         </td>
                       </tr>

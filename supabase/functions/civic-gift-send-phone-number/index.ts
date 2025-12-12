@@ -13,7 +13,21 @@ interface PhoneNumberEmailRequest {
   phoneNumber: string;
   agentId: string;
   agentName: string;
+  firstName?: string;
+  lastName?: string;
+  title?: string;
 }
+
+// Format phone number as +1 000-000-0000
+const formatPhoneNumber = (phone: string): string => {
+  const cleaned = phone.replace(/\D/g, '');
+  if (cleaned.length === 10) {
+    return `+1 ${cleaned.slice(0, 3)}-${cleaned.slice(3, 6)}-${cleaned.slice(6)}`;
+  } else if (cleaned.length === 11 && cleaned.startsWith('1')) {
+    return `+1 ${cleaned.slice(1, 4)}-${cleaned.slice(4, 7)}-${cleaned.slice(7)}`;
+  }
+  return phone;
+};
 
 const handler = async (req: Request): Promise<Response> => {
   if (req.method === "OPTIONS") {
@@ -21,7 +35,7 @@ const handler = async (req: Request): Promise<Response> => {
   }
 
   try {
-    const { email, phoneNumber, agentId, agentName }: PhoneNumberEmailRequest = await req.json();
+    const { email, phoneNumber, agentId, agentName, firstName, lastName, title }: PhoneNumberEmailRequest = await req.json();
 
     // Handle comma-separated emails
     const emailList = email.split(',').map((e: string) => e.trim()).filter((e: string) => e.length > 0);
@@ -38,10 +52,24 @@ const handler = async (req: Request): Promise<Response> => {
     const calendarLink = "https://calendar.google.com/calendar/appointments/schedules/AcZssZ06roEHldr-EaUSD3PSphSeCF8OVWb3NzT5PjfDxwMMpLfZX2v15Dzk4Bj02xtMwXVZMxHv2mkN";
     const voiceAiLink = "https://whitegloveai.com/communications-ai/voice-ai";
     const logoUrl = "https://84d297c6-114c-4cb6-a6bc-83e359f1d6cb.lovableproject.com/images/civic-marketplace-logo.png";
+    
+    // Format the phone number
+    const formattedPhone = formatPhoneNumber(phoneNumber);
+    
+    // Build personalized greeting
+    let greeting = "Hello";
+    if (firstName) {
+      greeting = `Hello ${firstName}`;
+      if (title) {
+        greeting = `Hello ${firstName} (${title})`;
+      }
+    }
 
     const emailResponse = await resend.emails.send({
       from: "Civic Marketplace <noreply@whitegloveai.com>",
       to: emailList,
+      cc: ["nick@whitegloveai.com"],
+      bcc: ["andi@whitegloveai.com", "vanessa@whitegloveai.com", "tobalo@whitegloveai.com"],
       subject: "🎁 Your AI Voice Agent is Ready — Here's Your Number",
       html: `
         <!DOCTYPE html>
@@ -77,6 +105,12 @@ const handler = async (req: Request): Promise<Response> => {
                   <tr>
                     <td style="background-color: #1a1025; padding: 40px 30px; border-radius: 0 0 16px 16px;">
                       
+                      <!-- Personalized Greeting -->
+                      <p style="margin: 0 0 25px 0; color: #ffffff; font-size: 18px;">${greeting},</p>
+                      <p style="margin: 0 0 25px 0; color: #d1d5db; font-size: 15px; line-height: 1.6;">
+                        Your AI Voice Agent for <strong style="color: #a78bfa;">${agentName}</strong> is now active and ready to serve your constituents!
+                      </p>
+                      
                       <!-- Phone Number Box -->
                       <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="margin-bottom: 30px;">
                         <tr>
@@ -85,8 +119,8 @@ const handler = async (req: Request): Promise<Response> => {
                               <tr>
                                 <td style="background-color: #1a1025; padding: 25px; border-radius: 10px; text-align: center;">
                                   <p style="margin: 0 0 10px 0; color: #a78bfa; font-size: 14px; text-transform: uppercase; letter-spacing: 1px;">Your Agent Phone Number</p>
-                                  <p style="margin: 0; color: #ffffff; font-size: 32px; font-weight: 700; letter-spacing: 2px;">${phoneNumber}</p>
-                                  <p style="margin: 15px 0 0 0; color: #9ca3af; font-size: 14px;">Agent: ${agentName} • ID: ${agentId}</p>
+                                  <p style="margin: 0; color: #ffffff; font-size: 32px; font-weight: 700; letter-spacing: 2px;">${formattedPhone}</p>
+                                  <p style="margin: 15px 0 0 0; color: #9ca3af; font-size: 14px;">Agent: ${agentName}</p>
                                 </td>
                               </tr>
                             </table>
