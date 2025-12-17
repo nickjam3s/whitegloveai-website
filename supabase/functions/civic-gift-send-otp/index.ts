@@ -107,7 +107,7 @@ serve(async (req) => {
           <!-- Purple Header -->
           <tr>
             <td style="background: linear-gradient(135deg, #7c3aed 0%, #9333ea 100%); padding: 30px 40px; text-align: center;">
-              <img src="https://84d297c6-114c-4cb6-a6bc-83e359f1d6cb.lovableproject.com/lovable-uploads/cbc85045-41f1-434b-a70d-69aca08e4e66.png" alt="WhitegloveAI" style="height: 40px; margin-bottom: 10px;">
+              <img src="https://whitegloveai.com/lovable-uploads/cbc85045-41f1-434b-a70d-69aca08e4e66.png" alt="WhitegloveAI" style="height: 40px; margin-bottom: 10px;">
               <h1 style="color: #ffffff; margin: 10px 0 0 0; font-size: 24px; font-weight: 600;">Email Verification</h1>
             </td>
           </tr>
