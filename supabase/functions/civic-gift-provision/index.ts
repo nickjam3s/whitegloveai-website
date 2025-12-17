@@ -188,6 +188,30 @@ serve(async (req) => {
       console.error("Error sending Slack notification:", slackError);
     }
 
+    // Send confirmation email to the user
+    try {
+      const confirmationResponse = await fetch(`${supabaseUrl}/functions/v1/civic-gift-send-confirmation`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: email.trim().toLowerCase(),
+          firstName: formData.first_name || null,
+          lastName: formData.last_name || null,
+          title: formData.title || null,
+          entityName: formData.primary_name,
+          requestId: logRecord.id,
+        }),
+      });
+
+      if (!confirmationResponse.ok) {
+        console.error("Confirmation email failed:", await confirmationResponse.text());
+      } else {
+        console.log("Confirmation email sent successfully");
+      }
+    } catch (emailError) {
+      console.error("Error sending confirmation email:", emailError);
+    }
+
     return new Response(
       JSON.stringify({
         success: true,

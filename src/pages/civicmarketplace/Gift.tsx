@@ -465,7 +465,7 @@ const GiftContent = () => {
               Civic Marketplace AI Gift Program
             </h1>
             <p className="text-gray-400">
-              Provision your complimentary AI agent for civic services
+              Request your complimentary AI agent for civic services
             </p>
           </div>
 
