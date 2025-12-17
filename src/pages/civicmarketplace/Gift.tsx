@@ -6,12 +6,11 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Switch } from '@/components/ui/switch';
-import { Progress } from '@/components/ui/progress';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { toast } from 'sonner';
-import { Mail, Check, Phone, HelpCircle, Download, LogIn, Loader2, Gift as GiftIcon, Globe, Calendar, Copy, ExternalLink, Sparkles, MessageSquare, Users, Clock } from 'lucide-react';
+import { Mail, Check, Phone, HelpCircle, Download, LogIn, Loader2, Gift as GiftIcon, Globe, Calendar, ExternalLink, Sparkles, MessageSquare, Users, Clock, Send, CheckCircle, XCircle, AlertCircle } from 'lucide-react';
 
 type Step = 'email' | 'otp' | 'form' | 'result';
 
@@ -24,6 +23,26 @@ interface FormData {
   first_name: string;
   last_name: string;
   title: string;
+}
+
+interface LogRecord {
+  id: string;
+  created_at: string;
+  first_name: string | null;
+  last_name: string | null;
+  title: string | null;
+  email: string;
+  entity_type: string;
+  primary_name: string;
+  region: string | null;
+  website: string | null;
+  phone_number_returned: string | null;
+  agent_id: string | null;
+  api_status: string;
+  status: string;
+  processed_at: string | null;
+  processed_by: string | null;
+  denial_reason: string | null;
 }
 
 const ENTITY_TYPES = [
@@ -151,7 +170,6 @@ const HubSpotForm = () => {
           formId: 'c5c1e3a2-eebe-4d65-8368-03c02ebac2b0',
           target: '#hubspot-form-civic',
           onFormReady: (form: HTMLFormElement) => {
-            // Pre-check "Managed AI Services" checkbox if available
             const checkboxes = form.querySelectorAll('input[type="checkbox"]');
             checkboxes.forEach((checkbox: any) => {
               if (checkbox.value?.toLowerCase().includes('managed') || 
@@ -179,14 +197,16 @@ const GiftContent = () => {
   const [email, setEmail] = useState('');
   const [otp, setOtp] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [progress, setProgress] = useState(0);
-  const [result, setResult] = useState<{ phone_number: string; agent_id: string; name: string } | null>(null);
   const [showAdminLogin, setShowAdminLogin] = useState(false);
   const [adminEmail, setAdminEmail] = useState('');
   const [adminPassword, setAdminPassword] = useState('');
   const [isAdminAuthenticated, setIsAdminAuthenticated] = useState(false);
-  const [logs, setLogs] = useState<any[]>([]);
-  const [copied, setCopied] = useState(false);
+  const [logs, setLogs] = useState<LogRecord[]>([]);
+  const [pendingRequests, setPendingRequests] = useState<LogRecord[]>([]);
+  const [approvedRequests, setApprovedRequests] = useState<LogRecord[]>([]);
+  const [deniedRequests, setDeniedRequests] = useState<LogRecord[]>([]);
+  const [adminTab, setAdminTab] = useState('pending');
+  const [processingId, setProcessingId] = useState<string | null>(null);
 
   const [formData, setFormData] = useState<FormData>({
     entity_type: 'municipal',
@@ -198,17 +218,6 @@ const GiftContent = () => {
     last_name: '',
     title: '',
   });
-  const [additionalEmails, setAdditionalEmails] = useState('');
-  const [sendingEmail, setSendingEmail] = useState(false);
-
-  const copyPhoneNumber = () => {
-    if (result?.phone_number) {
-      navigator.clipboard.writeText(result.phone_number);
-      setCopied(true);
-      toast.success('Phone number copied!');
-      setTimeout(() => setCopied(false), 2000);
-    }
-  };
 
   const handleSendOtp = async () => {
     if (!email.trim()) {
@@ -276,11 +285,6 @@ const GiftContent = () => {
     }
 
     setIsLoading(true);
-    setProgress(0);
-
-    const progressInterval = setInterval(() => {
-      setProgress(prev => Math.min(prev + Math.random() * 15, 90));
-    }, 500);
 
     try {
       const { data, error } = await supabase.functions.invoke('civic-gift-provision', {
@@ -292,23 +296,13 @@ const GiftContent = () => {
         }
       });
 
-      clearInterval(progressInterval);
-      setProgress(100);
-
       if (error) throw error;
       if (data?.error) throw new Error(data.error);
 
-      setResult({
-        phone_number: data.phone_number,
-        agent_id: data.agent_id,
-        name: data.name,
-      });
       setStep('result');
-      toast.success('Agent provisioned successfully!');
+      toast.success('Request submitted successfully!');
     } catch (error: any) {
-      clearInterval(progressInterval);
-      setProgress(0);
-      toast.error(error.message || 'Failed to provision agent');
+      toast.error(error.message || 'Failed to submit request');
     } finally {
       setIsLoading(false);
     }
@@ -327,17 +321,72 @@ const GiftContent = () => {
       setIsAdminAuthenticated(true);
       toast.success('Admin login successful');
 
-      const logsResponse = await supabase.functions.invoke('civic-gift-admin', {
-        body: { action: 'getLogs', email: adminEmail, password: adminPassword }
-      });
-
-      if (logsResponse.data?.logs) {
-        setLogs(logsResponse.data.logs);
-      }
+      // Fetch all data
+      await refreshAdminData();
     } catch (error: any) {
       toast.error(error.message || 'Invalid credentials');
     } finally {
       setIsLoading(false);
+    }
+  };
+
+  const refreshAdminData = async () => {
+    const [logsRes, pendingRes, approvedRes, deniedRes] = await Promise.all([
+      supabase.functions.invoke('civic-gift-admin', {
+        body: { action: 'getLogs', email: adminEmail, password: adminPassword }
+      }),
+      supabase.functions.invoke('civic-gift-admin', {
+        body: { action: 'getPendingRequests', email: adminEmail, password: adminPassword }
+      }),
+      supabase.functions.invoke('civic-gift-admin', {
+        body: { action: 'getApprovedRequests', email: adminEmail, password: adminPassword }
+      }),
+      supabase.functions.invoke('civic-gift-admin', {
+        body: { action: 'getDeniedRequests', email: adminEmail, password: adminPassword }
+      }),
+    ]);
+
+    if (logsRes.data?.logs) setLogs(logsRes.data.logs);
+    if (pendingRes.data?.requests) setPendingRequests(pendingRes.data.requests);
+    if (approvedRes.data?.requests) setApprovedRequests(approvedRes.data.requests);
+    if (deniedRes.data?.requests) setDeniedRequests(deniedRes.data.requests);
+  };
+
+  const handleApproveRequest = async (requestId: string) => {
+    setProcessingId(requestId);
+    try {
+      const { data, error } = await supabase.functions.invoke('civic-gift-admin', {
+        body: { action: 'approveRequest', email: adminEmail, password: adminPassword, requestId }
+      });
+
+      if (error) throw error;
+      if (data?.error) throw new Error(data.error);
+
+      toast.success(`Approved! Phone: ${data.phone_number}`);
+      await refreshAdminData();
+    } catch (error: any) {
+      toast.error(error.message || 'Failed to approve request');
+    } finally {
+      setProcessingId(null);
+    }
+  };
+
+  const handleDenyRequest = async (requestId: string) => {
+    setProcessingId(requestId);
+    try {
+      const { data, error } = await supabase.functions.invoke('civic-gift-admin', {
+        body: { action: 'denyRequest', email: adminEmail, password: adminPassword, requestId }
+      });
+
+      if (error) throw error;
+      if (data?.error) throw new Error(data.error);
+
+      toast.success('Request denied');
+      await refreshAdminData();
+    } catch (error: any) {
+      toast.error(error.message || 'Failed to deny request');
+    } finally {
+      setProcessingId(null);
     }
   };
 
@@ -349,7 +398,7 @@ const GiftContent = () => {
 
     const headers = [
       'Date', 'First Name', 'Last Name', 'Title', 'Email', 'Entity Type', 'Primary Name', 
-      'Region', 'Website', 'Phone Number', 'Agent ID', 'Status'
+      'Region', 'Website', 'Phone Number', 'Agent ID', 'Status', 'Processed By', 'Processed At'
     ];
 
     const rows = logs.map(log => [
@@ -360,11 +409,13 @@ const GiftContent = () => {
       log.email,
       log.entity_type,
       log.primary_name,
-      log.region,
+      log.region || '',
       log.website || '',
       log.phone_number_returned || '',
       log.agent_id || '',
-      log.api_status,
+      log.status || log.api_status,
+      log.processed_by || '',
+      log.processed_at ? new Date(log.processed_at).toLocaleString() : '',
     ]);
 
     const csvContent = [headers, ...rows]
@@ -379,7 +430,21 @@ const GiftContent = () => {
     toast.success('CSV exported successfully');
   };
 
-  // FieldWithTooltip moved outside component to prevent focus loss
+  const getStatusBadge = (status: string) => {
+    switch (status) {
+      case 'pending':
+        return <span className="px-2 py-1 rounded text-xs bg-yellow-500/20 text-yellow-400 flex items-center gap-1"><AlertCircle className="h-3 w-3" />Pending</span>;
+      case 'approved':
+      case 'success':
+        return <span className="px-2 py-1 rounded text-xs bg-green-500/20 text-green-400 flex items-center gap-1"><CheckCircle className="h-3 w-3" />Approved</span>;
+      case 'denied':
+        return <span className="px-2 py-1 rounded text-xs bg-red-500/20 text-red-400 flex items-center gap-1"><XCircle className="h-3 w-3" />Denied</span>;
+      case 'failed':
+        return <span className="px-2 py-1 rounded text-xs bg-red-500/20 text-red-400 flex items-center gap-1"><XCircle className="h-3 w-3" />Failed</span>;
+      default:
+        return <span className="px-2 py-1 rounded text-xs bg-gray-500/20 text-gray-400">{status}</span>;
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#1A0D33] to-black font-sora pt-24">
@@ -568,7 +633,7 @@ const GiftContent = () => {
                   <div className="text-center mb-6">
                     <h2 className="text-xl font-semibold text-white">Configure Your AI Agent</h2>
                     <p className="text-gray-400 text-sm mt-2">
-                      Fill in the details to provision your agent
+                      Fill in the details to submit your request
                     </p>
                   </div>
 
@@ -691,15 +756,6 @@ const GiftContent = () => {
                     </div>
                   </div>
 
-                  {isLoading && (
-                    <div className="space-y-2">
-                      <Progress value={progress} className="h-2" />
-                      <p className="text-center text-sm text-gray-400">
-                        Provisioning agent... {Math.round(progress)}%
-                      </p>
-                    </div>
-                  )}
-
                   <Button
                     onClick={handleSubmit}
                     disabled={isLoading}
@@ -708,15 +764,15 @@ const GiftContent = () => {
                     {isLoading ? (
                       <Loader2 className="h-4 w-4 animate-spin mr-2" />
                     ) : (
-                      <Phone className="h-4 w-4 mr-2" />
+                      <Send className="h-4 w-4 mr-2" />
                     )}
-                    Provision AI Agent
+                    Submit Request
                   </Button>
                 </motion.div>
               )}
 
-              {/* Step 4: Result - Enhanced */}
-              {step === 'result' && result && (
+              {/* Step 4: Request Submitted */}
+              {step === 'result' && (
                 <motion.div
                   key="result"
                   initial={{ opacity: 0, scale: 0.95 }}
@@ -726,138 +782,42 @@ const GiftContent = () => {
                   {/* Success Header */}
                   <div className="text-center">
                     <div className="w-20 h-20 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <Check className="h-10 w-10 text-green-400" />
+                      <CheckCircle className="h-10 w-10 text-green-400" />
                     </div>
-                    <h2 className="text-2xl font-bold text-white mb-2">Your AI Voice Agent is Live!</h2>
-                    <p className="text-gray-400">Agent "{result.name}" is ready to serve your constituents</p>
-                    <p className="text-yellow-400 text-sm mt-2 font-medium">Your 30-day demo starts now</p>
+                    <h2 className="text-2xl font-bold text-white mb-2">Request Submitted Successfully!</h2>
+                    <p className="text-gray-400">Your demo request is being reviewed by our team.</p>
+                  </div>
+
+                  {/* What's Next */}
+                  <div className="bg-gradient-to-br from-purple-900/30 to-purple-800/10 rounded-xl p-6 border border-purple-500/20">
+                    <h3 className="text-white font-bold text-lg mb-4 flex items-center gap-2">
+                      <Clock className="h-5 w-5 text-purple-400" />
+                      What Happens Next?
+                    </h3>
+                    <ul className="space-y-3 text-gray-300">
+                      <li className="flex items-start gap-3">
+                        <span className="w-6 h-6 bg-purple-500/30 rounded-full flex items-center justify-center text-purple-300 text-sm font-bold flex-shrink-0">1</span>
+                        <span>Our team will review your request (typically within <span className="text-yellow-400 font-medium">1 business day</span>)</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <span className="w-6 h-6 bg-purple-500/30 rounded-full flex items-center justify-center text-purple-300 text-sm font-bold flex-shrink-0">2</span>
+                        <span>Once approved, you'll receive an email with your <span className="text-green-400 font-medium">dedicated AI phone number</span></span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <span className="w-6 h-6 bg-purple-500/30 rounded-full flex items-center justify-center text-purple-300 text-sm font-bold flex-shrink-0">3</span>
+                        <span>Start testing your AI Voice Agent immediately—it's already trained on your website!</span>
+                      </li>
+                    </ul>
                   </div>
 
                   {/* Partnership Badge */}
                   <div className="bg-purple-900/30 rounded-xl p-4 border border-purple-500/20 text-center">
-                    <p className="text-purple-300 text-sm mb-1">This 30-day demo was brought to you by</p>
+                    <p className="text-purple-300 text-sm mb-1">This 30-day demo is brought to you by</p>
                     <p className="text-white font-bold text-lg">Civic Marketplace × WhitegloveAI</p>
                     <p className="text-green-400 text-sm mt-1 flex items-center justify-center gap-1">
                       <Check className="h-4 w-4" />
                       TXShare Approved Vendor • Contract #2025-023
                     </p>
-                  </div>
-
-                  {/* Phone Number Box */}
-                  <div className="bg-gradient-to-br from-purple-600/20 to-purple-800/10 rounded-xl p-6 border border-purple-500/30">
-                    <p className="text-purple-300 text-sm text-center mb-2">Your Agent Phone Number</p>
-                    <div className="flex items-center justify-center gap-3">
-                      <p className="text-4xl font-bold text-white tracking-wider">
-                        {formatPhoneNumber(result.phone_number)}
-                      </p>
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        onClick={copyPhoneNumber}
-                        className="text-purple-400 hover:text-purple-300"
-                      >
-                        {copied ? <Check className="h-5 w-5" /> : <Copy className="h-5 w-5" />}
-                      </Button>
-                    </div>
-                  </div>
-
-                  {/* Send to Additional Emails - Required & Prominent */}
-                  <div className="bg-gradient-to-br from-purple-900/50 to-purple-800/30 rounded-xl p-6 space-y-4 border-2 border-purple-500/50">
-                    <div className="flex items-center gap-3">
-                      <div className="w-12 h-12 bg-purple-500/30 rounded-full flex items-center justify-center">
-                        <Mail className="h-6 w-6 text-purple-300" />
-                      </div>
-                      <div>
-                        <h3 className="text-white font-bold text-lg">Share with Your Team</h3>
-                        <p className="text-purple-300 text-sm">Send the phone number details to colleagues</p>
-                      </div>
-                    </div>
-                    <div className="space-y-3">
-                      <Label htmlFor="additional_emails" className="text-white">
-                        Team Email Addresses <span className="text-gray-400">(comma-separated)</span>
-                      </Label>
-                      <Input
-                        id="additional_emails"
-                        placeholder="colleague@example.gov, team@example.gov"
-                        value={additionalEmails}
-                        onChange={(e) => setAdditionalEmails(e.target.value)}
-                        className="bg-gray-700/50 border-gray-600 text-white placeholder:text-gray-400"
-                      />
-                      <Button
-                        onClick={async () => {
-                          if (!additionalEmails.trim()) {
-                            toast.error('Please enter at least one email address');
-                            return;
-                          }
-                          setSendingEmail(true);
-                          try {
-                            const { error } = await supabase.functions.invoke('civic-gift-send-phone-number', {
-                              body: {
-                                email: additionalEmails.trim(),
-                                phoneNumber: result.phone_number,
-                                agentId: result.agent_id,
-                                agentName: result.name,
-                              }
-                            });
-                            if (error) throw error;
-                            toast.success('Email sent successfully!');
-                            setAdditionalEmails('');
-                          } catch (error: any) {
-                            toast.error(error.message || 'Failed to send email');
-                          } finally {
-                            setSendingEmail(false);
-                          }
-                        }}
-                        disabled={sendingEmail}
-                        className="w-full bg-purple-600 hover:bg-purple-700 py-3 text-lg font-semibold"
-                      >
-                        {sendingEmail ? (
-                          <Loader2 className="h-5 w-5 animate-spin mr-2" />
-                        ) : (
-                          <Mail className="h-5 w-5 mr-2" />
-                        )}
-                        Send Phone Number to Team
-                      </Button>
-                    </div>
-                  </div>
-
-                  {/* Usage Tips */}
-                  <div className="bg-gray-700/30 rounded-xl p-6 space-y-4">
-                    <h3 className="text-white font-bold flex items-center gap-2">
-                      <Phone className="h-5 w-5 text-purple-400" />
-                      Try Your Agent Now — Here's What to Ask
-                    </h3>
-
-                    <div className="space-y-4">
-                      <div>
-                        <p className="text-purple-300 text-sm font-medium mb-2">General Questions:</p>
-                        <ul className="text-gray-300 text-sm space-y-1">
-                          <li>• "What are your hours of operation?"</li>
-                          <li>• "How do I pay my water bill?"</li>
-                          <li>• "Where can I find building permit applications?"</li>
-                        </ul>
-                      </div>
-
-                      <div>
-                        <p className="text-purple-300 text-sm font-medium mb-2 flex items-center gap-1">
-                          <Globe className="h-4 w-4" />
-                          Test Multilingual Support:
-                        </p>
-                        <ul className="text-gray-300 text-sm space-y-1">
-                          <li>• Try asking a question in Spanish, Vietnamese, or any of 50+ languages</li>
-                          <li>• The agent adapts to your constituent's preferred language automatically</li>
-                        </ul>
-                      </div>
-
-                      <div>
-                        <p className="text-purple-300 text-sm font-medium mb-2">Push the Limits:</p>
-                        <ul className="text-gray-300 text-sm space-y-1">
-                          <li>• Ask about services mentioned on your website</li>
-                          <li>• Request directions to your offices</li>
-                          <li>• Inquire about upcoming community events</li>
-                        </ul>
-                      </div>
-                    </div>
                   </div>
 
                   {/* VoiceAI Upsell */}
@@ -948,11 +908,11 @@ const GiftContent = () => {
 
       {/* Admin Login Dialog */}
       <Dialog open={showAdminLogin} onOpenChange={setShowAdminLogin}>
-        <DialogContent className="bg-gray-800 border-gray-700 text-white max-w-4xl max-h-[80vh] overflow-auto">
+        <DialogContent className="bg-gray-800 border-gray-700 text-white max-w-5xl max-h-[85vh] overflow-auto">
           <DialogHeader>
             <DialogTitle>Admin Dashboard</DialogTitle>
             <DialogDescription className="text-gray-400">
-              {isAdminAuthenticated ? 'View all agent provisioning activity' : 'Enter admin credentials to continue'}
+              {isAdminAuthenticated ? 'Manage agent provisioning requests' : 'Enter admin credentials to continue'}
             </DialogDescription>
           </DialogHeader>
 
@@ -990,53 +950,191 @@ const GiftContent = () => {
             </div>
           ) : (
             <div className="space-y-4">
-              <div className="flex justify-between items-center">
-                <p className="text-gray-400">Total Records: {logs.length}</p>
-                <Button onClick={exportToCSV} variant="outline" className="border-gray-600">
-                  <Download className="h-4 w-4 mr-2" />
-                  Export CSV
-                </Button>
-              </div>
+              <Tabs value={adminTab} onValueChange={setAdminTab}>
+                <TabsList className="grid w-full grid-cols-4 bg-gray-700">
+                  <TabsTrigger value="pending" className="data-[state=active]:bg-yellow-600">
+                    Pending ({pendingRequests.length})
+                  </TabsTrigger>
+                  <TabsTrigger value="approved" className="data-[state=active]:bg-green-600">
+                    Approved ({approvedRequests.length})
+                  </TabsTrigger>
+                  <TabsTrigger value="denied" className="data-[state=active]:bg-red-600">
+                    Denied ({deniedRequests.length})
+                  </TabsTrigger>
+                  <TabsTrigger value="all" className="data-[state=active]:bg-purple-600">
+                    All Logs ({logs.length})
+                  </TabsTrigger>
+                </TabsList>
 
-              <div className="overflow-x-auto">
-                <table className="w-full text-sm">
-                  <thead className="bg-gray-700">
-                    <tr>
-                      <th className="px-3 py-2 text-left">Date</th>
-                      <th className="px-3 py-2 text-left">Name</th>
-                      <th className="px-3 py-2 text-left">Title</th>
-                      <th className="px-3 py-2 text-left">Email</th>
-                      <th className="px-3 py-2 text-left">Entity</th>
-                      <th className="px-3 py-2 text-left">Phone</th>
-                      <th className="px-3 py-2 text-left">Status</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {logs.map((log) => (
-                      <tr key={log.id} className="border-t border-gray-700 hover:bg-gray-700/50">
-                        <td className="px-3 py-2 text-gray-300">{new Date(log.created_at).toLocaleDateString()}</td>
-                        <td className="px-3 py-2 text-gray-300">{log.first_name && log.last_name ? `${log.first_name} ${log.last_name}` : '-'}</td>
-                        <td className="px-3 py-2 text-gray-300">{log.title || '-'}</td>
-                        <td className="px-3 py-2 text-gray-300">{log.email}</td>
-                        <td className="px-3 py-2 text-gray-300">{log.primary_name}</td>
-                        <td className="px-3 py-2 text-purple-400">{log.phone_number_returned || '-'}</td>
-                        <td className="px-3 py-2">
-                          <span className={`px-2 py-1 rounded text-xs ${log.api_status === 'success' ? 'bg-green-500/20 text-green-400' : 'bg-red-500/20 text-red-400'}`}>
-                            {log.api_status}
-                          </span>
-                        </td>
-                      </tr>
-                    ))}
-                    {logs.length === 0 && (
-                      <tr>
-                        <td colSpan={7} className="px-3 py-8 text-center text-gray-400">
-                          No records found
-                        </td>
-                      </tr>
-                    )}
-                  </tbody>
-                </table>
-              </div>
+                <TabsContent value="pending" className="space-y-4">
+                  <div className="overflow-x-auto">
+                    <table className="w-full text-sm">
+                      <thead className="bg-gray-700">
+                        <tr>
+                          <th className="px-3 py-2 text-left">Date</th>
+                          <th className="px-3 py-2 text-left">Name</th>
+                          <th className="px-3 py-2 text-left">Email</th>
+                          <th className="px-3 py-2 text-left">Entity</th>
+                          <th className="px-3 py-2 text-left">Website</th>
+                          <th className="px-3 py-2 text-left">Actions</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {pendingRequests.map((req) => (
+                          <tr key={req.id} className="border-t border-gray-700 hover:bg-gray-700/50">
+                            <td className="px-3 py-2 text-gray-300">{new Date(req.created_at).toLocaleDateString()}</td>
+                            <td className="px-3 py-2 text-gray-300">{req.first_name} {req.last_name}</td>
+                            <td className="px-3 py-2 text-gray-300">{req.email}</td>
+                            <td className="px-3 py-2 text-gray-300">{req.primary_name}</td>
+                            <td className="px-3 py-2 text-gray-300 truncate max-w-[150px]">{req.website || '-'}</td>
+                            <td className="px-3 py-2 flex gap-2">
+                              <Button
+                                size="sm"
+                                className="bg-green-600 hover:bg-green-700"
+                                onClick={() => handleApproveRequest(req.id)}
+                                disabled={processingId === req.id}
+                              >
+                                {processingId === req.id ? <Loader2 className="h-3 w-3 animate-spin" /> : <Check className="h-3 w-3" />}
+                              </Button>
+                              <Button
+                                size="sm"
+                                variant="destructive"
+                                onClick={() => handleDenyRequest(req.id)}
+                                disabled={processingId === req.id}
+                              >
+                                <XCircle className="h-3 w-3" />
+                              </Button>
+                            </td>
+                          </tr>
+                        ))}
+                        {pendingRequests.length === 0 && (
+                          <tr>
+                            <td colSpan={6} className="px-3 py-8 text-center text-gray-400">
+                              No pending requests
+                            </td>
+                          </tr>
+                        )}
+                      </tbody>
+                    </table>
+                  </div>
+                </TabsContent>
+
+                <TabsContent value="approved" className="space-y-4">
+                  <div className="overflow-x-auto">
+                    <table className="w-full text-sm">
+                      <thead className="bg-gray-700">
+                        <tr>
+                          <th className="px-3 py-2 text-left">Date</th>
+                          <th className="px-3 py-2 text-left">Name</th>
+                          <th className="px-3 py-2 text-left">Email</th>
+                          <th className="px-3 py-2 text-left">Entity</th>
+                          <th className="px-3 py-2 text-left">Phone</th>
+                          <th className="px-3 py-2 text-left">Approved By</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {approvedRequests.map((req) => (
+                          <tr key={req.id} className="border-t border-gray-700 hover:bg-gray-700/50">
+                            <td className="px-3 py-2 text-gray-300">{new Date(req.created_at).toLocaleDateString()}</td>
+                            <td className="px-3 py-2 text-gray-300">{req.first_name} {req.last_name}</td>
+                            <td className="px-3 py-2 text-gray-300">{req.email}</td>
+                            <td className="px-3 py-2 text-gray-300">{req.primary_name}</td>
+                            <td className="px-3 py-2 text-purple-400">{req.phone_number_returned ? formatPhoneNumber(req.phone_number_returned) : '-'}</td>
+                            <td className="px-3 py-2 text-gray-400 text-xs">{req.processed_by || '-'}</td>
+                          </tr>
+                        ))}
+                        {approvedRequests.length === 0 && (
+                          <tr>
+                            <td colSpan={6} className="px-3 py-8 text-center text-gray-400">
+                              No approved requests
+                            </td>
+                          </tr>
+                        )}
+                      </tbody>
+                    </table>
+                  </div>
+                </TabsContent>
+
+                <TabsContent value="denied" className="space-y-4">
+                  <div className="overflow-x-auto">
+                    <table className="w-full text-sm">
+                      <thead className="bg-gray-700">
+                        <tr>
+                          <th className="px-3 py-2 text-left">Date</th>
+                          <th className="px-3 py-2 text-left">Name</th>
+                          <th className="px-3 py-2 text-left">Email</th>
+                          <th className="px-3 py-2 text-left">Entity</th>
+                          <th className="px-3 py-2 text-left">Denied By</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {deniedRequests.map((req) => (
+                          <tr key={req.id} className="border-t border-gray-700 hover:bg-gray-700/50">
+                            <td className="px-3 py-2 text-gray-300">{new Date(req.created_at).toLocaleDateString()}</td>
+                            <td className="px-3 py-2 text-gray-300">{req.first_name} {req.last_name}</td>
+                            <td className="px-3 py-2 text-gray-300">{req.email}</td>
+                            <td className="px-3 py-2 text-gray-300">{req.primary_name}</td>
+                            <td className="px-3 py-2 text-gray-400 text-xs">{req.processed_by || '-'}</td>
+                          </tr>
+                        ))}
+                        {deniedRequests.length === 0 && (
+                          <tr>
+                            <td colSpan={5} className="px-3 py-8 text-center text-gray-400">
+                              No denied requests
+                            </td>
+                          </tr>
+                        )}
+                      </tbody>
+                    </table>
+                  </div>
+                </TabsContent>
+
+                <TabsContent value="all" className="space-y-4">
+                  <div className="flex justify-between items-center">
+                    <p className="text-gray-400">Total Records: {logs.length}</p>
+                    <Button onClick={exportToCSV} variant="outline" className="border-gray-600">
+                      <Download className="h-4 w-4 mr-2" />
+                      Export CSV
+                    </Button>
+                  </div>
+
+                  <div className="overflow-x-auto">
+                    <table className="w-full text-sm">
+                      <thead className="bg-gray-700">
+                        <tr>
+                          <th className="px-3 py-2 text-left">Date</th>
+                          <th className="px-3 py-2 text-left">Name</th>
+                          <th className="px-3 py-2 text-left">Email</th>
+                          <th className="px-3 py-2 text-left">Entity</th>
+                          <th className="px-3 py-2 text-left">Phone</th>
+                          <th className="px-3 py-2 text-left">Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {logs.map((log) => (
+                          <tr key={log.id} className="border-t border-gray-700 hover:bg-gray-700/50">
+                            <td className="px-3 py-2 text-gray-300">{new Date(log.created_at).toLocaleDateString()}</td>
+                            <td className="px-3 py-2 text-gray-300">{log.first_name && log.last_name ? `${log.first_name} ${log.last_name}` : '-'}</td>
+                            <td className="px-3 py-2 text-gray-300">{log.email}</td>
+                            <td className="px-3 py-2 text-gray-300">{log.primary_name}</td>
+                            <td className="px-3 py-2 text-purple-400">{log.phone_number_returned ? formatPhoneNumber(log.phone_number_returned) : '-'}</td>
+                            <td className="px-3 py-2">
+                              {getStatusBadge(log.status || log.api_status)}
+                            </td>
+                          </tr>
+                        ))}
+                        {logs.length === 0 && (
+                          <tr>
+                            <td colSpan={6} className="px-3 py-8 text-center text-gray-400">
+                              No records found
+                            </td>
+                          </tr>
+                        )}
+                      </tbody>
+                    </table>
+                  </div>
+                </TabsContent>
+              </Tabs>
             </div>
           )}
         </DialogContent>
