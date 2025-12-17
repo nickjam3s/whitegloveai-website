@@ -986,6 +986,7 @@ export type Database = {
       generate_confirmation_token: { Args: never; Returns: string }
       generate_order_number: { Args: never; Returns: string }
       generate_slug: { Args: { title: string }; Returns: string }
+      get_portal_user_email: { Args: never; Returns: string }
       is_admin: { Args: never; Returns: boolean }
       is_portal_admin: { Args: never; Returns: boolean }
       set_config: {
