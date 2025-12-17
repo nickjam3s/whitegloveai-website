@@ -983,6 +983,7 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      check_is_portal_admin: { Args: { user_email: string }; Returns: boolean }
       generate_confirmation_token: { Args: never; Returns: string }
       generate_order_number: { Args: never; Returns: string }
       generate_slug: { Args: { title: string }; Returns: string }
