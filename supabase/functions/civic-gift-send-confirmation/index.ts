@@ -8,26 +8,14 @@ const corsHeaders = {
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
 };
 
-interface PhoneNumberEmailRequest {
+interface ConfirmationEmailRequest {
   email: string;
-  phoneNumber: string;
-  agentId: string;
-  agentName: string;
   firstName?: string;
   lastName?: string;
   title?: string;
+  entityName: string;
+  requestId: string;
 }
-
-// Format phone number as +1 000-000-0000
-const formatPhoneNumber = (phone: string): string => {
-  const cleaned = phone.replace(/\D/g, '');
-  if (cleaned.length === 10) {
-    return `+1 ${cleaned.slice(0, 3)}-${cleaned.slice(3, 6)}-${cleaned.slice(6)}`;
-  } else if (cleaned.length === 11 && cleaned.startsWith('1')) {
-    return `+1 ${cleaned.slice(1, 4)}-${cleaned.slice(4, 7)}-${cleaned.slice(7)}`;
-  }
-  return phone;
-};
 
 const handler = async (req: Request): Promise<Response> => {
   if (req.method === "OPTIONS") {
@@ -35,26 +23,20 @@ const handler = async (req: Request): Promise<Response> => {
   }
 
   try {
-    const { email, phoneNumber, agentId, agentName, firstName, lastName, title }: PhoneNumberEmailRequest = await req.json();
+    const { email, firstName, lastName, title, entityName, requestId }: ConfirmationEmailRequest = await req.json();
 
-    // Handle comma-separated emails
-    const emailList = email.split(',').map((e: string) => e.trim()).filter((e: string) => e.length > 0);
-    
-    if (emailList.length === 0) {
+    if (!email) {
       return new Response(
-        JSON.stringify({ error: "No valid email addresses provided" }),
+        JSON.stringify({ error: "Email is required" }),
         { status: 400, headers: { "Content-Type": "application/json", ...corsHeaders } }
       );
     }
 
-    console.log(`Sending phone number email to ${emailList.join(', ')}`);
+    console.log(`Sending confirmation email to ${email} for request ${requestId}`);
 
     const calendarLink = "https://calendar.google.com/calendar/appointments/schedules/AcZssZ06roEHldr-EaUSD3PSphSeCF8OVWb3NzT5PjfDxwMMpLfZX2v15Dzk4Bj02xtMwXVZMxHv2mkN";
     const voiceAiLink = "https://whitegloveai.com/communications-ai/voice-ai";
     const logoUrl = "https://84d297c6-114c-4cb6-a6bc-83e359f1d6cb.lovableproject.com/images/civic-marketplace-logo.png";
-    
-    // Format the phone number
-    const formattedPhone = formatPhoneNumber(phoneNumber);
     
     // Build personalized greeting
     let greeting = "Hello";
@@ -67,10 +49,10 @@ const handler = async (req: Request): Promise<Response> => {
 
     const emailResponse = await resend.emails.send({
       from: "Civic Marketplace <noreply@whitegloveai.com>",
-      to: emailList,
+      to: [email],
       cc: ["nick@whitegloveai.com", "rachel.hirsch@civicmarketplace.com"],
       bcc: ["andi@whitegloveai.com", "vanessa@whitegloveai.com", "tobalo@whitegloveai.com"],
-      subject: "🎁 Demo Approved! Your AI Voice Agent is Ready",
+      subject: "🎁 We've Received Your AI Voice Agent Demo Request",
       html: `
         <!DOCTYPE html>
         <html>
@@ -91,20 +73,13 @@ const handler = async (req: Request): Promise<Response> => {
                     </td>
                   </tr>
                   
-                  <!-- Approval Banner -->
-                  <tr>
-                    <td style="background-color: #10b981; padding: 15px; text-align: center;">
-                      <p style="margin: 0; color: #ffffff; font-size: 16px; font-weight: 700;">✅ Your Demo Request Has Been Approved!</p>
-                    </td>
-                  </tr>
-                  
                   <!-- Header -->
                   <tr>
-                    <td style="background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%); padding: 30px; border-radius: 0; text-align: center;">
+                    <td style="background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%); padding: 30px; border-radius: 16px 16px 0 0; text-align: center;">
                       <h1 style="margin: 0; color: #ffffff; font-size: 28px; font-weight: 700;">
-                        🎉 Your AI Voice Agent is Live!
+                        📋 Thank You for Your Request!
                       </h1>
-                      <p style="margin: 10px 0 0 0; color: #fef08a; font-size: 16px; font-weight: 600;">Your 30-Day Demo Starts Now</p>
+                      <p style="margin: 10px 0 0 0; color: #fef08a; font-size: 16px; font-weight: 600;">Your 30-Day Demo Request is Being Reviewed</p>
                     </td>
                   </tr>
                   
@@ -114,23 +89,66 @@ const handler = async (req: Request): Promise<Response> => {
                       
                       <!-- Personalized Greeting -->
                       <p style="margin: 0 0 25px 0; color: #ffffff; font-size: 18px;">${greeting},</p>
-                      <p style="margin: 0 0 15px 0; color: #10b981; font-size: 16px; font-weight: 600; line-height: 1.6;">
-                        Great news! Your demo request has been reviewed and approved.
-                      </p>
                       <p style="margin: 0 0 25px 0; color: #d1d5db; font-size: 15px; line-height: 1.6;">
-                        Your AI Voice Agent for <strong style="color: #a78bfa;">${agentName}</strong> is now active and ready to serve your constituents!
+                        Thank you for requesting a complimentary AI Voice Agent demo for <strong style="color: #a78bfa;">${entityName}</strong>!
                       </p>
                       
-                      <!-- Phone Number Box -->
+                      <!-- Request Reference Box -->
                       <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="margin-bottom: 30px;">
                         <tr>
-                          <td style="background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%); padding: 3px; border-radius: 12px;">
+                          <td style="background-color: #261c38; padding: 20px; border-radius: 12px; text-align: center;">
+                            <p style="margin: 0 0 5px 0; color: #a78bfa; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">Request Reference</p>
+                            <p style="margin: 0; color: #ffffff; font-size: 16px; font-weight: 600; font-family: monospace;">${requestId.slice(0, 8).toUpperCase()}</p>
+                          </td>
+                        </tr>
+                      </table>
+                      
+                      <!-- What Happens Next -->
+                      <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="margin-bottom: 30px;">
+                        <tr>
+                          <td style="padding: 20px; background-color: #261c38; border-radius: 12px;">
+                            <h2 style="margin: 0 0 20px 0; color: #ffffff; font-size: 18px;">📋 What Happens Next?</h2>
                             <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
                               <tr>
-                                <td style="background-color: #1a1025; padding: 25px; border-radius: 10px; text-align: center;">
-                                  <p style="margin: 0 0 10px 0; color: #a78bfa; font-size: 14px; text-transform: uppercase; letter-spacing: 1px;">Your Agent Phone Number</p>
-                                  <p style="margin: 0; color: #ffffff; font-size: 32px; font-weight: 700; letter-spacing: 2px;">${formattedPhone}</p>
-                                  <p style="margin: 15px 0 0 0; color: #9ca3af; font-size: 14px;">Agent: ${agentName}</p>
+                                <td style="padding: 10px 0;">
+                                  <table role="presentation" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                      <td style="vertical-align: top; padding-right: 15px;">
+                                        <span style="display: inline-block; width: 28px; height: 28px; background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%); border-radius: 50%; text-align: center; line-height: 28px; color: #ffffff; font-weight: 600; font-size: 14px;">1</span>
+                                      </td>
+                                      <td style="vertical-align: middle;">
+                                        <p style="margin: 0; color: #d1d5db; font-size: 14px;">Our team will review your request (typically within <strong style="color: #ffffff;">1 business day</strong>)</p>
+                                      </td>
+                                    </tr>
+                                  </table>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td style="padding: 10px 0;">
+                                  <table role="presentation" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                      <td style="vertical-align: top; padding-right: 15px;">
+                                        <span style="display: inline-block; width: 28px; height: 28px; background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%); border-radius: 50%; text-align: center; line-height: 28px; color: #ffffff; font-weight: 600; font-size: 14px;">2</span>
+                                      </td>
+                                      <td style="vertical-align: middle;">
+                                        <p style="margin: 0; color: #d1d5db; font-size: 14px;">Once approved, you'll receive an email with your <strong style="color: #ffffff;">dedicated AI phone number</strong></p>
+                                      </td>
+                                    </tr>
+                                  </table>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td style="padding: 10px 0;">
+                                  <table role="presentation" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                      <td style="vertical-align: top; padding-right: 15px;">
+                                        <span style="display: inline-block; width: 28px; height: 28px; background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%); border-radius: 50%; text-align: center; line-height: 28px; color: #ffffff; font-weight: 600; font-size: 14px;">3</span>
+                                      </td>
+                                      <td style="vertical-align: middle;">
+                                        <p style="margin: 0; color: #d1d5db; font-size: 14px;">Your <strong style="color: #fef08a;">30-day demo</strong> begins the moment you receive your number!</p>
+                                      </td>
+                                    </tr>
+                                  </table>
                                 </td>
                               </tr>
                             </table>
@@ -141,56 +159,22 @@ const handler = async (req: Request): Promise<Response> => {
                       <!-- Partnership Badge -->
                       <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="margin-bottom: 30px;">
                         <tr>
-                      <td style="text-align: center; padding: 20px; background-color: #261c38; border-radius: 12px;">
-                            <p style="margin: 0 0 5px 0; color: #d8b4fe; font-size: 14px;">This 30-day demo was brought to you by</p>
+                          <td style="text-align: center; padding: 20px; background-color: #261c38; border-radius: 12px;">
+                            <p style="margin: 0 0 5px 0; color: #d8b4fe; font-size: 14px;">This demo is brought to you by</p>
                             <p style="margin: 0 0 10px 0; color: #ffffff; font-size: 18px; font-weight: 600;">Civic Marketplace × WhitegloveAI</p>
                             <p style="margin: 0; color: #10b981; font-size: 13px; font-weight: 500;">✓ TXShare Approved Vendor • Contract #2025-023</p>
                           </td>
                         </tr>
                       </table>
                       
-                      <!-- Divider -->
+                      <!-- While You Wait Section -->
                       <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="margin-bottom: 30px;">
                         <tr>
                           <td style="border-top: 1px solid #374151; padding-top: 30px;">
-                            <h2 style="margin: 0 0 20px 0; color: #ffffff; font-size: 20px;">📞 How to Test Your Agent</h2>
-                            <p style="margin: 0 0 15px 0; color: #d1d5db; font-size: 15px; line-height: 1.6;">Call the number above and try these prompts:</p>
-                            <ul style="margin: 0 0 20px 0; padding-left: 20px; color: #d1d5db; font-size: 14px; line-height: 1.8;">
-                              <li>"What are your office hours?"</li>
-                              <li>"How do I apply for a permit?"</li>
-                              <li>Ask the same question in Spanish, Vietnamese, or any language—your agent speaks <strong style="color: #a78bfa;">50+ languages!</strong></li>
-                            </ul>
-                            
-                            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background-color: #261c38; border-radius: 8px; padding: 15px;">
-                              <tr>
-                                <td style="padding: 15px;">
-                                  <p style="margin: 0 0 10px 0; color: #a78bfa; font-size: 14px; font-weight: 600;">💡 Pro Tips:</p>
-                                  <ul style="margin: 0; padding-left: 20px; color: #d1d5db; font-size: 14px; line-height: 1.8;">
-                                    <li>Your agent learned from your website—ask about anything mentioned there</li>
-                                    <li>Text the number to test SMS capabilities</li>
-                                    <li>Share with a colleague to experience concurrent call handling</li>
-                                  </ul>
-                                </td>
-                              </tr>
-                            </table>
-                          </td>
-                        </tr>
-                      </table>
-                      
-                      <!-- VoiceAI CTA -->
-                      <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="margin-bottom: 30px;">
-                        <tr>
-                          <td style="border-top: 1px solid #374151; padding-top: 30px;">
-                            <h2 style="margin: 0 0 15px 0; color: #ffffff; font-size: 20px;">🚀 Want More After Your 30-Day Demo?</h2>
-                            <p style="margin: 0 0 20px 0; color: #d1d5db; font-size: 15px; line-height: 1.6;">Your 30-day demo is just the beginning. WhitegloveAI's VoiceAI platform offers:</p>
-                            <ul style="margin: 0 0 20px 0; padding-left: 20px; color: #d1d5db; font-size: 14px; line-height: 1.8;">
-                              <li><strong style="color: #ffffff;">Unlimited concurrent calls</strong> — never miss a constituent</li>
-                              <li><strong style="color: #ffffff;">Website chat integration</strong> — same AI, dual channel</li>
-                              <li><strong style="color: #ffffff;">Custom training</strong> — policies & procedures integration</li>
-                              <li><strong style="color: #ffffff;">Analytics dashboard</strong> — call insights & reporting</li>
-                              <li><strong style="color: #ffffff;">Human handoff</strong> — seamless escalation when needed</li>
-                            </ul>
-                            <p style="margin: 0 0 20px 0; color: #10b981; font-size: 14px;">All available through TXShare Contract #2025-023.</p>
+                            <h2 style="margin: 0 0 15px 0; color: #ffffff; font-size: 18px;">⏳ While You Wait...</h2>
+                            <p style="margin: 0 0 20px 0; color: #d1d5db; font-size: 15px; line-height: 1.6;">
+                              Learn more about how VoiceAI is transforming constituent services for government agencies across Texas.
+                            </p>
                             <table role="presentation" cellspacing="0" cellpadding="0">
                               <tr>
                                 <td style="background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%); border-radius: 8px;">
@@ -206,8 +190,8 @@ const handler = async (req: Request): Promise<Response> => {
                       <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="margin-bottom: 30px;">
                         <tr>
                           <td style="border-top: 1px solid #374151; padding-top: 30px; text-align: center;">
-                            <h2 style="margin: 0 0 15px 0; color: #ffffff; font-size: 20px;">📅 Let's Talk</h2>
-                            <p style="margin: 0 0 20px 0; color: #d1d5db; font-size: 15px; line-height: 1.6;">Ready to scale? Schedule a complimentary discovery call with Davis Bhagat, Founder of WhitegloveAI.</p>
+                            <h2 style="margin: 0 0 15px 0; color: #ffffff; font-size: 18px;">📅 Have Questions?</h2>
+                            <p style="margin: 0 0 20px 0; color: #d1d5db; font-size: 15px; line-height: 1.6;">Schedule a complimentary discovery call with Davis Bhagat, Founder of WhitegloveAI.</p>
                             <table role="presentation" cellspacing="0" cellpadding="0" style="margin: 0 auto;">
                               <tr>
                                 <td style="border: 2px solid #7c3aed; border-radius: 8px;">
@@ -240,14 +224,14 @@ const handler = async (req: Request): Promise<Response> => {
       `,
     });
 
-    console.log("Phone number email sent successfully:", emailResponse);
+    console.log("Confirmation email sent successfully:", emailResponse);
 
     return new Response(JSON.stringify({ success: true }), {
       status: 200,
       headers: { "Content-Type": "application/json", ...corsHeaders },
     });
   } catch (error: any) {
-    console.error("Error sending phone number email:", error);
+    console.error("Error sending confirmation email:", error);
     return new Response(
       JSON.stringify({ error: error.message }),
       { status: 500, headers: { "Content-Type": "application/json", ...corsHeaders } }

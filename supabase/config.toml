@@ -47,3 +47,6 @@ verify_jwt = false
 
 [functions.civic-gift-slack-callback]
 verify_jwt = false
+
+[functions.civic-gift-send-confirmation]
+verify_jwt = false
