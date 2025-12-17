@@ -457,7 +457,7 @@ const GiftContent = () => {
           {/* Header */}
           <div className="text-center mb-8">
             <img 
-              src="https://84d297c6-114c-4cb6-a6bc-83e359f1d6cb.lovableproject.com/lovable-uploads/cbc85045-41f1-434b-a70d-69aca08e4e66.png" 
+              src="https://whitegloveai.com/lovable-uploads/cbc85045-41f1-434b-a70d-69aca08e4e66.png" 
               alt="WhitegloveAI" 
               className="h-12 mx-auto mb-6"
             />

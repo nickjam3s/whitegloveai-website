@@ -43,7 +43,7 @@ export const OrderConfirmationEmail = ({
         <Container style={content}>
           <Section style={logoSection}>
             <Img
-              src="https://84d297c6-114c-4cb6-a6bc-83e359f1d6cb.lovableproject.com/lovable-uploads/cbc85045-41f1-434b-a70d-69aca08e4e66.png"
+              src="https://whitegloveai.com/lovable-uploads/cbc85045-41f1-434b-a70d-69aca08e4e66.png"
               width="200"
               height="auto"
               alt="WhitegloveAI"

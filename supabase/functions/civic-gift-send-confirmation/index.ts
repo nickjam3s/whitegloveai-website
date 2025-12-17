@@ -36,7 +36,7 @@ const handler = async (req: Request): Promise<Response> => {
 
     const calendarLink = "https://calendar.google.com/calendar/appointments/schedules/AcZssZ06roEHldr-EaUSD3PSphSeCF8OVWb3NzT5PjfDxwMMpLfZX2v15Dzk4Bj02xtMwXVZMxHv2mkN";
     const voiceAiLink = "https://whitegloveai.com/communications-ai/voice-ai";
-    const logoUrl = "https://84d297c6-114c-4cb6-a6bc-83e359f1d6cb.lovableproject.com/images/civic-marketplace-logo.png";
+    const logoUrl = "https://whitegloveai.com/lovable-uploads/cbc85045-41f1-434b-a70d-69aca08e4e66.png";
     
     // Build personalized greeting
     let greeting = "Hello";
