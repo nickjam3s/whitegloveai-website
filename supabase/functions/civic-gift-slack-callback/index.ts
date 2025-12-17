@@ -59,6 +59,283 @@ async function verifySlackRequest(req: Request, body: string): Promise<boolean> 
   return computedSignature === signature;
 }
 
+// Process approval in background
+async function processApproval(
+  requestId: string,
+  requestData: any,
+  userName: string,
+  responseUrl: string,
+  supabase: any,
+  civicApiKey: string,
+  supabaseUrl: string,
+  supabaseServiceKey: string
+) {
+  const processedAt = new Date().toISOString();
+  const processedAtFormatted = new Date().toLocaleString('en-US', {
+    timeZone: 'America/Chicago',
+    dateStyle: 'medium',
+    timeStyle: 'short'
+  });
+
+  // Call external API to provision agent
+  const apiRequestBody: AgentCreateRequest = {
+    entity_type: requestData.entity_type || 'municipal',
+    primary_name: requestData.primary_name,
+    secondary_name: requestData.secondary_name || requestData.primary_name,
+    region: requestData.region || 'Texas',
+    specialization: requestData.specialization || 'General Services',
+    website: requestData.website || undefined,
+    provision_kb: requestData.provision_kb || false,
+    enhanced_crawl: requestData.enhanced_crawl || false,
+    crawl_max_pages: requestData.crawl_max_pages || 10,
+    crawl_max_depth: requestData.crawl_max_depth || 2,
+  };
+
+  console.log("Calling external API:", JSON.stringify(apiRequestBody));
+
+  let apiData: any;
+
+  try {
+    const apiResponse = await fetch("https://agentic-iac-pg23c.ondigitalocean.app/agents", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-API-Token": civicApiKey,
+      },
+      body: JSON.stringify(apiRequestBody),
+    });
+
+    apiData = await apiResponse.json();
+    console.log("API Response:", JSON.stringify(apiData));
+
+    if (!apiResponse.ok) {
+      throw new Error(apiData?.error || apiData?.detail || "API call failed");
+    }
+  } catch (apiError) {
+    console.error("API call failed:", apiError);
+    
+    // Update database with failed status
+    await supabase
+      .from('civic_gift_logs')
+      .update({
+        status: 'failed',
+        api_status: 'failed',
+        processed_at: processedAt,
+        processed_by: userName,
+        api_response: { error: apiError instanceof Error ? apiError.message : "API call failed" },
+      })
+      .eq('id', requestId);
+
+    // Update Slack message via response_url
+    await fetch(responseUrl, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        response_type: "in_channel",
+        replace_original: true,
+        text: `🎁 Civic Gift Request — ❌ FAILED`,
+        blocks: [
+          {
+            type: "header",
+            text: { type: "plain_text", text: "🎁 Civic Gift Request — ❌ FAILED", emoji: true }
+          },
+          {
+            type: "section",
+            fields: [
+              { type: "mrkdwn", text: `*👤 Requestor:*\n${requestData.first_name || ''} ${requestData.last_name || ''}` },
+              { type: "mrkdwn", text: `*📧 Email:*\n${requestData.email}` }
+            ]
+          },
+          {
+            type: "section",
+            fields: [
+              { type: "mrkdwn", text: `*🏛️ Entity:*\n${requestData.primary_name}` },
+              { type: "mrkdwn", text: `*❌ Error:*\n${apiError instanceof Error ? apiError.message : "API failed"}` }
+            ]
+          },
+          {
+            type: "context",
+            elements: [{ type: "mrkdwn", text: `Attempted by ${userName} at ${processedAtFormatted} CT` }]
+          }
+        ]
+      })
+    });
+    return;
+  }
+
+  // Update database with success
+  const { error: updateError } = await supabase
+    .from('civic_gift_logs')
+    .update({
+      status: 'approved',
+      api_status: 'success',
+      processed_at: processedAt,
+      processed_by: userName,
+      phone_number_returned: apiData.phone_number,
+      agent_id: apiData.agent_id,
+      api_response: apiData,
+    })
+    .eq('id', requestId);
+
+  if (updateError) {
+    console.error("Error updating database:", updateError);
+  }
+
+  // Send email to user with phone number
+  try {
+    const emailResponse = await fetch(`${supabaseUrl}/functions/v1/civic-gift-send-phone-number`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${supabaseServiceKey}`,
+      },
+      body: JSON.stringify({
+        email: requestData.email,
+        phoneNumber: apiData.phone_number,
+        agentId: apiData.agent_id,
+        agentName: apiData.name || requestData.primary_name,
+        firstName: requestData.first_name,
+        lastName: requestData.last_name,
+        title: requestData.title,
+      }),
+    });
+
+    if (!emailResponse.ok) {
+      console.error("Failed to send phone number email:", await emailResponse.text());
+    } else {
+      console.log("Phone number email sent successfully");
+    }
+  } catch (emailError) {
+    console.error("Error sending email:", emailError);
+  }
+
+  // Format phone number for display
+  const phone = apiData.phone_number || '';
+  const cleaned = phone.replace(/\D/g, '');
+  let formattedPhone = phone;
+  if (cleaned.length === 10) {
+    formattedPhone = `+1 ${cleaned.slice(0, 3)}-${cleaned.slice(3, 6)}-${cleaned.slice(6)}`;
+  } else if (cleaned.length === 11 && cleaned.startsWith('1')) {
+    formattedPhone = `+1 ${cleaned.slice(1, 4)}-${cleaned.slice(4, 7)}-${cleaned.slice(7)}`;
+  }
+
+  // Update Slack message via response_url
+  await fetch(responseUrl, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      response_type: "in_channel",
+      replace_original: true,
+      text: `🎁 Civic Gift Request — ✅ APPROVED`,
+      blocks: [
+        {
+          type: "header",
+          text: { type: "plain_text", text: "🎁 Civic Gift Request — ✅ APPROVED", emoji: true }
+        },
+        {
+          type: "section",
+          fields: [
+            { type: "mrkdwn", text: `*👤 Requestor:*\n${requestData.first_name || ''} ${requestData.last_name || ''}${requestData.title ? ` (${requestData.title})` : ''}` },
+            { type: "mrkdwn", text: `*📧 Email:*\n${requestData.email}` }
+          ]
+        },
+        {
+          type: "section",
+          fields: [
+            { type: "mrkdwn", text: `*🏛️ Entity:*\n${requestData.primary_name} (${requestData.entity_type})` },
+            { type: "mrkdwn", text: `*📍 State:*\n${requestData.region}` }
+          ]
+        },
+        {
+          type: "section",
+          fields: [
+            { type: "mrkdwn", text: `*🌐 Website:*\n${requestData.website || 'Not provided'}` },
+            { type: "mrkdwn", text: `*📅 Submitted:*\n${new Date(requestData.created_at).toLocaleString('en-US', { timeZone: 'America/Chicago', dateStyle: 'medium', timeStyle: 'short' })} CT` }
+          ]
+        },
+        { type: "divider" },
+        {
+          type: "section",
+          fields: [
+            { type: "mrkdwn", text: `*📞 Phone Number:*\n\`${formattedPhone}\`` },
+            { type: "mrkdwn", text: `*🤖 Agent ID:*\n\`${apiData.agent_id || 'N/A'}\`` }
+          ]
+        },
+        {
+          type: "context",
+          elements: [{ type: "mrkdwn", text: `✅ Approved by ${userName} at ${processedAtFormatted} CT • Email sent to ${requestData.email}` }]
+        }
+      ]
+    })
+  });
+}
+
+// Process denial in background
+async function processDenial(
+  requestId: string,
+  requestData: any,
+  userName: string,
+  responseUrl: string,
+  supabase: any
+) {
+  const processedAt = new Date().toISOString();
+  const processedAtFormatted = new Date().toLocaleString('en-US', {
+    timeZone: 'America/Chicago',
+    dateStyle: 'medium',
+    timeStyle: 'short'
+  });
+
+  // Update database with denial
+  const { error: updateError } = await supabase
+    .from('civic_gift_logs')
+    .update({
+      status: 'denied',
+      api_status: 'denied',
+      processed_at: processedAt,
+      processed_by: userName,
+    })
+    .eq('id', requestId);
+
+  if (updateError) {
+    console.error("Error updating database:", updateError);
+  }
+
+  // Update Slack message via response_url
+  await fetch(responseUrl, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      response_type: "in_channel",
+      replace_original: true,
+      text: `🎁 Civic Gift Request — ❌ DENIED`,
+      blocks: [
+        {
+          type: "header",
+          text: { type: "plain_text", text: "🎁 Civic Gift Request — ❌ DENIED", emoji: true }
+        },
+        {
+          type: "section",
+          fields: [
+            { type: "mrkdwn", text: `*👤 Requestor:*\n${requestData.first_name || ''} ${requestData.last_name || ''}` },
+            { type: "mrkdwn", text: `*📧 Email:*\n${requestData.email}` }
+          ]
+        },
+        {
+          type: "section",
+          fields: [
+            { type: "mrkdwn", text: `*🏛️ Entity:*\n${requestData.primary_name}` },
+            { type: "mrkdwn", text: `*📍 State:*\n${requestData.region}` }
+          ]
+        },
+        {
+          type: "context",
+          elements: [{ type: "mrkdwn", text: `❌ Denied by ${userName} at ${processedAtFormatted} CT` }]
+        }
+      ]
+    })
+  });
+}
+
 serve(async (req) => {
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
@@ -67,7 +344,6 @@ serve(async (req) => {
   const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
   const supabaseServiceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
   const civicApiKey = Deno.env.get("CIVIC_GIFT_API_KEY")!;
-  const slackWebhookUrl = Deno.env.get("SLACK_WEBHOOK_URL")!;
 
   const supabase = createClient(supabaseUrl, supabaseServiceKey);
 
@@ -101,6 +377,7 @@ serve(async (req) => {
     const requestId = action.value;
     const actionId = action.action_id;
     const userName = payload.user?.name || payload.user?.username || "Unknown admin";
+    const responseUrl = payload.response_url;
 
     console.log(`Processing ${actionId} for request ${requestId} by ${userName}`);
 
@@ -130,197 +407,48 @@ serve(async (req) => {
       });
     }
 
-    const processedAt = new Date().toISOString();
-    const processedAtFormatted = new Date().toLocaleString('en-US', {
-      timeZone: 'America/Chicago',
-      dateStyle: 'medium',
-      timeStyle: 'short'
-    });
-
     if (actionId === "approve_request") {
-      // Call external API to provision agent
-      const apiRequestBody: AgentCreateRequest = {
-        entity_type: requestData.entity_type || 'municipal',
-        primary_name: requestData.primary_name,
-        secondary_name: requestData.secondary_name || requestData.primary_name,
-        region: requestData.region || 'Texas',
-        specialization: requestData.specialization || 'General Services',
-        website: requestData.website || undefined,
-        provision_kb: requestData.provision_kb || false,
-        enhanced_crawl: requestData.enhanced_crawl || false,
-        crawl_max_pages: requestData.crawl_max_pages || 10,
-        crawl_max_depth: requestData.crawl_max_depth || 2,
-      };
+      // Immediately acknowledge and process in background
+      EdgeRuntime.waitUntil(
+        processApproval(
+          requestId,
+          requestData,
+          userName,
+          responseUrl,
+          supabase,
+          civicApiKey,
+          supabaseUrl,
+          supabaseServiceKey
+        )
+      );
 
-      console.log("Calling external API:", JSON.stringify(apiRequestBody));
-
-      let apiResponse: Response;
-      let apiData: any;
-
-      try {
-        apiResponse = await fetch("https://agentic-iac-pg23c.ondigitalocean.app/agents", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "X-API-Token": civicApiKey,
-          },
-          body: JSON.stringify(apiRequestBody),
-        });
-
-        apiData = await apiResponse.json();
-        console.log("API Response:", JSON.stringify(apiData));
-
-        if (!apiResponse.ok) {
-          throw new Error(apiData?.error || apiData?.detail || "API call failed");
-        }
-      } catch (apiError) {
-        console.error("API call failed:", apiError);
-        
-        // Update database with failed status
-        await supabase
-          .from('civic_gift_logs')
-          .update({
-            status: 'failed',
-            api_status: 'failed',
-            processed_at: processedAt,
-            processed_by: userName,
-            api_response: { error: apiError instanceof Error ? apiError.message : "API call failed" },
-          })
-          .eq('id', requestId);
-
-        // Update Slack message to show failure
-        return new Response(JSON.stringify({
-          response_type: "in_channel",
-          replace_original: true,
-          text: `🎁 Civic Gift Request — ❌ FAILED`,
-          blocks: [
-            {
-              type: "header",
-              text: { type: "plain_text", text: "🎁 Civic Gift Request — ❌ FAILED", emoji: true }
-            },
-            {
-              type: "section",
-              fields: [
-                { type: "mrkdwn", text: `*👤 Requestor:*\n${requestData.first_name || ''} ${requestData.last_name || ''}` },
-                { type: "mrkdwn", text: `*📧 Email:*\n${requestData.email}` }
-              ]
-            },
-            {
-              type: "section",
-              fields: [
-                { type: "mrkdwn", text: `*🏛️ Entity:*\n${requestData.primary_name}` },
-                { type: "mrkdwn", text: `*❌ Error:*\n${apiError instanceof Error ? apiError.message : "API failed"}` }
-              ]
-            },
-            {
-              type: "context",
-              elements: [{ type: "mrkdwn", text: `Attempted by ${userName} at ${processedAtFormatted} CT` }]
-            }
-          ]
-        }), {
-          status: 200,
-          headers: { "Content-Type": "application/json" }
-        });
-      }
-
-      // Update database with success
-      const { error: updateError } = await supabase
-        .from('civic_gift_logs')
-        .update({
-          status: 'approved',
-          api_status: 'success',
-          processed_at: processedAt,
-          processed_by: userName,
-          phone_number_returned: apiData.phone_number,
-          agent_id: apiData.agent_id,
-          api_response: apiData,
-        })
-        .eq('id', requestId);
-
-      if (updateError) {
-        console.error("Error updating database:", updateError);
-      }
-
-      // Send email to user with phone number
-      try {
-        const emailResponse = await fetch(`${supabaseUrl}/functions/v1/civic-gift-send-phone-number`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${supabaseServiceKey}`,
-          },
-          body: JSON.stringify({
-            email: requestData.email,
-            phoneNumber: apiData.phone_number,
-            agentId: apiData.agent_id,
-            agentName: apiData.name || requestData.primary_name,
-            firstName: requestData.first_name,
-            lastName: requestData.last_name,
-            title: requestData.title,
-          }),
-        });
-
-        if (!emailResponse.ok) {
-          console.error("Failed to send phone number email:", await emailResponse.text());
-        } else {
-          console.log("Phone number email sent successfully");
-        }
-      } catch (emailError) {
-        console.error("Error sending email:", emailError);
-      }
-
-      // Format phone number for display
-      const phone = apiData.phone_number || '';
-      const cleaned = phone.replace(/\D/g, '');
-      let formattedPhone = phone;
-      if (cleaned.length === 10) {
-        formattedPhone = `+1 ${cleaned.slice(0, 3)}-${cleaned.slice(3, 6)}-${cleaned.slice(6)}`;
-      } else if (cleaned.length === 11 && cleaned.startsWith('1')) {
-        formattedPhone = `+1 ${cleaned.slice(1, 4)}-${cleaned.slice(4, 7)}-${cleaned.slice(7)}`;
-      }
-
-      // Update Slack message to show approval
+      // Return immediate response to Slack (within 3 seconds)
       return new Response(JSON.stringify({
         response_type: "in_channel",
         replace_original: true,
-        text: `🎁 Civic Gift Request — ✅ APPROVED`,
+        text: `🎁 Civic Gift Request — ⏳ PROCESSING`,
         blocks: [
           {
             type: "header",
-            text: { type: "plain_text", text: "🎁 Civic Gift Request — ✅ APPROVED", emoji: true }
+            text: { type: "plain_text", text: "🎁 Civic Gift Request — ⏳ PROCESSING", emoji: true }
           },
           {
             type: "section",
             fields: [
-              { type: "mrkdwn", text: `*👤 Requestor:*\n${requestData.first_name || ''} ${requestData.last_name || ''}${requestData.title ? ` (${requestData.title})` : ''}` },
+              { type: "mrkdwn", text: `*👤 Requestor:*\n${requestData.first_name || ''} ${requestData.last_name || ''}` },
               { type: "mrkdwn", text: `*📧 Email:*\n${requestData.email}` }
             ]
           },
           {
             type: "section",
             fields: [
-              { type: "mrkdwn", text: `*🏛️ Entity:*\n${requestData.primary_name} (${requestData.entity_type})` },
+              { type: "mrkdwn", text: `*🏛️ Entity:*\n${requestData.primary_name}` },
               { type: "mrkdwn", text: `*📍 State:*\n${requestData.region}` }
             ]
           },
           {
-            type: "section",
-            fields: [
-              { type: "mrkdwn", text: `*🌐 Website:*\n${requestData.website || 'Not provided'}` },
-              { type: "mrkdwn", text: `*📅 Submitted:*\n${new Date(requestData.created_at).toLocaleString('en-US', { timeZone: 'America/Chicago', dateStyle: 'medium', timeStyle: 'short' })} CT` }
-            ]
-          },
-          { type: "divider" },
-          {
-            type: "section",
-            fields: [
-              { type: "mrkdwn", text: `*📞 Phone Number:*\n\`${formattedPhone}\`` },
-              { type: "mrkdwn", text: `*🤖 Agent ID:*\n\`${apiData.agent_id || 'N/A'}\`` }
-            ]
-          },
-          {
             type: "context",
-            elements: [{ type: "mrkdwn", text: `✅ Approved by ${userName} at ${processedAtFormatted} CT • Email sent to ${requestData.email}` }]
+            elements: [{ type: "mrkdwn", text: `⏳ Approval initiated by ${userName} — provisioning agent and sending email...` }]
           }
         ]
       }), {
@@ -329,22 +457,12 @@ serve(async (req) => {
       });
 
     } else if (actionId === "deny_request") {
-      // Update database with denial
-      const { error: updateError } = await supabase
-        .from('civic_gift_logs')
-        .update({
-          status: 'denied',
-          api_status: 'denied',
-          processed_at: processedAt,
-          processed_by: userName,
-        })
-        .eq('id', requestId);
+      // Process denial in background
+      EdgeRuntime.waitUntil(
+        processDenial(requestId, requestData, userName, responseUrl, supabase)
+      );
 
-      if (updateError) {
-        console.error("Error updating database:", updateError);
-      }
-
-      // Update Slack message to show denial (no email sent per user preference)
+      // Return immediate response
       return new Response(JSON.stringify({
         response_type: "in_channel",
         replace_original: true,
@@ -370,7 +488,7 @@ serve(async (req) => {
           },
           {
             type: "context",
-            elements: [{ type: "mrkdwn", text: `❌ Denied by ${userName} at ${processedAtFormatted} CT` }]
+            elements: [{ type: "mrkdwn", text: `❌ Denied by ${userName}` }]
           }
         ]
       }), {
