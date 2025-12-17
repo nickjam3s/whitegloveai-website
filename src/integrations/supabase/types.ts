@@ -96,6 +96,7 @@ export type Database = {
           crawl_max_depth: number | null
           crawl_max_pages: number | null
           created_at: string | null
+          denial_reason: string | null
           email: string
           enhanced_crawl: boolean | null
           entity_type: string
@@ -103,13 +104,17 @@ export type Database = {
           id: string
           ip_address: string | null
           last_name: string | null
-          phone_area_code: string
+          phone_area_code: string | null
           phone_number_returned: string | null
           primary_name: string
+          processed_at: string | null
+          processed_by: string | null
           provision_kb: boolean | null
           region: string | null
           secondary_name: string
+          slack_message_ts: string | null
           specialization: string | null
+          status: string
           title: string | null
           user_agent: string | null
           website: string | null
@@ -117,10 +122,11 @@ export type Database = {
         Insert: {
           agent_id?: string | null
           api_response?: Json | null
-          api_status: string
+          api_status?: string
           crawl_max_depth?: number | null
           crawl_max_pages?: number | null
           created_at?: string | null
+          denial_reason?: string | null
           email: string
           enhanced_crawl?: boolean | null
           entity_type: string
@@ -128,13 +134,17 @@ export type Database = {
           id?: string
           ip_address?: string | null
           last_name?: string | null
-          phone_area_code: string
+          phone_area_code?: string | null
           phone_number_returned?: string | null
           primary_name: string
+          processed_at?: string | null
+          processed_by?: string | null
           provision_kb?: boolean | null
           region?: string | null
           secondary_name: string
+          slack_message_ts?: string | null
           specialization?: string | null
+          status?: string
           title?: string | null
           user_agent?: string | null
           website?: string | null
@@ -146,6 +156,7 @@ export type Database = {
           crawl_max_depth?: number | null
           crawl_max_pages?: number | null
           created_at?: string | null
+          denial_reason?: string | null
           email?: string
           enhanced_crawl?: boolean | null
           entity_type?: string
@@ -153,13 +164,17 @@ export type Database = {
           id?: string
           ip_address?: string | null
           last_name?: string | null
-          phone_area_code?: string
+          phone_area_code?: string | null
           phone_number_returned?: string | null
           primary_name?: string
+          processed_at?: string | null
+          processed_by?: string | null
           provision_kb?: boolean | null
           region?: string | null
           secondary_name?: string
+          slack_message_ts?: string | null
           specialization?: string | null
+          status?: string
           title?: string | null
           user_agent?: string | null
           website?: string | null
