@@ -612,6 +612,20 @@ const GiftContent = () => {
 
                     <Button
                       variant="ghost"
+                      onClick={handleSendOtp}
+                      disabled={isLoading}
+                      className="w-full text-gray-400 hover:text-white"
+                    >
+                      {isLoading ? (
+                        <Loader2 className="h-4 w-4 animate-spin mr-2" />
+                      ) : (
+                        <Mail className="h-4 w-4 mr-2" />
+                      )}
+                      Resend Code
+                    </Button>
+
+                    <Button
+                      variant="ghost"
                       onClick={() => setStep('email')}
                       className="w-full text-gray-400 hover:text-white"
                     >
