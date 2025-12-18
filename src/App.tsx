@@ -163,6 +163,7 @@ const AppContent = () => {
                 
                 {/* Civic Marketplace (unlisted) */}
                 <Route path="/civicmarketplace/gift" element={<CivicGift />} />
+                <Route path="/civicmarketplace/gift/admin" element={<CivicGift />} />
                 
                 {/* External Redirects */}
                 <Route

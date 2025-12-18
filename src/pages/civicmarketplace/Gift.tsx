@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import PinProtection from '@/components/PinProtection';
 import { supabase } from '@/integrations/supabase/client';
@@ -193,11 +194,19 @@ const HubSpotForm = () => {
 };
 
 const GiftContent = () => {
+  const location = useLocation();
   const [step, setStep] = useState<Step>('email');
   const [email, setEmail] = useState('');
   const [otp, setOtp] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [showAdminLogin, setShowAdminLogin] = useState(false);
+
+  // Auto-open admin login if accessing via /admin route
+  useEffect(() => {
+    if (location.pathname.endsWith('/admin')) {
+      setShowAdminLogin(true);
+    }
+  }, [location.pathname]);
   const [adminEmail, setAdminEmail] = useState('');
   const [adminPassword, setAdminPassword] = useState('');
   const [isAdminAuthenticated, setIsAdminAuthenticated] = useState(false);
