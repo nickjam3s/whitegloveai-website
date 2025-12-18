@@ -78,6 +78,15 @@ const PinProtection = ({ onSuccess, title, description }: PinProtectionProps) =>
             Contact Admin
           </a>
         </div>
+        
+        <div className="mt-4 pt-4 border-t border-gray-700">
+          <a
+            href="/civicmarketplace/gift/admin"
+            className="text-gray-500 hover:text-gray-400 text-xs transition-colors"
+          >
+            Admin Access
+          </a>
+        </div>
       </motion.div>
     </div>
   );
