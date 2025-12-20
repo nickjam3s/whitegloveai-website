@@ -52,7 +52,7 @@ const handler = async (req: Request): Promise<Response> => {
       to: [email],
       cc: ["nick@whitegloveai.com", "rachel.hirsch@civicmarketplace.com"],
       bcc: ["andi@whitegloveai.com", "vanessa@whitegloveai.com", "tobalo@whitegloveai.com"],
-      subject: "🎁 We've Received Your AI Voice Agent Demo Request",
+      subject: "We've Received Your AI Voice Agent Demo Request",
       html: `
         <!DOCTYPE html>
         <html>
@@ -77,7 +77,7 @@ const handler = async (req: Request): Promise<Response> => {
                   <tr>
                     <td style="background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%); padding: 30px; border-radius: 16px 16px 0 0; text-align: center;">
                       <h1 style="margin: 0; color: #ffffff; font-size: 28px; font-weight: 700;">
-                        📋 Thank You for Your Request!
+                        Thank You for Your Request!
                       </h1>
                       <p style="margin: 10px 0 0 0; color: #fef08a; font-size: 16px; font-weight: 600;">Your 30-Day Demo Request is Being Reviewed</p>
                     </td>
@@ -107,7 +107,7 @@ const handler = async (req: Request): Promise<Response> => {
                       <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="margin-bottom: 30px;">
                         <tr>
                           <td style="padding: 20px; background-color: #261c38; border-radius: 12px;">
-                            <h2 style="margin: 0 0 20px 0; color: #ffffff; font-size: 18px;">📋 What Happens Next?</h2>
+                            <h2 style="margin: 0 0 20px 0; color: #ffffff; font-size: 18px;">What Happens Next?</h2>
                             <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
                               <tr>
                                 <td style="padding: 10px 0;">
@@ -162,7 +162,7 @@ const handler = async (req: Request): Promise<Response> => {
                           <td style="text-align: center; padding: 20px; background-color: #261c38; border-radius: 12px;">
                             <p style="margin: 0 0 5px 0; color: #d8b4fe; font-size: 14px;">This demo is brought to you by</p>
                             <p style="margin: 0 0 10px 0; color: #ffffff; font-size: 18px; font-weight: 600;">Civic Marketplace × WhitegloveAI</p>
-                            <p style="margin: 0; color: #10b981; font-size: 13px; font-weight: 500;">✓ TXShare Approved Vendor • Contract #2025-023</p>
+                            <p style="margin: 0; color: #10b981; font-size: 13px; font-weight: 500;">TXShare Approved Vendor | Contract #2025-023</p>
                           </td>
                         </tr>
                       </table>
@@ -171,7 +171,7 @@ const handler = async (req: Request): Promise<Response> => {
                       <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="margin-bottom: 30px;">
                         <tr>
                           <td style="border-top: 1px solid #374151; padding-top: 30px;">
-                            <h2 style="margin: 0 0 15px 0; color: #ffffff; font-size: 18px;">⏳ While You Wait...</h2>
+                            <h2 style="margin: 0 0 15px 0; color: #ffffff; font-size: 18px;">While You Wait...</h2>
                             <p style="margin: 0 0 20px 0; color: #d1d5db; font-size: 15px; line-height: 1.6;">
                               Learn more about how VoiceAI is transforming constituent services for government agencies across Texas.
                             </p>
@@ -190,7 +190,7 @@ const handler = async (req: Request): Promise<Response> => {
                       <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="margin-bottom: 30px;">
                         <tr>
                           <td style="border-top: 1px solid #374151; padding-top: 30px; text-align: center;">
-                            <h2 style="margin: 0 0 15px 0; color: #ffffff; font-size: 18px;">📅 Have Questions?</h2>
+                            <h2 style="margin: 0 0 15px 0; color: #ffffff; font-size: 18px;">Have Questions?</h2>
                             <p style="margin: 0 0 20px 0; color: #d1d5db; font-size: 15px; line-height: 1.6;">Schedule a complimentary discovery call with Davis Bhagat, Founder of WhitegloveAI.</p>
                             <table role="presentation" cellspacing="0" cellpadding="0" style="margin: 0 auto;">
                               <tr>
