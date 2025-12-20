@@ -126,7 +126,7 @@ serve(async (req) => {
               </div>
               
               <p style="color: #6b7280; font-size: 14px; line-height: 1.6; margin: 24px 0 0 0;">
-                ⏱️ This code expires in <strong>10 minutes</strong>.
+                <span style="font-weight: 600;">TIME SENSITIVE:</span> This code expires in <strong>10 minutes</strong>.
               </p>
               
               <p style="color: #6b7280; font-size: 14px; line-height: 1.6; margin: 16px 0 0 0;">
