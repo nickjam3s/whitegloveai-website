@@ -70,7 +70,7 @@ const handler = async (req: Request): Promise<Response> => {
       to: emailList,
       cc: ["nick@whitegloveai.com", "rachel.hirsch@civicmarketplace.com"],
       bcc: ["andi@whitegloveai.com", "vanessa@whitegloveai.com", "tobalo@whitegloveai.com"],
-      subject: "Demo Approved! Your AI Voice Agent is Ready",
+      subject: "🎁 Demo Approved! Your AI Voice Agent is Ready",
       html: `
         <!DOCTYPE html>
         <html>
@@ -94,7 +94,16 @@ const handler = async (req: Request): Promise<Response> => {
                   <!-- Approval Banner -->
                   <tr>
                     <td style="background-color: #10b981; padding: 15px; text-align: center;">
-                      <p style="margin: 0; color: #ffffff; font-size: 16px; font-weight: 700;">APPROVED — Your Demo Request Has Been Approved!</p>
+                      <table role="presentation" cellspacing="0" cellpadding="0" style="margin: 0 auto;">
+                        <tr>
+                          <td style="vertical-align: middle; padding-right: 10px;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                          </td>
+                          <td style="vertical-align: middle;">
+                            <p style="margin: 0; color: #ffffff; font-size: 16px; font-weight: 700;">APPROVED — Your Demo Request Has Been Approved!</p>
+                          </td>
+                        </tr>
+                      </table>
                     </td>
                   </tr>
                   
@@ -149,11 +158,41 @@ const handler = async (req: Request): Promise<Response> => {
                         </tr>
                       </table>
                       
-                      <!-- Divider -->
+                      <!-- Knowledge Expectations -->
+                      <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="margin-bottom: 30px;">
+                        <tr>
+                          <td style="background-color: #1e293b; border-left: 4px solid #f59e0b; padding: 20px; border-radius: 0 8px 8px 0;">
+                            <table role="presentation" cellspacing="0" cellpadding="0" style="margin-bottom: 10px;">
+                              <tr>
+                                <td style="vertical-align: middle; padding-right: 10px;">
+                                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 9V13M12 17H12.01M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                </td>
+                                <td style="vertical-align: middle;">
+                                  <p style="margin: 0; color: #f59e0b; font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">Setting Expectations</p>
+                                </td>
+                              </tr>
+                            </table>
+                            <p style="margin: 0; color: #d1d5db; font-size: 14px; line-height: 1.7;">
+                              Your AI agent's knowledge base was built by automatically scanning your organization's public website for key information such as office hours, contact details, services, and common procedures. While we strive to capture the most relevant content, the agent's responses are only as complete as the information available on your website. If you notice gaps or inaccuracies, please let us know—full production deployments include custom knowledge training and content review.
+                            </p>
+                          </td>
+                        </tr>
+                      </table>
+                      
+                      <!-- How to Test Your Agent -->
                       <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="margin-bottom: 30px;">
                         <tr>
                           <td style="border-top: 1px solid #374151; padding-top: 30px;">
-                            <h2 style="margin: 0 0 20px 0; color: #ffffff; font-size: 20px;">How to Test Your Agent</h2>
+                            <table role="presentation" cellspacing="0" cellpadding="0" style="margin-bottom: 15px;">
+                              <tr>
+                                <td style="vertical-align: middle; padding-right: 10px;">
+                                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 5C3 3.89543 3.89543 3 5 3H8.27924C8.70967 3 9.09181 3.27543 9.22792 3.68377L10.7257 8.17721C10.8831 8.64932 10.6694 9.16531 10.2243 9.38787L7.96701 10.5165C9.06925 12.9612 11.0388 14.9308 13.4835 16.033L14.6121 13.7757C14.8347 13.3306 15.3507 13.1169 15.8228 13.2743L20.3162 14.7721C20.7246 14.9082 21 15.2903 21 15.7208V19C21 20.1046 20.1046 21 19 21H18C9.71573 21 3 14.2843 3 6V5Z" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                </td>
+                                <td style="vertical-align: middle;">
+                                  <h2 style="margin: 0; color: #ffffff; font-size: 20px;">How to Test Your Agent</h2>
+                                </td>
+                              </tr>
+                            </table>
                             <p style="margin: 0 0 15px 0; color: #d1d5db; font-size: 15px; line-height: 1.6;">Call the number above and try these prompts:</p>
                             <ul style="margin: 0 0 20px 0; padding-left: 20px; color: #d1d5db; font-size: 14px; line-height: 1.8;">
                               <li>"What are your office hours?"</li>
@@ -161,10 +200,19 @@ const handler = async (req: Request): Promise<Response> => {
                               <li>Ask the same question in Spanish, Vietnamese, or any language—your agent speaks <strong style="color: #a78bfa;">50+ languages!</strong></li>
                             </ul>
                             
-                            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background-color: #261c38; border-radius: 8px; padding: 15px;">
+                            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background-color: #261c38; border-radius: 8px;">
                               <tr>
                                 <td style="padding: 15px;">
-                                  <p style="margin: 0 0 10px 0; color: #a78bfa; font-size: 14px; font-weight: 600;">PRO TIPS:</p>
+                                  <table role="presentation" cellspacing="0" cellpadding="0" style="margin-bottom: 10px;">
+                                    <tr>
+                                      <td style="vertical-align: middle; padding-right: 8px;">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.66347 17H14.3364M12 3V4M18.364 5.63604L17.6569 6.34315M21 12H20M4 12H3M6.34309 6.34315L5.63599 5.63604M8.46441 15.5356C6.51179 13.5829 6.51179 10.4171 8.46441 8.46449C10.417 6.51187 13.5829 6.51187 15.5355 8.46449C17.4881 10.4171 17.4881 13.5829 15.5355 15.5356L14.9884 16.0827C14.3555 16.7155 14 17.5739 14 18.469V19C14 20.1046 13.1045 21 12 21C10.8954 21 9.99996 20.1046 9.99996 19V18.469C9.99996 17.5739 9.6445 16.7155 9.01151 16.0827L8.46441 15.5356Z" stroke="#a78bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                      </td>
+                                      <td style="vertical-align: middle;">
+                                        <p style="margin: 0; color: #a78bfa; font-size: 14px; font-weight: 600;">PRO TIPS</p>
+                                      </td>
+                                    </tr>
+                                  </table>
                                   <ul style="margin: 0; padding-left: 20px; color: #d1d5db; font-size: 14px; line-height: 1.8;">
                                     <li>Your agent learned from your website—ask about anything mentioned there</li>
                                     <li>Text the number to test SMS capabilities</li>
@@ -224,7 +272,7 @@ const handler = async (req: Request): Promise<Response> => {
                         <tr>
                           <td style="border-top: 1px solid #374151; padding-top: 25px; text-align: center;">
                             <p style="margin: 0 0 10px 0; color: #9ca3af; font-size: 13px;">Questions? Reply to this email or visit <a href="https://whitegloveai.com" style="color: #a78bfa;">whitegloveai.com</a></p>
-                            <p style="margin: 0; color: #6b7280; font-size: 12px;">© 2024 WhitegloveAI. All rights reserved.</p>
+                            <p style="margin: 0; color: #6b7280; font-size: 12px;">© 2025 WhitegloveAI. All rights reserved.</p>
                           </td>
                         </tr>
                       </table>

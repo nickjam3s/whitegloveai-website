@@ -108,7 +108,16 @@ serve(async (req) => {
           <tr>
             <td style="background: linear-gradient(135deg, #7c3aed 0%, #9333ea 100%); padding: 30px 40px; text-align: center;">
               <img src="https://whitegloveai.com/lovable-uploads/cbc85045-41f1-434b-a70d-69aca08e4e66.png" alt="WhitegloveAI" style="height: 40px; margin-bottom: 10px;">
-              <h1 style="color: #ffffff; margin: 10px 0 0 0; font-size: 24px; font-weight: 600;">Email Verification</h1>
+              <table role="presentation" cellspacing="0" cellpadding="0" style="margin: 10px auto 0 auto;">
+                <tr>
+                  <td style="vertical-align: middle; padding-right: 10px;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 12L11 14L15 10M7.83486 4.69705C8.55239 4.63979 9.23358 4.35763 9.78143 3.89075C11.0599 2.80157 12.9401 2.80157 14.2186 3.89075C14.7664 4.35763 15.4476 4.63979 16.1651 4.69705C17.8451 4.83067 19.1693 6.15492 19.3029 7.83486C19.3602 8.55239 19.6424 9.23358 20.1093 9.78143C21.1984 11.0599 21.1984 12.9401 20.1093 14.2186C19.6424 14.7664 19.3602 15.4476 19.3029 16.1651C19.1693 17.8451 17.8451 19.1693 16.1651 19.3029C15.4476 19.3602 14.7664 19.6424 14.2186 20.1093C12.9401 21.1984 11.0599 21.1984 9.78143 20.1093C9.23358 19.6424 8.55239 19.3602 7.83486 19.3029C6.15492 19.1693 4.83067 17.8451 4.69705 16.1651C4.63979 15.4476 4.35763 14.7664 3.89075 14.2186C2.80157 12.9401 2.80157 11.0599 3.89075 9.78143C4.35763 9.23358 4.63979 8.55239 4.69705 7.83486C4.83067 6.15492 6.15492 4.83067 7.83486 4.69705Z" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </td>
+                  <td style="vertical-align: middle;">
+                    <h1 style="color: #ffffff; margin: 0; font-size: 24px; font-weight: 600;">Email Verification</h1>
+                  </td>
+                </tr>
+              </table>
             </td>
           </tr>
           
@@ -126,7 +135,16 @@ serve(async (req) => {
               </div>
               
               <p style="color: #6b7280; font-size: 14px; line-height: 1.6; margin: 24px 0 0 0;">
-                <span style="font-weight: 600;">TIME SENSITIVE:</span> This code expires in <strong>10 minutes</strong>.
+                <table role="presentation" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td style="vertical-align: middle; padding-right: 8px;">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 8V12L15 15M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#6b7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </td>
+                    <td style="vertical-align: middle; color: #6b7280; font-size: 14px;">
+                      <strong style="color: #374151;">TIME SENSITIVE:</strong> This code expires in <strong>10 minutes</strong>.
+                    </td>
+                  </tr>
+                </table>
               </p>
               
               <p style="color: #6b7280; font-size: 14px; line-height: 1.6; margin: 16px 0 0 0;">

@@ -107,7 +107,16 @@ const handler = async (req: Request): Promise<Response> => {
                       <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="margin-bottom: 30px;">
                         <tr>
                           <td style="padding: 20px; background-color: #261c38; border-radius: 12px;">
-                            <h2 style="margin: 0 0 20px 0; color: #ffffff; font-size: 18px;">What Happens Next?</h2>
+                            <table role="presentation" cellspacing="0" cellpadding="0" style="margin-bottom: 15px;">
+                              <tr>
+                                <td style="vertical-align: middle; padding-right: 10px;">
+                                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 5H7C5.89543 5 5 5.89543 5 7V19C5 20.1046 5.89543 21 7 21H17C18.1046 21 19 20.1046 19 19V7C19 5.89543 18.1046 5 17 5H15M9 5C9 6.10457 9.89543 7 11 7H13C14.1046 7 15 6.10457 15 5M9 5C9 3.89543 9.89543 3 11 3H13C14.1046 3 15 3.89543 15 5M12 12H15M12 16H15M9 12H9.01M9 16H9.01" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                </td>
+                                <td style="vertical-align: middle;">
+                                  <h2 style="margin: 0; color: #ffffff; font-size: 18px;">What Happens Next?</h2>
+                                </td>
+                              </tr>
+                            </table>
                             <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
                               <tr>
                                 <td style="padding: 10px 0;">
@@ -152,6 +161,27 @@ const handler = async (req: Request): Promise<Response> => {
                                 </td>
                               </tr>
                             </table>
+                          </td>
+                        </tr>
+                      </table>
+                      
+                      <!-- Knowledge Expectations -->
+                      <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="margin-bottom: 30px;">
+                        <tr>
+                          <td style="background-color: #1e293b; border-left: 4px solid #f59e0b; padding: 20px; border-radius: 0 8px 8px 0;">
+                            <table role="presentation" cellspacing="0" cellpadding="0" style="margin-bottom: 10px;">
+                              <tr>
+                                <td style="vertical-align: middle; padding-right: 10px;">
+                                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 9V13M12 17H12.01M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                </td>
+                                <td style="vertical-align: middle;">
+                                  <p style="margin: 0; color: #f59e0b; font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">What to Expect</p>
+                                </td>
+                              </tr>
+                            </table>
+                            <p style="margin: 0; color: #d1d5db; font-size: 14px; line-height: 1.7;">
+                              Your AI agent will be built by automatically scanning your organization's public website for key information such as office hours, contact details, services, and common procedures. While we strive to capture the most relevant content, the agent's knowledge is only as complete as the information publicly available on your website. Full production deployments include custom training and comprehensive content review.
+                            </p>
                           </td>
                         </tr>
                       </table>
@@ -208,7 +238,7 @@ const handler = async (req: Request): Promise<Response> => {
                         <tr>
                           <td style="border-top: 1px solid #374151; padding-top: 25px; text-align: center;">
                             <p style="margin: 0 0 10px 0; color: #9ca3af; font-size: 13px;">Questions? Reply to this email or visit <a href="https://whitegloveai.com" style="color: #a78bfa;">whitegloveai.com</a></p>
-                            <p style="margin: 0; color: #6b7280; font-size: 12px;">© 2024 WhitegloveAI. All rights reserved.</p>
+                            <p style="margin: 0; color: #6b7280; font-size: 12px;">© 2025 WhitegloveAI. All rights reserved.</p>
                           </td>
                         </tr>
                       </table>
