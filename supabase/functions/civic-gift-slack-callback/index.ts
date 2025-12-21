@@ -462,11 +462,14 @@ serve(async (req) => {
       });
     }
 
-    // Check if already processed
+    // Check if already processed or in progress
     if (requestData.status !== 'pending') {
+      const statusMessage = requestData.status === 'processing' 
+        ? "This request is currently being processed. Please wait."
+        : `This request has already been ${requestData.status}.`;
       return new Response(JSON.stringify({
         response_type: "ephemeral",
-        text: `This request has already been ${requestData.status}.`
+        text: statusMessage
       }), {
         status: 200,
         headers: { "Content-Type": "application/json" }
@@ -474,7 +477,43 @@ serve(async (req) => {
     }
 
     if (actionId === "approve_request") {
-      // Immediately acknowledge and process in background
+      // CRITICAL: Update status to 'processing' SYNCHRONOUSLY to prevent race conditions
+      // This must happen before background task starts to prevent duplicate approvals
+      const { error: lockError } = await supabase
+        .from('civic_gift_logs')
+        .update({ status: 'processing' })
+        .eq('id', requestId)
+        .eq('status', 'pending'); // Only update if still pending (optimistic locking)
+
+      if (lockError) {
+        console.error("Failed to lock request:", lockError);
+        return new Response(JSON.stringify({
+          response_type: "ephemeral",
+          text: "Failed to process request. Please try again."
+        }), {
+          status: 200,
+          headers: { "Content-Type": "application/json" }
+        });
+      }
+
+      // Double-check the request wasn't already grabbed by another user
+      const { data: updatedRequest } = await supabase
+        .from('civic_gift_logs')
+        .select('status')
+        .eq('id', requestId)
+        .single();
+
+      if (updatedRequest?.status !== 'processing') {
+        return new Response(JSON.stringify({
+          response_type: "ephemeral",
+          text: "This request is already being handled by another admin."
+        }), {
+          status: 200,
+          headers: { "Content-Type": "application/json" }
+        });
+      }
+
+      // Now process in background (status is safely locked to 'processing')
       EdgeRuntime.waitUntil(
         processApproval(
           requestId,
@@ -523,7 +562,24 @@ serve(async (req) => {
       });
 
     } else if (actionId === "deny_request") {
-      // Process denial in background
+      // CRITICAL: Update status synchronously to prevent race conditions
+      const { error: lockError } = await supabase
+        .from('civic_gift_logs')
+        .update({ status: 'denied' })
+        .eq('id', requestId)
+        .eq('status', 'pending');
+
+      if (lockError) {
+        return new Response(JSON.stringify({
+          response_type: "ephemeral",
+          text: "Failed to process denial. Please try again."
+        }), {
+          status: 200,
+          headers: { "Content-Type": "application/json" }
+        });
+      }
+
+      // Process denial notification in background
       EdgeRuntime.waitUntil(
         processDenial(requestId, requestData, userName, responseUrl, supabase)
       );
