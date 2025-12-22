@@ -101,6 +101,9 @@ export type Database = {
           enhanced_crawl: boolean | null
           entity_type: string
           first_name: string | null
+          followup_email_1_sent_at: string | null
+          followup_email_2_sent_at: string | null
+          followup_email_3_sent_at: string | null
           id: string
           ip_address: string | null
           last_name: string | null
@@ -131,6 +134,9 @@ export type Database = {
           enhanced_crawl?: boolean | null
           entity_type: string
           first_name?: string | null
+          followup_email_1_sent_at?: string | null
+          followup_email_2_sent_at?: string | null
+          followup_email_3_sent_at?: string | null
           id?: string
           ip_address?: string | null
           last_name?: string | null
@@ -161,6 +167,9 @@ export type Database = {
           enhanced_crawl?: boolean | null
           entity_type?: string
           first_name?: string | null
+          followup_email_1_sent_at?: string | null
+          followup_email_2_sent_at?: string | null
+          followup_email_3_sent_at?: string | null
           id?: string
           ip_address?: string | null
           last_name?: string | null

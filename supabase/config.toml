@@ -50,3 +50,12 @@ verify_jwt = false
 
 [functions.civic-gift-send-confirmation]
 verify_jwt = false
+
+[functions.civic-gift-followup-day10]
+verify_jwt = false
+
+[functions.civic-gift-followup-day20]
+verify_jwt = false
+
+[functions.civic-gift-followup-day28]
+verify_jwt = false

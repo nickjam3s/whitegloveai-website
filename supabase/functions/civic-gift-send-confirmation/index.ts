@@ -34,7 +34,7 @@ const handler = async (req: Request): Promise<Response> => {
 
     console.log(`Sending confirmation email to ${email} for request ${requestId}`);
 
-    const calendarLink = "https://calendar.google.com/calendar/appointments/schedules/AcZssZ06roEHldr-EaUSD3PSphSeCF8OVWb3NzT5PjfDxwMMpLfZX2v15Dzk4Bj02xtMwXVZMxHv2mkN";
+    const calendarLink = "https://calendar.app.google/P2eTw6TjUkiYALtZ8";
     const voiceAiLink = "https://whitegloveai.com/communications-ai/voice-ai";
     const logoUrl = "https://whitegloveai.com/lovable-uploads/cbc85045-41f1-434b-a70d-69aca08e4e66.png";
     
