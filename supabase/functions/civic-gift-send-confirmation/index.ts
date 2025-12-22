@@ -161,6 +161,26 @@ const handler = async (req: Request): Promise<Response> => {
                                 </td>
                               </tr>
                             </table>
+                            
+                            <!-- Multilingual Preview -->
+                            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #374151;">
+                              <tr>
+                                <td>
+                                  <table role="presentation" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                      <td style="vertical-align: middle; padding-right: 10px;">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.913 17H20.087M12.913 17L11 21M12.913 17L15.7783 11.009C16.0092 10.5263 16.1246 10.2849 16.2826 10.2086C16.4199 10.1423 16.5801 10.1423 16.7174 10.2086C16.8754 10.2849 16.9908 10.5263 17.2217 11.009L20.087 17M20.087 17L22 21M2 5H8M8 5H11.5M8 5V3M11.5 5H14M11.5 5C11.0039 7.95729 9.85259 10.6362 8.16555 12.5M10 14.5C9.22517 13.8033 8.41417 12.9242 7.5777 11.8853M8.16555 12.5C7.33475 13.5334 6.34285 14.4005 5.28792 15.0801M8.16555 12.5C8.65787 11.8935 9.11769 11.2288 9.53856 10.5" stroke="#a78bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                      </td>
+                                      <td style="vertical-align: middle;">
+                                        <p style="margin: 0; color: #d1d5db; font-size: 14px;">
+                                          <strong style="color: #a78bfa;">Multilingual Ready:</strong> Your agent will speak <strong style="color: #fef08a;">30+ languages</strong> with automatic detection—try switching languages mid-call!
+                                        </p>
+                                      </td>
+                                    </tr>
+                                  </table>
+                                </td>
+                              </tr>
+                            </table>
                           </td>
                         </tr>
                       </table>
