@@ -69,9 +69,6 @@ import PurchaseSuccess from "./pages/portal/PurchaseSuccess";
 // Civic Marketplace
 import CivicGift from "./pages/civicmarketplace/Gift";
 
-// Temp
-import TempImages from "./pages/TempImages";
-
 const queryClient = new QueryClient();
 
 const AppContent = () => {
@@ -167,9 +164,6 @@ const AppContent = () => {
                 {/* Civic Marketplace (unlisted) */}
                 <Route path="/civicmarketplace/gift" element={<CivicGift />} />
                 <Route path="/civicmarketplace/gift/admin" element={<CivicGift />} />
-                
-                {/* Temp Images */}
-                <Route path="/temp-images" element={<TempImages />} />
                 
                 {/* External Redirects */}
                 <Route
