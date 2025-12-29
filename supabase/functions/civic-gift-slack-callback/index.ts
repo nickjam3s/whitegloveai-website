@@ -220,12 +220,12 @@ async function processApproval(
     }
   }
 
-  // Update database with success
+  // Update database with success - set api_status to 'created' once phone number is returned
   const { error: updateError } = await supabase
     .from('civic_gift_logs')
     .update({
       status: 'approved',
-      api_status: isExistingAgent ? 'reused' : 'success',
+      api_status: isExistingAgent ? 'reused' : 'created',
       processed_at: processedAt,
       processed_by: userName,
       phone_number_returned: apiData.phone_number,
@@ -237,6 +237,8 @@ async function processApproval(
   if (updateError) {
     console.error("Error updating database:", updateError);
   }
+
+  console.log(`Request ${requestId} approved - api_status set to '${isExistingAgent ? 'reused' : 'created'}'`);
 
   // Send email to user with phone number
   try {
@@ -477,11 +479,15 @@ serve(async (req) => {
     }
 
     if (actionId === "approve_request") {
-      // CRITICAL: Update status to 'processing' SYNCHRONOUSLY to prevent race conditions
+      // CRITICAL: Update status to 'processing' and api_status to 'calling_api' SYNCHRONOUSLY
       // This must happen before background task starts to prevent duplicate approvals
-      const { error: lockError } = await supabase
+      const { error: lockError, count } = await supabase
         .from('civic_gift_logs')
-        .update({ status: 'processing' })
+        .update({ 
+          status: 'processing',
+          api_status: 'calling_api',
+          processed_by: userName
+        })
         .eq('id', requestId)
         .eq('status', 'pending'); // Only update if still pending (optimistic locking)
 
@@ -513,6 +519,12 @@ serve(async (req) => {
         });
       }
 
+      const processingAtFormatted = new Date().toLocaleString('en-US', {
+        timeZone: 'America/Chicago',
+        dateStyle: 'medium',
+        timeStyle: 'short'
+      });
+
       // Now process in background (status is safely locked to 'processing')
       EdgeRuntime.waitUntil(
         processApproval(
@@ -527,7 +539,7 @@ serve(async (req) => {
         )
       );
 
-      // Return immediate response to Slack (within 3 seconds)
+      // Return immediate response to Slack - NO BUTTONS, just processing status
       return new Response(JSON.stringify({
         response_type: "in_channel",
         replace_original: true,
@@ -540,20 +552,32 @@ serve(async (req) => {
           {
             type: "section",
             fields: [
-              { type: "mrkdwn", text: `*👤 Requestor:*\n${requestData.first_name || ''} ${requestData.last_name || ''}` },
+              { type: "mrkdwn", text: `*👤 Requestor:*\n${requestData.first_name || ''} ${requestData.last_name || ''}${requestData.title ? ` (${requestData.title})` : ''}` },
               { type: "mrkdwn", text: `*📧 Email:*\n${requestData.email}` }
             ]
           },
           {
             type: "section",
             fields: [
-              { type: "mrkdwn", text: `*🏛️ Entity:*\n${requestData.primary_name}` },
+              { type: "mrkdwn", text: `*🏛️ Entity:*\n${requestData.primary_name} (${requestData.entity_type})` },
               { type: "mrkdwn", text: `*📍 State:*\n${requestData.region}` }
             ]
           },
           {
+            type: "section",
+            fields: [
+              { type: "mrkdwn", text: `*🌐 Website:*\n${requestData.website || 'Not provided'}` },
+              { type: "mrkdwn", text: `*📅 Submitted:*\n${new Date(requestData.created_at).toLocaleString('en-US', { timeZone: 'America/Chicago', dateStyle: 'medium', timeStyle: 'short' })} CT` }
+            ]
+          },
+          { type: "divider" },
+          {
+            type: "section",
+            text: { type: "mrkdwn", text: "⏳ *Calling API to provision agent...*\n_This message will update automatically when complete._" }
+          },
+          {
             type: "context",
-            elements: [{ type: "mrkdwn", text: `⏳ Approval initiated by ${userName} — provisioning agent and sending email...` }]
+            elements: [{ type: "mrkdwn", text: `🔄 Processing started by ${userName} at ${processingAtFormatted} CT` }]
           }
         ]
       }), {
