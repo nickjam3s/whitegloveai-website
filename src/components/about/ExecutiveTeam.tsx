@@ -24,16 +24,16 @@ const ExecutiveTeam = () => {
       linkedinUrl: "https://www.linkedin.com/in/andi-l-20022b7/"
     },
     {
-      name: "Tobalo Torres",
-      title: "VP of AI Labs", 
-      image: "/lovable-uploads/9dbaee7c-d928-4958-92dd-4dd39b8923bc.png",
-      linkedinUrl: "https://www.linkedin.com/in/tobalo/"
-    },
-    {
       name: "Vanessa Sifuentez",
       title: "Government Advisor",
       image: "/employee/Vanessa.jpeg",
       linkedinUrl: "https://www.linkedin.com/in/vanessa-sifuentez/"
+    },
+    {
+      name: "Tobalo Torres",
+      title: "VP of AI Labs", 
+      image: "/lovable-uploads/9dbaee7c-d928-4958-92dd-4dd39b8923bc.png",
+      linkedinUrl: "https://www.linkedin.com/in/tobalo/"
     },
     {
       name: "Davis Bhagat",
