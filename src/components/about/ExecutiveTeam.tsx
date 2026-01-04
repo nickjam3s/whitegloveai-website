@@ -18,10 +18,10 @@ const ExecutiveTeam = () => {
       linkedinUrl: "https://www.linkedin.com/in/ankdes/"
     },
     {
-      name: "Dr. Donnie Wendt",
-      title: "Principal AI Consultant",
-      image: "/lovable-uploads/b660279c-7698-487d-b20e-3a04479508d4.png",
-      linkedinUrl: "https://www.linkedin.com/in/dr-donnie-wendt/"
+      name: "Andi Lee",
+      title: "SVP of Growth",
+      image: "/employee/andi-lee.jpeg",
+      linkedinUrl: "https://www.linkedin.com/in/andi-l-20022b7/"
     },
     {
       name: "Tobalo Torres",
@@ -40,6 +40,12 @@ const ExecutiveTeam = () => {
       title: "AI Solutions Consultant",
       image: "/lovable-uploads/davis-bhagat.jpeg",
       linkedinUrl: "https://www.linkedin.com/in/davis-b-b882b9159"
+    },
+    {
+      name: "Dr. Donnie Wendt",
+      title: "Principal AI Consultant",
+      image: "/lovable-uploads/b660279c-7698-487d-b20e-3a04479508d4.png",
+      linkedinUrl: "https://www.linkedin.com/in/dr-donnie-wendt/"
     },
   ];
 
