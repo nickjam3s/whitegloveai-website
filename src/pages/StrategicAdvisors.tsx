@@ -51,6 +51,7 @@ const StrategicAdvisors = () => {
           title="Strategic Advisors | WhitegloveAI Leadership"
           description="Meet the strategic advisors guiding WhitegloveAI's vision. Industry leaders bringing decades of expertise across AI and business."
           canonicalPath="/about-us/strategic-advisors"
+          noindex={true}
         />
         {/* Make hero section go edge-to-edge */}
         <section className="relative w-full h-[100vh] flex items-center overflow-hidden">

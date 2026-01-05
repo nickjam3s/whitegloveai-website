@@ -6,7 +6,6 @@ export const navigationLinks = [
     to: "/about-us",
     children: [
       { to: "/about-us", text: "About Us" },
-      { to: "/about-us/strategic-advisors", text: "Strategic Advisors" },
       { to: "/about-us/apprenticeship", text: "Apprenticeship Program" }
     ]
   },

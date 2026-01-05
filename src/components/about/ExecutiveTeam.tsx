@@ -12,12 +12,6 @@ const ExecutiveTeam = () => {
       linkedinUrl: "https://www.linkedin.com/in/nickjam3s/"
     },
     {
-      name: "Ankur Desai",
-      title: "Head of Business Development",
-      image: "/lovable-uploads/980b7b84-6ac2-4825-a061-cf071a14cf9e.png",
-      linkedinUrl: "https://www.linkedin.com/in/ankdes/"
-    },
-    {
       name: "Andi Lee",
       title: "SVP of Growth",
       image: "/employee/andi-lee.jpeg",
