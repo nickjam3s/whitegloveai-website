@@ -228,9 +228,21 @@ const GiftContent = () => {
     title: '',
   });
 
+  // Bypass OTP for specific trusted emails
+  const BYPASS_OTP_EMAILS = ['andi@whitegloveai.com'];
+
   const handleSendOtp = async () => {
     if (!email.trim()) {
       toast.error('Please enter your email address');
+      return;
+    }
+
+    const normalizedEmail = email.trim().toLowerCase();
+
+    // Check if email should bypass OTP verification
+    if (BYPASS_OTP_EMAILS.includes(normalizedEmail)) {
+      toast.success('Welcome back! Proceeding to form...');
+      setStep('form');
       return;
     }
 
