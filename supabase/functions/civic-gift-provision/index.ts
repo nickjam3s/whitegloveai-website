@@ -27,21 +27,27 @@ serve(async (req) => {
 
     const supabase = createClient(supabaseUrl, supabaseServiceKey);
 
-    // Verify email was verified via OTP
-    const { data: otpRecord, error: otpError } = await supabase
-      .from('civic_gift_otp')
-      .select('*')
-      .eq('email', email.trim().toLowerCase())
-      .eq('verified', true)
-      .order('created_at', { ascending: false })
-      .limit(1)
-      .single();
+    // Bypass OTP for specific trusted emails
+    const BYPASS_OTP_EMAILS = ['andi@whitegloveai.com'];
+    const normalizedEmail = email.trim().toLowerCase();
 
-    if (otpError || !otpRecord) {
-      return new Response(
-        JSON.stringify({ error: "Email not verified. Please verify your email first." }),
-        { status: 403, headers: { ...corsHeaders, "Content-Type": "application/json" } }
-      );
+    // Only verify OTP if email is not in bypass list
+    if (!BYPASS_OTP_EMAILS.includes(normalizedEmail)) {
+      const { data: otpRecord, error: otpError } = await supabase
+        .from('civic_gift_otp')
+        .select('*')
+        .eq('email', normalizedEmail)
+        .eq('verified', true)
+        .order('created_at', { ascending: false })
+        .limit(1)
+        .single();
+
+      if (otpError || !otpRecord) {
+        return new Response(
+          JSON.stringify({ error: "Email not verified. Please verify your email first." }),
+          { status: 403, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+        );
+      }
     }
 
     // Save request to database with pending status
