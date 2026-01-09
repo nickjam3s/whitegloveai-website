@@ -5,7 +5,8 @@ const features = [
   "Direct mentorship from AI industry professionals",
   "Opportunity for full-time conversion based on performance",
   "Flexible hybrid work environment",
-  "Exposure to cutting-edge AI technologies and tools"
+  "Exposure to cutting-edge AI technologies and tools",
+  "Year-round program with flexible start dates"
 ];
 
 const ProgramFeatures = () => {
