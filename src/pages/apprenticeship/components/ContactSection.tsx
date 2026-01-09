@@ -16,9 +16,12 @@ const ContactSection = () => {
   return (
     <section id="contact" className="py-20 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-semibold mb-16 text-center heading-highlight-scroll">
+        <h2 className="text-3xl font-semibold mb-4 text-center heading-highlight-scroll">
           Apply
         </h2>
+        <p className="text-center text-gray-400 mb-12">
+          This is an <span className="text-[#7021EE] font-semibold">unpaid apprenticeship</span> with opportunity for paid positions based on performance
+        </p>
         
         <div className="bg-card/50 p-6 rounded-lg shadow-lg max-w-4xl mx-auto">
           <div className="min-h-[400px]">
