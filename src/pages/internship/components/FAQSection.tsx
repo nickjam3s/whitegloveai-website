@@ -9,7 +9,7 @@ import {
 const faqs = [
   {
     question: "What is the duration of the internship?",
-    answer: "Our internship program typically runs 10-12 weeks during the summer, with potential extensions based on performance and mutual fit."
+    answer: "Our internship program runs year-round with flexible start dates. Typical internships are 10-12 weeks, with potential extensions based on performance and mutual fit."
   },
   {
     question: "Is the internship paid?",

@@ -54,7 +54,7 @@ const openPositions = [
   },
   {
     title: "Internship Program",
-    description: "Summer internship for students seeking real-world AI experience. Paid hourly on 1099.",
+    description: "Year-round internship for students seeking real-world AI experience. Paid hourly on 1099.",
     type: "Internship",
     link: "/about-us/internship",
     icon: Briefcase

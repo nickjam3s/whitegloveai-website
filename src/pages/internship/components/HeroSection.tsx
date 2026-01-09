@@ -97,7 +97,7 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed"
         >
-          Our summer internship program offers students an incredible opportunity 
+          Our year-round internship program offers students an incredible opportunity 
           to gain real-world AI experience while working alongside industry experts.
         </motion.p>
 
