@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 const steps = [
   {
     number: "1",
-    title: "Begin with summer internship program"
+    title: "Begin your internship program"
   },
   {
     number: "2",
