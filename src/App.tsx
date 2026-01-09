@@ -15,6 +15,7 @@ import Index from "./pages/index";
 import AboutUs from "./pages/AboutUs";
 import StrategicAdvisors from "./pages/StrategicAdvisors";
 import Apprenticeship from "./pages/Apprenticeship";
+import Internship from "./pages/Internship";
 import Privacy from "./pages/Privacy";
 import TermsOfService from "./pages/TermsOfService";
 import Contact from "./pages/Contact";
@@ -86,6 +87,7 @@ const AppContent = () => {
                 <Route path="/about-us" element={<AboutUs />} />
                 <Route path="/about-us/strategic-advisors" element={<StrategicAdvisors />} />
                 <Route path="/about-us/apprenticeship" element={<Apprenticeship />} />
+                <Route path="/about-us/internship" element={<Internship />} />
                 
                 {/* Redirects from old about URLs */}
                 <Route path="/aboutus" element={<Navigate to="/about-us" replace />} />
