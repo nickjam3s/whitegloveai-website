@@ -240,13 +240,13 @@ const Jobs = () => {
           whileInView="animate"
           viewport={{ once: true }}
           variants={fadeInUp}
-          className="py-16"
+          className="py-16 px-4 sm:px-6 lg:px-8"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-white">
             Why Work at <span className="text-[#7021EE]">WhitegloveAI</span>
           </h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
             {benefits.map((benefit, index) => (
               <motion.div
                 key={index}
