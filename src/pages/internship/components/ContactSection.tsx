@@ -2,15 +2,26 @@ import { useEffect } from "react";
 
 const ContactSection = () => {
   useEffect(() => {
-    // Load DeftForm script only once
-    const existingScript = document.getElementById('deftform-script');
-    if (!existingScript) {
+    // Load DeftForm script
+    const loadDeftForm = () => {
+      const existingScript = document.getElementById('deftform-script-internship');
+      if (existingScript) {
+        existingScript.remove();
+      }
+      
       const script = document.createElement('script');
-      script.id = 'deftform-script';
+      script.id = 'deftform-script-internship';
       script.src = "https://cdn.deftform.com/embed.js";
       script.async = true;
       document.body.appendChild(script);
-    }
+    };
+
+    // Small delay to ensure DOM is ready
+    const timer = setTimeout(loadDeftForm, 100);
+
+    return () => {
+      clearTimeout(timer);
+    };
   }, []);
 
   return (
