@@ -8,8 +8,9 @@ export const navigationLinks = [
       { to: "/about-us", text: "About Us" },
       {
         text: "Jobs",
-        to: "/about-us/apprenticeship",
+        to: "/about-us/jobs",
         children: [
+          { to: "/about-us/jobs", text: "Careers Overview" },
           { to: "/about-us/apprenticeship", text: "Apprenticeship Program" },
           { to: "/about-us/internship", text: "Internship Program" }
         ]
