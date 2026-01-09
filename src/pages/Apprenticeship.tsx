@@ -58,15 +58,7 @@ const Apprenticeship = () => {
         description="Join WhitegloveAI's apprenticeship program. Gain hands-on AI experience, mentorship, and career opportunities in enterprise AI."
         canonicalPath="/about-us/apprenticeship"
       />
-      <section className="relative h-[100vh] flex items-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#7021EE]/20 to-black/90">
-          <div className="absolute inset-0 backdrop-blur-sm" />
-        </div>
-
-        <div className="container mx-auto px-4 flex flex-col items-center justify-center relative z-10">
-          <HeroSection />
-        </div>
-      </section>
+      <HeroSection />
 
       <PageWrapper>
         <motion.section
