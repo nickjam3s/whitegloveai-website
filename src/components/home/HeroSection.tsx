@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useIsMobile } from '@/hooks/use-mobile';
-import NeuralNetworkAnimation from './NeuralNetworkAnimation';
+import AuroraGradientAnimation from './AuroraGradientAnimation';
 
 declare global {
   namespace JSX {
@@ -48,8 +48,8 @@ const HeroSection = () => {
   
   return (
     <div className="relative h-[100vh] flex items-center overflow-hidden bg-background">
-      {/* Neural Network Animation Background */}
-      <NeuralNetworkAnimation />
+      {/* Aurora Gradient Animation Background */}
+      <AuroraGradientAnimation />
       
       {/* Gradient overlays for depth */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background/80 pointer-events-none" style={{ zIndex: 1 }} />
