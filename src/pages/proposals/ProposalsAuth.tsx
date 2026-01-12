@@ -7,15 +7,17 @@ import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Alert, AlertDescription } from '@/components/ui/alert';
-import { ArrowLeft, Loader2, FileText } from 'lucide-react';
+import { ArrowLeft, Loader2, FileText, RefreshCw, AlertTriangle } from 'lucide-react';
 import { toast } from 'sonner';
 
 const ProposalsAuth: React.FC = () => {
-  const { user, signIn, signInWithMagicLink, loading } = usePortalAuth();
+  const { user, signIn, signInWithMagicLink, loading, initError, resetSession } = usePortalAuth();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState('');
   const [magicLinkSent, setMagicLinkSent] = useState(false);
+  const [isResetting, setIsResetting] = useState(false);
 
+  // Only redirect if user is authenticated AND loading is complete
   if (user && !loading) {
     return <Navigate to="/proposals" replace />;
   }
@@ -65,13 +67,16 @@ const ProposalsAuth: React.FC = () => {
     setIsSubmitting(false);
   };
 
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-background flex items-center justify-center">
-        <Loader2 className="h-8 w-8 animate-spin text-primary" />
-      </div>
-    );
-  }
+  const handleResetSession = async () => {
+    setIsResetting(true);
+    await resetSession();
+    setIsResetting(false);
+    toast.success('Session reset. Please sign in.');
+  };
+
+  const handleReload = () => {
+    window.location.reload();
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-purple-900 via-purple-950 to-black flex flex-col">
@@ -98,6 +103,47 @@ const ProposalsAuth: React.FC = () => {
             </CardDescription>
           </CardHeader>
           <CardContent>
+            {/* Init Error Alert with Recovery Options */}
+            {initError && (
+              <Alert variant="destructive" className="mb-4">
+                <AlertTriangle className="h-4 w-4" />
+                <AlertDescription className="ml-2">
+                  <p className="font-medium">{initError}</p>
+                  <div className="flex gap-2 mt-3">
+                    <Button 
+                      variant="outline" 
+                      size="sm" 
+                      onClick={handleReload}
+                      className="flex-1"
+                    >
+                      <RefreshCw className="h-3 w-3 mr-1" />
+                      Reload
+                    </Button>
+                    <Button 
+                      variant="outline" 
+                      size="sm" 
+                      onClick={handleResetSession}
+                      disabled={isResetting}
+                      className="flex-1"
+                    >
+                      {isResetting ? (
+                        <Loader2 className="h-3 w-3 mr-1 animate-spin" />
+                      ) : null}
+                      Reset Session
+                    </Button>
+                  </div>
+                </AlertDescription>
+              </Alert>
+            )}
+
+            {/* Loading indicator (non-blocking) */}
+            {loading && !initError && (
+              <div className="flex items-center justify-center gap-2 text-muted-foreground text-sm mb-4 py-2">
+                <Loader2 className="h-4 w-4 animate-spin" />
+                Checking session...
+              </div>
+            )}
+
             <Tabs defaultValue="signin" className="w-full">
               <TabsList className="grid w-full grid-cols-2">
                 <TabsTrigger value="signin">Sign In</TabsTrigger>
