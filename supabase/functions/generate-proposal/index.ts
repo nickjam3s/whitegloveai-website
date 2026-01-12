@@ -255,13 +255,56 @@ serve(async (req) => {
     
     const supabase = createClient(supabaseUrl, supabaseServiceKey);
     
-    const { documentText, templateStyle, creatorEmail, creatorId, documentPath } = await req.json();
+    const { fileData, fileName, mimeType, templateStyle, creatorEmail, creatorId } = await req.json();
 
-    if (!documentText || !creatorEmail || !creatorId) {
+    if (!fileData || !fileName || !creatorEmail || !creatorId) {
       return new Response(
-        JSON.stringify({ error: "Missing required fields" }),
+        JSON.stringify({ error: "Missing required fields: fileData, fileName, creatorEmail, creatorId" }),
         { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
       );
+    }
+
+    console.log("Processing proposal for:", creatorEmail, "file:", fileName);
+
+    // Decode base64 and upload to storage (using service role bypasses RLS)
+    let fileBytes: Uint8Array;
+    try {
+      const binaryString = atob(fileData);
+      fileBytes = Uint8Array.from(binaryString, c => c.charCodeAt(0));
+    } catch (e) {
+      console.error("Base64 decode error:", e);
+      return new Response(
+        JSON.stringify({ error: "Invalid file data encoding" }),
+        { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
+    }
+
+    const storagePath = `${Date.now()}-${fileName}`;
+    const { data: uploadData, error: uploadError } = await supabase.storage
+      .from('proposal-documents')
+      .upload(storagePath, fileBytes, {
+        contentType: mimeType || 'application/octet-stream',
+        upsert: false,
+      });
+
+    if (uploadError) {
+      console.error("Storage upload error:", uploadError);
+      return new Response(
+        JSON.stringify({ error: "Failed to upload document: " + uploadError.message }),
+        { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
+    }
+
+    console.log("File uploaded to:", uploadData.path);
+
+    // Extract text from the file for AI processing
+    let documentText = `Document: ${fileName}`;
+    if (mimeType === 'text/plain' || fileName.endsWith('.txt')) {
+      documentText = new TextDecoder().decode(fileBytes);
+    } else {
+      // For PDFs/DOCX, use the file name as placeholder; AI will work with what it can extract
+      // In production, integrate a PDF parsing library for better extraction
+      documentText = `Proposal document: ${fileName}\n\nThis is a ${mimeType} file uploaded for processing.`;
     }
 
     // Extract client information
@@ -284,7 +327,7 @@ serve(async (req) => {
     const pin = generatePin();
 
     // Generate email
-    const proposalUrl = `${supabaseUrl.replace('.supabase.co', '.lovable.app')}/proposal/${slug}`;
+    const proposalUrl = `https://whitegloveai.com/proposal/${slug}`;
     const generatedEmail = await generateClientEmail(
       clientInfo.clientName,
       clientInfo.clientContact,
@@ -306,7 +349,7 @@ serve(async (req) => {
         pin,
         status: 'draft',
         template_style: templateStyle || 'executive-purple',
-        source_document_path: documentPath,
+        source_document_path: uploadData.path,
         source_document_text: documentText,
         proposal_content: proposalContent,
         proposal_images: images,
@@ -319,7 +362,7 @@ serve(async (req) => {
     if (insertError) {
       console.error("Insert error:", insertError);
       return new Response(
-        JSON.stringify({ error: "Failed to create proposal" }),
+        JSON.stringify({ error: "Failed to create proposal: " + insertError.message }),
         { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
       );
     }
@@ -329,8 +372,10 @@ serve(async (req) => {
       proposal_id: proposal.id,
       action: 'created',
       actor_email: creatorEmail,
-      metadata: { template_style: templateStyle }
+      metadata: { template_style: templateStyle, file_name: fileName }
     });
+
+    console.log("Proposal created:", proposal.id);
 
     return new Response(
       JSON.stringify({ 
@@ -339,6 +384,7 @@ serve(async (req) => {
           id: proposal.id,
           slug: proposal.slug,
           pin: proposal.pin,
+          documentPath: uploadData.path,
           clientName: proposal.client_name,
           clientContact: proposal.client_contact,
           clientEmail: proposal.client_email,
