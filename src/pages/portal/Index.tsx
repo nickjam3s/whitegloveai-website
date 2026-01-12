@@ -6,21 +6,39 @@ import AdminDashboard from './components/AdminDashboard';
 import ClientDashboard from './components/ClientDashboard';
 
 const PortalIndex = () => {
-  const { user, portalUser, loading, isAdmin } = usePortalAuth();
+  const { user, portalUser, portalUserLoading, loading, isAdmin } = usePortalAuth();
 
-  if (loading) {
+  // Show loading while auth is initializing OR while portal user is being fetched
+  if (loading || (user && portalUserLoading)) {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
         <div className="flex flex-col items-center gap-4">
           <Loader2 className="h-8 w-8 animate-spin text-primary" />
-          <p className="text-muted-foreground">Loading portal...</p>
+          <p className="text-muted-foreground">
+            {loading ? 'Loading portal...' : 'Checking authorization...'}
+          </p>
         </div>
       </div>
     );
   }
 
-  if (!user || !portalUser) {
+  // Only redirect if user is definitely not logged in
+  if (!user) {
     return <Navigate to="/portal/auth" replace />;
+  }
+
+  // User is logged in but no portal user record found
+  if (!portalUser) {
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-2xl font-bold text-foreground mb-4">Access Denied</h1>
+          <p className="text-muted-foreground">
+            Your account does not have portal access. Please contact an administrator.
+          </p>
+        </div>
+      </div>
+    );
   }
 
   if (!portalUser.is_active) {
