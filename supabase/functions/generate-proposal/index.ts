@@ -162,8 +162,21 @@ ${text.substring(0, 10000)}`
   return { clientName: "", clientContact: preParsed.clientContact, clientEmail: preParsed.clientEmail };
 }
 
+interface SectionImage {
+  enabled: boolean;
+  searchQuery: string;
+  placement: "top" | "inline" | "bottom" | "none";
+  caption?: string;
+}
+
+interface ProposalSection {
+  title: string;
+  content: string;
+  image: SectionImage | null;
+}
+
 async function generateProposalContent(text: string, templateStyle: string, apiKey: string): Promise<{
-  sections: Array<{ title: string; content: string; imageKeywords: string[] }>;
+  sections: ProposalSection[];
   summary: string;
 }> {
   // Check if we have meaningful text to work with
@@ -174,7 +187,7 @@ async function generateProposalContent(text: string, templateStyle: string, apiK
         { 
           title: "Proposal Content", 
           content: "Unable to extract content from the uploaded document. Please ensure the document contains readable text.",
-          imageKeywords: ["business", "professional"] 
+          image: { enabled: true, searchQuery: "professional business document", placement: "top" }
         }
       ], 
       summary: "Document processing incomplete." 
@@ -195,13 +208,25 @@ async function generateProposalContent(text: string, templateStyle: string, apiK
           content: `You are a professional proposal designer. Transform raw proposal content into well-structured, professional sections.
           The template style is: ${templateStyle}.
           Create compelling section titles and polish the content while maintaining all factual information.
-          Suggest relevant image keywords for each section that would work well with Pexels stock photos.
+          
+          For EACH section, decide whether it needs an image and where to place it:
+          - "top": Image appears before content (great for introductions, visual impact sections)
+          - "inline": Image appears after the first paragraph (great for breaking up long content)
+          - "bottom": Image appears after content (great for conclusions, next steps)
+          - "none": No image needed (use for pricing tables, technical specs, short sections)
+          
+          For the searchQuery, provide a SPECIFIC Pexels search term that will find a relevant professional photo.
+          BAD examples: "business", "technology", "team"
+          GOOD examples: "diverse team collaborating in modern office", "woman presenting data on screen", "AI technology neural network visualization", "business handshake partnership agreement"
           
           IMPORTANT: Preserve the actual content from the document. Do not summarize too much - include the real details, scope items, deliverables, and pricing from the original document.`
         },
         {
           role: "user",
-          content: `Transform this proposal document into professional sections. For each section, provide a title, polished content (keep the actual details from the document), and 2-3 image keywords for stock photos:
+          content: `Transform this proposal document into professional sections. For each section, provide:
+1. A compelling title
+2. Polished content (keep the actual details)
+3. Image configuration: whether to include an image, specific Pexels search query, placement (top/inline/bottom/none), and optional caption
 
 ${text.substring(0, 15000)}`
         }
@@ -211,7 +236,7 @@ ${text.substring(0, 15000)}`
           type: "function",
           function: {
             name: "structure_proposal",
-            description: "Structure the proposal into sections",
+            description: "Structure the proposal into sections with intelligent image placement",
             parameters: {
               type: "object",
               properties: {
@@ -220,11 +245,25 @@ ${text.substring(0, 15000)}`
                   items: {
                     type: "object",
                     properties: {
-                      title: { type: "string" },
-                      content: { type: "string" },
-                      imageKeywords: { type: "array", items: { type: "string" } }
+                      title: { type: "string", description: "Section title" },
+                      content: { type: "string", description: "Section content" },
+                      image: {
+                        type: "object",
+                        description: "Image configuration for this section",
+                        properties: {
+                          enabled: { type: "boolean", description: "Whether to include an image" },
+                          searchQuery: { type: "string", description: "Specific Pexels search query for a relevant professional photo" },
+                          placement: { 
+                            type: "string", 
+                            enum: ["top", "inline", "bottom", "none"],
+                            description: "Where to place the image in the section"
+                          },
+                          caption: { type: "string", description: "Optional caption for the image" }
+                        },
+                        required: ["enabled", "searchQuery", "placement"]
+                      }
                     },
-                    required: ["title", "content", "imageKeywords"]
+                    required: ["title", "content", "image"]
                   }
                 },
                 summary: { type: "string", description: "A brief executive summary" }
@@ -257,13 +296,28 @@ ${text.substring(0, 15000)}`
   return { sections: [], summary: "" };
 }
 
-async function fetchPexelsImages(keywords: string[], pexelsApiKey: string): Promise<string[]> {
-  const images: string[] = [];
+interface ImageData {
+  url: string;
+  placement: "top" | "inline" | "bottom" | "none";
+  caption?: string;
+  searchQuery: string;
+}
+
+async function fetchPexelsImages(
+  sections: ProposalSection[], 
+  pexelsApiKey: string
+): Promise<Record<number, ImageData>> {
+  const imageMap: Record<number, ImageData> = {};
   
-  for (const keyword of keywords.slice(0, 3)) {
+  for (let i = 0; i < sections.length; i++) {
+    const section = sections[i];
+    if (!section.image?.enabled || section.image.placement === "none" || !section.image.searchQuery) {
+      continue;
+    }
+    
     try {
       const response = await fetch(
-        `https://api.pexels.com/v1/search?query=${encodeURIComponent(keyword)}&per_page=1&orientation=landscape`,
+        `https://api.pexels.com/v1/search?query=${encodeURIComponent(section.image.searchQuery)}&per_page=1&orientation=landscape`,
         {
           headers: { Authorization: pexelsApiKey }
         }
@@ -272,15 +326,20 @@ async function fetchPexelsImages(keywords: string[], pexelsApiKey: string): Prom
       if (response.ok) {
         const data = await response.json();
         if (data.photos?.[0]?.src?.large) {
-          images.push(data.photos[0].src.large);
+          imageMap[i] = {
+            url: data.photos[0].src.large,
+            placement: section.image.placement,
+            caption: section.image.caption,
+            searchQuery: section.image.searchQuery
+          };
         }
       }
     } catch (e) {
-      console.error("Pexels fetch error:", e);
+      console.error(`Pexels fetch error for section ${i}:`, e);
     }
   }
   
-  return images;
+  return imageMap;
 }
 
 async function generateClientEmail(
@@ -426,10 +485,9 @@ serve(async (req) => {
     const proposalContent = await generateProposalContent(documentText, templateStyle || 'executive-purple', lovableApiKey);
     console.log("Generated sections:", proposalContent.sections.length);
 
-    // Fetch images for each section
-    const allImageKeywords = proposalContent.sections.flatMap(s => s.imageKeywords);
-    const images = await fetchPexelsImages(allImageKeywords, pexelsApiKey);
-    console.log("Fetched images:", images.length);
+    // Fetch images for each section based on AI-determined search queries and placement
+    const images = await fetchPexelsImages(proposalContent.sections, pexelsApiKey);
+    console.log("Fetched images for sections:", Object.keys(images).length);
 
     // Generate slug and PIN
     const baseSlug = generateSlug(clientInfo.clientName || 'proposal');
