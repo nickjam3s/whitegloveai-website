@@ -59,3 +59,15 @@ verify_jwt = false
 
 [functions.civic-gift-followup-day28]
 verify_jwt = false
+
+[functions.generate-proposal]
+verify_jwt = false
+
+[functions.verify-proposal-pin]
+verify_jwt = false
+
+[functions.sign-proposal]
+verify_jwt = false
+
+[functions.publish-proposal]
+verify_jwt = false
