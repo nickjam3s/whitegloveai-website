@@ -693,6 +693,133 @@ export type Database = {
         }
         Relationships: []
       }
+      proposal_activity_logs: {
+        Row: {
+          action: string
+          actor_email: string | null
+          created_at: string
+          id: string
+          ip_address: string | null
+          metadata: Json | null
+          proposal_id: string
+          user_agent: string | null
+        }
+        Insert: {
+          action: string
+          actor_email?: string | null
+          created_at?: string
+          id?: string
+          ip_address?: string | null
+          metadata?: Json | null
+          proposal_id: string
+          user_agent?: string | null
+        }
+        Update: {
+          action?: string
+          actor_email?: string | null
+          created_at?: string
+          id?: string
+          ip_address?: string | null
+          metadata?: Json | null
+          proposal_id?: string
+          user_agent?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "proposal_activity_logs_proposal_id_fkey"
+            columns: ["proposal_id"]
+            isOneToOne: false
+            referencedRelation: "proposals"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      proposals: {
+        Row: {
+          client_contact: string | null
+          client_email: string | null
+          client_name: string
+          created_at: string
+          created_by: string
+          expires_at: string | null
+          generated_email: string | null
+          id: string
+          last_viewed_at: string | null
+          pin: string
+          proposal_content: Json | null
+          proposal_images: Json | null
+          published_at: string | null
+          signature_data: Json | null
+          signed_at: string | null
+          signed_by_name: string | null
+          slug: string
+          source_document_path: string | null
+          source_document_text: string | null
+          status: Database["public"]["Enums"]["proposal_status"]
+          template_style: string
+          updated_at: string
+          view_count: number
+        }
+        Insert: {
+          client_contact?: string | null
+          client_email?: string | null
+          client_name: string
+          created_at?: string
+          created_by: string
+          expires_at?: string | null
+          generated_email?: string | null
+          id?: string
+          last_viewed_at?: string | null
+          pin: string
+          proposal_content?: Json | null
+          proposal_images?: Json | null
+          published_at?: string | null
+          signature_data?: Json | null
+          signed_at?: string | null
+          signed_by_name?: string | null
+          slug: string
+          source_document_path?: string | null
+          source_document_text?: string | null
+          status?: Database["public"]["Enums"]["proposal_status"]
+          template_style?: string
+          updated_at?: string
+          view_count?: number
+        }
+        Update: {
+          client_contact?: string | null
+          client_email?: string | null
+          client_name?: string
+          created_at?: string
+          created_by?: string
+          expires_at?: string | null
+          generated_email?: string | null
+          id?: string
+          last_viewed_at?: string | null
+          pin?: string
+          proposal_content?: Json | null
+          proposal_images?: Json | null
+          published_at?: string | null
+          signature_data?: Json | null
+          signed_at?: string | null
+          signed_by_name?: string | null
+          slug?: string
+          source_document_path?: string | null
+          source_document_text?: string | null
+          status?: Database["public"]["Enums"]["proposal_status"]
+          template_style?: string
+          updated_at?: string
+          view_count?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "proposals_created_by_fkey"
+            columns: ["created_by"]
+            isOneToOne: false
+            referencedRelation: "portal_users"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       purchases: {
         Row: {
           amount_paid: number
@@ -999,6 +1126,7 @@ export type Database = {
       get_portal_user_email: { Args: never; Returns: string }
       is_admin: { Args: never; Returns: boolean }
       is_portal_admin: { Args: never; Returns: boolean }
+      is_proposal_admin: { Args: never; Returns: boolean }
       set_config: {
         Args: { parameter: string; value: string }
         Returns: undefined
@@ -1006,6 +1134,7 @@ export type Database = {
     }
     Enums: {
       portal_user_role: "admin" | "client"
+      proposal_status: "draft" | "published" | "viewed" | "signed" | "expired"
       user_role: "user" | "admin"
     }
     CompositeTypes: {
@@ -1135,6 +1264,7 @@ export const Constants = {
   public: {
     Enums: {
       portal_user_role: ["admin", "client"],
+      proposal_status: ["draft", "published", "viewed", "signed", "expired"],
       user_role: ["user", "admin"],
     },
   },
