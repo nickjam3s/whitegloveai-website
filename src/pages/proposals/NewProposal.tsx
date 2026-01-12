@@ -62,7 +62,7 @@ const templates = [
 
 const NewProposal: React.FC = () => {
   const navigate = useNavigate();
-  const { user, portalUser, loading, isAdmin } = usePortalAuth();
+  const { user, portalUser, portalUserLoading, loading, isAdmin } = usePortalAuth();
   const [step, setStep] = useState<Step>('upload');
   const [file, setFile] = useState<File | null>(null);
   const [isDragging, setIsDragging] = useState(false);
@@ -191,6 +191,11 @@ const NewProposal: React.FC = () => {
         body: {
           proposalId: proposalData.proposalId,
           publisherEmail: portalUser.email,
+          // Include edited client info so corrections are saved
+          clientName: proposalData.clientName,
+          clientContact: proposalData.clientContact,
+          clientEmail: proposalData.clientEmail,
+          templateStyle: proposalData.templateStyle,
         },
       });
 
@@ -212,16 +217,37 @@ const NewProposal: React.FC = () => {
     toast.success(`${label} copied to clipboard`);
   };
 
-  if (loading) {
+  // Show loading while auth is initializing OR while portal user is being fetched
+  if (loading || (user && portalUserLoading)) {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
-        <Loader2 className="h-8 w-8 animate-spin text-primary" />
+        <div className="flex flex-col items-center gap-4">
+          <Loader2 className="h-8 w-8 animate-spin text-primary" />
+          <p className="text-muted-foreground">
+            {loading ? 'Loading...' : 'Checking authorization...'}
+          </p>
+        </div>
       </div>
     );
   }
 
-  if (!user || !portalUser || !isAdmin) {
+  // Only redirect if user is definitely not logged in
+  if (!user) {
     return <Navigate to="/proposals/auth" replace />;
+  }
+
+  // User is logged in but no portal user record or not admin
+  if (!portalUser || !isAdmin) {
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-2xl font-bold text-foreground mb-4">Access Denied</h1>
+          <p className="text-muted-foreground">
+            You don't have permission to create proposals. Please contact an administrator.
+          </p>
+        </div>
+      </div>
+    );
   }
 
   return (

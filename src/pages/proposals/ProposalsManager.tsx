@@ -64,7 +64,7 @@ const statusConfig: Record<string, { label: string; variant: 'default' | 'second
 };
 
 const ProposalsManager: React.FC = () => {
-  const { user, portalUser, loading, isAdmin } = usePortalAuth();
+  const { user, portalUser, portalUserLoading, loading, isAdmin } = usePortalAuth();
   const [searchQuery, setSearchQuery] = useState('');
   const [activeTab, setActiveTab] = useState('all');
 
@@ -85,16 +85,37 @@ const ProposalsManager: React.FC = () => {
     enabled: !!portalUser && isAdmin,
   });
 
-  if (loading) {
+  // Show loading while auth is initializing OR while portal user is being fetched
+  if (loading || (user && portalUserLoading)) {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
-        <Loader2 className="h-8 w-8 animate-spin text-primary" />
+        <div className="flex flex-col items-center gap-4">
+          <Loader2 className="h-8 w-8 animate-spin text-primary" />
+          <p className="text-muted-foreground">
+            {loading ? 'Loading...' : 'Checking authorization...'}
+          </p>
+        </div>
       </div>
     );
   }
 
-  if (!user || !portalUser) {
+  // Only redirect if user is definitely not logged in
+  if (!user) {
     return <Navigate to="/proposals/auth" replace />;
+  }
+
+  // User is logged in but no portal user record
+  if (!portalUser) {
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-2xl font-bold text-foreground mb-4">Access Denied</h1>
+          <p className="text-muted-foreground">
+            Your account does not have portal access. Please contact an administrator.
+          </p>
+        </div>
+      </div>
+    );
   }
 
   if (!isAdmin) {

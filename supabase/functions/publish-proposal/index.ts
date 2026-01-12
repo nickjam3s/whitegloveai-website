@@ -16,7 +16,15 @@ serve(async (req) => {
     const supabaseServiceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
     const supabase = createClient(supabaseUrl, supabaseServiceKey);
 
-    const { proposalId, publisherEmail } = await req.json();
+    const { 
+      proposalId, 
+      publisherEmail,
+      // Allow updating client info on publish
+      clientName,
+      clientContact,
+      clientEmail,
+      templateStyle
+    } = await req.json();
 
     if (!proposalId || !publisherEmail) {
       return new Response(
@@ -61,13 +69,32 @@ serve(async (req) => {
       );
     }
 
-    // Publish proposal
+    // Build update object with client corrections
+    const updateData: Record<string, any> = {
+      status: 'published',
+      published_at: new Date().toISOString()
+    };
+
+    // Apply client corrections if provided
+    if (clientName !== undefined && clientName !== null) {
+      updateData.client_name = clientName;
+    }
+    if (clientContact !== undefined && clientContact !== null) {
+      updateData.client_contact = clientContact;
+    }
+    if (clientEmail !== undefined && clientEmail !== null) {
+      updateData.client_email = clientEmail;
+    }
+    if (templateStyle !== undefined && templateStyle !== null) {
+      updateData.template_style = templateStyle;
+    }
+
+    console.log("Publishing proposal with updates:", updateData);
+
+    // Publish proposal with corrections
     const { error: updateError } = await supabase
       .from('proposals')
-      .update({
-        status: 'published',
-        published_at: new Date().toISOString()
-      })
+      .update(updateData)
       .eq('id', proposalId);
 
     if (updateError) {
@@ -83,7 +110,12 @@ serve(async (req) => {
       proposal_id: proposalId,
       action: 'published',
       actor_email: publisherEmail,
-      metadata: {}
+      metadata: {
+        client_name_updated: clientName !== undefined,
+        client_contact_updated: clientContact !== undefined,
+        client_email_updated: clientEmail !== undefined,
+        template_style_updated: templateStyle !== undefined
+      }
     });
 
     return new Response(

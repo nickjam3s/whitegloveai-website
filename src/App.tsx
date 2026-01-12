@@ -76,6 +76,10 @@ import ProposalsManager from "./pages/proposals/ProposalsManager";
 import ProposalsAuth from "./pages/proposals/ProposalsAuth";
 import NewProposal from "./pages/proposals/NewProposal";
 import ProposalView from "./pages/proposals/ProposalView";
+import ProposalDetails from "./pages/proposals/ProposalDetails";
+
+// Not Found
+import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
@@ -176,6 +180,7 @@ const AppContent = () => {
                 <Route path="/proposals" element={<ProposalsManager />} />
                 <Route path="/proposals/auth" element={<ProposalsAuth />} />
                 <Route path="/proposals/new" element={<NewProposal />} />
+                <Route path="/proposals/:id" element={<ProposalDetails />} />
                 <Route path="/proposal/:slug" element={<ProposalView />} />
                 
                 {/* Civic Marketplace (unlisted) */}
@@ -198,6 +203,9 @@ const AppContent = () => {
                 
                 {/* Redirect /about to /about-us */}
                 <Route path="/about" element={<Navigate to="/about-us" replace />} />
+                
+                {/* Catch-all route for 404 */}
+                <Route path="*" element={<NotFound />} />
               </Routes>
             </main>
             {!isPortalRoute && !isProposalRoute && <Footer />}

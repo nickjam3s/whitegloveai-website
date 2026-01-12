@@ -1,5 +1,6 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.50.0";
+import * as pdfjs from "https://esm.sh/pdfjs-dist@4.4.168/build/pdf.min.mjs";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -19,11 +20,67 @@ function generatePin(): string {
   return Math.floor(100000 + Math.random() * 900000).toString();
 }
 
+// Extract text from PDF using pdfjs-dist
+async function extractTextFromPDF(pdfData: Uint8Array): Promise<string> {
+  try {
+    console.log("Starting PDF text extraction, bytes:", pdfData.length);
+    
+    // Load PDF document
+    const loadingTask = pdfjs.getDocument({ data: pdfData });
+    const pdf = await loadingTask.promise;
+    
+    console.log("PDF loaded, pages:", pdf.numPages);
+    
+    let fullText = "";
+    const maxPages = Math.min(pdf.numPages, 50); // Limit to 50 pages
+    
+    for (let i = 1; i <= maxPages; i++) {
+      const page = await pdf.getPage(i);
+      const textContent = await page.getTextContent();
+      const pageText = textContent.items
+        .map((item: any) => item.str || "")
+        .join(" ");
+      fullText += pageText + "\n\n";
+    }
+    
+    console.log("Extracted text length:", fullText.length);
+    console.log("First 500 chars:", fullText.substring(0, 500));
+    
+    return fullText.trim();
+  } catch (error) {
+    console.error("PDF extraction error:", error);
+    return "";
+  }
+}
+
+// Pre-parse text to find obvious client info using regex
+function preParseClientInfo(text: string): { clientContact: string; clientEmail: string } {
+  let clientContact = "";
+  let clientEmail = "";
+  
+  // Look for "Prepared for:" pattern
+  const preparedForMatch = text.match(/prepared\s+for[:\s]+([A-Za-z\s.]+?)(?:\n|,|$)/i);
+  if (preparedForMatch) {
+    clientContact = preparedForMatch[1].trim();
+  }
+  
+  // Look for email addresses
+  const emailMatch = text.match(/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/);
+  if (emailMatch) {
+    clientEmail = emailMatch[0];
+  }
+  
+  return { clientContact, clientEmail };
+}
+
 async function extractClientInfo(text: string, apiKey: string): Promise<{
   clientName: string;
   clientContact: string;
   clientEmail: string;
 }> {
+  // First try regex-based extraction
+  const preParsed = preParseClientInfo(text);
+  
   const response = await fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
     method: "POST",
     headers: {
@@ -36,12 +93,26 @@ async function extractClientInfo(text: string, apiKey: string): Promise<{
         {
           role: "system",
           content: `You are a document parser. Extract client information from proposal documents. 
-          Always return valid JSON with exactly these fields: clientName, clientContact, clientEmail.
-          If a field is not found, use an empty string.`
+          IMPORTANT RULES:
+          - Only extract information that is EXPLICITLY stated in the document
+          - Do NOT invent or guess email addresses - if not found, leave empty
+          - Do NOT invent company names - if not found, leave empty
+          - Look for patterns like "Prepared for:", "Client:", "To:", "Attn:"
+          - The clientContact is the person's NAME, not company
+          - Always return valid JSON with exactly these fields: clientName, clientContact, clientEmail
+          - If a field is not found, use an empty string`
         },
         {
           role: "user",
-          content: `Extract the client company name, contact person name, and email from this proposal document. Return ONLY a JSON object with clientName, clientContact, and clientEmail fields:\n\n${text.substring(0, 8000)}`
+          content: `Extract the client company name, contact person name, and email from this proposal document. 
+          
+CRITICAL: Only extract information that is CLEARLY STATED. Do NOT make up or guess any values.
+If you cannot find a company name, leave clientName empty.
+If you cannot find an email, leave clientEmail empty.
+
+Return ONLY a JSON object with clientName, clientContact, and clientEmail fields:
+
+${text.substring(0, 10000)}`
         }
       ],
       tools: [
@@ -53,9 +124,9 @@ async function extractClientInfo(text: string, apiKey: string): Promise<{
             parameters: {
               type: "object",
               properties: {
-                clientName: { type: "string", description: "Company or organization name" },
-                clientContact: { type: "string", description: "Contact person's full name" },
-                clientEmail: { type: "string", description: "Contact email address" }
+                clientName: { type: "string", description: "Company or organization name. Leave empty if not found." },
+                clientContact: { type: "string", description: "Contact person's full name. Leave empty if not found." },
+                clientEmail: { type: "string", description: "Contact email address. Leave empty if not found - do NOT guess." }
               },
               required: ["clientName", "clientContact", "clientEmail"]
             }
@@ -68,7 +139,7 @@ async function extractClientInfo(text: string, apiKey: string): Promise<{
 
   if (!response.ok) {
     console.error("AI extraction failed:", await response.text());
-    return { clientName: "", clientContact: "", clientEmail: "" };
+    return { clientName: "", clientContact: preParsed.clientContact, clientEmail: preParsed.clientEmail };
   }
 
   const data = await response.json();
@@ -76,19 +147,40 @@ async function extractClientInfo(text: string, apiKey: string): Promise<{
   
   if (toolCall?.function?.arguments) {
     try {
-      return JSON.parse(toolCall.function.arguments);
+      const result = JSON.parse(toolCall.function.arguments);
+      // Merge with pre-parsed results, preferring AI results if they exist
+      return {
+        clientName: result.clientName || "",
+        clientContact: result.clientContact || preParsed.clientContact || "",
+        clientEmail: result.clientEmail || preParsed.clientEmail || ""
+      };
     } catch {
-      return { clientName: "", clientContact: "", clientEmail: "" };
+      return { clientName: "", clientContact: preParsed.clientContact, clientEmail: preParsed.clientEmail };
     }
   }
 
-  return { clientName: "", clientContact: "", clientEmail: "" };
+  return { clientName: "", clientContact: preParsed.clientContact, clientEmail: preParsed.clientEmail };
 }
 
 async function generateProposalContent(text: string, templateStyle: string, apiKey: string): Promise<{
   sections: Array<{ title: string; content: string; imageKeywords: string[] }>;
   summary: string;
 }> {
+  // Check if we have meaningful text to work with
+  if (!text || text.length < 100) {
+    console.error("Insufficient text for proposal generation:", text?.length || 0);
+    return { 
+      sections: [
+        { 
+          title: "Proposal Content", 
+          content: "Unable to extract content from the uploaded document. Please ensure the document contains readable text.",
+          imageKeywords: ["business", "professional"] 
+        }
+      ], 
+      summary: "Document processing incomplete." 
+    };
+  }
+
   const response = await fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
     method: "POST",
     headers: {
@@ -103,11 +195,15 @@ async function generateProposalContent(text: string, templateStyle: string, apiK
           content: `You are a professional proposal designer. Transform raw proposal content into well-structured, professional sections.
           The template style is: ${templateStyle}.
           Create compelling section titles and polish the content while maintaining all factual information.
-          Suggest relevant image keywords for each section that would work well with Pexels stock photos.`
+          Suggest relevant image keywords for each section that would work well with Pexels stock photos.
+          
+          IMPORTANT: Preserve the actual content from the document. Do not summarize too much - include the real details, scope items, deliverables, and pricing from the original document.`
         },
         {
           role: "user",
-          content: `Transform this proposal document into professional sections. For each section, provide a title, polished content, and 2-3 image keywords for stock photos:\n\n${text.substring(0, 12000)}`
+          content: `Transform this proposal document into professional sections. For each section, provide a title, polished content (keep the actual details from the document), and 2-3 image keywords for stock photos:
+
+${text.substring(0, 15000)}`
         }
       ],
       tools: [
@@ -264,13 +360,14 @@ serve(async (req) => {
       );
     }
 
-    console.log("Processing proposal for:", creatorEmail, "file:", fileName);
+    console.log("Processing proposal for:", creatorEmail, "file:", fileName, "mimeType:", mimeType);
 
     // Decode base64 and upload to storage (using service role bypasses RLS)
     let fileBytes: Uint8Array;
     try {
       const binaryString = atob(fileData);
       fileBytes = Uint8Array.from(binaryString, c => c.charCodeAt(0));
+      console.log("Decoded file bytes:", fileBytes.length);
     } catch (e) {
       console.error("Base64 decode error:", e);
       return new Response(
@@ -298,14 +395,28 @@ serve(async (req) => {
     console.log("File uploaded to:", uploadData.path);
 
     // Extract text from the file for AI processing
-    let documentText = `Document: ${fileName}`;
+    let documentText = "";
+    
     if (mimeType === 'text/plain' || fileName.endsWith('.txt')) {
       documentText = new TextDecoder().decode(fileBytes);
+      console.log("Decoded plain text, length:", documentText.length);
+    } else if (mimeType === 'application/pdf' || fileName.toLowerCase().endsWith('.pdf')) {
+      // Extract text from PDF
+      console.log("Extracting text from PDF...");
+      documentText = await extractTextFromPDF(fileBytes);
+      
+      if (!documentText || documentText.length < 50) {
+        console.warn("PDF extraction returned minimal text, using fallback");
+        documentText = `PDF Document: ${fileName}\n\nNote: Text extraction was limited. The document may contain scanned images or non-text content.`;
+      }
     } else {
-      // For PDFs/DOCX, use the file name as placeholder; AI will work with what it can extract
-      // In production, integrate a PDF parsing library for better extraction
-      documentText = `Proposal document: ${fileName}\n\nThis is a ${mimeType} file uploaded for processing.`;
+      // For DOCX and other formats, provide a placeholder
+      // In production, you'd integrate mammoth.js or similar for DOCX
+      console.log("Non-PDF/text file, using placeholder");
+      documentText = `Document: ${fileName}\n\nThis is a ${mimeType} file. For best results, please upload a PDF or plain text file.`;
     }
+
+    console.log("Final document text length:", documentText.length);
 
     // Extract client information
     const clientInfo = await extractClientInfo(documentText, lovableApiKey);
@@ -342,7 +453,7 @@ serve(async (req) => {
       .from('proposals')
       .insert({
         created_by: creatorId,
-        client_name: clientInfo.clientName || 'Unknown Client',
+        client_name: clientInfo.clientName || '(Client name needed)',
         client_contact: clientInfo.clientContact,
         client_email: clientInfo.clientEmail,
         slug,
@@ -350,7 +461,7 @@ serve(async (req) => {
         status: 'draft',
         template_style: templateStyle || 'executive-purple',
         source_document_path: uploadData.path,
-        source_document_text: documentText,
+        source_document_text: documentText.substring(0, 50000), // Limit stored text
         proposal_content: proposalContent,
         proposal_images: images,
         generated_email: generatedEmail,
