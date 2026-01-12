@@ -75,6 +75,7 @@ serve(async (req) => {
     // Update view count and last viewed
     const newViewCount = (proposal.view_count || 0) + 1;
     const updateStatus = proposal.status === 'published' ? 'viewed' : proposal.status;
+    const isFirstView = proposal.status === 'published';
 
     await supabase
       .from('proposals')
@@ -93,6 +94,27 @@ serve(async (req) => {
       user_agent: req.headers.get('user-agent'),
       metadata: { view_count: newViewCount }
     });
+
+    // Send email notification on first view
+    if (isFirstView) {
+      try {
+        await fetch(`${supabaseUrl}/functions/v1/proposal-notifications`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${supabaseServiceKey}`
+          },
+          body: JSON.stringify({
+            type: 'viewed',
+            proposalId: proposal.id,
+            clientName: proposal.client_name,
+            viewCount: newViewCount
+          })
+        });
+      } catch (notifError) {
+        console.error("Failed to send view notification:", notifError);
+      }
+    }
 
     return new Response(
       JSON.stringify({

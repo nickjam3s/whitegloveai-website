@@ -71,3 +71,6 @@ verify_jwt = false
 
 [functions.publish-proposal]
 verify_jwt = false
+
+[functions.proposal-notifications]
+verify_jwt = false
