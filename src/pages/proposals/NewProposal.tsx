@@ -114,18 +114,17 @@ const NewProposal: React.FC = () => {
     }
   };
 
-  const extractTextFromFile = async (file: File): Promise<string> => {
-    // For now, we'll read text directly. In production, you'd use a proper parser.
-    // The edge function will handle actual PDF/DOCX parsing with document--parse_document
-    return new Promise((resolve) => {
+  const convertFileToBase64 = (file: File): Promise<string> => {
+    return new Promise((resolve, reject) => {
       const reader = new FileReader();
-      reader.onload = (e) => {
-        const text = e.target?.result as string;
-        // For binary files, we'll send to edge function for proper parsing
-        resolve(text || `Document: ${file.name}`);
+      reader.onload = () => {
+        const result = reader.result as string;
+        // Remove data URL prefix (e.g., "data:application/pdf;base64,")
+        const base64 = result.split(',')[1];
+        resolve(base64);
       };
-      reader.onerror = () => resolve(`Document: ${file.name}`);
-      reader.readAsText(file);
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
     });
   };
 
@@ -137,27 +136,19 @@ const NewProposal: React.FC = () => {
     setProgress(10);
 
     try {
-      // Upload file to storage
-      const fileName = `${Date.now()}-${file.name}`;
-      const { data: uploadData, error: uploadError } = await supabase.storage
-        .from('proposal-documents')
-        .upload(fileName, file);
-
-      if (uploadError) throw uploadError;
+      // Convert file to base64 (upload will happen in edge function with service role)
+      const fileBase64 = await convertFileToBase64(file);
       setProgress(30);
 
-      // Extract text
-      const documentText = await extractTextFromFile(file);
-      setProgress(50);
-
-      // Generate proposal via edge function
+      // Generate proposal via edge function (handles upload + processing)
       const { data: result, error: functionError } = await supabase.functions.invoke('generate-proposal', {
         body: {
-          documentText,
+          fileData: fileBase64,
+          fileName: file.name,
+          mimeType: file.type,
           templateStyle: proposalData.templateStyle,
           creatorEmail: portalUser.email,
           creatorId: portalUser.id,
-          documentPath: uploadData.path,
         },
       });
 
@@ -168,8 +159,7 @@ const NewProposal: React.FC = () => {
 
       setProposalData({
         ...proposalData,
-        documentText,
-        documentPath: uploadData.path,
+        documentPath: result.proposal.documentPath || '',
         clientName: result.proposal.clientName || '',
         clientContact: result.proposal.clientContact || '',
         clientEmail: result.proposal.clientEmail || '',
