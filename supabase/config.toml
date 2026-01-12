@@ -74,3 +74,6 @@ verify_jwt = false
 
 [functions.proposal-notifications]
 verify_jwt = false
+
+[functions.setup-proposal-admins]
+verify_jwt = false
