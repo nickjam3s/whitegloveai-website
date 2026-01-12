@@ -205,28 +205,38 @@ async function generateProposalContent(text: string, templateStyle: string, apiK
       messages: [
         {
           role: "system",
-          content: `You are a professional proposal designer. Transform raw proposal content into well-structured, professional sections.
-          The template style is: ${templateStyle}.
-          Create compelling section titles and polish the content while maintaining all factual information.
-          
-          For EACH section, decide whether it needs an image and where to place it:
-          - "top": Image appears before content (great for introductions, visual impact sections)
-          - "inline": Image appears after the first paragraph (great for breaking up long content)
-          - "bottom": Image appears after content (great for conclusions, next steps)
-          - "none": No image needed (use for pricing tables, technical specs, short sections)
-          
-          For the searchQuery, provide a SPECIFIC Pexels search term that will find a relevant professional photo.
-          BAD examples: "business", "technology", "team"
-          GOOD examples: "diverse team collaborating in modern office", "woman presenting data on screen", "AI technology neural network visualization", "business handshake partnership agreement"
-          
-          IMPORTANT: Preserve the actual content from the document. Do not summarize too much - include the real details, scope items, deliverables, and pricing from the original document.`
+          content: `You are a proposal organizer. Your job is to structure existing proposal content into sections WITHOUT rewriting any of the text.
+
+CRITICAL RULES:
+1. PRESERVE ALL ORIGINAL TEXT EXACTLY AS PROVIDED - copy and paste verbatim
+2. Do NOT paraphrase, summarize, or rewrite ANY content
+3. Do NOT add new content or expand on the original
+4. Only organize the content into logical sections
+5. Only add section titles - the content itself must remain unchanged
+6. If content has bullet points, keep them as bullet points
+7. If content has specific formatting, preserve that formatting
+8. Include ALL details: scope items, deliverables, pricing, timelines exactly as written
+
+The template style is: ${templateStyle}.
+
+For EACH section, decide whether it needs an image and where to place it:
+- "top": Image appears before content (great for introductions, visual impact sections)
+- "inline": Image appears after the first paragraph (great for breaking up long content)
+- "bottom": Image appears after content (great for conclusions, next steps)
+- "none": No image needed (use for pricing tables, technical specs, short sections)
+
+For the searchQuery, provide a SPECIFIC Pexels search term that will find a relevant professional photo.
+BAD examples: "business", "technology", "team"
+GOOD examples: "diverse team collaborating in modern office", "woman presenting data on screen", "AI technology neural network visualization", "business handshake partnership agreement"`
         },
         {
           role: "user",
-          content: `Transform this proposal document into professional sections. For each section, provide:
-1. A compelling title
-2. Polished content (keep the actual details)
+          content: `Organize this proposal document into sections. For each section, provide:
+1. A clear section title
+2. The EXACT original content for that section - DO NOT rewrite, paraphrase, or summarize. Copy and paste verbatim.
 3. Image configuration: whether to include an image, specific Pexels search query, placement (top/inline/bottom/none), and optional caption
+
+IMPORTANT: The content field must contain the EXACT text from the document word-for-word. Do not change any wording.
 
 ${text.substring(0, 15000)}`
         }
