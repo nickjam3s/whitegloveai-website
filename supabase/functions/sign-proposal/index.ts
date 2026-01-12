@@ -106,6 +106,29 @@ serve(async (req) => {
       }
     });
 
+    // Send email notification for signed proposal
+    try {
+      const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
+      const supabaseServiceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
+      
+      await fetch(`${supabaseUrl}/functions/v1/proposal-notifications`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${supabaseServiceKey}`
+        },
+        body: JSON.stringify({
+          type: 'signed',
+          proposalId: proposal.id,
+          clientName: proposal.client_name,
+          signerName,
+          signedAt
+        })
+      });
+    } catch (notifError) {
+      console.error("Failed to send signed notification:", notifError);
+    }
+
     return new Response(
       JSON.stringify({
         success: true,

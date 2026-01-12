@@ -71,15 +71,22 @@ import PurchaseSuccess from "./pages/portal/PurchaseSuccess";
 // Civic Marketplace
 import CivicGift from "./pages/civicmarketplace/Gift";
 
+// Proposals
+import ProposalsManager from "./pages/proposals/ProposalsManager";
+import ProposalsAuth from "./pages/proposals/ProposalsAuth";
+import NewProposal from "./pages/proposals/NewProposal";
+import ProposalView from "./pages/proposals/ProposalView";
+
 const queryClient = new QueryClient();
 
 const AppContent = () => {
   const location = useLocation();
   const isPortalRoute = location.pathname.startsWith('/portal');
+  const isProposalRoute = location.pathname.startsWith('/proposal') || location.pathname.startsWith('/proposals');
 
   return (
     <div className="flex flex-col min-h-screen">
-      {!isPortalRoute && <Navigation />}
+      {!isPortalRoute && !isProposalRoute && <Navigation />}
       <ScrollToTop />
       <main className="flex-grow">
               <Routes>
@@ -165,6 +172,12 @@ const AppContent = () => {
                 <Route path="/portal/organizations/:id/edit" element={<OrganizationForm />} />
                 <Route path="/portal/users" element={<Users />} />
                 
+                {/* Proposal Generator Routes */}
+                <Route path="/proposals" element={<ProposalsManager />} />
+                <Route path="/proposals/auth" element={<ProposalsAuth />} />
+                <Route path="/proposals/new" element={<NewProposal />} />
+                <Route path="/proposal/:slug" element={<ProposalView />} />
+                
                 {/* Civic Marketplace (unlisted) */}
                 <Route path="/civicmarketplace/gift" element={<CivicGift />} />
                 <Route path="/civicmarketplace/gift/admin" element={<CivicGift />} />
@@ -187,7 +200,7 @@ const AppContent = () => {
                 <Route path="/about" element={<Navigate to="/about-us" replace />} />
               </Routes>
             </main>
-            {!isPortalRoute && <Footer />}
+            {!isPortalRoute && !isProposalRoute && <Footer />}
           </div>
   );
 };
