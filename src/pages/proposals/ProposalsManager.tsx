@@ -22,6 +22,16 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from '@/components/ui/alert-dialog';
 import { 
   Plus, 
   Search, 
@@ -33,7 +43,9 @@ import {
   Copy,
   ExternalLink,
   Loader2,
-  ArrowLeft
+  ArrowLeft,
+  LogOut,
+  Trash2
 } from 'lucide-react';
 import { format } from 'date-fns';
 import { toast } from 'sonner';
@@ -64,9 +76,11 @@ const statusConfig: Record<string, { label: string; variant: 'default' | 'second
 };
 
 const ProposalsManager: React.FC = () => {
-  const { user, portalUser, portalUserLoading, loading, isAdmin } = usePortalAuth();
+  const { user, portalUser, portalUserLoading, loading, isAdmin, signOut } = usePortalAuth();
   const [searchQuery, setSearchQuery] = useState('');
   const [activeTab, setActiveTab] = useState('all');
+  const [deleteTarget, setDeleteTarget] = useState<{ id: string; name: string; documentPath?: string } | null>(null);
+  const [isDeleting, setIsDeleting] = useState(false);
 
   const { data: proposals, isLoading, refetch } = useQuery({
     queryKey: ['proposals'],
@@ -155,6 +169,34 @@ const ProposalsManager: React.FC = () => {
     return `${window.location.origin}/proposal/${slug}`;
   };
 
+  const handleSignOut = async () => {
+    await signOut();
+    toast.success('Signed out successfully');
+  };
+
+  const handleDeleteProposal = async () => {
+    if (!deleteTarget) return;
+    
+    setIsDeleting(true);
+    try {
+      // Delete the proposal record
+      const { error } = await supabase
+        .from('proposals')
+        .delete()
+        .eq('id', deleteTarget.id);
+
+      if (error) throw error;
+
+      toast.success('Proposal deleted successfully');
+      refetch();
+    } catch (error: any) {
+      toast.error('Failed to delete proposal: ' + error.message);
+    } finally {
+      setIsDeleting(false);
+      setDeleteTarget(null);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
@@ -172,12 +214,19 @@ const ProposalsManager: React.FC = () => {
                 <p className="text-muted-foreground text-sm">Create and manage client proposals</p>
               </div>
             </div>
-            <Button asChild>
-              <Link to="/proposals/new">
-                <Plus className="h-4 w-4 mr-2" />
-                New Proposal
-              </Link>
-            </Button>
+            <div className="flex items-center gap-4">
+              <span className="text-sm text-muted-foreground hidden md:block">{portalUser?.email}</span>
+              <Button asChild>
+                <Link to="/proposals/new">
+                  <Plus className="h-4 w-4 mr-2" />
+                  New Proposal
+                </Link>
+              </Button>
+              <Button variant="outline" size="sm" onClick={handleSignOut}>
+                <LogOut className="h-4 w-4 mr-2" />
+                Sign Out
+              </Button>
+            </div>
           </div>
         </div>
       </header>
@@ -339,6 +388,16 @@ const ProposalsManager: React.FC = () => {
                                   </DropdownMenuItem>
                                 </>
                               )}
+                              <DropdownMenuItem 
+                                onClick={() => setDeleteTarget({ 
+                                  id: proposal.id, 
+                                  name: proposal.client_name 
+                                })}
+                                className="text-destructive focus:text-destructive"
+                              >
+                                <Trash2 className="h-4 w-4 mr-2" />
+                                Delete
+                              </DropdownMenuItem>
                             </DropdownMenuContent>
                           </DropdownMenu>
                         </TableCell>
@@ -351,6 +410,36 @@ const ProposalsManager: React.FC = () => {
           </CardContent>
         </Card>
       </main>
+
+      {/* Delete Confirmation Dialog */}
+      <AlertDialog open={!!deleteTarget} onOpenChange={() => setDeleteTarget(null)}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Delete Proposal</AlertDialogTitle>
+            <AlertDialogDescription>
+              Are you sure you want to delete the proposal for "{deleteTarget?.name}"? 
+              This action cannot be undone.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel disabled={isDeleting}>Cancel</AlertDialogCancel>
+            <AlertDialogAction 
+              onClick={handleDeleteProposal} 
+              disabled={isDeleting}
+              className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
+            >
+              {isDeleting ? (
+                <>
+                  <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+                  Deleting...
+                </>
+              ) : (
+                'Delete'
+              )}
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </div>
   );
 };
