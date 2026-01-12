@@ -15,6 +15,7 @@ interface PortalAuthContextType {
   user: User | null;
   session: Session | null;
   portalUser: PortalUser | null;
+  portalUserLoading: boolean;
   loading: boolean;
   initError: string | null;
   signIn: (email: string, password: string) => Promise<{ error: any }>;
@@ -34,6 +35,7 @@ export const PortalAuthProvider: React.FC<{ children: React.ReactNode }> = ({ ch
   const [user, setUser] = useState<User | null>(null);
   const [session, setSession] = useState<Session | null>(null);
   const [portalUser, setPortalUser] = useState<PortalUser | null>(null);
+  const [portalUserLoading, setPortalUserLoading] = useState(false);
   const [loading, setLoading] = useState(true);
   const [initError, setInitError] = useState<string | null>(null);
   const loadingRef = useRef(true);
@@ -111,16 +113,26 @@ export const PortalAuthProvider: React.FC<{ children: React.ReactNode }> = ({ ch
             setInitError(null);
           }
           
+          // On TOKEN_REFRESHED, preserve existing portalUser to prevent flash
+          if (event === 'TOKEN_REFRESHED' && newSession?.user?.email) {
+            setConfigSafe(newSession.user.email);
+            finishLoading();
+            return;
+          }
+          
           if (newSession?.user?.email) {
             // Non-blocking: set config and fetch portal user
             setConfigSafe(newSession.user.email);
             
-            // Fetch portal user in background (don't block loading)
+            // Track loading state for portal user fetch
+            setPortalUserLoading(true);
             fetchPortalUser(newSession.user.email).then((userData) => {
               setPortalUser(userData);
+              setPortalUserLoading(false);
             });
           } else {
             setPortalUser(null);
+            setPortalUserLoading(false);
           }
           
           // Finish loading after processing auth state
@@ -128,6 +140,7 @@ export const PortalAuthProvider: React.FC<{ children: React.ReactNode }> = ({ ch
         } catch (err) {
           console.error('[PortalAuth] Error in auth state change handler:', err);
           setInitError('Error processing authentication state.');
+          setPortalUserLoading(false);
           finishLoading();
         }
       }
@@ -153,9 +166,11 @@ export const PortalAuthProvider: React.FC<{ children: React.ReactNode }> = ({ ch
           console.info('[PortalAuth] Found existing session for:', existingSession.user.email);
           setConfigSafe(existingSession.user.email);
           
-          // Fetch portal user in background
+          // Track loading state for portal user fetch
+          setPortalUserLoading(true);
           fetchPortalUser(existingSession.user.email).then((userData) => {
             setPortalUser(userData);
+            setPortalUserLoading(false);
           });
         } else {
           console.info('[PortalAuth] No existing session found');
@@ -165,6 +180,7 @@ export const PortalAuthProvider: React.FC<{ children: React.ReactNode }> = ({ ch
       } catch (err) {
         console.error('[PortalAuth] Exception during session init:', err);
         setInitError('Session initialization failed. Please refresh the page.');
+        setPortalUserLoading(false);
         finishLoading();
       }
     };
@@ -271,6 +287,7 @@ export const PortalAuthProvider: React.FC<{ children: React.ReactNode }> = ({ ch
     user,
     session,
     portalUser,
+    portalUserLoading,
     loading,
     initError,
     signIn,
