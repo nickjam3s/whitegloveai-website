@@ -11,10 +11,24 @@ import { Loader2, Lock, CheckCircle, PenTool, Type } from 'lucide-react';
 import { toast } from 'sonner';
 import { format } from 'date-fns';
 
+interface SectionImage {
+  url: string;
+  placement: "top" | "inline" | "bottom" | "none";
+  caption?: string;
+  searchQuery: string;
+}
+
 interface ProposalSection {
   title: string;
   content: string;
-  imageKeywords: string[];
+  image?: {
+    enabled: boolean;
+    searchQuery: string;
+    placement: "top" | "inline" | "bottom" | "none";
+    caption?: string;
+  } | null;
+  // Legacy support
+  imageKeywords?: string[];
 }
 
 interface ProposalData {
@@ -27,7 +41,9 @@ interface ProposalData {
     sections: ProposalSection[];
     summary: string;
   };
-  proposalImages: string[];
+  // New format: object with section indices as keys
+  // Legacy format: string array
+  proposalImages: Record<number, SectionImage> | string[];
   status: string;
   signedAt: string | null;
   signedByName: string | null;
@@ -316,23 +332,89 @@ const ProposalView: React.FC = () => {
         )}
 
         {/* Sections */}
-        {sections.map((section, index) => (
-          <section key={index} className={`mb-12 pb-12 border-b ${styles.border}`}>
-            <h2 className={`text-2xl font-bold mb-4 ${styles.accent}`}>{section.title}</h2>
-            
-            {proposal.proposalImages[index] && (
-              <img
-                src={proposal.proposalImages[index]}
-                alt={section.title}
-                className="w-full h-64 object-cover rounded-lg mb-6"
-              />
-            )}
-            
-            <div className="prose prose-lg max-w-none">
-              <p className="whitespace-pre-wrap leading-relaxed">{section.content}</p>
-            </div>
-          </section>
-        ))}
+        {sections.map((section, index) => {
+          // Handle both new format (object) and legacy format (array)
+          const imageData: SectionImage | null = Array.isArray(proposal.proposalImages)
+            ? proposal.proposalImages[index] 
+              ? { url: proposal.proposalImages[index], placement: 'top' as const, searchQuery: '' }
+              : null
+            : proposal.proposalImages[index] || null;
+
+          // Helper to get first paragraph for inline placement
+          const getFirstParagraph = (content: string) => {
+            const paragraphs = content.split('\n\n');
+            return paragraphs[0] || content;
+          };
+          
+          const getRemainingContent = (content: string) => {
+            const paragraphs = content.split('\n\n');
+            return paragraphs.slice(1).join('\n\n');
+          };
+
+          return (
+            <section key={index} className={`mb-12 pb-12 border-b ${styles.border}`}>
+              <h2 className={`text-2xl font-bold mb-4 ${styles.accent}`}>{section.title}</h2>
+              
+              {/* TOP placement */}
+              {imageData && imageData.placement === 'top' && (
+                <figure className="mb-6">
+                  <img
+                    src={imageData.url}
+                    alt={section.title}
+                    className="w-full h-64 object-cover rounded-lg"
+                  />
+                  {imageData.caption && (
+                    <figcaption className="text-sm text-muted-foreground mt-2 italic text-center">
+                      {imageData.caption}
+                    </figcaption>
+                  )}
+                </figure>
+              )}
+              
+              {/* Content with possible INLINE image */}
+              <div className="prose prose-lg max-w-none">
+                {imageData && imageData.placement === 'inline' ? (
+                  <>
+                    <p className="whitespace-pre-wrap leading-relaxed">{getFirstParagraph(section.content)}</p>
+                    <figure className="my-6">
+                      <img
+                        src={imageData.url}
+                        alt={section.title}
+                        className="w-full h-64 object-cover rounded-lg"
+                      />
+                      {imageData.caption && (
+                        <figcaption className="text-sm text-muted-foreground mt-2 italic text-center">
+                          {imageData.caption}
+                        </figcaption>
+                      )}
+                    </figure>
+                    {getRemainingContent(section.content) && (
+                      <p className="whitespace-pre-wrap leading-relaxed">{getRemainingContent(section.content)}</p>
+                    )}
+                  </>
+                ) : (
+                  <p className="whitespace-pre-wrap leading-relaxed">{section.content}</p>
+                )}
+              </div>
+              
+              {/* BOTTOM placement */}
+              {imageData && imageData.placement === 'bottom' && (
+                <figure className="mt-6">
+                  <img
+                    src={imageData.url}
+                    alt={section.title}
+                    className="w-full h-64 object-cover rounded-lg"
+                  />
+                  {imageData.caption && (
+                    <figcaption className="text-sm text-muted-foreground mt-2 italic text-center">
+                      {imageData.caption}
+                    </figcaption>
+                  )}
+                </figure>
+              )}
+            </section>
+          );
+        })}
 
         {/* Signature Section */}
         <section className="mt-16">
