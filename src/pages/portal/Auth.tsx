@@ -12,7 +12,7 @@ import { toast } from 'sonner';
 import aicertsLogo from '@/assets/aicerts-logo-white.png';
 
 const PortalAuth = () => {
-  const { user, signIn, signUp, signInWithMagicLink, resendConfirmation, loading } = usePortalAuth();
+  const { user, portalUser, portalUserLoading, signIn, signUp, signInWithMagicLink, resendConfirmation, loading, resetSession } = usePortalAuth();
   const [searchParams] = useSearchParams();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState('');
@@ -22,9 +22,46 @@ const PortalAuth = () => {
   // Get the mode from URL params (signup, signin, or magiclink)
   const mode = searchParams.get('mode') || 'signin';
 
-  // Redirect if already authenticated
-  if (user && !loading) {
-    return <Navigate to="/portal" replace />;
+  // Wait for both auth and portal user to load before redirecting
+  if (user && !loading && !portalUserLoading) {
+    if (portalUser) {
+      return <Navigate to="/portal" replace />;
+    }
+    // User is authenticated but has no portal access - show access denied below
+  }
+
+  // Show loading while checking portal access after sign-in
+  if (user && portalUserLoading) {
+    return (
+      <div className="min-h-screen bg-gradient-to-b from-purple-900 via-purple-950 to-black flex items-center justify-center">
+        <div className="flex flex-col items-center gap-4">
+          <Loader2 className="h-8 w-8 animate-spin text-primary" />
+          <p className="text-white/70">Checking portal access...</p>
+        </div>
+      </div>
+    );
+  }
+
+  // User is authenticated but no portal access
+  if (user && !portalUserLoading && !portalUser) {
+    return (
+      <div className="min-h-screen bg-gradient-to-b from-purple-900 via-purple-950 to-black flex items-center justify-center">
+        <Card className="w-full max-w-md">
+          <CardHeader className="text-center">
+            <CardTitle className="text-destructive">Access Denied</CardTitle>
+            <CardDescription>
+              Your account does not have access to the Client Portal.
+              Please contact an administrator.
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="flex justify-center">
+            <Button variant="outline" onClick={() => resetSession()}>
+              Sign Out
+            </Button>
+          </CardContent>
+        </Card>
+      </div>
+    );
   }
 
   const handleSignIn = async (e: React.FormEvent<HTMLFormElement>) => {

@@ -11,15 +11,52 @@ import { ArrowLeft, Loader2, FileText, RefreshCw, AlertTriangle } from 'lucide-r
 import { toast } from 'sonner';
 
 const ProposalsAuth: React.FC = () => {
-  const { user, signIn, signInWithMagicLink, loading, initError, resetSession } = usePortalAuth();
+  const { user, portalUser, portalUserLoading, signIn, signInWithMagicLink, loading, initError, resetSession } = usePortalAuth();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState('');
   const [magicLinkSent, setMagicLinkSent] = useState(false);
   const [isResetting, setIsResetting] = useState(false);
 
-  // Only redirect if user is authenticated AND loading is complete
-  if (user && !loading) {
-    return <Navigate to="/proposals" replace />;
+  // Wait for both auth and portal user to load before redirecting
+  if (user && !loading && !portalUserLoading) {
+    if (portalUser) {
+      return <Navigate to="/proposals" replace />;
+    }
+    // User is authenticated but has no portal access - show access denied below
+  }
+
+  // Show loading while checking portal access after sign-in
+  if (user && portalUserLoading) {
+    return (
+      <div className="min-h-screen bg-gradient-to-b from-purple-900 via-purple-950 to-black flex items-center justify-center">
+        <div className="flex flex-col items-center gap-4">
+          <Loader2 className="h-8 w-8 animate-spin text-primary" />
+          <p className="text-white/70">Checking portal access...</p>
+        </div>
+      </div>
+    );
+  }
+
+  // User is authenticated but no portal access
+  if (user && !portalUserLoading && !portalUser) {
+    return (
+      <div className="min-h-screen bg-gradient-to-b from-purple-900 via-purple-950 to-black flex items-center justify-center">
+        <Card className="w-full max-w-md">
+          <CardHeader className="text-center">
+            <CardTitle className="text-destructive">Access Denied</CardTitle>
+            <CardDescription>
+              Your account does not have access to the Proposal Generator.
+              Please contact an administrator.
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="flex justify-center">
+            <Button variant="outline" onClick={() => resetSession()}>
+              Sign Out
+            </Button>
+          </CardContent>
+        </Card>
+      </div>
+    );
   }
 
   const handleSignIn = async (e: React.FormEvent<HTMLFormElement>) => {
