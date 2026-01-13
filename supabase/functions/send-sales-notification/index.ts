@@ -159,7 +159,7 @@ const handler = async (req: Request): Promise<Response> => {
 
     const { data: emailData, error: emailError } = await resend.emails.send({
       from: "WhitegloveAI Training <training@whitegloveai.com>",
-      to: ["sales@whitegloveai.com"],
+      to: ["nick@whitegloveai.com"],
       subject: `New Training Order: ${data.orderNumber} - ${data.firstName} ${data.lastName}`,
       html: htmlContent,
     });
