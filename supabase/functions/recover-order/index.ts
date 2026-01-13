@@ -42,6 +42,17 @@ serve(async (req) => {
       expand: ['data.price.product'],
     });
 
+    // Parse items_data metadata for actual course names
+    let itemsData: Array<{ courseName: string; language: string }> = [];
+    if (session.metadata?.items_data) {
+      try {
+        itemsData = JSON.parse(session.metadata.items_data);
+        console.log("Parsed items_data from metadata:", itemsData);
+      } catch (e) {
+        console.error("Failed to parse items_data:", e);
+      }
+    }
+
     // Generate order number
     const { data: orderNumberData, error: orderNumberError } = await supabaseAdmin
       .rpc('generate_order_number');
@@ -54,48 +65,58 @@ serve(async (req) => {
     const orderNumber = orderNumberData;
     console.log("Generated order number:", orderNumber);
 
-      // Get customer email and metadata
-      const customerEmail = session.customer_email || session.customer_details?.email;
-      const firstName = session.metadata?.first_name || "";
-      const lastName = session.metadata?.last_name || "";
-      const language = session.metadata?.language || "";
+    // Get customer email and metadata
+    const customerEmail = session.customer_email || session.customer_details?.email;
+    const firstName = session.metadata?.first_name || "";
+    const lastName = session.metadata?.last_name || "";
+    const language = session.metadata?.language || "";
+    
+    if (!customerEmail) {
+      throw new Error("No customer email found in session");
+    }
+
+    console.log("Customer details:", { customerEmail, firstName, lastName, language });
+
+    // Create purchase records and prepare email data
+    const courses: Array<{ name: string; quantity: number; price: number }> = [];
+    let totalAmount = 0;
+
+    for (let i = 0; i < lineItems.data.length; i++) {
+      const item = lineItems.data[i];
+      const product = item.price?.product as Stripe.Product;
+      const quantity = item.quantity || 1;
+      const priceAmount = item.price?.unit_amount || 0;
       
-      if (!customerEmail) {
-        throw new Error("No customer email found in session");
-      }
-
-      console.log("Customer details:", { customerEmail, firstName, lastName, language });
-
-      // Create purchase records and prepare email data
-      const courses = [];
-      let totalAmount = 0;
-
-      for (const item of lineItems.data) {
-        const product = item.price?.product as Stripe.Product;
-        const courseName = product?.name || "Unknown Course";
-        const quantity = item.quantity || 1;
-        const priceAmount = item.price?.unit_amount || 0;
+      // Get actual course name from metadata, fallback to Stripe product name
+      const metadataItem = itemsData[i];
+      const courseName = metadataItem?.courseName || product?.name || "Unknown Course";
+      const itemLanguage = metadataItem?.language || language || "";
+      
+      console.log(`Processing item ${i}: courseName="${courseName}" (metadata: ${metadataItem?.courseName}, product: ${product?.name})`);
         
-        totalAmount += priceAmount * quantity;
+      totalAmount += priceAmount * quantity;
 
-        // Create purchase record with customer data
-        const { error: purchaseError } = await supabaseAdmin
-          .from("purchases")
-          .insert({
-            order_number: orderNumber,
-            user_email: customerEmail,
-            first_name: firstName,
-            last_name: lastName,
-            language: language,
-            course_name: courseName,
-            course_slug: product?.metadata?.slug || courseName.toLowerCase().replace(/\s+/g, '-'),
-            quantity: quantity,
-            amount_paid: priceAmount * quantity,
-            currency: item.price?.currency?.toUpperCase() || "USD",
-            stripe_payment_intent_id: session.payment_intent as string,
-            stripe_checkout_session_id: session.id,
-            status: "completed",
-          });
+      // Generate course slug from actual course name
+      const courseSlug = courseName.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+
+      // Create purchase record with customer data
+      const { error: purchaseError } = await supabaseAdmin
+        .from("purchases")
+        .insert({
+          order_number: orderNumber,
+          user_email: customerEmail,
+          first_name: firstName,
+          last_name: lastName,
+          language: itemLanguage,
+          course_name: courseName,
+          course_slug: product?.metadata?.slug || courseSlug,
+          quantity: quantity,
+          amount_paid: priceAmount * quantity,
+          currency: item.price?.currency?.toUpperCase() || "USD",
+          stripe_payment_intent_id: session.payment_intent as string,
+          stripe_checkout_session_id: session.id,
+          status: "completed",
+        });
 
       if (purchaseError) {
         console.error("Error creating purchase record:", purchaseError);
@@ -108,7 +129,7 @@ serve(async (req) => {
         .insert({
           user_email: customerEmail,
           course_name: courseName,
-          course_slug: product?.metadata?.slug || courseName.toLowerCase().replace(/\s+/g, '-'),
+          course_slug: product?.metadata?.slug || courseSlug,
           quantity: quantity,
         });
 
