@@ -76,23 +76,28 @@ serve(async (req) => {
       console.log("Customer details:", { customerEmail, firstName, lastName });
 
       // Create purchase records and prepare email data
-      const courses = [];
+      const courses: Array<{ name: string; quantity: number; price: number; language: string }> = [];
       let totalAmount = 0;
 
-      for (const item of lineItems.data) {
+      for (let i = 0; i < lineItems.data.length; i++) {
+        const item = lineItems.data[i];
         const product = item.price?.product as Stripe.Product;
-        const courseName = product?.name || "Unknown Course";
         const quantity = item.quantity || 1;
         const priceAmount = item.price?.unit_amount || 0;
         
-        // Get language for this specific course from the metadata map
-        const language = languageMap.get(courseName) || "";
+        // Get actual course name from metadata, fallback to Stripe product name
+        const metadataItem = itemsData[i];
+        const courseName = metadataItem?.courseName || product?.name || "Unknown Course";
+        const language = metadataItem?.language || languageMap.get(product?.name || "") || "";
         
         totalAmount += priceAmount * quantity;
 
-        console.log(`Processing course: ${courseName}, language: ${language}, quantity: ${quantity}`);
+        console.log(`Processing item ${i}: courseName="${courseName}" (metadata: ${metadataItem?.courseName}, product: ${product?.name}), language: ${language}`);
 
-        // Create purchase record with per-item language
+        // Generate course slug from actual course name
+        const courseSlug = courseName.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+
+        // Create purchase record with actual course name and per-item language
         const { error: purchaseError } = await supabaseAdmin
           .from("purchases")
           .insert({
@@ -102,7 +107,7 @@ serve(async (req) => {
             last_name: lastName,
             language: language,
             course_name: courseName,
-            course_slug: product?.metadata?.slug || courseName.toLowerCase().replace(/\s+/g, '-'),
+            course_slug: product?.metadata?.slug || courseSlug,
             quantity: quantity,
             amount_paid: priceAmount * quantity,
             currency: item.price?.currency?.toUpperCase() || "USD",
@@ -122,7 +127,7 @@ serve(async (req) => {
           .insert({
             user_email: customerEmail,
             course_name: courseName,
-            course_slug: product?.metadata?.slug || courseName.toLowerCase().replace(/\s+/g, '-'),
+            course_slug: product?.metadata?.slug || courseSlug,
             quantity: quantity,
           });
 
