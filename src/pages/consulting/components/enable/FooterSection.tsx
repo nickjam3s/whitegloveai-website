@@ -50,7 +50,7 @@ const FooterSection = () => {
         
         <div className="border-t border-gray-800 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center">
-            <p className="text-gray-400">© Copyright WhitegloveAI LLC 2025</p>
+            <p className="text-gray-400">© Copyright WhitegloveAI LLC 2026</p>
             <p className="text-[#7021EE] text-sm mt-3 md:mt-0">Managed AI Service Provider™</p>
           </div>
         </div>
