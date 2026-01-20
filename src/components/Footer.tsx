@@ -93,7 +93,7 @@ const Footer = () => {
               <li><Link to="/maisp/training" className="text-gray-400 hover:text-[#7021EE] transition-colors">AI Training</Link></li>
               <li><Link to="/maisp/training/catalogue" className="text-gray-400 hover:text-[#7021EE] transition-colors">Training Catalogue</Link></li>
               <li><Link to="/maisp/training/hb3512" className="text-gray-400 hover:text-[#7021EE] transition-colors">Texas HB3512 Compliance</Link></li>
-              <li><Link to="/maisp/humanoid-ai" className="text-gray-400 hover:text-[#7021EE] transition-colors">Robotics</Link></li>
+              <li><Link to="/maisp/robotics" className="text-gray-400 hover:text-[#7021EE] transition-colors">Robotics</Link></li>
               <li><Link to="/govai" className="text-gray-400 hover:text-[#7021EE] transition-colors">GovAI</Link></li>
               <li><a href="http://www.aiamf.ai" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#7021EE] transition-colors">AI-AMF</a></li>
               

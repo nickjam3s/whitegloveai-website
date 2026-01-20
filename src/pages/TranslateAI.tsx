@@ -74,7 +74,7 @@ const TranslateAI = () => {
       <SEO
         title="AI Translation Services | TranslateAI by WhitegloveAI"
         description="Live AI-powered translation for multilingual meetings, events, and communications. Break language barriers with secure, managed TranslateAI."
-        canonicalPath="/translateai"
+        canonicalPath="/maisp/translate-ai"
       />
       <HeroSection />
       <Testimonial />

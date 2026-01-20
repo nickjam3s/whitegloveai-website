@@ -152,7 +152,7 @@ const AILab = () => {
       <SEO
         title="The AI Lab - Custom AI Development in 4 Weeks | WhitegloveAI"
         description="Transform your AI vision into reality with The AI Lab. Custom AI prototypes and production-ready solutions built with government-grade security in as fast as 4 weeks."
-        canonicalPath="/ailab"
+        canonicalPath="/maisp/ai-lab"
       />
       
       {/* Hero Section */}

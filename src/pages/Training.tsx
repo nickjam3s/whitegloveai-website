@@ -126,7 +126,7 @@ const Training = () => {
       <SEO
         title="AI Training & Certification - Texas HB3512 Compliant | WhitegloveAI"
         description="AI training programs for Texas government and businesses. Meet HB3512 requirements with TXShare-approved courses. IACET accreditation coming Jan 2026. Flexible online and live sessions with expert instructors."
-        canonicalPath="/training"
+        canonicalPath="/maisp/training"
       />
       
       <div className="min-h-screen bg-gradient-to-b from-background via-background to-muted/20">

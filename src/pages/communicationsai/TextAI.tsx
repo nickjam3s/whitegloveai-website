@@ -83,7 +83,7 @@ const TextAI = () => {
       <SEO
         title="TextAI - AI Text Analysis & Generation | WhitegloveAI"
         description="Transform text communications with AI-powered analysis and generation. Natural language processing, chatbots, and text automation solutions."
-        canonicalPath="/communications-ai/text-ai"
+        canonicalPath="/maisp/communications-ai/text-ai"
       />
       <HeroSection />
       
