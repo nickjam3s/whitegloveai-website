@@ -253,7 +253,7 @@ const HumanoidAI = () => {
           </motion.p>
           
           <motion.div 
-            className="flex justify-center"
+            className="flex justify-center mb-10"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -266,6 +266,23 @@ const HumanoidAI = () => {
               <Calendar className="mr-2 h-5 w-5" />
               Book a Discovery Call
             </Button>
+          </motion.div>
+          
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="w-full max-w-4xl mx-auto"
+          >
+            <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-2xl shadow-purple-500/20 border border-white/10">
+              <iframe
+                src="https://www.youtube.com/embed/NeiXuh32LWg?rel=0"
+                title="WhitegloveAI Robotics"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="absolute inset-0 w-full h-full"
+              />
+            </div>
           </motion.div>
         </div>
       </section>
