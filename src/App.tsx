@@ -132,7 +132,7 @@ const AppContent = () => {
                 <Route path="/maisp/training" element={<Training />} />
                 <Route path="/maisp/training/catalogue" element={<TrainingCatalogue />} />
                 <Route path="/maisp/training/hb3512" element={<HB3512 />} />
-                <Route path="/maisp/humanoid-ai" element={<Robotics />} />
+                <Route path="/maisp/robotics" element={<Robotics />} />
                 <Route path="/maisp/vendor-ai" element={<VendorAI />} />
                 <Route path="/maisp/media-ai" element={<MediaAI />} />
                 <Route path="/maisp/media-ai/equipment" element={<MediaAIEquipmentProtected />} />
@@ -169,10 +169,11 @@ const AppContent = () => {
                 <Route path="/training" element={<Navigate to="/maisp/training" replace />} />
                 <Route path="/training/catalogue" element={<Navigate to="/maisp/training/catalogue" replace />} />
                 <Route path="/training/hb3512" element={<Navigate to="/maisp/training/hb3512" replace />} />
-                <Route path="/robotics" element={<Navigate to="/maisp/humanoid-ai" replace />} />
-                <Route path="/embodiedai" element={<Navigate to="/maisp/humanoid-ai" replace />} />
-                <Route path="/maisp/embodied-ai" element={<Navigate to="/maisp/humanoid-ai" replace />} />
-                <Route path="/maisp/humaniodai" element={<Navigate to="/maisp/humanoid-ai" replace />} />
+                <Route path="/robotics" element={<Navigate to="/maisp/robotics" replace />} />
+                <Route path="/embodiedai" element={<Navigate to="/maisp/robotics" replace />} />
+                <Route path="/maisp/embodied-ai" element={<Navigate to="/maisp/robotics" replace />} />
+                <Route path="/maisp/humaniodai" element={<Navigate to="/maisp/robotics" replace />} />
+                <Route path="/maisp/humanoid-ai" element={<Navigate to="/maisp/robotics" replace />} />
                 <Route path="/maisp/translateai" element={<Navigate to="/maisp/translate-ai" replace />} />
                 
                 {/* Consulting Sub-Routes */}

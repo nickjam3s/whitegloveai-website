@@ -63,7 +63,7 @@ const CommunicationsAI = () => {
       <SEO
         title="CommunicationsAI - Unified AI Communications Platform | WhitegloveAI"
         description="Unify every conversation and automate every interaction with CommunicationsAI. Transform scattered communications into intelligent, automated streams."
-        canonicalPath="/communications-ai"
+        canonicalPath="/maisp/communications-ai"
       />
       
       {/* Hero Section */}
@@ -402,25 +402,25 @@ const services = [
     icon: MessageSquare,
     title: "TextAI",
     description: "Engage citizens through intelligent website chat, SMS, and email automation.",
-    link: "/communicationsai/textai"
+    link: "/maisp/communications-ai/text-ai"
   },
   {
     icon: Phone,
     title: "VoiceAI",
     description: "Deploy sophisticated voice assistants that handle calls 24/7 with natural conversation.",
-    link: "/communicationsai/voiceai"
+    link: "/maisp/communications-ai/voice-ai"
   },
   {
     icon: Video,
     title: "AvatarAI",
     description: "Create face-to-face digital service experiences with lifelike streaming avatars.",
-    link: "/communicationsai/avatarai"
+    link: "/maisp/communications-ai/avatar-ai"
   },
   {
     icon: Zap,
     title: "AutomateAI",
     description: "Build intelligent workflows that automate backend processes and integrate with your systems.",
-    link: "/communicationsai/automateai"
+    link: "/maisp/communications-ai/automate-ai"
   }
 ];
 

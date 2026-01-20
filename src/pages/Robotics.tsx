@@ -226,7 +226,7 @@ const HumanoidAI = () => {
       <SEO 
         title="Robotics by WhitegloveAI | Needs Assessment, Procurement & Managed Robot Ops"
         description="Deploy AI robots safely with WhitegloveAI. We handle readiness, procurement, setup, and maintenance—aligned to NIST AI RMF, ISO 42001, and TRAIGA."
-        canonicalPath="/robotics"
+        canonicalPath="/maisp/robotics"
         schemas={jsonLdSchema}
       />
 

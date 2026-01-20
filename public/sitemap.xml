@@ -102,17 +102,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://whitegloveai.com/maisp/humanoid-ai</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://whitegloveai.com/maisp/vendor-ai</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://whitegloveai.com/maisp/media-ai</loc>
+    <loc>https://whitegloveai.com/maisp/robotics</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>

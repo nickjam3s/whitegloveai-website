@@ -43,7 +43,7 @@ const HB3512 = () => {
       <SEO 
         title="Texas HB3512 AI Training Law - Compliance Guide 2025 | WhitegloveAI"
         description="Official Texas HB3512 AI training requirements explained. Mandatory for state agencies, local governments, schools by Sept 2025. TXShare Contract #2025-023 approved training solutions."
-        canonicalPath="/training/hb3512"
+        canonicalPath="/maisp/training/hb3512"
       />
 
       <div className="min-h-screen bg-background">

@@ -61,7 +61,7 @@ export const navigationLinks = [
           { to: "/maisp/training/hb3512", text: "Texas HB3512 Compliance" }
         ]
       },
-      { to: "/maisp/humanoid-ai", text: "Robotics" }
+      { to: "/maisp/robotics", text: "Robotics" }
     ]
   },
   {
