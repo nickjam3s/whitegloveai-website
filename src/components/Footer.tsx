@@ -76,11 +76,11 @@ const Footer = () => {
           <div className="lg:col-span-1">
             <h4 className="text-white font-semibold mb-4">CommunicationsAI</h4>
             <ul className="space-y-2">
-              <li><Link to="/communicationsai" className="text-gray-400 hover:text-[#7021EE] transition-colors">Overview</Link></li>
-              <li><Link to="/communicationsai/automateai" className="text-gray-400 hover:text-[#7021EE] transition-colors">AutomateAI</Link></li>
-              <li><Link to="/communicationsai/avatarai" className="text-gray-400 hover:text-[#7021EE] transition-colors">AvatarAI</Link></li>
-              <li><Link to="/communicationsai/textai" className="text-gray-400 hover:text-[#7021EE] transition-colors">TextAI</Link></li>
-              <li><Link to="/communicationsai/voiceai" className="text-gray-400 hover:text-[#7021EE] transition-colors">VoiceAI</Link></li>
+              <li><Link to="/maisp/communications-ai" className="text-gray-400 hover:text-[#7021EE] transition-colors">Overview</Link></li>
+              <li><Link to="/maisp/communications-ai/automate-ai" className="text-gray-400 hover:text-[#7021EE] transition-colors">AutomateAI</Link></li>
+              <li><Link to="/maisp/communications-ai/avatar-ai" className="text-gray-400 hover:text-[#7021EE] transition-colors">AvatarAI</Link></li>
+              <li><Link to="/maisp/communications-ai/text-ai" className="text-gray-400 hover:text-[#7021EE] transition-colors">TextAI</Link></li>
+              <li><Link to="/maisp/communications-ai/voice-ai" className="text-gray-400 hover:text-[#7021EE] transition-colors">VoiceAI</Link></li>
             </ul>
           </div>
 
@@ -88,12 +88,12 @@ const Footer = () => {
           <div className="lg:col-span-1">
             <h4 className="text-white font-semibold mb-4">More Services</h4>
             <ul className="space-y-2">
-              <li><Link to="/translateai" className="text-gray-400 hover:text-[#7021EE] transition-colors">TranslateAI</Link></li>
-              <li><Link to="/ailab" className="text-gray-400 hover:text-[#7021EE] transition-colors">The AI Lab</Link></li>
-              <li><Link to="/training" className="text-gray-400 hover:text-[#7021EE] transition-colors">AI Training</Link></li>
-              <li><Link to="/training/catalogue" className="text-gray-400 hover:text-[#7021EE] transition-colors">Training Catalogue</Link></li>
-              <li><Link to="/training/hb3512" className="text-gray-400 hover:text-[#7021EE] transition-colors">Texas HB3512 Compliance</Link></li>
-              <li><Link to="/robotics" className="text-gray-400 hover:text-[#7021EE] transition-colors">Robotics</Link></li>
+              <li><Link to="/maisp/translate-ai" className="text-gray-400 hover:text-[#7021EE] transition-colors">TranslateAI</Link></li>
+              <li><Link to="/maisp/ai-lab" className="text-gray-400 hover:text-[#7021EE] transition-colors">The AI Lab</Link></li>
+              <li><Link to="/maisp/training" className="text-gray-400 hover:text-[#7021EE] transition-colors">AI Training</Link></li>
+              <li><Link to="/maisp/training/catalogue" className="text-gray-400 hover:text-[#7021EE] transition-colors">Training Catalogue</Link></li>
+              <li><Link to="/maisp/training/hb3512" className="text-gray-400 hover:text-[#7021EE] transition-colors">Texas HB3512 Compliance</Link></li>
+              <li><Link to="/maisp/humanoid-ai" className="text-gray-400 hover:text-[#7021EE] transition-colors">Robotics</Link></li>
               <li><Link to="/govai" className="text-gray-400 hover:text-[#7021EE] transition-colors">GovAI</Link></li>
               <li><a href="http://www.aiamf.ai" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#7021EE] transition-colors">AI-AMF</a></li>
               
@@ -125,4 +125,3 @@ const Footer = () => {
 };
 
 export default Footer;
-
