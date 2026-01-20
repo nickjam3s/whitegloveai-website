@@ -34,34 +34,34 @@ export const navigationLinks = [
       },
       {
         text: "CommunicationsAI",
-        to: "/communications-ai",
+        to: "/maisp/communications-ai",
         children: [
-          { to: "/communications-ai", text: "Overview" },
+          { to: "/maisp/communications-ai", text: "Overview" },
           {
             text: "TextAI",
-            to: "/communications-ai/text-ai",
+            to: "/maisp/communications-ai/text-ai",
             children: [
-              { to: "/communications-ai/text-ai", text: "TextAI" },
-              { to: "/communications-ai/text-ai/textai-for-good", text: "TextAI for Good Program" }
+              { to: "/maisp/communications-ai/text-ai", text: "TextAI" },
+              { to: "/maisp/communications-ai/text-ai/textai-for-good", text: "TextAI for Good Program" }
             ]
           },
-          { to: "/communications-ai/voice-ai", text: "VoiceAI" },
-          { to: "/communications-ai/avatar-ai", text: "AvatarAI" },
-          { to: "/communications-ai/automate-ai", text: "AutomateAI" }
+          { to: "/maisp/communications-ai/voice-ai", text: "VoiceAI" },
+          { to: "/maisp/communications-ai/avatar-ai", text: "AvatarAI" },
+          { to: "/maisp/communications-ai/automate-ai", text: "AutomateAI" }
         ]
       },
-    { to: "/translateai", text: "TranslateAI" },
-    { to: "/ailab", text: "The AI Lab" },
-    {
-      text: "AI Training",
-      to: "/training",
-      children: [
-        { to: "/training", text: "Overview" },
-        { to: "/training/catalogue", text: "Course Catalogue" },
-        { to: "/training/hb3512", text: "Texas HB3512 Compliance" }
-      ]
-    },
-      { to: "/robotics", text: "Robotics" }
+      { to: "/maisp/translate-ai", text: "TranslateAI" },
+      { to: "/maisp/ai-lab", text: "The AI Lab" },
+      {
+        text: "AI Training",
+        to: "/maisp/training",
+        children: [
+          { to: "/maisp/training", text: "Overview" },
+          { to: "/maisp/training/catalogue", text: "Course Catalogue" },
+          { to: "/maisp/training/hb3512", text: "Texas HB3512 Compliance" }
+        ]
+      },
+      { to: "/maisp/humanoid-ai", text: "Robotics" }
     ]
   },
   {
@@ -82,4 +82,3 @@ export const navigationLinks = [
     external: true
   }
 ];
-
