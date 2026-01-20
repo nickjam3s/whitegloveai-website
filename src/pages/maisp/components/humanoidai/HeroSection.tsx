@@ -56,7 +56,23 @@ const HeroSection = () => {
             Seamless integration, operation, and maintenance of AI robots for your enterprise needs.
           </motion.p>
           
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="w-full max-w-4xl mx-auto px-3 sm:px-0"
+          >
+            <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-2xl shadow-purple-500/20 border border-white/10">
+              <iframe
+                src="https://www.youtube.com/embed/NeiXuh32LWg?rel=0"
+                title="WhitegloveAI Robotics"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="absolute inset-0 w-full h-full"
+              />
             </div>
+          </motion.div>
+        </div>
         </div>
     </section>
   );
