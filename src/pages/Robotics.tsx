@@ -23,10 +23,11 @@ import {
   ChevronDown,
   ChevronUp,
   Settings,
-  Handshake
+  Handshake,
+  Bot,
+  Lock
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import SEO from "@/components/SEO";
 import ContactSection from "./maisp/components/humanoidai/ContactSection";
@@ -37,10 +38,8 @@ const HumanoidAI = () => {
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
 
   useEffect(() => {
-    // Scroll to top on mount
     window.scrollTo({ top: 0, behavior: 'instant' });
 
-    // Initialize intersection observer for scroll animations
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -51,7 +50,6 @@ const HumanoidAI = () => {
       threshold: 0.1
     });
 
-    // Observe all scroll-animated headings
     document.querySelectorAll('.heading-highlight-scroll').forEach(heading => {
       observer.observe(heading);
     });
@@ -60,6 +58,29 @@ const HumanoidAI = () => {
       observer.disconnect();
     };
   }, []);
+
+  const challenges = [
+    {
+      icon: Clock,
+      title: "24/7 Coverage Gaps",
+      description: "Staff shortages limit service hours and responsiveness in critical environments."
+    },
+    {
+      icon: TrendingDown,
+      title: "Rising Labor Costs",
+      description: "Repetitive and hazardous tasks drain budgets and increase turnover."
+    },
+    {
+      icon: Shield,
+      title: "Safety & Compliance",
+      description: "Meeting NIST AI RMF, ISO 42001, and TRAIGA requirements is complex."
+    },
+    {
+      icon: Settings,
+      title: "Integration Complexity",
+      description: "Deploying robotics requires hardware, software, and operational expertise."
+    }
+  ];
 
   const outcomes = [
     {
@@ -82,22 +103,22 @@ const HumanoidAI = () => {
 
   const useCases = [
     {
-      icon: <Building2 className="h-8 w-8" />,
+      icon: Building2,
       title: "Public Sector",
       description: "concierge, facilities, service points"
     },
     {
-      icon: <GraduationCap className="h-8 w-8" />,
+      icon: GraduationCap,
       title: "Healthcare & Campuses",
       description: "wayfinding, triage, supply runs"
     },
     {
-      icon: <Store className="h-8 w-8" />,
+      icon: Store,
       title: "Logistics & Facilities",
       description: "inspection, inventory, safety patrol"
     },
     {
-      icon: <Users className="h-8 w-8" />,
+      icon: Users,
       title: "Retail & Venues",
       description: "guest services, queue triage, back-of-house"
     }
@@ -124,57 +145,62 @@ const HumanoidAI = () => {
 
   const servicePath = [
     {
+      icon: Eye,
       title: "Automation Readiness Review",
-      description: "Structured on-site and virtual evaluation of workflows, traffic patterns, safety requirements, and compliance environment—pinpointing high-ROI automation opportunities and identifying high-risk deployments early."
+      description: "Structured on-site and virtual evaluation of workflows, traffic patterns, safety requirements, and compliance environment—pinpointing high-ROI automation opportunities.",
+      features: [
+        "Workflow and traffic pattern analysis",
+        "Safety requirement assessment",
+        "High-ROI opportunity identification",
+        "Risk assessment and mitigation planning"
+      ]
     },
     {
+      icon: FileText,
       title: "Procurement Assistance",
-      description: "End-to-end vendor process management—shortlisting, RFP/RFQ development, technical vetting, and SLA negotiation—mapped to compliance frameworks."
+      description: "End-to-end vendor process management—shortlisting, RFP/RFQ development, technical vetting, and SLA negotiation.",
+      features: [
+        "Vendor shortlisting and evaluation",
+        "RFP/RFQ development",
+        "Technical vetting and due diligence",
+        "SLA negotiation and compliance mapping"
+      ]
     },
     {
+      icon: Settings,
       title: "Setup & Maintenance",
-      description: "Installation, configuration, integration with existing systems, staff training, firmware updates, safety recalibration, and preventative maintenance."
+      description: "Installation, configuration, integration with existing systems, staff training, firmware updates, and preventative maintenance.",
+      features: [
+        "Hardware installation and configuration",
+        "System integration and testing",
+        "Staff training programs",
+        "Ongoing maintenance and updates"
+      ]
     }
   ];
 
-  const safetyItems = [
+  const safetyFeatures = [
     {
-      title: "Physical & Operational Safety Protocols",
-      description: "Site hazard review, safe-path mapping, e-stop checks • Daily operational safety checklist"
+      icon: Shield,
+      title: "Physical & Operational Safety",
+      description: "Site hazard review, safe-path mapping, e-stop checks, and daily operational safety checklists."
     },
     {
+      icon: Bot,
       title: "Responsible AI Guardrails",
-      description: "Pre-approved scripts and escalation paths • Continuous monitoring for unsafe behavior"
+      description: "Pre-approved scripts, escalation paths, and continuous monitoring for unsafe behavior."
     },
     {
-      title: "Zero-Trust, Secure Integrations",
-      description: "Least-privilege access • End-to-end encryption"
+      icon: Lock,
+      title: "Zero-Trust Security",
+      description: "Least-privilege access, end-to-end encryption, and secure American-developed software."
     },
     {
-      title: "Standards-Aligned Compliance Evidence",
-      description: "NIST AI RMF, ISO/IEC 42001, TRAIGA governance pack"
+      icon: CheckCircle2,
+      title: "Standards-Aligned Compliance",
+      description: "NIST AI RMF, ISO/IEC 42001, and TRAIGA governance documentation."
     }
   ];
-
-  const metrics = [
-    {
-      title: "Service Coverage Hours",
-      description: "added without extra staffing"
-    },
-    {
-      title: "Queue Time Reduction",
-      description: "minutes saved per visitor"
-    },
-    {
-      title: "Task Completion Rate",
-      description: "% patrols/inspections completed"
-    },
-    {
-      title: "Safety Incident/Near-Miss Rate",
-      description: "per 1,000 operating hours"
-    }
-  ];
-
 
   const faqs = [
     {
@@ -225,7 +251,7 @@ const HumanoidAI = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background overflow-x-hidden">
       <SEO 
         title="Robotics by WhitegloveAI | Needs Assessment, Procurement & Managed Robot Ops"
         description="Deploy AI robots safely with WhitegloveAI. We handle readiness, procurement, setup, and maintenance—aligned to NIST AI RMF, ISO 42001, and TRAIGA."
@@ -235,207 +261,211 @@ const HumanoidAI = () => {
 
       {/* Hero Section */}
       <HeroBackground>
-        <section className="relative pt-40 pb-28 px-4 sm:px-6 lg:px-8 overflow-hidden">
-          <div className="relative max-w-7xl mx-auto text-center">
-            <motion.h1 
-              className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent heading-highlight-scroll"
+        <section className="relative py-20 md:py-32 overflow-hidden">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="text-center"
+            >
+              <div className="flex justify-center mb-8">
+                <div className="bg-secondary/10 p-4 rounded-full border-2 border-secondary/30">
+                  <Bot className="h-16 w-16 text-secondary" />
+                </div>
+              </div>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-[#7021EE]">
+                Robotics as a Service: Managed AI Robots, Securely Deployed.
+              </h1>
+              <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto mb-10">
+                WhitegloveAI provides end-to-end managed robotics solutions, integrating best-in-class hardware with secure, American-developed software. We handle the complexity, so you can focus on the mission.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button 
+                  size="lg" 
+                  className="bg-secondary hover:bg-secondary/90 text-white px-8 py-6 text-lg"
+                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                >
+                  Request a Consultation
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </div>
+            </motion.div>
+
+            {/* Video Section */}
+            <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="w-full max-w-4xl mx-auto mt-12"
             >
-              Robotics as a Service: Managed AI Robots, Securely Deployed.
-            </motion.h1>
-          
-          <motion.p 
-            className="text-xl md:text-2xl text-gray-300 mb-8 max-w-4xl mx-auto"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            WhitegloveAI provides end-to-end managed robotics solutions, integrating best-in-class hardware with secure, American-developed software. We handle the complexity, so you can focus on the mission.
-          </motion.p>
-          
-          <motion.div 
-            className="flex justify-center mb-10"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            <Button 
-              size="lg" 
-              className="text-lg px-8 py-4"
-              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-            >
-              <Calendar className="mr-2 h-5 w-5" />
-              Request a Consultation
-            </Button>
-          </motion.div>
-          
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="w-full max-w-4xl mx-auto"
-          >
-            <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-2xl shadow-purple-500/20 border border-white/10">
-              <iframe
-                src="https://www.youtube.com/embed/NeiXuh32LWg?rel=0"
-                title="WhitegloveAI Robotics"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="absolute inset-0 w-full h-full"
-              />
-            </div>
-          </motion.div>
-        </div>
-      </section>
+              <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-2xl shadow-purple-500/20 border border-white/10">
+                <iframe
+                  src="https://www.youtube.com/embed/NeiXuh32LWg?rel=0"
+                  title="WhitegloveAI Robotics"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="absolute inset-0 w-full h-full"
+                />
+              </div>
+            </motion.div>
+          </div>
+        </section>
       </HeroBackground>
 
-      {/* Introduction Section */}
-      <section className="py-20 section-secondary-bg section-separator">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.h2 
-            className="text-3xl md:text-4xl font-bold mb-8 heading-highlight-scroll"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            From Ambition to Operation: Robotics Made Simple.
-          </motion.h2>
-          <motion.div
-            className="space-y-6 text-lg text-gray-300 leading-relaxed"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <p>
-              Embodied AI is no longer science fiction. It's a practical tool that can enhance safety, improve efficiency, and provide critical data in environments too dangerous or difficult for humans. But deploying robotics is complex. It requires hardware integration, software development, security hardening, and ongoing management.
-            </p>
-            <p>
-              That's where WhitegloveAI comes in. Our Managed Robotics service is a full-lifecycle solution. We assess your needs, deploy the right robotic platforms, and manage the entire ecosystem—from the hardware to our secure, American-developed control software. You get the operational benefits of advanced robotics without the implementation burden.
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Platform Section */}
-      <section className="py-20 section-primary-bg">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.h2 
-            className="text-3xl md:text-4xl font-bold mb-4 heading-highlight-scroll"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            A Platform for Every Mission
-          </motion.h2>
-          <motion.p
-            className="text-xl text-gray-300 max-w-3xl mx-auto"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            We deploy a range of versatile humanoid and quadruped robots, each selected for its best-in-class performance and reliability.
-          </motion.p>
-          
-          <div className="mt-12">
-            <RobotPlatformShowcase />
-          </div>
-        </div>
-      </section>
-
-      {/* Industries Section */}
-      <section className="py-20 section-secondary-bg section-separator">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.h2 
-            className="text-3xl md:text-4xl font-bold mb-4 heading-highlight-scroll"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            Transforming Industries with Embodied AI
-          </motion.h2>
-          <motion.p
-            className="text-xl text-gray-300 max-w-3xl mx-auto"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            From ensuring public safety to optimizing industrial assets, managed robotics delivers tangible value across a wide range of sectors.
-          </motion.p>
-          {/* Placeholder for future industry use case cards */}
-        </div>
-      </section>
-
-      {/* Why Now Section */}
-      <section className="py-20 section-primary-bg">
+      {/* Problem Section */}
+      <section className="py-20 bg-card scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6 heading-highlight-scroll">
-                AI Robotics at the Tipping Point
-              </h2>
-              <p className="text-lg text-gray-300 leading-relaxed">
-                Costs are falling, capabilities are rising, and early adopters are securing efficiency gains and service coverage advantages their competitors can't match. With WhitegloveAI, you get there first—safely, compliantly, and with measurable ROI.
-              </p>
-            </div>
-            <div className="flex justify-center">
-              <img 
-                src="/lovable-uploads/af75627a-048f-43fc-be81-d3bd38807d05.png" 
-                alt="Advanced AI robot in operational environment"
-                className="max-w-full h-auto rounded-lg shadow-lg"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Outcomes Section */}
-      <section className="py-20 section-secondary-bg section-separator">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 heading-highlight-scroll">
-            Measurable Outcomes
+          <h2 className="text-3xl font-semibold mb-8 text-center heading-highlight-scroll">
+            The Challenge: Deploying Robotics is Complex
           </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {outcomes.map((outcome, index) => (
-              <Card key={index} className="border-gray-800 bg-background/50">
-                <CardHeader>
-                  <CardTitle className="text-xl text-white">{outcome.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-400">{outcome.description}</p>
-                </CardContent>
-              </Card>
+          <p className="text-xl text-gray-300 max-w-4xl mx-auto mb-12 text-center">
+            Organizations want to leverage AI robotics but face significant barriers: hardware integration, software development, security hardening, regulatory compliance, and ongoing management.
+          </p>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {challenges.map((challenge, index) => (
+              <div key={index} className="bg-background/50 p-6 rounded-lg border border-gray-800 hover:border-secondary/50 transition-colors">
+                <challenge.icon className="h-10 w-10 text-secondary mb-4" />
+                <h3 className="text-xl font-semibold mb-3 text-white">{challenge.title}</h3>
+                <p className="text-gray-400">{challenge.description}</p>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Use Cases Section */}
-      <section className="py-20 section-primary-bg">
+      {/* Services Section */}
+      <section className="py-20 bg-background scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 heading-highlight-scroll">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-semibold mb-6 heading-highlight-scroll">
+              Our Complete Robotics Service Path
+            </h2>
+            <p className="text-xl text-gray-300 max-w-4xl mx-auto mb-4">
+              From initial assessment to ongoing operations, WhitegloveAI provides a full-lifecycle managed robotics solution.
+            </p>
+            <div className="inline-block bg-secondary/10 border border-secondary/30 rounded-lg px-6 py-3 mt-4">
+              <p className="text-secondary font-semibold">
+                Available through TXShare cooperative purchasing (Contract #2025-023)
+              </p>
+            </div>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8 mt-12">
+            {servicePath.map((service, index) => (
+              <div key={index} className="bg-card p-8 rounded-lg border border-gray-800 hover:border-secondary/50 transition-all hover:scale-105">
+                <div className="bg-secondary/10 p-3 rounded-lg w-16 h-16 flex items-center justify-center mb-6">
+                  <service.icon className="h-10 w-10 text-secondary" />
+                </div>
+                <h3 className="text-2xl font-semibold mb-4 text-white">{service.title}</h3>
+                <p className="text-gray-400 mb-6">{service.description}</p>
+                <ul className="space-y-3">
+                  {service.features.map((feature, idx) => (
+                    <li key={idx} className="flex items-start">
+                      <CheckCircle2 className="h-5 w-5 text-secondary mr-2 mt-0.5 flex-shrink-0" />
+                      <span className="text-gray-300">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Platform Section */}
+      <section className="py-20 bg-card scroll-mt-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl font-semibold mb-4 heading-highlight-scroll">
+            A Platform for Every Mission
+          </h2>
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-12">
+            We deploy a range of versatile humanoid and quadruped robots, each selected for its best-in-class performance and reliability.
+          </p>
+          
+          <RobotPlatformShowcase />
+        </div>
+      </section>
+
+      {/* Proven Results Section */}
+      <section className="py-20 bg-background scroll-mt-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-semibold mb-12 text-center heading-highlight-scroll">
+            Proven Results with Managed Robotics
+          </h2>
+          
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Case Study 1 */}
+            <div className="bg-gradient-to-br from-secondary/10 to-background/50 p-8 rounded-lg border border-secondary/30">
+              <div className="flex items-center mb-6">
+                <div className="bg-secondary/20 p-3 rounded-lg mr-4">
+                  <Building2 className="h-8 w-8 text-secondary" />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-semibold text-white">Industrial Facility</h3>
+                  <p className="text-secondary">Quadruped Inspection Deployment</p>
+                </div>
+              </div>
+              
+              <div className="mb-6">
+                <div className="bg-secondary/10 rounded-lg p-6 mb-4">
+                  <p className="text-4xl font-bold text-secondary mb-2">40%</p>
+                  <p className="text-gray-300">Reduction in inspection time</p>
+                </div>
+              </div>
+              
+              <blockquote className="border-l-4 border-secondary pl-4 italic text-gray-300 mb-4">
+                "The managed robotics solution from WhitegloveAI has transformed our safety inspection process. Coverage we couldn't achieve before is now routine."
+              </blockquote>
+              <p className="text-sm text-gray-400">— Operations Director, Industrial Manufacturing</p>
+            </div>
+
+            {/* Case Study 2 */}
+            <div className="bg-gradient-to-br from-secondary/10 to-background/50 p-8 rounded-lg border border-secondary/30">
+              <div className="flex items-center mb-6">
+                <div className="bg-secondary/20 p-3 rounded-lg mr-4">
+                  <Users className="h-8 w-8 text-secondary" />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-semibold text-white">Public Sector Agency</h3>
+                  <p className="text-secondary">Humanoid Concierge Pilot</p>
+                </div>
+              </div>
+              
+              <div className="mb-6">
+                <div className="bg-secondary/10 rounded-lg p-6 mb-4">
+                  <p className="text-4xl font-bold text-secondary mb-2">24/7</p>
+                  <p className="text-gray-300">Service coverage achieved</p>
+                </div>
+              </div>
+              
+              <blockquote className="border-l-4 border-secondary pl-4 italic text-gray-300 mb-4">
+                "Extending our service hours without additional staffing costs was a game-changer. The secure, American-developed software gave us confidence in the deployment."
+              </blockquote>
+              <p className="text-sm text-gray-400">— IT Director, Government Agency</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Use Cases Section */}
+      <section className="py-20 bg-card scroll-mt-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-semibold text-center mb-12 heading-highlight-scroll">
             Where AI Robotics Fits
           </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {useCases.map((useCase, index) => (
-              <Card key={index} className="border-gray-800 bg-card/50 text-center">
-                <CardHeader>
-                  <div className="flex justify-center mb-4 text-primary">
-                    {useCase.icon}
+              <div key={index} className="bg-background/50 p-6 rounded-lg border border-gray-800 hover:border-secondary/50 transition-colors text-center">
+                <div className="flex justify-center mb-4">
+                  <div className="bg-secondary/10 p-3 rounded-lg">
+                    <useCase.icon className="h-8 w-8 text-secondary" />
                   </div>
-                  <CardTitle className="text-xl text-white">{useCase.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-400">{useCase.description}</p>
-                </CardContent>
-              </Card>
+                </div>
+                <h3 className="text-xl font-semibold mb-3 text-white">{useCase.title}</h3>
+                <p className="text-gray-400">{useCase.description}</p>
+              </div>
             ))}
           </div>
           <div className="flex justify-center mt-12">
@@ -448,229 +478,179 @@ const HumanoidAI = () => {
         </div>
       </section>
 
-      {/* Why WhitegloveAI Section */}
-      <section className="py-20 section-secondary-bg section-separator">
+      {/* Security & Compliance Section */}
+      <section className="py-20 bg-background scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 heading-highlight-scroll">
-            Why WhitegloveAI
-          </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {whyWhiteglove.map((item, index) => (
-              <Card key={index} className="border-gray-800 bg-background/50">
-                <CardHeader>
-                  <CardTitle className="text-xl text-white">{item.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-400">{item.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Our Service Path Section */}
-      <section className="py-20 section-primary-bg">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 heading-highlight-scroll">
-            Our Service Path
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {servicePath.map((step, index) => (
-              <Card key={index} className="border-gray-800 bg-card/50 text-center">
-                <CardHeader>
-                  <div className="flex justify-center mb-4">
-                    <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold text-lg">
-                      {index + 1}
-                    </div>
-                  </div>
-                  <CardTitle className="text-xl text-white">{step.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-400">{step.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-          <div className="flex justify-center mt-12">
-            <img 
-              src="/lovable-uploads/b447f719-166f-4d1a-8912-8602ac137fee.png" 
-              alt="Advanced robotics deployment and maintenance operations"
-              className="max-w-2xl w-full h-auto rounded-lg shadow-lg"
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* Safety & Compliance Section */}
-      <section className="py-20 section-secondary-bg section-separator">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 heading-highlight-scroll">
+          <h2 className="text-3xl font-semibold mb-12 text-center heading-highlight-scroll">
             Safety, Security & Compliance
           </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {safetyItems.map((item, index) => (
-              <Card key={index} className="border-gray-800 bg-background/50">
-                <CardHeader>
-                  <CardTitle className="text-xl text-white flex items-center gap-3">
-                    <Shield className="h-6 w-6 text-primary" />
-                    {item.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-400">{item.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
+          
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Security Features */}
+            <div className="bg-card p-8 rounded-lg border border-secondary/30">
+              <div className="flex items-center mb-6">
+                <Shield className="h-12 w-12 text-secondary mr-4" />
+                <h3 className="text-2xl font-semibold text-white">Government-Grade Security</h3>
+              </div>
+              
+              <p className="text-gray-300 mb-6">
+                Our secure, American-developed software stack meets the stringent security and compliance standards required for public sector and critical infrastructure deployment.
+              </p>
+              
+              <div className="space-y-4">
+                {safetyFeatures.map((feature, index) => (
+                  <div key={index} className="flex items-start">
+                    <div className="bg-secondary/10 p-2 rounded-lg mr-4 mt-1">
+                      <feature.icon className="h-6 w-6 text-secondary" />
+                    </div>
+                    <div>
+                      <h4 className="text-white font-semibold mb-1">{feature.title}</h4>
+                      <p className="text-gray-400 text-sm">{feature.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
 
-      {/* Metrics Section */}
-      <section className="py-20 section-primary-bg">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 heading-highlight-scroll">
-            Metrics We Track
-          </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {metrics.map((metric, index) => (
-              <Card key={index} className="border-gray-800 bg-card/50">
-                <CardHeader>
-                  <CardTitle className="text-lg text-white flex items-center gap-3">
-                    <BarChart3 className="h-5 w-5 text-primary" />
-                    {metric.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-400">{metric.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-          <div className="flex justify-center mt-12">
-            <img 
-              src="/lovable-uploads/80f1598f-057a-4d16-8dc2-d9b1a9c8781e.png" 
-              alt="Metrics and performance tracking for humanoid robot operations"
-              className="max-w-2xl w-full h-auto rounded-lg shadow-lg"
-            />
+            {/* TXShare Info */}
+            <div className="bg-card p-8 rounded-lg border border-secondary/30">
+              <div className="flex items-center mb-6">
+                <FileText className="h-12 w-12 text-secondary mr-4" />
+                <h3 className="text-2xl font-semibold text-white">TXShare Contract</h3>
+              </div>
+              
+              <p className="text-gray-300 mb-6">
+                As a TXShare-approved vendor through the North Central Texas Council of Governments, we offer simplified procurement for Texas public agencies.
+              </p>
+              
+              <div className="space-y-4">
+                <div className="bg-background/50 p-4 rounded-lg border border-gray-800">
+                  <div className="flex justify-between items-start mb-2">
+                    <span className="text-secondary font-semibold">Contract #2025-023</span>
+                    <CheckCircle2 className="h-5 w-5 text-secondary" />
+                  </div>
+                  <p className="text-white font-medium">AI Consulting Services</p>
+                  <p className="text-sm text-gray-400 mt-2">Strategic advisory, robotics assessment, and implementation support</p>
+                </div>
+              </div>
+              
+              <a 
+                href="https://txshare.org/available-contracts/artificial-intelligence-ai-consultancy-services-9a4fd3af3342a4e1a6df4de8cbb21bc5/whitegloveai-llc"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-6 block"
+              >
+                <Button className="w-full bg-secondary hover:bg-secondary/90">
+                  View Our TXShare Listing
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </a>
+            </div>
           </div>
         </div>
       </section>
 
       {/* WhitegloveAI Advantage Section */}
-      <section className="py-20 section-secondary-bg section-separator">
+      <section className="py-20 bg-card scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.h2 
-            className="text-3xl md:text-4xl font-bold text-center mb-16 heading-highlight-scroll"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
+          <h2 className="text-3xl font-semibold text-center mb-12 heading-highlight-scroll">
             More Than a Robot. A Complete Solution.
-          </motion.h2>
+          </h2>
           <div className="grid md:grid-cols-3 gap-8">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <Card className="border-gray-800 bg-card/50 h-full">
-                <CardHeader className="text-center">
-                  <div className="flex justify-center mb-4">
-                    <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center">
-                      <Shield className="h-8 w-8 text-primary" />
-                    </div>
-                  </div>
-                  <CardTitle className="text-xl text-white">Secure American Software</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-400 text-center">
-                    We integrate best-in-class hardware with our own secure, American-developed software stack. This ensures our platforms meet the stringent security and compliance standards required for public sector and critical infrastructure deployment, mitigating supply chain risks.
-                  </p>
-                </CardContent>
-              </Card>
-            </motion.div>
+            <div className="bg-background/50 p-8 rounded-lg border border-gray-800 hover:border-secondary/50 transition-colors text-center">
+              <div className="flex justify-center mb-6">
+                <div className="bg-secondary/10 p-4 rounded-full">
+                  <Shield className="h-10 w-10 text-secondary" />
+                </div>
+              </div>
+              <h3 className="text-xl font-semibold mb-4 text-white">Secure American Software</h3>
+              <p className="text-gray-400">
+                We integrate best-in-class hardware with our own secure, American-developed software stack, mitigating supply chain risks.
+              </p>
+            </div>
             
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-            >
-              <Card className="border-gray-800 bg-card/50 h-full">
-                <CardHeader className="text-center">
-                  <div className="flex justify-center mb-4">
-                    <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center">
-                      <Settings className="h-8 w-8 text-primary" />
-                    </div>
-                  </div>
-                  <CardTitle className="text-xl text-white">End-to-End Managed Service</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-400 text-center">
-                    From initial needs assessment and use case development to deployment, training, and ongoing support, we manage the entire lifecycle. We are your single point of contact and accountability for your robotics program.
-                  </p>
-                </CardContent>
-              </Card>
-            </motion.div>
+            <div className="bg-background/50 p-8 rounded-lg border border-gray-800 hover:border-secondary/50 transition-colors text-center">
+              <div className="flex justify-center mb-6">
+                <div className="bg-secondary/10 p-4 rounded-full">
+                  <Settings className="h-10 w-10 text-secondary" />
+                </div>
+              </div>
+              <h3 className="text-xl font-semibold mb-4 text-white">End-to-End Managed Service</h3>
+              <p className="text-gray-400">
+                From initial needs assessment to deployment and ongoing support, we are your single point of contact and accountability.
+              </p>
+            </div>
             
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              <Card className="border-gray-800 bg-card/50 h-full">
-                <CardHeader className="text-center">
-                  <div className="flex justify-center mb-4">
-                    <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center">
-                      <Handshake className="h-8 w-8 text-primary" />
-                    </div>
-                  </div>
-                  <CardTitle className="text-xl text-white">Simplified Procurement</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-400 text-center">
-                    As a TXShare-approved vendor, we make procurement simple, fast, and compliant for Texas government entities. Skip the lengthy RFP process and get technology deployed faster. (Contract #2025-0223)
-                  </p>
-                </CardContent>
-              </Card>
-            </motion.div>
+            <div className="bg-background/50 p-8 rounded-lg border border-gray-800 hover:border-secondary/50 transition-colors text-center">
+              <div className="flex justify-center mb-6">
+                <div className="bg-secondary/10 p-4 rounded-full">
+                  <Handshake className="h-10 w-10 text-secondary" />
+                </div>
+              </div>
+              <h3 className="text-xl font-semibold mb-4 text-white">Simplified Procurement</h3>
+              <p className="text-gray-400">
+                As a TXShare-approved vendor, skip the lengthy RFP process and get technology deployed faster for Texas government entities.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 section-primary-bg">
+      <section className="py-20 bg-background scroll-mt-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 heading-highlight-scroll">
+          <h2 className="text-3xl font-semibold text-center mb-12 heading-highlight-scroll">
             Frequently Asked Questions
           </h2>
           <div className="space-y-4">
             {faqs.map((faq, index) => (
-              <Card key={index} className="border-gray-800 bg-background/50">
-                <CardHeader 
-                  className="cursor-pointer" 
+              <div key={index} className="bg-card p-6 rounded-lg border border-gray-800 hover:border-secondary/50 transition-colors">
+                <button 
+                  className="w-full text-left flex items-center justify-between cursor-pointer" 
                   onClick={() => setOpenFAQ(openFAQ === index ? null : index)}
                 >
-                  <CardTitle className="text-lg text-white flex items-center justify-between">
-                    {faq.question}
-                    {openFAQ === index ? <ChevronUp /> : <ChevronDown />}
-                  </CardTitle>
-                </CardHeader>
+                  <h3 className="text-lg font-semibold text-white">{faq.question}</h3>
+                  {openFAQ === index ? <ChevronUp className="text-secondary" /> : <ChevronDown className="text-gray-400" />}
+                </button>
                 {openFAQ === index && (
-                  <CardContent>
-                    <p className="text-gray-400">{faq.answer}</p>
-                  </CardContent>
+                  <p className="text-gray-400 mt-4">{faq.answer}</p>
                 )}
-              </Card>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
+      {/* Final CTA Section */}
+      <section className="py-20 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 relative overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute top-0 left-0 w-1/3 h-full bg-primary/5"></div>
+          <div className="absolute top-0 right-0 w-1/3 h-full bg-accent/5"></div>
+        </div>
+        
+        <div className="max-w-4xl mx-auto px-4 relative z-10 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 gradient-text">
+              Partner with the Robotics Experts
+            </h2>
+            <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+              From assessment to deployment, we handle the complexity so you can focus on your mission. Let's build the future of operations together.
+            </p>
+            <Button 
+              size="lg" 
+              className="bg-primary hover:bg-primary/90 text-white px-8 py-4 text-lg rounded-lg transition-all duration-300 transform hover:scale-105"
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            >
+              Schedule a Consultation
+              <ArrowRight className="ml-3 h-6 w-6" />
+            </Button>
+          </motion.div>
+        </div>
+      </section>
 
       {/* Contact Form Section */}
       <ContactSection />
@@ -685,6 +665,7 @@ const HumanoidAI = () => {
             <Link to="/traiga" className="text-primary hover:text-primary/80">TRAIGA</Link>
             <Link to="/maisp/voiceai" className="text-primary hover:text-primary/80">VoiceAI</Link>
             <Link to="/maisp/avatarai" className="text-primary hover:text-primary/80">AvatarAI</Link>
+            <Link to="/govai" className="text-primary hover:text-primary/80">GovAI</Link>
           </div>
         </div>
       </section>

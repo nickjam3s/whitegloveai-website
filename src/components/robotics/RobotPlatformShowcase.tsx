@@ -1,13 +1,7 @@
 import { motion } from "framer-motion";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Card, CardContent } from "@/components/ui/card";
-import { Bot, Dog, Wrench } from "lucide-react";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableRow,
-} from "@/components/ui/table";
+import { Bot, Dog, Wrench, CheckCircle2, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 interface RobotProduct {
   id: string;
@@ -121,48 +115,46 @@ const ProductCard = ({ product, index }: { product: RobotProduct; index: number 
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.4, delay: index * 0.1 }}
+    className="h-full"
   >
-    <Card className="bg-card/50 border-gray-800 hover:border-primary/50 transition-all duration-300 hover:scale-[1.02] h-full">
-      <CardContent className="p-0">
-        {/* Image Placeholder */}
-        <div className="aspect-[4/3] bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center border-b border-gray-800">
-          <div className="text-center text-muted-foreground">
-            <Bot className="w-16 h-16 mx-auto mb-2 opacity-30" />
-            <p className="text-sm">Image Coming Soon</p>
-          </div>
-        </div>
-        
-        {/* Content */}
-        <div className="p-6 space-y-4">
-          <div>
-            <h3 className="text-xl font-bold text-foreground">{product.model}</h3>
-            <p className="text-primary italic text-sm">{product.tagline}</p>
-          </div>
-          
-          <p className="text-muted-foreground text-sm leading-relaxed">
-            {product.description}
-          </p>
-          
-          {/* Specs Table */}
-          <div className="pt-2">
-            <Table>
-              <TableBody>
-                {product.specs.map((spec, i) => (
-                  <TableRow key={i} className="border-gray-800">
-                    <TableCell className="py-2 px-0 text-muted-foreground font-medium text-sm">
-                      {spec.label}
-                    </TableCell>
-                    <TableCell className="py-2 px-0 text-foreground text-right text-sm">
-                      {spec.value}
-                    </TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-          </div>
-        </div>
-      </CardContent>
-    </Card>
+    <div className="bg-card p-8 rounded-lg border border-gray-800 hover:border-secondary/50 transition-all hover:scale-[1.02] h-full flex flex-col">
+      {/* Icon Badge */}
+      <div className="bg-secondary/10 p-3 rounded-lg w-16 h-16 flex items-center justify-center mb-6">
+        <Bot className="h-10 w-10 text-secondary" />
+      </div>
+      
+      {/* Header */}
+      <div className="mb-4">
+        <h3 className="text-2xl font-semibold text-white">{product.model}</h3>
+        <p className="text-secondary italic text-sm">{product.tagline}</p>
+      </div>
+      
+      {/* Description */}
+      <p className="text-gray-400 mb-6 flex-grow">
+        {product.description}
+      </p>
+      
+      {/* Specs as bullet points */}
+      <ul className="space-y-2 mb-6">
+        {product.specs.map((spec, i) => (
+          <li key={i} className="flex items-start">
+            <CheckCircle2 className="h-5 w-5 text-secondary mr-2 mt-0.5 flex-shrink-0" />
+            <span className="text-gray-300">
+              <span className="font-medium">{spec.label}:</span> {spec.value}
+            </span>
+          </li>
+        ))}
+      </ul>
+      
+      {/* CTA Button */}
+      <Button 
+        className="w-full bg-secondary/20 hover:bg-secondary/30 text-white border border-secondary/50"
+        onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+      >
+        Request Quote
+        <ArrowRight className="ml-2 h-4 w-4" />
+      </Button>
+    </div>
   </motion.div>
 );
 
@@ -172,21 +164,21 @@ const RobotPlatformShowcase = () => {
       <TabsList className="w-full max-w-lg mx-auto grid grid-cols-3 bg-background/50 border border-gray-800 mb-10">
         <TabsTrigger 
           value="humanoids" 
-          className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground flex items-center gap-2"
+          className="data-[state=active]:bg-secondary data-[state=active]:text-white flex items-center gap-2"
         >
           <Bot className="w-4 h-4" />
           <span className="hidden sm:inline">Humanoids</span>
         </TabsTrigger>
         <TabsTrigger 
           value="quadrupeds" 
-          className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground flex items-center gap-2"
+          className="data-[state=active]:bg-secondary data-[state=active]:text-white flex items-center gap-2"
         >
           <Dog className="w-4 h-4" />
           <span className="hidden sm:inline">Quadrupeds</span>
         </TabsTrigger>
         <TabsTrigger 
           value="attachments" 
-          className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground flex items-center gap-2"
+          className="data-[state=active]:bg-secondary data-[state=active]:text-white flex items-center gap-2"
         >
           <Wrench className="w-4 h-4" />
           <span className="hidden sm:inline">Attachments</span>
