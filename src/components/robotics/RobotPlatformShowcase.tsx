@@ -3,13 +3,23 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Bot, Dog, Wrench, CheckCircle2, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
+// Import official Unitree product images
+import productH1 from "@/assets/robotics/products/product-h1.png";
+import productG1 from "@/assets/robotics/products/product-g1.png";
+import productR1 from "@/assets/robotics/products/product-r1.png";
+import productB2 from "@/assets/robotics/products/product-b2.png";
+import productA2 from "@/assets/robotics/products/product-a2.jpg";
+import productGo2 from "@/assets/robotics/products/product-go2.jpg";
+import productZ1 from "@/assets/robotics/products/product-z1.png";
+import productL2 from "@/assets/robotics/products/product-l2.jpg";
+
 interface RobotProduct {
   id: string;
   model: string;
   tagline: string;
   description: string;
   specs: { label: string; value: string }[];
-  image?: string;
+  image: string;
 }
 
 const humanoids: RobotProduct[] = [
@@ -18,7 +28,7 @@ const humanoids: RobotProduct[] = [
     model: "Unitree H1",
     tagline: "The Powerhouse Humanoid",
     description: "A full-size, general-purpose humanoid robot with world-class power and mobility. The H1 is designed for complex, dynamic tasks that require human-like strength and agility.",
-    image: "/placeholder.svg",
+    image: productH1,
     specs: [
       { label: "Height", value: "~1.8m" },
       { label: "Weight", value: "~47kg" },
@@ -31,7 +41,7 @@ const humanoids: RobotProduct[] = [
     model: "Unitree G1",
     tagline: "The Agile AI Avatar",
     description: "A highly flexible and intelligent humanoid agent. The G1 excels at tasks requiring dexterity and AI-driven interaction, making it a perfect avatar for remote operations or human-robot collaboration.",
-    image: "/placeholder.svg",
+    image: productG1,
     specs: [
       { label: "Height", value: "~1.3m" },
       { label: "Weight", value: "~35kg" },
@@ -44,7 +54,7 @@ const humanoids: RobotProduct[] = [
     model: "Unitree R1",
     tagline: "The Customizable Explorer",
     description: "An ultra-lightweight and fully customizable research platform. The R1 is ideal for developing and testing new robotic applications in a versatile, bipedal form factor.",
-    image: "/placeholder.svg",
+    image: productR1,
     specs: [
       { label: "Height", value: "~1.2m" },
       { label: "Weight", value: "~25kg" },
@@ -60,7 +70,7 @@ const quadrupeds: RobotProduct[] = [
     model: "Unitree B2",
     tagline: "The Rugged Industrial Workhorse",
     description: "The B2 is built for the toughest jobs. With its high payload capacity, extreme terrain adaptability, and IP67 rating, it's the go-to platform for industrial inspection, public safety, and emergency response.",
-    image: "/placeholder.svg",
+    image: productB2,
     specs: [
       { label: "Max Speed", value: ">6 m/s" },
       { label: "Payload", value: ">40kg (walking)" },
@@ -73,7 +83,7 @@ const quadrupeds: RobotProduct[] = [
     model: "Unitree A2",
     tagline: "The Agile Inspector",
     description: "The A2 is a medium-sized, high-performance quadruped designed for long-duration inspection and reconnaissance tasks. Its dual-battery system allows for hot-swapping in the field for continuous operation.",
-    image: "/placeholder.svg",
+    image: productA2,
     specs: [
       { label: "Max Speed", value: "~3.7 m/s" },
       { label: "Payload", value: "~25kg (walking)" },
@@ -86,7 +96,7 @@ const quadrupeds: RobotProduct[] = [
     model: "Unitree Go2",
     tagline: "The Intelligent Companion",
     description: "The Go2 combines advanced AI with a lightweight, agile frame. Equipped with 4D LiDAR, it has a near-360° field of view, making it perfect for autonomous navigation, mapping, and security patrols.",
-    image: "/placeholder.svg",
+    image: productGo2,
     specs: [
       { label: "Weight", value: "~15kg" },
       { label: "Sensors", value: "4D LiDAR L1" },
@@ -102,7 +112,7 @@ const attachments: RobotProduct[] = [
     model: "Z1 Robotic Arm",
     tagline: "Dexterous Manipulation",
     description: "Add a new level of capability to your quadruped robot. The Z1 arm provides 6-axis freedom of movement for tasks like opening doors, retrieving objects, and interacting with control panels.",
-    image: "/placeholder.svg",
+    image: productZ1,
     specs: [
       { label: "Payload", value: "2kg - 3kg" },
     ],
@@ -112,7 +122,7 @@ const attachments: RobotProduct[] = [
     model: "L2 4D LiDAR",
     tagline: "Advanced 3D Perception",
     description: "Upgrade your robot's perception with this state-of-the-art 4D LiDAR sensor. It provides a 360° x 96° field of view for superior mapping, navigation, and obstacle avoidance in complex environments.",
-    image: "/placeholder.svg",
+    image: productL2,
     specs: [
       { label: "Range", value: "30m" },
     ],
@@ -127,12 +137,12 @@ const ProductCard = ({ product, index }: { product: RobotProduct; index: number 
     className="h-full"
   >
     <div className="bg-card rounded-lg border border-gray-800 hover:border-secondary/50 transition-all hover:scale-[1.02] h-full flex flex-col overflow-hidden">
-      {/* Image Placeholder */}
-      <div className="w-full h-48 bg-secondary/10 flex items-center justify-center">
+      {/* Image Container - consistent 16:9 aspect ratio */}
+      <div className="w-full aspect-[16/9] bg-secondary/10 flex items-center justify-center overflow-hidden">
         <img 
-          src={product.image || "/placeholder.svg"} 
+          src={product.image} 
           alt={product.model}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover object-center"
         />
       </div>
       
