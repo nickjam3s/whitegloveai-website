@@ -253,3 +253,27 @@ html {
 .overflow-hidden {
   overflow: hidden;
 }
+
+/* Robotics page section backgrounds */
+.section-primary-bg {
+  background-color: #000000;
+}
+
+.section-secondary-bg {
+  background-color: #111111;
+}
+
+/* Purple accent separator line */
+.section-separator {
+  position: relative;
+}
+
+.section-separator::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #8A2BE2 20%, #8A2BE2 80%, transparent);
+}
