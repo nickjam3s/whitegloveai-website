@@ -269,11 +269,6 @@ const HumanoidAI = () => {
               transition={{ duration: 0.6 }}
               className="text-center"
             >
-              <div className="flex justify-center mb-8">
-                <div className="bg-secondary/10 p-4 rounded-full border-2 border-secondary/30">
-                  <Bot className="h-16 w-16 text-secondary" />
-                </div>
-              </div>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-[#7021EE]">
                 Robotics as a Service: Managed AI Robots, Securely Deployed.
               </h1>

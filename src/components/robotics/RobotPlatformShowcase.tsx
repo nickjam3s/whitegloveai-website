@@ -118,11 +118,6 @@ const ProductCard = ({ product, index }: { product: RobotProduct; index: number 
     className="h-full"
   >
     <div className="bg-card p-8 rounded-lg border border-gray-800 hover:border-secondary/50 transition-all hover:scale-[1.02] h-full flex flex-col">
-      {/* Icon Badge */}
-      <div className="bg-secondary/10 p-3 rounded-lg w-16 h-16 flex items-center justify-center mb-6">
-        <Bot className="h-10 w-10 text-secondary" />
-      </div>
-      
       {/* Header */}
       <div className="mb-4">
         <h3 className="text-2xl font-semibold text-white">{product.model}</h3>
