@@ -32,7 +32,8 @@ import { Link } from "react-router-dom";
 import SEO from "@/components/SEO";
 import ContactSection from "./maisp/components/humanoidai/ContactSection";
 import HeroBackground from "@/components/shared/HeroBackground";
-import RobotPlatformShowcase from "@/components/robotics/RobotPlatformShowcase";
+import RobotPlatformShowcase from '@/components/robotics/RobotPlatformShowcase';
+import IndustryUseCases from '@/components/robotics/IndustryUseCases';
 
 const HumanoidAI = () => {
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
@@ -444,32 +445,17 @@ const HumanoidAI = () => {
         </div>
       </section>
 
-      {/* Use Cases Section */}
+      {/* Industry Use Cases Section */}
       <section className="py-20 bg-card scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-semibold text-center mb-12 heading-highlight-scroll">
-            Where AI Robotics Fits
+          <h2 className="text-3xl font-semibold text-center mb-4 heading-highlight-scroll">
+            Transforming Industries with Embodied AI
           </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {useCases.map((useCase, index) => (
-              <div key={index} className="bg-background/50 p-6 rounded-lg border border-gray-800 hover:border-secondary/50 transition-colors text-center">
-                <div className="flex justify-center mb-4">
-                  <div className="bg-secondary/10 p-3 rounded-lg">
-                    <useCase.icon className="h-8 w-8 text-secondary" />
-                  </div>
-                </div>
-                <h3 className="text-xl font-semibold mb-3 text-white">{useCase.title}</h3>
-                <p className="text-gray-400">{useCase.description}</p>
-              </div>
-            ))}
-          </div>
-          <div className="flex justify-center mt-12">
-            <img 
-              src="/lovable-uploads/8714b9b9-3f59-493d-9004-982728a8194d.png" 
-              alt="Robot performing inspection and patrol tasks in various environments"
-              className="max-w-2xl w-full h-auto rounded-lg shadow-lg"
-            />
-          </div>
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-12 text-center">
+            Explore how robotics is revolutionizing operations across key sectors.
+          </p>
+          
+          <IndustryUseCases />
         </div>
       </section>
 
