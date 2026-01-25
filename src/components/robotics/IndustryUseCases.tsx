@@ -192,8 +192,7 @@ const IndustryUseCases: React.FC = () => {
       </TabsList>
 
       {/* Tab Content */}
-      <AnimatePresence mode="wait">
-        {industries.map((industry) => (
+      {industries.map((industry) => (
           <TabsContent key={industry.id} value={industry.id} className="mt-0">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -269,7 +268,6 @@ const IndustryUseCases: React.FC = () => {
             </motion.div>
           </TabsContent>
         ))}
-      </AnimatePresence>
     </Tabs>
   );
 };
