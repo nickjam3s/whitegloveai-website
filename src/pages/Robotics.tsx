@@ -292,7 +292,7 @@ const HumanoidAI = () => {
       </HeroBackground>
 
       {/* Introduction Section */}
-      <section className="py-20 bg-background">
+      <section className="py-20 section-secondary-bg section-separator">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.h2 
             className="text-3xl md:text-4xl font-bold mb-8 heading-highlight-scroll"
@@ -320,8 +320,8 @@ const HumanoidAI = () => {
         </div>
       </section>
 
-      {/* Platform Placeholder Section */}
-      <section className="py-20 bg-card/50">
+      {/* Platform Section */}
+      <section className="py-20 section-primary-bg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.h2 
             className="text-3xl md:text-4xl font-bold mb-4 heading-highlight-scroll"
@@ -348,8 +348,8 @@ const HumanoidAI = () => {
         </div>
       </section>
 
-      {/* Industries Placeholder Section */}
-      <section className="py-20 bg-background">
+      {/* Industries Section */}
+      <section className="py-20 section-secondary-bg section-separator">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.h2 
             className="text-3xl md:text-4xl font-bold mb-4 heading-highlight-scroll"
@@ -374,7 +374,7 @@ const HumanoidAI = () => {
       </section>
 
       {/* Why Now Section */}
-      <section className="py-20 bg-background">
+      <section className="py-20 section-primary-bg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -397,7 +397,7 @@ const HumanoidAI = () => {
       </section>
 
       {/* Outcomes Section */}
-      <section className="py-20 bg-card/50">
+      <section className="py-20 section-secondary-bg section-separator">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 heading-highlight-scroll">
             Measurable Outcomes
@@ -418,7 +418,7 @@ const HumanoidAI = () => {
       </section>
 
       {/* Use Cases Section */}
-      <section className="py-20 bg-background">
+      <section className="py-20 section-primary-bg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 heading-highlight-scroll">
             Where AI Robotics Fits
@@ -449,7 +449,7 @@ const HumanoidAI = () => {
       </section>
 
       {/* Why WhitegloveAI Section */}
-      <section className="py-20 bg-card/50">
+      <section className="py-20 section-secondary-bg section-separator">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 heading-highlight-scroll">
             Why WhitegloveAI
@@ -470,7 +470,7 @@ const HumanoidAI = () => {
       </section>
 
       {/* Our Service Path Section */}
-      <section className="py-20 bg-background">
+      <section className="py-20 section-primary-bg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 heading-highlight-scroll">
             Our Service Path
@@ -503,7 +503,7 @@ const HumanoidAI = () => {
       </section>
 
       {/* Safety & Compliance Section */}
-      <section className="py-20 bg-card/50">
+      <section className="py-20 section-secondary-bg section-separator">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 heading-highlight-scroll">
             Safety, Security & Compliance
@@ -527,7 +527,7 @@ const HumanoidAI = () => {
       </section>
 
       {/* Metrics Section */}
-      <section className="py-20 bg-background">
+      <section className="py-20 section-primary-bg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 heading-highlight-scroll">
             Metrics We Track
@@ -558,7 +558,7 @@ const HumanoidAI = () => {
       </section>
 
       {/* WhitegloveAI Advantage Section */}
-      <section className="py-20 bg-background">
+      <section className="py-20 section-secondary-bg section-separator">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.h2 
             className="text-3xl md:text-4xl font-bold text-center mb-16 heading-highlight-scroll"
@@ -643,7 +643,7 @@ const HumanoidAI = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-card/50">
+      <section className="py-20 section-primary-bg">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 heading-highlight-scroll">
             Frequently Asked Questions
