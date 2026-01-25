@@ -9,6 +9,7 @@ interface RobotProduct {
   tagline: string;
   description: string;
   specs: { label: string; value: string }[];
+  image?: string;
 }
 
 const humanoids: RobotProduct[] = [
@@ -17,6 +18,7 @@ const humanoids: RobotProduct[] = [
     model: "Unitree H1",
     tagline: "The Powerhouse Humanoid",
     description: "A full-size, general-purpose humanoid robot with world-class power and mobility. The H1 is designed for complex, dynamic tasks that require human-like strength and agility.",
+    image: "/placeholder.svg",
     specs: [
       { label: "Height", value: "~1.8m" },
       { label: "Weight", value: "~47kg" },
@@ -29,6 +31,7 @@ const humanoids: RobotProduct[] = [
     model: "Unitree G1",
     tagline: "The Agile AI Avatar",
     description: "A highly flexible and intelligent humanoid agent. The G1 excels at tasks requiring dexterity and AI-driven interaction, making it a perfect avatar for remote operations or human-robot collaboration.",
+    image: "/placeholder.svg",
     specs: [
       { label: "Height", value: "~1.3m" },
       { label: "Weight", value: "~35kg" },
@@ -41,6 +44,7 @@ const humanoids: RobotProduct[] = [
     model: "Unitree R1",
     tagline: "The Customizable Explorer",
     description: "An ultra-lightweight and fully customizable research platform. The R1 is ideal for developing and testing new robotic applications in a versatile, bipedal form factor.",
+    image: "/placeholder.svg",
     specs: [
       { label: "Height", value: "~1.2m" },
       { label: "Weight", value: "~25kg" },
@@ -56,6 +60,7 @@ const quadrupeds: RobotProduct[] = [
     model: "Unitree B2",
     tagline: "The Rugged Industrial Workhorse",
     description: "The B2 is built for the toughest jobs. With its high payload capacity, extreme terrain adaptability, and IP67 rating, it's the go-to platform for industrial inspection, public safety, and emergency response.",
+    image: "/placeholder.svg",
     specs: [
       { label: "Max Speed", value: ">6 m/s" },
       { label: "Payload", value: ">40kg (walking)" },
@@ -68,6 +73,7 @@ const quadrupeds: RobotProduct[] = [
     model: "Unitree A2",
     tagline: "The Agile Inspector",
     description: "The A2 is a medium-sized, high-performance quadruped designed for long-duration inspection and reconnaissance tasks. Its dual-battery system allows for hot-swapping in the field for continuous operation.",
+    image: "/placeholder.svg",
     specs: [
       { label: "Max Speed", value: "~3.7 m/s" },
       { label: "Payload", value: "~25kg (walking)" },
@@ -80,6 +86,7 @@ const quadrupeds: RobotProduct[] = [
     model: "Unitree Go2",
     tagline: "The Intelligent Companion",
     description: "The Go2 combines advanced AI with a lightweight, agile frame. Equipped with 4D LiDAR, it has a near-360° field of view, making it perfect for autonomous navigation, mapping, and security patrols.",
+    image: "/placeholder.svg",
     specs: [
       { label: "Weight", value: "~15kg" },
       { label: "Sensors", value: "4D LiDAR L1" },
@@ -95,6 +102,7 @@ const attachments: RobotProduct[] = [
     model: "Z1 Robotic Arm",
     tagline: "Dexterous Manipulation",
     description: "Add a new level of capability to your quadruped robot. The Z1 arm provides 6-axis freedom of movement for tasks like opening doors, retrieving objects, and interacting with control panels.",
+    image: "/placeholder.svg",
     specs: [
       { label: "Payload", value: "2kg - 3kg" },
     ],
@@ -104,6 +112,7 @@ const attachments: RobotProduct[] = [
     model: "L2 4D LiDAR",
     tagline: "Advanced 3D Perception",
     description: "Upgrade your robot's perception with this state-of-the-art 4D LiDAR sensor. It provides a 360° x 96° field of view for superior mapping, navigation, and obstacle avoidance in complex environments.",
+    image: "/placeholder.svg",
     specs: [
       { label: "Range", value: "30m" },
     ],
@@ -117,38 +126,50 @@ const ProductCard = ({ product, index }: { product: RobotProduct; index: number 
     transition={{ duration: 0.4, delay: index * 0.1 }}
     className="h-full"
   >
-    <div className="bg-card p-8 rounded-lg border border-gray-800 hover:border-secondary/50 transition-all hover:scale-[1.02] h-full flex flex-col">
-      {/* Header */}
-      <div className="mb-4">
-        <h3 className="text-2xl font-semibold text-white">{product.model}</h3>
-        <p className="text-secondary italic text-sm">{product.tagline}</p>
+    <div className="bg-card rounded-lg border border-gray-800 hover:border-secondary/50 transition-all hover:scale-[1.02] h-full flex flex-col overflow-hidden">
+      {/* Image Placeholder */}
+      <div className="w-full h-48 bg-secondary/10 flex items-center justify-center">
+        <img 
+          src={product.image || "/placeholder.svg"} 
+          alt={product.model}
+          className="w-full h-full object-cover"
+        />
       </div>
       
-      {/* Description */}
-      <p className="text-gray-400 mb-6 flex-grow">
-        {product.description}
-      </p>
+      {/* Content */}
+      <div className="p-8 flex flex-col flex-grow">
+        {/* Header */}
+        <div className="mb-4">
+          <h3 className="text-2xl font-semibold text-white">{product.model}</h3>
+          <p className="text-secondary italic text-sm">{product.tagline}</p>
+        </div>
       
-      {/* Specs as bullet points */}
-      <ul className="space-y-2 mb-6">
-        {product.specs.map((spec, i) => (
-          <li key={i} className="flex items-start">
-            <CheckCircle2 className="h-5 w-5 text-secondary mr-2 mt-0.5 flex-shrink-0" />
-            <span className="text-gray-300">
-              <span className="font-medium">{spec.label}:</span> {spec.value}
-            </span>
-          </li>
-        ))}
-      </ul>
-      
-      {/* CTA Button */}
-      <Button 
-        className="w-full bg-secondary/20 hover:bg-secondary/30 text-white border border-secondary/50"
-        onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-      >
-        Request Quote
-        <ArrowRight className="ml-2 h-4 w-4" />
-      </Button>
+        {/* Description */}
+        <p className="text-gray-400 mb-6 flex-grow">
+          {product.description}
+        </p>
+        
+        {/* Specs as bullet points */}
+        <ul className="space-y-2 mb-6">
+          {product.specs.map((spec, i) => (
+            <li key={i} className="flex items-start">
+              <CheckCircle2 className="h-5 w-5 text-secondary mr-2 mt-0.5 flex-shrink-0" />
+              <span className="text-gray-300">
+                <span className="font-medium">{spec.label}:</span> {spec.value}
+              </span>
+            </li>
+          ))}
+        </ul>
+        
+        {/* CTA Button */}
+        <Button 
+          className="w-full bg-secondary/20 hover:bg-secondary/30 text-white border border-secondary/50"
+          onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+        >
+          Request Quote
+          <ArrowRight className="ml-2 h-4 w-4" />
+        </Button>
+      </div>
     </div>
   </motion.div>
 );
