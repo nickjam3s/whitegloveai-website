@@ -31,6 +31,7 @@ import { Link } from "react-router-dom";
 import SEO from "@/components/SEO";
 import ContactSection from "./maisp/components/humanoidai/ContactSection";
 import HeroBackground from "@/components/shared/HeroBackground";
+import RobotPlatformShowcase from "@/components/robotics/RobotPlatformShowcase";
 
 const HumanoidAI = () => {
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
@@ -340,7 +341,10 @@ const HumanoidAI = () => {
           >
             We deploy a range of versatile humanoid and quadruped robots, each selected for its best-in-class performance and reliability.
           </motion.p>
-          {/* Placeholder for future interactive robot showcase */}
+          
+          <div className="mt-12">
+            <RobotPlatformShowcase />
+          </div>
         </div>
       </section>
 
