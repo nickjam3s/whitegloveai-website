@@ -200,25 +200,54 @@ const IndustryUseCases: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.3 }}
-              className="grid lg:grid-cols-5 gap-8"
+              className="flex flex-col gap-8"
             >
-              {/* Left Column - Content (3/5) */}
-              <div className="lg:col-span-3 space-y-6">
-                <h3 className="text-2xl md:text-3xl font-semibold text-white">
+              {/* Media - Top (Centered) */}
+              <div className="flex justify-center">
+                {industry.mediaType === 'video' ? (
+                  <div className="w-full max-w-3xl aspect-video rounded-lg border border-secondary/30 bg-secondary/10 flex items-center justify-center overflow-hidden">
+                    <div className="text-center p-8">
+                      <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-secondary/20 flex items-center justify-center">
+                        <svg className="w-8 h-8 text-secondary" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M8 5v14l11-7z"/>
+                        </svg>
+                      </div>
+                      <p className="text-gray-400 text-sm">
+                        [{industry.mediaPlaceholder}]
+                      </p>
+                    </div>
+                  </div>
+                ) : (
+                  <div className="w-full max-w-3xl aspect-video rounded-lg border border-secondary/30 bg-secondary/10 flex items-center justify-center overflow-hidden">
+                    <div className="text-center p-8">
+                      <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-secondary/20 flex items-center justify-center">
+                        {industry.icon}
+                      </div>
+                      <p className="text-gray-400 text-sm">
+                        [{industry.mediaPlaceholder}]
+                      </p>
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* Content - Full Width */}
+              <div className="space-y-6">
+                <h3 className="text-2xl md:text-3xl font-semibold text-white text-center">
                   {industry.headline}
                 </h3>
                 
-                <p className="text-gray-300 text-lg leading-relaxed">
+                <p className="text-gray-300 text-lg leading-relaxed text-center max-w-4xl mx-auto">
                   {industry.bodyCopy}
                 </p>
 
-                {/* Use Cases List */}
-                <div className="space-y-4 mt-6">
+                {/* Use Cases List - 2 columns on desktop */}
+                <div className="grid md:grid-cols-2 gap-4 mt-6">
                   {industry.useCases.map((useCase, index) => (
                     <motion.div
                       key={useCase.title}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: index * 0.1 }}
                       className="flex gap-4 p-4 rounded-lg bg-background/50 border border-gray-800 hover:border-secondary/50 transition-colors"
                     >
@@ -235,37 +264,6 @@ const IndustryUseCases: React.FC = () => {
                       </div>
                     </motion.div>
                   ))}
-                </div>
-              </div>
-
-              {/* Right Column - Media (2/5) */}
-              <div className="lg:col-span-2">
-                <div className="sticky top-24">
-                  {industry.mediaType === 'video' ? (
-                    <div className="aspect-video rounded-lg border border-secondary/30 bg-secondary/10 flex items-center justify-center overflow-hidden">
-                      <div className="text-center p-8">
-                        <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-secondary/20 flex items-center justify-center">
-                          <svg className="w-8 h-8 text-secondary" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M8 5v14l11-7z"/>
-                          </svg>
-                        </div>
-                        <p className="text-gray-400 text-sm">
-                          [{industry.mediaPlaceholder}]
-                        </p>
-                      </div>
-                    </div>
-                  ) : (
-                    <div className="aspect-[4/3] rounded-lg border border-secondary/30 bg-secondary/10 flex items-center justify-center overflow-hidden">
-                      <div className="text-center p-8">
-                        <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-secondary/20 flex items-center justify-center">
-                          {industry.icon}
-                        </div>
-                        <p className="text-gray-400 text-sm">
-                          [{industry.mediaPlaceholder}]
-                        </p>
-                      </div>
-                    </div>
-                  )}
                 </div>
               </div>
             </motion.div>
