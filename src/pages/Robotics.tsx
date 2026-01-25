@@ -21,7 +21,9 @@ import {
   Heart,
   MapPin,
   ChevronDown,
-  ChevronUp
+  ChevronUp,
+  Settings,
+  Handshake
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -240,7 +242,7 @@ const HumanoidAI = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              Robotics — Managed AI Robots, Safely Deployed
+              Robotics as a Service: Managed AI Robots, Securely Deployed.
             </motion.h1>
           
           <motion.p 
@@ -249,7 +251,7 @@ const HumanoidAI = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Deploy AI robots for concierge, inspection, and operational tasks—WhitegloveAI handles readiness, procurement, and 24/7 upkeep under our MAISP program.
+            WhitegloveAI provides end-to-end managed robotics solutions, integrating best-in-class hardware with secure, American-developed software. We handle the complexity, so you can focus on the mission.
           </motion.p>
           
           <motion.div 
@@ -264,7 +266,7 @@ const HumanoidAI = () => {
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
             >
               <Calendar className="mr-2 h-5 w-5" />
-              Book a Discovery Call
+              Request a Consultation
             </Button>
           </motion.div>
           
@@ -287,6 +289,85 @@ const HumanoidAI = () => {
         </div>
       </section>
       </HeroBackground>
+
+      {/* Introduction Section */}
+      <section className="py-20 bg-background">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <motion.h2 
+            className="text-3xl md:text-4xl font-bold mb-8 heading-highlight-scroll"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            From Ambition to Operation: Robotics Made Simple.
+          </motion.h2>
+          <motion.div
+            className="space-y-6 text-lg text-gray-300 leading-relaxed"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <p>
+              Embodied AI is no longer science fiction. It's a practical tool that can enhance safety, improve efficiency, and provide critical data in environments too dangerous or difficult for humans. But deploying robotics is complex. It requires hardware integration, software development, security hardening, and ongoing management.
+            </p>
+            <p>
+              That's where WhitegloveAI comes in. Our Managed Robotics service is a full-lifecycle solution. We assess your needs, deploy the right robotic platforms, and manage the entire ecosystem—from the hardware to our secure, American-developed control software. You get the operational benefits of advanced robotics without the implementation burden.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Platform Placeholder Section */}
+      <section className="py-20 bg-card/50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <motion.h2 
+            className="text-3xl md:text-4xl font-bold mb-4 heading-highlight-scroll"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            A Platform for Every Mission
+          </motion.h2>
+          <motion.p
+            className="text-xl text-gray-300 max-w-3xl mx-auto"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            We deploy a range of versatile humanoid and quadruped robots, each selected for its best-in-class performance and reliability.
+          </motion.p>
+          {/* Placeholder for future interactive robot showcase */}
+        </div>
+      </section>
+
+      {/* Industries Placeholder Section */}
+      <section className="py-20 bg-background">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <motion.h2 
+            className="text-3xl md:text-4xl font-bold mb-4 heading-highlight-scroll"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            Transforming Industries with Embodied AI
+          </motion.h2>
+          <motion.p
+            className="text-xl text-gray-300 max-w-3xl mx-auto"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            From ensuring public safety to optimizing industrial assets, managed robotics delivers tangible value across a wide range of sectors.
+          </motion.p>
+          {/* Placeholder for future industry use case cards */}
+        </div>
+      </section>
 
       {/* Why Now Section */}
       <section className="py-20 bg-background">
@@ -472,6 +553,90 @@ const HumanoidAI = () => {
         </div>
       </section>
 
+      {/* WhitegloveAI Advantage Section */}
+      <section className="py-20 bg-background">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.h2 
+            className="text-3xl md:text-4xl font-bold text-center mb-16 heading-highlight-scroll"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            More Than a Robot. A Complete Solution.
+          </motion.h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <Card className="border-gray-800 bg-card/50 h-full">
+                <CardHeader className="text-center">
+                  <div className="flex justify-center mb-4">
+                    <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center">
+                      <Shield className="h-8 w-8 text-primary" />
+                    </div>
+                  </div>
+                  <CardTitle className="text-xl text-white">Secure American Software</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-400 text-center">
+                    We integrate best-in-class hardware with our own secure, American-developed software stack. This ensures our platforms meet the stringent security and compliance standards required for public sector and critical infrastructure deployment, mitigating supply chain risks.
+                  </p>
+                </CardContent>
+              </Card>
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+            >
+              <Card className="border-gray-800 bg-card/50 h-full">
+                <CardHeader className="text-center">
+                  <div className="flex justify-center mb-4">
+                    <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center">
+                      <Settings className="h-8 w-8 text-primary" />
+                    </div>
+                  </div>
+                  <CardTitle className="text-xl text-white">End-to-End Managed Service</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-400 text-center">
+                    From initial needs assessment and use case development to deployment, training, and ongoing support, we manage the entire lifecycle. We are your single point of contact and accountability for your robotics program.
+                  </p>
+                </CardContent>
+              </Card>
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <Card className="border-gray-800 bg-card/50 h-full">
+                <CardHeader className="text-center">
+                  <div className="flex justify-center mb-4">
+                    <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center">
+                      <Handshake className="h-8 w-8 text-primary" />
+                    </div>
+                  </div>
+                  <CardTitle className="text-xl text-white">Simplified Procurement</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-400 text-center">
+                    As a TXShare-approved vendor, we make procurement simple, fast, and compliant for Texas government entities. Skip the lengthy RFP process and get technology deployed faster. (Contract #2025-0223)
+                  </p>
+                </CardContent>
+              </Card>
+            </motion.div>
+          </div>
+        </div>
+      </section>
 
       {/* FAQ Section */}
       <section className="py-20 bg-card/50">
