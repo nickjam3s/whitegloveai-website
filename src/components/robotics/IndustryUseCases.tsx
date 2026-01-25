@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { 
   Shield, 
   HardHat, 
   Building2, 
   Zap, 
-  CheckCircle2,
   Flame,
   Siren,
   AlertTriangle,
@@ -25,6 +24,12 @@ import {
 } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
+// Industry images
+import governmentImage from '@/assets/robotics/industry-government.jpg';
+import constructionImage from '@/assets/robotics/industry-construction.jpg';
+import realEstateImage from '@/assets/robotics/industry-realestate.jpg';
+import energyImage from '@/assets/robotics/industry-energy.jpg';
+
 interface UseCase {
   title: string;
   description: string;
@@ -38,8 +43,7 @@ interface IndustryContent {
   headline: string;
   bodyCopy: string;
   useCases: UseCase[];
-  mediaType: 'video' | 'image';
-  mediaPlaceholder: string;
+  image: string;
 }
 
 const industries: IndustryContent[] = [
@@ -71,8 +75,7 @@ const industries: IndustryContent[] = [
         icon: <Wrench className="h-5 w-5 text-secondary" />
       }
     ],
-    mediaType: 'video',
-    mediaPlaceholder: 'VIDEO_PLACEHOLDER_PLANO_FIRE'
+    image: governmentImage
   },
   {
     id: 'construction',
@@ -102,8 +105,7 @@ const industries: IndustryContent[] = [
         icon: <Package className="h-5 w-5 text-secondary" />
       }
     ],
-    mediaType: 'image',
-    mediaPlaceholder: 'IMAGE_PLACEHOLDER_CONSTRUCTION'
+    image: constructionImage
   },
   {
     id: 'real-estate',
@@ -133,8 +135,7 @@ const industries: IndustryContent[] = [
         icon: <ShieldCheck className="h-5 w-5 text-secondary" />
       }
     ],
-    mediaType: 'image',
-    mediaPlaceholder: 'IMAGE_PLACEHOLDER_REAL_ESTATE'
+    image: realEstateImage
   },
   {
     id: 'energy',
@@ -164,8 +165,7 @@ const industries: IndustryContent[] = [
         icon: <Cable className="h-5 w-5 text-secondary" />
       }
     ],
-    mediaType: 'image',
-    mediaPlaceholder: 'IMAGE_PLACEHOLDER_ENERGY'
+    image: energyImage
   }
 ];
 
@@ -203,31 +203,13 @@ const IndustryUseCases: React.FC = () => {
             >
               {/* Media - Top (Centered) */}
               <div className="flex justify-center">
-                {industry.mediaType === 'video' ? (
-                  <div className="w-full max-w-3xl aspect-video rounded-lg border border-secondary/30 bg-secondary/10 flex items-center justify-center overflow-hidden">
-                    <div className="text-center p-8">
-                      <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-secondary/20 flex items-center justify-center">
-                        <svg className="w-8 h-8 text-secondary" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M8 5v14l11-7z"/>
-                        </svg>
-                      </div>
-                      <p className="text-gray-400 text-sm">
-                        [{industry.mediaPlaceholder}]
-                      </p>
-                    </div>
-                  </div>
-                ) : (
-                  <div className="w-full max-w-3xl aspect-video rounded-lg border border-secondary/30 bg-secondary/10 flex items-center justify-center overflow-hidden">
-                    <div className="text-center p-8">
-                      <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-secondary/20 flex items-center justify-center">
-                        {industry.icon}
-                      </div>
-                      <p className="text-gray-400 text-sm">
-                        [{industry.mediaPlaceholder}]
-                      </p>
-                    </div>
-                  </div>
-                )}
+                <div className="w-full max-w-3xl aspect-video rounded-lg border border-secondary/30 overflow-hidden">
+                  <img 
+                    src={industry.image} 
+                    alt={industry.headline}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
               </div>
 
               {/* Content - Full Width */}
