@@ -13,7 +13,7 @@ import HeroBackground from "@/components/shared/HeroBackground";
 import HB3512Banner from "@/components/HB3512Banner";
 import DirDisclaimer from "@/components/DirDisclaimer";
 import ContactSection from "./training/components/ContactSection";
-import { injectConduitStyles } from "@/utils/conduitStyleInjector";
+
 
 const Training = () => {
   const navigate = useNavigate();
@@ -26,21 +26,6 @@ const Training = () => {
 
   useLayoutEffect(() => {
     window.scrollTo(0, 0);
-    
-    // Load the Conduit.ai chat widget
-    const script = document.createElement('script');
-    script.src = "https://base.conduit.ai/widget/widget.min.js";
-    script.async = true;
-    script.setAttribute('data-widget-id', 'a577c803-4c1a-4b17-4b7d-2dc85a55b344');
-    script.onload = () => {
-      // Inject custom styles after widget loads
-      injectConduitStyles();
-    };
-    document.body.appendChild(script);
-    
-    return () => {
-      document.body.removeChild(script);
-    };
   }, []);
 
   const featuredCourses = courses.filter(c => c.featured);

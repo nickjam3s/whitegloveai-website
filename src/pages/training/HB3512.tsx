@@ -8,7 +8,7 @@ import { CheckCircle2, Building2, School, Users, FileCheck, AlertCircle, Shield,
 import HeroBackground from "@/components/shared/HeroBackground";
 import { CourseChatbot } from "@/components/training/CourseChatbot";
 import ContactSection from "./components/ContactSection";
-import { injectConduitStyles } from "@/utils/conduitStyleInjector";
+
 import DirDisclaimer from "@/components/DirDisclaimer";
 
 const HB3512 = () => {
@@ -22,20 +22,6 @@ const HB3512 = () => {
 
   useLayoutEffect(() => {
     window.scrollTo(0, 0);
-    
-    // Load the Conduit.ai chat widget
-    const script = document.createElement('script');
-    script.src = "https://base.conduit.ai/widget/widget.min.js";
-    script.async = true;
-    script.setAttribute('data-widget-id', 'a577c803-4c1a-4b17-4b7d-2dc85a55b344');
-    script.onload = () => {
-      injectConduitStyles();
-    };
-    document.body.appendChild(script);
-    
-    return () => {
-      document.body.removeChild(script);
-    };
   }, []);
 
   return (
