@@ -8,7 +8,7 @@ import { CourseCard } from "@/components/training/CourseCard";
 import { CourseChatbot } from "@/components/training/CourseChatbot";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import aicertsBadge from "@/assets/aicerts-partner-badge.png";
+
 import HeroBackground from "@/components/shared/HeroBackground";
 import HB3512Banner from "@/components/HB3512Banner";
 import DirDisclaimer from "@/components/DirDisclaimer";
@@ -60,8 +60,8 @@ const Training = () => {
     },
     {
       icon: Award,
-      title: "Industry Recognition",
-      description: "IACET accreditation coming Jan 2026 – CEUs accepted by major professional organizations"
+      title: "Nationally Accredited Training",
+      description: "Delivered through ProTrain, a Middle States (MSA-CESS) accredited institution—meeting rigorous national standards for educational quality. IACET accreditation coming Jan 2026."
     },
     {
       icon: BookOpen,
@@ -139,7 +139,7 @@ const Training = () => {
                   Build Internal AI Expertise
                 </h1>
                 <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-                  Empower your workforce with industry-leading AI training and certifications through WhitegloveAI, an authorized training partner of AICerts.
+                  Empower your workforce with nationally accredited AI training and certifications through WhitegloveAI—delivered by ProTrain, a Middle States accredited educational institution meeting the highest standards of quality and excellence.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Button 
@@ -211,6 +211,49 @@ const Training = () => {
               >
                 Explore All Courses
               </Button>
+            </div>
+          </div>
+        </section>
+
+        {/* Training You Can Trust Section */}
+        <section className="py-16 bg-muted/20">
+          <div className="container px-4 mx-auto max-w-7xl">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                Training You Can Trust
+              </h2>
+              <p className="text-xl text-muted-foreground mb-2">
+                Nationally Accredited. Professionally Recognized. Government-Approved.
+              </p>
+            </div>
+
+            <div className="max-w-4xl mx-auto text-center mb-12">
+              <p className="text-lg text-muted-foreground">
+                WhitegloveAI delivers AI training through <strong className="text-foreground">ProTrain, a Middle States Association (MSA-CESS) nationally accredited institution</strong>, ensuring every course meets rigorous standards for educational quality, instructor expertise, and learner outcomes. Our programs are designed for government agencies, enterprises, and professionals who demand excellence and accountability in professional development.
+              </p>
+            </div>
+
+            <div className="flex justify-center gap-6 md:gap-8 flex-wrap">
+              {/* MSA-CESS Badge */}
+              <div className="flex flex-col items-center justify-center w-[140px] h-[140px] rounded-xl bg-gradient-to-br from-[hsl(220,60%,25%)] to-[hsl(220,60%,15%)] border border-primary/30 p-4">
+                <Shield className="h-8 w-8 text-white mb-2" />
+                <span className="text-white font-bold text-sm text-center">MSA-CESS</span>
+                <span className="text-white/80 text-xs text-center">Accredited Institution</span>
+              </div>
+
+              {/* TXShare Badge */}
+              <div className="flex flex-col items-center justify-center w-[140px] h-[140px] rounded-xl bg-gradient-to-br from-secondary to-secondary/80 border border-secondary/30 p-4">
+                <CheckCircle2 className="h-8 w-8 text-white mb-2" />
+                <span className="text-white font-bold text-sm text-center">TXShare</span>
+                <span className="text-white/80 text-xs text-center">Approved Vendor</span>
+              </div>
+
+              {/* ProTrain Badge */}
+              <div className="flex flex-col items-center justify-center w-[140px] h-[140px] rounded-xl bg-gradient-to-br from-primary to-primary/80 border border-primary/30 p-4">
+                <Award className="h-8 w-8 text-white mb-2" />
+                <span className="text-white font-bold text-sm text-center">ProTrain</span>
+                <span className="text-white/80 text-xs text-center">Authorized Partner</span>
+              </div>
             </div>
           </div>
         </section>
@@ -435,22 +478,6 @@ const Training = () => {
           </div>
         </section>
 
-        {/* Partner Badge Section */}
-        <section className="py-16 bg-gradient-to-b from-background to-muted/20">
-          <div className="container px-4 mx-auto max-w-7xl">
-            <div className="bg-card border rounded-xl p-8 md:p-12 text-center">
-              <img 
-                src={aicertsBadge} 
-                alt="AICerts Authorized Training Partner" 
-                className="mx-auto mb-6 max-w-2xl w-full h-auto"
-              />
-              <h2 className="text-3xl font-bold mb-4">AICerts Partner</h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                WhitegloveAI is proud to be an authorized partner of AICerts, delivering premium AI certification programs with the highest standards of quality and excellence.
-              </p>
-            </div>
-          </div>
-        </section>
 
         {/* Contact Section */}
         <ContactSection />

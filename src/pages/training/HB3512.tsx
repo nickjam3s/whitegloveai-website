@@ -4,7 +4,7 @@ import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { CheckCircle2, Building2, School, Users, FileCheck, AlertCircle, Shield } from "lucide-react";
+import { CheckCircle2, Building2, School, Users, FileCheck, AlertCircle, Shield, Award } from "lucide-react";
 import HeroBackground from "@/components/shared/HeroBackground";
 import { CourseChatbot } from "@/components/training/CourseChatbot";
 import ContactSection from "./components/ContactSection";
@@ -203,9 +203,7 @@ const HB3512 = () => {
                   <div>
                     <p className="text-lg font-semibold mb-2">Your Compliance Partner</p>
                     <p className="text-muted-foreground">
-                      WhitegloveAI built its <strong>AI Training & Certification Program</strong> specifically for HB3512 compliance: 
-                      modern, accessible, and aligned to the same rigorous governance principles we use to serve enterprise, 
-                      public sector, and SLED organizations.
+                      WhitegloveAI built its <strong>nationally accredited AI Training & Certification Program</strong> specifically for HB3512 compliance—delivered through ProTrain, a Middle States (MSA-CESS) accredited institution. Our programs are modern, accessible, and aligned to the rigorous governance principles government agencies require.
                     </p>
                   </div>
                 </div>
@@ -580,6 +578,11 @@ const HB3512 = () => {
                   icon: CheckCircle2,
                   title: "Low-Friction Compliance",
                   description: "Straightforward compliance that raises your workforce's AI literacy"
+                },
+                {
+                  icon: Award,
+                  title: "Nationally Accredited Provider",
+                  description: "Training delivered through a Middle States (MSA-CESS) accredited institution—meeting federal and state requirements for professional development quality and educational standards."
                 }
               ].map((feature, index) => (
                 <Card key={index} className="border-2 border-muted hover:border-primary/50 transition-all">

@@ -7,7 +7,7 @@ import { CourseFilters } from "@/components/training/CourseFilters";
 import { CourseCard } from "@/components/training/CourseCard";
 import { CourseChatbot } from "@/components/training/CourseChatbot";
 import { Button } from "@/components/ui/button";
-import aicertsBadge from "@/assets/aicerts-partner-badge.png";
+
 import HeroBackground from "@/components/shared/HeroBackground";
 import HB3512Banner from "@/components/HB3512Banner";
 import DirDisclaimer from "@/components/DirDisclaimer";
@@ -149,7 +149,7 @@ const TrainingCatalogue = () => {
                   Build Internal AI Expertise
                 </h1>
                 <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-                  Empower your workforce with industry-leading AI training and certifications through WhitegloveAI, an authorized training partner of AICerts.
+                  Empower your workforce with nationally accredited AI training and certifications through WhitegloveAI, delivering training through ProTrain, a Middle States accredited institution.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Button 
@@ -290,22 +290,6 @@ const TrainingCatalogue = () => {
           </div>
         </section>
 
-        {/* Partner Badge Section */}
-        <section className="py-16 bg-gradient-to-b from-background to-muted/20">
-          <div className="container px-4 mx-auto max-w-7xl">
-            <div className="bg-card border rounded-xl p-8 md:p-12 text-center">
-              <img 
-                src={aicertsBadge} 
-                alt="AICerts Authorized Training Partner" 
-                className="mx-auto mb-6 max-w-2xl w-full h-auto"
-              />
-              <h2 className="text-3xl font-bold mb-4">AICerts Partner</h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                WhitegloveAI is proud to be an authorized partner of AICerts, delivering premium AI certification programs with the highest standards of quality and excellence.
-              </p>
-            </div>
-          </div>
-        </section>
 
         {/* Contact Section */}
         <ContactSection />
