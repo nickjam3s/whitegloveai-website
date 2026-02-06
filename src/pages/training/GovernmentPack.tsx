@@ -118,27 +118,6 @@ const GovernmentPack = () => {
     }
   ];
 
-  const caseStudies = [
-    {
-      name: "City of McKinney",
-      type: "Municipal Government",
-      quote: "WhitegloveAI helped us prepare our entire workforce for the AI transformation with practical, government-focused training.",
-      result: "300+ employees trained"
-    },
-    {
-      name: "City of Harlingen",
-      type: "Municipal Government",
-      quote: "The Government Training Pack gave us exactly what we needed for HB3512 compliance with minimal disruption to operations.",
-      result: "HB3512 compliant"
-    },
-    {
-      name: "Dallas Baptist University",
-      type: "Higher Education",
-      quote: "ProTrain's nationally accredited program provided the quality assurance and documentation our institution requires.",
-      result: "Faculty & staff certified"
-    }
-  ];
-
   const pricingOptions = [
     {
       icon: Laptop,
@@ -508,35 +487,6 @@ const GovernmentPack = () => {
           </div>
         </section>
 
-        {/* Proven Results */}
-        <section className="py-16 bg-gradient-to-b from-background to-muted/20">
-          <div className="container px-4 mx-auto max-w-7xl">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                Proven Results
-              </h2>
-              <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-                Trusted by Texas government agencies and educational institutions
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-              {caseStudies.map((study, index) => (
-                <Card key={index} className="border-primary/20">
-                  <CardContent className="pt-6">
-                    <div className="text-sm text-primary font-medium mb-2">{study.type}</div>
-                    <h3 className="font-bold text-xl mb-3">{study.name}</h3>
-                    <p className="text-muted-foreground italic mb-4">"{study.quote}"</p>
-                    <div className="flex items-center gap-2 text-primary font-semibold">
-                      <CheckCircle2 className="h-5 w-5" />
-                      <span>{study.result}</span>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
 
         {/* Pricing & Delivery Options */}
         <section id="pricing" className="py-16 bg-muted/20">
