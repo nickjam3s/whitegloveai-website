@@ -95,7 +95,45 @@ const GovAI = () => {
       </section>
 
       <HB3512Banner />
-      
+
+      {/* Government AI Training Pack Section */}
+      <section className="py-16 bg-gradient-to-r from-secondary/5 via-background to-secondary/5">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-8 bg-card border border-secondary/30 rounded-2xl p-8">
+            <div className="flex items-start gap-6">
+              <div className="bg-secondary/10 p-4 rounded-xl">
+                <GraduationCap className="h-12 w-12 text-secondary" />
+              </div>
+              <div>
+                <h3 className="text-2xl font-bold text-foreground mb-2">
+                  Government AI Training Pack
+                </h3>
+                <p className="text-muted-foreground max-w-xl">
+                  Accredited AI training designed specifically for public sector employees. Meet Texas HB3512 compliance requirements while building practical AI skills across your organization.
+                </p>
+                <div className="flex flex-wrap gap-3 mt-4">
+                  <span className="px-3 py-1 bg-secondary/10 border border-secondary/30 rounded-full text-sm text-secondary">
+                    HB3512 Compliant
+                  </span>
+                  <span className="px-3 py-1 bg-secondary/10 border border-secondary/30 rounded-full text-sm text-secondary">
+                    MSA-CESS Accredited
+                  </span>
+                  <span className="px-3 py-1 bg-secondary/10 border border-secondary/30 rounded-full text-sm text-secondary">
+                    TXShare Available
+                  </span>
+                </div>
+              </div>
+            </div>
+            <Link to="/maisp/training/government-pack">
+              <Button size="lg" className="bg-secondary hover:bg-secondary/90 text-secondary-foreground whitespace-nowrap">
+                Explore Training Pack
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
 
       {/* Services for Government Section */}
       <section className="py-20 bg-background scroll-mt-20">
