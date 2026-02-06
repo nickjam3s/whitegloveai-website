@@ -8,6 +8,7 @@ import CoreBeliefs from '@/pages/consulting/components/chiefaiofficer/CoreBelief
 import { useIsMobile } from '@/hooks/use-mobile';
 import PageWrapper from '@/components/layout/PageWrapper';
 import SEO from '@/components/SEO';
+import StandardHero from '@/components/shared/StandardHero';
 
 const AboutUs = () => {
   const isMobile = useIsMobile();
@@ -52,46 +53,11 @@ const AboutUs = () => {
         description="WhitegloveAI empowers organizations with secure, responsible AI solutions. Meet our team and discover our mission to transform businesses."
         canonicalPath="/about-us"
       />
-      <section className="relative h-[100vh] flex items-center overflow-hidden bg-gradient-to-br from-secondary/5 via-background to-primary/5">
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute inset-0" style={{
-            backgroundImage: 'radial-gradient(circle at 2px 2px, hsl(var(--secondary)) 1px, transparent 0)',
-            backgroundSize: '40px 40px'
-          }}></div>
-        </div>
-        <div className="absolute top-1/4 left-10 w-72 h-72 bg-secondary/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-primary/10 rounded-full blur-3xl"></div>
-
-        <div className="container mx-auto px-4 flex flex-col items-center justify-center relative z-10">
-          <div className="max-w-5xl mx-auto text-center mb-8 md:mb-16">
-            <motion.h1 
-              initial={{ opacity: 0, y: 30 }} 
-              animate={{ opacity: 1, y: 0 }} 
-              transition={{ duration: 0.8 }}
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 md:mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-[#7021EE]"
-            >
-              Transforming Businesses with AI Excellence
-            </motion.h1>
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }} 
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-lg md:text-xl lg:text-2xl text-gray-200 mb-8 md:mb-12 max-w-3xl mx-auto px-3 sm:px-0 text-shadow-sm"
-            >
-              At WhitegloveAI, we're pioneering AI-driven transformations to elevate enterprise operations through innovative, ethical, and secure solutions.
-            </motion.p>
-
-            <motion.div 
-              className="absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer"
-              initial={{ y: 0, opacity: 0.5 }}
-              animate={{ y: 10, opacity: 1 }}
-              transition={{ duration: 1, repeat: Infinity, repeatType: "reverse" }}
-            >
-            
-            </motion.div>
-          </div>
-        </div>
-      </section>
+      <StandardHero
+        title="Transforming Businesses with AI Excellence"
+        subtitle="At WhitegloveAI, we're pioneering AI-driven transformations to elevate enterprise operations through innovative, ethical, and secure solutions."
+        height="full"
+      />
 
       <PageWrapper>
         <div className="container mx-auto px-4">

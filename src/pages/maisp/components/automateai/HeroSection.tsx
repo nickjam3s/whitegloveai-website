@@ -1,65 +1,20 @@
-import { ArrowRight, ArrowUpRight, Video } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
+import StandardHero from '@/components/shared/StandardHero';
 
 const HeroSection = () => {
   return (
-    <section className="relative pt-40 pb-28 px-4 sm:px-6 lg:px-8 overflow-hidden bg-gradient-to-br from-secondary/5 via-background to-primary/5">
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute inset-0" style={{
-          backgroundImage: 'radial-gradient(circle at 2px 2px, hsl(var(--secondary)) 1px, transparent 0)',
-          backgroundSize: '40px 40px'
-        }}></div>
-      </div>
-      <div className="absolute top-1/4 left-10 w-72 h-72 bg-secondary/10 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-primary/10 rounded-full blur-3xl"></div>
-      <div className="max-w-7xl mx-auto relative">
-        <div className="text-center">
-        <div className="flex justify-center mb-6"> {/* Added container for centering */}
-            <img 
-              src="/lovable-uploads/351136e7-c241-4c56-a606-3ff7a65a05ac.png" 
-              alt="WGAI Logo" 
-              width="100" 
-              height="100" 
-              className="logo-animation mx-auto" // Added mx-auto class
-              style={{ 
-                filter: "hue-rotate(260deg) brightness(150%) drop-shadow(0 0 10px rgba(112, 33, 238, 0.6))",
-                display: "block" // Ensures block-level display
-              }}
-            />
-          </div>
-          <motion.h1 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 md:mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-[#7021EE]"
-          >
-            From Conversation to Action: The Power of True Automation
-          </motion.h1>
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-lg md:text-xl lg:text-2xl text-gray-200 mb-8 md:mb-12 max-w-3xl mx-auto px-3 sm:px-0 text-shadow-sm"
-          >
-            AutomateAI transforms interactions into outcomes, creating intelligent workflows that automate tasks and integrate with your systems.
-          </motion.p>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            <a 
-              href="/contact" 
-              className="inline-flex items-center px-6 py-3 text-base font-medium text-white bg-secondary/20 hover:bg-secondary/30 rounded-lg transition-colors border border-secondary/50"
-            >
-              Learn More
-              <ArrowUpRight className="ml-2 h-5 w-5" />
-            </a>
-          </motion.div>
-        </div>
-      </div>
-    </section>
+    <StandardHero
+      showLogo
+      logoVariant="icon"
+      title="From Conversation to Action: The Power of True Automation"
+      subtitle="AutomateAI transforms interactions into outcomes, creating intelligent workflows that automate tasks and integrate with your systems."
+      primaryCTA={{
+        text: "Learn More",
+        href: "/contact",
+        icon: ArrowUpRight
+      }}
+      height="large"
+    />
   );
 };
 

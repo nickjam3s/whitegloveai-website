@@ -23,8 +23,8 @@ const HeroBackground = ({ children, className = "" }: HeroBackgroundProps) => {
       </div>
       
       {/* Blur Circles with Float Animation */}
-      <div className="absolute top-1/4 left-10 w-72 h-72 bg-secondary/10 rounded-full blur-3xl -z-10 animate-float-slow"></div>
-      <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-primary/10 rounded-full blur-3xl -z-10 animate-float-slower"></div>
+      <div className="absolute top-1/4 left-10 w-48 md:w-72 h-48 md:h-72 bg-secondary/10 rounded-full blur-3xl -z-10 animate-float-slow"></div>
+      <div className="absolute bottom-1/4 right-10 w-64 md:w-96 h-64 md:h-96 bg-primary/10 rounded-full blur-3xl -z-10 animate-float-slower"></div>
       
       {children}
     </div>
