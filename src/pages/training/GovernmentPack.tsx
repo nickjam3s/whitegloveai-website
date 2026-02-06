@@ -295,6 +295,67 @@ const GovernmentPack = () => {
         title="Government AI Training Pack | 4 Certifications for HB3512 Compliance | WhitegloveAI"
         description="Comprehensive AI training bundle for government agencies. Four nationally accredited certifications (28 hours) covering AI fundamentals, government applications, and ethical deployment. TXShare approved, HB3512 aligned."
         canonicalPath="/maisp/training/government-pack"
+        schemas={[
+          {
+            "@context": "https://schema.org",
+            "@type": "Course",
+            "name": "Government AI Training Pack",
+            "description": "Comprehensive AI literacy program for public sector employees. Four nationally accredited certifications covering AI fundamentals, government applications, and ethical deployment.",
+            "provider": {
+              "@type": "Organization",
+              "name": "WhitegloveAI",
+              "sameAs": "https://whitegloveai.com"
+            },
+            "educationalCredentialAwarded": "AI+ Certifications (Everyone, Foundation, Government, Ethics)",
+            "timeRequired": "PT28H",
+            "coursePrerequisites": "None",
+            "hasCourseInstance": [
+              {
+                "@type": "CourseInstance",
+                "courseMode": "online",
+                "name": "Self-Paced Online Training"
+              },
+              {
+                "@type": "CourseInstance",
+                "courseMode": "online",
+                "name": "Virtual Instructor-Led Training"
+              },
+              {
+                "@type": "CourseInstance",
+                "courseMode": "onsite",
+                "name": "In-Person Training"
+              }
+            ],
+            "offers": {
+              "@type": "Offer",
+              "price": "780",
+              "priceCurrency": "USD",
+              "priceValidUntil": "2026-12-31",
+              "availability": "https://schema.org/InStock"
+            },
+            "audience": {
+              "@type": "Audience",
+              "audienceType": "Government employees, public sector workers, state and local agencies"
+            }
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "Product",
+            "name": "Government AI Training Pack",
+            "description": "Four nationally accredited AI certifications bundled for government agencies. TXShare Contract #2025-023 approved.",
+            "brand": {
+              "@type": "Brand",
+              "name": "WhitegloveAI"
+            },
+            "offers": {
+              "@type": "AggregateOffer",
+              "lowPrice": "585",
+              "highPrice": "4130",
+              "priceCurrency": "USD",
+              "offerCount": "3"
+            }
+          }
+        ]}
       />
 
       <div className="min-h-screen bg-background">

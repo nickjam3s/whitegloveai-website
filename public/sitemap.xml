@@ -128,6 +128,11 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://whitegloveai.com/maisp/training/government-pack</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
   
   <!-- Government & Compliance -->
   <url>
