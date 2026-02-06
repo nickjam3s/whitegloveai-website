@@ -31,7 +31,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import SEO from "@/components/SEO";
 import ContactSection from "./maisp/components/humanoidai/ContactSection";
-import HeroBackground from "@/components/shared/HeroBackground";
+import StandardHero from "@/components/shared/StandardHero";
 import RobotPlatformShowcase from '@/components/robotics/RobotPlatformShowcase';
 import IndustryUseCases from '@/components/robotics/IndustryUseCases';
 
@@ -261,53 +261,28 @@ const HumanoidAI = () => {
       />
 
       {/* Hero Section */}
-      <HeroBackground>
-        <section className="relative py-20 md:py-32 overflow-hidden">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-center"
-            >
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-[#7021EE]">
-                Robotics as a Service: Managed AI Robots, Securely Deployed.
-              </h1>
-              <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto mb-10">
-                WhitegloveAI provides end-to-end managed robotics solutions, integrating best-in-class hardware with secure, American-developed software. We handle the complexity, so you can focus on the mission.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button 
-                  size="lg" 
-                  className="bg-secondary hover:bg-secondary/90 text-white px-8 py-6 text-lg"
-                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                >
-                  Request a Consultation
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </div>
-            </motion.div>
-
-            {/* Video Section */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="w-full max-w-4xl mx-auto mt-12"
-            >
-              <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-2xl shadow-purple-500/20 border border-white/10">
-                <iframe
-                  src="https://www.youtube.com/embed/NeiXuh32LWg?rel=0"
-                  title="WhitegloveAI Robotics"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  className="absolute inset-0 w-full h-full"
-                />
-              </div>
-            </motion.div>
+      <StandardHero
+        title="Robotics as a Service: Managed AI Robots, Securely Deployed."
+        subtitle="WhitegloveAI provides end-to-end managed robotics solutions, integrating best-in-class hardware with secure, American-developed software. We handle the complexity, so you can focus on the mission."
+        primaryCTA={{
+          text: "Request a Consultation",
+          href: "#contact"
+        }}
+        height="auto"
+      >
+        {/* Video Section */}
+        <div className="w-full max-w-4xl mx-auto mt-12">
+          <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-2xl shadow-purple-500/20 border border-border">
+            <iframe
+              src="https://www.youtube.com/embed/NeiXuh32LWg?rel=0"
+              title="WhitegloveAI Robotics"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="absolute inset-0 w-full h-full"
+            />
           </div>
-        </section>
-      </HeroBackground>
+        </div>
+      </StandardHero>
 
       {/* Problem Section */}
       <section className="py-20 bg-card scroll-mt-20">

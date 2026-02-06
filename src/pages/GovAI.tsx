@@ -23,7 +23,7 @@ import '@/styles/animations.css';
 import HB3512Banner from "@/components/HB3512Banner";
 
 import SEO from '@/components/SEO';
-import HeroBackground from "@/components/shared/HeroBackground";
+import StandardHero from "@/components/shared/StandardHero";
 
 const GovAI = () => {
   useLayoutEffect(() => {
@@ -61,38 +61,16 @@ const GovAI = () => {
         canonicalPath="/govai"
       />
       {/* Hero Section */}
-      <HeroBackground>
-        <section className="relative py-20 md:py-32 overflow-hidden">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-center"
-            >
-              <div className="flex justify-center mb-8">
-                <div className="bg-secondary/10 p-4 rounded-full border-2 border-secondary/30">
-                  <Building2 className="h-16 w-16 text-secondary" />
-                </div>
-              </div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-[#7021EE]">
-              AI Solutions Built for Government, Proven in Government
-            </h1>
-            <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto mb-10">
-              We partner with cities, counties, school districts, and public agencies to deploy secure, responsible AI that automates processes, enhances citizen services, and maximizes public resources.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/contact">
-                <Button size="lg" className="bg-secondary hover:bg-secondary/90 text-white px-8 py-6 text-lg">
-                  Schedule a Government Consultation
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </Link>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-      </HeroBackground>
+      <StandardHero
+        icon={Building2}
+        title="AI Solutions Built for Government, Proven in Government"
+        subtitle="We partner with cities, counties, school districts, and public agencies to deploy secure, responsible AI that automates processes, enhances citizen services, and maximizes public resources."
+        primaryCTA={{
+          text: "Schedule a Government Consultation",
+          href: "/contact"
+        }}
+        height="auto"
+      />
 
       {/* Problem Section */}
       <section className="py-20 bg-card scroll-mt-20">
