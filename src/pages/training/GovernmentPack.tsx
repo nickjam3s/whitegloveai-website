@@ -390,14 +390,6 @@ const GovernmentPack = () => {
                     size="lg" 
                     variant="outline"
                     className="text-lg px-8"
-                    onClick={() => window.open('https://lzxlamelyfrfrhrgfigb.supabase.co/storage/v1/object/public/documents/WhitegloveAI-Training-and-Certifications.pdf', '_blank')}
-                  >
-                    Download Overview
-                  </Button>
-                  <Button 
-                    size="lg" 
-                    variant="outline"
-                    className="text-lg px-8"
                     onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
                   >
                     See Pricing
