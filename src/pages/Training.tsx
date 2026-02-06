@@ -2,7 +2,7 @@ import { useLayoutEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import SEO from "@/components/SEO";
 import { courses } from "@/data/courses";
-import { Upload, Clock, Award, BookOpen, Users, TrendingUp, Building2, Briefcase, Sparkles, Code, Lightbulb, CheckCircle2, Shield, Landmark } from "lucide-react";
+import { Upload, Clock, Award, BookOpen, Users, TrendingUp, Building2, Briefcase, Sparkles, Code, Lightbulb, CheckCircle2, Shield, Landmark, Package, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { CourseCard } from "@/components/training/CourseCard";
 import { CourseChatbot } from "@/components/training/CourseChatbot";
@@ -100,7 +100,8 @@ const Training = () => {
       icon: Landmark,
       title: "GovAI Training & Compliance",
       description: (<>
-        Public sector AI education and regulatory compliance. Navigate TRAIGA requirements, <Link to="/training/hb3512" className="text-primary hover:underline">HB3512 mandates</Link>, AI procurement standards, and citizen-facing AI applications.
+        Public sector AI education and regulatory compliance. Navigate TRAIGA requirements, <Link to="/maisp/training/hb3512" className="text-primary hover:underline">HB3512 mandates</Link>, AI procurement standards, and citizen-facing AI applications.
+        <br/><span className="text-sm">→ <Link to="/maisp/training/government-pack" className="text-primary hover:underline">See our Government AI Training Pack</Link></span>
       </>),
       color: "text-orange-500"
     }
@@ -317,6 +318,29 @@ const Training = () => {
               >
                 View All {courses.length} Courses
               </Button>
+            </div>
+          </div>
+        </section>
+
+        {/* Government Training Pack Banner */}
+        <section className="py-8">
+          <div className="container px-4 mx-auto max-w-7xl">
+            <div className="bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 rounded-xl p-8 border border-primary/30">
+              <div className="flex flex-col md:flex-row items-center gap-6">
+                <div className="bg-primary/20 p-4 rounded-xl">
+                  <Package className="h-12 w-12 text-primary" />
+                </div>
+                <div className="flex-1 text-center md:text-left">
+                  <h3 className="text-2xl font-bold mb-2">Looking for a Complete Government AI Training Solution?</h3>
+                  <p className="text-muted-foreground">
+                    The Government AI Training Pack bundles four certifications (AI+ Everyone, AI+ Foundation, AI+ Government, AI+ Ethics) for comprehensive AI literacy across your organization. Save with bundled pricing and volume discounts.
+                  </p>
+                </div>
+                <Button size="lg" onClick={() => navigate('/maisp/training/government-pack')}>
+                  Explore Government Training Pack
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </div>
             </div>
           </div>
         </section>

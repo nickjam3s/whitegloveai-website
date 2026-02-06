@@ -4,7 +4,7 @@ import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { CheckCircle2, Building2, School, Users, FileCheck, AlertCircle, Shield, Award } from "lucide-react";
+import { CheckCircle2, Building2, School, Users, FileCheck, AlertCircle, Shield, Award, ArrowRight } from "lucide-react";
 import HeroBackground from "@/components/shared/HeroBackground";
 import { CourseChatbot } from "@/components/training/CourseChatbot";
 import ContactSection from "./components/ContactSection";
@@ -605,6 +605,42 @@ const HB3512 = () => {
                   </div>
                 ))}
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Complete HB3512 Compliance Solution */}
+        <section className="py-16 bg-gradient-to-b from-background to-muted/20">
+          <div className="container px-4 mx-auto max-w-7xl">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">Complete HB3512 Compliance Solution</h2>
+              <p className="text-lg text-muted-foreground mb-8">
+                Our Government AI Training Pack provides comprehensive coverage of HB3512 requirements with four nationally accredited certifications designed specifically for government employees.
+              </p>
+              
+              <div className="grid md:grid-cols-2 gap-4 mb-8">
+                {[
+                  "Covers all HB3512 mandated topics",
+                  "Government-specific examples and case studies",
+                  "Nationally accredited through ProTrain (MSA-CESS)",
+                  "Available through TXShare Contract #2025-023",
+                  "Flexible delivery: self-paced, virtual, or in-person",
+                  "Volume discounts for large deployments"
+                ].map((item, index) => (
+                  <div key={index} className="flex items-start gap-3">
+                    <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-1" />
+                    <span className="text-muted-foreground">{item}</span>
+                  </div>
+                ))}
+              </div>
+              
+              <Button 
+                size="lg"
+                onClick={() => navigate('/maisp/training/government-pack')}
+              >
+                View Government Training Pack Details
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
             </div>
           </div>
         </section>
