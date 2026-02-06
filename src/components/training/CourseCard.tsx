@@ -78,7 +78,7 @@ export const CourseCard = ({ course, isFeatured = false }: CourseCardProps) => {
     toast.success(`${course.name} added to cart`);
   };
 
-  const coursePrice = course.duration === "1 Day" ? 195 : 495;
+  const coursePrice = course.duration === "5 Days" ? 495 : 195;
   
   return (
     <Card className={`group hover:shadow-lg transition-all duration-300 ${isFeatured ? 'border-primary' : ''}`}>

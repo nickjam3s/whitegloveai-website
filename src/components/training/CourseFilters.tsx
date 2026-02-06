@@ -103,6 +103,16 @@ export const CourseFilters = ({
         <div className="space-y-2">
           <div className="flex items-center space-x-2">
             <Checkbox
+              id="duration-4h"
+              checked={selectedDurations.includes("4 Hours")}
+              onCheckedChange={() => onDurationChange("4 Hours")}
+            />
+            <Label htmlFor="duration-4h" className="cursor-pointer font-normal">
+              4 Hours
+            </Label>
+          </div>
+          <div className="flex items-center space-x-2">
+            <Checkbox
               id="duration-1"
               checked={selectedDurations.includes("1 Day")}
               onCheckedChange={() => onDurationChange("1 Day")}
