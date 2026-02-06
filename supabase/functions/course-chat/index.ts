@@ -327,6 +327,73 @@ TONE AND POSITIONING:
 - For government buyers: emphasize accreditation, HB3512 alignment, TXShare procurement
 - For enterprise buyers: emphasize quality, skill validation, professional recognition
 - For individual learners: emphasize career value, recognized credentials, quality instruction
+
+GOVERNMENT AI TRAINING PACK (BUNDLE OFFERING):
+
+The Government AI Training Pack is a comprehensive bundle of four nationally accredited certifications designed specifically for government agencies:
+
+1. AI+ Everyone (8 hours) - Broad AI introduction for all employees
+   - What is AI and how it works
+   - AI applications across industries
+   - AI's impact on work and society
+   - Future trends and opportunities
+
+2. AI+ Foundation (4 hours) - Practical prompt engineering and AI tool usage
+   - Prompt engineering fundamentals
+   - Working with ChatGPT, Copilot, and other tools
+   - Practical AI applications for productivity
+   - Hands-on labs and exercises
+
+3. AI+ Government (8 hours) - Government-specific applications and Texas compliance
+   - Texas HB3512 and TRAIGA compliance
+   - Government AI use cases and examples
+   - Citizen-facing AI applications
+   - Procurement and authorization requirements
+
+4. AI+ Ethics (8 hours) - Responsible AI deployment framework
+   - Five principles of responsible AI
+   - Bias detection and mitigation
+   - Privacy, security, and transparency
+   - Human oversight and accountability
+
+Total: 28 hours of progressive, government-focused training
+
+GOVERNMENT PACK PRICING:
+- Self-paced: $780 per employee
+- Virtual instructor-led: $3,980 per employee
+- In-person: $4,130 per employee
+
+VOLUME DISCOUNTS (Self-paced):
+- 50-99 employees: 10% off ($702/employee)
+- 100-249 employees: 15% off ($663/employee)
+- 250-499 employees: 20% off ($624/employee)
+- 500+ employees: 25% off ($585/employee)
+
+KEY BENEFITS:
+- Designed for HB3512 compliance
+- Nationally accredited through ProTrain (MSA-CESS)
+- Available through TXShare Contract #2025-023
+- Technology-agnostic curriculum
+- Proven results with Texas municipalities
+- Flexible implementation (pilot → department → citywide)
+
+WHEN TO RECOMMEND THE GOVERNMENT PACK:
+- Government agency employees (city, county, state)
+- Organizations needing HB3512 compliance
+- Agencies wanting comprehensive AI literacy across all staff levels
+- Organizations with 25+ employees (volume pricing makes it cost-effective)
+- Agencies preferring bundled solutions over individual certifications
+
+SAMPLE RESPONSES FOR GOVERNMENT PACK:
+
+User: "What training do you recommend for a city government?"
+Answer: "For city government, I recommend the Government AI Training Pack. It's specifically designed for public sector employees and includes four certifications covering everything from AI basics to government-specific applications to ethical deployment. It's designed to meet HB3512 requirements and is available through TXShare Contract #2025-023. Would you like to learn more about the pack or see individual certifications?"
+
+User: "We need to train 150 city employees for HB3512 compliance"
+Answer: "Perfect! For 150 employees, the Government AI Training Pack is ideal. You'll get 15% volume discount pricing. For self-paced delivery, that's $663 per employee (total: $99,450). The pack includes all four certifications needed for comprehensive HB3512 compliance: AI+ Everyone, AI+ Foundation, AI+ Government, and AI+ Ethics. You can also mix delivery formats—for example, self-paced for frontline staff and virtual instructor-led for managers. Would you like a detailed quote?"
+
+User: "What's the difference between buying certifications individually vs. the Government Pack?"
+Answer: "Great question! The Government AI Training Pack bundles four certifications (AI+ Everyone, AI+ Foundation, AI+ Government, AI+ Ethics) into a comprehensive 28-hour program. The bundled pricing is the same as individual courses but provides a structured, progressive learning path. The real savings come from volume discounts—up to 25% off for 500+ employees. The pack is specifically designed for government agencies with HB3512 compliance in mind."
 `;
 
     // Handle resume upload with options
@@ -378,7 +445,7 @@ Example format:
 4. AI+ Foundation - Essential groundwork for your AI journey
 5. AI+ Business Intelligence - Your data experience pairs well with AI analytics
 
-Each course leads to nationally accredited certification through ProTrain, our MSA-CESS accredited educational partner."`;
+Each course leads to nationally accredited certification through ProTrain, our MSA-CESS accredited educational partner. For government agencies, also consider the Government AI Training Pack which bundles four certifications for comprehensive coverage."`;
     }
     // Regular conversation mode
     else {

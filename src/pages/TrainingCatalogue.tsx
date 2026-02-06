@@ -1,8 +1,8 @@
 import { useState, useMemo, useLayoutEffect, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import SEO from "@/components/SEO";
 import { courses } from "@/data/courses";
-import { Upload } from "lucide-react";
+import { Upload, Info } from "lucide-react";
 import { CourseFilters } from "@/components/training/CourseFilters";
 import { CourseCard } from "@/components/training/CourseCard";
 import { CourseChatbot } from "@/components/training/CourseChatbot";
@@ -162,6 +162,23 @@ const TrainingCatalogue = () => {
         <HB3512Banner />
         {/* DIR Disclaimer */}
         <DirDisclaimer />
+
+        {/* Government Pack Info Banner */}
+        <section className="py-4">
+          <div className="container px-4 mx-auto max-w-7xl">
+            <div className="bg-primary/10 border border-primary/30 rounded-lg p-4">
+              <div className="flex items-center gap-3">
+                <Info className="h-5 w-5 text-primary flex-shrink-0" />
+                <p className="text-sm">
+                  <strong>Government agencies:</strong> Save with our Government AI Training Pack—four certifications bundled at discounted pricing.{' '}
+                  <Link to="/maisp/training/government-pack" className="text-primary hover:underline font-medium">
+                    Learn more →
+                  </Link>
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
 
         {/* AI Course Advisor Section */}
         <section className="py-8 bg-gradient-to-b from-background to-muted/20">
