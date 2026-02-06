@@ -2,7 +2,7 @@ export interface Course {
   name: string;
   status: "Available" | "Coming Soon";
   featured: boolean;
-  duration: "1 Day" | "5 Days";
+  duration: "4 Hours" | "1 Day" | "5 Days";
   practiceArea: string;
   portfolioType: string;
   level: "Foundation" | "Intermediate" | "Advanced";
@@ -28,7 +28,7 @@ export const courses: Course[] = [
     name: "AI+ Foundation",
     status: "Available",
     featured: true,
-    duration: "5 Days",
+    duration: "4 Hours",
     practiceArea: "Essential",
     portfolioType: "Professional",
     level: "Foundation",

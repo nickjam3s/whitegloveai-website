@@ -50,12 +50,12 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
   }, [items]);
 
   const getCoursePrice = (course: Course): { priceId: string; price: number } => {
-    // Professional (1-Day) courses: $195
-    if (course.duration === "1 Day") {
-      return { priceId: "price_1SRepxHpFhtdY26lBYQhetwe", price: 195 };
-    }
     // Technical (5-Day) courses: $495
-    return { priceId: "price_1SReq7HpFhtdY26l8vfwnlnF", price: 495 };
+    if (course.duration === "5 Days") {
+      return { priceId: "price_1SReq7HpFhtdY26l8vfwnlnF", price: 495 };
+    }
+    // Professional (1-Day and 4-Hour) courses: $195
+    return { priceId: "price_1SRepxHpFhtdY26lBYQhetwe", price: 195 };
   };
 
   const addToCart = (course: Course, quantity: number = 1) => {
