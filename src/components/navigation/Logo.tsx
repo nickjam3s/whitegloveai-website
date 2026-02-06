@@ -10,6 +10,9 @@ const Logo = () => (
       src="/lovable-uploads/cbc85045-41f1-434b-a70d-69aca08e4e66.png"
       alt="WhitegloveAI Logo"
       className="h-10"
+      width="227"
+      height="40"
+      loading="eager"
     />
   </Link>
 );

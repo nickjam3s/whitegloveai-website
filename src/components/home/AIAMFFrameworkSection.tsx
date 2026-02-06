@@ -28,7 +28,14 @@ const AIAMFFrameworkSection = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 animate-fade-up">
           <a href="https://www.aiamf.ai" target="_blank" rel="noopener noreferrer" className="inline-block relative rounded-xl overflow-hidden group">
-            <img src="/lovable-uploads/4647222e-2cb8-4c83-a56c-fafa2c6b70a0.png" alt="AI-AMF Framework Diagram" className="mx-auto mb-8 max-w-xl w-full transition-transform duration-300 group-hover:scale-[1.02] relative z-10" />
+            <img 
+              src="/lovable-uploads/4647222e-2cb8-4c83-a56c-fafa2c6b70a0.png" 
+              alt="AI-AMF Framework Diagram" 
+              className="mx-auto mb-8 max-w-xl w-full transition-transform duration-300 group-hover:scale-[1.02] relative z-10" 
+              width="576"
+              height="514"
+              loading="lazy"
+            />
           </a>
           <h2 className="text-3xl font-semibold mb-4 heading-highlight-scroll text-white">
             AI Adoption & Management Framework (AI-AMF)
