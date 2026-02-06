@@ -837,11 +837,11 @@ const GovernmentPack = () => {
                       workwith@whitegloveai.com
                     </a>
                     <a 
-                      href="tel:+14694219918" 
+                      href="tel:+14692099907" 
                       className="flex items-center gap-2 hover:text-primary transition-colors"
                     >
                       <Phone className="h-5 w-5" />
-                      +1 (469) 421-9918
+                      +1 (469) 209-9907
                     </a>
                   </div>
                 </div>
