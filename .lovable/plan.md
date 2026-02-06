@@ -1,158 +1,236 @@
 
+# Plan: Standardize Hero Section Design and Animation System
 
-# Plan: Add Proper SEO for Government Training Pack Page
-
-This plan adds the Government Training Pack page to the sitemap and enhances the SEO with JSON-LD structured data for better search engine visibility.
-
----
-
-## Current Status
-
-| Item | Status |
-|------|--------|
-| Navigation menu (`navigationData.ts`) | Already listed at `/maisp/training/government-pack` |
-| Footer (`Footer.tsx`) | Already listed with link to page |
-| Basic SEO (title, description, canonical) | Already implemented in `GovernmentPack.tsx` |
-| Sitemap (`sitemap.xml`) | **Missing** - needs to be added |
-| JSON-LD structured data | **Missing** - should be added for rich search results |
+This plan creates a unified hero section system across all WhitegloveAI pages, ensuring visual consistency while maintaining flexibility for page-specific content.
 
 ---
 
-## Changes Required
+## Current State Analysis
 
-### File 1: `public/sitemap.xml`
+After reviewing 20+ hero section implementations across the site, I found **7 different design patterns** currently in use:
 
-Add the Government Training Pack page entry after the existing training entries (after line 130):
+| Pattern | Pages Using It | Key Characteristics |
+|---------|----------------|---------------------|
+| **GradientMeshAnimation** | Home page only | Canvas-based particle animation, full viewport height, WhitegloveAI logo |
+| **HeroBackground component** | GovAI, Training, TRAIGA, Robotics | Dot pattern + blur circles + gradient overlays |
+| **Morphing blob** | AI Enablement, MediaAI | `radial-gradient` with CSS keyframe animations |
+| **Floating particles** | VendorAI | `framer-motion` animated circles |
+| **Static gradient** | TextAI, AvatarAI, AutomateAI, vCAIO, AboutUs, Adopt, Launch | `bg-gradient-to-br from-secondary/5` + dot pattern |
+| **Solid gradient overlay** | MAISP main page | `from-[#7021EE]/20 to-black/90` |
+| **No background** | Some component HeroSections | Plain background inherited from parent |
 
-**New Entry:**
-```xml
-  <url>
-    <loc>https://whitegloveai.com/maisp/training/government-pack</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
+**Key Inconsistencies Found:**
+- **Heights vary**: `h-[100vh]`, `pt-40 pb-28`, `py-20 md:py-32`, `min-h-screen`
+- **Title styles vary**: Some use `heading-highlight`, others use `gradient-text`, others use `bg-clip-text`
+- **Animation approaches differ**: Some use framer-motion, some CSS keyframes, some no animations
+- **Logo placement**: Some show WGAI icon, some show full logo, some have no logo
+- **CTA button styles**: Multiple different button variants used
+
+---
+
+## Recommended Standardized Design System
+
+### Design Concept: "Ambient Intelligence"
+Given WhitegloveAI's audience (government, enterprise, professional services), the hero should convey:
+- **Trust and stability** (subtle, not flashy)
+- **Innovation** (modern, tech-forward)
+- **Professionalism** (clean, not cluttered)
+- **AI expertise** (intelligent, ambient effects)
+
+### The Unified Hero Pattern
+
+```text
++---------------------------------------------------+
+|  [Dot Pattern Overlay - 20% opacity]              |
+|                                                   |
+|    [Blur Circle - top left - slow float]          |
+|                                                   |
+|         [Optional: Service Icon or WGAI Logo]     |
+|                                                   |
+|         [Title - Gradient Text Animation]         |
+|         (from-white to-[#7021EE])                 |
+|                                                   |
+|         [Subtitle - Gray 200-300]                 |
+|         (fade-in with delay)                      |
+|                                                   |
+|         [CTA Button(s) - Standardized]            |
+|                                                   |
+|    [Blur Circle - bottom right - slow float]      |
+|                                                   |
+|  [Optional: Scroll indicator for full-height]     |
++---------------------------------------------------+
 ```
 
-Priority is set to 0.9 (high) because this is a key product page for government sales.
-
 ---
 
-### File 2: `src/pages/training/GovernmentPack.tsx`
+## Implementation Approach
 
-Enhance the SEO component (lines 294-298) to include JSON-LD structured data:
+### Phase 1: Create Unified Hero Component
 
-**Current:**
-```tsx
-<SEO
-  title="Government AI Training Pack | 4 Certifications for HB3512 Compliance | WhitegloveAI"
-  description="Comprehensive AI training bundle for government agencies. Four nationally accredited certifications (28 hours) covering AI fundamentals, government applications, and ethical deployment. TXShare approved, HB3512 aligned."
-  canonicalPath="/maisp/training/government-pack"
-/>
+Create a new standardized `<StandardHero>` component in `src/components/shared/StandardHero.tsx` with these props:
+
+| Prop | Type | Description |
+|------|------|-------------|
+| `title` | string | Main headline |
+| `subtitle` | string | Supporting text |
+| `icon` | LucideIcon (optional) | Service icon to display |
+| `showLogo` | boolean | Whether to show WGAI logo |
+| `logoVariant` | "icon" | "full" | Which logo style |
+| `height` | "full" | "auto" | Full viewport or content-based |
+| `primaryCTA` | { text, href, external? } | Primary button |
+| `secondaryCTA` | { text, href, external? } | Optional secondary button |
+| `showScrollIndicator` | boolean | Show bouncing arrow |
+| `children` | ReactNode | Custom content (countdown timer, video, etc.) |
+
+### Phase 2: Background Animation Options
+
+The component will support three animation modes via a `backgroundVariant` prop:
+
+1. **"ambient"** (default) - Uses existing `HeroBackground` component
+   - Dot pattern overlay
+   - Two floating blur circles
+   - Gradient overlay
+
+2. **"mesh"** - Uses `GradientMeshAnimation` (home page style)
+   - Canvas-based particles
+   - Moving gradient blobs
+   - Most visually dynamic
+
+3. **"minimal"** - Simple gradient only
+   - `bg-gradient-to-b from-[#7021EE]/10 to-background`
+   - For pages where content is the focus
+
+### Phase 3: Standardized Animations
+
+All hero sections will use consistent framer-motion animations:
+
+```typescript
+// Title animation - spring-based entrance
+const titleAnimation = {
+  initial: { opacity: 0, y: 30 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.8, ease: "easeOut" }
+};
+
+// Subtitle animation - delayed fade
+const subtitleAnimation = {
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.8, delay: 0.2 }
+};
+
+// CTA animation - further delayed
+const ctaAnimation = {
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.8, delay: 0.4 }
+};
 ```
 
-**New:**
-```tsx
-<SEO
-  title="Government AI Training Pack | 4 Certifications for HB3512 Compliance | WhitegloveAI"
-  description="Comprehensive AI training bundle for government agencies. Four nationally accredited certifications (28 hours) covering AI fundamentals, government applications, and ethical deployment. TXShare approved, HB3512 aligned."
-  canonicalPath="/maisp/training/government-pack"
-  schemas={[
-    {
-      "@context": "https://schema.org",
-      "@type": "Course",
-      "name": "Government AI Training Pack",
-      "description": "Comprehensive AI literacy program for public sector employees. Four nationally accredited certifications covering AI fundamentals, government applications, and ethical deployment.",
-      "provider": {
-        "@type": "Organization",
-        "name": "WhitegloveAI",
-        "sameAs": "https://whitegloveai.com"
-      },
-      "educationalCredentialAwarded": "AI+ Certifications (Everyone, Foundation, Government, Ethics)",
-      "timeRequired": "PT28H",
-      "coursePrerequisites": "None",
-      "hasCourseInstance": [
-        {
-          "@type": "CourseInstance",
-          "courseMode": "online",
-          "name": "Self-Paced Online Training"
-        },
-        {
-          "@type": "CourseInstance",
-          "courseMode": "online",
-          "name": "Virtual Instructor-Led Training"
-        },
-        {
-          "@type": "CourseInstance",
-          "courseMode": "onsite",
-          "name": "In-Person Training"
-        }
-      ],
-      "offers": {
-        "@type": "Offer",
-        "price": "780",
-        "priceCurrency": "USD",
-        "priceValidUntil": "2026-12-31",
-        "availability": "https://schema.org/InStock"
-      },
-      "audience": {
-        "@type": "Audience",
-        "audienceType": "Government employees, public sector workers, state and local agencies"
-      }
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "Product",
-      "name": "Government AI Training Pack",
-      "description": "Four nationally accredited AI certifications bundled for government agencies. TXShare Contract #2025-023 approved.",
-      "brand": {
-        "@type": "Brand",
-        "name": "WhitegloveAI"
-      },
-      "offers": {
-        "@type": "AggregateOffer",
-        "lowPrice": "585",
-        "highPrice": "4130",
-        "priceCurrency": "USD",
-        "offerCount": "3"
-      }
-    }
-  ]}
-/>
-```
+### Phase 4: Typography Standards
 
-The JSON-LD includes:
-- **Course schema**: For Google's rich results for educational content
-- **Product schema**: For price range visibility in search results
-- Multiple course delivery modes (self-paced, virtual, in-person)
-- Audience targeting for government employees
-- Price range from $585 (volume discount) to $4,130 (in-person)
+| Element | Classes |
+|---------|---------|
+| **Title** | `text-4xl sm:text-5xl lg:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-[#7021EE]` |
+| **Subtitle** | `text-lg md:text-xl lg:text-2xl text-gray-200 max-w-3xl mx-auto` |
+| **Primary CTA** | `bg-secondary hover:bg-secondary/90 text-white px-8 py-6 text-lg` |
+| **Secondary CTA** | `bg-secondary/20 hover:bg-secondary/30 border border-secondary/50` |
 
 ---
 
-## Files Affected Summary
+## Files to Create/Modify
 
-| File | Lines Modified | Action |
-|------|----------------|--------|
-| `public/sitemap.xml` | ~5 lines | Add new URL entry |
-| `src/pages/training/GovernmentPack.tsx` | ~55 lines | Add JSON-LD schemas to SEO component |
+### New Files
+
+| File | Purpose |
+|------|---------|
+| `src/components/shared/StandardHero.tsx` | Unified hero component |
+| `src/components/shared/StandardHero.types.ts` | TypeScript interfaces |
+
+### Files to Update (30 hero sections)
+
+Grouped by priority:
+
+**High-traffic pages (Phase 1):**
+1. `src/components/home/HeroSection.tsx` - Keep GradientMesh, align animations
+2. `src/pages/GovAI.tsx` - Already uses HeroBackground, standardize content
+3. `src/pages/Training.tsx` - Already uses HeroBackground, standardize content
+4. `src/pages/TRAIGA.tsx` - Already uses HeroBackground, keep countdown
+5. `src/pages/Consulting.tsx` (vCAIO) - Standardize
+
+**Service pages (Phase 2):**
+6. `src/pages/maisp/components/HeroSection.tsx`
+7. `src/pages/maisp/components/textai/HeroSection.tsx`
+8. `src/pages/maisp/components/avatarai/HeroSection.tsx`
+9. `src/pages/maisp/components/automateai/HeroSection.tsx`
+10. `src/pages/maisp/components/vendorai/HeroSection.tsx`
+11. `src/pages/maisp/components/mediaai/HeroSection.tsx`
+12. `src/pages/maisp/components/translateai/HeroSection.tsx`
+13. `src/pages/maisp/components/textai/TextAIForGoodHero.tsx`
+14. `src/pages/Robotics.tsx`
+
+**Consulting pages (Phase 3):**
+15. `src/pages/consulting/components/adopt/HeroSection.tsx`
+16. `src/pages/consulting/components/launch/HeroSection.tsx`
+17. `src/pages/consulting/components/enable/HeroSection.tsx`
+18. `src/pages/consulting/components/chiefaiofficer/HeroSection.tsx`
+
+**About/Other pages (Phase 4):**
+19. `src/pages/AboutUs.tsx`
+20. `src/pages/StrategicAdvisors.tsx` (and `src/pages/advisors/heroSection.tsx`)
+21. `src/pages/Internship.tsx`
+22. `src/pages/components/HeroSection.tsx`
 
 ---
 
-## Verification Already Complete
+## Visual Standardization Summary
 
-The page is already properly listed in:
-- Navigation menu: "AI Training" > "Government Training Pack"
-- Footer: "More Services" section includes "Government Training Pack"
+| Aspect | Standard |
+|--------|----------|
+| **Background** | HeroBackground component (ambient mode) as default |
+| **Height** | Full viewport (`h-[100vh]`) for main landing pages; `py-20 md:py-32` for service pages |
+| **Title gradient** | `from-white to-[#7021EE]` |
+| **Animation** | framer-motion with consistent timing (0.8s base, 0.2s stagger) |
+| **Logo** | WGAI icon with purple hue filter for service pages; Full logo for home page |
+| **Blur circles** | `bg-secondary/10` and `bg-primary/10` with `animate-float-slow` |
+| **Button style** | Primary: filled secondary color; Secondary: ghost with border |
 
 ---
 
-## SEO Benefits
+## Technical Considerations
 
-After implementation:
-- Page will be discoverable via sitemap for search engine crawlers
-- Rich search results with course and pricing information
-- Better visibility for "government AI training" searches
-- Price range displayed in search results
-- Course duration (28 hours) visible in rich snippets
-- Audience targeting improves relevance for government-related queries
+### Performance
+- Keep canvas animations (GradientMesh) only for home page
+- Use CSS animations for blur circles where possible
+- Lazy load framer-motion animations with `viewport={{ once: true }}`
 
+### Accessibility
+- Ensure color contrast meets WCAG AA standards
+- Add `aria-label` to decorative elements
+- Ensure animations respect `prefers-reduced-motion`
+
+### Mobile Responsiveness
+- Title scales: `text-3xl sm:text-4xl md:text-5xl lg:text-6xl`
+- Reduce blur circle sizes on mobile
+- Stack CTA buttons vertically on mobile
+
+---
+
+## Estimated Scope
+
+| Phase | Files | Effort |
+|-------|-------|--------|
+| Create StandardHero component | 2 | ~1 hour |
+| Update high-traffic pages | 5 | ~2 hours |
+| Update service pages | 9 | ~3 hours |
+| Update consulting pages | 4 | ~1.5 hours |
+| Update about/other pages | 4 | ~1 hour |
+| **Total** | **24 files** | **~8.5 hours** |
+
+---
+
+## Alternative Approaches Considered
+
+1. **Keep all unique designs** - Rejected because inconsistency hurts brand perception
+2. **Single animation for all** - Rejected because home page deserves premium treatment
+3. **Remove all animations** - Rejected because animations convey innovation and modernity
