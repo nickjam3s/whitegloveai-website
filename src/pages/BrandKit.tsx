@@ -49,7 +49,7 @@ const BrandKit = () => {
                   <img src={logo.file} alt={logo.name} className="max-h-full max-w-full object-contain" loading="lazy" />
                 </div>
                 <p className="text-sm text-gray-700 font-medium mb-3 text-center">{logo.name}</p>
-                <Button variant="outline" size="sm" className="text-gray-700 border-gray-300 hover:bg-gray-100" onClick={() => handleDownload(logo.file, logo.filename)}>
+                <Button variant="outline" size="sm" className="bg-white text-gray-700 border-gray-300 hover:bg-gray-100" onClick={() => handleDownload(logo.file, logo.filename)}>
                   <Download className="h-4 w-4 mr-2" />
                   Download
                 </Button>
