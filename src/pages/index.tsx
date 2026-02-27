@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import HB3512Banner from '@/components/HB3512Banner';
 import HeroSection from '@/components/home/HeroSection';
 import TrustedBy from '@/components/home/TrustedBy';
 import ServicesSection from '@/components/home/ServicesSection';
@@ -89,7 +90,14 @@ const Index = () => {
       />
       <HeroSection />
       
-      {/* Enhanced TRAIGA Announcement Bar */}
+      {/* DIR-Certified HB3512 Banner */}
+      <HB3512Banner />
+
+      <TrustedBy />
+      <ServicesSection />
+      <GovAIHighlight />
+      <AIAMFFrameworkSection />
+
       {/* TXShare Announcement Bar */}
       <section
         aria-label="TXShare Announcement"
@@ -118,12 +126,6 @@ const Index = () => {
           </div>
         </div>
       </section>
-      
-
-      <TrustedBy />
-      <ServicesSection />
-      <GovAIHighlight />
-      <AIAMFFrameworkSection />
 
       {/* TRAIGA Triage Center Section */}
       <section className="py-20 bg-gradient-to-t from-primary/10 via-background to-accent/5 relative overflow-hidden">
