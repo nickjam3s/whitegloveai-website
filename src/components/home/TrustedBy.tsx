@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 
 const logos = [
+  { src: '/lovable-uploads/city-of-dallas-white.png', alt: 'City of Dallas Logo', height: 64 },
   { src: '/lovable-uploads/city-of-harlingen-white.png', alt: 'City of Harlingen Texas Logo', height: 64 },
   { src: '/lovable-uploads/7a4a8a1b-9c9a-4bb0-96f4-4e10213073d5.png', alt: 'McKinney Texas Unique By Nature Logo', height: 64 },
   { src: '/lovable-uploads/1ca9f7e9-12e2-46cd-9d26-bf3264c8282c.png', alt: 'Allen Star Logo', height: 64 },
@@ -14,9 +15,6 @@ const logos = [
   { src: '/lovable-uploads/f0ca996d-42e2-4524-b115-7ff8ed634282.png', alt: 'Principal Logo', height: 64 },
   { src: '/lovable-uploads/b6a654ad-cab3-433b-b6d1-d7783e010859.png', alt: 'MEDC Logo', height: 64 },
   { src: '/lovable-uploads/c0e45a43-6f9f-4579-af85-ed5c9bfa2e58.png', alt: 'Mastercard Logo', height: 64 },
-  { src: '/lovable-uploads/31ce2c79-4446-474c-944b-387098eef691.png', alt: 'Kofile Logo', height: 64 },
-  { src: '/lovable-uploads/70c9104c-d289-4a52-b28e-49337cc8409a.png', alt: 'Tackle Tomorrow Logo', height: 64 },
-  { src: '/lovable-uploads/59a4884a-03e1-43ef-a6d1-e79c5ca8e3ea.png', alt: 'New Logo', height: 64 },
 ];
 
 // Static grid logos with North Texas Tollway added at the beginning
@@ -104,7 +102,7 @@ const TrustedBy = () => {
         <div className="container mx-auto px-4">
           <h2 className="text-center text-white text-3xl font-semibold mb-8">Trusted By</h2>
           
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-8 max-w-6xl mx-auto">
             {staticGridLogos.map((logo, index) => {
               // Mobile-specific alignment adjustments for specific logos
               let mobileTransform = '';
