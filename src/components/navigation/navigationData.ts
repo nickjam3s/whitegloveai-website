@@ -56,10 +56,10 @@ export const navigationLinks = [
         text: "AI Training",
         to: "/maisp/training",
         children: [
+          { to: "/training/academy", text: "HB3512 Compliance", dividerAfter: true },
           { to: "/maisp/training", text: "Overview" },
           { to: "/maisp/training/government-pack", text: "Government Training Pack" },
-          { to: "/maisp/training/catalogue", text: "Course Catalogue" },
-          { to: "/maisp/training/hb3512", text: "Texas HB3512 Compliance" }
+          { to: "/maisp/training/catalogue", text: "Course Catalogue" }
         ]
       },
       { to: "/maisp/robotics", text: "Robotics" }
