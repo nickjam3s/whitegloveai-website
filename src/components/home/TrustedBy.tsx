@@ -27,11 +27,11 @@ const staticGridLogos = [
 
 const reviews = [
   {
-    text: `"WhitegloveAI provided outstanding service in every aspect of our needs. I was initially apprehensive about this new project—there was a lot at stake—but within 15 minutes of rollout, it was clear the product and service were both impeccable. Even with the complexity of our setup, WhitegloveAI addressed every detail flawlessly. The feedback from our attendees was overwhelmingly positive: 94% of survey responders said they were 'satisfied' or 'very satisfied' with the AI translation service. That is a huge win!"`,
-    author: "Phil Armstrong",
-    title: "Director of Global Community",
-    company: "Dallas Baptist University",
-    photo: "/lovable-uploads/1c858f73-9c43-41d9-92ea-f3233a1efc2f.png",
+    text: `"The AI+ Chief AI Officer™ certification offered by AI CERTs™ is a well-structured program designed for professionals aiming to lead AI initiatives at an organizational level. The course provides a comprehensive learning path covering machine learning, natural language processing, cognitive computing, and AI governance frameworks. Rather than emphasizing technical development, it focuses on governance, risk management, organizational alignment, and building actionable AI roadmaps, making it particularly valuable for senior leaders tasked with operationalizing AI responsibly. By leveraging frameworks such as AIAMF and CSA AI Controls Matrix, this certification equips executives to ensure compliance, mitigate risk, and accelerate enterprise AI adoption. Highly recommended for leaders driving AI transformation."`,
+    author: "Ken Hoag",
+    title: "AI Advisor",
+    company: "City of Dallas",
+    photo: "/lovable-uploads/ken-hoag-headshot.png",
   },
   {
     text: `"Working with WhitegloveAI was a truly refreshing experience. From the start, their team demonstrated a high level of knowledge and innovation—bringing creative solutions to the table. They didn't just meet the requirements —they elevated them.
@@ -65,11 +65,11 @@ This year, they helped us to successful pilot/onboard TeamGPT, which is a must h
     photo: "/lovable-uploads/7e89aadd-c98c-472f-ba16-a81b59318135.png",
   },
   {
-    text: `"The AI+ Chief AI Officer™ certification offered by AI CERTs™ is a well-structured program designed for professionals aiming to lead AI initiatives at an organizational level. The course provides a comprehensive learning path covering machine learning, natural language processing, cognitive computing, and AI governance frameworks. Rather than emphasizing technical development, it focuses on governance, risk management, organizational alignment, and building actionable AI roadmaps, making it particularly valuable for senior leaders tasked with operationalizing AI responsibly. By leveraging frameworks such as AIAMF and CSA AI Controls Matrix, this certification equips executives to ensure compliance, mitigate risk, and accelerate enterprise AI adoption. Highly recommended for leaders driving AI transformation."`,
-    author: "Ken Hoag",
-    title: "AI Advisor",
-    company: "City of Dallas",
-    photo: "/lovable-uploads/ken-hoag-headshot.png",
+    text: `"WhitegloveAI provided outstanding service in every aspect of our needs. I was initially apprehensive about this new project—there was a lot at stake—but within 15 minutes of rollout, it was clear the product and service were both impeccable. Even with the complexity of our setup, WhitegloveAI addressed every detail flawlessly. The feedback from our attendees was overwhelmingly positive: 94% of survey responders said they were 'satisfied' or 'very satisfied' with the AI translation service. That is a huge win!"`,
+    author: "Phil Armstrong",
+    title: "Director of Global Community",
+    company: "Dallas Baptist University",
+    photo: "/lovable-uploads/1c858f73-9c43-41d9-92ea-f3233a1efc2f.png",
   }
 ];
 
