@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
 import HeroBackground from "@/components/shared/HeroBackground";
-import HB3512Banner from "@/components/HB3512Banner";
+
 import DirDisclaimer from "@/components/DirDisclaimer";
 import ContactSection from "./training/components/ContactSection";
 
@@ -110,8 +110,8 @@ const Training = () => {
   return (
     <>
       <SEO
-        title="AI Training & Certification - Texas HB3512 Compliant | WhitegloveAI"
-        description="AI training programs for Texas government and businesses. Meet HB3512 requirements with TXShare-approved courses. IACET accreditation coming Jan 2026. Flexible online and live sessions with expert instructors."
+        title="Accredited AI Certifications & Training | WhitegloveAI"
+        description="Nationally accredited AI certifications and training programs. Professional development through ProTrain (MSA-CESS accredited). Flexible online and live sessions with expert instructors."
         canonicalPath="/maisp/training"
       />
       
@@ -122,10 +122,10 @@ const Training = () => {
             <div className="container px-4 mx-auto max-w-7xl">
               <div className="text-center max-w-4xl mx-auto">
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white">
-                  Build Internal AI Expertise
+                  Accredited AI Certifications
                 </h1>
                 <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-                  Empower your workforce with nationally accredited AI training and certifications through WhitegloveAI—delivered by ProTrain, a Middle States accredited educational institution meeting the highest standards of quality and excellence.
+                  Advance your career with nationally accredited AI certifications through WhitegloveAI—delivered by ProTrain, a Middle States (MSA-CESS) accredited institution meeting the highest standards of quality and excellence.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Button 
@@ -160,9 +160,7 @@ const Training = () => {
           </section>
         </HeroBackground>
 
-        {/* HB3512 Banner */}
-        <HB3512Banner />
-        {/* DIR Disclaimer */}
+        {/* HB3512 Compliance Banner */}
         <DirDisclaimer />
 
         {/* Training Program Benefits */}

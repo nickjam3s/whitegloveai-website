@@ -9,7 +9,7 @@ import { CourseChatbot } from "@/components/training/CourseChatbot";
 import { Button } from "@/components/ui/button";
 
 import HeroBackground from "@/components/shared/HeroBackground";
-import HB3512Banner from "@/components/HB3512Banner";
+
 import DirDisclaimer from "@/components/DirDisclaimer";
 import ContactSection from "./training/components/ContactSection";
 
@@ -158,9 +158,7 @@ const TrainingCatalogue = () => {
           </section>
         </HeroBackground>
 
-        {/* HB3512 Banner */}
-        <HB3512Banner />
-        {/* DIR Disclaimer */}
+        {/* DIR Compliance Banner */}
         <DirDisclaimer />
 
         {/* Government Pack Info Banner */}
