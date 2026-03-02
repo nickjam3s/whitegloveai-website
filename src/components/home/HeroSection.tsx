@@ -58,16 +58,6 @@ const HeroSection = () => {
       <section id="hero" className="relative w-full" style={{ zIndex: 2 }}>
         <div className="max-w-7xl mx-auto relative px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <motion.div
-              {...fadeInUp}
-              className="logo-container mb-8 md:mb-10"
-            >
-              <img 
-                src="/lovable-uploads/197ddc10-c159-4f39-a269-e35142af32c5.png" 
-                alt="WhitegloveAI Logo" 
-                className="h-32 md:h-40 mx-auto" 
-              />
-            </motion.div>
             <motion.h1 
               {...titleAnimation}
               className="text-5xl sm:text-6xl lg:text-7xl font-semibold tracking-tight mb-8 bg-clip-text text-transparent bg-gradient-to-r from-white to-[#7021EE]"
