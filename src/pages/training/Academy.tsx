@@ -86,7 +86,7 @@ const portalFeatures = [
     icon: Lock,
     title: "Secure & Accessible",
     description:
-      "SSO-ready, mobile-friendly, and WCAG-compliant for all employees.",
+      "Mobile-friendly and WCAG-compliant for all employees.",
   },
 ];
 
