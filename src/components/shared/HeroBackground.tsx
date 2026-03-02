@@ -7,7 +7,7 @@ interface HeroBackgroundProps {
 
 const HeroBackground = ({ children, className = "" }: HeroBackgroundProps) => {
   return (
-    <div className={`relative ${className}`}>
+    <div className={`relative overflow-hidden ${className}`}>
       {/* Gradient Background */}
       <div className="absolute inset-0 -z-10 bg-gradient-to-br from-secondary/5 via-background to-primary/5"></div>
       
