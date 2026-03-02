@@ -8,7 +8,7 @@ const HB3512Banner = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-center gap-4 flex-wrap">
           <Link 
-            to="/training/academy"
+            to="/maisp/training/hb3512-approved-training"
             className="flex items-center gap-3 group transition-all hover:opacity-80"
           >
             <img 
@@ -21,7 +21,7 @@ const HB3512Banner = () => {
             </span>
             <ArrowRight className="h-4 w-4 text-secondary flex-shrink-0 group-hover:translate-x-1 transition-transform" />
           </Link>
-          <Link to="/training/academy">
+          <Link to="/maisp/training/hb3512-approved-training">
             <Button 
               variant="secondary" 
               size="sm"

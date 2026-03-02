@@ -9,11 +9,11 @@ const DirDisclaimer = () => {
           <Shield className="h-5 w-5 text-secondary flex-shrink-0" />
           <p className="text-sm text-muted-foreground">
             Looking for HB 3512 compliance? Our AI Awareness course is{" "}
-            <Link to="/training/academy" className="text-secondary hover:underline font-medium">
+            <Link to="/maisp/training/hb3512-approved-training" className="text-secondary hover:underline font-medium">
               officially certified by the Texas DIR
             </Link>
             . View the{" "}
-            <Link to="/training/academy" className="text-secondary hover:underline font-medium">
+            <Link to="/maisp/training/hb3512-approved-training" className="text-secondary hover:underline font-medium">
               DIR-certified course →
             </Link>
           </p>
