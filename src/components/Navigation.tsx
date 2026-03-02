@@ -67,13 +67,18 @@ const Navigation = () => {
             </div>
           </div>
         </div>
-
-        <MobileMenu
-          isOpen={isOpen}
-          onClose={() => setIsOpen(false)}
-          currentPath={location.pathname}
-        />
       </div>
+
+      {/* Mobile menu rendered outside the nav pill */}
+      {isOpen && (
+        <div className="md:hidden mt-2 px-2">
+          <MobileMenu
+            isOpen={isOpen}
+            onClose={() => setIsOpen(false)}
+            currentPath={location.pathname}
+          />
+        </div>
+      )}
     </nav>
     </>
   );
