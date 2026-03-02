@@ -95,6 +95,7 @@ const stats = [
   { value: "3", label: "Modules" },
   { value: "50", label: "Assessment Questions" },
   { value: "100%", label: "Online & Self-Paced" },
+  { value: "1 of 4", label: "Approved Vendors" },
 ];
 
 const complianceChecks = [
