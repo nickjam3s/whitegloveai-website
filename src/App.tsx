@@ -135,7 +135,7 @@ const AppContent = () => {
                 <Route path="/maisp/ai-lab" element={<AILab />} />
                 <Route path="/maisp/training" element={<Training />} />
                 <Route path="/maisp/training/catalogue" element={<TrainingCatalogue />} />
-                <Route path="/maisp/training/hb3512" element={<HB3512 />} />
+                <Route path="/maisp/training/hb3512-approved-training" element={<HB3512 />} />
                 <Route path="/maisp/training/government-pack" element={<GovernmentPack />} />
                 <Route path="/training/academy" element={<Academy />} />
                 <Route path="/maisp/robotics" element={<Robotics />} />
@@ -174,7 +174,8 @@ const AppContent = () => {
                 <Route path="/ailab" element={<Navigate to="/maisp/ai-lab" replace />} />
                 <Route path="/training" element={<Navigate to="/maisp/training" replace />} />
                 <Route path="/training/catalogue" element={<Navigate to="/maisp/training/catalogue" replace />} />
-                <Route path="/training/hb3512" element={<Navigate to="/maisp/training/hb3512" replace />} />
+                <Route path="/training/hb3512" element={<Navigate to="/maisp/training/hb3512-approved-training" replace />} />
+                <Route path="/maisp/training/hb3512" element={<Navigate to="/maisp/training/hb3512-approved-training" replace />} />
                 <Route path="/robotics" element={<Navigate to="/maisp/robotics" replace />} />
                 <Route path="/embodiedai" element={<Navigate to="/maisp/robotics" replace />} />
                 <Route path="/maisp/embodied-ai" element={<Navigate to="/maisp/robotics" replace />} />

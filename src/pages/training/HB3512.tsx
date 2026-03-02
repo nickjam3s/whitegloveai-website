@@ -13,14 +13,14 @@ const HB3512 = () => {
   return (
     <>
       <SEO
-        title="Texas HB3512 AI Training Law | WhitegloveAI"
-        description="Texas HB 3512 requires annual AI awareness training for government employees. View the official DIR-certified course from WhitegloveAI."
-        canonicalPath="/maisp/training/hb3512"
+        title="HB3512 Approved Training | WhitegloveAI"
+        description="WhitegloveAI offers DIR-certified, HB 3512 approved AI awareness training for Texas government employees. View the official course."
+        canonicalPath="/maisp/training/hb3512-approved-training"
       />
 
       <div className="min-h-screen bg-background">
         <StandardHero
-          title="Texas HB 3512: AI Training Requirements"
+          title="HB3512 Approved Training"
           subtitle="Texas law requires annual AI awareness training for public sector employees. WhitegloveAI offers the official DIR-certified course to meet this requirement."
           height="large"
           backgroundVariant="ambient"
