@@ -47,7 +47,7 @@ const HeroSection = () => {
   };
   
   return (
-    <div className="relative h-[100vh] flex items-center overflow-hidden bg-background">
+    <div className="relative min-h-[110vh] md:h-[100vh] flex items-center overflow-hidden bg-background">
       {/* Gradient Mesh Animation Background */}
       <GradientMeshAnimation />
       
