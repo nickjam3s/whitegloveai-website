@@ -112,8 +112,8 @@ export const CourseCard = ({ course, isFeatured = false }: CourseCardProps) => {
           {course.examAvailable && <div>✓ Certification Exam Available</div>}
           <div>✓ Available in {course.languages.split(',').length} language{course.languages.split(',').length > 1 ? 's' : ''}</div>
           <div className="mt-3 pt-3 border-t">
-            <p className="text-base font-semibold text-foreground">Self-Paced: ${coursePrice}/student</p>
-            <p className="text-xs mt-1">For instructor-led training, contact us</p>
+            <p className="text-base font-semibold text-foreground">Contact Us for a Custom Quote</p>
+            <p className="text-xs mt-1">Self-paced &amp; instructor-led options available</p>
           </div>
         </div>
       </CardContent>
