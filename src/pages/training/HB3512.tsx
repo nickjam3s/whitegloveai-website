@@ -143,7 +143,7 @@ const HB3512 = () => {
         {/* Hero */}
         <StandardHero
           title="AI Awareness Training for Texas Government Employees"
-          subtitle="The official, 90-minute course certified by the Texas Department of Information Resources (DIR) to meet your HB 3512 compliance requirements. As one of only four approved vendors, we provide a comprehensive, turnkey solution for state and local agencies."
+          subtitle="The official, 90-minute course certified by the Texas Department of Information Resources (DIR) to meet your HB 3512 compliance requirements. Effective September 1, 2025 — compliance deadline August 31, 2026. As one of only four approved vendors, we provide a comprehensive, turnkey solution for state and local agencies."
           height="large"
           backgroundVariant="ambient"
           primaryCTA={{
@@ -183,7 +183,7 @@ const HB3512 = () => {
             <div className="flex flex-col items-center gap-2 text-center sm:flex-row sm:justify-center sm:gap-4">
               <div className="flex items-center gap-2">
                 <AlertTriangle className="h-5 w-5 text-destructive" />
-                <span className="text-sm font-semibold text-destructive">Compliance Deadline: September 1, 2025</span>
+                <span className="text-sm font-semibold text-destructive">Compliance Deadline: August 31, 2026</span>
               </div>
               <span className="text-sm text-muted-foreground">
                 All Texas state agencies and local governments must complete DIR-certified AI awareness training annually.

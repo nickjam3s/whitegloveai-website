@@ -245,7 +245,7 @@ CRITICAL DIR COMPLIANCE DISCLAIMER:
 
 TEXAS HB3512 CONTEXT:
 - Texas HB3512 mandates annual DIR-certified AI and cybersecurity training for Texas government employees who use computers for 25% or more of their job
-- Law is fully effective September 1, 2025
+- Law effective date: September 1, 2025. Compliance deadline: August 31, 2026
 - Applies to state agencies, local governments, school districts, and grant applicants
 - WhitegloveAI offers comprehensive AI training programs that align with these requirements
 
