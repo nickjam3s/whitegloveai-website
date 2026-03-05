@@ -18,6 +18,11 @@ import {
   Lightbulb,
   Building2,
   Landmark,
+  PlayCircle,
+  Users,
+  DollarSign,
+  Monitor,
+  HelpCircle,
 } from "lucide-react";
 
 const curriculumModules = [
@@ -103,6 +108,24 @@ const complianceChecks = [
   "Includes 50-question assessment with certificate of completion",
 ];
 
+const sampleQuestions = [
+  {
+    question: "What does AI stand for?",
+    options: ["Automated Intelligence", "Artificial Intelligence", "Advanced Integration", "Algorithmic Interface"],
+    answer: 1,
+  },
+  {
+    question: "Which type of AI can create new content such as text, images, or code?",
+    options: ["Computer Vision", "Machine Learning", "Natural Language Processing", "Generative AI"],
+    answer: 3,
+  },
+  {
+    question: "What is a key risk of using AI-generated content without human review?",
+    options: ["Faster processing", "AI hallucinations producing inaccurate information", "Reduced costs", "Improved accuracy"],
+    answer: 1,
+  },
+];
+
 const HB3512 = () => {
   useLayoutEffect(() => {
     window.scrollTo(0, 0);
@@ -150,6 +173,121 @@ const HB3512 = () => {
                   </p>
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Compliance Urgency Banner */}
+        <section className="py-4 border-b border-destructive/20 bg-destructive/5">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-col items-center gap-2 text-center sm:flex-row sm:justify-center sm:gap-4">
+              <div className="flex items-center gap-2">
+                <AlertTriangle className="h-5 w-5 text-destructive" />
+                <span className="text-sm font-semibold text-destructive">Compliance Deadline: September 1, 2025</span>
+              </div>
+              <span className="text-sm text-muted-foreground">
+                All Texas state agencies and local governments must complete DIR-certified AI awareness training annually.
+              </span>
+            </div>
+          </div>
+        </section>
+
+        {/* Course Teaser Video — Coming Soon */}
+        <section className="py-20 bg-muted/10">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-10">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
+                See the Course in Action
+              </h2>
+              <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+                Watch a preview of what your team will experience in the DIR-certified AI Awareness Training course.
+              </p>
+            </div>
+            <div className="relative flex aspect-video items-center justify-center overflow-hidden rounded-2xl border-2 border-dashed border-secondary/30 bg-gradient-to-br from-secondary/5 via-background to-secondary/10">
+              <div className="flex flex-col items-center gap-4 text-center">
+                <div className="flex h-20 w-20 items-center justify-center rounded-full bg-secondary/10">
+                  <PlayCircle className="h-10 w-10 text-secondary" />
+                </div>
+                <div>
+                  <p className="text-lg font-semibold text-foreground">Course Teaser Video</p>
+                  <p className="mt-1 text-sm text-secondary font-medium">Coming Soon</p>
+                  <p className="mt-2 max-w-md text-sm text-muted-foreground">
+                    A short preview of the 90-minute DIR-certified AI Awareness Training course for Texas government employees.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Who Must Complete Training */}
+        <section className="py-20 bg-background">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-14">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
+                Who Must Complete This Training?
+              </h2>
+              <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+                Under HB 3512, the following employees are required to complete annual DIR-certified AI awareness training.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+              <Card className="border-border bg-card">
+                <CardContent className="p-6">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center">
+                      <Monitor className="h-5 w-5 text-blue-600 dark:text-blue-400" />
+                    </div>
+                    <h3 className="text-lg font-semibold text-foreground">The 25% Rule</h3>
+                  </div>
+                  <p className="text-sm text-muted-foreground">
+                    Any state or local government employee who uses a computer for <strong className="text-foreground">25% or more</strong> of their job duties must complete this training annually.
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="border-border bg-card">
+                <CardContent className="p-6">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center">
+                      <Users className="h-5 w-5 text-secondary" />
+                    </div>
+                    <h3 className="text-lg font-semibold text-foreground">Who This Covers</h3>
+                  </div>
+                  <ul className="space-y-2">
+                    {[
+                      "State agency employees",
+                      "City, county, and municipal staff",
+                      "School district employees & cybersecurity coordinators",
+                      "Elected and appointed officials with computer access",
+                      "Special district and 9-1-1 district personnel",
+                    ].map((item) => (
+                      <li key={item} className="flex items-start gap-2 text-sm text-muted-foreground">
+                        <CheckCircle2 className="h-4 w-4 text-secondary flex-shrink-0 mt-0.5" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </section>
+
+        {/* Consequences of Non-Compliance */}
+        <section className="py-16 bg-destructive/5 dark:bg-destructive/10">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-col items-center gap-6 md:flex-row">
+              <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-destructive/10">
+                <AlertTriangle className="h-8 w-8 text-destructive" />
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold text-foreground mb-2">Consequences of Non-Compliance</h3>
+                <p className="text-muted-foreground">
+                  Local governments that fail to certify compliance risk <strong className="text-foreground">full repayment of state grants</strong> and a <strong className="text-foreground">two-year ineligibility period</strong> for future grant applications. State agencies face audit exposure and policy non-compliance findings. Don't wait until it's too late.
+                </p>
+              </div>
             </div>
           </div>
         </section>
@@ -203,6 +341,125 @@ const HB3512 = () => {
                   </Card>
                 );
               })}
+            </div>
+          </div>
+        </section>
+
+        {/* Sample Assessment Preview */}
+        <section className="py-20 bg-muted/10">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-14">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
+                Sample Assessment Questions
+              </h2>
+              <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+                The course concludes with a 50-question assessment. Employees must score 70% or higher to earn their certificate of completion. Here's a preview of what to expect.
+              </p>
+            </div>
+
+            <div className="space-y-6">
+              {sampleQuestions.map((q, i) => (
+                <Card key={i} className="border-border bg-card">
+                  <CardContent className="p-6">
+                    <div className="mb-4 flex items-start gap-3">
+                      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-secondary/10">
+                        <HelpCircle className="h-4 w-4 text-secondary" />
+                      </div>
+                      <p className="text-sm font-semibold text-foreground">{q.question}</p>
+                    </div>
+                    <div className="grid gap-2 sm:grid-cols-2">
+                      {q.options.map((opt, j) => (
+                        <div
+                          key={j}
+                          className={`rounded-lg border px-4 py-2 text-sm ${
+                            j === q.answer
+                              ? "border-secondary/50 bg-secondary/5 text-secondary font-medium"
+                              : "border-border bg-muted/30 text-muted-foreground"
+                          }`}
+                        >
+                          {String.fromCharCode(65 + j)}) {opt}
+                        </div>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Pricing */}
+        <section className="py-20 bg-background">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-14">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
+                Simple, Transparent Pricing
+              </h2>
+              <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+                Cost-effective compliance training designed for government budgets. No hidden fees, no long-term contracts.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+              <Card className="border-border bg-card text-center">
+                <CardContent className="p-8">
+                  <div className="w-12 h-12 rounded-full bg-secondary/20 flex items-center justify-center mx-auto mb-4">
+                    <DollarSign className="h-6 w-6 text-secondary" />
+                  </div>
+                  <h3 className="text-lg font-semibold text-foreground mb-1">Standard Rate</h3>
+                  <p className="text-4xl font-bold text-secondary mb-4">$19<span className="text-base font-normal text-muted-foreground">/employee</span></p>
+                  <ul className="space-y-2 text-left mb-6">
+                    {[
+                      "Full 90-minute DIR-certified course",
+                      "50-question graded assessment",
+                      "Certificate of completion",
+                      "Manager dashboard & compliance tracking",
+                    ].map((item) => (
+                      <li key={item} className="flex items-start gap-2 text-sm text-muted-foreground">
+                        <CheckCircle2 className="h-4 w-4 text-secondary flex-shrink-0 mt-0.5" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <Link to="/contact">
+                    <Button size="lg" className="w-full bg-secondary hover:bg-secondary/90 text-secondary-foreground">
+                      Request a Quote
+                    </Button>
+                  </Link>
+                </CardContent>
+              </Card>
+
+              <Card className="border-secondary bg-card text-center relative">
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-secondary px-4 py-1 text-xs font-semibold text-secondary-foreground">
+                  Existing Customers
+                </div>
+                <CardContent className="p-8">
+                  <div className="w-12 h-12 rounded-full bg-secondary/20 flex items-center justify-center mx-auto mb-4">
+                    <DollarSign className="h-6 w-6 text-secondary" />
+                  </div>
+                  <h3 className="text-lg font-semibold text-foreground mb-1">Loyalty Rate</h3>
+                  <p className="text-4xl font-bold text-secondary mb-1">$15.20<span className="text-base font-normal text-muted-foreground">/employee</span></p>
+                  <p className="text-sm text-secondary font-medium mb-4">20% discount for existing WhitegloveAI customers</p>
+                  <ul className="space-y-2 text-left mb-6">
+                    {[
+                      "Everything in Standard, plus:",
+                      "Priority onboarding & support",
+                      "Dedicated account manager",
+                      "Volume discounts for large deployments",
+                    ].map((item) => (
+                      <li key={item} className="flex items-start gap-2 text-sm text-muted-foreground">
+                        <CheckCircle2 className="h-4 w-4 text-secondary flex-shrink-0 mt-0.5" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <Link to="/contact">
+                    <Button size="lg" className="w-full bg-secondary hover:bg-secondary/90 text-secondary-foreground">
+                      Contact Us
+                    </Button>
+                  </Link>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </section>
