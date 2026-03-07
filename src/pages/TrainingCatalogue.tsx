@@ -161,6 +161,25 @@ const TrainingCatalogue = () => {
         {/* DIR Compliance Banner */}
         <DirDisclaimer />
 
+        {/* FREE AI Prompting Course Banner */}
+        <section className="py-4">
+          <div className="container px-4 mx-auto max-w-7xl">
+            <Link to="/maisp/training/ai-prompting" className="block">
+              <div className="bg-amber-500/10 border border-amber-500/30 rounded-lg p-4 hover:bg-amber-500/15 transition-colors">
+                <div className="flex items-center gap-3">
+                  <span className="inline-flex items-center justify-center rounded-full bg-amber-500/20 px-3 py-0.5 text-xs font-bold text-amber-600 dark:text-amber-400 uppercase">FREE</span>
+                  <p className="text-sm">
+                    <strong>AI Prompting for Government Productivity</strong> — 60-minute hands-on course included FREE with AI Awareness Training enrollment.{' '}
+                    <span className="text-amber-600 dark:text-amber-400 font-medium">
+                      Learn more →
+                    </span>
+                  </p>
+                </div>
+              </div>
+            </Link>
+          </div>
+        </section>
+
         {/* Government Pack Info Banner */}
         <section className="py-4">
           <div className="container px-4 mx-auto max-w-7xl">
