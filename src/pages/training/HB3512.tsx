@@ -345,6 +345,46 @@ const HB3512 = () => {
           </div>
         </section>
 
+        {/* FREE BONUS — AI Prompting Course */}
+        <section className="py-16 bg-amber-500/5">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <Card className="border-amber-500/40 bg-card overflow-hidden">
+              <CardContent className="p-8">
+                <div className="flex items-center gap-2 mb-4">
+                  <Star className="h-5 w-5 text-amber-500" />
+                  <span className="text-sm font-bold text-amber-500 uppercase tracking-wider">
+                    Free Bonus — Included with Every Enrollment
+                  </span>
+                </div>
+                <h3 className="text-2xl font-bold text-foreground mb-3">
+                  AI Prompting for Government Productivity
+                </h3>
+                <p className="text-muted-foreground mb-6">
+                  A hands-on, 60-minute course teaching your employees how to write effective AI prompts using the R-T-C-F Framework. Includes 36+ ready-to-use government prompts across 6 department-specific tracks.
+                </p>
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
+                  {[
+                    { value: "60 min", label: "Duration" },
+                    { value: "3", label: "Modules" },
+                    { value: "6", label: "Tracks" },
+                    { value: "36+", label: "Prompts" },
+                  ].map((s) => (
+                    <div key={s.label} className="text-center p-3 rounded-lg bg-amber-500/10">
+                      <p className="text-lg font-bold text-foreground">{s.value}</p>
+                      <p className="text-xs text-muted-foreground">{s.label}</p>
+                    </div>
+                  ))}
+                </div>
+                <Link to="/maisp/training/ai-prompting">
+                  <Button className="bg-amber-500 hover:bg-amber-600 text-white">
+                    Learn More <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
+              </CardContent>
+            </Card>
+          </div>
+        </section>
+
         {/* Sample Assessment Preview */}
         <section className="py-20 bg-muted/10">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
