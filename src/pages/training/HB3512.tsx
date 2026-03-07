@@ -23,6 +23,7 @@ import {
   DollarSign,
   Monitor,
   HelpCircle,
+  Star,
 } from "lucide-react";
 
 const curriculumModules = [
