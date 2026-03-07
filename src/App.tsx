@@ -37,6 +37,7 @@ import Training from "./pages/Training";
 import TrainingCatalogue from "./pages/TrainingCatalogue";
 import HB3512 from "./pages/training/HB3512";
 import GovernmentPack from "./pages/training/GovernmentPack";
+import AIPrompting from "./pages/training/AIPrompting";
 
 import GovAI from "./pages/GovAI";
 import TranslateAI from "./pages/TranslateAI";
@@ -137,6 +138,7 @@ const AppContent = () => {
                 <Route path="/maisp/training/catalogue" element={<TrainingCatalogue />} />
                 <Route path="/maisp/training/hb3512-approved-training" element={<HB3512 />} />
                 <Route path="/maisp/training/government-pack" element={<GovernmentPack />} />
+                <Route path="/maisp/training/ai-prompting" element={<AIPrompting />} />
                 <Route path="/training/academy" element={<Navigate to="/maisp/training/hb3512-approved-training" replace />} />
                 <Route path="/maisp/robotics" element={<Robotics />} />
                 <Route path="/maisp/vendor-ai" element={<VendorAI />} />
