@@ -134,15 +134,15 @@ const AIPrompting = () => {
         </StandardHero>
 
         {/* Stats Bar */}
-        <section className="py-10" style={{ backgroundColor: "#F0F9FF" }}>
+        <section className="py-10 bg-secondary/10 border-y border-secondary/20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
               {stats.map((stat) => (
                 <div key={stat.label}>
-                  <p className="text-3xl md:text-4xl font-bold text-[#1e3a5f]">
+                  <p className="text-3xl md:text-4xl font-bold text-foreground">
                     {stat.value}
                   </p>
-                  <p className="text-sm md:text-base text-[#4a6fa5] mt-1 font-medium">
+                  <p className="text-sm md:text-base text-muted-foreground mt-1 font-medium">
                     {stat.label}
                   </p>
                 </div>
