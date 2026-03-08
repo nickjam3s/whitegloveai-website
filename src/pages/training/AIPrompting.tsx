@@ -379,9 +379,9 @@ const AIPrompting = () => {
                     </div>
                     <h3 className="text-lg font-semibold text-foreground">Eligible Employees</h3>
                   </div>
-                  <p className="text-sm text-muted-foreground">
-                    Any government employee who uses a computer for <strong className="text-foreground">25% or more</strong> of their duties and has completed the AI Awareness Training prerequisite.
-                  </p>
+                    <p className="text-sm text-muted-foreground">
+                      Any government employee who has completed the AI Awareness Training prerequisite and wants to learn practical AI prompting skills for their role.
+                    </p>
                 </CardContent>
               </Card>
             </div>
