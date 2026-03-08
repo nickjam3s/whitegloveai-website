@@ -20,7 +20,7 @@ import {
   Landmark,
   PlayCircle,
   Users,
-  DollarSign,
+  
   Monitor,
   HelpCircle,
   Star,
